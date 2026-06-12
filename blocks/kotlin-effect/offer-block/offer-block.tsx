@@ -46,13 +46,13 @@ export const OfferBlock = () => {
                         </Tag>
 
                         <h3 className={cn(textCn('rs-subtitle-2'), styles.offerTitle)}>Get free access to select Kotlin
-                            courses on
-                            Hyperskill!
+                            courses on Hyperskill
                         </h3>
                     </div>
 
                     <div className={styles.buttonContainer}>
-                        <Button mode={'rock'} size={'l'} href="https://hyperskill.org/categories/37" className={styles.button}>
+                        <Button mode={'rock'} size={'l'} href="https://hyperskill.org/categories/37"
+                                className={styles.button} target="_blank" rel="noopener noreferrer">
                             Start learning
                         </Button>
                     </div>
@@ -68,6 +68,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://hyperskill.org/courses/69-introduction-to-kotlin"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Introduction to Kotlin
                             </a>
@@ -76,6 +77,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://academy.jetbrains.com/course/21067"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Kotlin Onboarding
                             </a>
@@ -84,6 +86,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://academy.jetbrains.com/course/17654"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Atomic Kotlin
                             </a>
@@ -92,6 +95,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://academy.jetbrains.com/course/16628"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Kotlin Koans
                             </a>
@@ -107,6 +111,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://hyperskill.org/courses/18-kotlin-core"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Kotlin Core
                             </a>
@@ -115,6 +120,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://hyperskill.org/courses/3-kotlin-developer"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Kotlin Developer
                             </a>
@@ -123,6 +129,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://developer.android.com/courses/jetpack-compose/course"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Jetpack Compose for Android Developers
                             </a>
@@ -138,6 +145,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://hyperskill.org/courses/45-introduction-to-ktor"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Introduction to Ktor
                             </a>
@@ -146,6 +154,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://academy.jetbrains.com/course/23312"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Kotlin Coroutines and Channels
                             </a>
@@ -154,6 +163,7 @@ export const OfferBlock = () => {
                             <a
                                 href="https://hyperskill.org/courses/107"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 Advanced Kotlin Libraries and Techniques
                             </a>

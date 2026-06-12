@@ -8,14 +8,14 @@
 }
 
 .videoDesktop {
-    @media (--ktl-tl-down) {
+    @media (--ktl-ts-down) {
         display: none;
     }
 }
 
 .videoMobile {
     display: none;
-    @media (--ktl-tl-down) {
+    @media (--ktl-ts-down) {
         display: block;
     }
 }

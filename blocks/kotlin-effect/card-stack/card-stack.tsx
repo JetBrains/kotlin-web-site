@@ -87,7 +87,15 @@ export const CardStack: FC = () => {
                     </div>
 
                     <div>
-                        <Button mode={'rock'} size={'l'} className={styles.button}>Play the Game</Button>
+                        <Button
+                            href={'https://game.kotlinlang.org/'}
+                            mode={'rock'}
+                            size={'l'}
+                            className={styles.button}
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            Play the Game
+                        </Button>
                     </div>
 
                 </div>

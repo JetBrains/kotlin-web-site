@@ -8,8 +8,7 @@ import kotlinEffectHeroWebmVideo from './converted/kotlin-effect-hero.vp9.webm';
 import kotlinEffectHeroMobileMp4Video from './converted/kotlin-effect-hero-mobile.h264.mp4';
 import kotlinEffectHeroMobileWebmVideo from './converted/kotlin-effect-hero-mobile.vp9.webm';
 
-const LOOP_START_SECONDS = 3.008;
-const LOOP_END_OFFSET_SECONDS = 0.18;
+const LOOP_START_SECONDS = 3;
 
 export const HeroVideo: FC = () => {
     const loopFromStartPoint = (event: React.SyntheticEvent<HTMLVideoElement>) => {
@@ -26,7 +25,7 @@ export const HeroVideo: FC = () => {
     const loopBeforeEnd = (event: React.SyntheticEvent<HTMLVideoElement>) => {
         const video = event.currentTarget;
 
-        if (video.duration && video.currentTime >= video.duration - LOOP_END_OFFSET_SECONDS) {
+        if (video.duration && video.currentTime >= video.duration) {
             loopFromStartPoint(event);
         }
     };

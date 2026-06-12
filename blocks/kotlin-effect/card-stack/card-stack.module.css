@@ -14,6 +14,7 @@
     border-radius: 32px;
     border: 12px solid #6B57FF;
     color: #FFFFFF;
+    background: #000000;
     padding: 32px;
     box-sizing: border-box;
     flex-direction: column;

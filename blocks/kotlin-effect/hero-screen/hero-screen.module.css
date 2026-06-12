@@ -28,6 +28,10 @@
     transform: translateX(250px) translateY(-50px);
     pointer-events: none;
     @media (--ktl-tl-down) {
+        transform: translateX(300px) translateY(50px);
+    }
+
+    @media (--ktl-ts-down) {
         transform: translateX(330px) translateY(-150px);
     }
 }

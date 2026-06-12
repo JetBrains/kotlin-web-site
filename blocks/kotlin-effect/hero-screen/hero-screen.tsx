@@ -9,6 +9,8 @@ import { HeroVideo } from '@/blocks/kotlin-effect/hero-screen/hero-video/hero-vi
 import NeonHoverTitle from '@/blocks/kotlin-effect/hero-screen/neon-title/neon-title';
 import { Button } from '@rescui/button';
 
+// import { useTL } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+
 export const HeroScreen: FC = () => {
     const textCn = useTextStyles();
     const textContainerRef = useRef<HTMLDivElement>(null);
@@ -31,6 +33,8 @@ export const HeroScreen: FC = () => {
         return () => ctx.revert();
     }, []);
 
+    // const isTL = useTL();
+
     return (
         <section className={styles.section}>
             <div className="ktl-layout-v2 ktl-layout--center">
@@ -49,7 +53,7 @@ export const HeroScreen: FC = () => {
                         </p>
 
                         <div className={styles.buttons} ref={buttonRef}>
-                            <Button size="l" mode={'rock'} href={'https://play.kotlinlang.org/'}>
+                            <Button size="l" mode={'rock'}>
                                 Try Kotlin
                             </Button>
                             <Button size="l" mode={'outline'} href={'/'}>
