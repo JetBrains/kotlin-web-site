@@ -69,7 +69,7 @@ To integrate ktlint into your project:
    </tab>
    </tabs>
 
-3. You can also add an `.editorconfig` file to the root of your project to customize rules. For example, to
+3. (Optional) You can also add an `.editorconfig` file to the root of your project to customize rules. For example, to
    allow wildcard imports and disable trailing comma enforcement:
 
    ```ini
@@ -142,7 +142,7 @@ To integrate detekt into your project:
    </tab>
    </tabs>
 
-2. You can also add a `detekt.yml` configuration file to the root of your project to customize the rules:
+2. (Optional) You can also add a `detekt.yml` configuration file to the root of your project to customize the rules:
 
    ```yaml
    complexity:
@@ -195,7 +195,7 @@ To analyze your project with SonarQube:
    <plugin>
        <groupId>org.sonarsource.scanner.maven</groupId>
        <artifactId>sonar-maven-plugin</artifactId>
-       <version>5.5.0.6356</version>
+       <version>5.7.0.6970</version>
    </plugin>
    ```
 
@@ -212,7 +212,7 @@ To analyze your project with SonarQube:
    </tab>
    </tabs>
 
-2. You can also add a `sonar-project.properties` file to the root of your project to customize quality gate
+2. (Optional) You can also add a `sonar-project.properties` file to the root of your project to customize quality gate
    conditions. For example, to fail the build if code coverage drops below 80% or if new bugs are introduced:
 
    ```properties
@@ -306,15 +306,19 @@ To integrate Kover into your project:
                </goals>
            </execution>
            <execution>
+               <id>kover-verify</id>
+               <goals>
+                  <goal>verify</goal>
+               </goals>
+           </execution>
+           <execution>
                <id>kover-report-xml</id>
-               <phase>verify</phase>
                <goals>
                    <goal>report-xml</goal>
                </goals>
            </execution>
            <execution>
                <id>kover-report-html</id>
-               <phase>verify</phase>
                <goals>
                    <goal>report-html</goal>
                </goals>
@@ -356,35 +360,29 @@ To integrate Kover into your project:
    </tabs>
 
 3. Open the HTML report  generated in the `target/kover/html/` directory (`build/reports/kover/html/` for Gradle) to
-  review line-by-line coverage.
-4. To enforce a minimum coverage threshold that fails the build if the conditions are not met, add a coverage verification
-configuration to your build file. For example:
+   review line-by-line coverage.
+4. (Optional) To enforce a minimum coverage threshold that fails the build if the conditions are not met, you can add
+   a coverage verification configuration to your build file. For example:
 
    <tabs group="build-system">
    <tab title="Maven" group-key="maven">
 
    ```xml
    <!-- pom.xml -->
-   <!--  Add a `kover-verify` execution section to your build file: -->
-   <execution>
-       <id>kover-verify</id>
-       <goals>
-           <goal>verify</goal>
-       </goals>
-       <configuration>
-           <rules>
-               <rule>
-                   <bounds>
-                       <bound>
-                           <minValue>80</minValue>
-                           <coverageUnits>LINE</coverageUnits>
-                           <aggregationForGroup>COVERED_PERCENTAGE</aggregationForGroup>
-                       </bound>
-                   </bounds>
-               </rule>
-           </rules>
-       </configuration>
-   </execution>
+   <configuration>
+     <!-- Create new coverage verification rule -->
+     <rules>
+         <rule>
+             <bounds>
+                 <bound>
+                     <minValue>80</minValue>
+                     <coverageUnits>LINE</coverageUnits>
+                     <aggregationForGroup>COVERED_PERCENTAGE</aggregationForGroup>
+                 </bound>
+             </bounds>
+         </rule>
+     </rules>
+   </configuration>
    ```
 
    </tab>
@@ -392,15 +390,19 @@ configuration to your build file. For example:
 
    ```kotlin
    // build.gradle.kts
-   //  Add a `kover` configuration block
+   // Add a `kover` configuration block
+   import kotlinx.kover.gradle.plugin.dsl.*
+   
    kover {
        reports {
-           verify {
-               rule {
-                   bound {
-                       minValue = 80
-                       metric = MetricType.LINE
-                       aggregation = AggregationType.COVERED_PERCENTAGE
+           total {
+               log {
+                   aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                   coverageUnits = CoverageUnit.LINE
+               }
+               verify {
+                   rule {
+                       minBound(50)
                    }
                }
            }
@@ -411,7 +413,7 @@ configuration to your build file. For example:
    </tab>
    </tabs>
 
-For more information on configuring verification rules, see the Kover documentation for [Mven](https://kotlin.github.io/kotlinx-kover/maven-plugin/)
+For more information on configuring verification rules, see the Kover documentation for [Maven](https://kotlin.github.io/kotlinx-kover/maven-plugin/)
 and [Gradle](https://kotlin.github.io/kotlinx-kover/gradle-plugin/).
 
 ## Other tools
@@ -426,5 +428,5 @@ Besides ktlint, detekt, SonarSource, and Kover, you can use other tools to impro
 
 ## What's next
 
-<!-- * [Run tests in Maven projects](maven-running-tests.md) -->
+* [Run tests in Maven projects](jvm-test-maven.md)
 * [Configure a Kotlin project with Maven](maven-configure-project.md)
