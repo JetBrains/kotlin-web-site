@@ -42,7 +42,7 @@ export const HeroVideo: FC = () => {
                 onTimeUpdate={loopBeforeEnd}
                 onEnded={loopFromStartPoint}
             >
-                <source src={kotlinEffectHeroWebmVideo} type='video/webm; codecs="vp9"' />
+                {/*<source src={kotlinEffectHeroWebmVideo} type='video/webm; codecs="vp9"' />*/}
                 <source src={kotlinEffectHeroMp4Video} type='video/mp4; codecs="avc1.4d401f"' />
             </video>
             <video
