@@ -64,7 +64,7 @@ For example, an output that collects all symbols with a particular annotation is
 
 Isolating outputs depend only on their specified sources.
 
-Changes to other sources do not affect the output. Multiple source files can be associated with a single output
+Changes to other sources do not affect the output. Multiple source files can be associated with a single output.
 
 For example, a generated class that is dedicated to an interface it implements is isolating.
 
