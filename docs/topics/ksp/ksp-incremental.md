@@ -186,24 +186,27 @@ you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
 ## Reporting bugs
 
-If you encounter any error that only occurs in incremental mode, report it by creating an issue in
+If you encounter any error that occurs only when incremental processing is enabled, report it by creating an issue in
 [the GitHub repository](https://github.com/google/ksp/issues). Attach the relevant logs to the issue:
 
-1. Enable logs that dump the dirty set according to dependencies and outputs. To do this, add this line to
-   `gradle.properties`:
+1. Enable incremental processing logs by adding the following line to `gradle.properties`:
 
   ```
   ksp.incremental.log=true
    ```
 
-2. Perform a clean build. This build produces two log files in the build output directory with a `.log` file extension:
+2. Perform a clean build.
+
+3. Modify a source file that triggers the issue and then run the build again.
+
+4. The build generates two `.log` files in the build output directory:
 
 * `build/kspCaches/<source set>/logs/kspDirtySet.log`
 * `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
 
-You can then run successive incremental builds, which will generate two additional log files:
+5. Run one or more incremental builds. These builds generate the following additional log files:
 
 * `build/kspCaches/<source set>/logs/kspDirtySetByDeps.log`
 * `build/kspCaches/<source set>/logs/kspDirtySetByOutputs.log`
 
-These logs contain file names of sources and outputs, plus the timestamps of the builds.
+These logs contain source and output file names, along with build timestamps.
