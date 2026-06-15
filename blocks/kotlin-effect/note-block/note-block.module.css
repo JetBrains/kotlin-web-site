@@ -7,6 +7,9 @@
     border-radius: 32px;
     padding: 32px;
     box-sizing: border-box;
+    @media (--ktl-ts-down) {
+        padding: 12px;
+    }
 }
 
 .header {

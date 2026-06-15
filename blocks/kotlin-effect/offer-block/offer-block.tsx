@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { useTextStyles, createTextCn } from '@rescui/typography';
 
+import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+
 import styles from './offer-block.module.css';
 import { Button } from '@rescui/button';
 import { Tag, presets as basePresets } from '@rescui/tag';
@@ -16,6 +18,8 @@ export const OfferBlock = () => {
         ...basePresets,
         light: { color: 'white', backgroundColor: '#19191C' }
     };
+
+    const isMM = useMM();
 
     return (
         <div
@@ -40,7 +44,7 @@ export const OfferBlock = () => {
                 <div className={styles.offerContainer}>
 
                     <div>
-                        <Tag {...tagPresets.light} size={'l'} icon={<WinIcon color={'#6B57FF'} />}>
+                        <Tag {...tagPresets.light} size={isMM ? 'm' : 'l'} icon={<WinIcon color={'#6B57FF'} />}>
                             Exclusive
                             anniversary offer
                         </Tag>

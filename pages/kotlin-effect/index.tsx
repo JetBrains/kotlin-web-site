@@ -34,8 +34,8 @@ function Index() {
 
                 <div className={'ktl-layout-v2 ktl-layout--center'}>
                     <OfferBlock />
-                    <ReportBlock />
-                    <NoteBlock />
+                    {/*<ReportBlock />*/}
+                    {/*<NoteBlock />*/}
                 </div>
             </div>
 

@@ -19,6 +19,9 @@
     box-sizing: border-box;
     flex-direction: column;
     position: relative;
+    @media (--ktl-ts-down) {
+        padding: 12px;
+    }
 }
 
 .cardTitle {
@@ -64,6 +67,9 @@
     @media (--ktl-ds-down) {
         margin-bottom: 96px;
     }
+    @media (--ktl-ts-down) {
+        height: auto;
+    }
 }
 
 .screenshots {
@@ -93,6 +99,11 @@
     @media (--ktl-ds-down) {
         width: 100%;
         min-height: 200px;
+    }
+
+    @media (--ktl-ts-down) {
+        height: auto;
+        min-height: 180px;
     }
 
 }
