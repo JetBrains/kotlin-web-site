@@ -47,19 +47,24 @@ use the `this.` qualifier:
 
 ```kotlin
 fun main() {
-    fun printLine() { println("Local function") }
-    
     class A {
-        fun printLine() { println("Member function") }
+        fun printLine() {
+            println("Member function") 
+        }
 
         fun invokePrintLine(omitThis: Boolean = false) {
+            fun printLine() {
+                println("Local function")
+            }
             if (omitThis) printLine()
             else this.printLine()
-        }
+        } 
     }
-    
-    A().invokePrintLine() // Member function
-    A().invokePrintLine(omitThis = true) // Local function
+
+    A().invokePrintLine() 
+    // Member function
+    A().invokePrintLine(omitThis = true) 
+    // Local function
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
