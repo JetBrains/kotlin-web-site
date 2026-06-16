@@ -121,7 +121,6 @@ val pi = 3.14
 val avogadro = 6.02214076e23
 ```
 
-
 By default, Kotlin infers floating-point literals as `Double`. 
 To declare a `Float`, add the `f` or `F` suffix:
 
@@ -283,6 +282,48 @@ val longNumber: Long = 1000
 val result: Int = intNumber + longNumber 
 // Error: Initializer type mismatch
 ```
+
+### Integer literal types
+
+During type inference, Kotlin treats unsuffixed integer literals as a special [Integer Literal Type (ILT)](https://kotlinlang.org/spec/type-system.html#integer-literal-types)
+until the surrounding context determines a concrete type. When the
+compiler determines a common type for an expression, it can resolve an ILT to a single type:
+
+```kotlin
+//sampleStart
+fun List<Any>.log() {
+    println(joinToString(" | ") { it::class.simpleName ?: "Unknown" })
+}
+
+fun main() {
+    listOf(1, 2).log()
+    // Int | Int
+    listOf(1L, 2L).log()
+    // Long | Long
+    listOf(1, 2L).log() // 1 resolves to Long
+    // Long | Long
+    listOf(1.toInt(), 2L).log() // .toInt() converts the literal to Int
+    // Int | Long
+}
+//sampleEnd
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+It's especially easy to miss with the `Int` and `Long` values because they have the same string representation
+at runtime. To avoid this, specify the expected type or convert values explicitly:
+
+```kotlin
+fun main() {
+    listOf<Int>(1, 2L) // Catches mismatch and reports compile error
+    listOf<Long>(1, 2L) // Treats as List<Long>
+    listOf<Number>(1, 2L) // Preserves both types at runtime
+    listOf(1, 2L.toInt()) // Converts the Long literal to Int
+}
+```
+
+> Learn more about [Integer literal types](https://kotlinlang.org/spec/type-system.html#integer-literal-types).
+> 
+{style="tip"}
 
 ## Data overflow
 
