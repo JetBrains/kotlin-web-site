@@ -41,4 +41,13 @@ object KotlinWithCoroutines: WritersideBuilder(
             cleanCheckout = true
         }
     }
-)
+) {
+    init {
+        steps.items.add(0, ScriptBuildStep {
+            name = "Update kotlinx-serialization submodule"
+            scriptContent = """
+                ls -la .
+            """.trimIndent()
+        })
+    }
+}
