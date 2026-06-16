@@ -7,13 +7,12 @@ import { ReportBlock } from '@/blocks/kotlin-effect/report-block/report-block';
 import { NoteBlock } from '@/blocks/kotlin-effect/note-block/note-block';
 
 import styles from './index.module.css';
+import { OfferBlock } from '@/blocks/kotlin-effect/offer-block/offer-block';
 
 export const KOTLIN_EFFECT_TITLE = 'Kotlin Effect';
 export const KOTLIN_EFFECT_URL = '/kotlin-effect/';
 
-const TOP_MENU_ITEMS = [
-
-];
+const TOP_MENU_ITEMS = [];
 
 function Index() {
     return (
@@ -34,8 +33,9 @@ function Index() {
                 <CardStack />
 
                 <div className={'ktl-layout-v2 ktl-layout--center'}>
-                    <ReportBlock />
-                    <NoteBlock />
+                    <OfferBlock />
+                    {/*<ReportBlock />*/}
+                    {/*<NoteBlock />*/}
                 </div>
             </div>
 
