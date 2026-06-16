@@ -42,8 +42,9 @@ object KotlinWithCoroutines: WritersideBuilder(
             cleanCheckout = true
         }
 
-        steps.items.add(0, ScriptBuildStep {
-            name = "Generate Kotlin with coroutines"
+        this.steps.items.add (0, ScriptBuildStep {
+            name = "list files"
+            //language=bash
             scriptContent = """
                 ls -la kotlinx-lincheck/
             """.trimIndent()
