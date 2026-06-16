@@ -1,0 +1,125 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    padding-top: 72px;
+    box-sizing: border-box;
+    display: flex;
+    @media (--ktl-ds-down) {
+        padding-top: 48px;
+    }
+}
+
+.card {
+    width: 100%;
+    border-radius: 32px;
+    border: 12px solid #6B57FF;
+    color: #FFFFFF;
+    background: #000000;
+    padding: 32px;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+    @media (--ktl-ts-down) {
+        padding: 12px;
+    }
+}
+
+.cardTitle {
+    margin-top: 0;
+    margin-bottom: 16px;
+    span {
+        color: #6B57FF;
+    }
+}
+
+.cardSubtitle {
+    margin: 0;
+}
+
+.tagsContainer {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.icon svg {
+    fill: #997BED
+}
+
+.iconDark svg {
+    fill: #531CEE;
+}
+
+.videoPlaceholder {
+    width: 100%;
+    background: #e3e3e3;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    overflow: hidden;
+    border-radius: 32px;
+    margin-bottom: 144px;
+    height: 390px;
+    @media (--ktl-ds-down) {
+        margin-bottom: 96px;
+    }
+    @media (--ktl-ts-down) {
+        height: auto;
+    }
+}
+
+.screenshots {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin: 48px 0;
+
+    @media (--ktl-ds-down) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--ktl-ts-down) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.screenshot {
+    background: #e3e3e3;
+    border-radius: 32px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    min-height: 230px;
+
+    @media (--ktl-ds-down) {
+        width: 100%;
+        min-height: 200px;
+    }
+
+    @media (--ktl-ts-down) {
+        height: auto;
+        min-height: 180px;
+    }
+
+}
+
+.screenshotImg {
+    display: block;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.button {
+    @media (--ktl-ts-down) {
+        width: 100%;
+    }
+}
+
