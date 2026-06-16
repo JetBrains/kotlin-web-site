@@ -7,7 +7,7 @@ Kotlin Multiplatform, see the [Kotlin Multiplatform overview](https://kotlinlang
 To use KSP-based processors in a multiplatform project, assign a processor to each target that needs symbol processing:
 
 ```
-add(ksp<Target>, <processor>)
+add("ksp<Target>", <processor>)
 ```
 
 `<processor>` is a Gradle project path. It can be:
@@ -70,7 +70,10 @@ dependencies {
     
     // TIP: If you have many iOS targets, you can avoid repetition by looping:
     kotlin.targets.filter { it.name.startsWith("ios") }.forEach { target ->
-        add("ksp${target.name.capitalize()}", project(":test-processor"))
+        add(
+            "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}",
+            project(":test-processor")
+        )
     }
     
     // ===============================================================
