@@ -59,11 +59,15 @@ private fun BuildType.addSubDocumentation(
 
         // language=bash
         scriptContent = """
-            FILE_NAME="$snippetsDir"
+            SNIPPETS_DIR="$snippetsDir"
             
-            if [ -d "${'$'}FILE_NAME" ]; then
-                echo "Creating symlink for ${'$'}FILE_NAME"
-                ln -s "${'$'}FILE_NAME"/* "./docs/snippets/"
+            if [ -d "${'$'}SNIPPETS_DIR" ]; then
+                ABS_SRC="$(cd "${'$'}SNIPPETS_DIR" && pwd)"
+                
+                for src in "${'$'}ABS_SRC"/*; do
+                    ln -s "${'$'}src" "./docs/snippets/"
+                done
+            
                 ls -la "./docs/snippets/"
             fi
         """.trimIndent()
