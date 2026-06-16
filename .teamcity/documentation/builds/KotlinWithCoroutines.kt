@@ -60,6 +60,8 @@ private fun BuildType.addSubDocumentation(
         scriptContent = """
             FILE_NAME="$snippetsDir"
             
+            ls -la "${'$'}FILE_NAME"
+            
             if [ -f "${'$'}FILE_NAME" ]; then
                 echo "Creating symlink for ${'$'}FILE_NAME"
                 ln -s ${'$'}FILE_NAME/* "./docs/snippets/"
