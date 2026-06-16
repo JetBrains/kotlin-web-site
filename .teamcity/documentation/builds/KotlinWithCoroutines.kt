@@ -46,11 +46,12 @@ private fun BuildType.addSubDocumentation(
     checkoutDir: String,
     root: VcsRoot,
     rules: String? = null,
-    snippetsDir: String? = "$checkoutDir/docs/snippets"
+    docsDir: String = "$checkoutDir/docs",
+    snippetsDir: String = "$docsDir/snippets"
 ) {
     vcs.root(root, rules ?: """
         +:.git => $checkoutDir/.git
-        +:docs => $checkoutDir/docs
+        +:docs => $docsDir
     """.trimIndent())
 
     steps.items.add(0, ScriptBuildStep {
