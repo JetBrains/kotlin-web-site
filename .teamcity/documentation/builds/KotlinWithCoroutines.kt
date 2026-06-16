@@ -27,6 +27,7 @@ object KotlinWithCoroutines: WritersideBuilder(
             root(KotlinxLincheckRoot, """
             +:docs => kotlinx-lincheck/docs
             +:.git => kotlinx-lincheck/.git
+            +:lincheck => kotlinx-lincheck/lincheck
         """.trimIndent())
             root(DokkaRoot, """
             +:docs => dokka/docs
