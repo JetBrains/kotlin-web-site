@@ -45,7 +45,8 @@ object KotlinWithCoroutines: WritersideBuilder(
 private fun BuildType.addSubDocumentation(
     checkoutDir: String,
     root: VcsRoot,
-    rules: String? = null
+    rules: String? = null,
+    snippetsDir: String? = "$checkoutDir/docs/snippets"
 ) {
     vcs.root(root, rules ?: """
         +:.git => $checkoutDir/.git
@@ -57,7 +58,7 @@ private fun BuildType.addSubDocumentation(
 
         // language=bash
         scriptContent = """
-            FILE_NAME="$checkoutDir/docs/snippets"
+            FILE_NAME="$snippetsDir"
             
             if [ -f "${'$'}FILE_NAME" ]; then
                 echo "Creating symlink for ${'$'}FILE_NAME"
