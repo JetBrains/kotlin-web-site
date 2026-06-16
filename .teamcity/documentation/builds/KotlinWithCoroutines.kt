@@ -41,5 +41,12 @@ object KotlinWithCoroutines: WritersideBuilder(
             checkoutMode = CheckoutMode.ON_AGENT
             cleanCheckout = true
         }
+
+        steps.items.add(0, ScriptBuildStep {
+            name = "Generate Kotlin with coroutines"
+            scriptContent = """
+                ls -la kotlinx-lincheck/
+            """.trimIndent()
+        })
     }
 )
