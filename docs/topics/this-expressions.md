@@ -49,22 +49,27 @@ use the `this.` qualifier:
 fun main() {
     class A {
         fun printLine() {
-            println("Member function") 
+            println("Member function")
         }
 
-        fun invokePrintLine(omitThis: Boolean = false) {
+        fun invokePrintLine() {
             fun printLine() {
                 println("Local function")
             }
-            if (omitThis) printLine()
-            else this.printLine()
-        } 
+ 
+            printLine() // Calls the local function
+            this.printLine() // Calls the member function
+        }
     }
 
-    A().invokePrintLine() 
-    // Member function
-    A().invokePrintLine(omitThis = true) 
-    // Local function
+    A().invokePrintLine()
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+The output for this example:
+
+```kotlin
+Local function
+Member function
+```
