@@ -438,10 +438,10 @@ if (list.size() > 0) {
 ```
 {id="list-get-first-last-java"}
 
-Since JDK 21, you can also use the [`getFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html#getFirst())
+In JDK 21 and later, you can also use the [`getFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html#getFirst())
 and [`getLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html#getLast())
-functions available on all [`SequencedCollection`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html)
-implementations, which includes all `List` implementations as well as other collections like `LinkedHashSet`.
+methods available on all [`SequencedCollection`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html)
+implementations. This includes all `List` implementations as well as other collections like `LinkedHashSet`.
 For example, with `ArrayList`:
 
 ```java
