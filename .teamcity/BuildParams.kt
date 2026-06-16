@@ -28,8 +28,8 @@ object BuildParams {
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
-  const val KOTLIN_RELEASE_TAG = "whyoleg/dokka2-sync"
-  const val KOTLIN_RELEASE_LABEL = "2.3.0"
+  const val KOTLIN_RELEASE_TAG = "2.4.0"
+  const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
 
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_240_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
@@ -42,6 +42,7 @@ object BuildParams {
     addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
     addVersion("2.2.0", VCS.branch("2.2.0"))
     addVersion("2.3.0", VCS.branch("2.3.0"))
+    addVersion("2.4.0", VCS.branch("2.4.0"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
