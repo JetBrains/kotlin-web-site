@@ -16,6 +16,7 @@ items:
     platforms:
       - android
       - ios
+      - frontend
     media:
       type: youtube
       videoId: RJtiFt5pbfs
@@ -92,6 +93,7 @@ items:
     platforms:
       - android
       - ios
+      - frontend
       - compose-multiplatform
   #------------------------------------------------------------------------
   - id: bilibili
@@ -174,6 +176,7 @@ items:
     platforms:
       - android
       - ios
+      - frontend
     media:
       type: youtube
       videoId: z-u99yZFn5o
