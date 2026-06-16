@@ -33,6 +33,13 @@ abstract class WritersideBuilder(
 
     steps {
         script {
+            name = "list files"
+            //language=bash
+            scriptContent = """
+                ls -la kotlinx-lincheck/
+            """.trimIndent()
+        }
+        script {
             name = "Generate timestamps file"
             scriptContent = """
                 set -e

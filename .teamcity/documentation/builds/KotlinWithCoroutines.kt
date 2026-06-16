@@ -41,13 +41,5 @@ object KotlinWithCoroutines: WritersideBuilder(
             checkoutMode = CheckoutMode.ON_AGENT
             cleanCheckout = true
         }
-
-        this.steps.items.add (0, ScriptBuildStep {
-            name = "list files"
-            //language=bash
-            scriptContent = """
-                ls -la kotlinx-lincheck/
-            """.trimIndent()
-        })
     }
 )
