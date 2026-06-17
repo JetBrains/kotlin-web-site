@@ -1,12 +1,12 @@
-[//]: # (title: Multiple round processing)
+[//]: # (title: Multiple-round processing)
 
-KSP supports multiple round processing, or processing files over multiple rounds. The output from each processing round 
+KSP supports multiple-round processing, or processing files over multiple rounds. The output from each processing round 
 is used as additional input in each subsequent round.
 
 To use multiple-round processing, return deferred symbols from `SymbolProcessor.process()` as a `List<KSAnnotated>`. KSP 
 processes these symbols in the next round.
 
-To defer invalid symbols, filter them with `KSAnnotated.validate()`, as shown in the following example:
+To defer invalid symbols, filter them with `KSAnnotated.validate()`, for example:
 
 ```kotlin
 override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -28,11 +28,13 @@ Processors can defer symbols to a later round when additional information is req
 can continue deferring a symbol across multiple rounds until the required information becomes available. Once the 
 information is available, the processor can process the symbol.
 
-> Processors should only defer invalid symbols when necessary information is lacking.
-> Processors should not defer symbols from classpath. KSP will also filter out any deferred
-> symbols that are not from source code.
->
-{style=”note”}
+Defer symbols only in the following cases::
+
+* Additional information is required before the symbol can be processed.
+
+* The symbol originates from source code. Never defer symbols from the classpath. KSP filters out classpath symbols 
+automatically.
+
 
 For example, a processor that generates a builder for an annotated class might require all constructor parameter types 
 to resolve to concrete types. In the first round, one of the parameter types might not be resolvable. In a later round, 
@@ -45,7 +47,7 @@ information required to process a symbol correctly.
 
 > Validation often requires type resolution, which can be expensive. Check only the information required to process the symbol.
 >
-{style=”tip”}
+{style="tip"}
 
 Continuing the previous example, the builder processor might validate only the constructor parameter types of annotated 
 classes. Specifically, it can check that each resolved parameter type has `isError == false`.
@@ -58,9 +60,9 @@ the referenced types.
 > and provide a `predicate` lambda that selects the symbols to validate. `KSValidateVisitor` uses the `predicate` to 
 > determine which symbols to check.
 >
-{style=”tip”}
+{style="tip"}
 
-## Files accessible at each round
+## Accessing files and symbols
 
 Both newly generated files and existing files are accessible through a `Resolver`.
 
@@ -68,14 +70,12 @@ KSP provides two APIs for accessing files:
 
 * `Resolver.getAllFiles()` returns a list of both previously existing and newly generated files.
 
-* `Resolver.getNewFiles()` returns only the files that were generated in the previous round.
-
-## `getSymbolsWithAnnotation()`
+* `Resolver.getNewFiles()` returns only the files generated in the previous round.
 
 Use `Resolver.getSymbolsWithAnnotation()` as the primary entry point for obtaining relevant symbols.
 
-In each round, `Resolver.getSymbolsWithAnnotation()` returns only symbols from newly generated files and symbols deferred from 
-the previous round. This helps avoid unnecessary reprocessing.
+In each round, `Resolver.getSymbolsWithAnnotation()` returns only symbols from newly generated files and symbols 
+deferred from the previous round. This helps avoid unnecessary reprocessing.
 
 ## Processor instantiation
 
@@ -85,13 +85,14 @@ multiple rounds.
 However, not all KSP symbols can be reused across rounds. Symbol resolution results can change when processors generate 
 new files, which can affect the validity of previously resolved symbols.
 
-> Use only the Resolver instance passed to the processor in the current round. Do not store a Resolver and reuse it 
+> Use only the `Resolver` instance passed to the processor in the current round. Do not store a `Resolver` and reuse it 
 > across rounds.
+> 
 {style="note"}
 
 ## Error and exception handling
 
-1. **Errors**
+### Errors
 
     A processor reports an error by calling `KSPLogger.error()`.
 
@@ -101,14 +102,15 @@ new files, which can affect the validity of previously resolved symbols.
     Other processors continue processing normally during that round. KSP handles errors only after all processors finish 
     the current round.
 
-2. **Exceptions**
+### Exceptions
 
-   KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Exceptions cause processing 
-   to terminate immediately and are logged as an error through `KSPLogger`.
+   KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Exceptions terminate processing 
+   immediately and are logged as errors through `KSPLogger`.
 
-    > Report exceptions thrown by KSP to the KSP developers for investigation.
+    > Report exceptions thrown by KSP to the KSP developers for investigation. Create an issue in the 
+    > [KSP issue tracker](https://github.com/google/ksp/issues).
     >
-    {style=”note”}
+    {style="note"}
 
 At the end of a round in which an error or exception occurs, KSP calls `SymbolProcessor.onError()` on all processors.
 `SymbolProcessor` provides a default no-op implementation of `onError()`. Override this method to implement custom 
