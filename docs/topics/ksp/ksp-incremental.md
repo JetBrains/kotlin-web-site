@@ -186,8 +186,8 @@ you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
 ## Reporting bugs
 
-If you encounter any error that occurs only when incremental processing is enabled, report it by creating an issue in
-[the GitHub repository](https://github.com/google/ksp/issues). Attach the relevant logs to the issue:
+If you encounter any error that occurs only when incremental processing is enabled, create an issue in
+[the GitHub repository](https://github.com/google/ksp/issues) and attach the relevant log files.
 
 1. Enable incremental processing logs by adding the following line to `gradle.properties`:
 
@@ -195,18 +195,14 @@ If you encounter any error that occurs only when incremental processing is enabl
    ksp.incremental.log=true
    ```
 
-2. Perform a clean build.
+2. Perform a clean build that completes successfully.
 
-3. Modify a source file that triggers the issue and then run the build again.
+3. Save the generated log files by copying them to another location:
 
-4. The build generates two `.log` files in the build output directory:
+   * `build/kspCaches/<source set>/logs/kspDirtySet.log`
+   * `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
 
-* `build/kspCaches/<source set>/logs/kspDirtySet.log`
-* `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
+4. Modify a source file that triggers the issue and run the build again.
 
-5. Run one or more incremental builds. These builds generate the following additional log files:
+5. Attach the log files from both the successful build and the build that reproduces the issue to the GitHub issue.
 
-* `build/kspCaches/<source set>/logs/kspDirtySetByDeps.log`
-* `build/kspCaches/<source set>/logs/kspDirtySetByOutputs.log`
-
-These logs contain source and output file names, along with build timestamps.
