@@ -94,23 +94,23 @@ new files, which can affect the validity of previously resolved symbols.
 
 ### Errors
 
-    A processor reports an error by calling `KSPLogger.error()`.
+A processor reports an error by calling `KSPLogger.error()`.
 
-    When a processor reports an error, KSP calls `SymbolProcessor.onError()` instead of `SymbolProcessor.finish()`. 
-    Processing stops after the current round completes.
+When a processor reports an error, KSP calls `SymbolProcessor.onError()` instead of `SymbolProcessor.finish()`. 
+Processing stops after the current round completes.
 
-    Other processors continue processing normally during that round. KSP handles errors only after all processors finish 
-    the current round.
+Other processors continue processing normally during that round. KSP handles errors only after all processors finish 
+the current round.
 
 ### Exceptions
 
-   KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Exceptions terminate processing 
-   immediately and are logged as errors through `KSPLogger`.
+KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Both types terminate processing 
+immediately and are logged as errors through `KSPLogger`.
 
-    > Report exceptions thrown by KSP to the KSP developers for investigation. Create an issue in the 
-    > [KSP issue tracker](https://github.com/google/ksp/issues).
-    >
-    {style="note"}
+> Report exceptions thrown by KSP to the KSP developers for investigation. Create an issue in the 
+> [KSP issue tracker](https://github.com/google/ksp/issues).
+>
+{style="note"}
 
 At the end of a round in which an error or exception occurs, KSP calls `SymbolProcessor.onError()` on all processors.
 `SymbolProcessor` provides a default no-op implementation of `onError()`. Override this method to implement custom 
