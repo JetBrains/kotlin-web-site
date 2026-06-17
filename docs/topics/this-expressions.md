@@ -67,7 +67,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The output for this example:
+The output:
 
 ```kotlin
 Local function
