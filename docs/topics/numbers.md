@@ -286,8 +286,7 @@ val result: Int = intNumber + longNumber
 ### Integer literal types
 
 During type inference, Kotlin treats unsuffixed integer literals as a special [Integer Literal Type (ILT)](https://kotlinlang.org/spec/type-system.html#integer-literal-types)
-until the surrounding context determines a concrete type. When the
-compiler determines a common type for an expression, it can resolve an ILT to a single type:
+until the surrounding context determines a concrete type:
 
 ```kotlin
 //sampleStart
