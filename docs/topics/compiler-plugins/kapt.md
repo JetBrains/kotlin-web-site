@@ -553,13 +553,12 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         </td>
         <td>
             <p><b>Gradle:</b> Not directly available; Gradle runs stubs and apt as separate tasks</p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <aptMode>stubsAndApt</aptMode>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-mode=stubsAndApt</code></p>
         </td>
     </tr>
@@ -567,14 +566,13 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td><code>apclasspath</code></td>
         <td>Classpath entries where annotation processors are discovered.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     dependencies {
                         kapt("com.example:processor:1.0")
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <annotationProcessorPaths>
@@ -582,7 +580,6 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </annotationProcessorPaths>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-apclasspath=lib/my-processor.jar</code></p>
         </td>
     </tr>
@@ -590,14 +587,13 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td><code>processors</code></td>
         <td>Comma-separated fully qualified class names of processors to run, bypassing discovery.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         annotationProcessor("com.example.MyProcessor")
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <annotationProcessors>
@@ -605,7 +601,6 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </annotationProcessors>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-processors=com.example.MyProcessor</code></p>
         </td>
     </tr>
@@ -613,7 +608,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td><code>apOption</code></td>
         <td>Key-value options passed to annotation processors.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         arguments {
@@ -621,8 +616,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                         }
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <annotationProcessorArgs>
@@ -630,7 +624,6 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </annotationProcessorArgs>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-apOption:room.schemaLocation=/schemas</code></p>
         </td>
     </tr>
@@ -638,7 +631,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td><code>javacOption</code></td>
         <td>Key-value options passed to Java compiler.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         javacOptions {
@@ -646,8 +639,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                         }
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <javacOptions>
@@ -655,7 +647,6 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </javacOptions>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-javacOption:-source=11</code></p>
         </td>
     </tr>
@@ -663,12 +654,11 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td><code>processIncrementally</code></td>
         <td>Enables incremental annotation processing; only reprocesses files affected by changes.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     # gradle.properties
                     kapt.incremental.apt=true
                 </code-block>
-            </p>
             <p><b>Maven:</b> <code>-Dkapt.incremental.apt=true</code></p>
             <p><b>CLI:</b> <code>-Kapt-processIncrementally=true</code></p>
         </td>
@@ -711,7 +701,7 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
         <td>Directory where annotation processors generate <code>.java</code> source files.</td>
         <td>
             <p><b>Gradle:</b> set automatically to <code>build/generated/source/kapt/main</code></p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
                         <sourceDirs>
@@ -719,7 +709,6 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
                         </sourceDirs>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-sources=build/kapt/sources</code></p>
         </td>
     </tr>
@@ -768,20 +757,18 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         correctErrorTypes = true
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <correctErrorTypes>true</correctErrorTypes>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-correct-error-types=true</code></p>
         </td>
     </tr>
@@ -792,13 +779,12 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         dumpDefaultParameterValues = true
                     }
                 </code-block>
-            </p>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-dump-default-parameter-values=true</code></p>
         </td>
@@ -810,20 +796,18 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         mapDiagnosticLocations = true
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <mapDiagnosticLocations>true</mapDiagnosticLocations>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-map-diagnostic-locations=true</code></p>
         </td>
     </tr>
@@ -834,13 +818,12 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         strictMode = true
                     }
                 </code-block>
-            </p>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-strict=true</code></p>
         </td>
@@ -852,13 +835,12 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         stripMetadata = true
                     }
                 </code-block>
-            </p>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-strip-metadata=true</code></p>
         </td>
@@ -870,12 +852,11 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>false</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
-                     # gradle.properties
-                     kapt.verbose=true
+                    # gradle.properties
+                    kapt.verbose=true
                 </code-block>
-            </p>
             <p><b>Maven:</b> <code>-Dkapt.verbose=true</code></p>
             <p><b>CLI:</b> <code>-Kapt-verbose=true</code></p>
         </td>
@@ -899,20 +880,18 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
             <p><code>true</code> by default</p>
         </td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         includeCompileClasspath = false
                     }
                 </code-block>
-            </p>
-            <p><b>Maven:</b>
+            <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
 <includeCompileClasspath>false</includeCompileClasspath>
                     ]]>
                 </code-block>
-            </p>
             <p><b>CLI:</b> <code>-Kapt-includeCompileClasspath=false</code></p>
         </td>
     </tr>
@@ -930,13 +909,12 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
         <td><code>showProcessorStats</code></td>
         <td>Prints per-processor execution time to stdout.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         showProcessorStats = true
                     }
                 </code-block>
-            </p>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-show-processor-stats=true</code></p>
         </td>
@@ -963,13 +941,12 @@ When using kapt from the CLI, use the `-Kapt-apOption:<key>=<value>` and `-Kapt-
         <td><code>detectMemoryLeaks</code></td>
         <td>Memory leak detection mode: <code>none</code>, <code>default</code>, or <code>paranoid</code>.</td>
         <td>
-            <p><b>Gradle:</b>
+            <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
                     kapt {
                         detectMemoryLeaks = "paranoid"
                     }
                 </code-block>
-            </p>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-detectMemoryLeaks=paranoid</code></p>
         </td>

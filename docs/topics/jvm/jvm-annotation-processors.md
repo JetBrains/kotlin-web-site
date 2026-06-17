@@ -85,7 +85,7 @@ mapper implementations between Java beans at compile time.
    ```
    
    * Add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
-   * Configure the [level of annotation processing](kapt.md#use-in-maven) using the `aptMode` option.
+   * Configure the level of annotation processing using the [`aptMode` option](kapt.md#annotation-processor-configuration).
 
    </tab>
    <tab title="Gradle Kotlin" group-key="kotlin">
