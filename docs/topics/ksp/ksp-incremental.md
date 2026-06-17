@@ -73,14 +73,14 @@ For example, a generated class that is dedicated to an interface it implements i
 
 ### Dirtiness propagation
 
-KSP propagates dirtiness in two ways:
+KSP propagates dirtiness in the following ways:
 
-1. by **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a
+1. By **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a
    processor resolves a type reference (explicitly or implicitly), KSP considers dependencies between the file containing
    the reference and any file that defines a symbol affecting that resolution. As a result, a change in a resolved symbol
    may mark the referencing file as dirty.
 
-2. by **input-output correspondence**: If a source file is changed or affected, all other source files that
+2. By **input-output correspondence**: If a source file is changed or affected, all other source files that
    share generated outputs with it are also marked as affected. This groups related files into equivalence classes based on
    shared outputs.
 
@@ -97,16 +97,16 @@ This is how KSP determines which files need to be reprocessed:
 
 * If an input file is changed, it will always be reprocessed.
 
-**Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
+   **Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
 
 * If an input file is changed and is associated with an output, then all other input files associated with the same
   output will also be reprocessed. This happens repeatedly until there is no new dirty file.
 
-**Why?** An output is made out of a set of inputs. Processors may need all the inputs to regenerate the output.
+   **Why?** An output is made out of a set of inputs. Processors may need all the inputs to regenerate the output.
 
 * If an unchanged input file isn't associated with any aggregating outputs, it won't be reprocessed.
 
-**Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output.
+   **Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output.
 It won't be reprocessed unless one of the above rules applies.
 
 For example, consider a project with the following structure:
@@ -191,8 +191,8 @@ If you encounter any error that occurs only when incremental processing is enabl
 
 1. Enable incremental processing logs by adding the following line to `gradle.properties`:
 
-  ```
-  ksp.incremental.log=true
+   ```
+   ksp.incremental.log=true
    ```
 
 2. Perform a clean build.
