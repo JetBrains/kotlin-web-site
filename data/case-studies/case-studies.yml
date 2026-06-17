@@ -148,7 +148,7 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
-  - id: case-study-workday
+  - id: workday
     type: multiplatform
     description: >-
       At **Workday**, Kotlin Multiplatform (KMP) entered the landscape not as another framework, but as a flexible technology that empowered us to share code where it makes sense, without sacrificing the quality and the performance of the native experience our users expect.
