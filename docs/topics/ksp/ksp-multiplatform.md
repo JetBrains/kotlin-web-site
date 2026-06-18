@@ -143,18 +143,13 @@ for your module:
 
 Look for configurations matching your target names to find the right one.
 
-Since KSP 2 the catch-all `ksp(...)` configuration has been deprecated. Although this may lead to some duplication in 
-the build file, specifying each platform individually avoids the cost of applying target-specific processors to targets 
-in which they do nothing.
-
-> To use the deprecated ksp(...) configuration, set the flag `ksp.allow.all.target.configuration=true`
-> in gradle.properties.
->
-{style=”tip”}
+> Since KSP 2, the catch-all `ksp(...)` configuration is deprecated. Configure each target explicitly to avoid running 
+> processors where they are not needed.
+> 
+{style="note"}
 
 To see an example of a multiplatform project with several targets using KSP, 
 visit the [source repository](https://github.com/google/ksp/tree/main/examples/multiplatform).
-
 
 ## Compilation and processing
 
