@@ -102,10 +102,10 @@ kotlinc hello.kt -d hello.jar
 Since binaries compiled this way depend on the Kotlin runtime, 
 you should ensure that it is present in the classpath whenever your compiled library is used.
 
-You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
+You can also use the `kotlinr` script to run binaries produced by the Kotlin compiler:
 
 ```bash
-kotlin -classpath hello.jar HelloKt
+kotlinr -classpath hello.jar HelloKt
 ```
 
 `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
