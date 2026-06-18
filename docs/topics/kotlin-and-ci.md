@@ -15,7 +15,7 @@ If using Maven or Gradle, the setup process is straightforward. All that is need
 For example, if using Gradle, simply define the required parameters such as the Step Name and Gradle tasks that need
 executing for the Runner Type.
 
-<img src="teamcity-gradle.png" alt="Gradle Build Step" width="700"/>
+<img src="teamcity-gradle.png" alt="Gradle Build Step" width="800"/>
 
 Since all the dependencies required for Kotlin are defined in the Gradle file, nothing else needs to be configured
 specifically for Kotlin to run correctly.
