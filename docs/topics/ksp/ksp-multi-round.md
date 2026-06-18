@@ -28,7 +28,7 @@ Processors can defer symbols to a later round when additional information is req
 can continue deferring a symbol across multiple rounds until the required information becomes available. Once the 
 information is available, the processor can process the symbol.
 
-Defer symbols only in the following cases::
+Defer symbols only in the following cases:
 
 * Additional information is required before the symbol can be processed.
 
