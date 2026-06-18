@@ -56,20 +56,16 @@ fun main() {
             fun printLine() {
                 println("Local function")
             }
- 
-            printLine() // Calls the local function
-            this.printLine() // Calls the member function
+         
+            printLine()
+            // Local function
+         
+            this.printLine()
+            // Member function
         }
     }
 
     A().invokePrintLine()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-The output:
-
-```kotlin
-Local function
-Member function
-```
+{kotlin-runnable="true"}
