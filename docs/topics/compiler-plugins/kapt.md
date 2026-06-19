@@ -17,7 +17,14 @@ It generates stub files from Kotlin source code and then runs the Java annotatio
 This enables Java-based annotation processing in your Kotlin projects for libraries like [MapStruct](https://mapstruct.org/)
 and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html).
 
-## Use in Gradle
+> kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the **Maven Projects**
+> toolbar whenever you want to re-run the annotation processing.
+> 
+{style="warning"}
+
+## Set up the plugin
+
+### In Gradle
 
 To use kapt in Gradle, follow these steps:
 
@@ -67,15 +74,134 @@ To use kapt in Gradle, follow these steps:
    </tab>
    </tabs>
 
-3. If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
+3. If you previously used the [Android support](https://developer.android.com/build/annotation-processors)
    for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`.
-   If your project contains Java classes, `kapt` will also take care of them.
+   If your project contains Java classes, the kapt plugin will also take care of them.
 
    If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
    `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extend `kapt`, so you can provide the
    `kapt` dependency, and it will be available both for production sources and tests.
 
-## Annotation processor arguments
+### In Maven
+
+#### Automatic configuration
+
+You can simplify kapt configuration by enabling the `<extensions>` option for the Kotlin Maven plugin. In this case,
+you don't need to manually set up kapt's `<execution>` section with goals or source directories.
+
+To automatically configure kapt, in your `pom.xml` build file, set the `<extensions>` option to `true` for the `kotlin-maven-plugin`:
+
+```xml
+<plugin>
+    <groupId>org.jetbrains.kotlin</groupId>
+    <artifactId>kotlin-maven-plugin</artifactId>
+    <version>${kotlin.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <annotationProcessorPaths>
+            <!-- Specify your annotation processors here -->
+            <annotationProcessorPath>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.6.3</version>
+            </annotationProcessorPath>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+
+For more information on the `<extensions>` option, see [Automatic configuration](maven-configure-project.md#automatic-configuration).
+
+#### Manual configuration
+
+To manually set up kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` before the `compile` execution:
+
+```xml
+<execution>
+    <id>kapt</id>
+    <goals>
+        <goal>kapt</goal>
+    </goals>
+    <configuration>
+        <sourceDirs>
+            <sourceDir>src/main/kotlin</sourceDir>
+            <sourceDir>src/main/java</sourceDir>
+        </sourceDirs>
+        <annotationProcessorPaths>
+            <!-- Specify your annotation processors here -->
+            <annotationProcessorPath>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.6.3</version>
+            </annotationProcessorPath>
+        </annotationProcessorPaths>
+    </configuration>
+</execution>
+```
+
+##### Configure kapt annotation processing
+
+To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
+
+* `stubs` – only generate stubs needed for annotation processing.
+* `apt` – only run annotation processing.
+* `stubsAndApt` – (default) generate stubs and run annotation processing.
+
+For example:
+
+```xml
+<configuration>
+   ...
+   <aptMode>stubs</aptMode>
+</configuration>
+```
+
+### In CLI
+
+kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
+
+You can attach the plugin by providing the path to its JAR file using the `Xplugin` kotlinc option:
+
+```bash
+-Xplugin=$KOTLIN_HOME/lib/kotlin-annotation-processing.jar
+```
+
+Here is a list of the available options:
+
+* `sources` (*required*): An output path for the generated files.
+* `classes` (*required*): An output path for the generated class files and resources.
+* `stubs` (*required*): An output path for the stub files. In other words, some temporary directory.
+* `incrementalData`: An output path for the binary stubs.
+* `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass as many `apclasspath` options as the number of JARs that you have.
+* `apoptions`: A base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
+* `javacArguments`: A base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
+* `processors`: A comma-specified list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
+* `verbose`: Enable verbose output.
+* `aptMode` (*required*)
+    * `stubs` – only generate stubs needed for annotation processing.
+    * `apt` – only run annotation processing.
+    * `stubsAndApt` – generate stubs and run annotation processing.
+* `correctErrorTypes`: For more information, see [Non-existent type correction](#non-existent-type-correction). Disabled by default.
+* `dumpFileReadHistory`: An output path to dump for each file a list of classes used during annotation processing.
+
+The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can be repeated.
+
+An example:
+
+```bash
+-P plugin:org.jetbrains.kotlin.kapt3:sources=build/kapt/sources
+-P plugin:org.jetbrains.kotlin.kapt3:classes=build/kapt/classes
+-P plugin:org.jetbrains.kotlin.kapt3:stubs=build/kapt/stubs
+
+-P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/ap.jar
+-P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/anotherAp.jar
+
+-P plugin:org.jetbrains.kotlin.kapt3:correctErrorTypes=true
+```
+
+## Configure annotation processors
+
+### Pass arguments to annotation processors
 
 Use the `arguments {}` block in your build script file `build.gradle(.kts)` to pass arguments to annotation processors:
 
@@ -86,6 +212,118 @@ kapt {
     }
 }
 ```
+
+### Configure processor classpath and discovery
+
+You can disable the discovery of annotation processors that aren't included in kapt's processor path.
+This effectively excludes unnecessary annotation processors from the compile classpath.
+
+#### For Gradle
+
+Gradle uses [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance)
+to skip annotation processing during project rebuild, improving incremental build times with kapt. Particularly,
+annotation processing is skipped when:
+
+* The project's source files are unchanged.
+* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
+  For example, the only changes are in method bodies.
+
+However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
+in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
+
+That's why we don't recommend using annotation processors from the compile classpath. To exclude these annotations
+from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
+
+```none
+# gradle.properties
+kapt.include.compile.classpath=false
+```
+
+With the option set to `false`, annotation processor dependencies that aren't included in the processor path
+(the `kapt*` configurations) are excluded from kapt processing.
+
+#### For Maven
+
+To exclude annotation processors that are missing from kapt's processor path, set the `includeCompileClasspath`
+option to `false` in the `<execution>` section of the kapt plugin:
+
+```xml
+<execution>
+    <id>kapt</id>
+    <goals>
+        <goal>kapt</goal>
+    </goals>
+    <configuration>
+        <includeCompileClasspath>false</includeCompileClasspath>
+        <sourceDirs>...</sourceDirs>
+        <annotationProcessorPaths>...</annotationProcessorPaths>
+    </configuration>
+</execution>
+```
+
+Alternatively, you can use the `kapt.include.compile.classpath` property in the `<properties>` section of your `pom.xml`:
+
+```xml
+<properties>
+    <kapt.include.compile.classpath>false</kapt.include.compile.classpath>
+</properties>
+```
+
+With the option set to `false`, annotation processors that aren't included in the `<annotationProcessorPaths>` section are
+excluded from kapt processing.
+
+If the `includeCompileClasspath` option isn't set and kapt detects an annotation processor on the compile classpath that isn't
+explicitly defined in the processor path, you'll see a deprecation warning:
+
+```none
+[WARNING] Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+```
+
+> To see the list of annotation processors that aren't present on the kapt classpath, run the build with the `--info` log
+> level option.
+>
+{style="tip"}
+
+### Inherit annotation processors from superconfigurations
+
+You can define a common set of annotation processors in a separate Gradle configuration as a
+superconfiguration and extend it further in kapt-specific configurations for your subprojects.
+
+As an example, for a subproject using [MapStruct](https://mapstruct.org/), in your `build.gradle(.kts)` file, use the following configuration:
+
+```kotlin
+val commonAnnotationProcessors by configurations.creating
+configurations.named("kapt") { extendsFrom(commonAnnotationProcessors) }
+
+dependencies {
+    implementation("org.mapstruct:mapstruct:1.6.3")
+    commonAnnotationProcessors("org.mapstruct:mapstruct-processor:1.6.3")
+}
+```
+
+In this example, the `commonAnnotationProcessors` Gradle configuration is your common superconfiguration for annotation processing
+that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
+method to add `commonAnnotationProcessors` as a superconfiguration. kapt sees that the `commonAnnotationProcessors`
+Gradle configuration has a dependency on the MapStruct annotation processor. Therefore, kapt includes the MapStruct annotation processor
+in its configuration for annotation processing.
+
+### Keep Java compiler's annotation processors
+
+By default, kapt runs all annotation processors and disables annotation processing by javac.
+However, you may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
+
+In the Gradle build file, use the option `keepJavacAnnotationProcessors`:
+
+```groovy
+kapt {
+    keepJavacAnnotationProcessors = true
+}
+```
+
+If you use Maven, configure the plugin explicitly.
+See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
+
 
 ## Gradle build cache support
 
@@ -222,7 +460,7 @@ To enable statistics reporting:
    kapt.verbose=true
    ```
 
-> You can also enable verbose output with the [command line option `verbose`](#use-in-cli).
+> You can also enable verbose output with the [command line option `verbose`](#in-cli).
 >
 {style="note"}
 
@@ -238,78 +476,6 @@ generated files for each annotation processor. For example:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
 
-### Exclude annotation processors from compile classpath
-
-You can disable the discovery of annotation processors that aren't included in kapt's processor path.
-This effectively excludes unnecessary annotation processors from the compile classpath.
-
-#### In Gradle
-
-Gradle uses [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance)
-to skip annotation processing during project rebuild, improving incremental build times with kapt. Particularly,
-annotation processing is skipped when:
-
-* The project's source files are unchanged.
-* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
-  For example, the only changes are in method bodies.
-
-However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
-in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
-
-That's why we don't recommend using annotation processors from the compile classpath. To exclude these annotations
-from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
-
-```none
-# gradle.properties
-kapt.include.compile.classpath=false
-```
-
-With the option set to `false`, annotation processor dependencies that aren't included in the processor path
-(the `kapt*` configurations) are excluded from kapt processing.
-
-#### In Maven
-
-To exclude annotation processors that are missing from kapt's processor path, set the `includeCompileClasspath`
-option to `false` in the `<execution>` section of the kapt plugin:
-
-```xml
-<execution>
-    <id>kapt</id>
-    <goals>
-        <goal>kapt</goal>
-    </goals>
-    <configuration>
-        <includeCompileClasspath>false</includeCompileClasspath>
-        <sourceDirs>...</sourceDirs>
-        <annotationProcessorPaths>...</annotationProcessorPaths>
-    </configuration>
-</execution>
-```
-
-Alternatively, you can use the `kapt.include.compile.classpath` property in the `<properties>` section of your `pom.xml`:
-
-```xml
-<properties>
-    <kapt.include.compile.classpath>false</kapt.include.compile.classpath>
-</properties>
-```
-
-With the option set to `false`, annotation processors that aren't included in the `<annotationProcessorPaths>` section are
-excluded from kapt processing.
-
-If the `includeCompileClasspath` option isn't set and kapt detects an annotation processor on the compile classpath that isn't
-explicitly defined in the processor path, you'll see a deprecation warning:
-
-```none
-[WARNING] Annotation processors discovery from compile classpath is deprecated.
-Set 'kapt.include.compile.classpath=false' to disable discovery.
-```
-
-> To see the list of annotation processors that aren't present on the kapt classpath, run the build with the `--info` log
-> level option.
-> 
-{style="tip"}
-
 ## Incremental annotation processing
 
 kapt supports incremental annotation processing by default. 
@@ -324,29 +490,6 @@ kapt.incremental.apt=false
 Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
 to be enabled as well.
 
-## Inherit annotation processors from superconfigurations
-
-You can define a common set of annotation processors in a separate Gradle configuration as a 
-superconfiguration and extend it further in kapt-specific configurations for your subprojects.
-
-As an example, for a subproject using [MapStruct](https://mapstruct.org/), in your `build.gradle(.kts)` file, use the following configuration:
-
-```kotlin
-val commonAnnotationProcessors by configurations.creating
-configurations.named("kapt") { extendsFrom(commonAnnotationProcessors) }
-
-dependencies {
-    implementation("org.mapstruct:mapstruct:1.6.3")
-    commonAnnotationProcessors("org.mapstruct:mapstruct-processor:1.6.3")
-}
-```
-
-In this example, the `commonAnnotationProcessors` Gradle configuration is your common superconfiguration for annotation processing
-that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
-method to add `commonAnnotationProcessors` as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
-Gradle configuration has a dependency on the MapStruct annotation processor. Therefore, kapt includes the MapStruct annotation processor
-in its configuration for annotation processing.
- 
 ## Java compiler options
 
 kapt uses Java compiler to run annotation processors.  
@@ -372,128 +515,6 @@ but you can change this behavior. Add the option to the `build.gradle(.kts)` fil
 kapt {
     correctErrorTypes = true
 }
-```
-
-## Use in Maven
-
-### Automatic configuration
-
-You can simplify kapt configuration by enabling the `<extensions>` option for the Kotlin Maven plugin. In this case,
-you don't need to manually set up kapt's `<execution>` section with goals or source directories.
-
-To automatically configure kapt, in your `pom.xml` build file, set the `<extensions>` option to `true` for the `kotlin-maven-plugin`:
-
-```xml
-<plugin>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <version>${kotlin.version}</version>
-    <extensions>true</extensions>
-    <configuration>
-        <annotationProcessorPaths>
-            <!-- Specify your annotation processors here -->
-            <annotationProcessorPath>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>1.6.3</version>
-            </annotationProcessorPath>
-        </annotationProcessorPaths>
-    </configuration>
-</plugin>
-```
-
-For more information on the `<extensions>` option, see [Automatic configuration](maven-configure-project.md#automatic-configuration).
-
-### Manual configuration
-
-To manually set up kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` before the `compile` execution: 
-
-```xml
-<execution>
-    <id>kapt</id>
-    <goals>
-        <goal>kapt</goal>
-    </goals>
-    <configuration>
-        <sourceDirs>
-            <sourceDir>src/main/kotlin</sourceDir>
-            <sourceDir>src/main/java</sourceDir>
-        </sourceDirs>
-        <annotationProcessorPaths>
-            <!-- Specify your annotation processors here -->
-            <annotationProcessorPath>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>1.6.3</version>
-            </annotationProcessorPath>
-        </annotationProcessorPaths>
-    </configuration>
-</execution>
-```
-
-### Configure kapt annotation processing
-
-To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
-
-* `stubs` – only generate stubs needed for annotation processing.
-* `apt` – only run annotation processing.
-* `stubsAndApt` – (default) generate stubs and run annotation processing.
-
-For example:
-
-```xml
-<configuration>
-   ...
-   <aptMode>stubs</aptMode>
-</configuration>
-```
-
-## Use in IntelliJ build system
-
-kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
-toolbar whenever you want to re-run the annotation processing.
-
-## Use in CLI
-
-kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
-
-You can attach the plugin by providing the path to its JAR file using the `Xplugin` kotlinc option:
-
-```bash
--Xplugin=$KOTLIN_HOME/lib/kotlin-annotation-processing.jar
-```
-
-Here is a list of the available options:
-
-* `sources` (*required*): An output path for the generated files.
-* `classes` (*required*): An output path for the generated class files and resources.
-* `stubs` (*required*): An output path for the stub files. In other words, some temporary directory.
-* `incrementalData`: An output path for the binary stubs.
-* `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass as many `apclasspath` options as the number of JARs that you have.
-* `apoptions`: A base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
-* `javacArguments`: A base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
-* `processors`: A comma-specified list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
-* `verbose`: Enable verbose output.
-* `aptMode` (*required*)
-    * `stubs` – only generate stubs needed for annotation processing.
-    * `apt` – only run annotation processing.
-    * `stubsAndApt` – generate stubs and run annotation processing.
-* `correctErrorTypes`: For more information, see [Non-existent type correction](#non-existent-type-correction). Disabled by default.
-* `dumpFileReadHistory`: An output path to dump for each file a list of classes used during annotation processing.
-
-The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can be repeated.
-
-An example:
-
-```bash
--P plugin:org.jetbrains.kotlin.kapt3:sources=build/kapt/sources
--P plugin:org.jetbrains.kotlin.kapt3:classes=build/kapt/classes
--P plugin:org.jetbrains.kotlin.kapt3:stubs=build/kapt/stubs
-
--P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/ap.jar
--P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/anotherAp.jar
-
--P plugin:org.jetbrains.kotlin.kapt3:correctErrorTypes=true
 ```
 
 ## Generate Kotlin sources
@@ -523,22 +544,6 @@ fun encodeList(options: Map<String, String>): String {
     return Base64.getEncoder().encodeToString(os.toByteArray())
 }
 ```
-
-## Keep Java compiler's annotation processors
-
-By default, kapt runs all annotation processors and disables annotation processing by javac.
-However, you may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
-
-In the Gradle build file, use the option `keepJavacAnnotationProcessors`:
-
-```groovy
-kapt {
-    keepJavacAnnotationProcessors = true
-}
-```
-
-If you use Maven, configure the plugin explicitly.
-See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
 
 ## What's next
 

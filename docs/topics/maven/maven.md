@@ -26,7 +26,7 @@ To get started, you can also follow our step-by-step tutorials:
 
 * **Improve your debugging experience** with the [`power-assert` plugin](power-assert.md#maven).
 * **Measure test coverage and generate reports** with the [`kover-maven-plugin`](https://kotlin.github.io/kotlinx-kover/maven-plugin/).
-* **Configure annotation processing** with the [`kapt` plugin](kapt.md#use-in-maven).
+* **Configure annotation processing** with the [kapt plugin](kapt.md#in-maven).
 * **Generate documentation** with the [Dokka documentation engine](dokka-maven.md).
   It supports mixed-language projects and can generate output in multiple formats, including standard Javadoc.
 * **Enable OSGi support** by adding the [`kotlin-osgi-bundle`](kotlin-osgi.md#maven).
