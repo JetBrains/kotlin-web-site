@@ -89,13 +89,13 @@ Node.js, there is also an option to use an existing Node.js installation. Learn 
 
 ## Support for ES2015 features
 
-Kotlin provides an [Experimental](components-stability.md#stability-levels-explained) support for the following ES2015
-features:
+Kotlin provides support for ES2015 features, including:
 
 * Modules that simplify your codebase and improve maintainability.
 * Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
 * Generators for compiling [suspend functions](https://kotlinlang.org/docs/composing-suspending-functions.html) that improve the final bundle size
   and help with debugging.
+* [JavaScript code inlining](js-interop.md#inline-javascript).
 
 You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
 `build.gradle(.kts)` file:

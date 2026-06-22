@@ -4,7 +4,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.20</a> and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.4.0</a><!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
 </tldr>
 
 This page explains the Kotlin release cycle and the different types of releases we ship. It also includes details
@@ -35,8 +35,8 @@ new features before they are released. For more information, see [Participate in
 
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
-* **2.4.0**: Planned for June – July 2026
 * **2.4.20**: Planned for September 2026
+* **2.5.0**: Planned for December 2026
 
 ## Update to a new Kotlin version
 
@@ -134,7 +134,6 @@ If we discover a security vulnerability that affects the Kotlin standard library
 For example, if we discover a security vulnerability and the latest Kotlin release is Kotlin 2.4.20, we release a bug fix
 version for Kotlin 2.4.20 only. We don't release a bug fix version for Kotlin 2.4.0.
 
-<!--
 The following table lists all Kotlin releases and their support windows:
 
 <table>
@@ -148,17 +147,16 @@ The following table lists all Kotlin releases and their support windows:
         <td><strong>2.4</strong>
         </td>
         <td>
-            <p>TBD</p>
+            <p>June 3, 2026</p>
         </td>
         <td>
-            <p>TBD</p>
+            <p>December 3, 2027</p>
         </td>
         <td>
             <p>None available</p>
         </td>
     </tr>
 </table>
--->
 
 > We always want to hear about any security issues you find. To report problems that you discover in Kotlin,
 > post a message directly to our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Security%20Problem) or send us an [email](mailto:security@jetbrains.org).
@@ -177,6 +175,16 @@ The following table lists details of previous Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.4.0</strong>
+            <p>Released: <strong>June 3, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
+            <p>Learn more about Kotlin 2.4.0 in <a href="whatsnew24.md" target="_blank">What's new in Kotlin 2.4.0</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.3.21</strong>

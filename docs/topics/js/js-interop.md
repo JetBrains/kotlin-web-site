@@ -10,8 +10,7 @@ the surrounding tooling.
 
 ## Inline JavaScript
 
-You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
-For example:
+You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function:
 
 ```kotlin
 fun jsTypeOf(o: Any): String {
@@ -19,25 +18,41 @@ fun jsTypeOf(o: Any): String {
 }
 ```
 
-Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be
+JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#support-for-es2015-features), including:
+
+* `const` and `let` variable declarations
+* ES classes
+* Generators
+* Lambdas ([arrow functions](whatsnew21.md#support-for-generating-es2015-arrow-functions))
+* Spread and rest operators
+* Template strings
+
+Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it must be
 a string constant. So, the following code is incorrect:
 
 ```kotlin
 fun jsTypeOf(o: Any): String {
-    return js(getTypeof() + " o") // error reported here
+    return js(getTypeof() + " o") // Error: Argument must be a string constant
+    // The compiler cannot evaluate string concatenations
 }
 
 fun getTypeof() = "typeof"
 ```
 
-> As the JavaScript code is parsed by the Kotlin compiler, not all ECMAScript features might be supported.
-> In this case, you can encounter compilation errors.
-> 
+Instead, for example to inline the rest operator, use a string constant:
+
+```kotlin
+fun runSumExample() {
+    val sum = js("(...nums) => nums.reduce((a, b) => a + b, 0)")
+    println(sum(1, 2, 3, 4))
+}
+```
+
+> Invoking `js()` returns a result of [`dynamic`](dynamic-type.md) type, which doesn't provide type safety at compile time.
+>
 {style="note"}
 
-Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
-
-## external modifier
+## `external` modifier
 
 To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with the `external` modifier.
 When the compiler sees such a declaration, it assumes that the implementation for the corresponding class, function or

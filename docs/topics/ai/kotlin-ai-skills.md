@@ -1,4 +1,4 @@
-[//]: # (title: Kotlin AI Skills)
+[//]: # (title: Kotlin AI skills)
 [//]: # (description: Learn what Kotlin AI skills are, how they help AI agents, and where to find available skills.)
 
 Kotlin AI skills are reusable instructions that help AI agents
