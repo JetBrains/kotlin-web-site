@@ -16,6 +16,7 @@ items:
     platforms:
       - android
       - ios
+      - frontend
     media:
       type: youtube
       videoId: RJtiFt5pbfs
@@ -36,6 +37,27 @@ items:
     isExternal: true
     link: https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/
   #------------------------------------------------------------------------
+  - id: sony
+    type: multiplatform
+    description: >-
+      Sony's journey to Kotlin Multiplatform wasn't just about efficiency; it was about capability.
+
+
+      We migrated from native plans to a unified KMP and Compose Multiplatform workflow, delivering a robust companion app for our flagship headphones, with background execution and sensor integration to millions of users worldwide.
+    signature:
+      name: Sergio Carrilho
+      position: TechLead at Sony
+    link: https://youtu.be/TKUxeZ34dNI
+    linkText: Watch the full video
+    isExternal: true
+    media:
+      type: image
+      path: /images/case-studies/sony-preview.png
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
+  #------------------------------------------------------------------------
   - id: google-workspace
     type: multiplatform
     description: >-
@@ -55,6 +77,24 @@ items:
     media:
       type: youtube
       videoId: 5lkZj4v4-ks
+  #------------------------------------------------------------------------
+  - id: booking
+    type: multiplatform
+    logo:
+      - /images/case-studies/booking-logo.svg
+    description: >-
+      “Adopting KMP for our experimentation library was a calculated bet. Best case: we save time and guarantee cross-platform consistency. Worst case: we rewrite the library in Swift. The reality exceeded our expectations: KMP performed great on iOS, proving it’s a viable, long-term solution for our team.”
+    signature:
+      name: Diego Gómez Olvera
+      position: Principal Android Developer
+    link: https://medium.com/booking-com-development/kotlin-multiplatform-in-production-two-real-world-use-cases-from-booking-com-46ffe13a773d
+    isExternal: true
+    carousel: true
+    platforms:
+      - android
+      - ios
+      - frontend
+      - compose-multiplatform
   #------------------------------------------------------------------------
   - id: bilibili
     type: multiplatform
@@ -108,6 +148,22 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: workday
+    type: multiplatform
+    description: >-
+      At **Workday**, Kotlin Multiplatform (KMP) entered the landscape not as another framework, but as a flexible technology that empowered us to share code where it makes sense, without sacrificing the quality and the performance of the native experience our users expect.
+    signature:
+      name: Ahmed Mohamed
+      position: Senior Software Engineer, Workday
+    logo:
+      - /images/case-studies/workday-logo.png
+    carousel: true
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://medium.com/workday-engineering/adopting-kotlin-multiplatform-a-practical-guide-to-unifying-codebases-1b333436061e
+  #------------------------------------------------------------------------
   - id: h&m
     type: multiplatform
     description: >-
@@ -136,6 +192,7 @@ items:
     platforms:
       - android
       - ios
+      - frontend
     media:
       type: youtube
       videoId: z-u99yZFn5o

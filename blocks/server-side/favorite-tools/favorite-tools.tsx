@@ -15,7 +15,6 @@ import ToolsImage2 from './images/tools-screen-2.webp';
 import IdeaLogo from './images/intellij-idea.svg';
 import MavenLogo from './images/maven.svg';
 import GradleLogo from './images/gradle.svg';
-import AntLogo from './images/ant.svg';
 import BazelLogo from './images/bazel.svg';
 import { useIntersectionTracking } from '../../../utils/use-untersection-tracking';
 import { trackEvent } from '../../../utils/event-logger';
@@ -82,9 +81,7 @@ export const FavoriteTools: FC = ({}) => {
                             className={textCn('rs-link')}
                             href={'https://kotlinlang.org/docs/reference/using-gradle.html'}>Gradle</a>, <a
                             className={textCn('rs-link')}
-                            href={'https://kotlinlang.org/docs/reference/using-maven.html'}>Maven</a>, <a
-                            className={textCn('rs-link')}
-                            href={'https://kotlinlang.org/docs/reference/using-ant.html'}>Ant</a>, and&nbsp;
+                            href={'https://kotlinlang.org/docs/reference/using-maven.html'}>Maven</a>, and&nbsp;
                             <a className={textCn('rs-link')} href={'https://github.com/bazelbuild/rules_kotlin'}>Bazel
                                 ↗</a>
                         </p>
@@ -92,7 +89,6 @@ export const FavoriteTools: FC = ({}) => {
                         <div className={styles.logos}>
                             <img src={MavenLogo.src} alt="Maven logo" />
                             <img src={GradleLogo.src} alt="Gradle logo" />
-                            <img src={AntLogo.src} alt="Ant logo" />
                             <img src={BazelLogo.src} alt="Bazel logo" />
                         </div>
                     </div>
