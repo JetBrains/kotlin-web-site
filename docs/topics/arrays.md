@@ -311,6 +311,7 @@ you need to create a new array. For that, you can use one of the following optio
       arr = arr.copyOf(arr.size + 1)
       println(arr.joinToString())
       // 0, 1, 2, 0
+
       arr[arr.lastIndex] = 3
       println(arr.joinToString())
       // 0, 1, 2, 3
@@ -390,8 +391,6 @@ function:
 fun main() {
 //sampleStart
     val sumArray = arrayOf(1, 2, 3)
-
-    // Sums array elements
     println(sumArray.sum())
     // 6
 //sampleEnd
