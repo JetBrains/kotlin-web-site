@@ -438,18 +438,19 @@ if (list.size() > 0) {
 ```
 {id="list-get-first-last-java"}
 
-You can also use the [`getFirst()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Deque.html#getFirst()) 
-and [`getLast()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Deque.html#getLast()) 
-functions for [`Deque`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Deque.html) and 
-its inheritors:
+In JDK 21 and later, you can also use the [`getFirst()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html#getFirst())
+and [`getLast()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html#getLast())
+methods available on all [`SequencedCollection`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html)
+implementations. This includes all `List` implementations as well as other collections like `LinkedHashSet`.
+For example, with `ArrayList`:
 
 ```java
 // Java
-var deque = new ArrayDeque<>();
+var list = new ArrayList<>();
 //...
-if (deque.size() > 0) {
-    System.out.println(deque.getFirst());
-    System.out.println(deque.getLast());
+if (!list.isEmpty()) {
+    System.out.println(list.getFirst());
+    System.out.println(list.getLast());
 }
 ```
 {id="deque-get-first-last-java"}

@@ -40,24 +40,32 @@ class A { // implicit label @A
 
 ## Implicit this
 
-When you call a member function on `this`, you can skip the `this.` part.
-If you have a non-member function with the same name, use this with caution because in some cases it can be called instead:
+When you call a member function on `this`, you can omit the `this.` qualifier.
+However, if another callable with the same name is available in a closer lexical scope, Kotlin resolves
+the unqualified call to that callable instead of the member function. To explicitly call the member function,
+use the `this.` qualifier:
 
 ```kotlin
 fun main() {
-    fun printLine() { println("Local function") }
-    
     class A {
-        fun printLine() { println("Member function") }
+        fun printLine() {
+            println("Member function")
+        }
 
-        fun invokePrintLine(omitThis: Boolean = false) {
-            if (omitThis) printLine()
-            else this.printLine()
+        fun invokePrintLine() {
+            fun printLine() {
+                println("Local function")
+            }
+         
+            printLine()
+            // Local function
+         
+            this.printLine()
+            // Member function
         }
     }
-    
-    A().invokePrintLine() // Member function
-    A().invokePrintLine(omitThis = true) // Local function
+
+    A().invokePrintLine()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

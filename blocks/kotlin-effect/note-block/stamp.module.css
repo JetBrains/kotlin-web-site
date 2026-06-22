@@ -1,0 +1,30 @@
+.stamp {
+    width: 109px;
+    height: 143px;
+    flex-shrink: 0;
+    background-image: url('./kodee-bg.svg');
+    padding: 10px 0 0 10px;
+    box-sizing: border-box;
+}
+
+.kodeeContainer {
+    position: relative;
+    width: 89px;
+    height: 124px;
+    overflow: hidden;
+}
+
+.kodee {
+    width: 400px;
+    max-width: none;
+    position: absolute;
+    transform: translate(-46%, -36%) scale(1);
+    left: 50%;
+    top: 50%;
+    transition: transform 0.3s ease;
+}
+
+.stamp:hover .kodee {
+    transform: translate(-46%, -36%) scale(1.08);
+}
+

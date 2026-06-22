@@ -201,8 +201,20 @@ You can find all pages in the [pages](pages) directory.
 
 ### Images in Next.js
 
-Notice that using `next/image` is not possible because Next.js does not support importing images to HTML files (SSG).
-Use Img and Svg components from "next-optimized-images" instead.
+Use `next/image` for raster images (PNG, JPG, WebP). Static imports provide automatic width/height:
+
+```tsx
+import Image from 'next/image';
+import myImage from './my-image.png';
+
+<Image src={myImage} alt="..." />
+```
+
+For SVGs displayed as images, use a plain `<img>` tag with the public path:
+
+```tsx
+<img src="/images/path/to/icon.svg" alt="" />
+```
 
 # Tests
 

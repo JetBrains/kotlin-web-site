@@ -1,8 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
 <tldr>
-    <!--<p>No preview versions are currently available.</p>-->
-    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p>No preview versions are currently available.</p>
+    <!--<p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>-->
 </tldr>
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
@@ -53,23 +53,24 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-<!--
-_No preview versions are currently available._
--->
 
-<table>
+_No preview versions are currently available._
+
+<!--
+ <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.4.0-RC</strong>
-            <p>Released: <strong>May 13, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.4.0-RC2</strong>
+            <p>Released: <strong>May 27, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A language release with major changes in the language and tooling updates.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.0-RC</a>.</p>
+            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.0-RC2</a>.</p>
         </td>
     </tr>
 </table>
+-->
