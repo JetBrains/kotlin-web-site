@@ -1,73 +1,132 @@
 [//]: # (title: Packages and imports)
 
+In a Kotlin project, code is organized using packages and imports:
+
+* A **package** is a container for one or more Kotlin files. Files are linked to a package using a `package` header.
+* An **import** is a directive that makes entities from other packages available in the current file.
+
+## Package declarations
+
 A source file may start with a package declaration:
 
 ```kotlin
 package org.example
 
 fun printMessage() { /*...*/ }
-class Message { /*...*/ }
-
-// ...
+class Message(val text: String) { /*...*/ }
 ```
 
-All the contents, such as classes and functions, of the source file are included in this package.
-So, in the example above, the full name of `printMessage()` is `org.example.printMessage`,
-and the full name of `Message` is `org.example.Message`. 
+All contents of the source file (such as classes and functions) belong to this package.
+In the example above:
 
-If the package is not specified, the contents of such a file belong to the _default_ package with no name.
+* The fully qualified name of `printMessage()` is `org.example.printMessage`.
+* The fully qualified name of `Message` is `org.example.Message`.
 
-## Default imports
-
-A number of packages are imported into every Kotlin file by default:
-
-- [kotlin.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/index.html)
-- [kotlin.annotation.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/index.html)
-- [kotlin.collections.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html)
-- [kotlin.comparisons.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.comparisons/index.html)
-- [kotlin.io.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/index.html)
-- [kotlin.ranges.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/index.html)
-- [kotlin.sequences.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/index.html)
-- [kotlin.text.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/index.html)
-
-Additional packages are imported depending on the target platform:
-
-- JVM:
-  - java.lang.*
-  - [kotlin.jvm.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/index.html)
-
-- JS:    
-  - [kotlin.js.*](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/index.html)
+If no package is specified, the file's contents belong to the default root package.
 
 ## Imports
 
-Apart from the default imports, each file may contain its own `import` directives.
+To use an entity from a file in a different package, use an `import` directive.
+Apart from the default imports, each file may declare its own imports.
 
-You can import either a single name:
+### Import a single name
 
-```kotlin
-import org.example.Message // Message is now accessible without qualification
-```
-
-or all the accessible contents of a scope: package, class, object, and so on:
+Import one specific declaration so it can be used without qualification:
 
 ```kotlin
-import org.example.* // everything in 'org.example' becomes accessible
+import org.example.Message // Message is accessible without qualification
+
+fun main() {
+    val message = Message("Hello")
+    println(message.text)
+}
 ```
 
-If there is a name clash, you can disambiguate by using `as` keyword to locally rename the clashing entity:
+### Import the contents of a scope
+
+You can import everything accessible within a scope — a package, class, or object:
 
 ```kotlin
-import org.example.Message // Message is accessible
-import org.test.Message as TestMessage // TestMessage stands for 'org.test.Message'
+import org.example.* // Everything in 'org.example' is accessible
+
+fun main() {
+    printMessage()
+    val message = Message("Hi")
+}
 ```
 
-The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
+### Resolve name clashes with aliases
 
-  * top-level functions and properties
-  * functions and properties declared in [object declarations](object-declarations.md#object-declarations-overview)
-  * [enum constants](enum-classes.md)
+If two imported names clash, use the `as` keyword to locally rename one of them:
 
-## Visibility of top-level declarations
+```kotlin
+import org.example.Message             // Message refers to 'org.example.Message'
+import org.test.Message as TestMessage // TestMessage refers to 'org.test.Message'
 
-If a top-level declaration is marked `private`, it is private to the file it's declared in (see [Visibility modifiers](visibility-modifiers.md)).
+fun main() {
+    val a = Message("from example")
+    val b = TestMessage("from test")
+}
+```
+
+### What you can import
+
+The `import` keyword is not limited to classes. You can import any of the following declarations,
+whether they come from a package, a class, an object, or an enum:
+
+* Top-level functions and properties declared directly inside a package:
+    ```kotlin
+    import org.example.printMessage // Top-level function
+    import org.example.VERSION      // Top-level property
+    ```
+* Functions and properties from [object declarations](object-declarations.md#object-declarations-overview):
+    ```kotlin
+    import org.example.Config.DEFAULT_TIMEOUT // Property from an object
+    import org.example.Config.loadSettings    // Function from an object
+    ```
+* Members of a [companion object](object-declarations.md#companion-objects), referenced through the enclosing class name:
+    ```kotlin
+    import org.example.MyClass.create // Refers to MyClass.Companion.create
+    ```
+* [Enum constants](enum-classes.md):
+    ```kotlin
+    import org.example.Color.RED
+    import org.example.Color.GREEN
+    ```
+* Nested and inner classes:
+    ```kotlin
+    import org.example.Outer.Nested
+    ```
+
+## Default imports
+
+Kotlin imports several packages into every file by default:
+
+* [kotlin.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/index.html)
+* [kotlin.annotation.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.annotation/index.html)
+* [kotlin.collections.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html)
+* [kotlin.comparisons.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/index.html)
+* [kotlin.io.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/index.html)
+* [kotlin.ranges.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.ranges/index.html)
+* [kotlin.sequences.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/index.html)
+* [kotlin.text.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/index.html)
+* [kotlin.math.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/index.html)
+
+Additional packages are imported based on the target platform:
+
+* JVM:
+  * [java.lang.*](https://docs.oracle.com/javase/8/docs/api/java/lang/package-summary.html)
+  * [kotlin.jvm.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/index.html)
+
+* JS:
+  * [kotlin.js.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/index.html)
+
+## Visibility and imports
+
+The ability to import an entity depends on its [visibility modifiers](visibility-modifiers.md):
+
+* `public` entities can be imported anywhere.
+* `internal` entities can be imported only within the same module.
+* `protected` entities cannot be imported.
+* Top-level `private` entities are only accessible within their declaring file.
+* Other `private` entities cannot be imported.
