@@ -49,7 +49,7 @@ Kotlin infers the type automatically:
 ```kotlin
 fun main() {
 //sampleStart
-    val simpleArray = arrayOf(1, 2, 3)
+    val simpleArray = arrayOf(1, 2, 3) // Array<Int>
     println(simpleArray.joinToString())
     // 1, 2, 3
 //sampleEnd
@@ -60,7 +60,7 @@ fun main() {
 ### Empty array
 
 To create an array with no elements, use the [`emptyArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/empty-array.html) function.
-You can specify the type on the left-hand or right-hand side of the assignment:
+You can specify the type of elements on the left-hand or right-hand side of the assignment:
 
 ```kotlin
 val emptyArrayRight = emptyArray<String>()
@@ -280,7 +280,7 @@ fun main() {
 
 In Kotlin, arrays are _invariant_. This means, `Array<String>` is not a subtype
 of `Array<Any>`. This prevents possible runtime type failures. To express covariance, use the `Array<out Any>`
-type projection:
+[type projection](generics.md#type-projections):
 
 ```kotlin
 fun main() {
@@ -295,10 +295,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
->Learn more about [Type Projections](generics.md#type-projections).
-> 
-{style="tip"}
 
 ### Add and remove elements
 
@@ -323,7 +319,7 @@ you need to create a new array. For that, you can use one of the following optio
   ```
   {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-* Use the `+` and `=` operators:
+* Use the `+` or `+=` operators:
 
   ```kotlin
   fun main() {
