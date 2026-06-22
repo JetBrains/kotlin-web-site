@@ -331,7 +331,7 @@ fun main() {
     // true
     
     // Pass true to ignore case differences
-    println("abc".compareTo("ABC", true) == 0)
+    println("abc".compareTo("ABC", ignoreCase = true) == 0)
     // true
 //sampleEnd  
 }
@@ -517,7 +517,7 @@ To convert a string to another type, use the corresponding parsing functions:
 
 * For integer values: [`toByte()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-byte.html), [`toShort()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-short.html), [`toInt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-int.html), [`toLong()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-long.html)
 * For floating-point values: [`toDouble()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-double.html), [`toFloat()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-float.html)
-* For booleans: [`toBoolean()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean.html)
+* For booleans: [`toBoolean()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean.html), [`toBooleanStrict()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean-strict.html)
 
 These functions return a value of the requested type if the string has a valid format.
 If the input may be invalid, use the `OrNull` variants. These functions return `null` 
@@ -526,7 +526,7 @@ fully control:
 
 ```kotlin
 val toInt = "10".toInt()
-val toBoolean = "true".toBoolean()
+val toBoolean = "true".toBooleanStrictOrNull()
 
 // 1000000000000 exceeds maximum value of Int
 val toIntInvalid= "1000000000000".toIntOrNull()
