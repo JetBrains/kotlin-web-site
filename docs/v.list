@@ -5,51 +5,51 @@
 <vars>
 
     <!-- Kotlin -->
-    <var name="kotlinVersion" value="2.3.21"/>
-    <var name="kotlinReleaseDate" value="April 23, 2026"/>
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.3.21"/>
-    <var name="kotlinLatestWhatsnew" value="whatsnew2320.md"/>
+    <var name="kotlinVersion" value="2.4.0"/>
+    <var name="kotlinReleaseDate" value="June 3, 2026"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0"/>
+    <var name="kotlinLatestWhatsnew" value="whatsnew24.md"/>
 
-    <var name="languageVersion" value="2.3"/>
-    <var name="apiVersion" value="2.3"/>
+    <var name="languageVersion" value="2.4"/>
+    <var name="apiVersion" value="2.4"/>
 
     <!-- Kotlin EAP -->
-    <var name="kotlinEapVersion" value="2.4.0-RC"/>
-    <var name="kotlinEapReleaseDate" value="May 13, 2026"/>
+    <var name="kotlinEapVersion" value="2.4.0-RC2"/>
+    <var name="kotlinEapReleaseDate" value="May 27, 2026"/>
 
     <!-- Libraries and Frameworks -->
-    <var name="coroutinesVersion" value="1.10.2"/>
-    <var name="coroutinesEapVersion" value="1.10.2"/>
+    <var name="coroutinesVersion" value="1.11.0"/>
+    <var name="coroutinesEapVersion" value="1.11.0"/>
 
-    <var name="serializationVersion" value="1.10.0"/>
+    <var name="serializationVersion" value="1.11.0"/>
 
     <var name="dateTimeVersion" value="0.8.0"/>
 
-    <var name="lincheckVersion" value="3.4"/>
+    <var name="lincheckVersion" value="3.6"/>
 
-    <var name="ktorVersion" value="3.4.1"/>
+    <var name="ktorVersion" value="3.5.0"/>
 
-    <var name="lombokVersion" value="9.2.0"/>
+    <var name="lombokVersion" value="9.5.0"/>
 
-    <var name="sqlDelightVersion" value="2.2.1"/>
+    <var name="sqlDelightVersion" value="2.3.2"/>
 
     <!-- Gradle, KGP, AGP -->
     <var name="minGradleVersion" value="7.6.3" type="string"/>
-    <var name="maxGradleVersion" value="9.3.0" type="string"/>
+    <var name="maxGradleVersion" value="9.5.0" type="string"/>
 
-    <var name="minAndroidGradleVersion" value="8.2.2" type="string"/>
-    <var name="maxAndroidGradleVersion" value="9.0.0" type="string"/>
+    <var name="minAndroidGradleVersion" value="8.5.2" type="string"/>
+    <var name="maxAndroidGradleVersion" value="9.1.0" type="string"/>
 
-    <var name="gradleVersion" value="9.3.0" type="string"/>
-    <var name="gradleLanguageVersion" value="KOTLIN_2_3" type="string"/>
-    <var name="gradleApiVersion" value="KOTLIN_2_3" type="string"/>
+    <var name="gradleVersion" value="9.5.0" type="string"/>
+    <var name="gradleLanguageVersion" value="KOTLIN_2_4" type="string"/>
+    <var name="gradleApiVersion" value="KOTLIN_2_4" type="string"/>
 
     <!-- Maven -->
     <var name="mavenPluginVersion" value="3.15.0" type="string"/>
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.7"/>
+    <var name="kspVersion" value="2.3.9"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
@@ -63,7 +63,7 @@
     <var name="webpackMajorVersion" value="5"/>
     <var name="webpackPreviousMajorVersion" value="4"/>
 
-    <var name="foojayResolver" value="0.9.0"/>
+    <var name="foojayResolver" value="1.0.0"/>
     <var name="jctoolsVersion" value="3.3.0"/>
 
     <var name="dokkaVersion" value="2.2.0"/>

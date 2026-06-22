@@ -90,4 +90,16 @@
 
 .buttonWrapper {
   margin-top: var(--ktl-box-section-m);
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -16px;
+}
+
+.primaryButton {
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+.secondaryButton {
+    margin-bottom: 16px;
 }

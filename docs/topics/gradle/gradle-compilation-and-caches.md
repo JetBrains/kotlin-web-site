@@ -303,7 +303,7 @@ kotlin.build.report.output=file,single_file,http,build_scan,json
 
 # Mandatory if single_file output is used. Where to put reports 
 # Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
-kotlin.build.report.single_file=some_filename
+kotlin.build.report.single_file=my/directory/path/some_filename
 
 # Mandatory if json output is used. Where to put reports 
 kotlin.build.report.json.directory=my/directory/path

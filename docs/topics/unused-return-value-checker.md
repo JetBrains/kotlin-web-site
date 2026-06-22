@@ -182,6 +182,83 @@ fun check(g: Greeter) {
 }
 ```
 
+## Check for unused results in higher-order functions
+
+Some higher-order functions, such as the `let` scope function, return the result of a lambda.
+To check for unused lambda results of higher-order functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's contract.
+
+> Kotlin contracts are Experimental. To opt in, add the `@OptIn(ExperimentalContracts::class)` annotation when declaring a function with a contract.
+>
+{style="warning"}
+
+Here's an example:
+
+```kotlin
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
+
+@OptIn(ExperimentalContracts::class)
+inline fun <T, R> T.customLet(block: (T) -> R): R {
+    contract {
+        returnsResultOf(block)
+    }
+    return block(this)
+}
+```
+
+You can then use a function with this contract, such as `.customLet()`, to check if the lambda result is used:
+
+```kotlin
+fun handleNullablePackageName(packageName: String?, builder: StringBuilder) {
+    // The checker doesn't report a warning because the return value of append() can be ignored
+    packageName?.customLet { builder.append(it) }
+
+    // The checker reports a warning because the returned string is unused
+    packageName?.customLet { "kotlin.$it" }
+}
+```
+
+> The `returnsResultOf()` contract requires a separate compiler option to opt in.
+> Be aware that using it produces pre-release binaries that Kotlin compiler versions earlier than 2.4.0 can't read.
+>
+{style="warning"}
+
+To opt in for your project, add the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+// build.gradle(.kts)
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xallow-returns-result-of")
+    }
+}
+```
+
+</tab> 
+<tab title="Maven" group-key="maven">
+
+```xml
+<!-- pom.xml -->
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xallow-returns-result-of</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+</tab> 
+</tabs>
+
 ## Interoperability with Java annotations
 
 Some Java libraries use similar mechanisms with different annotations. 

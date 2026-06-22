@@ -21,6 +21,8 @@ Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md
 
 ### See also
 
+If you like to work with AI agents, try our tutorial for [creating a task manager application with Spring Boot and Claude](spring-boot-claude.md).
+
 Look through our Java to Kotlin (J2K) interop and migration guides:
 
 * [Calling Java from Kotlin](java-interop.md) and [Calling Kotlin from Java](java-to-kotlin-interop.md)

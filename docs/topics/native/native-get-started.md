@@ -39,7 +39,7 @@ In this section, you'll learn how to use IntelliJ IDEA to create a Kotlin/Native
    applications, you need the Kotlin Multiplatform Gradle plugin, which has the same version as Kotlin. Ensure that you
    use the latest Kotlin version:
 
-   ```none
+   ```toml
    [versions]
    kotlin = "%kotlinVersion%"
    ```

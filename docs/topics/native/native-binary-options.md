@@ -12,7 +12,6 @@ You can enable binary options in the `gradle.properties` file, your build file, 
 You can set binary options in your project's `gradle.properties` file using the `kotlin.native.binary` property. For example:
 
 ```none
-kotlin.native.binary.gc=cms
 kotlin.native.binary.latin1Strings=true
 ```
 
@@ -146,24 +145,24 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Available since 2.2.0</td>
     </tr>
     <tr>
-        <td><code>gc</code></td>
+        <td><a href="native-memory-manager.md#garbage-collector"><code>gc</code></a></td>
         <td>
             <list>
-                <li><code>pmcs</code> (default)</li>
+                <li><code>cms</code> (default)</li>
+                <li><code>pmcs</code></li>
                 <li><code>stwms</code></li>
-                <li><a href="native-memory-manager.md#optimize-gc-performance"><code>cms</code></a></li>
                 <li><a href="native-memory-manager.md#disable-garbage-collection"><code>noop</code></a></li>
             </list>
         </td>
         <td>Controls garbage collection behavior:
             <list>
+                <li><code>cms</code> uses concurrent mark and sweep</li>
                 <li><code>pmcs</code> uses parallel mark concurrent sweep</li>
                 <li><code>stwms</code> uses simple stop-the-world mark and sweep</li>
-                <li><code>cms</code> enables concurrent marking that helps decrease GC pause time</li>
                 <li><code>noop</code> disables garbage collection</li>
             </list>
         </td>
-        <td><code>cms</code> is Experimental since 2.0.20</td>
+        <td><code>cms</code> is default since 2.4.0</td>
     </tr>
     <tr>
         <td><a href="native-memory-manager.md#garbage-collector"><code>gcMarkSingleThreaded</code></a></td>

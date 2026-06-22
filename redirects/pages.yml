@@ -512,7 +512,7 @@
   to: /docs/coroutine-context-and-dispatchers.html
 
 - from: /docs/reference/coroutines/flow.html
-  to: /docs/flow.html
+  to: /docs/coroutines-flow.html
 
 - from:
   - /docs/reference/using-ant.html

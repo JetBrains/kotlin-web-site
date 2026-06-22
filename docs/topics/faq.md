@@ -78,12 +78,14 @@ For more information, check out the [Kotlin/Native documentation](native-overvie
 Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
 [Android Studio](https://developer.android.com/kotlin/get-started)
 with an official Kotlin plugin developed by JetBrains.
+You can also install the official
+[Kotlin by JetBrains extension for Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code), powered 
+by Kotlin Language Server which is in [Alpha](components-stability.md#stability-levels-explained).
 
 Other IDEs and code editors only have Kotlin community-supported plugins.
 
 You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
 Kotlin code in your browser.
-
 In addition, a [command line compiler](command-line.md) is available, which provides straightforward support for compiling and running applications.
   
 ### What build tools support Kotlin?
@@ -104,7 +106,7 @@ When targeting native, Kotlin will produce platform-specific code (via LLVM).
 
 Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 8 compatible bytecode.
 If you want to make use of optimizations available in newer versions of Java, you can explicitly specify the target Java
-version from 9 to 25. Note that in this case the resulting bytecode might not run on lower versions.
+version from 9 to 26. Note that in this case the resulting bytecode might not run on lower versions.
 Starting with [Kotlin 1.5](whatsnew15.md#new-default-jvm-target-1-8), the compiler does not support producing bytecode compatible with Java versions below 8.
 
 ### Is Kotlin hard?

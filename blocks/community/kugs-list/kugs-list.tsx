@@ -1,8 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import classnames from 'classnames';
-import kugsLogo from '../../../public/images/community/kugs-logo.svg';
 import styles from './kugs-list.module.css';
-import { Svg } from 'react-optimized-image';
 import { useTextStyles } from '@rescui/typography';
 
 interface KugsListProps {
@@ -51,7 +49,7 @@ export const KugsList: FC<KugsListProps> = ({ userGroupData }) => {
     return (
         <div className={styles.wrapper}>
             <h2 className={classnames(styles.title, 'ktl-hero ktl-offset-bottom-l')}>
-                <Svg className={styles.logo} src={kugsLogo} />
+                <img className={styles.logo} src="/images/community/kugs-logo.svg" alt="" />
                 {countUserGroups} KUGs around the world
             </h2>
             <ul className={classnames(styles.list, textCn('rs-text-3'))}>
