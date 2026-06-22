@@ -27,12 +27,18 @@ async function closeProductionElements(baseURL: string, storageStatePath: string
         await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
 
         try {
-            const acceptButton = page.getByRole('button', { name: 'Accept All' });
+            const dialog =  page.getByRole('dialog');
+            await dialog.waitFor({ state: 'visible' });
+
+            const acceptButton = dialog.getByRole('button', { name: 'Accept All' });
             await acceptButton.waitFor({ state: 'visible', timeout: 5000 });
             await acceptButton.click();
 
-            await page.waitForTimeout(1000);
+            await dialog.waitFor({ state: 'hidden' });
         } catch (error) {
+            const acceptButton = page.getByRole('button', { name: 'Accept All' });
+            await acceptButton.waitFor({ state: 'visible', timeout: 5000 });
+
             console.log('[Global Setup] Cookie banner not found - continuing');
         }
 

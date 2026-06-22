@@ -2,7 +2,11 @@ import cn from 'classnames';
 import { CSSProperties } from 'react';
 import dynamic from 'next/dynamic';
 
-import { Img } from 'react-optimized-image';
+import Image from 'next/image';
+import news0 from '../../../latest-news/news-0.png';
+import news1 from '../../../latest-news/news-1.png';
+import news2 from '../../../latest-news/news-2.png';
+import news3 from '../../../latest-news/news-3.png';
 
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
@@ -26,6 +30,8 @@ type NewsItem = {
     description: string;
 };
 
+const newsImages = [news0, news1, news2, news3];
+
 type ItemProps = NewsItem & { position: number };
 
 function Item({ title, date, link, description, position }: ItemProps) {
@@ -47,14 +53,11 @@ function Item({ title, date, link, description, position }: ItemProps) {
             }
         >
             <div className={styles.image}>
-                {/** require there is a workaround, the plugin doesn't work with variables **/}
-                <Img
+                <Image
                     className={cn(styles.imageSrc)}
-                    src={require(`../../../latest-news/news-${position}.png`)}
+                    src={newsImages[position]}
                     alt={title}
-                    breakpoints={[374, 472, 616, 808, 1000, 1190]}
-                    sizes={[272, 328, 424, 280, 248, 312, 280]}
-                    densities={[1, 2]}
+                    sizes="(max-width: 374px) 272px, (max-width: 472px) 328px, (max-width: 616px) 424px, (max-width: 808px) 280px, (max-width: 1000px) 248px, (max-width: 1190px) 312px, 280px"
                 />
             </div>
             <p className={cn(styles.date, textCn('rs-text-3'))}>

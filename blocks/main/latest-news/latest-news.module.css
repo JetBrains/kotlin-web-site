@@ -4,6 +4,7 @@
 .latestNews {
     --ktl-news-grid-data-idx: 5;
 
+    margin-top: var(--ktl-box-page-s);
     margin-bottom: var(--ktl-box-page-m);
 }
 
