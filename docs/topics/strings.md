@@ -525,9 +525,11 @@ instead of throwing an exception making them safe for user input or data that yo
 fully control:
 
 ```kotlin
-val toInt = "10".toInt()
-val toBoolean = "true".toBooleanStrictOrNull()
+val toInt = "10".toInt() // 10
 
 // 1000000000000 exceeds maximum value of Int
-val toIntInvalid= "1000000000000".toIntOrNull()
+val toIntInvalid = "1000000000000".toIntOrNull()
+
+val toBoolean = "true".toBooleanStrict() //true
+val toBooleanInvalid = "yes".toBooleanStrictOrNull() // null
 ```
