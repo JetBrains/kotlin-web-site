@@ -26,7 +26,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 
 #### Sources in different repositories
 
-Source files for the language specification and the docs for Kotlin Mulitplatform, coroutines, lincheck, Dokka,
+Source files for the language specification and the docs for Kotlin Multiplatform, coroutines, serialization, lincheck, Dokka,
 and Library creators' guidelines are stored in separate repositories
 
 | Website page                                                                                    | GitHub repository                                                                           |
