@@ -146,6 +146,7 @@ Kotlin supports the following operators and special symbols:
  * `<`, `>`, `<=`, `>=` - [comparison operators](operator-overloading.md#comparison-operators) (translated to calls of `compareTo()` for non-primitive types).
  * `[`, `]` - [indexed access operator](operator-overloading.md#indexed-access-operator) (translated to calls of `get` and `set`).
  * `!!` [asserts that an expression is non-nullable](null-safety.md#not-null-assertion-operator).
+ * `.`  accesses a member of a type.
  * `?.` performs a [safe call](null-safety.md#safe-call-operator) (calls a method or accesses a property if the receiver is non-nullable).
  * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](null-safety.md#elvis-operator)).
  * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
