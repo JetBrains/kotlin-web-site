@@ -32,8 +32,8 @@ For example:
 plugins {
     // Apply the KSP plugin
     id("com.google.devtools.ksp") version "%kspVersion%"     
-    // Apply other plugins as needed (e.g., kotlin("jvm"), 
-    // kotlin("multiplatform"), etc.)
+    // Apply other plugins as needed
+    kotlin("multiplatform")
 }
 
 dependencies {
@@ -86,8 +86,8 @@ plugins {
     // Apply the KSP plugin
     id 'com.google.devtools.ksp' version '%kspVersion%'
 
-    // Apply other plugins as needed (e.g., kotlin("jvm"),
-    // kotlin("multiplatform"), etc.)
+    // Apply other plugins as needed
+    kotlin('multiplatform')
 }
 
 dependencies {
