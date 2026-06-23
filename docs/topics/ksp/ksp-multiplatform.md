@@ -4,7 +4,14 @@
 Here you can learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. To get started with 
 Kotlin Multiplatform, see the [Kotlin Multiplatform overview](https://kotlinlang.org/docs/multiplatform/kmp-overview.html).
 
-To use KSP-based processors in a multiplatform project, assign a processor to each target that needs symbol processing:
+For a quick start, see an example of a multiplatform project with several targets using KSP in the 
+[source repository](https://github.com/google/ksp/tree/main/examples/multiplatform). The processor in this example
+generates a `Foo` class used by the project.
+
+## Add KSP to a multiplatform project
+
+In the client module's `build.gradle.kts` file, assign a processor to each target that needs symbol processing in the 
+`dependencies {}` block:
 
 ```
 add("ksp<Target>", <processor>)
@@ -12,144 +19,79 @@ add("ksp<Target>", <processor>)
 
 `<processor>` is a Gradle project path. It can be:
 
-* a specific directory in your project that contains the logic for your symbol processor.
+* a specific directory in your project that contains the logic for your symbol processor:
 
-* an external processor such as Room.
+    ```
+    add("kspJvm", project(":local-processor"))
+    ```
+
+* an external processor such as Room:
+
+    ```
+    add("kspJvm", "androidx.room:room-compiler:2.6.1")
+    ```
 
 > For a full list of targets, see [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets) 
 > and [Kotlin/Native supported targets](https://kotlinlang.org/docs/native-target-support.html).
 >
 {style=”tip”}
 
-For example:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+A single target can have multiple processors:
 
 ```kotlin
-// build.gradle.kts
+add("kspAndroid", project(":test-processor"))
+add("kspAndroid", "androidx.room:room-compiler:2.6.1")
+```
 
-plugins {
-    // Apply the KSP plugin
-    id("com.google.devtools.ksp") version "%kspVersion%"     
-    // Apply other plugins as needed
-    kotlin("multiplatform")
-}
+The same processor can be used in multiple targets:
 
-dependencies {
+```kotlin
+add("kspIosX64", project(":test-processor"))
+add("kspIosArm64", project(":test-processor"))
+add("kspIosSimulatorArm64", project(":test-processor"))
+```
 
-    // Targets with multiple processors
-    add("kspJvm", project(":local-processor"))
-    add("kspJvm", "com.example:external-processor:1.0")
+If you have many iOS targets, you can avoid repetition by looping:
 
-    add("kspAndroid", project(":test-processor"))
-    add("kspAndroid", "androidx.room:room-compiler:2.6.1")
-
-    // Different processors for different targets
-    add("kspJvm", project(":jvm-only-processor"))
-    add("kspJs", project(":js-only-processor"))
-
-    // iOS Targets
-    add("kspIosX64", project(":test-processor"))
-    add("kspIosArm64", project(":test-processor"))
-    add("kspIosSimulatorArm64", project(":test-processor"))
-    
-    // TIP: If you have many iOS targets, you can avoid repetition by looping:
+```kotlin
     kotlin.targets.filter { it.name.startsWith("ios") }.forEach { target ->
-        add(
-            "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}",
-            project(":test-processor")
-        )
+       add(
+           "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}",
+           project(":test-processor")
+       )
     }
-    
-    // Specify KSP for the test compilation of each target:
-    add("kspJvmTest", project(":test-processor"))
-    add("kspJsTest", project(":test-processor"))
-    add("kspIosX64Test", project(":test-processor"))
-    
-    // Host Tests / Device Tests:
-    // KSP generates these configurations dynamically based on the source set names.
-    // The test source sets are named 'androidHostTest', 'androidDeviceTest', etc.
-    
-    add("kspAndroidHostTest", project(":test-processor"))
-    add("kspAndroidDeviceTest", project(":test-processor"))
-}
 ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+You can also configure KSP for test compilations:
 
-```Groovy
-// build.gradle
-
-plugins {
-    // Apply the KSP plugin
-    id 'com.google.devtools.ksp' version '%kspVersion%'
-
-    // Apply other plugins as needed
-    kotlin('multiplatform')
-}
-
-dependencies {
-
-    // Targets with multiple processors
-    add('kspJvm', project(':local-processor'))
-    add('kspJvm', 'com.example:external-processor:1.0')
-
-    add('kspAndroid', project(':test-processor'))
-    add('kspAndroid', 'androidx.room:room-compiler:2.6.1')
-
-    // Different processors for different targets
-    add('kspJvm', project(':jvm-only-processor'))
-    add('kspJs', project(':js-only-processor'))
-
-    // iOS Targets
-    add('kspIosX64', project(':test-processor'))
-    add('kspIosArm64', project(':test-processor'))
-    add('kspIosSimulatorArm64', project(':test-processor'))
-
-    // TIP: If you have many iOS targets, you can avoid repetition by looping:
-    kotlin.targets.findAll { it.name.startsWith("ios") }.each { target -> 
-        add(
-            "ksp${target.name.replaceFirstChar { it.toUpperCase() }}",
-            project(":test-processor")
-        )
-    }
-
-    // Specify KSP for the test compilation of each target:
-    add('kspJvmTest', project(':test-processor'))
-    add('kspJsTest', project(':test-processor'))
-    add('kspIosX64Test', project(':test-processor'))
-
-    // Host Tests / Device Tests:
-    // KSP generates these configurations dynamically based on the source set names.
-    // The test source sets are named 'androidHostTest', 'androidDeviceTest', etc.
-
-    add('kspAndroidHostTest', project(':test-processor'))
-    add('kspAndroidDeviceTest', project(':test-processor'))
-}
+```kotlin
+add("kspJvmTest", project(":test-processor"))
+add("kspJsTest", project(":test-processor"))
+add("kspIosX64Test", project(":test-processor"))
 ```
 
-</tab>
-</tabs>
+For Android host and device tests, KSP derives configuration names from the corresponding source set names:
 
-Configuration names for tests in Multiplatform depend on the exact source set names generated by the Kotlin 
-plugin. Run the following command in your terminal to see the definitive list of all generated KSP configurations 
-for your module:
+```kotlin
+add("kspAndroidHostTest", project(":test-processor"))
+add("kspAndroidDeviceTest", project(":test-processor"))
+```
+
+## Find KSP configuration names
+
+KSP configuration names depend on the source set names generated by the Kotlin plugin. To view the complete 
+list of KSP configurations for a module, run:
 
 ```
 ./gradlew :<your-module-name>:dependencies | grep ksp
 ```
 
-Look for configurations matching your target names to find the right one.
+Look for the configuration names that correspond to your target source sets.
 
 > Since KSP 2, the catch-all `ksp(...)` configuration is deprecated. Configure each target explicitly to avoid running 
 > processors where they are not needed.
 > 
 {style="note"}
-
-To see an example of a multiplatform project with several targets using KSP, 
-visit the [source repository](https://github.com/google/ksp/tree/main/examples/multiplatform).
 
 ## Compilation and processing
 
@@ -174,8 +116,8 @@ In the example's `workload/build.gradle.kts` file, KSP dependencies are declared
 * `kspJs` and `kspJsTest`
 * `kspAndroidNativeX64` and `kspAndroidNativeX64Test`
 * `kspAndroidNativeArm64` and `kspAndroidNativeArm64Test`
-* `kspLinuxX64` (test is omitted/commented out)
-* `kspMingwX64` (test is omitted/commented out)
+* `kspLinuxX64`
+* `kspMingwX64`
 
 KSP creates a symbol processing task for each configuration where a KSP dependency is declared. In this example, the 
 project creates at least 12 Kotlin compilation tasks and 10 symbol processing tasks. The remaining compilations don't 
