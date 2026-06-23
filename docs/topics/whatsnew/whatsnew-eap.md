@@ -68,21 +68,25 @@ import kotlin.coroutines.ExperimentalStdlibCoroutineSupportApi
 import kotlin.coroutines.StackTraceRecoverable
 
 @OptIn(ExperimentalStdlibCoroutineSupportApi::class)
-class FileEditException(
+class FileEditException
+// The implementation requires a private constructor
+// to pass the cause to the IllegalStateException constructor
+private constructor(
     val line: Int,
     private val detail: String,
-) : IllegalStateException("When editing line $line: $detail"),
+    cause: Throwable?,
+) : IllegalStateException("When editing line $line: $detail", cause),
     // Implements StackTraceRecoverable for stack trace recovery
     StackTraceRecoverable<FileEditException> {
 
+    constructor(line: Int, detail: String) : this(line, detail, null)
+
     // Copies the line number and message details
     override fun copyForStackTraceRecovery(): FileEditException =
-        FileEditException(line, detail).also { copied ->
-            copied.initCause(this)
-        }
+        FileEditException(line, detail, this)
 }
 
-@OptIn(ExperimentalStdlibCoroutineSupportApi::class)
+@OptIn(ExperimentalStdlibCoroutineSupportApi::class) 
 fun main() {
     val original = FileEditException(15, "Unexpected token")
     val copy = original.copyForStackTraceRecovery()
