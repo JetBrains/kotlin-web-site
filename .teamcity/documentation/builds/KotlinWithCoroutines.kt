@@ -27,6 +27,10 @@ object KotlinWithCoroutines: WritersideBuilder(
         addSubDocumentation("dokka", DokkaRoot)
         addSubDocumentation("api-guidelines", APIGuidelinesRoot)
         addSubDocumentation("kotlinx.coroutines", KotlinxCoroutinesRoot)
+        addSubDocumentation("kotlinx.serialization", KotlinxSerializationRoot, """
+            +:.git => kotlinx-serialization/.git
+            +:docs-website => kotlinx-serialization/docs-website
+        """.trimIndent())
         addSubDocumentation("kotlinx-lincheck", KotlinxLincheckRoot, """
             +:.git => kotlinx-lincheck/.git
             +:docs => kotlinx-lincheck/docs
