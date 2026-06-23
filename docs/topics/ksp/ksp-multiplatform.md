@@ -1,7 +1,7 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
 [//]: # (description: Add KSP to a Kotlin multiplatform project)
 
-This document explains how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. To get started with 
+Here you can learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. To get started with 
 Kotlin Multiplatform, see the [Kotlin Multiplatform overview](https://kotlinlang.org/docs/multiplatform/kmp-overview.html).
 
 To use KSP-based processors in a multiplatform project, assign a processor to each target that needs symbol processing:
@@ -12,7 +12,7 @@ add("ksp<Target>", <processor>)
 
 `<processor>` is a Gradle project path. It can be:
 
-* the specific folder in your project that contains the logic for your symbol processor.
+* a specific directory in your project that contains the logic for your symbol processor.
 
 * an external processor such as Room.
 
@@ -109,10 +109,10 @@ dependencies {
     add('kspIosSimulatorArm64', project(':test-processor'))
 
     // TIP: If you have many iOS targets, you can avoid repetition by looping:
-    kotlin.targets.findAll { it.name.startsWith("ios") }.each { target ->
+    kotlin.targets.findAll { it.name.startsWith("ios") }.each { target -> 
         add(
-                "ksp${target.name.replaceFirstChar { it.toUpperCase() }}",
-                project(":test-processor")
+            "ksp${target.name.replaceFirstChar { it.toUpperCase() }}",
+            project(":test-processor")
         )
     }
 
@@ -168,7 +168,7 @@ The [example project](https://github.com/google/ksp/tree/main/examples/multiplat
 Each of these targets includes a `main` and a `test` compilation. As a result, the project creates at least 12 Kotlin 
 compilation tasks.
 
-In the example's `workload/build.gradle.kts`, KSP dependencies are declared for the following configurations:
+In the example's `workload/build.gradle.kts` file, KSP dependencies are declared for the following configurations:
 
 * `kspJvm` and `kspJvmTest`
 * `kspJs` and `kspJsTest`
@@ -177,7 +177,7 @@ In the example's `workload/build.gradle.kts`, KSP dependencies are declared for 
 * `kspLinuxX64` (test is omitted/commented out)
 * `kspMingwX64` (test is omitted/commented out)
 
-KSP creates one symbol processing task for each configuration where a KSP dependency is declared. In this example, the 
+KSP creates a symbol processing task for each configuration where a KSP dependency is declared. In this example, the 
 project creates at least 12 Kotlin compilation tasks and 10 symbol processing tasks. The remaining compilations don't 
 have corresponding KSP tasks because KSP isn't configured for them.
 
