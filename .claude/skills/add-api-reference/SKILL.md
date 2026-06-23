@@ -42,7 +42,7 @@ example). Derive the casing variants from the base name.
 | Const prefix | `KOTLINX_COLLECTIONS_IMMUTABLE` | SCREAMING_SNAKE_CASE for the `BuildParams` consts. |
 | API id (slug + title) | `kotlinx.collections.immutable` | The `/api/<id>/` slug, the Algolia index name, and the title. Match the repo's dotted/dashed name and desired URL. |
 | Git SSH URL | `git@github.com:Kotlin/kotlinx.collections.immutable.git` | Must be SSH (`git@github.com:...`). |
-| Release tag | `v0.5.0` | The branch/tag to build from (the VCS root `branch`). |
+| Release tag | `v0.5.0` | The branch/tag to build from. **A tag** (e.g. `v0.5.0`) must be wired with the full ref — see Step 2. **A branch** (e.g. `master`, `latest-release`) is used as-is. |
 | Release label | `0.5.0` | The displayed version. The drop-snapshot step strips a leading `v`. |
 | Dokka HTML output | `core/build/dokka/html` | datetime-style (`core/` module). Root-module libs use `build/dokka/html`. |
 | Dokka templates dir | `core/dokka-templates` | Where `dependsOnDokkaTemplate` drops the site templates. Root-module libs use `dokka-templates` (the helper default). |
@@ -78,28 +78,42 @@ Then add one line to the `API_URLS` list (drives the sitemap index), next to the
 
 ### 2. Add the VCS root
 
-New file: `.teamcity/references/vcsRoots/<Base>.kt` (copy of `KotlinxDatetime.kt` /
-`KotlinxIO.kt`):
+New file: `.teamcity/references/vcsRoots/<Base>.kt`.
+
+**Building from a tag** (e.g. `v0.5.0` — the usual case for a stable release). Use the full ref
+via the `VCS.tag(...)` helper and a tag-only `branchSpec`. Do **not** pass a bare tag name to
+`branch` with a `+:refs/heads/(*)` spec — TeamCity expands the short name to `refs/heads/<tag>`,
+which doesn't exist, and fails with *"Cannot find revision of the default branch"*.
 
 ```kotlin
 package references.vcsRoots
 
 import BuildParams.<PREFIX>_RELEASE_TAG
+import common.extensions.VCS
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object <Base> : GitVcsRoot({
   name = "<api id> vcs root"
   url = "<git SSH URL>"
-  branch = <PREFIX>_RELEASE_TAG
-  branchSpec = """
-    +:refs/heads/(*)
-    +:refs/tags/(*)
-  """.trimIndent()
+  branch = VCS.tag(<PREFIX>_RELEASE_TAG)   // refs/tags/<release tag>
+  branchSpec = "+:refs/tags/*"
   useTagsAsBranches = true
   authMethod = uploadedKey {
     uploadedKey = "teamcity"
   }
 })
+```
+
+**Building from a branch** (e.g. `master`, `latest-release` — the kotlinx-io / datetime style).
+Use the branch name directly with the heads+tags spec:
+
+```kotlin
+  branch = <PREFIX>_RELEASE_TAG            // e.g. "master" or "latest-release"
+  branchSpec = """
+    +:refs/heads/(*)
+    +:refs/tags/(*)
+  """.trimIndent()
+  useTagsAsBranches = true
 ```
 
 ### 3. Add the three build objects
@@ -279,16 +293,15 @@ tag `v0.5.0`, label `0.5.0`, `core/` module layout.
 package references.vcsRoots
 
 import BuildParams.KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG
+import common.extensions.VCS
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object KotlinxCollectionsImmutable : GitVcsRoot({
   name = "kotlinx.collections.immutable vcs root"
   url = "git@github.com:Kotlin/kotlinx.collections.immutable.git"
-  branch = KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG
-  branchSpec = """
-    +:refs/heads/(*)
-    +:refs/tags/(*)
-  """.trimIndent()
+  // Pinned to the stable release tag (full ref so the short name isn't resolved as a head).
+  branch = VCS.tag(KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG)
+  branchSpec = "+:refs/tags/*"
   useTagsAsBranches = true
   authMethod = uploadedKey {
     uploadedKey = "teamcity"
@@ -327,6 +340,7 @@ import BuildParams.KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL
 import references.BuildApiPages
 import references.dependsOnDokkaTemplate
 import references.scriptBuildHtml
+import references.scriptDropSnapshot
 import references.vcsRoots.KotlinxCollectionsImmutable
 
 private const val DOKKA_HTML_RESULT = "core/build/dokka/html"
@@ -335,6 +349,17 @@ object KotlinxCollectionsImmutableBuildApiReference : BuildApiPages(
     apiId = KOTLINX_COLLECTIONS_IMMUTABLE_ID,
     releaseTag = KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL,
     pagesRoot = DOKKA_HTML_RESULT,
+    // gradle.properties has `version=0.5.0` + a separate `versionSuffix=SNAPSHOT`; strip the
+    // suffix (the default drop-snapshot only rewrites `version=`). Same as datetime.
+    stepDropSnapshot = {
+        scriptDropSnapshot {
+            // language=bash
+            scriptContent = """
+                #!/bin/bash
+                sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
+            """.trimIndent()
+        }
+    },
     stepBuildHtml = {
         scriptBuildHtml { tasks = ":kotlinx-collections-immutable:dokkaGenerate" }
     },

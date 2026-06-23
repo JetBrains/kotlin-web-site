@@ -299,6 +299,7 @@
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
         <toc-element toc-title="Kotlin I/O library (kotlinx-io)" href="https://kotlinlang.org/api/kotlinx-io/"/>
         <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
+        <toc-element toc-title="Immutable collections (kotlinx.collections.immutable)" href="https://kotlinlang.org/api/kotlinx.collections.immutable/"/>
         <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
         <toc-element toc-title="Kotlin Gradle plugins (kotlin-gradle-plugin)" href="https://kotlinlang.org/api/kotlin-gradle-plugin/"/>

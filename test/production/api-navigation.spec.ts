@@ -60,6 +60,13 @@ test.describe('Api navigation', () => {
         expect(page.url()).toContain('/api/kotlinx-datetime/');
     });
 
+    test('Click on "Immutable collections" button should open the related page', async ({ page }) => {
+        const immutableButton = await hoverOverApiElement(page, 'Immutable collections');
+        await expect(immutableButton).toBeVisible();
+        await immutableButton.click();
+        expect(page.url()).toContain('/api/kotlinx.collections.immutable/');
+    });
+
     test('Click on "JVM Metadata" button should open the related page', async ({ page }) => {
         const metadataButton = await hoverOverApiElement(page, 'JVM Metadata');
         await expect(metadataButton).toBeVisible();

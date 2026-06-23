@@ -28,6 +28,11 @@ object BuildParams {
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG = "v0.5.0"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL = "0.5.0"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_ID = "kotlinx.collections.immutable"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_TITLE = KOTLINX_COLLECTIONS_IMMUTABLE_ID
+
   const val KOTLIN_RELEASE_TAG = "2.4.0"
   const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
 
@@ -63,6 +68,7 @@ object BuildParams {
     "api/$KOTLINX_DATETIME_ID",
     "api/$KOTLINX_IO_ID",
     "api/$KOTLINX_METADATA_ID",
+    "api/$KOTLINX_COLLECTIONS_IMMUTABLE_ID",
     "api/${KGP_REFERENCE.urlPart}",
     "api/${API_COMPOSE.urlPart}",
   )
