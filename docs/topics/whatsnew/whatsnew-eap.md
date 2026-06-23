@@ -15,9 +15,9 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Standard library:** [`StackTraceRecoverable` interface for integration with `kotlinx.coroutines`](#standard-library-new-stacktracerecoverable-interface)
+* **Standard library:** [Add the `StackTraceRecoverable` interface to support coroutine stack trace recovery](#standard-library-new-stacktracerecoverable-interface)
 * **Kotlin/Native:** [default incremental for `klib` artifacts](#kotlin-native-incremental-compilation-enabled-by-default)
-* **Kotlin/Wasm:** [Improved top-level `require()` calls and companion object initialization order](#kotlin-wasm)
+* **Kotlin/Wasm:** [Changes to top-level `require()` calls and improved companion object initialization order](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing](#kotlin-js-new-dsl-for-browser-testing)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api-support-for-kotlin-js-kotlin-wasm-and-kotlin-metadata)
 
@@ -105,13 +105,13 @@ We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/i
 
 ## Kotlin/Native: Incremental compilation enabled by default
 
-Starting with %kotlinEapVersion`, incremental compilation of `klib` artifacts is enabled by default.
+Starting with %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default.
 
-With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, just a part
+With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, only the affected part
 of the `klib` is further recompiled into a binary.
 
 This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts)
-and proved to drastically reduce compilation time for debug builds.
+and has proven to drastically reduce compilation time for debug builds.
 
 Note that in some cases, this optimization may come with a performance cost for clean builds.
 
@@ -215,7 +215,7 @@ where intermediate classes don’t declare companion objects.
 ## Kotlin/JS: new DSL for browser-testing
 <primary-label ref="experimental-opt-in"/>
 
-Kotlin %kotlinEapVersion` introduces a new experimental DSL for running Kotlin/JS tests in a browser environment.
+Kotlin %kotlinEapVersion% introduces a new experimental DSL for running Kotlin/JS tests in a browser environment.
 
 Currently, the Kotlin Gradle plugin uses [Karma](https://github.com/karma-runner/karma) as a browser launcher to run
 JavaScript tests across different browsers. The Karma project has been deprecated for 2 years now, which made us explore
@@ -253,7 +253,7 @@ kotlin {
                 firefox()
                 // Enable WebKit test runner
                 webkit { }
-                // Enable and configure additional WebKit test runner
+                // Enable and configure an additional WebKit test runner
                 webkit("noheadless") {
                     // Set up custom options
                     headless = false
@@ -269,7 +269,7 @@ The new DSL is in active development. We would appreciate your feedback in [YouT
 ## Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata
 <primary-label ref="experimental-general"/>
 
-In [Kotlin 2.2.20](whatsnew22.md#new-experimental-build-tools-api), the build tools API (BTA) became available for
+In [Kotlin 2.2.0](whatsnew22.md#new-experimental-build-tools-api), the build tools API (BTA) became available for
 Kotlin/JVM. Kotlin 2.4.20-Beta1 takes the next step toward BTA stabilization by adding support for new targets:
 Kotlin/JS, Kotlin/Wasm, and Kotlin metadata.
 
