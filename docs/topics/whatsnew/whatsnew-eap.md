@@ -16,6 +16,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Standard library:** [`StackTraceRecoverable` interface for integration with `kotlinx.coroutines`](#standard-library-new-stacktracerecoverable-interface)
+* **Kotlin/Native:** [default incremental for `klib` artifacts](#kotlin-native-incremental-compilation-enabled-by-default)
 * **Kotlin/Wasm:** [Improved top-level `require()` calls and companion object initialization order](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing](#kotlin-js-new-dsl-for-browser-testing)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api-support-for-kotlin-js-kotlin-wasm-and-kotlin-metadata)
@@ -101,6 +102,28 @@ fun main() {
 
 For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/stdlib/KEEP-0461-stacktrace-recoverable.md).
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-86595).
+
+## Kotlin/Native: Incremental compilation enabled by default
+
+Starting with %kotlinEapVersion`, incremental compilation of `klib` artifacts is enabled by default.
+
+With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, just a part
+of the `klib` is further recompiled into a binary.
+
+This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts)
+and proved to drastically reduce compilation time for debug builds.
+
+Note that in some cases, this optimization may come with a performance cost for clean builds.
+
+If you face unexpected problems with this feature, you can disable it manually. To do that, set the following option
+in your `gradle.properties` file:
+
+```none
+kotlin.incremental.native=false
+```
+
+Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue). For more tips on improving compilation
+time, see our [documentation](native-improving-compilation-time.md).
 
 ## Kotlin/Wasm
 
