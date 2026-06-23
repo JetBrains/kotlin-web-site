@@ -33,6 +33,9 @@
 
     <var name="sqlDelightVersion" value="2.3.2"/>
 
+    <var name="kotlinxIoVersion" value="0.9.0"/>
+    <var name="okioVersion" value="3.16.2"/>
+
     <!-- Gradle, KGP, AGP -->
     <var name="minGradleVersion" value="7.6.3" type="string"/>
     <var name="maxGradleVersion" value="9.5.0" type="string"/>
