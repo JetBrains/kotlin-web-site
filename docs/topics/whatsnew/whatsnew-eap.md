@@ -15,8 +15,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Standard library:** [Add the `StackTraceRecoverable` interface to support coroutine stack trace recovery](#standard-library-new-stacktracerecoverable-interface)
-* **Kotlin/Native:** [default incremental for `klib` artifacts](#kotlin-native-incremental-compilation-enabled-by-default)
+* **Standard library:** [Support for coroutine stack trace recovery](#standard-library-support-for-coroutine-stack-trace-recovery)
+* **Kotlin/Native:** [Default incremental compilation for `klib` artifacts](#kotlin-native-incremental-compilation-enabled-by-default)
 * **Kotlin/Wasm:** [Changes to top-level `require()` calls and improved companion object initialization order](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing](#kotlin-js-new-dsl-for-browser-testing)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api-support-for-kotlin-js-kotlin-wasm-and-kotlin-metadata)
@@ -33,7 +33,7 @@ and [Android Studio](https://developer.android.com/studio).
 To update to the new Kotlin version, make sure your IDE is updated to the latest version and [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
 to %kotlinEapVersion% in your build scripts.
 
-## Standard library: new `StackTraceRecoverable` interface
+## Standard library: Support for coroutine stack trace recovery
 <primary-label ref="experimental-opt-in"/>
 
 Kotlin %kotlinEapVersion% adds the `StackTraceRecoverable` interface to the standard library.
@@ -229,7 +229,7 @@ The new DSL is intended to replace Karma as a manager of different tools under t
 * [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports Chromium, Firefox,
   and WebKit (Safari) browser engines.
 
-To try out the new testing DSL, and the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
+To try out the new testing DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
 
 ```kotlin
 kotlin {
@@ -283,8 +283,8 @@ We plan to roll out the BTA support for the new targets in the Kotlin Gradle plu
 
 * In Kotlin 2.4.20-Beta1, BTA is enabled in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default to gather feedback.
   No additional changes in projects are required.
-* In Kotlin 2.4.20-Beta2−2.4.20, BTA in the new targets will be available as an opt-in. To try it out, add the
-  corresponding properties to your `gradle.properties` file:
+* Between Kotlin 2.4.20-Beta2 and the final Kotlin 2.4.20 release, BTA in the new targets will be available as an opt-in.
+  To try it out, add the corresponding properties to your `gradle.properties` file:
 
   ```kotlin
   kotlin.wasm.runViaBuildToolsApi = true
