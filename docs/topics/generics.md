@@ -15,7 +15,6 @@ val box: Box<Int> = Box<Int>(1)
 ```
 
 If the compiler can infer the type arguments, for example, from the constructor arguments, you don’t need to specify them explicitly:
-you can omit the type arguments:
 
 ```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
