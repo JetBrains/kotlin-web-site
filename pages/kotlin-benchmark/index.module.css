@@ -1,0 +1,14 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    z-index: 0;
+    padding-bottom: 1px; /* contain children margins */
+
+    background: radial-gradient(
+        520px 290px at 50% 300px,
+        oklch(0.604 0.281 321.9 / 0.2),
+        oklch(0.588 0.241 288.6 / 0.1) 42%,
+        transparent 72%
+    );
+}
