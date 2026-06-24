@@ -78,7 +78,7 @@ test.describe('Case-studies landing page', async () => {
             caseStudiesPage.selectType(caseStudiesPage.switchServerSide)
         ]);
 
-        expect(page.url()).toContain('type=server-side');
+        expect(page.url()).toContain('type=backend');
 
         await Promise.all([
             page.waitForNavigation({ waitUntil: 'networkidle' }),
