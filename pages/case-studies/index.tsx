@@ -21,7 +21,7 @@ const TOP_MENU_ITEMS = [
 function Index() {
     return (
         <LandingLayout
-            title="Kotlin Case Studies | Mobile, Web & Server-side"
+            title="Kotlin Case Studies | Mobile, Web & Backend"
             ogImageName={'case-studies.png'}
             description="Discover how teams use Kotlin to build backend services, multiplatform apps, and modern UIs. Explore real-world case studies and success stories."
             currentTitle={CASE_STUDIES_TITLE}
