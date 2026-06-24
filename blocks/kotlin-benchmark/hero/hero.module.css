@@ -1,0 +1,46 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 768px;
+    margin-inline: auto;
+    padding-top: var(--ktl-box-page-m);
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+
+    @media (--ktl-ts-only) {
+        font-size: 42px;
+        line-height: 50px;
+    }
+}
+
+/* Kotlin brand gradient applied to the word "Kotlin" (mirrors the prototype). */
+.gradientText {
+    background: linear-gradient(
+        135deg,
+        oklch(0.626 0.192 19.3),
+        oklch(0.604 0.281 321.9) 45%,
+        oklch(0.588 0.241 288.6) 75%,
+        oklch(0.693 0.164 255.4)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro {
+    max-width: 720px;
+    margin: 24px 0 0;
+
+    @media (--ktl-ts-only) {
+        font-size: 23px;
+        line-height: 30px;
+    }
+}
