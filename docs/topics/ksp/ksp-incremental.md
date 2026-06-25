@@ -3,8 +3,8 @@
 KSP supports incremental processing: KSP reprocesses a file only when one or more of its dependencies change. This
 avoids unnecessary reprocessing and therefore reduces compilation time.
 
-Incremental processing is enabled by default. You might want to disable incremental processing when troubleshooting or 
-to force a full rebuild. To disable it, add this line to your `gradle.properties` file:
+Incremental processing is enabled by default. Disable it when troubleshooting or forcing a full rebuild. To disable it, 
+add this line to your `gradle.properties` file:
 
 ```
 ksp.incremental=false
