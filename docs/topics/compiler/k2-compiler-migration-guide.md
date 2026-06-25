@@ -1277,7 +1277,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
 * [Power-assert](power-assert.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
-* [Serialization](serialization.md)
+* [Serialization](https://kotlinlang.org/docs/serialization.html)
 
 In addition, the Kotlin K2 compiler supports:
 

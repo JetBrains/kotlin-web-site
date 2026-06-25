@@ -116,7 +116,7 @@ does. You can use the following approach when considering support for native tar
 * Support all the targets from tiers 1, 2, and 3.
 * Regularly test targets from tiers 1 and 2 that support running tests out of the box.
 
-The Kotlin team uses this approach in the official Kotlin libraries, for example, [kotlinx.coroutines](coroutines-guide.md) and [kotlinx.serialization](serialization.md).
+The Kotlin team uses this approach in the official Kotlin libraries, for example, [kotlinx.coroutines](https://kotlinlang.org/docs/coroutines-guide.html) and [kotlinx.serialization](https://kotlinlang.org/docs/serialization.html).
 
 ## Hosts
 

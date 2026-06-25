@@ -20,7 +20,7 @@ The Kotlin team maintains the following compiler plugins:
 | [`no-arg`](no-arg-plugin.md)                                                                   | Generates no-argument constructors for annotated classes to support frameworks that require them.                                         |
 | [Power-assert](power-assert.md)                                                                | Enhances assertion failures by showing detailed values for each part of an expression.                                                    |
 | [SAM with receiver](sam-with-receiver-plugin.md)                                               | Allows SAM interfaces to use lambdas with receivers for a more DSL-like syntax.                                                           |
-| [Serialization](serialization.md)                                                              | Generates code that serializes and deserializes Kotlin objects without reflection.                                                        |
+| [Serialization](https://kotlinlang.org/docs/serialization.html)                                                              | Generates code that serializes and deserializes Kotlin objects without reflection.                                                        |
 
 The Android team at Google maintains:
 
