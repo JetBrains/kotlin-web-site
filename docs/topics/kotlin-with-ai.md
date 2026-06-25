@@ -35,6 +35,10 @@ JetBrains IDEs provide several AI-powered tools for Kotlin development:
   refactor code across multiple files, and creating tests.
 * [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) – Generate, explain, and refactor Kotlin code,
   create documentation and tests, and ask questions about your project without leaving the IDE.
+* JetBrains Air
+* JetBrains Central
+* Agent Client Protocol
+* DPAI Arena
 * [MCP server](https://plugins.jetbrains.com/plugin/26071-mcp-server?_cl=MTsxOzE7YlUyZlBIVDFjak9DRk54bnhZOE15MDFLbFRCNVVNSzRQQjlrRXdJZk5XS1NleExxemEwTFlzYlVNYTZLVkZaMzs%3D&_gl=1%2A1ro96c%2A_gcl_au%2AMTM4MzA2MTQ5OC4xNzgxMDg2MDUx%2AFPAU%2AMTM4MzA2MTQ5OC4xNzgxMDg2MDUx%2A_ga%2AOTI3NzQ3NDc1LjE3NzI0NTYwNzM.%2A_ga_9J976DJZ68%2AczE3ODIzNzg5OTUkbzM5JGcxJHQxNzgyMzc5NDIwJGoxMyRsMCRoMA..) -
   Exposes IDE capabilities through the Model Context Protocol (MCP), allowing compatible AI agents to interact with your project, navigate code, perform refactorings, run builds and tests, and use other IDE features.
 

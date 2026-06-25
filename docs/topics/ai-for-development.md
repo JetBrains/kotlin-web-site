@@ -1,30 +1,20 @@
 [//]: # (title: AI-powered Kotlin development)
 
-AI-powered development tools can help you work more efficiently throughout the software development lifecycle.
-Depending on your workflow, you can use AI to generate code, understand unfamiliar APIs,
-refactor existing implementations, create tests and documentation,
-or automate larger development tasks.
+AI-powered tools can assist with many Kotlin development tasks, from small code suggestions to larger implementation work.
+For example, you can use AI to generate Kotlin code, explain unfamiliar APIs, create tests, write documentation,
+review changes, and perform refactorings.
 
-The Kotlin ecosystem supports several approaches to AI-assisted development.
-Some tools are integrated directly into JetBrains IDEs, while others work as external coding agents.
-You can also provide AI agents with Kotlin-specific knowledge through [AI Skills](kotlin-ai-skills.md)
-to improve the quality and consistency of generated code.
-
-This page introduces the available tools and explains when to use each one.
+This page explains the AI-powered tools available for Kotlin development and how to choose the right workflow.
 
 ## AI Assistant
 
-[AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) is an AI-powered assistant
-integrated into JetBrains IDEs. It provides contextual assistance while you work with Kotlin code and has
-access to your project through the IDE.
+[AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance directly in JetBrains IDEs.
+It is useful for focused, interactive tasks where you want to stay in control of each change.
 
-Use AI Assistant when you need help with individual development tasks without leaving your IDE.
-For example, it can explain unfamiliar code, generate documentation, suggest refactorings,
-create tests, or answer questions about APIs. Because it works directly inside the IDE,
-it can use project context to provide more relevant suggestions than a standalone chatbot.
-
-AI Assistant works alongside you as you develop.
-You decide which suggestions to accept, modify, or discard before applying them to your code.
+Use AI Assistant when you want to ask questions about your project, explain existing Kotlin code,
+generate a code fragment, create KDoc, write tests, suggest refactorings, or summarize changes. 
+Because AI Assistant works inside the IDE, it can be used together with Kotlin-aware features
+such as code completion, navigation, inspections, and refactorings.
 
 > Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html).
 >
@@ -32,15 +22,50 @@ You decide which suggestions to accept, modify, or discard before applying them 
 
 ## Junie
 
-[Junie](https://www.jetbrains.com/junie/) is an AI coding agent for JetBrains IDEs that
-can perform multistep development tasks involving multiple files.
+[Junie](https://www.jetbrains.com/junie/) is a JetBrains AI coding agent. It is deeply integrated into JetBrains IDEs and can use the running IDE engine.
 
-Use Junie when a task is too large for a single prompt, such as implementing a feature,
-updating an API across a project, or generating tests for an existing module.
-Junie can plan and execute a sequence of actions instead of responding only to individual requests.
+Junie is designed for tasks that require more than a single code suggestion or chat response.
+You can ask it to implement a feature, update code across multiple files, add tests, or perform maintenance work.
+Junie can plan the work, explore the project, write code, run tests when needed, and present the result for review.
 
-Describe the task you want to accomplish, let Junie perform the implementation, then review,
-test, and validate the proposed changes before accepting them.
+Because Junie works with IDE capabilities such as refactoring, debugging, and framework-aware navigation,
+it can handle Kotlin projects with more context than tools that only read and write files.
+
+## JetBrains Air
+
+JetBrains Air is an agentic development environment for delegating coding tasks to multiple AI agents
+and running them concurrently.
+
+Use JetBrains Air when you want several agents to work on tasks at the same time while
+keeping each task isolated from the main codebase. This is useful for experimentation, parallel implementation attempts,
+comparing agent output, or assigning different tasks to different agents.
+
+Air provides a desktop experience for defining, planning, reviewing, and iterating on complex development tasks.
+Agents can run locally or in isolated environments such as Docker containers and Git worktrees.
+Depending on your setup, you can use a JetBrains AI subscription or your AI provider’s API keys.
+
+## JetBrains Central
+
+JetBrains Central is an open platform for agent-driven software development across teams.
+It connects tools, agents, and infrastructure so that automated work can be run, monitored, and managed in one place.
+
+Use JetBrains Central when AI-assisted development needs to move beyond individual coding sessions.
+For teams and organizations, the challenge is not only generating code, but also managing visibility, cost,
+performance, results, and governance across many agent-driven tasks.
+
+JetBrains Central helps organizations coordinate AI agents as part of software production rather than treating them
+as isolated developer tools.
+
+## Agent Client Protocol
+
+Agent Client Protocol (ACP) is an open protocol for connecting AI coding agents to IDEs and code editors.
+Instead of requiring a separate integration for every agent and editor combination,
+ACP standardizes how agents and clients communicate.
+
+JetBrains IDEs support ACP, so you can use ACP-compatible agents from within the IDE.
+This is useful when you want flexibility in choosing AI agents while continuing to work with
+Kotlin-aware IDE features such as navigation, inspections, refactorings, and project analysis.
+The registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
 
 ## MCP server
 
@@ -60,9 +85,32 @@ the MCP server so it can use the IDE’s Kotlin language intelligence while perf
 > 
 {style="tip"}
 
+## DPAI Arena
+
+DPAI Arena is an open benchmarking platform for evaluating AI coding agents on real-world software engineering tasks.
+It is designed to support multiple languages, frameworks, and development workflows.
+
+Use DPAI Arena when you need evidence about how AI coding agents perform on realistic development tasks.
+Benchmark results can help teams compare tools, evaluate improvements, and make more informed
+decisions about agent adoption.
+
+## Kotlin AI Skills
+
+Kotlin AI Skills are reusable instructions that you provide to an AI agent.
+They are not IDE features and are not agents themselves. Instead, they help an agent perform Kotlin development
+tasks more consistently.
+
+Use Kotlin AI Skills when you want to guide an agent toward idiomatic Kotlin patterns,
+Kotlin coding conventions, and project-specific expectations. Skills can support tasks such as writing Kotlin code,
+explaining language features, generating documentation, creating tests, reviewing code, or applying migration guidance.
+
+Kotlin AI Skills can be used with different agents and workflows, including IDE-based agents,
+command-line agents, and external AI tools that support reusable instructions.
+
 ## Third-party AI tools
 
-Many external AI development tools support Kotlin, including:
+Many third-party AI development tools support Kotlin. These tools may be available as IDE extensions,
+standalone editors, command-line agents, or cloud-based development environments. For example:
 
 * GitHub Copilot
 * Google Gemini
@@ -70,13 +118,10 @@ Many external AI development tools support Kotlin, including:
 * OpenAI Codex
 * and many more
 
-These tools may be available as IDE extensions, standalone editors, or command-line agents.
-
 Choose a third-party tool if it matches your preferred development environment or offers capabilities that fit your workflow.
 Many of these tools support Kotlin code generation, explanations, test creation, and refactoring.
 
-Some third-party tools work independently, while others can connect to JetBrains IDEs
-through the MCP server to access additional Kotlin-aware IDE capabilities.
+You can use third-party tools independently, or connect compatible agents to JetBrains IDEs through ACP.
 
 ## Typical workflows
 
