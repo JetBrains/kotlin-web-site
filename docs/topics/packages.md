@@ -17,6 +17,7 @@ class Message(val text: String) { /*...*/ }
 ```
 
 All contents of the source file (such as classes and functions) belong to this package.
+A declaration's fully qualified name combines the package name with the name of the declaration.
 In the example above:
 
 * The fully qualified name of `printMessage()` is `org.example.printMessage`.
@@ -29,7 +30,7 @@ If no package is specified, the file's contents belong to the default root packa
 To use an entity from a file in a different package, use an `import` directive.
 Apart from the default imports, each file may declare its own imports.
 
-### Import a single name
+### Import a single declaration
 
 Import one specific declaration so it can be used without qualification:
 
@@ -44,7 +45,7 @@ fun main() {
 
 ### Import the contents of a scope
 
-You can import everything accessible within a scope — a package, class, or object:
+Star-imports ending in an asterisk (`*`) import all named entities inside the corresponding scope:
 
 ```kotlin
 import org.example.* // Everything in 'org.example' is accessible
@@ -54,6 +55,9 @@ fun main() {
     val message = Message("Hi")
 }
 ```
+
+If a name is imported via both a star import and an explicit single import,
+the explicit single import takes priority during name resolution.
 
 ### Resolve name clashes with aliases
 
@@ -93,7 +97,7 @@ whether they come from a package, a class, an object, or an enum:
     import org.example.Color.RED
     import org.example.Color.GREEN
     ```
-* Nested and inner classes:
+* Nested classes:
     ```kotlin
     import org.example.Outer.Nested
     ```
