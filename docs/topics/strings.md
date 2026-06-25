@@ -40,7 +40,7 @@ val quote = """Kotlin says, "Hi"."""
 ```
 
 > Multiline strings don't support escape sequences.
-> Kotlin treats such characters as a regular text.
+> Kotlin treats these characters as regular text.
 >
 {style="note"}
 
@@ -179,12 +179,12 @@ fun main(){
 ### Multi-dollar string interpolation
 
 In regular string templates, a single dollar sign (`$`) starts interpolation. If you need
-to include literal dollar signs in a `String` value, use **multi-dollar string interpolation**.
+to include literal dollar signs in a string, use **multi-dollar string interpolation**.
 
 Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required
 to trigger interpolation. Dollar signs below that number are treated as literal characters.
 
-For example, when you use `$$` before a `String` literal,
+For example, when you use `$$` before a string literal,
 interpolation begins only with two consecutive dollar signs:
 
 ```kotlin
@@ -341,8 +341,8 @@ fun main() {
 ### Work with string content
 
 If you want to change the content of a string, create a modified copy of it
-with functions like [`replace()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/replace.html), [`trim()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim.html),
-[`uppercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/uppercase.html), and [`lowercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lowercase.html):
+with functions like [`.trim()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim.html), [`.replace()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/replace.html),
+[`.uppercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/uppercase.html), and [`.lowercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lowercase.html):
 
 ```kotlin
 fun main() {
@@ -530,6 +530,6 @@ val toInt = "10".toInt() // 10
 // 1000000000000 exceeds maximum value of Int
 val toIntInvalid = "1000000000000".toIntOrNull()
 
-val toBoolean = "true".toBooleanStrict() //true
+val toBoolean = "true".toBooleanStrict() // true
 val toBooleanInvalid = "yes".toBooleanStrictOrNull() // null
 ```
