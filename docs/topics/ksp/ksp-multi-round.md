@@ -28,12 +28,15 @@ Processors can defer symbols to a later round when additional information is req
 can continue deferring a symbol across multiple rounds until the required information becomes available. Once the 
 information is available, the processor can process the symbol.
 
-Defer symbols only in the following cases:
+Defer symbols only when:
 
 * Additional information is required before the symbol can be processed.
 
-* The symbol originates from source code. Never defer symbols from the classpath. KSP filters out classpath symbols 
-automatically.
+* The symbol originates from source code.
+
+    > Never defer symbols from the classpath. KSP filters out classpath symbols automatically.
+    > 
+    {syle="note"}
 
 For example, a processor that generates a builder for an annotated class might require all constructor parameter types 
 to resolve to concrete types. In the first round, one of the parameter types might not be resolvable. In a later round, 
