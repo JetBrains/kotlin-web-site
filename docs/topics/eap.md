@@ -1,8 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
 <tldr>
-    <p>No preview versions are currently available.</p>
-    <!--<p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>-->
+    <!-- <p>No preview versions are currently available.</p> -->
+    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
@@ -10,12 +10,12 @@ You can participate in the Kotlin Early Access Preview (EAP) to try out the late
 Before every language (_2.x.0_) and tooling (_2.x.20_) release, we ship Early Access Preview (EAP) builds for you to test in real projects and share early feedback.
 Kotlin EAP builds typically include the following stages:
 
-| EAP build | Description                                                                                                                                                                                         |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Beta1** | Introduces the first set of upcoming features, improvements, and other significant changes. Gives you an early opportunity to evaluate new functionality and share feedback.                        |
+| EAP build | Description                                                                                                                                                                                              |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Beta1** | Introduces the first set of upcoming features, improvements, and other significant changes. Gives you an early opportunity to evaluate new functionality and share feedback.                             |
 | **Beta2** | Usually adds more features and refinements based on the feedback we've received. Is feature-complete and continues the preview of the upcoming release, further maturing previously introduced features. |
-| **RC**    | The first release candidate. Focuses on stabilizing the changes delivered in Beta1 and Beta2, as well as fixing regressions found during testing.                                                   |
-| **RC2**   | Includes important fixes to finalize the release and confirm readiness.                                                                                                                             | 
+| **RC**    | The first release candidate. Focuses on stabilizing the changes delivered in Beta1 and Beta2, as well as fixing regressions found during testing.                                                        |
+| **RC2**   | Includes important fixes to finalize the release and confirm readiness.                                                                                                                                  | 
 
 We'd appreciate it if you report any bugs you find to our issue tracker, [YouTrack](https://kotl.in/issue). 
 In most cases, we can fix them before the final release, so you won't need to wait for the next Kotlin release to see your issues resolved. 
@@ -53,24 +53,33 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-
-_No preview versions are currently available._
-
 <!--
- <table>
+_No preview versions are currently available._
+-->
+
+<table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.4.0-RC2</strong>
-            <p>Released: <strong>May 27, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.4.20-Beta1</strong>
+            <p>Released: <strong>June 24, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-Beta1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A language release with major changes in the language and tooling updates.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.0-RC2</a>.</p>
+            <p>A tooling release with performance improvements, bug fixes, and tooling updates.</p>
+            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.20-Beta1</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>2.4.10-RC</strong>
+            <p>Released: <strong>June 25, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release with performance improvements for Kotlin 2.4.0.</p>
+            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC">changelog</a>.</p>
         </td>
     </tr>
 </table>
--->
