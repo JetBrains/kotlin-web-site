@@ -44,25 +44,18 @@ it can become resolvable because of files generated in the meantime. The process
 
 ## Validating symbols
 
-Validation is a convenient way to decide whether to defer a symbol to a later round. A processor should define the 
+Validation is a convenient way to determine whether to defer a symbol to a later round. A processor should define the 
 information required to process a symbol correctly.
 
 > Validation often requires type resolution, which can be expensive. Check only the information required to process the symbol.
 >
 {style="tip"}
 
-Continuing the previous example, the builder processor might validate only the constructor parameter types of annotated 
-classes. Specifically, it can check that each resolved parameter type has `isError == false`.
+Default validation behavior might not be suitable for all use cases. To customize validation, use `KSValidateVisitor` 
+and provide a `predicate` lambda that selects the symbols to validate.
 
-KSP validates all symbols that are directly reachable within the validated symbol's enclosing scope. By default, 
-validation checks whether references in that scope resolve to concrete types. Validation does not recursively validate 
-the referenced types.
-
-> Default validation behavior might not be suitable for all use cases. To customize validation, use `KSValidateVisitor` 
-> and provide a `predicate` lambda that selects the symbols to validate. `KSValidateVisitor` uses the `predicate` to 
-> determine which symbols to check.
->
-{style="tip"}
+When implementing custom validation, use `KSType.isError` to determine whether a type is valid. If `isError` is `true`, 
+KSP could not resolve the type. Use this information to decide whether to defer processing to a later round.
 
 ## Accessing files and symbols
 
