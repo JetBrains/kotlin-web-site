@@ -62,3 +62,4 @@ See the latest supported language version in [Kotlin releases](releases.md#ide-s
 
 * [Create a console application in IntelliJ IDEA](jvm-get-started.md)
 * [Create your first cross-platform mobile app using Android Studio](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
+* [](kotlin-with-ai.md)
