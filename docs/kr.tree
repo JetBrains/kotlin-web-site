@@ -219,10 +219,16 @@
         </toc-element>
     </toc-element>
     <toc-element toc-title="Kotlin for AI and data analysis">
-        <toc-element toc-title="Kotlin for AI">
-            <toc-element toc-title="Kotlin AI skills" topic="kotlin-ai-skills.md"/>
-            <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
-            <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
+        <toc-element toc-title="Kotlin with AI">
+            <toc-element toc-title="Overview" topic="kotlin-with-ai.md"/>
+            <toc-element toc-title="Kotlin for AI-powered apps">
+                <toc-element toc-title="Overview" topic="kotlin-ai-apps-development-overview.md"/>
+                <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
+            </toc-element>
+            <toc-element toc-title="AI for Kotlin development">
+                <toc-element toc-title="AI Tools" topic="ai-for-development.md"/>
+                <toc-element toc-title="Kotlin AI skills" topic="kotlin-ai-skills.md"/>
+            </toc-element>
         </toc-element>
         <toc-element toc-title="Kotlin for data analysis">
             <toc-element toc-title="Overview" accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
@@ -478,5 +484,4 @@
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
         <toc-element hidden="true" topic="test-page.md"/>
     </toc-element>
-
 </instance-profile>
