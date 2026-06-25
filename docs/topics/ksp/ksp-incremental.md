@@ -3,17 +3,16 @@
 KSP supports incremental processing: KSP reprocesses a file only when one or more of its dependencies change. This
 avoids unnecessary reprocessing and therefore reduces compilation time.
 
-Incremental processing is enabled by default. To disable it, add this line to your `gradle.properties` file:
+Incremental processing is enabled by default. You might want to disable incremental processing when troubleshooting or 
+to force a full rebuild. To disable it, add this line to your `gradle.properties` file:
 
 ```
 ksp.incremental=false
 ```
 
-You might want to disable incremental processing when troubleshooting or to force a full rebuild.
-
 ## Dirty files
 
-A file is considered _dirty_ (needing to be reprocessed) if it is either directly modified by the user or indirectly 
+A file is considered _dirty_ (needing to be reprocessed) if it is either directly modified by a developer or indirectly 
 affected by changes in other dirty files.
 
 To determine which sources are dirty, KSP relies on processors, which associate generated outputs with their
