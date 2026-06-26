@@ -31,6 +31,42 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(rates).toEqual(sorted);
     });
 
+    test('tied resolution rates are ordered by fewer tokens first', async () => {
+        const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => parseFloat(text));
+        const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => parseFloat(text));
+
+        // Within each run of equal resolution rates, tokens must be non-decreasing.
+        for (let i = 1; i < rates.length; i++) {
+            if (rates[i] === rates[i - 1]) {
+                expect(tokens[i]).toBeGreaterThanOrEqual(tokens[i - 1]);
+            }
+        }
+    });
+
+    test('resolution rate and tokens are shown with at least two decimals', async () => {
+        const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => text.trim());
+        const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => text.trim());
+
+        expect(rates.length).toBeGreaterThan(0);
+        expect(tokens.length).toBeGreaterThan(0);
+
+        // Each value keeps at least two decimal places (trailing zeros, no rounding to one decimal).
+        for (const value of [...rates, ...tokens]) {
+            expect(value).toMatch(/^\d+\.\d{2,}$/);
+        }
+    });
+
+    test('latency is shown as hours, minutes and seconds', async () => {
+        const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
+
+        expect(latencies.length).toBeGreaterThan(0);
+
+        // Every cell follows the "Hh Mm Ss" shape with zero-padded minutes and seconds.
+        for (const latency of latencies) {
+            expect(latency).toMatch(/^\d+h \d{2}m \d{2}s$/);
+        }
+    });
+
     test('ranks are sequential starting from 1', async () => {
         const ranks = (await benchmark.ranks.allInnerTexts()).map(Number);
         const expected = ranks.map((_, index) => index + 1);
