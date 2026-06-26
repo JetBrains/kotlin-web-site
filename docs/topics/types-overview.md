@@ -18,6 +18,19 @@ To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look th
 * [`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html)
 * [`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/)
 
+Kotlin also support non-denotable types. They are types that you can't write directly in the Kotlin code. Instead, the
+compiler uses them internally, for example, for interoperability with other languages. Kotlin creates non-denotable
+types to represent type information that is more precise than what Kotlin source syntax allows.
+
+Even though you can't declare non-denotable types yourself, you may encounter them in compiler diagnostics, IDE
+tooltips, or inferred type displays. Learn more about non-denotable types in:
+
+* [Platform types](java-interop.md#null-safety-and-platform-types)
+* [](typecasts.md#intersection-types)
+* [](numbers.md#integer-literal-types)
+* [](generics.md#captured-types)
+* [Kotlin language specification: Platform types](https://kotlinlang.org/spec/type-system.html#platform-types)
+
 > [Learn how to perform type checks and casts in Kotlin](typecasts.md).
 >
 {style="tip"}
