@@ -28,7 +28,27 @@ export interface BenchColumn {
 
 export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
 
-const oneDecimal = (value: BenchRow[BenchColumnKey]): string => Number(value).toFixed(1);
+/**
+ * Render a latency stored as decimal hours into "Hh Mm Ss" (e.g. 10.6 -> "10h 36m 00s").
+ * Minutes and seconds are zero-padded; finer-grained source values are converted exactly.
+ */
+const formatLatency = (value: BenchRow[BenchColumnKey]): string => {
+    const totalSeconds = Math.round(Number(value) * 3600);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    const pad = (n: number): string => String(n).padStart(2, '0');
+    return `${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
+};
+
+/**
+ * Show at least two decimal places without rounding: trailing zeros are kept
+ * (81.9 -> "81.90", 8.4 -> "8.40") while any extra precision is preserved as-is.
+ */
+export const twoDecimals = (value: BenchRow[BenchColumnKey]): string => {
+    const [whole, fraction = ''] = String(Number(value)).split('.');
+    return `${whole}.${fraction.padEnd(2, '0')}`;
+};
 
 const formatDate = (value: BenchRow[BenchColumnKey]): string => {
     const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value));
@@ -42,10 +62,9 @@ export const columns: BenchColumn[] = [
         key: 'resolutionRate',
         label: 'Resolution rate (%)',
         hint: 'Percentage of submitted tasks that were resolved',
-        format: oneDecimal,
     },
-    { key: 'tokens', label: 'Avg tokens (M)', hint: 'Average token consumption for a full run', format: oneDecimal },
-    { key: 'latency', label: 'Avg latency (h)', hint: 'Average time to solve all tasks across runs', format: oneDecimal },
+    { key: 'tokens', label: 'Avg tokens (M)', hint: 'Average token consumption for a full run', format: twoDecimals },
+    { key: 'latency', label: 'Avg latency', hint: 'Average time to solve all tasks across runs', format: formatLatency },
     { key: 'date', label: 'Date', hint: 'Evaluation date', format: formatDate },
 ];
 
@@ -53,7 +72,7 @@ const rawRows: BenchRow[] = (leaderboardRaw as { rows?: BenchRow[] }).rows ?? []
 
 export const rows: BenchRow[] = [...rawRows]
     .map((row) => ({ ...row, date: String(row.date).slice(0, 10) }))
-    .sort((a, b) => b.resolutionRate - a.resolutionRate);
+    .sort((a, b) => b.resolutionRate - a.resolutionRate || a.tokens - b.tokens);
 
 export const maxResolutionRate: number = rows.length
     ? Math.max(...rows.map((row) => row.resolutionRate))
