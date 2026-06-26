@@ -267,6 +267,32 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 >
 {style="note"}
 
+### Captured types
+
+When you project a generic type with `out` or `in`, the compiler internally captures the unknown concrete type
+behind the projection into a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). For example,
+when you write `Array<out Any>`, the compiler doesn't know the actual element type. It captures that unknown type to
+enforce the variance rules:
+
+* You can call `get()` to return the captured type.
+* You can't call `set()`, because it needs to know the exact type to write safely.
+
+Since intersection types are non-denotable, you can't write them in Kotlin code. However, if you violate a variance
+constraint on a projected type, the compiler may mention them in error messages, displayed as `CapturedType(out X)`
+or in [flexible type](https://kotlinlang.org/spec/type-system.html#flexible-types) notation as `(L..U)`, where `L` is the
+lower bound (non-nullable) and `U` is the upper bound (nullable). For example:
+
+```kotlin
+fun example(list: MutableList) {
+    list.add(42)
+    // Error: out-projected type 'MutableList' prohibits
+    // the use of 'fun add(element: E): Boolean'
+}
+```
+
+If you see `CapturedType` in a compiler diagnostic, the underlying issue is a variance mismatch on a projected type. This
+means, you try to use the type in a position that the projection doesn't allow.
+
 ## Generic functions
 
 Classes aren't the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:

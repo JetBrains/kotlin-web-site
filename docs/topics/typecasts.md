@@ -265,6 +265,9 @@ if (x is String && x.length > 0) {
 }
 ```
 
+If you combine type checks for objects with an `and` operator (`&&`), the compiler smart-casts the object
+to all checked types simultaneously. Learn more in [Intersection types](#intersection-types).
+
 If you combine type checks for objects with an `or` operator (`||`), a smart cast is made to their closest common supertype:
 
 ```kotlin
@@ -288,6 +291,33 @@ fun signalCheck(signalStatus: Any) {
 > are [not currently supported in Kotlin](https://youtrack.jetbrains.com/issue/KT-13108/Denotable-union-and-intersection-types).
 >
 {style="note"}
+
+### Intersection types
+
+When the compiler smart-casts an object through multiple `&&` checks, it infers an [*intersection type*](https://kotlinlang.org/spec/type-system.html#intersection-types).
+It is an internal type that simultaneously satisfies all the checked constraints:
+
+```kotlin
+interface Bird {
+    fun fly()
+}
+
+interface Fish {
+    fun swim()
+}
+
+fun describe(animal: Any) {
+    // Infers the Bird and Fish types
+    if (animal is Bird && animal is Fish) {
+        // Accesses fly() and swim() without additional checks or casts
+        animal.fly()
+        animal.swim()
+    }
+}
+```
+
+Since intersection types are non-denotable, you can't write them in Kotlin code. However, you may encounter them in
+compiler error messages and IDE tooltips, typically displayed as `A & B`.
 
 ### Inline functions
 
