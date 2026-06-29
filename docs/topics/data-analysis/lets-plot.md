@@ -79,10 +79,10 @@ val data = df.toMap()
 
 ## Create a scatter plot
 
-Let's create a scatter plot with the LPK library.
+Let's create a scatter plot with the LPK library. 
 
 Once you have your data in the `Map` format, use the [`geomPoint()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-point/index.html) function from the LPK library to generate the scatter plot.
-You can specify the values for the X and Y axes, as well as define categories and their color. Additionally,
+You can specify the values for the X and Y axes, as well as define categories and their color. Additionally, 
 you can [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) the plot's size and point shapes to suit your needs:
 
 ```kotlin
@@ -98,7 +98,7 @@ Here's the result:
 
 ## Create a box plot
 
-Let's visualize the [data](#prepare-the-data) in a box plot. Use the [`geomBoxplot()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-boxplot.html)
+Let's visualize the [data](#prepare-the-data) in a box plot. Use the [`geomBoxplot()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-boxplot.html) 
 function from the LPK library to generate the plot and [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) colors with the [`scaleFillManual()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.scale/scale-fill-manual.html)
 function:
 

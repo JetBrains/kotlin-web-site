@@ -4,9 +4,9 @@
 [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) enables
 you to work with both non-structured and structured data.
 For data transformations, you can use such methods as [`.add()`](https://kotlin.github.io/dataframe/adddf.html), [`.split()`](https://kotlin.github.io/dataframe/split.html),
-[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html).
-Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats,
-including CSV, JSON, XLS, Parquet, and Apache Arrow.
+[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html). 
+Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
+including CSV, JSON, XLS, Parquet, and Apache Arrow. 
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 In this guide, you can learn how to retrieve, refine, and handle data through multiple examples.
@@ -52,14 +52,14 @@ For example, the following code specifies a custom delimiter (`;`) for a CSV fil
 val movies = DataFrame.read("movies.csv", delimiter = ';')
 ```
 
-> For a comprehensive overview of additional file formats and a variety of read functions, see the
+> For a comprehensive overview of additional file formats and a variety of read functions, see the 
 > [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
->
+> 
 {style="tip"}
 
 ## Display data
 
-Once you have the data, you can display it. The easiest way is to
+Once you have the data, you can display it. The easiest way is to 
 store your data in a variable and then return it:
 
 ```kotlin
@@ -77,27 +77,27 @@ the state of your dataset.
 ## Inspect data structure
 
 To gain insights into the structure or schema of your data, use the
-[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable.
+[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable. 
 
 For example, run `jsonDf.schema()` to list the type of each column in your JSON dataset:
 
 ![Schema example](schema-data-analysis.png){width=700}
 
 You can also use the autocompletion feature. It allows you to quickly access
-and manipulate the properties of your DataFrame. After loading your data, simply type the
+and manipulate the properties of your DataFrame. After loading your data, simply type the 
 DataFrame variable followed by a period (`.`) to see a list of available columns and their types.
 
 ![Available properties](auto-completion-data-analysis.png){width=700}
 
 ## Refine data
 
-Kotlin DataFrame provides various operations for refining your dataset.
+Kotlin DataFrame provides various operations for refining your dataset. 
 For example, [grouping](https://kotlin.github.io/dataframe/group.html),
 [filtering](https://kotlin.github.io/dataframe/filter.html), [updating](https://kotlin.github.io/dataframe/update.html), or
-[adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis,
+[adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis, 
 allowing you to organize, clean, and transform your data effectively.
 
-For example, let's look at the `movies.csv` dataset. It stores movie titles and release years
+For example, let's look at the `movies.csv` dataset. It stores movie titles and release years 
 in the same cell. The goal is to refine this dataset for easier analysis:
 
 1. **Load the data**
@@ -108,7 +108,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
    val movies = DataFrame.read("movies.csv")
    ```
 
-2. **Add a column**
+2. **Add a column** 
 
    To extract the release year from the `title` column, add a new `year` column:
 
@@ -175,7 +175,7 @@ The dataset after refinement:
 ![Data refinement result](refined-data.png){width=700}
 
 > For additional use cases and detailed examples, see [Examples of Kotlin Dataframe](https://github.com/Kotlin/dataframe/tree/master/examples).
->
+> 
 {style="tip"}
 
 ## Export data
@@ -183,7 +183,7 @@ The dataset after refinement:
 After refining the data, you can easily export it.
 
 You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose. It supports saving in multiple formats,
-including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables.
+including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables. 
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 This can be particularly useful for sharing your findings, creating reports, or making your data available
 for further analysis.
@@ -195,7 +195,7 @@ For example, let's save the result as:
   ```kotlin
   refinedMovies.writeJson("movies.json")
   ```
-* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function:
+* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function: 
 
   ```kotlin
   refinedMovies.writeCsv("movies.csv")

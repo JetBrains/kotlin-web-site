@@ -73,7 +73,7 @@ To connect to a database, create a connection configuration using the `DbConnect
 ## Inspect database schema
 
 Before loading the data, inspect the database schemas
-to understand what tables you have and what columns they contain.
+to understand what tables you have and what columns they contain. 
 You can use the schemas to decide which table to load into a DataFrame.
 
 To retrieve schemas for all user-created tables in your database, use the `DataFrameSchema.readAllSqlTables()`
