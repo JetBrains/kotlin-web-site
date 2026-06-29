@@ -1,10 +1,8 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
 [//]: # (description: Add KSP to a Kotlin multiplatform project)
 
-Here you can learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. To get started with 
-Kotlin Multiplatform, see the [Kotlin Multiplatform overview](https://kotlinlang.org/docs/multiplatform/kmp-overview.html).
-
-For a quick start, see an example of a multiplatform project with several targets using KSP in the 
+Here you can learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. For a quick start, see 
+an example of a multiplatform project with several targets using KSP in the 
 [source repository](https://github.com/google/ksp/tree/main/examples/multiplatform). The processor in this example
 generates a `Foo` class used by the project.
 
@@ -16,6 +14,10 @@ In the client module's `build.gradle.kts` file, assign a processor to each targe
 ```
 add("ksp<Target>", <processor>)
 ```
+
+`ksp<Target>` is one of the targets used in your multiplatform project. For a full list of targets, see 
+[Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
+and [Kotlin/Native supported targets](https://kotlinlang.org/docs/native-target-support.html).
 
 `<processor>` is a Gradle project path. It can be:
 
@@ -30,11 +32,6 @@ add("ksp<Target>", <processor>)
     ```
     add("kspJvm", "androidx.room:room-compiler:2.6.1")
     ```
-
-> For a full list of targets, see [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets) 
-> and [Kotlin/Native supported targets](https://kotlinlang.org/docs/native-target-support.html).
->
-{style=”tip”}
 
 A single target can have multiple processors:
 
@@ -171,8 +168,9 @@ Look for the configuration names that correspond to your target source sets.
 
 ## Compilation and processing
 
-In a multiplatform project, Kotlin creates a separate compilation for each target and source set, such as `main` and 
-`test`. For every eligible Kotlin compilation task, KSP creates a corresponding symbol processing task.
+In a multiplatform project, Kotlin creates a separate [compilation](https://kotlinlang.org/docs/multiplatform/multiplatform-advanced-project-structure.html#compilations) 
+for each target and source set, such as `main` and`test`. For every eligible Kotlin compilation task, KSP creates a 
+corresponding symbol processing task.
 
 The [example project](https://github.com/google/ksp/tree/main/examples/multiplatform) defines six targets:
 
