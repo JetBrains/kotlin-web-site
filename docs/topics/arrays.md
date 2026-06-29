@@ -23,9 +23,7 @@ For most use cases, prefer [collections](collections-overview.md) instead.
 | Java interoperability                               | Maps to `T[]`                                                                                                                                        | Maps to `java.util.List` and<br/> `java.util.Set` |
 | Functional-style filtering and<br/> transformations | Limited                                                                                                                                              | Extensive                                         |
 
-> Learn how to [convert arrays to collections](#convert-to-collections). 
-> 
-{style="tip"}
+Learn how to [convert arrays to collections](#convert-to-collections). 
 
 ## Create arrays
 
@@ -67,9 +65,7 @@ val emptyArrayRight = emptyArray<String>()
 val emptyArrayLeft: Array<String> = emptyArray()
 ```
 
-> Learn [how to add elements](#add-and-remove-elements) to an array.
-> 
-{style="tip"}
+Learn [how to add elements](#add-and-remove-elements) to an array.
 
 ### Array with nulls
 
@@ -89,7 +85,7 @@ fun main() {
 
 ### Array constructor
 
-The `Array` constructor takes the array size and a function that returns values for array elements:
+The `Array` constructor takes the array size and a function that returns values of array elements:
 
 ```kotlin
 fun main() {
@@ -128,7 +124,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-multidimensional-array-kotlin"}
 
-## Primitive-type arrays
+## Create primitive-type arrays
 
 If you use the `Array` class with primitive values, the compiler boxes these values into objects.
 To avoid boxing overhead, you can use dedicated primitive-type arrays.
@@ -221,7 +217,7 @@ Find the most common properties and functions in the following table:
 | [`isEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-empty.html) and [`isNotEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-not-empty.html) | `true` if array is empty or not empty |
 | [`contains()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/contains.html)                                                                                                         | `true` if array has the element       |
 
-> Learn more about array properties and functions in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/).
+> Learn more about array properties and functions in the [API reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/).
 > 
 {style="tip"}
 
@@ -257,7 +253,7 @@ fun main() {
 {style="note"} 
 
 You can also use the [`fill(element, fromIndex, toIndex)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/fill.html) function
-to replace elements in a range in place. `fromIndex` is inclusive and `toIndex` is exclusive:
+to replace elements in a range in place. `fromIndex` is inclusive, and `toIndex` is exclusive:
 
 ```kotlin
 fun main() {
@@ -278,7 +274,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-In Kotlin, arrays are _invariant_. This means, `Array<String>` is not a subtype
+In Kotlin, arrays are _invariant_. This means that `Array<String>` is not a subtype
 of `Array<Any>`. This prevents possible runtime type failures. To express covariance, use the `Array<out Any>`
 [type projection](generics.md#type-projections):
 
@@ -344,7 +340,7 @@ you need to create a new array. For that, you can use one of the following optio
 >
 {style="tip"}
 
-### Compare
+### Compare arrays
 
 To compare whether two arrays have the same elements in the same order, use the [`.contentEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-equals.html)
 and [`.contentDeepEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-deep-equals.html)
@@ -521,7 +517,7 @@ fun main() {
     val pairArray = arrayOf("apple" to 120, "banana" to 150, "cherry" to 90, "apple" to 140)
 
     // Converts to a Map
-    // Fruits are keys, number of calories are values
+    // Fruits are keys, calorie numbers are values
     // The latest "apple" value overwrites the first one
     println(pairArray.toMap())
     // {apple=140, banana=150, cherry=90}
