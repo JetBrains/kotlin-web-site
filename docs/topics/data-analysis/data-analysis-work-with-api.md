@@ -23,7 +23,7 @@ Create a new Kotlin Notebook:
    ```kotlin
    %use dataframe
    ```
-To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
+To follow the tutorial, you can also use DataFrame as a [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
 
 ## Fetch data from an API
 

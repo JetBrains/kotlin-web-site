@@ -34,11 +34,7 @@ making it easy to integrate with other Kotlin notebook solutions.
 Without compatibility issues, you can effortlessly share your work among Kotlin Notebook,
 [Datalore](https://datalore.jetbrains.com/), and [Kotlin-Jupyter Notebook](https://github.com/Kotlin/kotlin-jupyter).
 
-With these capabilities, you can embark on a wide range of tasks, from simple code experiments to comprehensive data projects. 
-
-Dive deeper to discover what you can achieve with Kotlin Notebook!
-
-<a href="get-started-with-kotlin-notebooks.md"><img src="notebook-get-started-button.svg" width="600" alt="Get started with Kotlin Notebook" style="block"/></a>
+With these capabilities, you can embark on a wide range of tasks, from simple code experiments to comprehensive data projects.
 
 ## Data analytics and visualization
 

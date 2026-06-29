@@ -29,7 +29,7 @@ To follow this tutorial:
    Run the code cell with the `%use dataframe` line before any other code cells
    to make sure the DataFrame library and its APIs are available in the notebook.
 
-To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
+To follow the tutorial, you can also use DataFrame as a [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
 
 ## Create a DataFrame
 
