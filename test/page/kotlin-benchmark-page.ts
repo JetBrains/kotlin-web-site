@@ -35,6 +35,16 @@ export class KotlinBenchmarkPage implements BasePage {
         return this.rows.locator('td[data-col="resolutionRate"]');
     }
 
+    /** Token cells, in row order. */
+    tokensCells(): Locator {
+        return this.rows.locator('td[data-col="tokens"]');
+    }
+
+    /** Latency cells, in row order. */
+    latencyCells(): Locator {
+        return this.rows.locator('td[data-col="latency"]');
+    }
+
     async init() {
         await this.page.goto(KOTLIN_BENCHMARK_URL);
 

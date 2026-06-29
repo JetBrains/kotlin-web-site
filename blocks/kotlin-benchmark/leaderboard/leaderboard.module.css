@@ -144,8 +144,8 @@
     width: 96px;
     height: 6px;
     overflow: hidden;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.08);
+    border-radius: 48px;
+    background: #474749;
 
     @media (--ktl-ts-up) {
         display: inline-block;
