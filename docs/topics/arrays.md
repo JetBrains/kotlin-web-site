@@ -124,7 +124,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-multidimensional-array-kotlin"}
 
-## Create primitive-type arrays
+### Primitive-type arrays
 
 If you use the `Array` class with primitive values, the compiler boxes these values into objects.
 To avoid boxing overhead, you can use dedicated primitive-type arrays.
@@ -528,6 +528,6 @@ fun main() {
 
 ## What's next?
 
-* Learn more about why we recommend using collections for most use cases in [Collections overview](collections-overview.md).
+* Learn more about why we recommend using collections for most use cases in the [Collections overview](collections-overview.md).
 * Learn about other [basic types](types-overview.md).
 * If you are a Java developer, read our [Java to Kotlin migration guide for Collections](java-to-kotlin-collections-guide.md).
