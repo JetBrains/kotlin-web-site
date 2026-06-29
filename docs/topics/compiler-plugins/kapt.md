@@ -17,14 +17,16 @@ It generates stub files from Kotlin source code and then runs the Java annotatio
 This enables Java-based annotation processing in your Kotlin projects for libraries like [MapStruct](https://mapstruct.org/)
 and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html).
 
-> kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the **Maven Projects**
-> tool window whenever you want to re-run the annotation processing.
+> kapt is not supported in the IntelliJ build system. To re-run annotation processing in IntelliJ IDEA, launch the build
+> from the **Maven** tool window.
 > 
 {style="warning"}
 
 ## Set up the plugin
 
-### In Gradle
+You can configure the kapt plugin for [Gradle](#set-up-in-gradle), [Maven](#set-up-in-maven), or use it from the [command line](#cli).
+
+### Gradle {id="set-up-in-gradle"}
 
 To use kapt in Gradle, follow these steps:
 
@@ -82,7 +84,10 @@ To use kapt in Gradle, follow these steps:
    `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extend `kapt`, so you can provide the
    `kapt` dependency, and it will be available both for production sources and tests.
 
-### In Maven
+### Maven {id="set-up-in-maven"}
+
+You can set up kapt using either the [`<extensions>` option](#automatic-configuration) to simplify setup or
+[manually](#manual-configuration) to get full control over kapt's execution.
 
 #### Automatic configuration
 
@@ -141,7 +146,7 @@ To manually set up kapt in your Kotlin Maven project, add an execution of the `k
 
 ##### Configure kapt annotation processing
 
-To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
+To configure the mode of annotation processing, set the `<aptMode>` option in the `<configuration>` block:
 
 * `stubs` – only generate stubs needed for annotation processing.
 * `apt` – only run annotation processing.
@@ -156,7 +161,7 @@ For example:
 </configuration>
 ```
 
-### In CLI
+### CLI
 
 The kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
 
@@ -173,8 +178,8 @@ Here is the list of the available options:
 * `stubs` (*required*): A temporary output path for the stub files.
 * `incrementalData`: An output path for the binary stubs.
 * `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass one `apclasspath` option for each JAR.
-* `apoptions`: A base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
-* `javacArguments`: A base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
+* `apoptions`: A Base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
+* `javacArguments`: A Base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
 * `processors`: A comma-separated list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
 * `verbose`: Enable verbose output.
 * `aptMode` (*required*)
@@ -218,7 +223,7 @@ kapt {
 You can disable the discovery of annotation processors that aren't included in kapt's processor path.
 This excludes unnecessary annotation processors from the compile classpath.
 
-#### For Gradle
+#### Gradle {id="classpath-discovery-gradle"}
 
 Gradle uses [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance)
 to skip annotation processing during project rebuild, improving incremental build times with kapt. Particularly,
@@ -226,13 +231,13 @@ annotation processing is skipped when:
 
 * The project's source files are unchanged.
 * The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
-  For example, the only changes are in method bodies.
+  For example, when only function bodies change.
 
 However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
-in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
+in their internal implementation require running the annotation processing tasks, even if processors' ABI remains unchanged.
 
-That's why we don't recommend using annotation processors from the compile classpath. To exclude these annotations
-from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
+That's why we don't recommend using annotation processors from the compile classpath. To exclude these processors from
+kapt processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
 
 ```none
 # gradle.properties
@@ -242,9 +247,9 @@ kapt.include.compile.classpath=false
 With the option set to `false`, annotation processor dependencies that aren't included in the processor path
 (the `kapt*` configurations) are excluded from kapt processing.
 
-#### For Maven
+#### Maven {id="classpath-discovery-maven"}
 
-To exclude annotation processors that are missing from kapt's processor path, set the `includeCompileClasspath`
+To exclude annotation processors that aren't included in the kapt's processor path, set the `includeCompileClasspath`
 option to `false` in the `<execution>` section of the kapt plugin:
 
 ```xml
@@ -280,7 +285,7 @@ explicitly defined in the processor path, you'll see a deprecation warning:
 Set 'kapt.include.compile.classpath=false' to disable discovery.
 ```
 
-> To see the list of annotation processors that aren't present on the kapt classpath, run the build with the `--info` log
+> To see the list of annotation processors that aren't included on the kapt classpath, run the build with the `--info` log
 > level option.
 >
 {style="tip"}
@@ -459,7 +464,7 @@ To enable statistics reporting:
    kapt.verbose=true
    ```
 
-> You can also enable verbose output with the [command line option `verbose`](#in-cli).
+> You can also enable verbose output with the [command line option `verbose`](#cli).
 >
 {style="note"}
 
