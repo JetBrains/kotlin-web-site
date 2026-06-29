@@ -501,7 +501,7 @@ val text = String.format("Hello, %s", "Kotlin")
 
 ## String conversion
 
-Often you may use strings to represent values of other types, such as numbers, Boolean values, or identifiers from the input.
+Often you may use strings to represent values of other types, such as numbers, `Boolean` values, or identifiers from the input.
 Kotlin provides functions for converting values to strings and for parsing strings into other types.
 
 To return a string representation of a value, use the [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/to-string.html) function:
