@@ -1,5 +1,12 @@
 [//]: # (title: Add dependencies to your Kotlin Notebook)
 
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
+
 <tldr>
    <p>This is the third part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
@@ -12,11 +19,11 @@ You've already created your first [Kotlin Notebook](kotlin-notebook-overview.md)
 is necessary to unlock advanced features.
 
 > The Kotlin standard library can be used out of the box, so you don't have to import it.
-> 
+>
 {style="note"}
 
 You can load any library from the Maven repository by specifying its coordinates using Gradle-style
-syntax in any code cell. 
+syntax in any code cell.
 However, Kotlin Notebook has a simplified method to load popular libraries in the form of the [`%use` statement](https://www.jetbrains.com/help/idea/kotlin-notebook.html#import-libraries):
 
 ```kotlin
@@ -36,7 +43,7 @@ You can also use the autocompletion feature in Kotlin Notebook to quickly access
 
 > Kotlin Notebook has a set of integrated libraries to perform various tasks, from deep learning to HTTP networking.
 > See [Import supported libraries](https://www.jetbrains.com/help/idea/kotlin-notebook.html#import-libraries).
-> 
+>
 > You can also add and use libraries that are not yet integrated into Kotlin Notebook. See [Integrate new libraries](https://www.jetbrains.com/help/idea/kotlin-notebook.html#integrate-new-libraries).
 >
 {style="note"}
@@ -44,8 +51,8 @@ You can also use the autocompletion feature in Kotlin Notebook to quickly access
 ## Add Kotlin DataFrame and Kandy libraries to your Kotlin Notebook
 
 Let's add two popular Kotlin library dependencies to your Kotlin Notebook:
-* The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) gives you the power to manipulate data in your Kotlin projects. 
-You can use it to retrieve data from [APIs](data-analysis-work-with-api.md), [SQL databases](data-analysis-connect-to-db.md), and [various file formats](data-analysis-work-with-data-sources.md), such as CSV or JSON.
+* The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) gives you the power to manipulate data in your Kotlin projects.
+  You can use it to retrieve data from [APIs](data-analysis-work-with-api.md), [SQL databases](data-analysis-connect-to-db.md), and [various file formats](data-analysis-work-with-data-sources.md), such as CSV or JSON.
 * The [Kandy library](https://kotlin.github.io/kandy/welcome.html) provides a powerful and flexible DSL for [creating charts](data-analysis-visualization.md).
 
 To add these libraries:
@@ -66,12 +73,12 @@ To add these libraries:
 
 3. Run the code cell.
 
-    When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
+   When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
 
-    > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
-    > library.
-    >
-    {style="note"}
+   > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the
+   > library.
+   >
+   {style="note"}
 
 4. To import data from a CSV file using the Kotlin DataFrame library, use the `.read()` function in a new code cell:
 
@@ -83,12 +90,12 @@ To add these libraries:
     rawDf
     ```
 
-    > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
-    > Add it to your project directory.
-    > 
-    {style="tip"}
+   > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
+   > Add it to your project directory.
+   >
+   {style="tip"}
 
-    ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
+   ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
 
 5. In a new code cell, use the `.plot` method to visually represent the distribution of TV shows and Movies in your DataFrame:
 

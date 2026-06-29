@@ -1,23 +1,24 @@
 [//]: # (title: Data visualization with Kandy)
 [//]: # (description: Learn how to visualize data with Kandy and Kotlin DataFrame by creating line, points, and bar charts.)
 
-Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data 
+Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data
 before diving into complex models.
 
-This tutorial demonstrates how to create different chart types in IntelliJ IDEA using [Kotlin Notebook](kotlin-notebook-overview.md) with
+This tutorial demonstrates how to create different chart types in IntelliJ IDEA using
 the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) libraries.
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and enabled in IntelliJ IDEA by default.
-
-If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
-see [Set up an environment](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 To follow this tutorial:
 
-1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+1. Select **File** | **New** | **Kotlin Notebook**.
 2. In your notebook, import [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html):
 
    ```kotlin
@@ -25,11 +26,10 @@ To follow this tutorial:
    %use dataframe
    ```
 
-> Run the code cell with the `%use dataframe` line before any other code cells
-> to make sure the DataFrame library and its APIs are available in the notebook.
->
-{style="note"}
+   Run the code cell with the `%use dataframe` line before any other code cells
+   to make sure the DataFrame library and its APIs are available in the notebook.
 
+To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
 
 ## Create a DataFrame
 
@@ -72,7 +72,7 @@ To preview the data, use the [`.head()`](https://kotlin.github.io/dataframe/head
 df.head(4) // Returns the first four rows
 ```
 
-In our dataset, the first four rows store temperature 
+In our dataset, the first four rows store temperature
 in Berlin from January to April:
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
@@ -84,10 +84,10 @@ in Berlin from January to April:
 
 ## Create a line chart
 
-Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section:
+Let's create a line chart using the `df` DataFrame from the previous section:
 
-1. Call the `.plot()` function from the Kandy library. 
-2. Apply the `line()` layer. 
+1. Call the `.plot()` function from the Kandy library.
+2. Apply the `line()` layer.
 3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
 4. (Optional) Customize colors and sizes.
 
@@ -121,8 +121,8 @@ Here's the result:
 
 Now, let's visualize the `df` DataFrame in a points (scatter) chart:
 
-1. Call the `.plot()` function from the Kandy library. 
-2. Apply the `points()` layer. 
+1. Call the `.plot()` function from the Kandy library.
+2. Apply the `points()` layer.
 3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
 4. (Optional) Customize colors, axis labels, point sizes, and chart title.
 
@@ -161,8 +161,8 @@ Here's the result:
 
 Finally, let's create a bar chart for each city:
 
-1. Use the `.groupBy()` function to group the DataFrame by the `City` column. 
-2. Call the `plot()` function from the Kandy library. 
+1. Use the `.groupBy()` function to group the DataFrame by the `City` column.
+2. Call the `plot()` function from the Kandy library.
 3. Apply the `bars()` layer.
 4. (Optional) Add a title for the chart, customize colors.
 
@@ -196,4 +196,3 @@ Here's the result:
 * Explore more chart examples in the [Kandy library documentation](https://kotlin.github.io/kandy/examples.html)
 * Explore more advanced plotting options in the [Lets-Plot library documentation](lets-plot.md)
 * Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html)
-* Learn more about data visualization in Kotlin Notebook in this [YouTube video]( https://www.youtube.com/watch?v=m4Cqz2_P9rI&t=4s)

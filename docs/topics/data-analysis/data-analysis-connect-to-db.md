@@ -1,7 +1,7 @@
 [//]: # (title: Connect and retrieve data from databases)
 [//]: # (description: Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.)
 
-[Kotlin Notebook](kotlin-notebook-overview.md) provides support for the most common SQL databases:
+[Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) provides support for the most common SQL databases:
 
 * [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
 * [H2](https://kotlin.github.io/dataframe/h2.html)
@@ -11,25 +11,22 @@
 * [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
 * [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
 
-With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish connections to databases, 
-execute SQL queries, and import the results for further operations.
-
-> For a detailed example, explore the notebook in the [KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
->
-{style="tip"}
+Explore the [Kotlin DataFrame SQL Examples on GitHub](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/tree/master/src/main/kotlin).
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and enabled in IntelliJ IDEA by default.
-
-If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
-see [Set up an environment](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 To follow this tutorial:
-1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+
+1. Select **File** | **New** | **Kotlin Notebook**.
 2. Add the Java Database Connectivity (JDBC) driver dependency for your database in the first cell of your notebook.
-   
+
    For example, to connect to a MariaDB database, add:
 
    ```kotlin 
@@ -43,17 +40,17 @@ To follow this tutorial:
    %use dataframe
    ```
 
-> Run the code cell with the `%use dataframe` line before any other code cells
-> to make sure the DataFrame library and its APIs are available in the notebook.
->
-{style="note"}
+   Run the code cell with the `%use dataframe` line before any other code cells
+   to make sure the DataFrame library and its APIs are available in the notebook.
+
+To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
 
 ## Connect to a database
 
 To connect to a database, create a connection configuration using the `DbConnectionConfig()` function:
 
 1. Import the following functionality:
-   
+
    ```kotlin
    import org.jetbrains.kotlinx.dataframe.io.DbConnectionConfig
    import org.jetbrains.kotlinx.dataframe.schema.DataFrameSchema
@@ -76,7 +73,7 @@ To connect to a database, create a connection configuration using the `DbConnect
 ## Inspect database schema
 
 Before loading the data, inspect the database schemas
-to understand what tables you have and what columns they contain. 
+to understand what tables you have and what columns they contain.
 You can use the schemas to decide which table to load into a DataFrame.
 
 To retrieve schemas for all user-created tables in your database, use the `DataFrameSchema.readAllSqlTables()`
@@ -102,7 +99,7 @@ Kotlin DataFrame provides two ways to load data from a database:
 * Load data directly from a table.
 * Load the result of a custom SQL query.
 
-Both approaches return a DataFrame that you can inspect, transform, and analyze in Kotlin Notebook.
+Both approaches return a DataFrame that you can inspect, transform, and analyze.
 
 ### Load data from a table
 
@@ -165,7 +162,7 @@ filteredTarantinoMovies
 
 ## Analyze data
 
-Use [Kotlin Notebook](kotlin-notebook-overview.md) and [DataFrame library](https://kotlin.github.io/dataframe/home.html)
+Use the [DataFrame library](https://kotlin.github.io/dataframe/home.html)
 to group, sort, and aggregate data so you can uncover and understand
 patterns in your data.
 
@@ -191,5 +188,5 @@ val top20ActorNames = actorDf
 ## What's next
 
 * Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html)
-* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md)
+* Find additional information about data visualization in [Data visualization with Kandy](data-analysis-visualization.md)
 * For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

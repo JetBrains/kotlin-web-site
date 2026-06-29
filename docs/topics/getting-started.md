@@ -16,7 +16,7 @@ Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/downlo
 Download and install one of these IDEs to start using Kotlin.
 
 ## Choose your Kotlin use case
- 
+
 <tabs>
 
 <tab id="console" title="Console">
@@ -35,13 +35,13 @@ Here you'll learn how to develop a backend application with Kotlin server-side.
 
 * **Introduce Kotlin to your Java project:**
 
-  * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
-  * [Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)
+    * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
+    * [Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)
 
 * **Create a backend app from scratch with Kotlin:**
 
-  * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
-  * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
+    * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
+    * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
 
 </tab>
 
@@ -53,11 +53,11 @@ Here you'll learn how to develop a cross-platform application using [Kotlin Mult
 
 2. **Create your first application for iOS and Android:**
 
-   * Create a cross-platform application from scratch and:
-     * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
-     * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
-   * [Make your existing Android application work on iOS](https://kotlinlang.org/docs/multiplatform/multiplatform-integrate-in-existing-app.html)
-   * [Create a cross-platform application using Ktor and SQLdelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
+    * Create a cross-platform application from scratch and:
+        * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
+        * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
+    * [Make your existing Android application work on iOS](https://kotlinlang.org/docs/multiplatform/multiplatform-integrate-in-existing-app.html)
+    * [Create a cross-platform application using Ktor and SQLdelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
 
 3. **Explore [sample projects](https://kotlinlang.org/docs/multiplatform/multiplatform-samples.html)**.
 
@@ -73,16 +73,12 @@ To start using Kotlin for Android development, read [Google's recommendation for
 
 From building data pipelines to productionizing machine learning models, Kotlin is a great choice for working with data and getting the most out of it.
 
-1. **Create and edit notebooks seamlessly within the IDE:**
+1. **Explore and experiment with your data:**
 
-   * [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md)
+    * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
+    * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
 
-2. **Explore and experiment with your data:**
-
-   * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
-   * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
-
-3. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
+2. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
 
 </tab>
 

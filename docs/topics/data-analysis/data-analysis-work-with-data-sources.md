@@ -1,43 +1,42 @@
 [//]: # (title: Retrieve data from files)
 [//]: # (description: Learn how to load data from files using Kotlin DataFrame, including CSV, JSON, SQL, Excel, and Apache Arrow files.)
 
-[Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), enables 
-you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
-such as data found in TXT files, into structured datasets. 
-
+[Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) enables
+you to work with both non-structured and structured data.
 For data transformations, you can use such methods as [`.add()`](https://kotlin.github.io/dataframe/adddf.html), [`.split()`](https://kotlin.github.io/dataframe/split.html),
-[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html). 
-Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
-including CSV, JSON, XLS, Parquet, and Apache Arrow. 
+[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html).
+Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats,
+including CSV, JSON, XLS, Parquet, and Apache Arrow.
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 In this guide, you can learn how to retrieve, refine, and handle data through multiple examples.
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and enabled in IntelliJ IDEA by default.
-
-If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
-see [Set up an environment](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 To follow this tutorial:
 
-1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+1. Select **File** | **New** | **Kotlin Notebook**.
 2. Import Kotlin DataFrame:
 
    ```kotlin
    %use dataframe
    ```
 
-> Run the code cell with the `%use dataframe` line before any other code cells
-> to make sure the DataFrame library and its APIs are available in the notebook.
-> 
-{style="note"}
+   Run the code cell with the `%use dataframe` line before any other code cells
+   to make sure the DataFrame library and its APIs are available in the notebook.
+
+To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
 
 ## Retrieve data
 
-To retrieve data from a file into your Kotlin Notebook,
+To retrieve data from a file,
 use the `DataFrame.read()` function:
 
 ```kotlin
@@ -53,14 +52,14 @@ For example, the following code specifies a custom delimiter (`;`) for a CSV fil
 val movies = DataFrame.read("movies.csv", delimiter = ';')
 ```
 
-> For a comprehensive overview of additional file formats and a variety of read functions, see the 
+> For a comprehensive overview of additional file formats and a variety of read functions, see the
 > [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
-> 
+>
 {style="tip"}
 
 ## Display data
 
-Once you have the data in your notebook, you can display it. The easiest way is to 
+Once you have the data, you can display it. The easiest way is to
 store your data in a variable and then return it:
 
 ```kotlin
@@ -72,44 +71,44 @@ This code displays the data from your file as an interactive table:
 
 ![Display data](display-data.png){width=700}
 
-You can use this view to inspect values, check column names, and easily understand 
+You can use this view to inspect values, check column names, and easily understand
 the state of your dataset.
 
 ## Inspect data structure
 
 To gain insights into the structure or schema of your data, use the
-[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable. 
+[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable.
 
 For example, run `jsonDf.schema()` to list the type of each column in your JSON dataset:
 
 ![Schema example](schema-data-analysis.png){width=700}
 
-With Kotlin Notebook, you can also use the autocompletion feature. It allows you to quickly access
-and manipulate the properties of your DataFrame. After loading your data, simply type the 
+You can also use the autocompletion feature. It allows you to quickly access
+and manipulate the properties of your DataFrame. After loading your data, simply type the
 DataFrame variable followed by a period (`.`) to see a list of available columns and their types.
 
 ![Available properties](auto-completion-data-analysis.png){width=700}
 
 ## Refine data
 
-Kotlin DataFrame provides various operations for refining your dataset. 
+Kotlin DataFrame provides various operations for refining your dataset.
 For example, [grouping](https://kotlin.github.io/dataframe/group.html),
 [filtering](https://kotlin.github.io/dataframe/filter.html), [updating](https://kotlin.github.io/dataframe/update.html), or
-[adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis, 
+[adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis,
 allowing you to organize, clean, and transform your data effectively.
 
-For example, let's look at the `movies.csv` dataset. It stores movie titles and release years 
+For example, let's look at the `movies.csv` dataset. It stores movie titles and release years
 in the same cell. The goal is to refine this dataset for easier analysis:
 
 1. **Load the data**
-   
+
    Load the file into a `DataFrame` using the `.read()` function:
 
    ```kotlin
    val movies = DataFrame.read("movies.csv")
    ```
 
-2. **Add a column** 
+2. **Add a column**
 
    To extract the release year from the `title` column, add a new `year` column:
 
@@ -154,7 +153,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
    
    newMovies
    ```
-   
+
 5. **Remove column**
 
    To remove a column that you do not need, use the `.remove()` function:
@@ -167,7 +166,6 @@ in the same cell. The goal is to refine this dataset for easier analysis:
    refinedMovies
    ```
 
-
 For comparison, here is the dataset before refinement:
 
 ![Original dataset](original-dataset.png){width=700}
@@ -177,16 +175,15 @@ The dataset after refinement:
 ![Data refinement result](refined-data.png){width=700}
 
 > For additional use cases and detailed examples, see [Examples of Kotlin Dataframe](https://github.com/Kotlin/dataframe/tree/master/examples).
-> 
+>
 {style="tip"}
 
 ## Export data
 
-After refining data in Kotlin Notebook, you can easily export your processed 
-data. 
+After refining the data, you can easily export it.
 
 You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose. It supports saving in multiple formats,
-including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables. 
+including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables.
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 This can be particularly useful for sharing your findings, creating reports, or making your data available
 for further analysis.
@@ -194,15 +191,16 @@ for further analysis.
 For example, let's save the result as:
 
 * JSON file using the [`.writeJson()`](https://kotlin.github.io/dataframe/write.html#writing-to-json) function:
- 
+
   ```kotlin
   refinedMovies.writeJson("movies.json")
   ```
-* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function: 
+* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function:
 
   ```kotlin
   refinedMovies.writeCsv("movies.csv")
   ```
+
 * [Apache Arrow files](https://kotlin.github.io/dataframe/write.html#writing-to-apache-arrow-formats) using the `.writeArrorIPC()` and `.writeArrorFeather()` functions:
 
   ```kotlin
@@ -221,5 +219,5 @@ refinedMoviesDf
 ## What's next
 
 * Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html)
-* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md)
+* Find additional information about data visualization in [Data visualization with Kandy](data-analysis-visualization.md)
 * For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

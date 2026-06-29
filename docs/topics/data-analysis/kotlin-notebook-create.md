@@ -1,5 +1,12 @@
 [//]: # (title: Create your first Kotlin Notebook)
 
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
+
 <tldr>
    <p>This is the second part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
@@ -10,11 +17,11 @@
 
 You can start working with your [Kotlin Notebook](kotlin-notebook-overview.md) in three main ways:
 
-* [Create a new project that includes a Kotlin Notebook](#create-a-new-project) 
+* [Create a new project that includes a Kotlin Notebook](#create-a-new-project)
 * [Add a Kotlin Notebook to an existing project](#add-a-new-kotlin-notebook-to-your-project)
 * [Create a scratch Kotlin Notebook](#create-a-scratch-kotlin-notebook)
 
-## Create a new project 
+## Create a new project
 
 To create a new project that includes a Kotlin Notebook:
 
@@ -31,12 +38,12 @@ Your new Kotlin Notebook is created within a new project.
 Alternatively, create an empty project and then [add a Kotlin Notebook](#add-a-new-kotlin-notebook-to-your-project):
 
 1. In IntelliJ IDEA, select **File | New | Project**.
-2. In the panel on the left, select **New Project**. 
+2. In the panel on the left, select **New Project**.
 3. Name the new project and change its location if necessary.
 
-   > Select the **Create Git repository** checkbox to place the new project under version control. 
+   > Select the **Create Git repository** checkbox to place the new project under version control.
    > You will be able to do it later at any time.
-   > 
+   >
    {style="tip"}
 
 4. From the **Language** list, select **Kotlin**.
@@ -48,7 +55,7 @@ Alternatively, create an empty project and then [add a Kotlin Notebook](#add-a-n
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
 
    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.
-   > 
+   >
    {style="tip"}
 
 8. Click **Create**.
@@ -58,7 +65,7 @@ Once your project is created, add a new Kotlin Notebook (see the next section).
 
 ## Add a new Kotlin Notebook to your project
 
-To add a new Kotlin Notebook to an existing project: 
+To add a new Kotlin Notebook to an existing project:
 
 1. Select **File | New | Kotlin Notebook**, or right-click on a folder and select **New | Kotlin Notebook**.
 
@@ -69,7 +76,7 @@ To add a new Kotlin Notebook to an existing project:
 
 ## Create a scratch Kotlin Notebook
 
-You can also create a Kotlin Notebook as a scratch file. [Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) allow 
+You can also create a Kotlin Notebook as a scratch file. [Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) allow
 you to test small pieces of code without creating a new project or modifying an existing one.
 
 To create a scratch Kotlin Notebook:

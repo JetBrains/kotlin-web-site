@@ -5,7 +5,6 @@ if you want to quickly see how a function works or find an expression's value, t
 and build it. Check out these three handy ways to run Kotlin code instantly in different environments:
 
 * [Scratch files](#ide-scratches-and-worksheets) in the IDE.
-* [Kotlin Notebook](#ide-kotlin-notebook) in the IDE.
 * [Kotlin Playground](#browser-kotlin-playground) in the browser.
 * [ki shell](#command-line-ki-shell) in the command line.
 
@@ -19,7 +18,7 @@ Scratches are not tied to projects; you can access and run all your scratches fr
 To create a Kotlin scratch, click **File** | **New** | **Scratch File** and select the **Kotlin** type.
 
 Syntax highlighting, auto-completion, and other
-IntelliJ IDEA code editing features are supported in scratches. There's no need to declare the `main()` function 
+IntelliJ IDEA code editing features are supported in scratches. There's no need to declare the `main()` function
 – all the code you write is executed as if it were in the body of `main()`.
 
 Once you have finished writing your code in a scratch, click **Run**.
@@ -46,24 +45,6 @@ the changes will propagate to scratches when you rebuild the module.
 To rebuild the module automatically before each run of a scratch, select **Make module before Run**.
 
 ![Scratch select module](scratch-select-module.png){width=700}
-
-## IDE: Kotlin Notebook
-
-[](kotlin-notebook-overview.md) is an interactive editor that lets you mix code, outputs, visuals, and Markdown in one document.
-You can use notebooks to write and run code in sections known as _code cells_ and see the results instantly.
-
-![Kotlin Notebook](data-analysis-notebook.gif){width=700}
-
-Kotlin Notebook is bundled and enabled in IntelliJ IDEA by default.
-
-To start working with Kotlin Notebook, see [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md).
-
-### Scratch Kotlin Notebook
-
-You can also create a Kotlin Notebook as a [scratch file](https://www.jetbrains.com/help/idea/scratches.html), which allows you to test small pieces of code without
-creating a new project or modifying an existing one. Scratch notebooks are accessible from any project. 
-
-[Learn how to create a scratch Kotlin Notebook](kotlin-notebook-create.md#create-a-scratch-kotlin-notebook).
 
 ## Browser: Kotlin Playground
 
@@ -96,7 +77,7 @@ For JS backends, you can also see the generated JS code.
 
 ![Playground: generated JS](playground-generated-js.png){width=700}
 
-### Share code online 
+### Share code online
 
 Use the Playground to share your code with others – click **Copy link** and send it to anyone you want to show the code to.
 
@@ -138,7 +119,7 @@ the commands that are available in the ki shell.
 
 ### Code completion and highlighting
 
-The ki shell shows code completion options when you press **Tab**. It also provides syntax highlighting as you type. 
+The ki shell shows code completion options when you press **Tab**. It also provides syntax highlighting as you type.
 You can disable this feature by entering `:syntax off`.
 
 ![ki shell highlighting and completion](ki-shell-highlight-completion.png){width=700}

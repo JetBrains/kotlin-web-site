@@ -4,21 +4,22 @@
 Kotlin. LPK brings the feature-rich ggplot2 API to the Kotlin ecosystem,
 making it suitable for scientists and statisticians who require sophisticated data visualization capabilities.
 
-LPK targets various platforms, including [Kotlin notebooks](data-analysis-overview.md#notebooks), [Kotlin/JS](js-overview.md), [JVM's Swing](https://docs.oracle.com/javase/8/docs/technotes/guides/swing/), [JavaFX](https://openjfx.io/), and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/).
+LPK targets various platforms, including [Kotlin/JS](js-overview.md), [JVM's Swing](https://docs.oracle.com/javase/8/docs/technotes/guides/swing/), [JavaFX](https://openjfx.io/), and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/).
 Additionally, LPK has seamless integration with [IntelliJ](https://www.jetbrains.com/idea/), [DataGrip](https://www.jetbrains.com/datagrip/), [DataSpell](https://www.jetbrains.com/dataspell/), and [PyCharm](https://www.jetbrains.com/pycharm/).
 
 ![Lets-Plot](lets-plot-overview.png){width=700}
 
 This tutorial demonstrates how to create different plot types with
-the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) libraries using Kotlin Notebook in IntelliJ IDEA.
+the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) libraries in IntelliJ IDEA.
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and enabled in IntelliJ IDEA by default.
-
-If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
-see [Set up an environment](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 Create a new Kotlin Notebook to work with Lets-Plot:
 
@@ -30,11 +31,13 @@ Create a new Kotlin Notebook to work with Lets-Plot:
     %use dataframe
     ```
 
+To follow the tutorial, you can also use DataFrame as an ordinary [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
+
 ## Prepare the data
 
 Let's create a DataFrame that stores simulated numbers of the monthly average temperature in three cities: Berlin, Madrid, and Caracas.
 
-Use the [`dataFrameOf()`](https://kotlin.github.io/dataframe/createdataframe.html#dataframeof) function from the Kotlin DataFrame library to generate the DataFrame. Paste and run the following code snippet in your Kotlin Notebook:
+Use the [`dataFrameOf()`](https://kotlin.github.io/dataframe/createdataframe.html#dataframeof) function from the Kotlin DataFrame library to generate the DataFrame. Paste and run the following code snippet:
 
 ```kotlin
 // The months variable stores a list with 12 months of the year
@@ -76,10 +79,10 @@ val data = df.toMap()
 
 ## Create a scatter plot
 
-Let's create a scatter plot in Kotlin Notebook with the LPK library. 
+Let's create a scatter plot with the LPK library.
 
-Once you have your data in the `Map` format, use the [`geomPoint()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-point/index.html) function from the LPK library to generate the scatter plot. 
-You can specify the values for the X and Y axes, as well as define categories and their color. Additionally, 
+Once you have your data in the `Map` format, use the [`geomPoint()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-point/index.html) function from the LPK library to generate the scatter plot.
+You can specify the values for the X and Y axes, as well as define categories and their color. Additionally,
 you can [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) the plot's size and point shapes to suit your needs:
 
 ```kotlin
@@ -95,7 +98,7 @@ Here's the result:
 
 ## Create a box plot
 
-Let's visualize the [data](#prepare-the-data) in a box plot. Use the [`geomBoxplot()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-boxplot.html) 
+Let's visualize the [data](#prepare-the-data) in a box plot. Use the [`geomBoxplot()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-boxplot.html)
 function from the LPK library to generate the plot and [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) colors with the [`scaleFillManual()`](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.scale/scale-fill-manual.html)
 function:
 
@@ -126,10 +129,7 @@ Now, let's create a 2D density plot to visualize the distribution and concentrat
    import org.apache.commons.math3.distribution.MultivariateNormalDistribution
    ```
 
-   > For more information about importing dependencies to Kotlin Notebook, see the [Kotlin Notebook documentation](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
-   > {style="tip"}
-
-2. Paste and run the following code snippet in your Kotlin Notebook to create sets of 2D data points:
+2. Paste and run the following code snippet to create sets of 2D data points:
 
    ```kotlin
    // Defines covariance matrices for three distributions
@@ -195,6 +195,5 @@ Here's the result:
 ## What's next
 
 * Explore more plot examples in the [Lets-Plot for Kotlin's documentation](https://lets-plot.org/kotlin/charts.html).
-* Check the Lets-Plot for Kotlin's [API reference](https://lets-plot.org/kotlin/api-reference/). 
+* Check the Lets-Plot for Kotlin's [API reference](https://lets-plot.org/kotlin/api-reference/).
 * Learn about transforming and visualizing data with Kotlin in the [Kotlin DataFrame](https://kotlin.github.io/dataframe/info.html) and [Kandy](https://kotlin.github.io/kandy/welcome.html) library documentation.
-* Find additional information about the [Kotlin Notebook's usage and key features](https://www.jetbrains.com/help/idea/kotlin-notebook.html).
