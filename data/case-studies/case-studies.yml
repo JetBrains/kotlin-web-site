@@ -407,6 +407,18 @@ items:
       type: youtube
       videoId: jhBmom8z3Qg
   #------------------------------------------------------------------------
+  - id: gooddata
+    type: ai
+    description: >-
+      **GoodData** built an AI agent in Kotlin to automate routine production alert investigations.
+      It analyzes monitoring data and internal engineering knowledge, then gives engineers a clear
+      report on the likely cause and where to look next. The result: 90% less time spent on
+      investigations and faster decisions during incidents.
+    logo:
+      - /images/case-studies/gooddata-logo.svg
+    isExternal: true
+    link: https://www.gooddata.ai/blog/ai-on-duty/
+  #------------------------------------------------------------------------
   - id: doist
     type: multiplatform
     description: >-

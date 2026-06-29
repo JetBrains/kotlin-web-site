@@ -14,8 +14,7 @@ To create an instance of such a class, simply provide the type arguments:
 val box: Box<Int> = Box<Int>(1)
 ```
 
-But if the parameters can be inferred, for example, from the constructor arguments,
-you can omit the type arguments:
+If the compiler can infer the type arguments, for example, from the constructor arguments, you don’t need to specify them explicitly:
 
 ```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
