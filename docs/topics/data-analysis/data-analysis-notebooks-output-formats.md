@@ -1,5 +1,12 @@
 [//]: # (title: Output formats supported by Kotlin Notebook)
 
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
+
 [Kotlin Notebook](kotlin-notebook-overview.md) supports a variety of output types, including text, HTML, and images. With the help of external libraries,
 you can expand your output options and visualize your data with charts, spreadsheets, and more.
 
@@ -252,7 +259,7 @@ You can create various charts directly in your Kotlin Notebook to visualize your
    ```
 
 2. Use the same data frame and run the `plot()` function in the new cell:
- 
+
    ```kotlin
    val salesPlot = dfSales.groupBy { Product }.plot {
        bars {

@@ -1,6 +1,13 @@
 [//]: # (title: Share your Kotlin Notebook)
 
-To share a [Kotlin Notebook](kotlin-notebook-overview.md), you can just upload it to any notebook web viewer because [Kotlin notebooks](data-analysis-overview.md#notebooks) follow the 
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
+
+To share a [Kotlin Notebook](kotlin-notebook-overview.md), you can just upload it to any notebook web viewer because Kotlin notebooks follow the
 universal Jupyter format.
 
 We recommend the following platforms to share Kotlin notebooks:
