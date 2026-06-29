@@ -29,7 +29,7 @@ tooltips, or inferred type displays. Learn more about non-denotable types in:
 * [](typecasts.md#intersection-types)
 * [](numbers.md#integer-literal-types)
 * [](generics.md#captured-types)
-* [Kotlin language specification: Platform types](https://kotlinlang.org/spec/type-system.html#platform-types)
+* [Kotlin language specification: Type system](https://kotlinlang.org/spec/type-system.html)
 
 > [Learn how to perform type checks and casts in Kotlin](typecasts.md).
 >
