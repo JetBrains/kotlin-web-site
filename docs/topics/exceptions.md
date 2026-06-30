@@ -234,6 +234,31 @@ fun count(): Int {
 ```
 {kotlin-runnable="true"}
 
+You can handle an exception without using the exception instance.
+This is useful when the `catch` block can handle the exception without it, for example by providing a fallback value or a generic error message.
+
+Use an underscore (`_`) instead of the exception parameter name to indicate that the exception instance is intentionally ignored:
+
+```kotlin
+import java.io.File
+import java.io.IOException
+
+//sampleStart
+fun main() {
+    val userSettings = try {
+        File("user-settings.json").readText()
+    
+    // Catches IOException without using the exception instance
+    } catch (_: IOException) {
+        // Uses a fallback value if loading the file fails
+        "{}"
+    }
+
+    println(userSettings)
+}
+//sampleEnd
+```
+{kotlin-runnable="true"}
 
 You can use multiple `catch` handlers for the same `try` block.
 You can add as many `catch` blocks as needed to handle different exceptions distinctively.
