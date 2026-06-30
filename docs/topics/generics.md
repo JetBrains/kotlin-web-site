@@ -277,14 +277,14 @@ enforce the variance rules:
 * You can call `get()` to return the captured type.
 * You can't call `set()`, because it needs to know the exact type to write safely.
 
-Since intersection types are non-denotable, you can't write them in Kotlin code. However, if you violate a variance
+Since captured types are non-denotable, you can't write them in Kotlin code. However, if you violate a variance
 constraint on a projected type, the compiler may mention them in error messages, displayed as `CapturedType(out X)`
 or in [flexible type](https://kotlinlang.org/spec/type-system.html#flexible-types) notation as `(L..U)`, where `L` is the
 lower bound (non-nullable) and `U` is the upper bound (nullable). For example:
 
 ```kotlin
-fun example(list: MutableList) {
-    list.add(42)
+fun example(list: MutableList<out Number>) {
+    list.add(10)
     // Error: out-projected type 'MutableList' prohibits
     // the use of 'fun add(element: E): Boolean'
 }

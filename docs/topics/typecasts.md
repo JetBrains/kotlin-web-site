@@ -318,6 +318,13 @@ fun describe(animal: Any) {
 
 Since intersection types are non-denotable, you can't write them in Kotlin code. However, you may encounter them in
 compiler error messages and IDE tooltips, typically displayed as `A & B`.
+The one exception is `T & Any`, used to declare a [definitely non-nullable type](generics.md#definitely-non-nullable-types).
+The syntax is reserved specifically to combine a type parameter with `Any`. You still can't write other
+intersection types explicitly.
+
+```kotlin
+fun  method(): T & Any = TODO()
+```
 
 ### Inline functions
 

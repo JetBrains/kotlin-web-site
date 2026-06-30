@@ -18,7 +18,7 @@ To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look th
 * [`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html)
 * [`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/)
 
-Kotlin also support non-denotable types. They are types that you can't write directly in the Kotlin code. Instead, the
+Kotlin also has non-denotable types. They are the types that you can't write directly in the Kotlin code. Instead, the
 compiler uses them internally, for example, for interoperability with other languages. Kotlin creates non-denotable
 types to represent type information that is more precise than what Kotlin source syntax allows.
 
