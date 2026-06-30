@@ -168,7 +168,7 @@ prevent nulls from propagating:
 item.substring(1) // allowed, throws an exception if item == null
 ```
 
-You can assign a value of a platform type to a variable both nullable and non-nullable Kotlin types. However,
+You can assign a value of a platform type to a variable of both nullable and non-nullable Kotlin types. However,
 if you assign such a value to a variable of a non-nullable type and the value is actually `null` at runtime, Kotlin
 throws a `NullPointerException`. To avoid this, add explicit nullability to your Kotlin code:
 

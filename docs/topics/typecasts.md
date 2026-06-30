@@ -323,7 +323,7 @@ The syntax is reserved specifically to combine a type parameter with `Any`. You 
 intersection types explicitly.
 
 ```kotlin
-fun  method(): T & Any = TODO()
+fun  <T> T.assertNotNull(): T & Any = this ?: throw IllegalStateException("null value")
 ```
 
 ### Inline functions

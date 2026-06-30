@@ -1,5 +1,12 @@
 [//]: # (title: This expressions)
 
+The `this` expressions refer to the current receiver. 
+
+In Kotlin, code can run in a scope that has a receiver. A receiver is the object on which you call the members.
+You use `this` to make this object explicit.
+
+
+
 To denote the current _receiver_, you use `this` expressions:
 
 * In a member of a [class](classes.md#inheritance), `this` refers to the current object of that class.
