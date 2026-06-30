@@ -26,17 +26,18 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 
 #### Sources in different repositories
 
-Source files for the language specification and the docs for Kotlin Mulitplatform, coroutines, lincheck, Dokka,
+Source files for the language specification and the docs for Kotlin Multiplatform, coroutines, serialization, lincheck, Dokka,
 and Library creators' guidelines are stored in separate repositories
 
-| Website page                                                                                     | GitHub repository                                                                           |
-|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| [Kotlin Multiplafrom docs](https://kotlinlang.org/docs/multiplatform/get-started.html)           | [kotlin-multiplatform-dev-docs](https://github.com/JetBrains/kotlin-multiplatform-dev-docs) |
-| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/)                         |
-| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)                             |
-| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [dokka](https://github.com/Kotlin/dokka/)                                                   |
+| Website page                                                                                    | GitHub repository                                                                           |
+|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| [Kotlin Multiplatform docs](https://kotlinlang.org/docs/multiplatform/get-started.html)         | [kotlin-multiplatform-dev-docs](https://github.com/JetBrains/kotlin-multiplatform-dev-docs) |
+| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                            | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/)                         |
+| [Serialization docs](https://kotlinlang.org/docs/serialization.html)                            | [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)                    |
+| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)                             |
+| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                               | [dokka](https://github.com/Kotlin/dokka/)                                                   |
 | [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)                                  |
-| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                                        |
+| [Language specification](https://kotlinlang.org/spec/introduction.html)                         | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                                        |
 
 #### Auto-generated content
 
