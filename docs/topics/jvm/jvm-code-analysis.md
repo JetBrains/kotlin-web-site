@@ -142,24 +142,83 @@ To integrate detekt into your project:
    </tab>
    </tabs>
 
-2. (Optional) You can also add a `detekt.yml` configuration file to the root of your project to customize the rules:
-
-   ```yaml
-   complexity:
-     LongMethod:
-       threshold: 60
-   style:
-     MagicNumber:
-       active: true
-   ```
-
-3. Run the analysis:
+2. Generate a default `detekt.yml` [configuration file](https://detekt.dev/docs/introduction/configurations):
 
    <tabs group="build-system">
    <tab title="Maven" group-key="maven">
 
    ```bash
-   mvn verify
+   mvn detekt:generate-config
+   ```
+
+   </tab>
+   <tab title="Gradle" group-key="gradle">
+
+   ```bash
+   ./gradlew detektGenerateConfig
+   ```
+
+   </tab>
+   </tabs>
+
+3. Go to `config/detekt/detekt.yml` and customize the rules in the generated file, for example:
+
+   ```yaml
+   complexity:
+     LongMethod:
+       threshold: 50
+   style:
+     MagicNumber:
+       active: false
+   ```
+
+4. Reference the configuration file in your build file so that detekt can apply the new rules:
+
+   <tabs group="build-system">
+   <tab title="Maven" group-key="maven">
+
+   ```xml
+   <!-- pom.xml -->
+   <plugin>
+       <groupId>com.github.ozsie</groupId>
+       <artifactId>detekt-maven-plugin</artifactId>
+       <version>1.23.8</version>
+       <configuration>
+           <config>config/detekt/detekt.yml</config>
+       </configuration>
+       <executions>
+           <execution>
+               <phase>verify</phase>
+               <goals>
+                   <goal>check</goal>
+               </goals>
+           </execution>
+       </executions>
+   </plugin>
+   ```
+
+   </tab>
+   <tab title="Gradle" group-key="gradle">
+
+   ```kotlin
+   // build.gradle.kts
+   detekt {
+       toolVersion = "1.23.8"
+       config.setFrom(file("config/detekt/detekt.yml"))
+       buildUponDefaultConfig = true
+   }
+   ```
+
+   </tab>
+   </tabs>
+
+5. Run the analysis:
+
+   <tabs group="build-system">
+   <tab title="Maven" group-key="maven">
+
+   ```bash
+   mvn detekt:check
    ```
 
    </tab>
@@ -172,10 +231,10 @@ To integrate detekt into your project:
    </tab>
    </tabs>
 
-detekt will produce an HTML or XML report in the `build/reports/detekt/` directory. The report lists all rule violations
-with their severity, file location, and a description of the issue.
+detekt will produce a report listing all rule violations with their severity, file location, and a description of the issue.
+By default, Gradle outputs reports to `build/reports/detekt/`, while Maven outputs to the `detekt/` directory in the project root.
 
-For more information, see the [detekt documentation](https://detekt.dev/docs/intro).
+For more information, see the detekt documentation for [Gradle](https://detekt.dev/docs/intro) and [Maven](https://github.com/Ozsie/detekt-maven-plugin).
 
 ## Code quality with SonarSource
 
@@ -207,23 +266,49 @@ To analyze your project with SonarQube:
    plugins {
        id("org.sonarqube") version "6.2.0.5505"
    }
+
+   sonar {
+       properties {
+           property("sonar.projectKey", "my-project")
+           property("sonar.host.url", "http://localhost:9000")
+       }
+   }
    ```
 
    </tab>
    </tabs>
 
-2. (Optional) You can also add a `sonar-project.properties` file to the root of your project to customize quality gate
-   conditions. For example, to fail the build if code coverage drops below 80% or if new bugs are introduced:
+2. (Optional) Configure analysis properties in your build file. For example, to make the build wait for the
+   quality gate result and fail if the gate is not passed, add the `sonar.qualitygate.wait` property:
 
-   ```properties
-   sonar.qualitygate.wait=true
-   sonar.coverage.minimum=80
+   <tabs group="build-system">
+   <tab title="Maven" group-key="maven">
+
+   ```bash
+   mvn verify sonar:sonar \
+     -Dsonar.qualitygate.wait=true \
+     -Dsonar.projectKey=my-project \
+     -Dsonar.host.url=http://localhost:9000 \
+     -Dsonar.token=YOUR_TOKEN
    ```
 
-   The `sonar.qualitygate.wait=true` property makes the Maven build wait for the analysis to complete and fail if the gate is not passed.
+   </tab>
+   <tab title="Gradle" group-key="gradle">
+
+   ```kotlin
+   // build.gradle.kts
+   sonar {
+       properties {
+           property("sonar.qualitygate.wait", "true")
+       }
+   }
+   ```
+
+   </tab>
+   </tabs>
 
    > Quality gate rules (such as minimum coverage thresholds and allowed issue counts) are defined in the SonarQube
-   > or SonarCloud web interface under **Quality Gates**.
+   > or SonarCloud web interface under **Quality Gates**, not in the build file.
    >
    {style="note"}
 
@@ -252,21 +337,24 @@ To analyze your project with SonarQube:
    </tab>
    <tab title="Gradle" group-key="gradle">
 
+   To run the analysis, use the `sonar` task and provide your authentication token:
+
    ```bash
    ./gradlew sonar \
-     -Dsonar.projectKey=my-project \
-     -Dsonar.host.url=http://localhost:9000 \
      -Dsonar.token=YOUR_TOKEN
    ```
 
-   For SonarCloud, replace the host URL with `https://sonarcloud.io` and provide your organization key:
+   By default, the analysis is run against a local SonarQube server. To use SonarCloud, update the `sonar {}` block
+   in your `build.gradle.kts` to use `https://sonarcloud.io` and add your organization key:
 
-   ```bash
-   ./gradlew sonar \
-     -Dsonar.projectKey=my-project \
-     -Dsonar.organization=my-org \
-     -Dsonar.host.url=https://sonarcloud.io \
-     -Dsonar.token=YOUR_TOKEN
+   ```kotlin
+   sonar {
+       properties {
+           property("sonar.projectKey", "my-project")
+           property("sonar.organization", "my-org")
+           property("sonar.host.url", "https://sonarcloud.io")
+       }
+   }
    ```
 
    </tab>
