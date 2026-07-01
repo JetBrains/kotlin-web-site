@@ -5,7 +5,7 @@
     <toc-element toc-title="Get started" topic="getting-started.md"/>
     <toc-element toc-title="Take Kotlin tour">
         <toc-element toc-title="Kotlin tour overview" topic="kotlin-tour-welcome.md"/>
-        <toc-element toc-title="Beginner" progress-tracking="true">
+        <toc-element toc-title="Beginner" progress-tracking="true" exclude-from-search="true">
             <toc-element topic="kotlin-tour-hello-world.md"/>
             <toc-element topic="kotlin-tour-basic-types.md"/>
             <toc-element topic="kotlin-tour-collections.md"/>
@@ -14,7 +14,7 @@
             <toc-element topic="kotlin-tour-classes.md"/>
             <toc-element topic="kotlin-tour-null-safety.md"/>
         </toc-element>
-        <toc-element toc-title="Intermediate" progress-tracking="true">
+        <toc-element toc-title="Intermediate" progress-tracking="true" exclude-from-search="true">
             <toc-element topic="kotlin-tour-intermediate-extension-functions.md"/>
             <toc-element topic="kotlin-tour-intermediate-scope-functions.md"/>
             <toc-element topic="kotlin-tour-intermediate-lambdas-receiver.md"/>
