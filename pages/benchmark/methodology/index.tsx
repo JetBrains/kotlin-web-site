@@ -22,6 +22,7 @@ export default function KotlinBenchmarkMethodology() {
             description={
                 'How the Kotlin Benchmark is built: the dataset of real Kotlin tasks, the Multi-SWE-bench harness that runs them, and how every result is scored.'
             }
+            ogImageName={'benchmark.jpg'}
             currentTitle={KOTLIN_BENCHMARK_TITLE}
             currentUrl={METHODOLOGY_URL}
             topMenuTitle={KOTLIN_BENCHMARK_TITLE}

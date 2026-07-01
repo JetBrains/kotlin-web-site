@@ -20,8 +20,7 @@ export default function KotlinBenchmarkLanding() {
             description={
                 'Kotlin Benchmark measures coding agent performance on idiomatic Kotlin tasks — an independent source for Kotlin AI quality to help you pick the right tool.'
             }
-            // TODO: add the DSGN open-graph asset (2560×1440) at
-            // /assets/images/open-graph/benchmark.png and set ogImageName.
+            ogImageName={'benchmark.jpg'}
             currentTitle={KOTLIN_BENCHMARK_TITLE}
             currentUrl={KOTLIN_BENCHMARK_URL}
             hideTopMenu
