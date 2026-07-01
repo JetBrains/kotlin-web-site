@@ -1,4 +1,4 @@
-import methodologyRaw from '../../../../data/kotlin-benchmark/methodology.yml';
+import methodologyRaw from '../../../../data/benchmark/methodology.yml';
 
 /**
  * A single dataset repository row.
