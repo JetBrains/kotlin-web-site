@@ -96,7 +96,7 @@ For more information, see [String templates](strings.md#string-templates).
 You will notice that there aren't any types declared for variables. Kotlin has inferred the type itself: `Int`. This tour
 explains the different Kotlin basic types and how to declare them in the [next chapter](kotlin-tour-basic-types.md).
 
-## Practice {id="mark-as-completed"}
+## Practice {completion-point="true"}
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -124,7 +124,7 @@ fun main() {
 
 <seealso></seealso>
 
-<list columns="2" id="tour-nav">
+<list id="tour-nav">
   <li>
     <a as="button" href="kotlin-tour-basic-types.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
   </li>

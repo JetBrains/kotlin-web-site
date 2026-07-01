@@ -147,7 +147,7 @@ fun main() {
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
-## Practice {id="mark-as-completed"}
+## Practice {completion-point="true"}
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
