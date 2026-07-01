@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { KotlinBenchmarkPage } from '../page/kotlin-benchmark-page';
+import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
 const EXPECTED_DATA_COLUMNS = 6;
 
@@ -117,7 +117,7 @@ test.describe('Kotlin Benchmark landing page', () => {
 
     test('methodology CTA links to the methodology page and GitHub', async () => {
         await expect(benchmark.page.getByTestId('bench-cta-title')).toContainText('How Kotlin Benchmark works');
-        await expect(benchmark.methodologyCta).toHaveAttribute('href', /\/kotlin-benchmark\/methodology\/?$/);
+        await expect(benchmark.methodologyCta).toHaveAttribute('href', /\/benchmark\/methodology\/?$/);
         await expect(benchmark.githubCta).toHaveAttribute('href', /github\.com/);
     });
 });
