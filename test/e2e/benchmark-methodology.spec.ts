@@ -61,4 +61,12 @@ test.describe('Kotlin Benchmark methodology page', () => {
         await expect(page).toHaveURL(/\/benchmark\/methodology\/?$/);
         await expect(methodology.title).toBeVisible();
     });
+
+    test('a call to action at the end links to the benchmark page', async ({ page }) => {
+        await expect(methodology.benchmarkCta).toBeVisible();
+        await expect(methodology.benchmarkCta).toHaveAttribute('href', /\/benchmark\/?$/);
+
+        await methodology.benchmarkCta.click();
+        await expect(page).toHaveURL(/\/benchmark\/?$/);
+    });
 });

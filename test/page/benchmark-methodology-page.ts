@@ -11,6 +11,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
     readonly multiSweBenchLink: Locator;
     readonly futureCards: Locator;
     readonly topMenu: Locator;
+    readonly benchmarkCta: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -21,6 +22,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
         this.multiSweBenchLink = page.getByTestId('methodology-msb-link');
         this.futureCards = page.getByTestId('methodology-future-card');
         this.topMenu = page.getByTestId('top-menu');
+        this.benchmarkCta = page.getByTestId('methodology-benchmark-cta');
     }
 
     /** Section heading by its visible text. */
