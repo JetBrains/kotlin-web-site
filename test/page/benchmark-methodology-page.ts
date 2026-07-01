@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base-page';
 
-export const KOTLIN_BENCHMARK_METHODOLOGY_URL = '/kotlin-benchmark/methodology/';
+export const KOTLIN_BENCHMARK_METHODOLOGY_URL = '/benchmark/methodology/';
 
 export class KotlinBenchmarkMethodologyPage implements BasePage {
     readonly page: Page;
@@ -15,7 +15,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
 
     constructor(page: Page) {
         this.page = page;
-        this.root = page.getByTestId('kotlin-benchmark-methodology');
+        this.root = page.getByTestId('benchmark-methodology');
         this.title = page.getByTestId('methodology-title');
         this.datasetTable = page.getByTestId('methodology-dataset-table');
         this.datasetRows = page.getByTestId('methodology-dataset-row');
