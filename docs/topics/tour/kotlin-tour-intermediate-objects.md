@@ -151,7 +151,9 @@ at this point. The `getBongs()` function is called with parameter `12`.
 
 For more information, see [](object-declarations.md#companion-objects).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-1"}
 

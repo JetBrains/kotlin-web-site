@@ -552,7 +552,9 @@ For more information on lambda expressions, see [Lambda expressions and anonymou
 
 The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in Kotlin.
 
-## Lambda expressions practice {id="mark-as-completed"}
+<completion-point/>
+
+## Lambda expressions practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-1"}
 

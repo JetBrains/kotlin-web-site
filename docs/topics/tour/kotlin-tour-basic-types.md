@@ -90,7 +90,9 @@ fun main() {
 
 Now that you know how to declare basic types, it's time to learn about [collections](kotlin-tour-collections.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 

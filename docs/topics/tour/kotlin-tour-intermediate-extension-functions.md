@@ -108,7 +108,9 @@ to help you work with strings.
 
 For more information about extension functions, see [Extensions](extensions.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-1"}
 

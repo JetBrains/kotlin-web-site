@@ -165,7 +165,9 @@ fun main() {
 
 This is the easiest way to opt in, but there are other ways. To learn more, see [Opt-in requirements](opt-in-requirements.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-1"}
 

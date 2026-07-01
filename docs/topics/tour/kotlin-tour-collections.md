@@ -418,7 +418,9 @@ For more information on what you can do with collections, see [Collections](coll
 Now that you know about basic types and how to manage collections, it's time to explore the [control flow](kotlin-tour-control-flow.md)
 that you can use in your programs.
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
 

@@ -440,7 +440,9 @@ you don't have to add new lines of code for every inherited member function.
 
 For more information, see [Delegation](delegation.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-1"}
 

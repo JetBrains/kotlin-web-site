@@ -366,7 +366,9 @@ safer by stopping as soon as a `null` value or invalid case is detected.
 
 For more information about how you can use `return` in your code, see [Returns and jumps](returns.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-1"}
 

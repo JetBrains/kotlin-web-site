@@ -415,7 +415,9 @@ of how these functions work in order to use them in your code.
 
 For more information about scope functions, see [Scope functions](scope-functions.md).
 
-## Practice {id="mark-as-completed"}
+<completion-point/>
+
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-1"}
 

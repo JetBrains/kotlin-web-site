@@ -382,7 +382,9 @@ For more information and examples of conditional expressions and loops, see [Con
 
 Now that you know the fundamentals of Kotlin control flow, it's time to learn how to write your own [functions](kotlin-tour-functions.md).
 
-## Loops practice {id="mark-as-completed"}
+<completion-point/>
+
+## Loops practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
 
