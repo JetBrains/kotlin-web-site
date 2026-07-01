@@ -11,7 +11,7 @@ export function BenchHero() {
             <h1 className={cn(styles.title, textCn('rs-hero'))} data-testid="bench-hero-title">
                 Kotlin Benchmark
             </h1>
-            <p className={cn(styles.intro, textCn('rs-subtitle-2'))} data-testid="bench-hero-intro">
+            <p className={cn(styles.intro, textCn('rs-text-1', { hardness: 'hard' }))} data-testid="bench-hero-intro">
                 Kotlin Benchmark is a&nbsp;continuous initiative for&nbsp;measuring coding agent performance across
                 multiple dimensions. It is designed as an&nbsp;independent source for&nbsp;Kotlin AI&nbsp;quality,
                 helping you choose the tool that best fits your&nbsp;needs.

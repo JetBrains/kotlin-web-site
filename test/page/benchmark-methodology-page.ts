@@ -1,7 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base-page';
-
-export const KOTLIN_BENCHMARK_METHODOLOGY_URL = '/benchmark/methodology/';
+import { METHODOLOGY_URL } from '../../blocks/benchmark/constants';
 
 export class KotlinBenchmarkMethodologyPage implements BasePage {
     readonly page: Page;
@@ -30,7 +29,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
     }
 
     async init() {
-        await this.page.goto(KOTLIN_BENCHMARK_METHODOLOGY_URL);
+        await this.page.goto(METHODOLOGY_URL);
 
         await Promise.all([this.root.waitFor(), this.page.locator('html.hydrated').waitFor()]);
     }

@@ -5,13 +5,10 @@ import { LandingLayout } from '../../components/landing-layout/landing-layout';
 import { BenchHero } from '@/blocks/benchmark/hero';
 import { Leaderboard } from '@/blocks/benchmark/leaderboard';
 import { BenchCta } from '@/blocks/benchmark/cta';
+import { KOTLIN_BENCHMARK_TITLE, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@/blocks/benchmark/constants';
 
 import styles from './index.module.css';
 
-const KOTLIN_BENCHMARK_TITLE = 'Kotlin Benchmark' as const;
-const KOTLIN_BENCHMARK_URL = '/benchmark/' as const;
-
-const METHODOLOGY_URL = '/benchmark/methodology/' as const;
 // TODO: replace with the real Kotlin Benchmark GitHub repository URL.
 const GITHUB_URL = 'https://github.com/Kotlin' as const;
 
