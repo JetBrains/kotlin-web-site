@@ -1,8 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
+import { Button } from '@rescui/button';
 import styles from './content.module.css';
 import { repositories } from './dataset-data';
+import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
 
 const MULTI_SWE_BENCH_URL = 'https://github.com/multi-swe-bench' as const;
 
@@ -144,6 +146,12 @@ export function MethodologyContent() {
                         ))}
                     </div>
                 </section>
+
+                <div className={styles.footer}>
+                    <Button size="l" mode="rock" href={KOTLIN_BENCHMARK_URL} data-testid="methodology-benchmark-cta">
+                        View the leaderboard
+                    </Button>
+                </div>
             </div>
         </div>
     );

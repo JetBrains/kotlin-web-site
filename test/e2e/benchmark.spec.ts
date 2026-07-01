@@ -56,14 +56,14 @@ test.describe('Kotlin Benchmark landing page', () => {
         }
     });
 
-    test('latency is shown as hours, minutes and seconds', async () => {
+    test('latency is shown as hours and minutes', async () => {
         const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
 
         expect(latencies.length).toBeGreaterThan(0);
 
-        // Every cell follows the "Hh Mm Ss" shape with zero-padded minutes and seconds.
+        // Every cell follows the "Hh Mm" shape with zero-padded minutes (no seconds).
         for (const latency of latencies) {
-            expect(latency).toMatch(/^\d+h \d{2}m \d{2}s$/);
+            expect(latency).toMatch(/^\d+h \d{2}m$/);
         }
     });
 

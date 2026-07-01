@@ -126,41 +126,8 @@
     background: oklch(0.588 0.241 288.6);
 }
 
-.rateCell {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .rateValue {
-    min-width: 48px;
     color: #fff;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-}
-
-.bar {
-    display: none;
-    width: 96px;
-    height: 6px;
-    overflow: hidden;
-    border-radius: 48px;
-    background: #474749;
-
-    @media (--ktl-ts-up) {
-        display: inline-block;
-    }
-}
-
-.barFill {
-    display: block;
-    height: 100%;
-    border-radius: 9999px;
-    background: linear-gradient(
-        135deg,
-        oklch(0.626 0.192 19.3),
-        oklch(0.604 0.281 321.9) 45%,
-        oklch(0.588 0.241 288.6) 75%,
-        oklch(0.693 0.164 255.4)
-    );
 }

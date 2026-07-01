@@ -4,18 +4,10 @@ import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 import styles from './leaderboard.module.css';
-import { columns, maxResolutionRate, rows, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
+import { columns, rows, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
 
 function RateCell({ value, textCn }: { value: number; textCn: ReturnType<typeof useTextStyles> }) {
-    const width = maxResolutionRate ? (value / maxResolutionRate) * 100 : 0;
-    return (
-        <span className={styles.rateCell}>
-            <span className={cn(styles.rateValue, textCn('rs-text-2'))}>{twoDecimals(value)}</span>
-            <span className={styles.bar} aria-hidden="true">
-                <span className={styles.barFill} style={{ width: `${width}%` }} />
-            </span>
-        </span>
-    );
+    return <span className={cn(styles.rateValue, textCn('rs-text-2'))}>{twoDecimals(value)}</span>;
 }
 
 export function Leaderboard() {
