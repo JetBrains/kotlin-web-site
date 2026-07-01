@@ -1,7 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base-page';
-
-export const KOTLIN_BENCHMARK_URL = '/benchmark/';
+import { KOTLIN_BENCHMARK_URL } from '../../blocks/benchmark/constants';
 
 export class KotlinBenchmarkPage implements BasePage {
     readonly page: Page;

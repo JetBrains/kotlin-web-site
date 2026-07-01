@@ -4,14 +4,12 @@ import { LandingLayout } from '@/components/landing-layout/landing-layout';
 
 import { MethodologyHero } from '@/blocks/benchmark/methodology/hero';
 import { MethodologyContent } from '@/blocks/benchmark/methodology/content';
+import { KOTLIN_BENCHMARK_TITLE, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@/blocks/benchmark/constants';
 
 import styles from './index.module.css';
 import {Button} from '@rescui/button';
 import { GitHubIcon } from '@rescui/icons';
 
-const KOTLIN_BENCHMARK_TITLE = 'Kotlin Benchmark' as const;
-const KOTLIN_BENCHMARK_URL = '/benchmark/' as const;
-const METHODOLOGY_URL = '/benchmark/methodology/' as const;
 const METHODOLOGY_TITLE = 'Methodology' as const;
 
 const TOP_MENU_ITEMS = [{ url: METHODOLOGY_URL, title: METHODOLOGY_TITLE }];
