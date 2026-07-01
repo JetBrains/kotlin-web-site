@@ -29,16 +29,14 @@ export interface BenchColumn {
 export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
 
 /**
- * Render a latency stored as decimal hours into "Hh Mm Ss" (e.g. 10.6 -> "10h 36m 00s").
- * Minutes and seconds are zero-padded; finer-grained source values are converted exactly.
+ * Render a latency stored as decimal hours into "Hh Mm" (e.g. 10.6 -> "10h 36m"),
+ * rounded to the nearest minute. Minutes are zero-padded.
  */
 const formatLatency = (value: BenchRow[BenchColumnKey]): string => {
-    const totalSeconds = Math.round(Number(value) * 3600);
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-    const pad = (n: number): string => String(n).padStart(2, '0');
-    return `${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
+    const totalMinutes = Math.round(Number(value) * 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return `${hours}h ${String(minutes).padStart(2, '0')}m`;
 };
 
 /**
@@ -73,7 +71,3 @@ const rawRows: BenchRow[] = (leaderboardRaw as { rows?: BenchRow[] }).rows ?? []
 export const rows: BenchRow[] = [...rawRows]
     .map((row) => ({ ...row, date: String(row.date).slice(0, 10) }))
     .sort((a, b) => b.resolutionRate - a.resolutionRate || a.tokens - b.tokens);
-
-export const maxResolutionRate: number = rows.length
-    ? Math.max(...rows.map((row) => row.resolutionRate))
-    : 0;

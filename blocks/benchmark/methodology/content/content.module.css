@@ -93,3 +93,9 @@
     margin: 8px 0 0;
     color: rgba(255, 255, 255, 0.7);
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--ktl-box-section-l);
+}
