@@ -234,7 +234,7 @@ annotation processing is skipped when:
   For example, when only function bodies change.
 
 However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
-in their internal implementation require running the annotation processing tasks, even if processors' ABI remains unchanged.
+in their internal implementation require running the annotation processing tasks, even if the processors' ABI remains unchanged.
 
 That's why we don't recommend using annotation processors from the compile classpath. To exclude these processors from
 kapt processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
