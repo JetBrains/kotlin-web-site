@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { KotlinBenchmarkMethodologyPage } from '../page/kotlin-benchmark-methodology-page';
-import { KotlinBenchmarkPage } from '../page/kotlin-benchmark-page';
+import { KotlinBenchmarkMethodologyPage } from '../page/benchmark-methodology-page';
+import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
 const EXPECTED_FUTURE_CARDS = 3;
 
@@ -45,7 +45,7 @@ test.describe('Kotlin Benchmark methodology page', () => {
     test('the subnavigation links back to the parent benchmark page', async () => {
         const parentLink = methodology.topMenu.getByRole('link', { name: 'Kotlin Benchmark', exact: true });
         await expect(parentLink).toBeVisible();
-        await expect(parentLink).toHaveAttribute('href', /\/kotlin-benchmark\/$/);
+        await expect(parentLink).toHaveAttribute('href', /\/benchmark\/$/);
 
         // The current page is shown as the active (non-link) subnavigation item.
         const activeItem = methodology.topMenu.getByText('Methodology', { exact: true });
@@ -58,7 +58,7 @@ test.describe('Kotlin Benchmark methodology page', () => {
 
         await benchmark.methodologyCta.click();
 
-        await expect(page).toHaveURL(/\/kotlin-benchmark\/methodology\/?$/);
+        await expect(page).toHaveURL(/\/benchmark\/methodology\/?$/);
         await expect(methodology.title).toBeVisible();
     });
 });

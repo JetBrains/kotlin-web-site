@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base-page';
 
-export const KOTLIN_BENCHMARK_URL = '/kotlin-benchmark/';
+export const KOTLIN_BENCHMARK_URL = '/benchmark/';
 
 export class KotlinBenchmarkPage implements BasePage {
     readonly page: Page;
@@ -18,7 +18,7 @@ export class KotlinBenchmarkPage implements BasePage {
 
     constructor(page: Page) {
         this.page = page;
-        this.root = page.getByTestId('kotlin-benchmark-landing');
+        this.root = page.getByTestId('benchmark-landing');
         this.heroTitle = page.getByTestId('bench-hero-title');
         this.heroIntro = page.getByTestId('bench-hero-intro');
         this.tableScroll = page.getByTestId('bench-scroll');

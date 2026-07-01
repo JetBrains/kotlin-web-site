@@ -1,8 +1,8 @@
-import leaderboardRaw from '../../../data/kotlin-benchmark/leaderboard.yml';
+import leaderboardRaw from '../../../data/benchmark/leaderboard.yml';
 
 /**
  * A single leaderboard entry. The data is sourced from
- * data/kotlin-benchmark/leaderboard.yml (rows only) — see that file to update
+ * data/benchmark/leaderboard.yml (rows only) — see that file to update
  * the numbers or wire up an automated integration.
  */
 export interface BenchRow {
