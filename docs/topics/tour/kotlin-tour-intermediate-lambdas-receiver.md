@@ -160,7 +160,7 @@ standard library.
 >
 {style="tip"}
 
-## Practice {id="mark-as-completed"}
+## Practice {completion-point="true"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-1"}
 

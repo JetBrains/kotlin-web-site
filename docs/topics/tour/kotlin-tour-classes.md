@@ -246,7 +246,7 @@ For more information about data classes, see [Data classes](data-classes.md).
 
 The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-safety.md).
 
-## Practice {id="mark-as-completed"}
+## Practice {completion-point="true"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
 
