@@ -3,7 +3,7 @@
 Most projects use KSP through the Gradle plugin, which runs KSP automatically during compilation. Command-line 
 invocation is primarily intended for integration with other build systems, processor development, testing and debugging.
 
-KSP is implemented as a JVM application. When running KSP from the command line, use the `java` command to launch the KSP 
+KSP is a JVM application. When running KSP from the command line, use the `java` command to launch the KSP 
 entry point and provide the required classpath and arguments.
 
 ```Bash
