@@ -19,7 +19,7 @@ and [Data Binding](https://developer.android.com/topic/libraries/data-binding/in
 
 > kapt is not supported in the IntelliJ build system. To re-run annotation processing in IntelliJ IDEA, launch the build
 > from the **Maven** tool window.
-> 
+>
 {style="warning"}
 
 ## Set up the plugin
@@ -348,13 +348,12 @@ kapt {
 
 ### Run kapt tasks in parallel
 
-To improve the speed of builds that use kapt, you can enable the [Gradle Worker API](https://guides.gradle.org/using-the-worker-api/)
-for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
+kapt uses the [Gradle Worker API](https://docs.gradle.org/current/userguide/worker_api.html) to run annotation processing tasks.
+Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
 which in some cases significantly decreases the execution time.
 
-When you use the [custom JDK home](gradle-configure-project.md#gradle-java-toolchains-support) feature in the Kotlin Gradle plugin,
-kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode).
-Note that the `kapt.workers.isolation` property is ignored.
+If you set the [custom JDK version](gradle-configure-project.md#gradle-java-toolchains-support) in the Kotlin Gradle plugin,
+kapt task workers use only the [`processIsolation()`](https://docs.gradle.org/current/userguide/worker_api.html#step_3_change_the_isolation_mode) mode.
 
 If you want to provide additional JVM arguments for a kapt worker process, use the input `kaptProcessJvmArgs` of the `KaptWithoutKotlincTask`:
 
@@ -407,9 +406,9 @@ If you run into any problems with caching for annotation processors, disable cac
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
-> If you encounter any issues with the feature, 
+> If you encounter any issues with the feature,
 > we would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
-> 
+>
 {style="note"}
 
 ### Measure performance of annotation processors
@@ -424,7 +423,7 @@ com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
 ```
 
-You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
+You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280).
 The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
 
 ```bash
@@ -470,7 +469,7 @@ To enable statistics reporting:
 
 The statistics appear in the logs with the `info` level.
 You can see the `Annotation processor stats:` line followed by statistics on the execution time of each annotation processor.
-After these lines, there is the `Generated files report:` line followed by statistics on the number of 
+After these lines, there is the `Generated files report:` line followed by statistics on the number of
 generated files for each annotation processor. For example:
 
 ```text
@@ -482,8 +481,8 @@ generated files for each annotation processor. For example:
 
 ## Incremental annotation processing
 
-kapt supports incremental annotation processing by default. 
-Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
+kapt supports incremental annotation processing by default.
+Currently, annotation processing can be incremental only if all annotation processors being used are incremental.
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
