@@ -267,6 +267,62 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 >
 {style="note"}
 
+### Captured types
+
+When you use a type projection like `out T` or `in T`, the compiler doesn't know the exact type argument behind it. In this case,
+the compiler internally represents the unknown concrete type as a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). A captured type is an unknown
+type within a known range. The compiler uses this range to decide which operations are safe:
+
+* When you read a value, the compiler uses the captured type’s upper bound.
+* When you write a value, the compiler requires a valid lower bound.
+
+Usually, one of these bounds is trivial. For example, an `out T` projection gives the captured type an upper bound (`T`),
+but its lower bound is `Nothing`. This means that the compiler can read values as `T`, but can't write ordinary values.
+
+For example, in the following code, the actual element type is unknown. It can be `String`, `StringBuilder`, or another
+subtype of `CharSequence`:
+
+```kotlin
+val array: Array<out CharSequence> = arrayOf("Kotlin")
+```
+The projection `out CharSequence` guarantees that the actual element type is `CharSequence` or one of its subtypes.
+Therefore, the compiler captures this unknown type as a type with `CharSequence` as an upper bound.
+
+Even though the compiler doesn’t know the exact element type, it knows that every possible element type is a subtype of `CharSequence`.
+As a result, the compiler treats any value read from the array as `CharSequence`:
+
+```kotlin
+val item = array.get(0)
+```
+
+Here, the `.get()` function technically returns a captured type. However, the captured type only appears in a covariant
+(read) position. Therefore, the compiler approximates it to its upper bound when inferring the type for `item`.
+
+However, it's not safe to write to this array:
+
+```kotlin
+array.set(0, "New value")
+// Receiver type 'Array<out CharSequence>' contains out projection
+// which prohibits the use of 'fun set(index: Int, value: T): Unit'
+```
+
+The `.set()` function uses the element type in a write position. In this case, the compiler needs a lower bound for the
+captured type. Since for `Array<out CharSequence>`, the lower bound is `Nothing`, there is no ordinary value that the
+compiler can safely accept. This prevents unsafe writes. For example, the actual array might be `Array<StringBuilder>`.
+
+Since captured types are non-denotable, you can’t write them directly in Kotlin code. However, you might see them in the compiler
+diagnostics, displayed as `CapturedType(out X)` or in [flexible type](https://kotlinlang.org/spec/type-system.html#flexible-types) notation as `(L..U)`. For example, a captured
+type can appear in a type mismatch diagnostic:
+
+```kotlin
+val array: Array<out CharSequence> = arrayOf("str")
+val item: Int = array.get(0)
+// Initializer type mismatch: expected 'Int', actual 'CapturedType(out CharSequence)'
+```
+
+This error doesn’t mean that the code violates the variance rules of the projection. The problem is that the compiler
+knows only that the result is some unknown subtype of `CharSequence`, and such a value can’t be assigned to `Int`.
+
 ## Generic functions
 
 Classes aren't the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:
