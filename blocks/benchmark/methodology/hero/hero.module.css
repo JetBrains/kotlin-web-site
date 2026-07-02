@@ -1,0 +1,16 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.hero {
+    max-width: 840px;
+    margin-inline: auto;
+    padding-top: var(--ktl-box-page-l);
+}
+
+.title {
+    margin: 0;
+
+    @media (--ktl-ts-only) {
+        font-size: 42px;
+        line-height: 50px;
+    }
+}

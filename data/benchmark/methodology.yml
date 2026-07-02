@@ -1,0 +1,26 @@
+# Kotlin Benchmark dataset
+repositories:
+  - name: "pinterest/ktlint"
+    url: "https://github.com/ktlint/ktlint"
+    tasks: 43
+  - name: "detekt/detekt"
+    url: "https://github.com/detekt/detekt"
+    tasks: 28
+  - name: "oss-review-toolkit/ort"
+    url: "https://github.com/oss-review-toolkit/ort"
+    tasks: 12
+  - name: "Hannah-Sten/TeXiFy-IDEA"
+    url: "https://github.com/Hannah-Sten/TeXiFy-IDEA"
+    tasks: 8
+  - name: "ankidroid/Anki-Android"
+    url: "https://github.com/ankidroid/Anki-Android"
+    tasks: 6
+  - name: "Kotlin/dataframe"
+    url: "https://github.com/Kotlin/dataframe"
+    tasks: 5
+  - name: "square/okhttp"
+    url: "https://github.com/square/okhttp"
+    tasks: 2
+  - name: "GradleUp/shadow"
+    url: "https://github.com/GradleUp/shadow"
+    tasks: 1

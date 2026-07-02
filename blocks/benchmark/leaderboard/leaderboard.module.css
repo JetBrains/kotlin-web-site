@@ -1,0 +1,133 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    margin-top: var(--ktl-box-section-l);
+}
+
+.card {
+    /* No `overflow: hidden` here: it would become a scroll container and stop
+       the header from sticking to the viewport on page scroll. Rounded corners
+       are handled on the cells (header top corners below, card bg clips itself). */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+
+    /* On screens where the content column doesn't fill the viewport, let the
+       table extend up to 32px beyond it on each side so the columns (notably
+       Date) get more room. The breakout is capped by the actual side space
+       (minus a buffer for the scrollbar) so it can never cause page overflow. */
+    @media (--ktl-tl-up) {
+        --bench-breakout: max(0px, min(32px, calc((100vw - var(--ktl-layout-width)) / 2 - 16px)));
+        margin-inline: calc(-1 * var(--bench-breakout));
+    }
+}
+
+.scroll {
+    /* The table needs ~1100px, which only the widest layout (>1190px viewport)
+       fits — there the scroll box stays a non-scroll container so the header can
+       stick to the viewport on page scroll. At <=1190px the table scrolls
+       horizontally inside its box (sticky is not expected there). */
+    @media (--ktl-ds-down) {
+        overflow-x: auto;
+    }
+}
+
+.table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    padding: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    background: #0b0b0d;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.th:first-child {
+    border-top-left-radius: 24px;
+}
+
+.th:last-child {
+    border-top-right-radius: 24px;
+}
+
+.thSetup,
+.tdSetup {
+    padding-left: 24px;
+}
+
+.thLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: help;
+}
+
+.infoIcon {
+    opacity: 0.5;
+}
+
+.td {
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.row:last-child .td {
+    border-bottom: 0;
+}
+
+.num {
+    color: rgba(255, 255, 255, 0.7);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.setup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rank {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    font-variant-numeric: tabular-nums;
+}
+
+.setupName {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Subtle tint so the top-scoring rows read as a group. */
+.rowTop .td {
+    background: oklch(0.588 0.241 288.6 / 0.06);
+}
+
+.rowTop .rank {
+    color: #fff;
+    background: oklch(0.588 0.241 288.6);
+}
+
+.rateValue {
+    color: #fff;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
