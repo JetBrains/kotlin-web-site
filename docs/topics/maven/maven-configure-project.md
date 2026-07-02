@@ -361,15 +361,6 @@ and has no impact on other plugins in the build.
 >
 {style="note"}
 
-#### Use JDK 17
-
-To use JDK 17, in your `.mvn/jvm.config` file, add:
-
-```none
---add-opens=java.base/java.lang=ALL-UNNAMED
---add-opens=java.base/java.io=ALL-UNNAMED
-```
-
 ## What's next?
 
 [Set dependencies in your Kotlin Maven project](maven-set-dependencies.md)
