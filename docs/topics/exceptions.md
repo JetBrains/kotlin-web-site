@@ -235,7 +235,7 @@ fun count(): Int {
 {kotlin-runnable="true"}
 
 You can handle an exception without using the exception instance.
-This is useful when the `catch` block can handle the exception without it, for example by providing a fallback value or a generic error message.
+For example, you can provide a fallback value or a generic error message in the `catch` block.
 
 Use an underscore (`_`) instead of the exception parameter name to indicate that the exception instance is intentionally ignored:
 
