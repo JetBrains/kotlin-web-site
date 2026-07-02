@@ -1,64 +1,113 @@
 [//]: # (title: Running KSP from command line)
 
-KSP is a Kotlin compiler plugin and needs to run with Kotlin compiler. Download and extract them.
+Most projects use KSP through the Gradle plugin, which runs KSP automatically during compilation. Command-line 
+invocation is primarily intended for integration with other build systems, processor development, testing and debugging.
 
-```bash
-#!/bin/bash
+KSP is a JVM application. When running KSP from the command line, use the `java` command to launch the KSP 
+entry point and provide the required classpath and arguments.
 
-# Kotlin compiler
-wget https://github.com/JetBrains/kotlin/releases/download/v%kspSupportedKotlinVersion%/kotlin-compiler-%kspSupportedKotlinVersion%.zip
-unzip kotlin-compiler-%kspSupportedKotlinVersion%.zip
-
-# KSP
-wget https://github.com/google/ksp/releases/download/%kspSupportedKotlinVersion%-%kspVersion%/artifacts.zip
-unzip artifacts.zip
+```Bash
+java -cp <classpath> <mainclass> <options> <processor>
 ```
 
-To run KSP with `kotlinc`, pass the `-Xplugin` option to `kotlinc`.
+Where:
 
+* `<classpath>` contains the KSP runtime JARs and their dependencies.
+
+* `<mainclass>` is one of the platform-specific KSP entry points.
+
+* `<options>` are the command-line options for KSP.
+
+* `<processor>` specifies the path to the processor JAR.
+
+## Classpath
+
+Download `artifacts.zip` from the [KSP release page](https://github.com/google/ksp/releases/tag/%kspVersion%). The 
+archive contains the required KSP JAR files:
+
+* `symbol-processing-aa-%kspVersion%.jar`
+
+* `symbol-processing-common-deps-%kspVersion%.jar`
+
+* `symbol-processing-api-%kspVersion%.jar`
+
+You must also include the following runtime dependencies:
+
+* `kotlin-stdlib-%kotlinVersion%.jar`, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib)
+
+* `kotlinx-coroutines-core-jvm-%coroutinesVersion%.jar`, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm)
+
+
+## Mainclass
+
+KSP provides the following platform-specific entry points:
+
+* `KSPJvmMain`
+
+* `KSPJsMain`
+
+* `KSPNativeMain`
+
+* `KSPCommonMain`
+
+The following example runs KSP for a JVM target by using KSPJvmMain:
+
+```Bash
+java -cp \
+symbol-processing-aa-%kspVersion%.jar:symbol-processing-common-deps-%kspVersion%.jar:symbol-processing-api-%kspVersion%.jar:kotlin-stdlib-2.3.20.jar:kotlinx-coroutines-core-jvm-1.10.2.jar \
+com.google.devtools.ksp.cmdline.KSPJvmMain \
+-language-version=2.0 \
+-api-version=2.0 \
+-jvm-target=11 \
+-module-name=main \
+-source-roots=project_dir/src/kotlin/main \
+-project-base-dir=project_dir/ \
+-output-base-dir=project_dir/build/ \
+-caches-dir=project_dir/build/caches/ \
+-class-output-dir=project_dir/build/out/main/classes \
+-kotlin-output-dir=project_dir/build/out/main/kotlin/ \
+-java-output-dir=project_dir/build/out/main/java/ \
+-resource-output-dir=project_dir/build/out/main/res/ \
+path/to/processor.jar
 ```
--Xplugin=/path/to/symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar
+## Options
+
+A full list of options can be obtained with the following command:
+
+```Bash
+java -cp <classpath> <mainclass> -h
 ```
 
-This is different from the `symbol-processing-%kspSupportedKotlinVersion%-%kspVersion%.jar`, which is designed to be used with
-`kotlin-compiler-embeddable` when running with Gradle.
-The command line `kotlinc` needs `symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar`.
+### Required options
 
-You'll also need the API jar.
+| Option                     | Description                                                                                 |
+|----------------------------|---------------------------------------------------------------------------------------------|
+| `-language-version=String` | Specifies the Kotlin language version used in the project.                                  |
+| `-api-version=String`      | Specifies the Kotlin API version.                                                           |
+| `-jvm-target=String`       | Specifies the target JVM version.                                                           |
+| `-module-name=String`      | Specifies the module name.                                                                  |
+| `-source-roots=List<File>` | Specifies the source root directories. Use a colon-separated list for multiple directories. |
+| `-project-base-dir=File`   | Specifies the project root directory.                                                       |
+| `-output-base-dir=File`    | Specifies the base directory for KSP output.                                                |
+| `-caches-dir=File`         | Specifies the directory for KSP caches.                                                     |
+| `-java-output-dir=File`    | Specifies the directory for generated Java files.                                           |
+| `-class-output-dir=File`   | Specifies the directory for generated class files.                                          |
+| `-kotlin-output-dir=File`  | Specifies the directory for generated Kotlin files.                                         |
+| `-resource-output-dir=File`| Specifies the directory for generated resources.                                            |
+| `<processor>`              | Specifies the processor classpath.                                                          |
 
-```
--Xplugin=/path/to/symbol-processing-api-%kspSupportedKotlinVersion%-%kspVersion%.jar
-```
+### Other notable options
 
-See the complete example:
+* `-libraries=File`: Specifies the classpath used to resolve dependencies referenced by the source files. This is 
+typically the module's compile classpath.
 
-```bash
-#!/bin/bash
+* `-jdk-home=File`: Specifies the JDK home directory. Use this option when the processor resolves Java symbols and 
+requires access to the Java standard library.
 
-KSP_PLUGIN_ID=com.google.devtools.ksp.symbol-processing
-KSP_PLUGIN_OPT=plugin:$KSP_PLUGIN_ID
+* `-friends=File`: Specifies the classpath of the current module's friend modules. This is typically the module's friend 
+classpath. For more information, see [Friend modules](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kotlin-compile/friend-paths.html).
 
-KSP_PLUGIN_JAR=./com/google/devtools/ksp/symbol-processing-cmdline/%kspSupportedKotlinVersion%-%kspVersion%/symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar
-KSP_API_JAR=./com/google/devtools/ksp/symbol-processing-api/%kspSupportedKotlinVersion%-%kspVersion%/symbol-processing-api-%kspSupportedKotlinVersion%-%kspVersion%.jar
-KOTLINC=./kotlinc/bin/kotlinc
+### JVM parameters
 
-AP=/path/to/your-processor.jar
-
-mkdir out
-$KOTLINC \
-        -Xplugin=$KSP_PLUGIN_JAR \
-        -Xplugin=$KSP_API_JAR \
-        -Xallow-no-source-files \
-        -P $KSP_PLUGIN_OPT:apclasspath=$AP \
-        -P $KSP_PLUGIN_OPT:projectBaseDir=. \
-        -P $KSP_PLUGIN_OPT:classOutputDir=./out \
-        -P $KSP_PLUGIN_OPT:javaOutputDir=./out \
-        -P $KSP_PLUGIN_OPT:kotlinOutputDir=./out \
-        -P $KSP_PLUGIN_OPT:resourceOutputDir=./out \
-        -P $KSP_PLUGIN_OPT:kspOutputDir=./out \
-        -P $KSP_PLUGIN_OPT:cachesDir=./out \
-        -P $KSP_PLUGIN_OPT:incremental=false \
-        -P $KSP_PLUGIN_OPT:apoption=key1=value1 \
-        -P $KSP_PLUGIN_OPT:apoption=key2=value2 \
-        $*
-```
+* `-Dksp.logging`: Specifies the logging level. Valid values are `error`, `warn` or `warning`, `info`, and `debug`. The 
+default value is `warn`. Unsupported values are treated as `warn`.
