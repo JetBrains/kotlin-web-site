@@ -33,9 +33,9 @@ archive contains the required KSP JAR files:
 
 You must also include the following runtime dependencies:
 
-* Kotlin Stdlib, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib)
+* `kotlin-stdlib-%kotlinVersion%.jar`, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib)
 
-* Kontlinx Coroutines core, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm)
+* `kotlinx-coroutines-core-jvm-%coroutinesVersion%.jar`, available from the [Maven Repository](https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm)
 
 
 ## Mainclass
