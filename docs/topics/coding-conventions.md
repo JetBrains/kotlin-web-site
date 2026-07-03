@@ -158,7 +158,12 @@ fun processDeclarations() { /*...*/ }
 var declarationCount = 1
 ```
 
-Exception: factory functions used to create instances of classes can have the same name as the abstract return type:
+### Named for class-like functions
+
+There are two exceptions in which the name of the function should instead follow the conventions for class names.
+Functions of this kind are usually defined at the top level.
+
+Factory functions used to create instances of classes can have the same name as the abstract return type:
 
 ```kotlin
 interface Foo { /*...*/ }
@@ -166,6 +171,12 @@ interface Foo { /*...*/ }
 class FooImpl : Foo { /*...*/ }
 
 fun Foo(): Foo { return FooImpl() }
+```
+
+`@Composable` functions returning `Unit`:
+
+```kotlin
+@Composable fun TabHeader { /*...*/ }
 ```
 
 ### Names for test methods
