@@ -9,16 +9,15 @@ import { KOTLIN_BENCHMARK_TITLE, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@
 
 import styles from './index.module.css';
 
-// TODO: replace with the real Kotlin Benchmark GitHub repository URL.
-const GITHUB_URL = 'https://github.com/Kotlin' as const;
+export const GITHUB_URL = 'https://github.com/Kotlin/kotlin-swe-bench' as const;
 
 export default function KotlinBenchmarkLanding() {
     return (
         <LandingLayout
             dataTestId={'benchmark-landing'}
-            title={'Kotlin Benchmark – Coding Agent Performance Leaderboard'}
+            title={'The Kotlin Benchmark by JetBrains'}
             description={
-                'Kotlin Benchmark measures coding agent performance on idiomatic Kotlin tasks — an independent source for Kotlin AI quality to help you pick the right tool.'
+                'The official JetBrains benchmark for evaluating AI coding agents on real Kotlin software engineering tasks. Explore the leaderboard, dataset, and methodology.'
             }
             ogImageName={'benchmark.jpg'}
             currentTitle={KOTLIN_BENCHMARK_TITLE}
