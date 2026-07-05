@@ -9,6 +9,7 @@ import { KOTLIN_BENCHMARK_TITLE, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@
 import styles from './index.module.css';
 import {Button} from '@rescui/button';
 import { GitHubIcon } from '@rescui/icons';
+import { GITHUB_URL } from '@/pages/benchmark';
 
 const METHODOLOGY_TITLE = 'Methodology' as const;
 
@@ -18,9 +19,9 @@ export default function KotlinBenchmarkMethodology() {
     return (
         <LandingLayout
             dataTestId={'benchmark-methodology'}
-            title={'Kotlin Benchmark — Methodology & Outlook'}
+            title={'The Kotlin Benchmark — Methodology and Outlook'}
             description={
-                'How the Kotlin Benchmark is built: the dataset of real Kotlin tasks, the Multi-SWE-bench harness that runs them, and how every result is scored.'
+                'See how the Kotlin Benchmark is built: 105 tasks from eight open-source Kotlin repositories, SWE-bench-based methodology, and future plans.'
             }
             ogImageName={'benchmark.jpg'}
             currentTitle={KOTLIN_BENCHMARK_TITLE}
@@ -29,7 +30,7 @@ export default function KotlinBenchmarkMethodology() {
             topMenuHomeUrl={KOTLIN_BENCHMARK_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={
-                <Button icon={<GitHubIcon />} href="" target="_blank" rel="noopener">
+                <Button icon={<GitHubIcon />} href={GITHUB_URL} target="_blank" rel="noopener">
                     GitHub repo
                 </Button>
             }

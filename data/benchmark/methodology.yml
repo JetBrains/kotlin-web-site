@@ -1,6 +1,6 @@
 # Kotlin Benchmark dataset
 repositories:
-  - name: "pinterest/ktlint"
+  - name: "ktlint/ktlint"
     url: "https://github.com/ktlint/ktlint"
     tasks: 43
   - name: "detekt/detekt"

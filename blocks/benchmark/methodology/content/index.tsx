@@ -16,22 +16,20 @@ interface FutureItem {
 const FUTURE_ITEMS: FutureItem[] = [
     {
         title: 'Dataset',
-        text:
-            'We are aiming for a more representative Kotlin ecosystem-matching data split. Our current ' +
-            'work focuses on expanding our task set to specific domain areas, such as Android and KMP to ' +
-            'reflect Kotlin’s frequent use cases, as well as difficulty levels.',
+        text: `We’re moving toward a data split that is more representative of the Kotlin ecosystem.
+         Our current work focuses on expanding the task set into common Kotlin domains, such as Android and KMP,
+          and introducing a range of difficulty levels so the benchmark better reflects real-world use cases.`,
     },
     {
         title: 'Set of metrics',
-        text:
-            'Currently, the task verification relies on the tests as a correctness gate. In the next ' +
-            'iterations, we will provide non-functional dimensions, such as cost, token consumption, code ' +
-            'quality, performance, maintainability or security, so you could evaluate the best ' +
-            'cost/intelligence ratio for your domain.',
+        text: `Today, task verification uses tests as the primary correctness gate.
+         In upcoming iterations, we’ll add non-functional dimensions, such as cost, token consumption, code quality,
+          runtime performance, maintainability, and security. This will help you evaluate the best cost/intelligence
+           trade-offs for your domain.`,
     },
     {
-        title: 'Evaluation of open weight models',
-        text: 'We are aiming at expanding the evaluated model catalogue and benchmark open-source solutions.',
+        title: 'Model coverage',
+        text: 'We plan to broaden the catalog of evaluated models to include more open-weight and open-source solutions.',
     },
 ];
 
@@ -44,7 +42,7 @@ export function MethodologyContent() {
                 <section className={styles.section}>
                     <h2 className={cn(styles.heading, textCn('rs-h2'))}>What we built</h2>
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
-                        A Kotlin-language software-engineering benchmark built on the open-source{' '}
+                        The Kotlin Benchmark is based on the open-source{' '}
                         <a
                             className={textCn('rs-link', { external: true })}
                             href={MULTI_SWE_BENCH_URL}
@@ -54,21 +52,34 @@ export function MethodologyContent() {
                         >
                             Multi-SWE-bench
                         </a>{' '}
-                        harness. Multi-SWE-bench shipped with Java/Go/TS/Rust/etc. support — we extended it with
-                        first-class Kotlin support, building repository harnesses across Kotlin libraries (ktlint,
-                        detekt, okhttp, dataframe), JVM tooling and IDE plugins (ORT, TeXiFy-IDEA, Gradle Shadow), and
-                        Android applications.
+                        harness. We extend Multi-SWE-bench, which already supports Java, Go, TypeScript, Rust, and other
+                        languages, with{' '}
+                        <span className={cn(styles.span, textCn('rs-text-2', { hardness: 'hard' }))}>
+                            first-class Kotlin support
+                        </span>
+                        :{' '}
                     </p>
+                    <ul className={cn(styles.span, textCn('rs-text-2'))}>
+                        <li>
+                            The ability to build repository harnesses across libraries (ktlint, detekt, okhttp, and
+                            dataframe).
+                        </li>
+                        <li>JVM tooling and IDE plugins (ORT, TeXiFy-IDEA, Gradle Shadow).</li>
+                        <li>Android applications.</li>
+                    </ul>
                 </section>
 
                 <section className={styles.section}>
                     <h2 className={cn(styles.heading, textCn('rs-h2'))}>The Dataset</h2>
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
-                        The released Kotlin SWE-based Benchmark contains 105 tasks across 8 repositories, drawn from
-                        open production Kotlin codebases. We have selected repositories based on popularity (amount of
-                        stars) and contributor’s activity. Each task is a real, merged GitHub pull request that
-                        implements a task; the model is given the issue/PR description and must produce a patch that
-                        makes a hidden regression test pass.
+                        The Kotlin Benchmark{' '}
+                        <span className={cn(styles.span, textCn('rs-text-2', { hardness: 'hard' }))}>
+                            contains 105&nbsp;tasks across eight&nbsp;repositories
+                        </span>
+                        , drawn from open production Kotlin codebases. We selected repositories based on popularity
+                        (number of stars) and contributor activity. Each task is a real, merged GitHub pull request that
+                        implements a fix. The model is given the issue or PR description and must produce a patch that
+                        passes a hidden regression test.
                     </p>
 
                     <div className={styles.tableCard}>
@@ -107,7 +118,11 @@ export function MethodologyContent() {
                                             </a>
                                         </td>
                                         <td
-                                            className={cn(styles.td, styles.tdNum, textCn('rs-text-2', { hardness: 'hard' }))}
+                                            className={cn(
+                                                styles.td,
+                                                styles.tdNum,
+                                                textCn('rs-text-2', { hardness: 'hard' })
+                                            )}
                                             data-testid="methodology-dataset-tasks"
                                         >
                                             {repo.tasks}
@@ -122,20 +137,22 @@ export function MethodologyContent() {
                 <section className={styles.section}>
                     <h2 className={cn(styles.heading, textCn('rs-h2'))}>Methodology</h2>
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
-                        Each task is mined from a merged PR and captures the base commit, the human-written (gold)
-                        solution, the regression tests, and the natural-language issue description shown to the model.
-                    </p>
-                    <p className={cn(styles.text, textCn('rs-text-2'))}>
-                        Every task builds a Docker image using a layered-cache strategy, so re-runs are fast and
-                        deterministic. A task is resolved only if the test verification fully passes.
+                        Based on the Multi-SWE-bench infrastructure, the benchmark is adapted for Kotlin projects. Each
+                        task is mined from a merged pull request in a real Kotlin repository. For every task, we capture
+                        the base commit, the human-written “gold” solution, the regression tests that define the
+                        expected behavior, and the natural-language issue description. Every task builds a reproducible
+                        Docker image with a layered-cache strategy, making repeated runs faster while keeping evaluation
+                        deterministic. The agent receives the issue and repository state and must produce a patch that
+                        completes the task. A task is counted as resolved only when the generated solution passes the
+                        required tests.
                     </p>
                 </section>
 
                 <section className={styles.section}>
                     <h2 className={cn(styles.heading, textCn('rs-h2'))}>Future outlook</h2>
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
-                        We treat benchmarks as a continuous quality measurement pipeline. That is why we are already
-                        working towards improvements:
+                        We treat benchmarks as a continuous quality measurement pipeline. To improve coverage and
+                        usefulness, we’re already working on three areas:
                     </p>
                     <div className={styles.cards}>
                         {FUTURE_ITEMS.map((item) => (

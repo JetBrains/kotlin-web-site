@@ -29,17 +29,6 @@ export interface BenchColumn {
 export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
 
 /**
- * Render a latency stored as decimal hours into "Hh Mm" (e.g. 10.6 -> "10h 36m"),
- * rounded to the nearest minute. Minutes are zero-padded.
- */
-const formatLatency = (value: BenchRow[BenchColumnKey]): string => {
-    const totalMinutes = Math.round(Number(value) * 60);
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
-    return `${hours}h ${String(minutes).padStart(2, '0')}m`;
-};
-
-/**
  * Show at least two decimal places without rounding: trailing zeros are kept
  * (81.9 -> "81.90", 8.4 -> "8.40") while any extra precision is preserved as-is.
  */
@@ -61,8 +50,8 @@ export const columns: BenchColumn[] = [
         label: 'Resolution rate (%)',
         hint: 'Percentage of submitted tasks that were resolved',
     },
-    { key: 'tokens', label: 'Avg tokens (M)', hint: 'Average token consumption for a full run', format: twoDecimals },
-    { key: 'latency', label: 'Avg latency', hint: 'Average time to solve all tasks across runs', format: formatLatency },
+    { key: 'tokens', label: 'Avg. tokens (M)', hint: 'Average token consumption for a full run', format: twoDecimals },
+    { key: 'latency', label: 'Avg. latency', hint: 'Average time to solve all tasks across runs' },
     { key: 'date', label: 'Date', hint: 'Evaluation date', format: formatDate },
 ];
 
