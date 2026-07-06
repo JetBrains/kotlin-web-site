@@ -110,6 +110,7 @@
             <toc-element topic="mixing-java-kotlin-intellij.md" toc-title="Add Kotlin to a Java project"/>
             <toc-element topic="jvm-test-using-junit.md" toc-title="Test Java code with Kotlin"/>
             <toc-element topic="jvm-test-maven.md" toc-title="Testing with Maven"/>
+            <toc-element topic="jvm-test-power-assert.md" toc-title="Test with the Power-assert compiler plugin"/>
             <toc-element topic="jvm-annotation-processors.md" toc-title="Use annotation processors"/>
             <toc-element topic="jvm-code-analysis.md" toc-title="Use code analysis tools"/>
             <toc-element toc-title="Create a web app with Kotlin and Spring Boot">
