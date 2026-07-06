@@ -5,9 +5,9 @@ In a Kotlin project, code is organized using packages and imports:
 * A **package** is a container for one or more Kotlin files. Files are linked to a package using a `package` header.
 * An **import** is a directive that makes entities from other packages available in the current file.
 
-## Package declarations
+## Package headers
 
-A source file may start with a package declaration:
+A source file may start with a package header:
 
 ```kotlin
 package org.example
@@ -16,26 +16,27 @@ fun printMessage() { /*...*/ }
 class Message(val text: String) { /*...*/ }
 ```
 
-All contents of the source file (such as classes and functions) belong to this package.
-A declaration's fully qualified name combines the package name with the name of the declaration.
-In the example above:
+All contents of the source file, such as classes and functions, belong to this package.
+Their fully qualified name combines the package name with the entity's name.
+In this example:
 
 * The fully qualified name of `printMessage()` is `org.example.printMessage`.
 * The fully qualified name of `Message` is `org.example.Message`.
 
-If no package is specified, the file's contents belong to the default root package.
+If a file has no package header, its contents belong to the root package.
 
 ## Imports
 
 To use an entity from a file in a different package, use an `import` directive.
-Apart from the default imports, each file may declare its own imports.
+In addition to the default imports, each file may declare its own imports.
 
-### Import a single declaration
+### Import a single entity
 
-Import one specific declaration so it can be used without qualification:
+Import a specific entity so you can use it without qualification:
 
 ```kotlin
-import org.example.Message // Message is accessible without qualification
+// Message is accessible without qualification
+import org.example.Message 
 
 fun main() {
     val message = Message("Hello")
@@ -45,10 +46,11 @@ fun main() {
 
 ### Import the contents of a scope
 
-Star-imports ending in an asterisk (`*`) import all named entities inside the corresponding scope:
+Star imports, ending in an asterisk `*`, import all named entities inside the corresponding scope:
 
 ```kotlin
-import org.example.* // Everything in 'org.example' is accessible
+// Everything in `org.example` is accessible
+import org.example.* 
 
 fun main() {
     printMessage()
@@ -56,16 +58,19 @@ fun main() {
 }
 ```
 
-If a name is imported via both a star import and an explicit single import,
-the explicit single import takes priority during name resolution.
+If you import an entity with both a star import and an explicit import,
+the explicit import takes priority during overload resolution.
 
 ### Resolve name clashes with aliases
 
-If two imported names clash, use the `as` keyword to locally rename one of them:
+If two imported entities have the same name, use the `as` keyword to locally rename one of them:
 
 ```kotlin
-import org.example.Message             // Message refers to 'org.example.Message'
-import org.test.Message as TestMessage // TestMessage refers to 'org.test.Message'
+// Message refers to `org.example.Message`
+import org.example.Message
+
+// TestMessage refers to `org.test.Message`
+import org.test.Message as TestMessage
 
 fun main() {
     val a = Message("from example")
@@ -75,7 +80,7 @@ fun main() {
 
 ### What you can import
 
-The `import` keyword is not limited to classes. You can import any of the following declarations,
+The `import` keyword is not limited to classes. You can import any of the following entities,
 whether they come from a package, a class, an object, or an enum:
 
 * Top-level functions and properties declared directly inside a package:
@@ -90,7 +95,7 @@ whether they come from a package, a class, an object, or an enum:
     ```
 * Members of a [companion object](object-declarations.md#companion-objects), referenced through the enclosing class name:
     ```kotlin
-    import org.example.MyClass.create // Refers to MyClass.Companion.create
+    import org.example.MyClass.create // Refers to `MyClass.Companion.create`
     ```
 * [Enum constants](enum-classes.md):
     ```kotlin
@@ -104,7 +109,7 @@ whether they come from a package, a class, an object, or an enum:
 
 ## Default imports
 
-Kotlin imports several packages into every file by default:
+Kotlin includes the following imports by default:
 
 * [kotlin.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/index.html)
 * [kotlin.annotation.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.annotation/index.html)
@@ -116,7 +121,7 @@ Kotlin imports several packages into every file by default:
 * [kotlin.text.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/index.html)
 * [kotlin.math.*](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/index.html)
 
-Additional packages are imported based on the target platform:
+Kotlin imports additional packages depending on the target platform:
 
 * JVM:
   * [java.lang.*](https://docs.oracle.com/javase/8/docs/api/java/lang/package-summary.html)
