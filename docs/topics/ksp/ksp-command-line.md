@@ -80,21 +80,21 @@ java -cp <classpath> <mainclass> -h
 
 ### Required options
 
-| Option                     | Description                                                                                 |
-|----------------------------|---------------------------------------------------------------------------------------------|
-| `-language-version=String` | Specifies the Kotlin language version used in the project.                                  |
-| `-api-version=String`      | Specifies the Kotlin API version.                                                           |
-| `-jvm-target=String`       | Specifies the target JVM version.                                                           |
-| `-module-name=String`      | Specifies the module name.                                                                  |
-| `-source-roots=List<File>` | Specifies the source root directories. Use a colon-separated list for multiple directories. |
-| `-project-base-dir=File`   | Specifies the project root directory.                                                       |
-| `-output-base-dir=File`    | Specifies the base directory for KSP output.                                                |
-| `-caches-dir=File`         | Specifies the directory for KSP caches.                                                     |
-| `-java-output-dir=File`    | Specifies the directory for generated Java files.                                           |
-| `-class-output-dir=File`   | Specifies the directory for generated class files.                                          |
-| `-kotlin-output-dir=File`  | Specifies the directory for generated Kotlin files.                                         |
-| `-resource-output-dir=File`| Specifies the directory for generated resources.                                            |
-| `<processor>`              | Specifies the processor classpath.                                                          |
+| Option                     | Description                                                                                                                                |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `-language-version=String` | Specifies the [Kotlin language version](https://kotlinlang.org/docs/compiler-reference.html#language-version-version) used in the project. |
+| `-api-version=String`      | Specifies the [Kotlin API version](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).                               |
+| `-jvm-target=String`       | Specifies the target JVM version.                                                                                                          |
+| `-module-name=String`      | Specifies the module name.                                                                                                                 |
+| `-source-roots=List<File>` | Specifies the source root directories. Use a colon-separated list for multiple directories.                                                |
+| `-project-base-dir=File`   | Specifies the project root directory.                                                                                                      |
+| `-output-base-dir=File`    | Specifies the base directory for KSP output.                                                                                               |
+| `-caches-dir=File`         | Specifies the directory for KSP caches.                                                                                                    |
+| `-java-output-dir=File`    | Specifies the directory for generated Java files.                                                                                          |
+| `-class-output-dir=File`   | Specifies the directory for generated class files.                                                                                         |
+| `-kotlin-output-dir=File`  | Specifies the directory for generated Kotlin files.                                                                                        |
+| `-resource-output-dir=File`| Specifies the directory for generated resources.                                                                                           |
+| `<processor>`              | Specifies the processor classpath.                                                                                                         |
 
 ### Other notable options
 
