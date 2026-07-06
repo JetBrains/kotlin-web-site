@@ -295,7 +295,7 @@ fun signalCheck(signalStatus: Any) {
 ### Intersection types
 
 When the compiler smart-casts an object through multiple `&&` checks, it infers an [*intersection type*](https://kotlinlang.org/spec/type-system.html#intersection-types).
-It is an internal type that simultaneously satisfies all the checked constraints:
+This is an internal type that simultaneously satisfies all the checked constraints:
 
 ```kotlin
 interface Bird {
@@ -316,11 +316,11 @@ fun describe(animal: Any) {
 }
 ```
 
-Since intersection types are non-denotable, you can't write them in Kotlin code. However, you may encounter them in
+Intersection types are non-denotable. They only exist in the compiler's internal type system to preserve type information
+during type checking. You can't write them directly in Kotlin code. You may encounter intersection types in
 compiler error messages and IDE tooltips, typically displayed as `A & B`.
-The one exception is `T & Any`, used to declare a [definitely non-nullable type](generics.md#definitely-non-nullable-types).
-The syntax is reserved specifically to combine a type parameter with `Any`. You still can't write other
-intersection types explicitly.
+The one exception is `T & Any` that declares a [definitely non-nullable type](generics.md#definitely-non-nullable-types).
+This syntax is reserved specifically to combine a type parameter with `Any`.
 
 ```kotlin
 fun  <T> T.assertNotNull(): T & Any = this ?: throw IllegalStateException("null value")

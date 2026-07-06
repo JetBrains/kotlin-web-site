@@ -149,8 +149,13 @@ foo.`is`(bar)
 
 Any reference in Java may be `null`, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
 Types of Java declarations are treated in Kotlin as non-denotable and called [*platform types*](https://kotlinlang.org/spec/type-system.html#platform-types).
-Null-checks are relaxed for such types, so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
+You can't write the non-denotable types in the code explicitly. Therefore, when a platform value is assigned to a Kotlin
+variable, you can: 
 
+* Rely on the type inference. In this case, the variable has an inferred platform type.
+* Choose the type you expect. Kotlin allows both nullable and non-nullable types.
+
+Null-checks are relaxed for such types, so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
 Consider the following examples:
 
 ```kotlin

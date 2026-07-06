@@ -273,7 +273,7 @@ When you use a type projection like `out T` or `in T`, the compiler doesn't know
 the compiler internally represents the unknown concrete type as a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). A captured type is an unknown
 type within a known range. The compiler uses this range to decide which operations are safe:
 
-* When you read a value, the compiler uses the captured type’s upper bound.
+* When you read a value, the compiler uses the captured type's upper bound.
 * When you write a value, the compiler requires a valid lower bound.
 
 Usually, one of these bounds is trivial. For example, an `out T` projection gives the captured type an upper bound (`T`),
@@ -310,7 +310,7 @@ The `.set()` function uses the element type in a write position. In this case, t
 captured type. Since for `Array<out CharSequence>`, the lower bound is `Nothing`, there is no ordinary value that the
 compiler can safely accept. This prevents unsafe writes. For example, the actual array might be `Array<StringBuilder>`.
 
-Since captured types are non-denotable, you can’t write them directly in Kotlin code. However, you might see them in the compiler
+Since captured types are non-denotable, you can't write them directly in Kotlin code. However, you might see them in the compiler
 diagnostics, displayed as `CapturedType(out X)` or in [flexible type](https://kotlinlang.org/spec/type-system.html#flexible-types) notation as `(L..U)`. For example, a captured
 type can appear in a type mismatch diagnostic:
 
@@ -320,8 +320,8 @@ val item: Int = array.get(0)
 // Initializer type mismatch: expected 'Int', actual 'CapturedType(out CharSequence)'
 ```
 
-This error doesn’t mean that the code violates the variance rules of the projection. The problem is that the compiler
-knows only that the result is some unknown subtype of `CharSequence`, and such a value can’t be assigned to `Int`.
+This error doesn't mean that the code violates the variance rules of the projection. The problem is that the compiler
+knows only that the result is some unknown subtype of `CharSequence`, and such a value can't be assigned to `Int`.
 
 ## Generic functions
 
