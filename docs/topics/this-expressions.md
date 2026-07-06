@@ -26,9 +26,10 @@ How you use `this` depends on the context:
   {kotlin-runnable="true"}
 
 * In an [extension function](extensions.md) or a [function literal with receiver](lambdas.md#function-literals-with-receiver),
-`this` refers to the receiver (the object with which the function works). 
+`this` refers to the receiver. 
 
-  In the following example, we call `lastCharacter()`on the string `"Kotlin"`. Inside the extension function, this refers
+  A _receiver_ is the object that the function works with. In the following example, we call `lastCharacter()`on the string
+  `"Kotlin"`. Therefore, `"Kotlin"` is the receiver. Inside the extension function, `this` refers
   to `"Kotlin"`. This means that `this.length` is the length of `"Kotlin"`:
 
   ```kotlin
@@ -54,11 +55,11 @@ How you use `this` depends on the context:
 
 ## Qualified this
 
-Kotlin code can have several possible `this` values at the same time. This happens when receiver scopes are nested. For
+Your code can have several possible `this` values at the same time. This happens when receiver scopes are nested. For
 example, an inner class can access both its own object and the outer class object. In such cases, plain `this` refers
 to the receiver of the _innermost enclosing scope_. To refer to a receiver from an outer scope, use a qualified `this`.
 
-To use a qualified `this`, add a label qualifier:
+To use a qualified `this`, add a [label](returns.md) qualifier:
 
 ```kotlin
 this@label
@@ -82,7 +83,7 @@ class User(val name: String) {
             println(this.value)
             // 22
             
-            // Refers to the name property of the outer User object     
+            // Refers to the name property of the outer User object 
             println(this@User.name)
             // Jane Doe
         }
@@ -137,11 +138,11 @@ fun main() {
 
 Here:
 
-* `this` refers to the extension receiver (the string `"Jane Doe"`).
+* `this` refers to the extension receiver (the `"Jane Doe"` string).
 * `this@User` refers to the current `User` object.
 * `this@User.prefix` accesses the prefix property of the current `User` object.
 
-### Access a receiver from a lambda
+### Access from a lambda
 
 Unlike a regular lambda, a [lambda with receiver](lambdas.md#function-literals-with-receiver) has its own receiver. Therefore, `this` inside it
 refers to that receiver. If a lambda with receiver is nested inside another receiver scope, add a label to the lambda
@@ -178,7 +179,7 @@ The label doesn't call anything or change how the lambda works. It only helps yo
 
 ### Access an anonymous object
 
-Since anonymous objects don’t have class names, you can't use a class name like `this@YourClassName` to refer
+Since anonymous objects don’t have class names, you can't use a name like `this@YourClassName` to refer
 to it. Inside an anonymous object, use plain `this` to refer to the object:
 
 ```kotlin
