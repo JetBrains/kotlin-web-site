@@ -50,7 +50,7 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                                 tooling built into your workflow.
                             </p>
                         </a>
-                        <a className={styles.navItem} href={'/server-side/'}>
+                        <a className={styles.navItem} href={'/backend/'}>
                             <img src={BackendIcon.src} className={styles.icon} alt={`Backend icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Backend</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>

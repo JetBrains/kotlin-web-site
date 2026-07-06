@@ -40,7 +40,7 @@ export const HeroSectionAB3: FC<Props> = ({}) => {
                         <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>AI</p>
                         </a>
-                        <a className={styles.navItem} href={'/server-side/'}>
+                        <a className={styles.navItem} href={'/backend/'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>Backend</p>
                         </a>
                         <a className={styles.navItem} href={'/docs/android-overview.html'}>

@@ -33,7 +33,7 @@ export class CaseStudiesPage implements PageWithGlobalSearch {
         this.filterSwitch = this.filterBlock.getByTestId('filter-by-type');
         this.switchAll = this.filterSwitch.getByRole('button', { name: 'All' });
         this.switchKMP = this.filterSwitch.getByRole('button', { name: 'Kotlin Multiplatform' });
-        this.switchServerSide = this.filterSwitch.getByRole('button', { name: 'Server-side' });
+        this.switchServerSide = this.filterSwitch.getByRole('button', { name: 'Backend' });
         this.switchAi = this.filterSwitch.getByRole('button', { name: 'AI' });
         this.filterBySharedCode = this.filterBlock.getByTestId('filter-by-shared-code').getByRole('checkbox');
         this.filterByComposeUI = this.filterBlock.getByTestId('filter-by-compose-ui');
