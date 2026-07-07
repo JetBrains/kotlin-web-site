@@ -1048,7 +1048,7 @@ Other notable changes since the last Kotlin release:
 * [Cancellation and timeouts](cancellation-and-timeouts.md) – learn how coroutine cancellation works and how to make
   coroutines respond to cancellation.
 * [Kotlin/Native libraries](native-libraries.md) – see how to produce `klib` library artifacts.
-* [Kotlin Notebook overview](kotlin-notebook-overview.md) – create interactive notebook documents with the Kotlin Notebook plugin.
+* Kotlin Notebook overview – create interactive notebook documents with the Kotlin Notebook plugin.
 * [Add Kotlin to a Java project](mixing-java-kotlin-intellij.md) – configure a Java project to use both Kotlin and Java.
 * [Test Java code with Kotlin](jvm-test-using-junit.md) – test a mixed Java-Kotlin project with JUnit.
 * [New case studies page](https://kotlinlang.org/case-studies/) – discover how different companies apply Kotlin.
