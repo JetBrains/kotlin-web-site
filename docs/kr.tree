@@ -160,11 +160,9 @@
         </toc-element>
         <toc-element toc-title="Android development" topic="android-overview.md"/>
         <toc-element toc-title="AI development">
-            <toc-element toc-title="Overview" topic="kotlin-with-ai.md"/>
             <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
             <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
-            </toc-element>
-        </toc-element>>
+        </toc-element>
         <toc-element toc-title="Designing your library">
             <include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
         </toc-element>
@@ -183,6 +181,7 @@
             <toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
             <toc-element hidden="true" toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
         </toc-element>
+    </toc-element>
     <toc-element toc-title="Interoperability">
         <toc-element toc-title="Java interop">
             <toc-element topic="comparison-to-java.md"/>
@@ -277,6 +276,7 @@
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
         <toc-element toc-title="Kotlin I/O library (kotlinx-io)" href="https://kotlinlang.org/api/kotlinx-io/"/>
         <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
+        <toc-element toc-title="Immutable collections (kotlinx.collections.immutable)" href="https://kotlinlang.org/api/kotlinx.collections.immutable/"/>
         <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
         <toc-element toc-title="Kotlin Gradle plugins (kotlin-gradle-plugin)" href="https://kotlinlang.org/api/kotlin-gradle-plugin/"/>
@@ -456,4 +456,5 @@
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
         <toc-element hidden="true" topic="test-page.md"/>
     </toc-element>
+
 </instance-profile>
