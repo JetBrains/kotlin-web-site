@@ -58,6 +58,14 @@ For IntelliJ IDEA and Android Studio, the Kotlin plugin is bundled with each rel
 When the new Kotlin version is released, these tools will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version in [Kotlin releases](releases.md#ide-support).
 
+## AI support in IDEs
+
+IntelliJ IDEA and Android Studio support AI-assisted Kotlin development through built-in AI features and integrations 
+with AI coding agents. Depending on your workflow, you can use AI directly in the IDE, connect external agents, or 
+combine AI tools with Kotlin-specific guidance.
+
+For an overview of the available AI tools and when to use them, see [](ai-for-development.md).
+
 ## What's next?
 
 * [Create a console application in IntelliJ IDEA](jvm-get-started.md)
