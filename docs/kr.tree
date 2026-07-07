@@ -160,6 +160,7 @@
         </toc-element>
         <toc-element toc-title="Android development" topic="android-overview.md"/>
         <toc-element toc-title="AI development">
+            <toc-element toc-title="Overview" topic="kotlin-with-ai.md"/>
             <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
             <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
         </toc-element>
