@@ -49,7 +49,7 @@ fun main() {
 Star imports, ending in an asterisk `*`, import all named entities inside the corresponding scope:
 
 ```kotlin
-// Everything in `org.example` is accessible
+// Everything in org.example is accessible
 import org.example.* 
 
 fun main() {
@@ -66,10 +66,10 @@ the explicit import takes priority during overload resolution.
 If two imported entities have the same name, use the `as` keyword to locally rename one of them:
 
 ```kotlin
-// Message refers to `org.example.Message`
+// Message refers to org.example.Message
 import org.example.Message
 
-// TestMessage refers to `org.test.Message`
+// TestMessage refers to org.test.Message
 import org.test.Message as TestMessage
 
 fun main() {
@@ -95,7 +95,7 @@ whether they come from a package, a class, an object, or an enum:
     ```
 * Members of a [companion object](object-declarations.md#companion-objects), referenced through the enclosing class name:
     ```kotlin
-    import org.example.MyClass.create // Refers to `MyClass.Companion.create`
+    import org.example.MyClass.create // Refers to MyClass.Companion.create
     ```
 * [Enum constants](enum-classes.md):
     ```kotlin
