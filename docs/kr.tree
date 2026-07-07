@@ -160,6 +160,7 @@
         </toc-element>
         <toc-element toc-title="Android development" topic="android-overview.md"/>
         <toc-element toc-title="AI development">
+            <toc-element toc-title="Overview" topic="kotlin-with-ai.md"/>
             <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
             <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
             </toc-element>
@@ -170,7 +171,7 @@
         <toc-element toc-title="Kotlin custom scripting" topic="custom-script-deps-tutorial.md"/>
         <toc-element toc-title="Development tooling">
             <toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
-            <toc-element toc-title="AI Tools" topic="ai-for-development.md"/>
+            <toc-element toc-title="AI tools" topic="ai-for-development.md"/>
             <toc-element toc-title="Kotlin AI skills" topic="kotlin-ai-skills.md"/>
             <toc-element toc-title="Kotlin Language Server" topic="kotlin-lsp.md"/>
             <toc-element toc-title="Dokka">
