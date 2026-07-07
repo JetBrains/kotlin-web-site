@@ -1,0 +1,32 @@
+.switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.option,
+.active {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.option {
+    color: var(--rs-color-primary, #167dff);
+    border-color: currentColor;
+}
+
+.option:hover {
+    background-color: rgba(22, 125, 255, 0.08);
+}
+
+.active {
+    color: #fff;
+    background-color: var(--rs-color-primary, #167dff);
+    cursor: default;
+    pointer-events: none;
+}
