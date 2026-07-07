@@ -71,7 +71,7 @@ const kotlinUsageHighlightsCases = [
         company: 'AWS',
         url: 'https://open.spotify.com/episode/3jtfD8a5vwutOrfHZMqAj1',
         text: 'AWS opted for Kotlin over Java for Amazon Quantum Ledger Database (QLDB) thanks to its expressiveness and structured concurrency. They rewrote QLDB in Kotlin, enhancing the user experience, benefiting from its development workflow, and adopting it fully for server-side development.',
-        tag: 'Server-side',
+        tag: 'Backend',
         logo: AWSLogo
     },
     {
@@ -85,7 +85,7 @@ const kotlinUsageHighlightsCases = [
         company: 'Adobe',
         url: 'https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
         text: 'Adobe Experience Platform chose Kotlin for server-side development because of its concise syntax, async capabilities, and interoperability with Java. This shift boosted productivity and improved the developer experience, replacing Java for real-time services.',
-        tag: 'Server-side',
+        tag: 'Backend',
         logo: AdobeLogo
     },
     {
@@ -99,7 +99,7 @@ const kotlinUsageHighlightsCases = [
         company: 'Atlassian',
         url: 'https://www.youtube.com/watch?v=4GkoB4hZUnw',
         text: 'Atlassian adopted Kotlin for the Jira Software cloud, leveraging its Java compatibility for seamless integration and minimizing migration challenges. Kotlin\'s ease of use improved developer productivity and boosted team satisfaction and efficiency.',
-        tag: 'Server-side',
+        tag: 'Backend',
         logo: AtlassianLogo
     }
 ];
@@ -159,7 +159,7 @@ function Index() {
             title={'Kotlin Programming Language'}
             ogImageName={'general.png'}
             description={
-                'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build server-side, mobile, web, and desktop applications efficiently.'
+                'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build backend, mobile, web, and desktop applications efficiently.'
             }
         >
             <ThemeProvider theme="dark">

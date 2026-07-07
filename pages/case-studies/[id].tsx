@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
-import { SERVER_SIDE_TITLE, SERVER_SIDE_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import { BACKEND_TITLE, BACKEND_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 import { CaseStudyPageContent } from '../../blocks/case-studies/page-content/case-study-page-content';
@@ -14,7 +14,7 @@ import { CaseStudyPageHero } from '../../blocks/case-studies/page-hero/case-stud
 import {  CaseType } from '../../blocks/case-studies/case-studies';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
-import '../server-side/styles.css';
+import '../backend/styles.css';
 import { GetStartedServerSide } from '../../blocks/server-side/get-started/get-started';
 
 const MULTIPLATFORM_TITLE = 'Kotlin Multiplatform';
@@ -37,7 +37,7 @@ const MULTIPLATFORM_TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
 
 const SERVER_SIDE_TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
-        url: '/case-studies/?type=server-side',
+        url: '/case-studies/?type=backend',
         title: 'Success stories'
     }
 ];
@@ -84,13 +84,13 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
 
     return (
         <LandingLayout
-            title={`${frontmatter.title} Case Study | Kotlin for Server-side`}
+            title={`${frontmatter.title} Case Study | Kotlin for Backend`}
             ogImageName={'case-studies.png'}
-            description={'Kotlin for Server-side development'}
-            currentTitle={SERVER_SIDE_TITLE}
-            currentUrl={SERVER_SIDE_URL}
-            topMenuTitle={SERVER_SIDE_TITLE}
-            topMenuHomeUrl={SERVER_SIDE_URL}
+            description={'Kotlin for Backend development'}
+            currentTitle={BACKEND_TITLE}
+            currentUrl={BACKEND_URL}
+            topMenuTitle={BACKEND_TITLE}
+            topMenuHomeUrl={BACKEND_URL}
             topMenuItems={SERVER_SIDE_TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}/`}
@@ -108,7 +108,7 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
 }
 
 function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType } | null {
-    const caseTypes: CaseType[] = ['multiplatform', 'server-side'];
+    const caseTypes: CaseType[] = ['multiplatform', 'backend'];
 
     for (const caseType of caseTypes) {
         const contentDir = path.join(process.cwd(), `data/case-studies/${caseType}`);
@@ -135,7 +135,7 @@ function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const caseTypes: CaseType[] = ['multiplatform', 'server-side'];
+    const caseTypes: CaseType[] = ['multiplatform', 'backend'];
     const paths: { params: { id: string } }[] = [];
 
     for (const caseType of caseTypes) {
