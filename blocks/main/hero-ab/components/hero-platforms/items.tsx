@@ -84,7 +84,7 @@ export const heroPlatformItems: FeatureSlideItem[] = [
         title: 'Backend',
         description: 'Build fast applications with Spring or Ktor. Kotlin\'s expressiveness makes backend code a pleasure to write and maintain.',
         codeSample: backendCodeSample,
-        linkUrl: '/server-side/'
+        linkUrl: '/backend/'
     },
     {
         id: 'android',
