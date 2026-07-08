@@ -1,8 +1,6 @@
 [//]: # (title: This expressions)
 
-The `this` expression refers to the current object or receiver.
-
-How you use `this` depends on the context:
+The `this` expression refers to the current receiver. How you use `this` depends on the context:
 
 * In a member of a [class](classes.md#inheritance), `this` refers to the current object of that class.
 
@@ -28,7 +26,7 @@ How you use `this` depends on the context:
 * In an [extension function](extensions.md) or a [function literal with receiver](lambdas.md#function-literals-with-receiver),
 `this` refers to the receiver. 
 
-  A _receiver_ is the object that the function works with. In the following example, we call `lastCharacter()`on the string
+  In the following example, we call `lastCharacter()`on the string
   `"Kotlin"`. Therefore, `"Kotlin"` is the receiver. Inside the extension function, `this` refers
   to `"Kotlin"`. This means that `this.length` is the length of `"Kotlin"`:
 
@@ -48,16 +46,16 @@ How you use `this` depends on the context:
   ```
   {kotlin-runnable="true"}
 
-> In simple cases, you don't need to write `this` explicitly. Kotlin infers it from the current scope.
+> In simple cases, you don't need to write `this` explicitly. Kotlin interprets it from the current scope.
 > Learn more about [](#implicit-this).
 > 
 {style="tip"}
 
 ## Qualified this
 
-Your code can have several possible `this` values at the same time. This happens when receiver scopes are nested. For
-example, an inner class can access both its own object and the outer class object. In such cases, plain `this` refers
-to the receiver of the _innermost enclosing scope_. To refer to a receiver from an outer scope, use a qualified `this`.
+Your code can have several possible `this` values at the same time when receiver scopes are nested. For example, an inner
+class can access both its own object and the outer class object. If `this` has no qualifier, it refers to the receiver
+of the _innermost enclosing scope_. To refer to a receiver from an outer scope, use a qualified `this`.
 
 To use a qualified `this`, add a [label](returns.md) qualifier:
 
@@ -179,7 +177,7 @@ The label doesn't call anything or change how the lambda works. It only helps yo
 
 ### Access an anonymous object
 
-Since anonymous objects don’t have class names, you can't use a name like `this@YourClassName` to refer
+Since anonymous objects don't have class names, you can't use a name like `this@YourClassName` to refer
 to it. Inside an anonymous object, use plain `this` to refer to the object:
 
 ```kotlin
