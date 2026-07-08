@@ -42,12 +42,15 @@ export function Leaderboard() {
                         {notice && (
                             <tbody>
                                 <tr className={styles.noticeRow} data-testid="bench-notice">
-                                    <td
-                                        className={cn(styles.td, styles.noticeCell, textCn('rs-text-2'))}
-                                        colSpan={columns.length + 1}
-                                    >
-                                        {notice}
+                                    <td className={cn(styles.td, styles.tdSetup)}>
+                                        <div className={styles.setup}>
+                                            <span className={cn(styles.rank, styles.noticeRank, textCn('rs-text-3'))}>?</span>
+                                            <span className={cn(styles.noticeName, textCn('rs-text-2'))}>{notice}</span>
+                                        </div>
                                     </td>
+                                    {columns.map((col) => (
+                                        <td key={col.key} className={styles.td} />
+                                    ))}
                                 </tr>
                             </tbody>
                         )}
