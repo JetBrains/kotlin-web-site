@@ -3,8 +3,8 @@
 From data collection to model building, Kotlin offers robust libraries facilitating 
 different tasks in the data pipeline.
 
-In addition to its own libraries, Kotlin is 100% interoperable with Java. This interoperability helps to leverage 
-the entire ecosystem of tried-and-true Java libraries with excellent performance. With this perk, you can easily use either Kotlin 
+In addition to its own libraries, Kotlin is 100% interoperable with Java. This interoperability helps to leverage
+the entire ecosystem of tried-and-true Java libraries with excellent performance. With this perk, you can easily use either Kotlin
 or Java libraries when working on [Kotlin data projects](data-analysis-overview.md). 
 
 ## Kotlin libraries
@@ -48,7 +48,7 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
       <list>
         <li>Powerful, readable, and typesafe DSL for plotting charts of various types</li>
         <li>Open-source library written in Kotlin for the JVM</li>
-        <li>Support for <a href="https://kotlin.github.io/kandy/kandy-in-kotlin-notebook.html">Kotlin Notebook</a>, <a href="https://kotlin.github.io/kandy/kandy-in-datalore.html">Datalore</a>, and <a href="https://kotlin.github.io/kandy/kandy-in-jupyter-notebook.html">Jupyter Notebook</a></li>
+        <li>Support for <a href="https://kotlin.github.io/kandy/kandy-in-datalore.html">Datalore</a></li>
         <li>Seamless integration with <a href="https://kotlin.github.io/dataframe/overview.html">Kotlin DataFrame</a></li>
       </list>
     </td>
@@ -121,7 +121,7 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
     <td>
       <list>
         <li>Plotting statistical data written in Kotlin</li>
-        <li>Support for <a href="https://plugins.jetbrains.com/plugin/16340-kotlin-notebook">Kotlin Notebook</a>, <a href="https://datalore.jetbrains.com/">Datalore</a>, and <a href="https://github.com/Kotlin/kotlin-jupyter#readme">Jupyter with Kotlin Kernel</a></li>
+        <li>Support for <a href="https://datalore.jetbrains.com/">Datalore</a></li>
         <li>Compatible with the JVM, JS, and Python</li>
         <li>Embedding charts in <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> applications</li>
       </list>
@@ -160,7 +160,6 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
       <list>
         <li>Visualization of tabular data</li>
         <li>Inspired by R's <a href="https://ggplot2.tidyverse.org/">ggplot</a></li>
-        <li>Support for <a href="https://github.com/Kotlin/kotlin-jupyter#readme">Jupyter with Kotlin Kernel</a></li>
       </list>
     </td>
   </tr>

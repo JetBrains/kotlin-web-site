@@ -1,0 +1,154 @@
+# Kotlin Benchmark leaderboard data.
+rows:
+  #------------------------------ Top scorers -------------------------------
+  - setup: "Claude Code + Opus 4.7 xhigh"
+    submitted: 105
+    resolved: 90
+    resolutionRate: 85.71
+    tokens: 10.59
+    latency: "10h 37m"
+    date: "2026-05-06"
+  #--------------------------------------------------------------------------
+  - setup: "Codex + GPT 5.5 xHigh"
+    submitted: 105
+    resolved: 86
+    resolutionRate: 81.90
+    tokens: 38.78
+    latency: "8h 30m"
+    date: "2026-04-26"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (Opus 4.7 max)"
+    submitted: 105
+    resolved: 86
+    resolutionRate: 81.90
+    tokens: 19.98
+    latency: "19h 58m"
+    date: "2026-04-23"
+  #------------------------------- All results ------------------------------
+  - setup: "Codex + GPT 5.3 Codex medium"
+    submitted: 105
+    resolved: 72
+    resolutionRate: 68.57
+    tokens: 6.32
+    latency: "5h 26m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Codex + GPT 5.3 Codex xHigh"
+    submitted: 105
+    resolved: 82
+    resolutionRate: 78.10
+    tokens: 8.56
+    latency: "8h 1m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Codex + GPT 5.4 medium"
+    submitted: 105
+    resolved: 80
+    resolutionRate: 76.19
+    tokens: 8.29
+    latency: "6h 25m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Codex + GPT 5.4 xHigh"
+    submitted: 105
+    resolved: 81
+    resolutionRate: 77.14
+    tokens: 10.85
+    latency: "9h 33m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Claude Code + Sonnet 4.6 medium"
+    submitted: 105
+    resolved: 70
+    resolutionRate: 66.67
+    tokens: 10.19
+    latency: "10h 28m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Claude Code + Sonnet 4.6 high"
+    submitted: 105
+    resolved: 78
+    resolutionRate: 74.29
+    tokens: 12.17
+    latency: "13h 49m"
+    date: "2026-04-21"
+  #--------------------------------------------------------------------------
+  - setup: "Claude Code + Opus 4.6 medium"
+    submitted: 105
+    resolved: 75
+    resolutionRate: 71.43
+    tokens: 8.40
+    latency: "7h 43m"
+    date: "2026-03-18"
+  #--------------------------------------------------------------------------
+  - setup: "Claude Code + Opus 4.6 max"
+    submitted: 105
+    resolved: 84
+    resolutionRate: 80.00
+    tokens: 13.93
+    latency: "12h 39m"
+    date: "2026-03-19"
+  #--------------------------------------------------------------------------
+  - setup: "Claude Code + Opus 4.7 medium"
+    submitted: 105
+    resolved: 80
+    resolutionRate: 76.19
+    tokens: 5.31
+    latency: "4h 54m"
+    date: "2026-05-07"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (GPT-5.4)"
+    submitted: 105
+    resolved: 72
+    resolutionRate: 68.57
+    tokens: 15.29
+    latency: "11h 30m"
+    date: "2026-04-02"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (Gemini 3.1 Pro Preview)"
+    submitted: 105
+    resolved: 63
+    resolutionRate: 60.00
+    tokens: 32.41
+    latency: "13h 41m"
+    date: "2026-03-23"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (Gemini 3 Flash)"
+    submitted: 105
+    resolved: 64
+    resolutionRate: 60.95
+    tokens: 40.17
+    latency: "11h 27m"
+    date: "2026-03-23"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (GPT-5.3-codex)"
+    submitted: 105
+    resolved: 69
+    resolutionRate: 65.71
+    tokens: 15.68
+    latency: "11h 8m"
+    date: "2026-03-23"
+  #--------------------------------------------------------------------------
+  - setup: "Junie (Opus-4.6)"
+    submitted: 105
+    resolved: 81
+    resolutionRate: 77.14
+    tokens: 7.45
+    latency: "8h 36m"
+    date: "2026-03-23"
+  #--------------------------------------------------------------------------
+  - setup: "Gemini CLI (Gemini 3.1 Pro)"
+    submitted: 105
+    resolved: 69
+    resolutionRate: 65.71
+    tokens: 21.03
+    latency: "17h 1m"
+    date: "2026-03-21"
+  #--------------------------------------------------------------------------
+  - setup: "Gemini CLI (Gemini 3 Flash)"
+    submitted: 105
+    resolved: 47
+    resolutionRate: 44.76
+    tokens: 36.53
+    latency: "11h 28m"
+    date: "2026-03-23"

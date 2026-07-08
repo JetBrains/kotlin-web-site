@@ -1,66 +1,53 @@
 [//]: # (title: Retrieve data from web sources and APIs)
 
-[Kotlin Notebook](kotlin-notebook-overview.md) provides a powerful platform for accessing and manipulating data from various web sources and APIs.
-It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
-for clarity. This makes it particularly useful when exploring APIs you are not familiar with.
+With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) you can access and manipulate
+data from various web sources and APIs. It also assists in reshaping this data for comprehensive analysis and visualization.
 
-When used in conjunction with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook not only enables you to connect to and fetch 
-JSON data from APIs but also assists in reshaping this data for comprehensive analysis and visualization.
-
-> For Kotlin Notebook examples, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
-> 
-{style="tip"}
+Explore [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/tree/master/examples/projects).
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and enabled in IntelliJ IDEA by default.
-
-If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
-see [Set up an environment](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
 
-2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
+2. Import the Kotlin DataFrame library by running the following command:
 
    ```kotlin
    %use dataframe
    ```
-   
+To follow the tutorial, you can also use DataFrame as a [Gradle](https://kotlin.github.io/dataframe/setupgradle.html) or [Maven](https://kotlin.github.io/dataframe/setupmaven.html) dependency.
+
 ## Fetch data from an API
 
-Fetching data from APIs using the Kotlin Notebook with the Kotlin DataFrame library is achieved through the [`.read()`](https://kotlin.github.io/dataframe/read.html) 
+Fetching data from APIs using the Kotlin DataFrame library is achieved through the [`.read()`](https://kotlin.github.io/dataframe/read.html)
 function, which is similar to [retrieving data from files](data-analysis-work-with-data-sources.md#retrieve-data), such as CSV or JSON.
 However, when working with web-based sources, you might require additional formatting to transform the raw API data into 
 a structured format.
 
 Let's look at an example of fetching data from the [YouTube Data API](https://console.cloud.google.com/apis/library/youtube.googleapis.com):
 
-1. Open your Kotlin Notebook file (`.ipynb`).
-
-2. Import the Kotlin DataFrame library, which is essential for data manipulation tasks.
-This is done by running the following command in a code cell:
-
-   ```kotlin
-   %use dataframe
-   ```
-
-3. Securely add your API key in a new code cell, which is necessary for authenticating requests to the YouTube Data API. 
+1. Securely add your API key in a new code cell, which is necessary for authenticating requests to the YouTube Data API.
 You can obtain your API key from the [credentials tab](https://console.cloud.google.com/apis/credentials):
 
    ```kotlin
    val apiKey = "YOUR-API_KEY"
    ```
 
-4. Create a load function that takes a path as a string and uses the DataFrame's `.read()` function to fetch data from the YouTube Data API:
+2. Create a load function that takes a path as a string and uses the DataFrame's `.read()` function to fetch data from the YouTube Data API:
 
    ```kotlin
    fun load(path: String): AnyRow = DataRow.read("https://www.googleapis.com/youtube/v3/$path&key=$apiKey")
    ```
 
-5. Organize the fetched data into rows and handle the YouTube API's pagination through the `nextPageToken`. 
+3. Organize the fetched data into rows and handle the YouTube API's pagination through the `nextPageToken`. 
 This ensures you gather data across multiple pages:
 
    ```kotlin
@@ -89,7 +76,7 @@ This ensures you gather data across multiple pages:
    }
    ```
 
-6. Use the previously defined `load()` function to fetch data and create a DataFrame in a new code cell. 
+4. Use the previously defined `load()` function to fetch data and create a DataFrame in a new code cell.
 This example fetches data, or in this case, videos related to Kotlin, with a maximum of 50 results per page, up to a maximum of 5 pages. 
 The result is stored in the `df` variable:
 
@@ -98,7 +85,7 @@ The result is stored in the `df` variable:
    df
    ```
 
-7. Finally, extract and concatenate items from the DataFrame:
+5. Finally, extract and concatenate items from the DataFrame:
 
    ```kotlin
    val items = df.items.concat()
@@ -152,7 +139,7 @@ batches and fetching additional details:
    ```
 
 This example demonstrates how to clean, reorganize, and enhance your dataset using Kotlin DataFrame's various functions. 
-Each step is designed to refine the data, making it more suitable for [in-depth analysis](#analyze-data-in-kotlin-notebook).
+Each step is designed to refine the data, making it more suitable for in-depth analysis.
 
 ## Analyze data in Kotlin Notebook
 
@@ -214,5 +201,5 @@ For more advanced techniques, see the [Kotlin DataFrame documentation](https://k
 ## What's next
 
 * Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html)
-* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md)
+* Find additional information about data visualization in [Data visualization with Kandy](data-analysis-visualization.md)
 * For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

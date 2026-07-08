@@ -61,6 +61,31 @@ see an example in [Compile Kotlin and Java sources](#compile-kotlin-and-java-sou
 >
 {style="note"}
 
+<anchor name="maven-compiler-extensions-version"/>
+
+Currently, the default version of the Maven compiler plugin used with `<extensions>` is **%mavenExtensionsVersion%**.
+You can set a different version separately:
+
+```xml
+<build>
+    <plugins>
+        <!-- Kotlin compiler plugin configuration -->
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <extensions>true</extensions>
+        </plugin>
+        <!-- Maven compiler plugin configuration for Java classes -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>%mavenPluginVersion%</version>
+        </plugin>
+    </plugins>
+</build>
+```
+
 ### JVM target version
 
 The `<extensions>` option ensures that the Kotlin and Maven compilers target the same bytecode version.
@@ -111,36 +136,10 @@ Keep in mind that `target` and `release` options of the Maven compiler behave di
 | `maven.compiler.target`  | Yes                       | No                         | No − the build's JDK classpath stays visible |
 | `maven.compiler.release` | Yes                       | Yes                        | Yes − to the specific API version only       |
 
-
 > The `<extensions>` option only checks project-level properties and the global `maven-compiler-plugin` configuration.
 > It doesn't check the configurations defined in the plugin's `<executions>` section.
 >
 {style="note"}
-
-### Maven compiler version
-
-Currently, the default version of the Maven compiler plugin used with `<extensions>` is **%mavenExtensionsVersion%**.
-You can set a different version separately:
-
-```xml
-<build>
-    <plugins>
-        <!-- Kotlin compiler plugin configuration -->
-        <plugin>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-maven-plugin</artifactId>
-            <version>${kotlin.version}</version>
-            <extensions>true</extensions>
-        </plugin>
-        <!-- Maven compiler plugin configuration for Java classes -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>%mavenPluginVersion%</version>
-        </plugin>
-    </plugins>
-</build>
-```
 
 ## Manual configuration
 
@@ -360,15 +359,6 @@ and has no impact on other plugins in the build.
 > of the `kotlin-maven-plugin`. Instead, set the necessary version in the `JAVA_HOME` path.
 >
 {style="note"}
-
-#### Use JDK 17
-
-To use JDK 17, in your `.mvn/jvm.config` file, add:
-
-```none
---add-opens=java.base/java.lang=ALL-UNNAMED
---add-opens=java.base/java.io=ALL-UNNAMED
-```
 
 ## What's next?
 

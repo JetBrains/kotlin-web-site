@@ -46,10 +46,6 @@ The following features have now graduated to [Stable](components-stability.md#st
 * [Maven: Automatic alignment between Java and JVM target versions](#automatic-alignment-between-java-and-jvm-target-versions)
 * [Support for Maven Toolchains](#support-for-maven-toolchains)
 
-> Support for using explicit backing fields in IntelliJ IDEA without the `-Xexplicit-backing-fields` compiler option will be available in 2026.1.4.
->
-{style = "note"}
-
 ## New features {id=new-experimental-features}
 <primary-label ref="experimental-exp"/>
 

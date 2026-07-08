@@ -73,13 +73,13 @@ _No preview versions are currently available._
         </td>
     </tr>
     <tr>
-        <td><strong>2.4.10-RC</strong>
-            <p>Released: <strong>June 25, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.4.10-RC2</strong>
+            <p>Released: <strong>July 7, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A bug fix release with performance improvements for Kotlin 2.4.0.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC">changelog</a>.</p>
+            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10-RC2">changelog</a>.</p>
         </td>
     </tr>
 </table>
