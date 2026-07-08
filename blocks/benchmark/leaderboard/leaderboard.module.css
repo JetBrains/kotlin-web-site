@@ -26,10 +26,14 @@
     background: rgba(255, 255, 255, 0.03);
 }
 
-.noticeCell {
+.noticeRank {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.noticeName {
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
-    text-align: center;
 }
 
 .scroll {
