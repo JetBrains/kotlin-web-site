@@ -18,7 +18,7 @@ rows:
     latency: "8h 30m"
     date: "2026-04-26"
   #--------------------------------------------------------------------------
-  - setup: "Junie (Opus 4.7 max)"
+  - setup: "Junie + Opus 4.7 max"
     submitted: 105
     resolved: 86
     resolutionRate: 81.90
@@ -98,7 +98,7 @@ rows:
     latency: "4h 54m"
     date: "2026-05-07"
   #--------------------------------------------------------------------------
-  - setup: "Junie (GPT-5.4)"
+  - setup: "Junie + GPT-5.4"
     submitted: 105
     resolved: 72
     resolutionRate: 68.57
@@ -106,7 +106,7 @@ rows:
     latency: "11h 30m"
     date: "2026-04-02"
   #--------------------------------------------------------------------------
-  - setup: "Junie (Gemini 3.1 Pro Preview)"
+  - setup: "Junie + Gemini 3.1 Pro Preview"
     submitted: 105
     resolved: 63
     resolutionRate: 60.00
@@ -114,7 +114,7 @@ rows:
     latency: "13h 41m"
     date: "2026-03-23"
   #--------------------------------------------------------------------------
-  - setup: "Junie (Gemini 3 Flash)"
+  - setup: "Junie + Gemini 3 Flash"
     submitted: 105
     resolved: 64
     resolutionRate: 60.95
@@ -122,7 +122,7 @@ rows:
     latency: "11h 27m"
     date: "2026-03-23"
   #--------------------------------------------------------------------------
-  - setup: "Junie (GPT-5.3-codex)"
+  - setup: "Junie + GPT-5.3-codex"
     submitted: 105
     resolved: 69
     resolutionRate: 65.71
@@ -130,7 +130,7 @@ rows:
     latency: "11h 8m"
     date: "2026-03-23"
   #--------------------------------------------------------------------------
-  - setup: "Junie (Opus-4.6)"
+  - setup: "Junie + Opus-4.6"
     submitted: 105
     resolved: 81
     resolutionRate: 77.14
@@ -138,7 +138,7 @@ rows:
     latency: "8h 36m"
     date: "2026-03-23"
   #--------------------------------------------------------------------------
-  - setup: "Gemini CLI (Gemini 3.1 Pro)"
+  - setup: "Gemini CLI + Gemini 3.1 Pro"
     submitted: 105
     resolved: 69
     resolutionRate: 65.71
@@ -146,7 +146,7 @@ rows:
     latency: "17h 1m"
     date: "2026-03-21"
   #--------------------------------------------------------------------------
-  - setup: "Gemini CLI (Gemini 3 Flash)"
+  - setup: "Gemini CLI + Gemini 3 Flash"
     submitted: 105
     resolved: 47
     resolutionRate: 44.76
