@@ -55,7 +55,11 @@ export const columns: BenchColumn[] = [
     { key: 'date', label: 'Date', hint: 'Evaluation date', format: formatDate },
 ];
 
-const rawRows: BenchRow[] = (leaderboardRaw as { rows?: BenchRow[] }).rows ?? [];
+const raw = leaderboardRaw as { rows?: BenchRow[]; notice?: string };
+
+export const notice: string | undefined = raw.notice;
+
+const rawRows: BenchRow[] = raw.rows ?? [];
 
 export const rows: BenchRow[] = [...rawRows]
     .map((row) => ({ ...row, date: String(row.date).slice(0, 10) }))

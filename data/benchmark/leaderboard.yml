@@ -1,4 +1,5 @@
 # Kotlin Benchmark leaderboard data.
+notice: "Fable 5, Opus 4.8, … — Evaluating…"
 rows:
   #------------------------------ Top scorers -------------------------------
   - setup: "Claude Code + Opus 4.7 xhigh"

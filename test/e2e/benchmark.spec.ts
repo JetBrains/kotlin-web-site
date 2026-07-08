@@ -115,6 +115,12 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(result.headerTop).toBeLessThanOrEqual(4);
     });
 
+    test('notice banner is visible when set in data', async () => {
+        const notice = benchmark.page.getByTestId('bench-notice');
+        await expect(notice).toBeVisible();
+        await expect(notice).toContainText('Evaluating');
+    });
+
     test('methodology CTA links to the methodology page and GitHub', async () => {
         await expect(benchmark.page.getByTestId('bench-cta-title')).toContainText('How Kotlin Benchmark works');
         await expect(benchmark.methodologyCta).toHaveAttribute('href', /\/benchmark\/methodology\/?$/);

@@ -22,6 +22,16 @@
     }
 }
 
+.noticeRow {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.noticeCell {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    text-align: center;
+}
+
 .scroll {
     /* The table needs ~1100px, which only the widest layout (>1190px viewport)
        fits — there the scroll box stays a non-scroll container so the header can
