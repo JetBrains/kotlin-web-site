@@ -4,7 +4,7 @@ import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 import styles from './leaderboard.module.css';
-import { columns, rows, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
+import { columns, notice, rows, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
 
 function RateCell({ value, textCn }: { value: number; textCn: ReturnType<typeof useTextStyles> }) {
     return <span className={cn(styles.rateValue, textCn('rs-text-2'))}>{twoDecimals(value)}</span>;
@@ -39,6 +39,18 @@ export function Leaderboard() {
                                 ))}
                             </tr>
                         </thead>
+                        {notice && (
+                            <tbody>
+                                <tr className={styles.noticeRow} data-testid="bench-notice">
+                                    <td
+                                        className={cn(styles.td, styles.noticeCell, textCn('rs-text-2'))}
+                                        colSpan={columns.length + 1}
+                                    >
+                                        {notice}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        )}
                         <tbody>
                             {rows.map((row, index) => (
                                 <tr
