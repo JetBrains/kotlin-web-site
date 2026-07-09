@@ -329,22 +329,7 @@ kapt {
 If you use Maven, configure the plugin explicitly.
 See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
 
-## Gradle build cache support
-
-The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
-However, annotation processors can run arbitrary code, which may not reliably transform task inputs into outputs,
-or may access and modify files that Gradle doesn't track.
-If the annotation processors used in the build cannot be properly cached,
-you can disable caching for kapt entirely by specifying the `useBuildCache` property in the build script.
-This helps prevent false-positive cache hits for the kapt tasks:
-
-```groovy
-kapt {
-    useBuildCache = false
-}
-```
-
-## Improve the speed of builds that use kapt
+## Optimize kapt builds
 
 ### Run kapt tasks in parallel
 
@@ -380,7 +365,22 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 </tab>
 </tabs>
 
-### Caching for annotation processors' classloaders
+### Use Gradle build cache safely
+
+The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
+However, annotation processors can run arbitrary code, which may not reliably transform task inputs into outputs,
+or may access and modify files that Gradle doesn't track.
+If the annotation processors used in the build cannot be properly cached,
+you can disable caching for kapt entirely by specifying the `useBuildCache` property in the build script.
+This helps prevent false-positive cache hits for the kapt tasks:
+
+```groovy
+kapt {
+    useBuildCache = false
+}
+```
+
+### Cache annotation processors' classloaders
 
 <primary-label ref="experimental-general"/>
 
@@ -411,7 +411,23 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 >
 {style="note"}
 
-### Measure performance of annotation processors
+### Use incremental annotation processing
+
+kapt supports incremental annotation processing by default.
+Currently, annotation processing can be incremental only if all annotation processors being used are incremental.
+
+To disable incremental annotation processing, add this line to your `gradle.properties` file:
+
+```none
+kapt.incremental.apt=false
+```
+
+Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
+to be enabled as well.
+
+## Analyze performance
+
+### Measure the performance of annotation processors
 
 To get performance statistics on the annotation processors execution,
 use the `-Kapt-show-processor-timings` plugin option.
@@ -438,7 +454,7 @@ plugin:org.jetbrains.kotlin.kapt3:dumpProcessorTimings=ap-perf-report.file \
 sample/src/main/
 ```
 
-### Measure the number of files generated with annotation processors
+### Track the number of generated files
 
 The `kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
@@ -478,20 +494,6 @@ generated files for each annotation processor. For example:
 [INFO] Generated files report:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
-
-## Incremental annotation processing
-
-kapt supports incremental annotation processing by default.
-Currently, annotation processing can be incremental only if all annotation processors being used are incremental.
-
-To disable incremental annotation processing, add this line to your `gradle.properties` file:
-
-```none
-kapt.incremental.apt=false
-```
-
-Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
-to be enabled as well.
 
 ## Java compiler options
 
