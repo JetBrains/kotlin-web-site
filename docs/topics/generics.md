@@ -307,7 +307,7 @@ argument `out CharSequence` as a captured type with `CharSequence` as its upper 
 * For the `get()` operation, the compiler approximates the captured type to its upper bound, `CharSequence`, and infers
 `CharSequence` as the type of `item`.
 * For the `set()` operation, the captured type has `Nothing` as its lower bound. Since `Nothing` has no instances, writing
-a value to the projected type isn’t type-safe and results in an error.
+a value to the projected type isn't type-safe and results in an error.
 
 ## Generic functions
 
