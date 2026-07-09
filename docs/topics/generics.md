@@ -302,13 +302,12 @@ array.set(0, "New value")
 
 In this example:
 
-* Array has the projected type `Array<out CharSequence>`. The compiler represents the projected type
+* The variable `array` has the projected type `Array<out CharSequence>`. The compiler represents the projected type
 argument `out CharSequence` as a captured type with `CharSequence` as its upper bound and `Nothing` as its lower bound.
-* For the `get()` operation, the compiler approximates the captured type to its upper bound and infers `CharSequence` as
-the type of `item`. The exact element type behind the projection can be `CharSequence` or one of its subtypes.
-* For the `set()` operation, the captured type has `Nothing` as its lower bound. Because `Nothing` has no instances, no
-value can satisfy this bound. Therefore, writing to the projected type with the `set()` function isn't type-safe and
-results in an error.
+* For the `get()` operation, the compiler approximates the captured type to its upper bound, `CharSequence`, and infers
+`CharSequence` as the type of `item`.
+* For the `set()` operation, the captured type has `Nothing` as its lower bound. Since `Nothing` has no instances, writing
+a value to the projected type isn’t type-safe and results in an error.
 
 ## Generic functions
 
