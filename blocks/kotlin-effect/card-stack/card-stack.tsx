@@ -64,7 +64,7 @@ export const CardStack: FC = () => {
                         <YoutubePlayer id={VIDEO_ID} />
                     </div>
 
-                    <div className={styles.cardContent}>
+                    <div className={styles.cardContent} id={'kotlin-effect-action'}>
                         <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>The Kotlin Effect in <span>Action</span>
                         </h2>
                         <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle)}>
