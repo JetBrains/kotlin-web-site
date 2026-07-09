@@ -2,3 +2,7 @@
     overflow: hidden;
     padding-bottom: 144px;
 }
+
+.wrapper [id] {
+    scroll-margin-top: 80px;
+}
