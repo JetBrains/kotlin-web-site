@@ -270,11 +270,12 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 ### Captured types
 
 When you use a type projection, such as `out T` or `in T`, the compiler internally represents the unknown concrete type
-as a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). A captured type is an unknown type within a known range.
+as a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). A captured type is an unknown type
+with known upper and lower bounds.
 
-Captured types are non-denotable, so you can't write them directly in Kotlin code. Instead, you can see captured types
-in the compiler diagnostics as `CapturedType(out X)` or in [flexible type](https://kotlinlang.org/spec/type-system.html#flexible-types) notation as `(L..U)`. For example, the
-following type mismatch diagnostic contains a captured type:
+Captured types are non-denotable, so you can't write them directly in Kotlin code. Instead, you can most frequently see
+captured types in compiler diagnostics, such as `CapturedType(out X)`. For example, the following type mismatch diagnostic
+contains a captured type:
 
 ```kotlin
 val array: Array<out CharSequence> = arrayOf("str")
@@ -282,41 +283,32 @@ val item: Int = array.get(0)
 // Initializer type mismatch: expected 'Int', actual 'CapturedType(out CharSequence)'
 ```
 
-The compiler uses the range of a captured type to decide which operations are type-safe:
-
-* When you read a value, the compiler uses the captured type's upper bound.
-* When you write a value, the compiler requires a valid lower bound.
-
-For example, an `out T` projection gives the captured type `T` as its upper bound and `Nothing` as its lower bound.
-When your code reads a value, the compiler approximates the captured type to its upper bound. When your code tries to
-write a value, the compiler checks it against the lower bound. Because the lower bound is `Nothing` and `Nothing` has no
-instances, your code can't provide a value that is type-safe to write to the projected type.
-
-In the following example, `arrayOf("Kotlin")` creates an `Array<String>`, but the variable array has the projected
-type `Array<out CharSequence>`. When the compiler type-checks operations on array, the exact element type behind the
-projection is unknown:
+The compiler uses the captured type's upper bound for read operations and its lower bound to determine which values are
+type-safe for write operations:
 
 ```kotlin
+// The projected type is Array<out CharSequence>
 val array: Array<out CharSequence> = arrayOf("Kotlin")
-```
 
-The projection `out CharSequence` guarantees that the element type behind the projection is `CharSequence` or one of
-its subtypes. Therefore, the captured type has `CharSequence` as its upper bound. Kotlin treats every value read from the
-array as a `CharSequence`:
-
-```kotlin
+// The get() read operation uses the captured type's upper bound, CharSequence
 val item = array.get(0)
-```
 
-Here, the `get()` function technically returns a captured type. However, the captured type appears only in a covariant
-position. Therefore, the compiler approximates it to its upper bound when inferring the type of `item`.
-But it's not type-safe to write to this array:
-
-```kotlin
+// The set() write operation uses the captured type's lower bound, Nothing,
+// which results in an error
 array.set(0, "New value")
 // Receiver type 'Array<out CharSequence>' contains out projection
 // which prohibits the use of 'fun set(index: Int, value: T): Unit'
 ```
+
+In this example:
+
+* Array has the projected type `Array<out CharSequence>`. The compiler represents the projected type
+argument `out CharSequence` as a captured type with `CharSequence` as its upper bound and `Nothing` as its lower bound.
+* For the `get()` operation, the compiler approximates the captured type to its upper bound and infers `CharSequence` as
+the type of `item`. The exact element type behind the projection can be `CharSequence` or one of its subtypes.
+* For the `set()` operation, the captured type has `Nothing` as its lower bound. Because `Nothing` has no instances, no
+value can satisfy this bound. Therefore, writing to the projected type with the `set()` function isn't type-safe and
+results in an error.
 
 ## Generic functions
 
