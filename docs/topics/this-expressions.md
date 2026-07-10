@@ -53,9 +53,10 @@ The `this` expression refers to the current receiver. How you use `this` depends
 
 ## Qualified this
 
-Your code can have several possible `this` values at the same time when receiver scopes are nested. For example, an inner
-class can access both its own object and the outer class object. If `this` has no qualifier, it refers to the receiver
-of the _innermost enclosing scope_. To refer to a receiver from an outer scope, use a qualified `this`.
+Your code can have several receivers available at the same time when receiver scopes are nested. Kotlin can use any
+available receiver to access its members implicitly, but receivers from inner scopes have higher priority. To explicitly
+refer to a particular receiver, use a qualified `this`. It is especially useful when multiple receivers have members with
+the same name, and you need to access a member of an outer receiver.
 
 To use a qualified `this`, add a [label](returns.md) qualifier:
 
