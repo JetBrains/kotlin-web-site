@@ -62,6 +62,25 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
+### Memory allocation
+
+The memory allocation behavior of a SAM conversion depends on whether the lambda captures variables from its surrounding
+scope.
+
+A _non-capturing lambda_ doesn't reference external variables. The Kotlin compiler optimizes these lambdas into
+singletons. It instructs the runtime to allocate the instance only once and reuse it on every evaluation of the lambda
+expression, keeping it in memory for the application lifecycle, just like an `object` declaration.
+
+A _capturing lambda_ references variables from outside its scope. In this case, the compiler can't perform the singleton
+optimization. It instructs the runtime to allocate a new instance on every evaluation of the lambda expression because
+it can't share the captured state across multiple instances.
+
+> If you instantiate the interface using an anonymous object (`object : IntPredicate { ... }`), you bypass this
+> optimization entirely. The anonymous object syntax always instructs the runtime to allocate a new instance on every
+> evaluation of the expression, regardless of whether you capture any variables.
+>
+{style="note"}
+
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
 ## Migration from an interface with constructor function to a functional interface
