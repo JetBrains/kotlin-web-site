@@ -158,7 +158,7 @@ fun processDeclarations() { /*...*/ }
 var declarationCount = 1
 ```
 
-### Named for class-like functions
+### Names for class-like functions
 
 There are two exceptions where function names should follow class-naming convention instead.
 Functions of this kind are usually defined at the top level.
