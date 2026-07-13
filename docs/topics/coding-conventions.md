@@ -160,24 +160,24 @@ var declarationCount = 1
 
 ### Named for class-like functions
 
-There are two exceptions in which the name of the function should instead follow the conventions for class names.
+There are two exceptions where function names should follow class-naming convention instead.
 Functions of this kind are usually defined at the top level.
 
-Factory functions used to create instances of classes can have the same name as the abstract return type:
+* Factory functions that create class instances can have the same name as the abstract return type:
 
-```kotlin
-interface Foo { /*...*/ }
+   ```kotlin
+   interface Foo { /*...*/ }
 
-class FooImpl : Foo { /*...*/ }
+   class FooImpl : Foo { /*...*/ }
 
-fun Foo(): Foo { return FooImpl() }
-```
+   fun Foo(): Foo { return FooImpl() }
+   ```
 
-`@Composable` functions returning `Unit`:
+* `@Composable` functions that return `Unit`:
 
-```kotlin
-@Composable fun TabHeader { /*...*/ }
-```
+   ```kotlin
+   @Composable fun TabHeader { /*...*/ }
+   ```
 
 ### Names for test methods
 
