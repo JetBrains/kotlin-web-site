@@ -172,7 +172,7 @@ To integrate detekt into your project:
    </tab>
    </tabs>
 
-3. Go to `config/detekt/detekt.yml` and customize the rules in the generated file, for example:
+3. Open the `detekt.yml` file and customize the rules in the generated file, for example:
 
    ```yaml
    complexity:
@@ -195,7 +195,11 @@ To integrate detekt into your project:
        <artifactId>detekt-maven-plugin</artifactId>
        <version>1.23.8</version>
        <configuration>
-           <config>config/detekt/detekt.yml</config>
+           <config>detekt.yml</config>
+           <report>
+               <report>txt:reports/detekt.txt</report>
+               <report>xml:reports/detekt.xml</report>
+           </report>
        </configuration>
        <executions>
            <execution>
@@ -243,7 +247,7 @@ To integrate detekt into your project:
    </tabs>
 
 detekt produces a report listing all rule violations with their severity, file location, and a description of the issue.
-By default, Gradle outputs reports to `build/reports/detekt/`, while Maven outputs to the `detekt/` directory in the project root.
+By default, Gradle outputs reports to `build/reports/detekt`, while Maven outputs to the `reports/detekt` directory in the project root.
 
 For more information, see the detekt documentation for [Gradle](https://detekt.dev/docs/intro) and [Maven](https://github.com/Ozsie/detekt-maven-plugin).
 
@@ -458,7 +462,7 @@ To integrate Kover into your project:
    </tab>
    </tabs>
 
-3. Open the HTML report generated in the `target/kover/html/` directory (`build/reports/kover/html/` for Gradle) to
+3. Open the HTML report generated in the `target/site/kover/html/` directory (`build/reports/kover/html/` for Gradle) to
    review line-by-line coverage.
 4. (Optional) To enforce a minimum coverage threshold that fails the build if the conditions are not met, you can add
    a coverage verification configuration to your build file. For example:
