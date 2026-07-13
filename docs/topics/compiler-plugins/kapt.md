@@ -367,12 +367,12 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 
 ### Use Gradle build cache safely
 
-The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
-However, annotation processors can run arbitrary code, which may not reliably transform task inputs into outputs,
-or may access and modify files that Gradle doesn't track.
-If the annotation processors used in the build cannot be properly cached,
-you can disable caching for kapt entirely by specifying the `useBuildCache` property in the build script.
-This helps prevent false-positive cache hits for the kapt tasks:
+Gradle caches kapt annotation processing tasks [by default](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
+However, annotation processors can run arbitrary code. This may result in unnecessary transformations of task inputs into outputs,
+or accessing and modifying files that Gradle doesn't track.
+
+When annotation processors used in the build can't be properly cached, you can disable caching to prevent
+false-positive hits for kapt tasks. To do this, use the `useBuildCache` property in the build script:
 
 ```groovy
 kapt {
@@ -414,16 +414,17 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ### Use incremental annotation processing
 
 kapt supports incremental annotation processing by default.
-Currently, annotation processing can be incremental only if all annotation processors being used are incremental.
+
+Currently, incremental annotation processing works only if:
+
+* [Incremental compilation](gradle-compilation-and-caches.md#incremental-compilation) is enabled.
+* All annotation processors in the build are incremental.
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
 ```none
 kapt.incremental.apt=false
 ```
-
-Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
-to be enabled as well.
 
 ## Analyze performance
 
