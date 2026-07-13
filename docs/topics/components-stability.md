@@ -125,6 +125,14 @@ to avoid the accidental use of features that have not been released as stable.
 
 For more information about the level of support for different targets, see [](native-target-support.md).
 
+### Build tools
+
+| **Component**                                       | **Status** | **Status since version** | **Comments**                                                                                                          |
+|-----------------------------------------------------|------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [Kotlin Gradle plugin](gradle-configure-project.md) | Stable     | 1.1.1                    | The [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#id-and-version) is stable from Kotlin 1.9.20. |
+| [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                       |
+
+
 ### Language tools
 
 | **Component**                         | **Status**   | **Status since version** | **Comments**                                   |
