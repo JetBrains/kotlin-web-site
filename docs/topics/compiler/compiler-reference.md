@@ -52,7 +52,14 @@ The following options are common for all Kotlin compilers.
 
 ### -api-version _version_
 
-Allow using declarations only from the specified version of Kotlin bundled libraries.
+Set the API version to control which Kotlin APIs your code can use at runtime. For example, if you use Kotlin compiler version 2.4.0
+with `-api-version=2.1`, your project remains compatible with Kotlin standard library 2.1.0.
+
+In most cases, the API version and [language version](#language-version-version) should be the same. One exception is 
+when you're developing a library for consumers that must run with an older version of the Kotlin standard library. In that
+case, setting an older API version helps ensure you don't accidentally use APIs that aren't available to those consumers.
+
+The `-api-version` value can't be higher than the `-language-version` value.
 
 ### -help (-h)
 
@@ -65,9 +72,11 @@ Specify a custom path to the Kotlin compiler used for the discovery of runtime l
 
 ### -language-version _version_
 
-This option sets the supported syntax and semantics according to the specified language version. For example, using
-Kotlin compiler version 2.4.0 with `-language-version=2.2` lets you use only the language features and standard library APIs from
-version 2.2 or earlier. This can help with a gradual migration to newer Kotlin versions.
+Set the language version to control which Kotlin language features and syntax are available during compilation. For example, if you
+use Kotlin compiler version 2.4.0 with `-language-version=2.2`, you can only use the language features from
+version 2.2 or earlier. Controlling the language version can help help you gradually migrate to newer Kotlin versions.
+
+To control which APIs your code can use, see [](#api-version-version).
 
 ### -opt-in _annotation_
 
