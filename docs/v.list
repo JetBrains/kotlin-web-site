@@ -6,7 +6,7 @@
 
     <!-- Kotlin -->
     <var name="kotlinVersion" value="2.4.10"/>
-    <var name="kotlinReleaseDate" value="July 6, 2026"/>
+    <var name="kotlinReleaseDate" value="July 14, 2026"/>
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10"/>
     <var name="kotlinLatestWhatsnew" value="whatsnew24.md"/>
 
