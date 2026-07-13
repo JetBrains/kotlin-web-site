@@ -1,17 +1,19 @@
 [//]: # (title: Code quality tools in Kotlin projects)
 
 Code quality tools help you enforce coding standards, detect bugs early, measure test coverage, and maintain code quality
-across your Kotlin projects. This guide shows how to integrate popular tools like [ktlint](https://pinterest.github.io/ktlint/),
-[detekt](https://detekt.dev/), [SonarSource](https://www.sonarsource.com/), and [Kover](https://github.com/Kotlin/kotlinx-kover)
-into your Maven or Gradle build.
+across your Kotlin projects. This guide focusesand shows how to integrate popular tools like
+[ktlint](https://ktlint.github.io/ktlint/latest/), [detekt](https://detekt.dev/), [SonarQube](https://www.sonarsource.com/products/sonarqube/),
+[SonarCloud](https://www.sonarsource.com/products/sonarcloud/), and [Kover](https://kotlin.github.io/kotlinx-kover/) into
+your backend project for Maven or Gradle.
 
 ## Code formatting with ktlint
 
-[ktlint](https://pinterest.github.io/ktlint/) is a Kotlin linter and formatter that enforces the
+[ktlint](https://github.com/ktlint/ktlint) is a Kotlin linter and formatter that enforces the
 official Kotlin [coding conventions](coding-conventions.md) with no extra configuration.
 
 ktlint checks rules such as indentation, spacing around operators, import ordering, and trailing commas. If a violation
-is found, the build fails with a message indicating the file and line number.
+is found, the build fails with a message indicating the file and line number. Besides reporting violations, ktlint can
+also automatically fix straightforward issues.
 
 To integrate ktlint into your project:
 
@@ -79,6 +81,15 @@ To integrate ktlint into your project:
    ktlint_standard_trailing-comma-on-declaration-site = disabled
    ```
 
+   By default, ktlint follows the official Kotlin coding conventions. If you prefer the
+   [Android Kotlin style guide](https://developer.android.com/kotlin/style-guide), which differs noticeably from
+   the Kotlin conventions, set the code style to `android_studio` in your `.editorconfig` file:
+
+   ```ini
+   [*.{kt,kts}]
+   ktlint_code_style = android_studio
+   ```
+
 4. To automatically fix formatting issues, run:
 
    <tabs group="build-system">
@@ -98,7 +109,7 @@ To integrate ktlint into your project:
    </tab>
    </tabs>
 
-For more information on available features and rules, see the [ktlint documentation](https://pinterest.github.io/ktlint/latest/).
+For more information on available features and rules, see the [ktlint documentation](https://github.com/ktlint/ktlint/tree/master/documentation).
 
 ## Code analysis with detekt
 
@@ -238,7 +249,7 @@ For more information, see the detekt documentation for [Gradle](https://detekt.d
 
 ## Code quality with SonarSource
 
-[SonarQube](https://www.sonarsource.com/products/sonarqube/) and [SonarCloud](https://www.sonarsource.com/products/sonarcloud/)
+[SonarQube](https://github.com/SonarSource/sonarqube) and [SonarCloud](https://github.com/marketplace/sonarcloud)
 from SonarSource provide deep static analysis for Kotlin projects, including bug detection, vulnerability scanning,
 and code coverage tracking through a web dashboard.
 
@@ -367,7 +378,7 @@ For more information, see the [SonarSource documentation](https://docs.sonarsour
 
 ## Code coverage with Kover
 
-[Kover](https://kotlin.github.io/kotlinx-kover/) is the official JetBrains code coverage tool for Kotlin.
+[Kover](https://github.com/Kotlin/kotlinx-kover) is the official JetBrains code coverage tool for Kotlin.
 It measures which lines and branches of your code are covered by tests and generates human-readable reports.
 
 Unlike [JaCoCo](https://github.com/jacoco/jacoco), Kover correctly interprets Kotlin-specific constructs such as inline functions and data classes, so it reports
@@ -441,7 +452,7 @@ To integrate Kover into your project:
    <tab title="Gradle" group-key="gradle">
 
    ```bash
-   ./gradlew koverHtmlReport
+   ./gradlew koverVerify koverHtmlReport
    ```
 
    </tab>
@@ -506,7 +517,7 @@ and [Gradle](https://kotlin.github.io/kotlinx-kover/gradle-plugin/).
 
 ## Other tools
 
-Besides ktlint, detekt, SonarSource, and Kover, you can use other tools to improve Kotlin code quality:
+Besides ktlint, detekt, SonarQube, SonarCloud, and Kover, try out other tools to improve Kotlin code quality:
 
 | Tool                                      | Description                                                                                                                                 |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
