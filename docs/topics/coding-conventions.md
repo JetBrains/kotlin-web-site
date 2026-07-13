@@ -151,7 +151,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lowercase letter and use camel case with no underscores:
+Names of functions, properties, and local variables start with a lowercase letter and use camel case without underscores:
 
 ```kotlin
 fun processDeclarations() { /*...*/ }
