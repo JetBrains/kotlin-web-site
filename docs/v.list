@@ -5,9 +5,9 @@
 <vars>
 
     <!-- Kotlin -->
-    <var name="kotlinVersion" value="2.4.0"/>
-    <var name="kotlinReleaseDate" value="June 3, 2026"/>
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0"/>
+    <var name="kotlinVersion" value="2.4.10"/>
+    <var name="kotlinReleaseDate" value="July 14, 2026"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10"/>
     <var name="kotlinLatestWhatsnew" value="whatsnew24.md"/>
 
     <var name="languageVersion" value="2.4"/>
@@ -27,7 +27,7 @@
 
     <var name="lincheckVersion" value="3.6"/>
 
-    <var name="ktorVersion" value="3.5.0"/>
+    <var name="ktorVersion" value="3.5.1"/>
 
     <var name="lombokVersion" value="9.5.0"/>
 
@@ -52,7 +52,7 @@
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.9"/>
+    <var name="kspVersion" value="2.3.10"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
