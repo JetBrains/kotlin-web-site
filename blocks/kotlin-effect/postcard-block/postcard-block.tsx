@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createTextCn } from '@rescui/typography';
 import { PostCard } from '@webteam/postcard-section';
+import '@webteam/layout/css/offset.css';
 
 import greetingCard from './images/greeting-card.png';
 import postcard from './images/postcard.png';
