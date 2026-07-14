@@ -35,7 +35,8 @@ let transpiledPackages = [
     '@webteam/client-traits',
     '@webteam/country-select',
     '@webteam/postcard-section',
-    '@webteam/social-share'
+    '@webteam/social-share',
+    '@webteam/article'
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);

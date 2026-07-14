@@ -23,6 +23,7 @@ export const PostcardBlock = () => {
                 uploading your photo to keep Kodee company on this special occasion.
             </h3>
             <PostCard
+                consentHref='/kotlin-effect/terms'
                 theme="dark"
                 mask={postcard.src}
                 className={styles.card}
@@ -36,6 +37,7 @@ export const PostcardBlock = () => {
             />
             <div className={styles.greetingCardBlock}>
                 <PostCard
+                    consentHref='/kotlin-effect/terms'
                     theme="dark"
                     type="text"
                     mask={greetingCard.src}

@@ -1,0 +1,5 @@
+@import '@webteam/article/lib/index.css';
+
+.wrapper {
+    color: var(--website-ui-text-color-dark);
+}
