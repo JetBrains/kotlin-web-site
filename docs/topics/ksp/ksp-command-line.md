@@ -1,29 +1,31 @@
-[//]: # (title: Running KSP from command line)
+[//]: # (title: Running KSP from the command line)
 
-Most projects use KSP through the Gradle plugin, which runs KSP automatically during compilation. Command-line 
-invocation is primarily intended for integration with other build systems, processor development, testing and debugging.
+Most projects use KSP through the Gradle plugin, which runs KSP automatically during compilation. You can use
+KSP from the command line but it's normally only used when you're integrating with other build systems, developing 
+processors, testing, or debugging.
 
-KSP is a JVM application. When running KSP from the command line, use the `java` command to launch the KSP 
-entry point and provide the required classpath and arguments.
+Since KSP is a JVM application, use the `java` command to launch KSP from the command line.
+Make sure to provide the classpath and any necessary arguments:
 
-```Bash
+```bash
 java -cp <classpath> <mainclass> <options> <processor>
 ```
 
 Where:
 
-* `<classpath>` contains the KSP runtime JARs and their dependencies.
-
-* `<mainclass>` is one of the platform-specific KSP entry points.
-
-* `<options>` are the command-line options for KSP.
-
-* `<processor>` specifies the path to the processor JAR.
+| Argument      | Description                                    |
+|---------------|------------------------------------------------|
+| `<classpath>` | KSP runtime JARs and their dependencies.       |
+| `<mainclass>` | One of the platform-specific KSP entry points. |
+| `<options>`   | Command-line options for KSP.                  |
+| `<processor>` | Path to the processor JAR.                     |
 
 ## Classpath
 
-Download `artifacts.zip` from the [KSP release page](https://github.com/google/ksp/releases/tag/%kspVersion%). The 
-archive contains the required KSP JAR files:
+Unlike the Gradle plugin, the `java` command does not resolve dependencies automatically. You must provide the KSP 
+runtime JARs and their dependencies on the classpath.
+
+Download `artifacts.zip` from the [KSP release page](https://github.com/google/ksp/releases/tag/%kspVersion%). The archive contains the required KSP JAR files:
 
 * `symbol-processing-aa-%kspVersion%.jar`
 
@@ -40,19 +42,26 @@ You must also include the following runtime dependencies:
 
 ## Mainclass
 
-KSP provides the following platform-specific entry points:
+Because KSP is a JVM application, you must specify the main class to launch. KSP provides a different entry point for 
+each supported platform:
 
-* `KSPJvmMain`
+| Entrypoint      | Platforms                                                     |
+|-----------------|---------------------------------------------------------------|
+| `KSPJvmMain`    | JVM and Android                                               |
+| `KSPJsMain`     | Kotlin/JS                                                     |
+| `KSPNativeMain` | Kotlin/Native targets, such as iOS, macOS, Linux, and Windows |
+| `KSPCommonMain` | Common compilations in Kotlin Multiplatform projects          |
 
-* `KSPJsMain`
 
-* `KSPNativeMain`
+When launching KSP with `java`, specify the fully qualified class name. For example:
 
-* `KSPCommonMain`
+```bash
+java -cp <classpath> com.google.devtools.ksp.cmdline.KSPJvmMain <options> <processor>
+```
 
-The following example runs KSP for a JVM target by using KSPJvmMain:
+The following example runs KSP for a JVM target by using `KSPJvmMain`:
 
-```Bash
+```bash
 java -cp \
 symbol-processing-aa-%kspVersion%.jar:symbol-processing-common-deps-%kspVersion%.jar:symbol-processing-api-%kspVersion%.jar:kotlin-stdlib-2.3.20.jar:kotlinx-coroutines-core-jvm-1.10.2.jar \
 com.google.devtools.ksp.cmdline.KSPJvmMain \
@@ -70,33 +79,34 @@ com.google.devtools.ksp.cmdline.KSPJvmMain \
 -resource-output-dir=project_dir/build/out/main/res/ \
 path/to/processor.jar
 ```
+
 ## Options
 
-A full list of options can be obtained with the following command:
+To see the full list of options, run the following command:
 
-```Bash
+```bash
 java -cp <classpath> <mainclass> -h
 ```
 
-### Required options
+### Required KSP options
 
-| Option                     | Description                                                                                                                                |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `-language-version=String` | Specifies the [Kotlin language version](https://kotlinlang.org/docs/compiler-reference.html#language-version-version) used in the project. |
-| `-api-version=String`      | Specifies the [Kotlin API version](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).                               |
-| `-jvm-target=String`       | Specifies the target JVM version.                                                                                                          |
-| `-module-name=String`      | Specifies the module name.                                                                                                                 |
-| `-source-roots=List<File>` | Specifies the source root directories. Use a colon-separated list for multiple directories.                                                |
-| `-project-base-dir=File`   | Specifies the project root directory.                                                                                                      |
-| `-output-base-dir=File`    | Specifies the base directory for KSP output.                                                                                               |
-| `-caches-dir=File`         | Specifies the directory for KSP caches.                                                                                                    |
-| `-java-output-dir=File`    | Specifies the directory for generated Java files.                                                                                          |
-| `-class-output-dir=File`   | Specifies the directory for generated class files.                                                                                         |
-| `-kotlin-output-dir=File`  | Specifies the directory for generated Kotlin files.                                                                                        |
-| `-resource-output-dir=File`| Specifies the directory for generated resources.                                                                                           |
-| `<processor>`              | Specifies the processor classpath.                                                                                                         |
+| Option                        | Description                                                                                                                          |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `-language-version=<version>` | The [Kotlin language version](https://kotlinlang.org/docs/compiler-reference.html#language-version-version) used in the project.     |
+| `-api-version=<version>`      | The [Kotlin API version](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).                               git |
+| `-jvm-target=<version>`       | The target JVM version.                                                                                                              |
+| `-module-name=<name>`         | The module name.                                                                                                                     |
+| `-source-roots=<paths>`       | The source root directories. Use a colon-separated list for multiple directories.                                                    |
+| `-project-base-dir=<path>`    | The project root directory.                                                                                                          |
+| `-output-base-dir=<path>`     | The base directory for KSP output.                                                                                                   |
+| `-caches-dir=<path>`          | The directory for KSP caches.                                                                                                        |
+| `-java-output-dir=<path>`     | The directory for generated Java files.                                                                                              |
+| `-class-output-dir=<path>`    | The directory for generated class files.                                                                                             |
+| `-kotlin-output-dir=<path>`   | The directory for generated Kotlin files.                                                                                            |
+| `-resource-output-dir=<path>` | The directory for generated resources.                                                                                               |
+| `<processor>`                 | The processor classpath.                                                                                                             |
 
-### Other notable options
+### Other useful options
 
 * `-libraries=File`: Specifies the classpath used to resolve dependencies referenced by the source files. This is 
 typically the module's compile classpath.
@@ -107,7 +117,8 @@ requires access to the Java standard library.
 * `-friends=File`: Specifies the classpath of the current module's friend modules. This is typically the module's friend 
 classpath. For more information, see [Friend modules](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kotlin-compile/friend-paths.html).
 
-### JVM parameters
-
-* `-Dksp.logging`: Specifies the logging level. Valid values are `error`, `warn` or `warning`, `info`, and `debug`. The 
+> KSP also supports the following JVM system property:
+> * `-Dksp.logging`: Specifies the logging level. Valid values are `error`, `warn` or `warning`, `info`, and `debug`. The 
 default value is `warn`. Unsupported values are treated as `warn`.
+>
+{style="tip"}
