@@ -25,6 +25,7 @@ function Terms() {
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href="https://play.kotlinlang.org/">Try Kotlin</Button>}
             dataTestId={'kotlin-effect-page'}
+            theme="light"
         >
             <div className={styles.wrapper}>
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>

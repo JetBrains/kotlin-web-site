@@ -1,5 +1,95 @@
 @import '@webteam/article/lib/index.css';
 
 .wrapper {
-    color: var(--website-ui-text-color-dark);
+    color: rgba(25, 25, 28, 0.8);
+    font-family: var(
+        --ktl-font-family-inter,
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Arial,
+        sans-serif
+    );
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.wrapper :global(.wt-article) h1 {
+    margin-bottom: 32px;
+    color: #19191c;
+    font-family: inherit;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+@media (max-width: 640px) {
+    .wrapper :global(.wt-article) h1 {
+        font-size: 30px;
+    }
+}
+
+/* Readable spacing between paragraphs and list items. */
+.wrapper :global(.wt-article) p {
+    margin-top: 16px;
+}
+
+.wrapper :global(.wt-article) li {
+    margin-top: 12px;
+}
+
+/*
+ * Reproduce the legal outline of the document with a self-contained CSS counter:
+ * 1. (decimal) -> a. (lower-alpha) -> i. (lower-roman) -> (A) (upper-alpha) -> ➢ (arrows).
+ * The @webteam/article counter styles are not applied to these lists, so we define our own.
+ */
+.wrapper :global(.wt-article) ol {
+    margin-top: 12px;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: item;
+}
+
+.wrapper :global(.wt-article) ol > li {
+    position: relative;
+    padding-left: 2.2em;
+    counter-increment: item;
+}
+
+.wrapper :global(.wt-article) ol > li::before {
+    position: absolute;
+    left: 0;
+    content: counter(item, decimal) '.';
+}
+
+.wrapper :global(.wt-article) ol ol > li::before {
+    content: counter(item, lower-alpha) '.';
+}
+
+.wrapper :global(.wt-article) ol ol ol > li::before {
+    content: counter(item, lower-roman) '.';
+}
+
+.wrapper :global(.wt-article) ol ol ol ol > li::before {
+    content: '(' counter(item, upper-alpha) ')';
+}
+
+.wrapper :global(.wt-article) ul {
+    margin-top: 12px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.wrapper :global(.wt-article) ul > li {
+    position: relative;
+    padding-left: 2.2em;
+}
+
+.wrapper :global(.wt-article) ul > li::before {
+    position: absolute;
+    left: 0;
+    content: '➢';
 }
