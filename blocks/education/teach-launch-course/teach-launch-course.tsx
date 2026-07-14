@@ -130,7 +130,7 @@ export const TeachLaunchCourse: FC = () => {
 
             <div className={cn(styles.linksBlock, styles.linksBlockSecond)}>
 
-                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>NEW: Server-Side Development with Kotlin</div>
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>NEW: Backend Development with Kotlin</div>
 
                 <ul className={cn(styles.list, textCn('rs-text-2'))}>
                     <li>
