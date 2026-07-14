@@ -9,6 +9,7 @@ import { OfferBlock } from '@/blocks/kotlin-effect/offer-block/offer-block';
 import { PostcardBlock } from '@/blocks/kotlin-effect/postcard-block/postcard-block';
 
 import styles from './index.module.css';
+import cn from 'classnames';
 
 export const KOTLIN_EFFECT_TITLE = 'Kotlin Effect';
 export const KOTLIN_EFFECT_URL = '/kotlin-effect/';
@@ -33,7 +34,7 @@ function Index() {
                 <HeroScreen />
                 <CardStack />
 
-                <div className={'ktl-layout-v2 ktl-layout--center'}>
+                <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
                     <OfferBlock />
                     {/*<ReportBlock />*/}
                     {/*<NoteBlock />*/}

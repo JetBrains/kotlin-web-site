@@ -3284,12 +3284,12 @@
     "@webteam/bem-cn-fast" "~1.1.7"
     classnames "~2.2.6"
 
-"@webteam/postcard-section@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910":
-  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910"
-  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910.tgz#4739e900644cc81a4bfbb03152d92aacb365e0f8"
-  integrity sha512-tXrQ9jLB9xcwGX6qTpfBJ4Ov5sih31jBDFP5+/3aen/ZF1e+xim/9PmwoLUHG2koTWRWQ0VnZuS8z4GdSeZX4Q==
+"@webteam/postcard-section@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259":
+  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259.tgz#ffabeccaf88cb138c78d3e4305df86dc0762ea34"
+  integrity sha512-K7NY0MnLhl145lT+/9jGGEhZ+Ro7QrzCw0yh2evJ6LPe7os6DXd5bGIh0aK1K3x1FahAjgKIV3Ml/Lupo3Ik8Q==
   dependencies:
-    "@webteam/social-share" "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910"
+    "@webteam/social-share" "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259"
     classnames "~2.2.6"
     motion "~12.40.0"
     react-dropzone "~14.2.3"
@@ -3308,10 +3308,10 @@
   dependencies:
     "@babel/runtime-corejs3" "~7.28.2"
 
-"@webteam/social-share@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910":
-  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910"
-  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/social-share/-/social-share-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714111910.tgz#0de4fb2c283b36386135420ce74372ab861943fd"
-  integrity sha512-IcK9TBVeLvo9tKGhj9awvluYXqA05EJXXiIZ7BwwmW6JH97og6OyDYFW+UV/wjv5qX2X0C9H+eK3Z8SUCCEWjA==
+"@webteam/social-share@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259":
+  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/social-share/-/social-share-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260714184259.tgz#7dd8ae652f7cd11494325d28f4e88708fc475afc"
+  integrity sha512-wLrXkMlmmQrZeTcgoWNg6wssnYqcv+588TrE+UFutUXNqnqtmo3Df41cmYOGDU4uEzgIZ7nLVbf60sGPdP/+Pw==
   dependencies:
     "@babel/runtime-corejs3" "~7.28.2"
     classnames "~2.2.6"

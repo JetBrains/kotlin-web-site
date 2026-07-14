@@ -1,5 +1,18 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .postcardBlock {
     margin-top: 196px;
+}
+
+.card {
+    @media (--ktl-ts) {
+        margin-left: -28px;
+        margin-right: -28px;
+    }
+    @media (--ktl-ms) {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
 }
 
 .title {

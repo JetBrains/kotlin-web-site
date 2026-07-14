@@ -25,7 +25,7 @@ export const PostcardBlock = () => {
             <PostCard
                 theme="dark"
                 mask={postcard.src}
-                className="post-card-section"
+                className={styles.card}
                 altMaskTitle="Post card image"
                 dropzonePosition={{
                     top: '11.5%',
@@ -39,7 +39,7 @@ export const PostcardBlock = () => {
                     theme="dark"
                     type="text"
                     mask={greetingCard.src}
-                    className="post-card-section"
+                    className={styles.card}
                     altMaskTitle="Greeting card image"
                 />
             </div>

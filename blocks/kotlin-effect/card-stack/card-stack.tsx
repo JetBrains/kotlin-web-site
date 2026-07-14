@@ -42,7 +42,7 @@ export const CardStack: FC = () => {
 
     return (
         <section className={cn(styles.section)}>
-            <div className="ktl-layout-v2 ktl-layout--center">
+            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
 
                 <div
                     className={styles.card}
