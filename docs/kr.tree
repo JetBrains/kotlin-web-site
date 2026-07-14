@@ -183,7 +183,6 @@
         <toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
         <toc-element hidden="true" toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
     </toc-element>
-
     <toc-element toc-title="Interoperability">
         <toc-element toc-title="Java interop">
             <toc-element topic="comparison-to-java.md"/>
