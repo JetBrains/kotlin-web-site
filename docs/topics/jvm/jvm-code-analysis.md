@@ -1,7 +1,8 @@
 [//]: # (title: Code quality tools in Kotlin projects)
+[//]: # (description: Learn how to integrate code quality tools like ktlint, detekt, SonarQube, SonarCloud, and Kover into your Kotlin backend projects.)
 
 Code quality tools help you enforce coding standards, detect bugs early, measure test coverage, and maintain code quality
-across your Kotlin projects. This guide focusesand shows how to integrate popular tools like
+across your Kotlin projects. This guide shows how to integrate popular tools like
 [ktlint](https://ktlint.github.io/ktlint/latest/), [detekt](https://detekt.dev/), [SonarQube](https://www.sonarsource.com/products/sonarqube/),
 [SonarCloud](https://www.sonarsource.com/products/sonarcloud/), and [Kover](https://kotlin.github.io/kotlinx-kover/) into
 your backend project for Maven or Gradle.
