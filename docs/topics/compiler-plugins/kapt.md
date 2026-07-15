@@ -181,6 +181,12 @@ kapt -Kapt-mode=stubsAndApt \
 
 ## Configure annotation processors
 
+kapt provides options to control how annotation processors are discovered, organized, and executed, including managing
+the processor classpath, inheriting processors from shared configurations, and keeping javac-specific processors active.
+
+For more configuration options, such as passing options to annotation processors and javac,
+see [Annotation processor configuration](#annotation-processor-configuration).
+
 ### Configure processor classpath and discovery
 
 You can disable the discovery of annotation processors that aren't included in kapt's processor path.
@@ -294,6 +300,12 @@ See this [example of setting up the Lombok compiler plugin](lombok.md#using-with
 
 ## Optimize kapt builds
 
+kapt offers several Gradle-specific strategies to reduce annotation processing time, including running tasks in parallel,
+leveraging the build cache, caching processor classloaders, and using incremental annotation processing.
+
+For more options that affect build behavior, such as error type correction, stub metadata stripping,
+and compile classpath scanning, see [Behavioral options](#behavioral-options).
+
 ### Run kapt tasks in parallel
 
 kapt uses the [Gradle Worker API](https://docs.gradle.org/current/userguide/worker_api.html) to run annotation processing tasks.
@@ -395,6 +407,12 @@ kapt.incremental.apt=false
 
 ## Analyze performance
 
+kapt provides built-in diagnostics to help you understand annotation processing performance, including per-processor
+execution time reports and generated file counts to identify unused processors.
+
+For more diagnostics options, such as file read history for debugging incremental processing and memory leak detection,
+see [Diagnostics and statistics options](#diagnostics-and-statistics-options).
+
 ### Measure the performance of annotation processors
 
 To get performance statistics on the annotation processors execution,
@@ -407,7 +425,7 @@ com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 9
 ```
 
 You can dump this report into a file with the [`dumpProcessorStats`](#diagnostics-and-statistics-options) option.
-The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
+For example, the following CLI command runs kapt and dumps the statistics to the `ap-perf-report.file` file:
 
 ```bash
 kapt -Kapt-mode=stubsAndApt \
@@ -436,9 +454,6 @@ To enable statistics reporting:
 
 2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
-   <tabs group="build-script">
-   <tab title="Gradle" group-key="kotlin">
-
    ```none
    # gradle.properties
    kapt.verbose=true
@@ -462,10 +477,12 @@ generated files for each annotation processor. For example:
 
 ## Generate Kotlin sources
 
-kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
-and these files will be compiled together with the main sources.
+kapt can generate Kotlin sources. To do that, write the generated Kotlin source files to the specified directory using
+`processingEnv.options["kapt.kotlin.generated"]`. Kotlin source files are then compiled together with the main sources.
 
-Note that kapt does not support multiple rounds for the generated Kotlin files.
+> kapt doesn't support multiple rounds for the generated Kotlin files.
+> 
+{style="note"}
 
 ## Compiler options
 
@@ -861,4 +878,5 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 
 ## What's next
 
+* [Use kapt with the MapStruct annotation processor](jvm-annotation-processors.md#use-kapt-with-java-annotation-processors)
 * [See how to migrate from kapt to KSP](ksp-kapt-migration.md)
