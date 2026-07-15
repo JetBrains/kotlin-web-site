@@ -389,14 +389,7 @@ To disable incremental annotation processing, add this line to your `gradle.prop
 kapt.incremental.apt=false
 ```
 
-If you're using CLI, you can manually enable incremental annotation processing with the `-Kapt-processIncrementally=true`
-option:
-
-```bash
--Kapt-processIncrementally=true
-```
-
-> Currently, incremental annotation processing for kapt is not supported in Maven.
+> Currently, incremental annotation processing for kapt is not supported in Maven or CLI.
 > 
 {style="note"}
 
@@ -425,17 +418,14 @@ kapt -Kapt-mode=stubsAndApt \
 
 ### Track the number of generated files
 
-The `kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
+The kapt plugin can report statistics on the number of generated files for each annotation processor.
 
 This helps track whether any unused annotation processors are included in the build.
 You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to avoid that.
 
 To enable statistics reporting:
 
-1. Set the `showProcessorStats` option to `true`:
-
-   <tabs group="build-script">
-   <tab title="Gradle" group-key="kotlin">
+1. In your Gradle build file, set the `showProcessorStats` option to `true`:
 
    ```kotlin
    // build.gradle(.kts)
@@ -444,22 +434,7 @@ To enable statistics reporting:
    }
    ```
 
-   </tab>
-   <tab title="Maven" group-key="maven">
-
-   This option is not available for Maven.
-
-   </tab>
-   <tab title="CLI" group-key="cli">
-
-   ```bash
-   -Kapt-show-processor-stats=true
-   ```
-
-   </tab>
-   </tabs>
-
-2. Set the `verbose` compiler option to `true`:
+2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
    <tabs group="build-script">
    <tab title="Gradle" group-key="kotlin">
@@ -468,23 +443,6 @@ To enable statistics reporting:
    # gradle.properties
    kapt.verbose=true
    ```
-
-   </tab>
-   <tab title="Maven" group-key="maven">
-
-   ```bash
-   mvn compile -Dkapt.verbose=true
-   ```
-
-   </tab>
-   <tab title="CLI" group-key="cli">
-
-   ```bash
-   -Kapt-verbose=true
-   ```
-
-   </tab>
-   </tabs>
 
 The statistics appear in the logs with the `info` level.
 You can see the `Annotation processor stats:` line followed by statistics on the execution time of each annotation processor.
@@ -497,6 +455,10 @@ generated files for each annotation processor. For example:
 [INFO] Generated files report:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
+
+> Currently, tracking the number of generated files with the `showProcessorStats` and `verbose` compiler options is not supported in Maven or CLI.
+>
+{style="note"}
 
 ## Generate Kotlin sources
 
@@ -634,7 +596,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                     kapt.incremental.apt=true
                 </code-block>
             <p><b>Maven:</b> currently not supported</p>
-            <p><b>CLI:</b> <code>-Kapt-processIncrementally=true</code></p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
 </table>
@@ -680,7 +642,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         <td>
             <p><b>Gradle:</b> managed automatically</p>
             <p><b>Maven:</b> currently not supported</p>
-            <p><b>CLI:</b> <code>-Kapt-incrementalData=build/kapt/incremental</code></p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
 </table>
@@ -801,8 +763,8 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                     # gradle.properties
                     kapt.verbose=true
                 </code-block>
-            <p><b>Maven:</b> <code>-Dkapt.verbose=true</code></p>
-            <p><b>CLI:</b> <code>-Kapt-verbose=true</code></p>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
     <tr>
@@ -813,8 +775,8 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         </td>
         <td>
             <p><b>Gradle:</b> not directly available</p>
-            <p><b>Maven:</b> <code>-Dkapt.info.as.warnings=true</code></p>
-            <p><b>CLI:</b> <code>-Kapt-infoAsWarnings=true</code></p>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
     <tr>
@@ -836,7 +798,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 <includeCompileClasspath>false</includeCompileClasspath>
                     ]]>
                 </code-block>
-            <p><b>CLI:</b> <code>-Kapt-includeCompileClasspath=false</code></p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
 </table>
@@ -891,8 +853,8 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                         detectMemoryLeaks = "paranoid"
                     }
                 </code-block>
-            <p><b>Maven:</b> not available</p>
-            <p><b>CLI:</b> <code>-Kapt-detectMemoryLeaks=paranoid</code></p>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
         </td>
     </tr>
 </table>
