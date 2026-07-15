@@ -151,6 +151,22 @@ with a receiver instead, specify the type explicitly:
 val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
 ```
 
+#### Default-adapted function references
+
+When a function has parameters with default values, its function reference can adapt to a function type that omits those
+parameters. In the following example, `nullary()` expects a function of type `() -> Unit.` The compiler adapts `::foo`
+to this expected type by omitting the value parameter. When the reference is invoked, value uses its default value:
+
+```kotlin
+fun foo(value: Any? = null) {}
+
+fun nullary(action: () -> Unit) {}
+
+fun main() {
+    nullary(::foo)
+}
+```
+
 #### Arity-adapted function references
 
 A function reference can adapt to a function type with a different number of parameters when the referenced function has
@@ -171,17 +187,6 @@ fun main() {
     unary(::foo)
     binary(::foo)
 }
-```
-
-Arity adaptation also applies to parameters with default values. In this case, the compiler adapts `::greet` to `(String) -> Unit`.
-The omitted punctuation parameter uses its default value:
-
-```kotlin
-fun greet(name: String, punctuation: String = "!") {
-    println("Hello, $name$punctuation")
-}
-
-val greetWithDefault: (String) -> Unit = ::greet
 ```
 
 The compiler can adapt a function reference only when you use the reference directly with an expected function type.
