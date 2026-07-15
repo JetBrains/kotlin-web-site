@@ -208,13 +208,15 @@ and even when it's over and the change ships in a stable version, there's still 
 
 We provide compatibility options that make a new Kotlin version emulate the behavior of an older one for compatibility purposes:
 
-* `-language-version X.Y` – compatibility mode for Kotlin language version X.Y. Reports errors when your code uses language
+* `-language-version X.Y` – compatibility mode for Kotlin language version X.Y. The compiler reports errors when your code uses language
   features introduced in later versions.
-* `-api-version X.Y` – compatibility mode for Kotlin API version X.Y. Reports errors when your code uses Kotlin standard
+* `-api-version X.Y` – compatibility mode for Kotlin API version X.Y. The compiler ignores declarations in your code that use Kotlin standard
   library APIs introduced in later versions, including APIs referenced by compiler-generated code.
 
-To give you more time to migrate, we support at least three previous language and API versions in addition to the 
-latest stable version. In most projects, set both options to the same version. A lower API version is mainly useful when you
+To give you more time to migrate, on the JVM we support at least three previous language and API versions in addition to the 
+latest stable version. On other platforms, you can use older versions, but you won't be able to use new features.
+
+In most projects, set both options to the same version. A lower API version is mainly useful when you
 need to remain compatible with an older version of the Kotlin standard library.
 
 Actively maintained code bases can benefit from getting bug fixes as soon as possible, without waiting for a full deprecation cycle to complete.

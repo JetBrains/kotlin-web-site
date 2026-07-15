@@ -61,6 +61,9 @@ case, setting an older API version helps ensure you don't accidentally use APIs 
 
 The `-api-version` value can't be higher than the `-language-version` value.
 
+If you're a library author, configuring the API version affects how your library can be consumed. For more information,
+see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
+
 ### -help (-h)
 
 Display usage information and exit. Only standard options are shown.
@@ -77,6 +80,9 @@ use Kotlin compiler version 2.4.0 with `-language-version=2.2`, you can only use
 version 2.2 or earlier. Controlling the language version can help help you gradually migrate to newer Kotlin versions.
 
 To control which APIs your code can use, see [](#api-version-version).
+
+If you're a library author, configuring the language version affects how your library can be consumed. For more information,
+see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
 
 ### -opt-in _annotation_
 
