@@ -171,8 +171,8 @@ kapt -Kapt-mode=stubsAndApt \
   -Kapt-sources=build/kapt/sources \
   -Kapt-classes=build/kapt/classes \
   -Kapt-stubs=build/kapt/stubs \
-  -Kapt-apclasspath=lib/ap.jar \
-  -Kapt-apclasspath=lib/anotherAp.jar \
+  -Kapt-classpath=lib/ap.jar \
+  -Kapt-classpath=lib/anotherAp.jar \
   src/main/kotlin
 ```
 
@@ -374,47 +374,31 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 >
 {style="note"}
 
-### Enable incremental annotation processing
+### Use incremental annotation processing
 
-You can enable incremental annotation processing so that only the changed files are re-processed.
+With Gradle, kapt supports incremental annotation processing by default so that only the changed files are re-processed.
 
 Currently, incremental annotation processing works only if:
 
 * [Incremental compilation](gradle-compilation-and-caches.md#incremental-compilation) is enabled.
 * All annotation processors in the build are incremental.
 
-To enable incremental annotation processing, use the `processIncrementally` compiler option:
-
-<tabs group="build-script">
-<tab title="Gradle" group-key="kotlin">
-
-Add `kapt.incremental.apt=true` in your `gradle.properties` file:
+To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
 ```none
-# gradle.properties
-kapt.incremental.apt=true
+kapt.incremental.apt=false
 ```
 
-</tab>
-<tab title="Maven" group-key="maven">
-
-Pass `-Dkapt.incremental.apt=true` as a JVM argument when running Maven:
-
-```bash
-mvn compile -Dkapt.incremental.apt=true
-```
-
-</tab>
-<tab title="CLI" group-key="cli">
-
-Use the `-Kapt-processIncrementally=true` option:
+If you're using CLI, you can manually enable incremental annotation processing with the `-Kapt-processIncrementally=true`
+option:
 
 ```bash
 -Kapt-processIncrementally=true
 ```
 
-</tab>
-</tabs>
+> Currently, incremental annotation processing for kapt is not supported in Maven.
+> 
+{style="note"}
 
 ## Analyze performance
 
@@ -434,7 +418,7 @@ The following command will run kapt and dump the statistics to the `ap-perf-repo
 
 ```bash
 kapt -Kapt-mode=stubsAndApt \
-  -Kapt-apclasspath=processor/build/libs/processor.jar \
+  -Kapt-classpath=processor/build/libs/processor.jar \
   -Kapt-dump-processor-stats=ap-perf-report.file \
   sample/src/main/
 ```
@@ -553,7 +537,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
         </td>
     </tr>
     <tr>
-        <td><code>apclasspath</code></td>
+        <td><code>classpath</code></td>
         <td>Classpath entries where annotation processors are discovered.</td>
         <td>
             <p><b>Gradle:</b></p>
@@ -570,7 +554,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </annotationProcessorPaths>
                     ]]>
                 </code-block>
-            <p><b>CLI:</b> <code>-Kapt-apclasspath=lib/my-processor.jar</code></p>
+            <p><b>CLI:</b> <code>-Kapt-classpath=lib/my-processor.jar</code></p>
         </td>
     </tr>
     <tr>
@@ -614,7 +598,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </annotationProcessorArgs>
                     ]]>
                 </code-block>
-            <p><b>CLI:</b> <code>-Kapt-apOption:room.schemaLocation=/schemas</code></p>
+            <p><b>CLI:</b> <code>-Kapt-options:room.schemaLocation=/schemas</code></p>
         </td>
     </tr>
     <tr>
@@ -637,7 +621,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 </javacOptions>
                     ]]>
                 </code-block>
-            <p><b>CLI:</b> <code>-Kapt-javacOption:-source=11</code></p>
+            <p><b>CLI:</b> <code>-Kapt-javac-option:-source=11</code></p>
         </td>
     </tr>
     <tr>
@@ -649,31 +633,11 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
                     # gradle.properties
                     kapt.incremental.apt=true
                 </code-block>
-            <p><b>Maven:</b> <code>-Dkapt.incremental.apt=true</code></p>
+            <p><b>Maven:</b> currently not supported</p>
             <p><b>CLI:</b> <code>-Kapt-processIncrementally=true</code></p>
         </td>
     </tr>
 </table>
-
-`apOption` and `javacOption` compiler options can also accept an encoded map of options.
-
-You can create a map of encode options yourself:
-
-```kotlin
-fun encodeList(options: Map<String, String>): String {
-    val os = ByteArrayOutputStream()
-    val oos = ObjectOutputStream(os)
-
-    oos.writeInt(options.size)
-    for ((key, value) in options.entries) {
-        oos.writeUTF(key)
-        oos.writeUTF(value)
-    }
-
-    oos.flush()
-    return Base64.getEncoder().encodeToString(os.toByteArray())
-}
-```
 
 ### Output directory options
 
@@ -688,14 +652,7 @@ fun encodeList(options: Map<String, String>): String {
         <td>Directory where annotation processors generate <code>.java</code> source files.</td>
         <td>
             <p><b>Gradle:</b> set automatically to <code>build/generated/source/kapt/main</code></p>
-            <p><b>Maven:</b></p>
-                <code-block lang="xml">
-                    <![CDATA[
-                        <sourceDirs>
-                           <sourceDir>...</sourceDir>
-                        </sourceDirs>
-                    ]]>
-                </code-block>
+            <p><b>Maven:</b> set automatically to <code>target/generated-sources/kapt/</code></p>
             <p><b>CLI:</b> <code>-Kapt-sources=build/kapt/sources</code></p>
         </td>
     </tr>
@@ -722,7 +679,7 @@ fun encodeList(options: Map<String, String>): String {
         <td>Stores state for incremental builds.</td>
         <td>
             <p><b>Gradle:</b> managed automatically</p>
-            <p><b>Maven:</b> managed automatically</p>
+            <p><b>Maven:</b> currently not supported</p>
             <p><b>CLI:</b> <code>-Kapt-incrementalData=build/kapt/incremental</code></p>
         </td>
     </tr>
