@@ -359,14 +359,20 @@ Only compatibility bridges and `DefaultImpls` classes are generated.
 The Kotlin visibility modifiers map to Java in the following way:
 
 * `private` members are compiled to `private` members.
-* `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also included,
-if accessed from within a class. 
-* `protected` remains `protected`. (Note that Java allows accessing protected members from other classes in the same package
-and Kotlin doesn't, so Java classes will have broader access to the code.)
-* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
-it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
-each other according to Kotlin rules.
-* `public` remains `public`.
+* `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also
+  included if accessed from within a class. 
+* `protected` members remain `protected`.
+
+  Note that Java allows accessing protected members from other classes in the same package and Kotlin doesn't,
+  so Java classes have broader access to the code.
+* `internal` declarations become `public` in Java.
+
+  Members marked as `internal` go through name mangling in bytecode. This prevents accidental overrides across modules,
+  for example, when extending a Kotlin class from Java, and allows overloading for members with the same signature that
+  don't see each other according to Kotlin rules.
+
+  Note that the names of public members of `internal` classes are not mangled and remain callable from Java.
+* `public` members remain `public`.
 
 ## KClass
 
