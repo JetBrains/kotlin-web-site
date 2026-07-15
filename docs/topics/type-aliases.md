@@ -84,7 +84,8 @@ Since top-level type aliases are not class members, you can't mark them as `prot
 
 Declare a type alias inside a class, interface, or object when the alternative name is relevant only in the context of
 that declaration. This keeps the alias close to the code that uses it and avoids adding another name to the package scope.
-Nested type aliases follow the same scope and name-resolution rules as [nested classes](nested-classes.md).
+Nested type aliases allow for cleaner, more maintainable code by improving encapsulation, reducing package-level clutter,
+and simplifying internal implementations. Nested type aliases follow the same scope and name-resolution rules as [nested classes](nested-classes.md).
 
 Within the containing declaration, you can refer to the alias by its unqualified name. Outside the declaration, qualify
 the alias with the name of its containing declaration:
