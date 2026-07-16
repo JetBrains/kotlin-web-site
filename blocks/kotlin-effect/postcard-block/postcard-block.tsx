@@ -13,7 +13,7 @@ export const PostcardBlock = () => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <div className={styles.postcardBlock} id="postcard-section">
+        <div className={styles.postcardBlock} id="celebrate-with-kodee">
             <h2 className={cn(darkTextCn('rs-h1'), styles.title)}>
                 <span>15 years of Kotlin.</span>
                 <br />

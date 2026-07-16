@@ -23,7 +23,7 @@ export const NoteBlock = () => {
     const submitMessage = React.useCallback(() => <SubmitMessage onSendMore={() => setFormKey(k => k + 1)} />, []);
 
     return (
-        <div className={styles.noteBlock} id={'kotlin-note'}>
+        <div className={styles.noteBlock} id="kotlin-note">
             <div className={styles.header}>
                 <div className={styles.headerContent}>
                     <h2 className={cn(textCn('rs-h1'), styles.title)}>Leave a Note for Kotlin&apos;s Future!</h2>
