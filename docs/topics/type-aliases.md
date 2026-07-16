@@ -52,6 +52,11 @@ You can declare a type alias:
 
 You can't declare a type alias in a local scope, such as inside a function or lambda expression.
 
+The declaration location determines the scope of a type alias, while its visibility determines which code can access it.
+By default, a type alias is `public`. The effective accessibility of a type alias also depends on the accessibility of
+its containing declarations and visibility of the underlying type. A type alias can't expose a type whose visibility is
+more restrictive than the alias. Learn how visibility affects access in [](visibility-modifiers.md).
+
 ### Top-level type aliases
 
 A top-level type alias is a package-level declaration. Within the same package, you can refer to an alias by its unqualified name.
@@ -69,16 +74,6 @@ package org.example.services
 import org.example.users.UserId
 }
 ```
-
-The package determines whether you can refer to the alias by its unqualified name or need to import it or use its fully
-qualified name. Its visibility determines which code can access it. By default, a top-level type alias is `public`. You can mark it as
-`internal` to restrict it to the same module or as `private` to restrict it to the file where it's declared:
-
-```kotlin
-private typealias ResponseCache = MutableMap<String, CachedResponse>
-```
-
-Since top-level type aliases are not class members, you can't mark them as `protected`.
 
 ### Nested type aliases
 
@@ -103,13 +98,6 @@ fun synchronizeUsers(users: UserRepository.UserIndex) {
   // ...
 }
 ```
-
-The containing declaration establishes the alias's scope, but visibility can restrict access further. Therefore,
-the effective accessibility of a nested alias depends on both the alias and its containing declaration. For example, you can't access
-a `public` alias inside an `internal` class from outside the module because the containing class isn't accessible there.
-
-A type alias also can't expose an underlying type whose visibility is more restrictive than the alias. For example, a `public`
-type alias can't refer to a `private` class.
 
 > Nested type aliases are not supported in Kotlin Multiplatform [`expect/actual` declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
 >
