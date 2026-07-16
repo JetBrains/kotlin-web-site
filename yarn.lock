@@ -3289,12 +3289,12 @@
     "@webteam/bem-cn-fast" "~1.1.7"
     classnames "~2.2.6"
 
-"@webteam/postcard-section@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633":
-  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633"
-  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633.tgz#694ce750984bd97242d9677b8af32f15bec24f73"
-  integrity sha512-iGA9eWdfzVFDfPjPr6WDPUSanDQMYNWOJQXP01W3cCttytuiIWdqq9GGBP62z+mWoPxWCj5nJWQCrrqk6hGv9Q==
+"@webteam/postcard-section@^0.1.1":
+  version "0.1.1"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.1.1.tgz#92b68dfb4332545ed23cc515b6b7d65b572ff1bd"
+  integrity sha512-448dcLG5ptQ9dRocGanRFkVNIqkheIZXls+1LURVYoj3NE/OQQbz0p/QEwgf/8RjWXjwMKgVozAa5fzboDG6hg==
   dependencies:
-    "@webteam/social-share" "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633"
+    "@webteam/social-share" "~1.6.4"
     classnames "~2.2.6"
     motion "~12.40.0"
     react-dropzone "~14.2.3"
@@ -3313,10 +3313,10 @@
   dependencies:
     "@babel/runtime-corejs3" "~7.28.2"
 
-"@webteam/social-share@0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633":
-  version "0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633"
-  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/social-share/-/social-share-0.0.0-WUI-1954-Kotlin-turns-15-Digital-postcard-for-Kotlin-future-20260716113633.tgz#242ffca3b7fb52583b26ebe45ce3557367b9cb29"
-  integrity sha512-QcENZDkHXDxBkfuWCAsyN/qaTMaDvOkEGsURqcrqEmg1uAFk03m736JrczylmMnXy+lPKsbTxUB5yAl4fziMGw==
+"@webteam/social-share@^1.6.4", "@webteam/social-share@~1.6.4":
+  version "1.6.4"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/social-share/-/social-share-1.6.4.tgz#39cc17bebb98fe8fb549d42e872e431438fa764b"
+  integrity sha512-h8kjbioa07KrFTPvdEtNwaKs3gfi1gsWAIwG1F1yz5JjvLQpWqEkw6CxyI5uU8E9l2VKoukQDrVcWQtsrIfSpw==
   dependencies:
     "@babel/runtime-corejs3" "~7.28.2"
     classnames "~2.2.6"

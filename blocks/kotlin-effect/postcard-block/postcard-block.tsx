@@ -38,7 +38,7 @@ export const PostcardBlock = () => {
                     height: '43%',
                 }}
             />
-            <div className={styles.greetingCardBlock}>
+            <div className={styles.greetingCardBlock} id="kotlin-note">
                 <PostCard
                     theme="dark"
                     type="text"

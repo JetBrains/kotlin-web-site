@@ -8,7 +8,7 @@ export function TermsConditionsBlock() {
             <div className="wt-article">
                 <h1>Terms and Conditions of the Kotlin Turns 15 Anniversary Campaign</h1>
                 <p>
-                    By participating, all participants in the <b>Kotlin Turn 15 Anniversary Campaign</b> (the{' '}
+                    By participating, all participants in the <b>Kotlin Turns 15 Anniversary Campaign</b> (the{' '}
                     <b>&quot;Campaign&quot;</b>) agree to the following terms and conditions:
                 </p>
                 <ol>
