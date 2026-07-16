@@ -40,6 +40,11 @@ Where:
       add("kspJvm", "androidx.room:room-compiler:2.6.1")
       ```
 
+> Since KSP 2, the catch-all `ksp(...)` configuration is deprecated. Configure each target explicitly to avoid running
+> processors where they are not needed.
+>
+{style="warning"}
+
 ### Use mutiple processors in a single target
 
 You can add more than one processor to a target:
@@ -173,11 +178,6 @@ list of KSP configurations for a module, run:
 ```
 
 Look for the configuration names that correspond to your target source sets.
-
-> Since KSP 2, the catch-all `ksp(...)` configuration is deprecated. Configure each target explicitly to avoid running 
-> processors where they are not needed.
-> 
-{style="warning"}
 
 ## Compilation and processing
 
