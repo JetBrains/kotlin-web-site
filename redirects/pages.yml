@@ -494,7 +494,7 @@
   to: /docs/exception-handling.html
 
 - from: /docs/reference/coroutines/cancellation-and-timeouts.html
-  to: /docs/cancellation-and-timeouts.html
+  to: /docs/coroutines-cancellation.html
 
 - from: /docs/reference/coroutines/shared-mutable-state-and-concurrency.html
   to: /docs/shared-mutable-state-and-concurrency.html
