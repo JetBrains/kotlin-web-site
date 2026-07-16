@@ -32,6 +32,7 @@
     box-sizing: border-box;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
     @media (--ktl-ts-down) {
         padding: 12px;
     }

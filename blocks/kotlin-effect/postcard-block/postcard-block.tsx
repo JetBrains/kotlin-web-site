@@ -4,6 +4,8 @@ import { createTextCn } from '@rescui/typography';
 import { PostCard } from '@webteam/postcard-section';
 import '@webteam/layout/css/offset.css';
 
+import { SectionWithGrid } from '../section-with-grid/section-with-grid';
+
 import greetingCard from './images/greeting-card.png';
 import postcard from './images/postcard.png';
 
@@ -13,7 +15,7 @@ export const PostcardBlock = () => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <div className={styles.postcardBlock} id="celebrate-with-kodee">
+        <SectionWithGrid wide className={styles.postcardBlock} id="celebrate-with-kodee">
             <h2 className={cn(darkTextCn('rs-h1'), styles.title)}>
                 <span>15 years of Kotlin.</span>
                 <br />
@@ -45,6 +47,6 @@ export const PostcardBlock = () => {
                     altMaskTitle="Greeting card image"
                 />
             </div>
-        </div>
+        </SectionWithGrid>
     );
 };
