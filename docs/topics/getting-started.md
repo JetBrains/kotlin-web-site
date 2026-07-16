@@ -12,80 +12,56 @@ New to Kotlin? Take our tour to learn the fundamentals directly in your browser.
 
 ## Install Kotlin
 
-Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.
+Kotlin is included in every [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.
+
 Download and install one of these IDEs to start using Kotlin.
 
 ## Choose your Kotlin use case
- 
+
 <tabs>
-
 <tab id="console" title="Console">
-
 Here you'll learn how to develop a console application and create unit tests with Kotlin.
 
 1. **[Create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).**
-
 2. **[Write your first unit test](jvm-test-using-junit.md).**
-
 </tab>
-
 <tab id="backend" title="Backend">
-
-Here you'll learn how to develop a backend application with Kotlin server-side.
+Here you'll learn how to develop a backend application with Kotlin on the server side.
 
 * **Introduce Kotlin to your Java project:**
-
   * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
   * [Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)
-
 * **Create a backend app from scratch with Kotlin:**
-
   * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
   * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
-
 </tab>
-
 <tab id="cross-platform-mobile" title="Cross-platform">
-
 Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html).
 
 1. **[Set up your environment for cross-platform development](https://kotlinlang.org/docs/multiplatform/quickstart.html).**
-
 2. **Create your first application for iOS and Android:**
-
    * Create a cross-platform application from scratch and:
      * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
      * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
    * [Make your existing Android application work on iOS](https://kotlinlang.org/docs/multiplatform/multiplatform-integrate-in-existing-app.html)
-   * [Create a cross-platform application using Ktor and SQLdelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
-
+   * [Create a cross-platform application using Ktor and SQLDelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
 3. **Explore [sample projects](https://kotlinlang.org/docs/multiplatform/multiplatform-samples.html)**.
-
 </tab>
-
 <tab id="android" title="Android">
-
 To start using Kotlin for Android development, read [Google's recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
-
 </tab>
-
 <tab id="data-analysis" title="Data analysis">
-
 From building data pipelines to productionizing machine learning models, Kotlin is a great choice for working with data and getting the most out of it.
 
 1. **Explore and experiment with your data:**
-
    * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
    * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
-
-2. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
-
+2. **Follow Kotlin for Data Analysis on Twitter:** [@KotlinForData](http://twitter.com/KotlinForData).
 </tab>
-
 </tabs>
 
 ## Get support
 
-If you encounter any difficulties or problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) or report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+If you encounter any difficulties or problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up), or report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 If anything is missing or seems confusing on this page, please [share your feedback](https://surveys.hotjar.com/d82e82b0-00d9-44a7-b793-0611bf6189df).
