@@ -359,7 +359,7 @@
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
             <toc-element topic="ksp-multiplatform.md"/>
-            <toc-element topic="ksp-command-line.md"/>
+            <toc-element toc-title="KSP from the command line" topic="ksp-command-line.md"/>
             <toc-element toc-title="FAQ" topic="ksp-faq.md"/>
         </toc-element>
     </toc-element>
