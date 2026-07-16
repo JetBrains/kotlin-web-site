@@ -40,7 +40,9 @@ Where:
       add("kspJvm", "androidx.room:room-compiler:2.6.1")
       ```
 
-A single target can have multiple processors:
+### Use mutiple processors in a single target
+
+You can add more than one processor to a target:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -61,7 +63,9 @@ add('kspAndroid', 'androidx.room:room-compiler:2.6.1')
 </tab>
 </tabs> 
 
-The same processor can be used in multiple targets:
+### Use the same processor in multiple targets
+
+You can add the same processor to more than one target:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -113,7 +117,9 @@ kotlin.targets.filter { it.name.startsWith("ios") }.forEach { target ->
 </tab>
 </tabs>
 
-You can also configure KSP for test compilations:
+### Configure KSP for test compilations
+
+To run KSP during test compilation, add the processor to the corresponding test configurations:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
