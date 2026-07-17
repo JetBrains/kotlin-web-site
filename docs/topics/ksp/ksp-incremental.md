@@ -183,25 +183,6 @@ To generate `outputForA`, the processor:
 KSP tracks this relationship through resolution tracing and automatically records `B` as a dependency of `A`. Therefore,
 you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
-## Visualizing the symbol dependency graph
-
-To help debug incremental processing, KSP can generate a Graphviz DOT file that visualizes the symbol dependency graph 
-explored from a specified symbol.
-
-Enable incremental logging and specify the fully qualified name of the symbol to visualize:
-
-```properties
-ksp.incremental.log=true
-ksp.incremental.log.graph.origin=<fully-qualified-name>
-```
-
-If you're using KSP from the command line, add the following options:
-
-```bash
--incremental-log=true -incremental-log.graph.origin=<fully-qualified-name>
-```
-
-The DOT file is generated in the `logs` directory.
 
 ## Reporting bugs
 
@@ -225,3 +206,23 @@ If you encounter any error that occurs only when incremental processing is enabl
 
 5. Attach the log files from both the successful build and the build that reproduces the issue to the GitHub issue.
 
+### Visualizing the symbol dependency graph
+
+To help debug incremental processing, KSP can generate a Graphviz DOT file that visualizes the symbol dependency graph
+explored from a specified symbol.
+
+Enable incremental logging and specify the [fully qualified name](https://kotlinlang.org/docs/packages.html#package-headers) 
+of the symbol to visualize:
+
+```properties
+ksp.incremental.log=true
+ksp.incremental.log.graph.origin=<fully-qualified-name>
+```
+
+If you're using KSP from the command line, add the following options:
+
+```bash
+-incremental-log=true -incremental-log.graph.origin=<fully-qualified-name>
+```
+
+The DOT file is generated in the `logs` directory.
