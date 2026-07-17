@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.Project
 import kotlinlang.builds.*
 import kotlinlang.vcsRoots.GrammarGenerator
 import kotlinlang.vcsRoots.KotlinSpecGrammar
+import kotlinlang.vcsRoots.KotlinlangMcpRoot
 import kotlinlang.vcsRoots.WebHelp
 import templates.DockerImageBuilder
 
@@ -20,6 +21,7 @@ object SiteProject : Project({
         BuildKotlinSpec,
         BuildJsAssets,
         PageViews,
+        KotlinLangMCP,
     )
 
     buildTypesOrder.forEach {
@@ -31,4 +33,5 @@ object SiteProject : Project({
     vcsRoot(GrammarGenerator)
     vcsRoot(KotlinSpecGrammar)
     vcsRoot(WebHelp)
+    vcsRoot(KotlinlangMcpRoot)
 })
