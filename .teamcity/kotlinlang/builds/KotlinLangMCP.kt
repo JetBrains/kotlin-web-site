@@ -11,7 +11,7 @@ object KotlinLangMCP: BuildType ({
     description = "Build and publish kotlinlang mcp server"
 
     vcs {
-        root(KotlinlangMcpRoot)
+        root(KotlinlangMcpRoot, "+:. => mcp")
     }
 
     steps {
@@ -19,7 +19,7 @@ object KotlinLangMCP: BuildType ({
             name = "Build MCP Docker Image"
             commandType = build {
                 source = file {
-                    path = "Dockerfile"
+                    path = "mcp/Dockerfile"
                 }
                 platform = DockerCommandStep.ImagePlatform.Linux
                 namesAndTags = """
