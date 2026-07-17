@@ -1185,6 +1185,7 @@ Compared to using `maven-toolchains-plugin`, this parameter only affects Kotlin 
 For more information on configuring Kotlin Maven projects, see our [documentation](maven-configure-project.md).
 
 ## Build tools API
+<secondary-label ref="bta"/>
 
 Kotlin 2.4.0 brings a number of improvements to the build tools API (BTA). The BTA:
 
