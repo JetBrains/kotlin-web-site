@@ -2,6 +2,7 @@ package kotlinlang.builds
 
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
 import jetbrains.buildServer.configs.kotlin.buildSteps.DockerCommandStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.dockerCommand
 import kotlinlang.vcsRoots.KotlinlangMcpRoot
@@ -42,5 +43,14 @@ object KotlinLangMCP: BuildType ({
 //                kubectl apply -f k8s/kotlinlang-mcp.yaml
 //            """.trimIndent()
 //        }
+    }
+
+    features {
+        dockerRegistryConnections {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_357"
+            }
+            cleanupPushedImages = true
+        }
     }
 })
