@@ -2,12 +2,11 @@
 
 The `this` expression refers to the current receiver. How you use `this` depends on the context:
 
-* In a member of a [class](classes.md#inheritance), `this` refers to the current object of that class.
+* In a member of a [class](classes.md), `this` refers to the current object of that class.
 
   For example, in the following code, `this.name` means the `name` property of the current `Language` object:
 
   ```kotlin
-  //sampleStart
   class Language(val name: String) {
       fun printName() {
           println(this.name)
@@ -19,19 +18,16 @@ The `this` expression refers to the current receiver. How you use `this` depends
       language.printName()
       // Kotlin
   }
-  //sampleEnd
   ```
   {kotlin-runnable="true"}
 
 * In an [extension function](extensions.md) or a [function literal with receiver](lambdas.md#function-literals-with-receiver),
 `this` refers to the receiver. 
 
-  In the following example, we call `lastCharacter()`on the string
-  `"Kotlin"`. Therefore, `"Kotlin"` is the receiver. Inside the extension function, `this` refers
-  to `"Kotlin"`. This means that `this.length` is the length of `"Kotlin"`:
+  In the following example, `lastCharacter()` is called on the string `"Kotlin"`. Therefore, `"Kotlin"` is the receiver.
+  Inside the extension function, `this` refers to `"Kotlin"`. This means that `this.length` is the length of `"Kotlin"`:
 
   ```kotlin
-  //sampleStart
   fun String.lastCharacter(): Char {
       println(this.length)
       // 6
@@ -42,16 +38,15 @@ The `this` expression refers to the current receiver. How you use `this` depends
       println("Kotlin".lastCharacter())
       // n
   }
-  //sampleEnd
   ```
   {kotlin-runnable="true"}
 
-> In simple cases, you don't need to write `this` explicitly. Kotlin interprets it from the current scope.
+> In simple cases, you don't need to write `this` explicitly. Kotlin resolves it from the current scope.
 > Learn more about [](#implicit-this).
 > 
 {style="tip"}
 
-## Qualified this
+## Qualified `this`
 
 Your code can have several receivers available at the same time when receiver scopes are nested. Kotlin can use any
 available receiver to access its members implicitly, but receivers from inner scopes have higher priority. To explicitly
@@ -69,11 +64,10 @@ For example, `this@foo` refers to the receiver of an enclosing extension functio
 
 ### Access an outer class from an inner class
 
-In an [inner class](nested-classes.md#inner-classes), plain `this` refers to the inner class instance. To access the outer class object,
+In an [inner class](nested-classes.md#inner-classes), unqualified `this` refers to the inner class instance. To access the outer class object,
 use qualified `this`:
 
 ```kotlin
-//sampleStart
 class User(val name: String) {
     inner class Age(val value: Int) {
         fun printInfo() {
@@ -94,7 +88,6 @@ fun main() {
     val age = user.Age(22)
     age.printInfo()
 }
-//sampleEnd
 ```
 {kotlin-runnable="true"}
 
@@ -113,49 +106,47 @@ If you declare an extension function inside a class, two receivers are available
 Use qualified `this` to specify which receiver you need:
 
 ```kotlin
-//sampleStart
-class User {
+class User(val name: String) {
     val prefix = "Name"
-    
+
     fun String.formatName(): String {
         return "${this@User.prefix}: ${this.uppercase()}"
     }
 
-    fun printUser() {
-        println("Jane Doe".formatName())
+    fun printName() {
+        println(name.formatName())
     }
 }
 
 fun main() {
-    val user = User()
-    user.printUser()
+    val user = User("Jane Doe")
+    user.printName()
     // Name: JANE DOE
 }
-//sampleEnd
 ```
 {kotlin-runnable="true"}
 
 Here:
 
-* `this` refers to the extension receiver (the `"Jane Doe"` string).
+* `this` refers to the extension receiver (`String`), so `this.uppercase()` converts the string to uppercase.
 * `this@User` refers to the current `User` object.
-* `this@User.prefix` accesses the prefix property of the current `User` object.
+* `this@User.prefix` accesses the `prefix` property of the current `User` object.
 
 ### Access from a lambda
 
-Unlike a regular lambda, a [lambda with receiver](lambdas.md#function-literals-with-receiver) has its own receiver. Therefore, `this` inside it
-refers to that receiver. If a lambda with receiver is nested inside another receiver scope, add a label to the lambda
-and use qualified `this` to specify which receiver you need:
+Unlike a regular lambda, a [lambda with receiver](lambdas.md#function-literals-with-receiver)￼introduces a receiver into its scope.
+As a result, `this` inside the lambda refers to the lambda's receiver, not to one from an enclosing scope.
+If a lambda with receiver is nested inside another receiver scope, add a label to the lambda and use a qualified `this`
+to refer explicitly to the lambda's receiver or to a receiver from an enclosing scope:
 
 ```kotlin
-//sampleStart
 class User(val name: String) {
     fun printWithPrefix() {
-        val print: String.() -> Unit = stringLabel@ {
+        val printString: String.() -> Unit = stringLabel@ {
             println("${this@stringLabel}: ${this@User.name}")
         }
-      
-        print("User")
+
+        printString("User")
     }
 }
 
@@ -164,7 +155,6 @@ fun main() {
     user.printWithPrefix()
     // User: Jane Doe
 }
-//sampleEnd
 ```
 {kotlin-runnable="true"}
 
@@ -176,44 +166,61 @@ Here:
 
 The label doesn't call anything or change how the lambda works. It only helps you refer to the lambda's receiver.
 
-### Access an anonymous object
+### Access an anonymous object or its outer class
 
-Since anonymous objects don't have class names, you can't use a name like `this@YourClassName` to refer
-to it. Inside an anonymous object, use plain `this` to refer to the object:
+An [anonymous object](object-declarations.md#object-expressions) has its own receiver scope. Inside the object body, unqualified `this` refers to the anonymous object
+itself. However, since anonymous objects don't have class names, you can't use them as `this` qualifiers. Therefore,
+you can refer to the anonymous object only with unqualified `this`:
 
 ```kotlin
-//sampleStart
 interface UserPrinter {
     fun print()
 }
 
-fun printUser(printer: UserPrinter) {
-    printer.print()
-}
-
 fun main() {
     val printer = object : UserPrinter {
-        val name = "Jane Doe"
-      
+        val prefix = "User"
+        
         override fun print() {
-            // Refers to the name property of the anonymous object
-            println(this.name)
+            // this refers to the anonymous object, so this.prefix accesses its `prefix` property
+            println(this.prefix)
         }
     }
-    printUser(printer)
-    // Jane Doe
+    printer.print()
+    // User
 }
-//sampleEnd
 ```
 {kotlin-runnable="true"}
 
-> If you create an anonymous object inside another class, you can use qualified `this` to access the outer class object.
-> Use it to access an outer receiver, not the anonymous object itself.
-> 
-{style="tip"}
+If you declare an anonymous object inside another class, you can use qualified `this` to access the enclosing object:
 
+```kotlin
 
-## Implicit this
+interface UserPrinter {
+    fun print()
+}
+
+class User(val name: String) {
+    fun createPrinter(): UserPrinter {
+        return object : UserPrinter {
+            override fun print() {
+                // this@User refers to the enclosing `User` object, so this@User.name accesses its name property
+                println(this@User.name)
+            }
+        }
+    }
+}
+
+fun main() {
+    val printer = User("Jane Doe").createPrinter()
+    printer.print()
+    // Jane Doe
+}
+```
+
+{kotlin-runnable="true"}
+
+## Implicit `this`
 
 When you call a member function on `this`, you can omit the `this.` qualifier.
 However, if another callable with the same name is available in a closer lexical scope, Kotlin resolves
