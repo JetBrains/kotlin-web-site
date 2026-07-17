@@ -48,7 +48,7 @@ object KotlinLangMCP: BuildType ({
     features {
         dockerRegistryConnections {
             loginToRegistry = on {
-                dockerRegistryId = "PROJECT_EXT_286"
+                dockerRegistryId = "kotlinWebsitesRegistry"
             }
             cleanupPushedImages = true
         }
