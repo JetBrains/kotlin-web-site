@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5.svg" width="20" alt="Fifth step" /> <strong>Functions</strong><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 You can declare your own functions in Kotlin using the `fun` keyword.
 
@@ -561,7 +552,7 @@ For more information on lambda expressions, see [Lambda expressions and anonymou
 
 The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in Kotlin.
 
-## Lambda expressions practice
+## Lambda expressions practice {completion-point="true"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-1"}
 
@@ -626,6 +617,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
-## Next step
+<seealso></seealso>
 
-[Classes](kotlin-tour-classes.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-control-flow.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-classes.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -4,6 +4,10 @@
 
 <web-summary>Read the Kotlin 2.4.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
 
+<tldr>
+    <p> For details about bug fix release 2.4.10, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10">changelog</a></p>
+</tldr>
+
 The Kotlin 2.4.0 release is out! Here are the main highlights:
 
 * **Language:** [Stable context parameters, explicit backing fields, and multiple features for annotation use-site targets](#stable-features)
@@ -92,10 +96,6 @@ For more information, see [KT-30155](https://youtrack.jetbrains.com/issue/KT-301
 <primary-label ref="experimental-opt-in"/>
 
 <secondary-label ref="language"/>
-
-> Support for using explicit context arguments for context parameters in IntelliJ IDEA will be available in 2026.2.
-> 
-{style="note"}
 
 Kotlin 2.4.0 introduces explicit context arguments for [context parameters](context-parameters.md).
 

@@ -18,7 +18,7 @@ Kotlin is designed to be a pragmatic tool for programmers. When it comes to lang
 
 As this is key to understanding how Kotlin is moving forward, let's expand on these principles.
 
-**Keeping the Language Modern**. We recognize that systems accumulate legacy over time. What was once been cutting-edge
+**Keeping the Language Modern**. We recognize that systems accumulate legacy over time. What was once cutting-edge
 technology can become hopelessly outdated today. We have to evolve the language to keep it relevant to the needs of our users
 and up-to-date with their expectations. This includes not only adding new features, but also phasing out old ones that are
 no longer recommended for production use and have become legacy.

@@ -25,9 +25,10 @@ export class GlobalSearch {
     }
 
     async inputQuickSearch(query: string) {
+        const searchResponse = this.page.waitForResponse(/algolia/i);
         await this.page.fill(`${testSelector('quick-search-input')} input`, query);
+        await searchResponse;
         await this.page.waitForSelector(testSelector('quick-search-results'));
-        await this.page.waitForLoadState('networkidle');
     }
 
     // Full search
@@ -56,9 +57,10 @@ export class GlobalSearch {
     }
 
     async inputFullSearch(query: string) {
+        const searchResponse = this.page.waitForResponse(/algolia/i);
         await this.page.fill(`${testSelector('full-search-input')} input`, query);
+        await searchResponse;
         await this.page.waitForSelector(testSelector('full-search-results'));
-        await this.page.waitForLoadState('networkidle');
     }
 
 
