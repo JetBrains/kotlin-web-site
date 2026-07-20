@@ -72,6 +72,14 @@ dependencies {
 </tab>
 </tabs>
 
+The `ksp(...)` configuration applies the processor only to application sources. To process test sources, add the 
+processor with the `kspTest(...)` configuration.
+
+> The `ksp(...)` configuration is available only in single-platform projects.
+> To configure processors for individual Kotlin Multiplatform targets and compilations, visit 
+> [KSP with Kotlin Multiplatform](ksp-multiplatform.md).
+> 
+{style="warning"}
 
 ## Create your own processor
 
