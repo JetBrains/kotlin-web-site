@@ -5,6 +5,7 @@
        id="api-references" title="API references">
 
     <p>Welcome to the Kotlin API References page. Here you'll find links to the API documentation for the official Kotlin libraries and tools.</p>
+    <tip>If you're looking for Kotlin Multiplatform libraries, browse them on <a href="https://klibs.io"><b>klibs.io</b></a>.</tip>
 
     <list columns="2">
         <li>
