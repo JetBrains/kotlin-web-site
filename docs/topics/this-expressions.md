@@ -1,6 +1,7 @@
 [//]: # (title: This expressions)
 
-The `this` expression refers to the current receiver. How you use `this` depends on the context:
+The `this` expression refers to the current receiver (the object with which the function works). How you use `this`
+depends on the context:
 
 * In a member of a [class](classes.md), `this` refers to the current object of that class.
 
@@ -182,7 +183,8 @@ fun main() {
         val prefix = "User"
         
         override fun print() {
-            // this refers to the anonymous object, so this.prefix accesses its `prefix` property
+            // `this` refers to the anonymous object
+            // `this.prefix` accesses its `prefix` property
             println(this.prefix)
         }
     }
@@ -204,7 +206,8 @@ class User(val name: String) {
     fun createPrinter(): UserPrinter {
         return object : UserPrinter {
             override fun print() {
-                // this@User refers to the enclosing `User` object, so this@User.name accesses its name property
+                // `this@User` refers to the enclosing `User` object
+                // `this@User.name` accesses its `name` property
                 println(this@User.name)
             }
         }
