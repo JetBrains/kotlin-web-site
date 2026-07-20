@@ -55,14 +55,12 @@ The following options are common for all Kotlin compilers.
 Set the API version to control which Kotlin APIs your code can use at runtime. For example, if you use Kotlin compiler version 2.4.0
 with `-api-version=2.1`, your project remains compatible with Kotlin standard library 2.1.0.
 
-In most cases, the API version and [language version](#language-version-version) should be the same. One exception is 
-when you're developing a library for consumers that must run with an older version of the Kotlin standard library. In that
-case, setting an older API version helps ensure you don't accidentally use APIs that aren't available to those consumers.
-
 The `-api-version` value can't be higher than the `-language-version` value.
 
-If you're a library author, configuring the API version affects how your library can be consumed. For more information,
-see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
+In most cases, the API version and [language version](#language-version-version) should be the same. One exception is
+when you're developing a library for consumers that must run with an older version of the Kotlin standard library. In that
+case, setting an older API version helps ensure you don't accidentally use APIs that aren't available to those consumers.
+For more information on how the API version affects compatibility, see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
 
 ### -help (-h)
 
@@ -75,14 +73,23 @@ Specify a custom path to the Kotlin compiler used for the discovery of runtime l
 
 ### -language-version _version_
 
-Set the language version to control which Kotlin language features and syntax are available during compilation. For example, if you
-use Kotlin compiler version 2.4.0 with `-language-version=2.2`, you can only use the language features from
-version 2.2 or earlier. Controlling the language version can help help you gradually migrate to newer Kotlin versions.
+Set the language version to control which Kotlin language features are available during compilation. 
 
-To control which APIs your code can use, see [](#api-version-version).
+For example, if
+you want to benefit from new compilation performance improvements but don't want to change the compiler behavior,
+you can use a new compiler version with an older language version. If you use an older language version, you aren't able
+to use new language features, but you don't see new errors and deprecations introduced after this version.
+This is especially useful for library authors who need to preserve compatibility with older Kotlin versions. 
+For more information, see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
 
-If you're a library author, configuring the language version affects how your library can be consumed. For more information,
-see [Backward compatibility guidelines for library authors](api-guidelines-backard-compatibility.md#choose-compatible-language-and-api-versions).
+You can configure the latest three stable versions of Kotlin as a language version. For example, Kotlin 2.5.0
+can use language versions no older than 2.2.
+
+If you use an older language version, you also need to use an older API version.
+For more information, see [](#api-version-version).
+
+Technically, you can configure a newer language version to try pre-stable language features before they are stabilized.
+However, we recommend enabling features one by one with their dedicated instructions.
 
 ### -opt-in _annotation_
 
