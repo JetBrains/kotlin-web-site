@@ -3289,10 +3289,10 @@
     "@webteam/bem-cn-fast" "~1.1.7"
     classnames "~2.2.6"
 
-"@webteam/postcard-section@^0.1.1":
-  version "0.1.1"
-  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.1.1.tgz#92b68dfb4332545ed23cc515b6b7d65b572ff1bd"
-  integrity sha512-448dcLG5ptQ9dRocGanRFkVNIqkheIZXls+1LURVYoj3NE/OQQbz0p/QEwgf/8RjWXjwMKgVozAa5fzboDG6hg==
+"@webteam/postcard-section@^0.1.2":
+  version "0.1.2"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.1.2.tgz#c2a036226e9b4e63e5aefd27c407f6347b955099"
+  integrity sha512-pGLuLEFmCiqOJLq9C9cFAVCPdmV8ByamEXc5uiK0fLLNPjWMCtJPflqV6/yCIjyiCBUddFXMr4y4nAfOTkrTMA==
   dependencies:
     "@webteam/social-share" "~1.6.4"
     classnames "~2.2.6"
