@@ -401,7 +401,7 @@ To disable incremental annotation processing, add this line to your `gradle.prop
 kapt.incremental.apt=false
 ```
 
-> Currently, incremental annotation processing for kapt is not supported in Maven or CLI.
+> Currently, incremental annotation processing for kapt isn't supported in Maven or the CLI.
 > 
 {style="note"}
 
@@ -410,7 +410,7 @@ kapt.incremental.apt=false
 kapt provides built-in diagnostics to help you understand annotation processing performance, including per-processor
 execution time reports and generated file counts to identify unused processors.
 
-For more diagnostics options, such as file read history for debugging incremental processing and memory leak detection,
+For more diagnostic options, such as file read history for debugging incremental processing and memory leak detection,
 see [Diagnostics and statistics options](#diagnostics-and-statistics-options).
 
 ### Measure the performance of annotation processors
@@ -424,7 +424,7 @@ com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
 ```
 
-You can dump this report into a file with the [`dumpProcessorStats`](#diagnostics-and-statistics-options) option.
+You can dump this report to a file with the [`dumpProcessorStats`](#diagnostics-and-statistics-options) option.
 For example, the following CLI command runs kapt and dumps the statistics to the `ap-perf-report.file` file:
 
 ```bash
@@ -454,7 +454,7 @@ To enable statistics reporting:
 
 2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
-   ```none
+   
    # gradle.properties
    kapt.verbose=true
    ```
@@ -471,7 +471,7 @@ generated files for each annotation processor. For example:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
 
-> Currently, tracking the number of generated files with the `showProcessorStats` and `verbose` compiler options is not supported in Maven or CLI.
+> Currently, tracking the number of generated files with the `showProcessorStats` and `verbose` compiler options isn't supported in Maven or the CLI.
 >
 {style="note"}
 
@@ -499,13 +499,13 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
         <td>
             Controls the execution of kapt workflow stages:
             <list>
-                <li><code>stubsAndApt</code> generates stubs and run annotation processing (default)</li>
+                <li><code>stubsAndApt</code> generates stubs and runs annotation processing (default)</li>
                 <li><code>stubs</code> only generates Java stubs from Kotlin</li>
                 <li><code>apt</code> only runs annotation processors (assumes stubs already exist)</li>
             </list>
         </td>
         <td>
-            <p><b>Gradle:</b> Not directly available; Gradle runs stubs and apt as separate tasks</p>
+            <p><b>Gradle:</b> not directly available; Gradle runs stubs and apt as separate tasks</p>
             <p><b>Maven:</b></p>
                 <code-block lang="xml">
                     <![CDATA[
@@ -582,7 +582,7 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
     </tr>
     <tr>
         <td><code>javacOption</code></td>
-        <td>Key-value options passed to Java compiler.</td>
+        <td>Key-value options passed to the Java compiler.</td>
         <td>
             <p><b>Gradle:</b></p>
                 <code-block lang="kotlin">
@@ -676,7 +676,7 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
         <td><code>correctErrorTypes</code></td>
         <td>
             By default, kapt replaces every unknown type (including types for the generated classes) with <code>NonExistentClass</code>.
-            You can enable error type inferring in stubs to replace unresolved error types with types from generated sources.
+            You can enable error type interference in stubs to replace unresolved error types with types from generated sources.
             <p><code>false</code> by default</p>
         </td>
         <td>
@@ -799,7 +799,7 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
     <tr>
         <td><code>includeCompileClasspath</code></td>
         <td>
-            Scans compile classpath for annotation processors. Set to <code>false</code> for reproducibility.
+            Scans the compile classpath for annotation processors. Set to <code>false</code> for reproducibility.
             <p><code>true</code> by default</p>
         </td>
         <td>
