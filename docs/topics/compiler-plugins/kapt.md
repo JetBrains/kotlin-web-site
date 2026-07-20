@@ -144,7 +144,7 @@ To manually set up kapt in your Kotlin Maven project, add an execution of the `k
 </execution>
 ```
 
-To configure the mode of annotation processing, set the [`aptMode`](#annotation-processor-configuration) option in
+To configure the annotation processing mode, set the [`aptMode`](#annotation-processor-configuration) option in
 the `<configuration>` block. For example:
 
 ```xml
@@ -480,7 +480,7 @@ generated files for each annotation processor. For example:
 kapt can generate Kotlin sources. To do that, write the generated Kotlin source files to the specified directory using
 `processingEnv.options["kapt.kotlin.generated"]`. Kotlin source files are then compiled together with the main sources.
 
-> kapt doesn't support multiple rounds for the generated Kotlin files.
+> kapt doesn't support multiple rounds of annotation processing for the generated Kotlin files.
 > 
 {style="note"}
 
