@@ -360,6 +360,31 @@ and has no impact on other plugins in the build.
 >
 {style="note"}
 
+## Configure Java modules (JPMS)
+
+The Kotlin Maven plugin supports the [Java Platform Module System (JPMS)](https://dev.java/learn/modules/), so you can
+compile Kotlin code alongside a `module-info.java` descriptor and consume the resulting module like other Java modules.
+
+On Maven's side, no extra JPMS-specific options are required. The configuration is set by the `module-info.java`
+descriptor and correct plugin ordering: Kotlin sources are compiled before the Maven compiler processes `module-info.java`.
+
+To configure a Java module, create the `module-info.java` file with a module descriptor in the `src/main/java` directory.
+List the Kotlin modules that your module requires and exports your packages. For example:
+
+```java
+module org.example.myapp {
+    requires transitive kotlin.stdlib;
+    requires kotlin.stdlib.jdk8;
+
+    exports org.example.myapp;
+}
+```
+
+* For a module, the package name in Kotlin files must be equal to the package name from `module-info.java` to avoid a
+  "package is empty or does not exist" build failure.
+* The `pom.xml` build file should be configured so that [Kotlin is compiled before Java](#compile-kotlin-and-java-sources).
+  If you use [automatic project configuration](#automatic-configuration), the `<extensions>` option already ensures that. 
+
 ## What's next?
 
 [Set dependencies in your Kotlin Maven project](maven-set-dependencies.md)
