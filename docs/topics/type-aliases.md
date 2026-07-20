@@ -53,9 +53,11 @@ You can declare a type alias:
 You can't declare a type alias in a local scope, such as inside a function or lambda expression.
 
 The declaration location determines the scope of a type alias, while its visibility determines which code can access it.
-By default, a type alias is `public`. The effective accessibility of a type alias also depends on the accessibility of
-its containing declarations and visibility of the underlying type. A type alias can't expose a type whose visibility is
-more restrictive than the alias. Learn how visibility affects access in [](visibility-modifiers.md).
+By default, a type alias is `public`. The effective accessibility of a type alias depends on its visibility and the accessibility
+of its containing declarations. For example, a `public` alias inside an `internal` class isn't accessible from outside
+the module because the containing class isn't accessible there. When you declare a type alias, its underlying type must
+be at least as visible as the alias. A type alias can't expose a type whose visibility is more restrictive than the alias.
+For example, a `public` type alias can't refer to a `private` class. Learn how visibility affects access in [](visibility-modifiers.md).
 
 ### Top-level type aliases
 
