@@ -1,14 +1,10 @@
 import React from 'react';
 import { Button } from '@rescui/button';
-import { LandingLayout } from '../../components/landing-layout/landing-layout';
-import { CardStack } from '@/blocks/kotlin-effect/card-stack/card-stack';
-import { HeroScreen } from '@/blocks/kotlin-effect/hero-screen/hero-screen';
-import { ReportBlock } from '@/blocks/kotlin-effect/report-block/report-block';
-import { NoteBlock } from '@/blocks/kotlin-effect/note-block/note-block';
-import { OfferBlock } from '@/blocks/kotlin-effect/offer-block/offer-block';
-import { PostcardBlock } from '@/blocks/kotlin-effect/postcard-block/postcard-block';
+
+import { LandingLayout } from '@/components/landing-layout/landing-layout';
 
 import styles from './index.module.css';
+import { TermsConditionsBlock } from '@/blocks/kotlin-effect/terms-conditions-block/terms-conditions-block';
 import cn from 'classnames';
 
 export const KOTLIN_EFFECT_TITLE = 'Kotlin Effect';
@@ -16,7 +12,7 @@ export const KOTLIN_EFFECT_URL = '/kotlin-effect/';
 
 const TOP_MENU_ITEMS = [];
 
-function Index() {
+function Terms() {
     return (
         <LandingLayout
             title="The Kotlin Effect | Write Less. Do More."
@@ -29,22 +25,15 @@ function Index() {
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href="https://play.kotlinlang.org/">Try Kotlin</Button>}
             dataTestId={'kotlin-effect-page'}
+            theme="light"
         >
             <div className={styles.wrapper}>
-                <HeroScreen />
-                <CardStack />
-
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
-                    <OfferBlock />
-                    {/*<ReportBlock />*/}
-                    {/*<NoteBlock />*/}
-                    <PostcardBlock />
+                    <TermsConditionsBlock />
                 </div>
             </div>
-
-
         </LandingLayout>
     );
 }
 
-export default Index;
+export default Terms;
