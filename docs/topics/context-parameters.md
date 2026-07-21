@@ -56,14 +56,21 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
-You can use `_` as a context parameter name. In this case, the parameter's value is available for resolution but is not accessible by name inside the block:
+You can use `_` as a context parameter name, to make an anonymous context parameter.  You cannot 
+
+In this case, the parameter's value is available for resolution, but you cannot reference it directly:
 
 ```kotlin
 // Uses "_" as context parameter name
 context(_: UserService)
 fun logWelcome() {
-    // Resolution still finds the appropriate log function from UserService
+    // Compiles: the UserService context parameter on outputMessage resolves to the
+    // anonymous UserService context parameter of logWelcome
     outputMessage("Welcome!")
+    // Does not compile: the UserService is not implicitly in scope, so UserService.log is not resolved
+    log("Hello!")
+    // Does compile: contextOf resolves the UserService
+    contextOf<UserService>().log("Hi!")
 }
 ```
 
