@@ -132,16 +132,12 @@ you had to use inefficient code patterns.
 
 Kotlin %kotlinEapVersion% introduces experimental functions to fill this gap:
 
-Function
-Checks
-`.allDistinct()`
-Every value in the collection is unique.
-`.allDistinctBy()`
-Every object has a unique value for the selected property.
-`.allEqual()`
-Every value in the collection is the same.
-`.allEqualBy()`
-Every object has the same value for the selected property.
+| Function           | Checks                                                     |
+|--------------------|------------------------------------------------------------|
+| `.allDistinct()`   | Every value in the collection is unique.                   |
+| `.allDistinctBy()` | Every object has a unique value for the selected property. |
+| `.allEqual()`      | Every value in the collection is the same.                 |
+| `.allEqualBy()`    | Every object has the same value for the selected property. |
 
 You can use these functions on collections, sequences, and arrays. They compare elements using structural equality
 just like other collection operations.
@@ -311,7 +307,7 @@ When Kotlin receives a Swift object, it treats it like an implementation of a re
 
 For more details on Swift export, see our [documentation](native-swift-export.md).
 
-### Generated Package.swift for SwiftPM dependencies
+### Generated `Package.swift` for SwiftPM dependencies
 <secondary-label ref="native"/>
 
 When exporting an XCFramework that depends on SwiftPM packages, you must publish the resulting SwiftPM package for it to
@@ -556,7 +552,7 @@ const result = await runner.runTask(async () => "done");
 console.log(result); // "done"
 ```
 
-For more information on the `@JsExport` annotation, [our documentation](js-to-kotlin-interop.md#jsexport-annotation).
+For more information on the `@JsExport` annotation, see [our documentation](js-to-kotlin-interop.md#jsexport-annotation).
 
 ## Build tools API
 
