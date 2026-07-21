@@ -19,7 +19,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 
 * **Standard library:** [Support for coroutine stack trace recovery and new features for checking equality and uniqueness of collection elements](#standard-library)
 * **Kotlin/Native:** [Incremental compilation of `klib` artifacts enabled by default, new Swift export features, and the first Kotlin compiler native image](#kotlin-native)
-* **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations and improved companion object initialization order](#kotlin-wasm)
+* **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations, improved companion object initialization order, and support for Wasmtime in the Kotlin Gradle plugin](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing and support for exporting suspend lambdas as async functions](#kotlin-js)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
 
@@ -164,25 +164,25 @@ fun main() {
         Response("P003", "No", "2026-07-21")
     )
 
-    // Check if there is consensus
+    // Checks if all participants gave the same answer
     println(responses.allEqualBy { it.answer })
     // false
 
-    // Check for duplicate participants
+    // Checks for duplicate participants
     println(responses.allDistinctBy { it.participantId })
     // true
 
-   // Check if all responses were submitted on the same date
+    // Checks if all responses were submitted on the same date
     println(responses.allEqualBy { it.responseDate })
     // true
 
     val answers = responses.map { it.answer }
 
-    // Check if answers are identical
+    // Checks if answers are identical
     println(answers.allEqual())
     // false
 
-    // Check if answers are distinct
+    // Checks if answers are distinct
     println(answers.allDistinct())
     // true
 }
@@ -311,10 +311,10 @@ When Kotlin receives a Swift object, it treats it like an implementation of a re
 
 For more details on Swift export, see our [documentation](native-swift-export.md).
 
-### Generated Swift.package for SwiftPM dependencies
+### Generated Package.swift for SwiftPM dependencies
 <secondary-label ref="native"/>
 
-When exporting an XCFramework that depends on SwiftPM packages, you must publish the resulting SwifPM package for it to
+When exporting an XCFramework that depends on SwiftPM packages, you must publish the resulting SwiftPM package for it to
 resolve correctly. To help with this, the `assembleSharedXCFramework` Gradle task now generates a `Package.swift` file
 to be distributed along with the XCFramework.
 
@@ -332,7 +332,7 @@ To try out the native image, download the build from [GitHub Releases](https://g
 
 The native image also bundles the following compiler plugins you can use with the `-Xplugin` or `-Xcompiler-plugin` CLI options:
 
-* [Serialization(serialization.md)
+* [Serialization](serialization.md)
 * [Compose compiler](compose-compiler-options.md)
 * [All-open](all-open-plugin.md)
 * [`no-arg`](no-arg-plugin.md)
@@ -445,6 +445,7 @@ kotlin {
     }
 }
 ```
+
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-86633).
 
 ## Kotlin/JS
