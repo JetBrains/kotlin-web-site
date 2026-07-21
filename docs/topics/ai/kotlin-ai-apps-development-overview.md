@@ -1,4 +1,5 @@
 [//]: # (title: Kotlin for AI-powered app development)
+[//]: # (description: Learn how to build AI-powered applications with Kotlin using Koog, the MCP Kotlin SDK, major LLM providers, RAG pipelines, AI agents, Spring AI, and LangChain4j.)
 
 <web-summary>Learn how Koog can help you build AI-powered applications with Kotlin.</web-summary>
 

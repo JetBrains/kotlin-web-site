@@ -161,8 +161,8 @@
         <toc-element toc-title="Android development" topic="android-overview.md"/>
         <toc-element toc-title="AI development">
             <toc-element toc-title="Overview" topic="kotlin-with-ai.md"/>
-            <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
-            <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
+            <toc-element toc-title="Develop AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
+            <toc-element toc-title="Build an AI chatbot with Spring AI – tutorial" topic="spring-ai-guide.md"/>
         </toc-element>
         <toc-element toc-title="Designing your library">
             <include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
@@ -171,7 +171,7 @@
     </toc-element>
     <toc-element toc-title="Development tooling">
         <toc-element toc-title="IDEs for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
-        <toc-element toc-title="AI tooling" topic="ai-for-development.md"/>
+        <toc-element toc-title="AI tools" topic="ai-for-development.md"/>
         <toc-element toc-title="Kotlin AI skills" topic="kotlin-ai-skills.md"/>
         <toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
         <toc-element toc-title="Kotlin Language Server" topic="kotlin-lsp.md"/>
