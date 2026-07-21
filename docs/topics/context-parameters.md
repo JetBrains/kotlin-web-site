@@ -56,9 +56,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
-You can use `_` as a context parameter name, to make an anonymous context parameter.  You cannot 
-
-In this case, the parameter's value is available for resolution, but you cannot reference it directly:
+You can use `_` as a context parameter name. In this case, the parameter's value is available for resolution but is not accessible by name inside the block:
 
 ```kotlin
 // Uses "_" as context parameter name
