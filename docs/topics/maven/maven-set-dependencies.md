@@ -61,7 +61,7 @@ section:
 </project>
 ```
 
-> This property disables not only automatic addition of the standard library, but also the registration of source root paths.
+> This property disables not only the automatic addition of the standard library, but also the registration of source root paths.
 > Other `<extensions>` features are not affected.
 >
 {style="note"}
@@ -137,10 +137,17 @@ To add a dependency on the [`kotlinx-datetime`](https://kotlinlang.org/api/kotli
 </dependencies>
 ```
 
-### Use BOM dependency mechanism
+## Manage dependencies with BOM
 
-To use a Kotlin [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms),
-add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
+A [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms)
+is a special POM file that manages dependency versions in your project. This keeps related artifacts aligned and avoids version conflicts.
+
+Kotlin publishes the [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom) artifact, which
+sets the versions of Kotlin libraries (such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`) that belong to a
+single Kotlin release. This is useful when other libraries in your project have transitive dependencies on Kotlin
+artifacts, ensuring that all dependencies resolve to the same Kotlin version.
+
+To use the Kotlin BOM, import it in the `<dependencyManagement>` section of your `pom.xml` file as follows:
 
 ```xml
 <dependencyManagement>
@@ -155,6 +162,48 @@ add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbra
     </dependencies>
 </dependencyManagement>
 ```
+
+After importing the BOM, you can declare Kotlin dependencies in the `<dependencies>` section without specifying their versions;
+they come from the BOM file automatically.
+
+* Importing a BOM doesn't add any dependencies to your project on its own. It only controls the versions of dependencies
+  that you declare explicitly or that come in transitively.
+* If you still specify a `<version>` for a dependency, that value overrides the version from the BOM.
+
+If your project publishes several libraries that are released together, you can provide your own BOM so that users
+can align their versions the same way the Kotlin BOM does. Create a separate module with a `pom.xml` file like the following:
+
+```xml
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>my-library-bom</artifactId>
+    <version>1.0.0</version>
+    <!-- A BOM module uses the pom packaging -->
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Lists the versions of the artifacts in your project -->
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>my-library-core</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>my-library-utils</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
+```
+
+BOM lists the versions of your artifacts in its own `<dependencyManagement>` section. When you publish this module as an
+artifact in your project's repository, users can then import it exactly like with Kotlin BOM and declare dependencies on
+`my-library-core` and `my-library-utils` without specifying their versions.
 
 ## What's next?
 
