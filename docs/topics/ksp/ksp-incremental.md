@@ -6,7 +6,7 @@ avoids unnecessary reprocessing and therefore reduces compilation time.
 Incremental processing is enabled by default. You can disable it when troubleshooting or when you need to force a full 
 rebuild. To disable it, add the following line to your `gradle.properties` file:
 
-```
+```properties
 ksp.incremental=false
 ```
 
@@ -183,6 +183,7 @@ To generate `outputForA`, the processor:
 KSP tracks this relationship through resolution tracing and automatically records `B` as a dependency of `A`. Therefore,
 you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
+
 ## Reporting bugs
 
 If you encounter any error that occurs only when incremental processing is enabled, create an issue in
@@ -190,7 +191,7 @@ If you encounter any error that occurs only when incremental processing is enabl
 
 1. Enable incremental processing logs by adding the following line to `gradle.properties`:
 
-   ```
+   ```properties
    ksp.incremental.log=true
    ```
 
@@ -205,3 +206,23 @@ If you encounter any error that occurs only when incremental processing is enabl
 
 5. Attach the log files from both the successful build and the build that reproduces the issue to the GitHub issue.
 
+### Visualizing the symbol dependency graph
+
+To help debug incremental processing, KSP can generate a Graphviz DOT file that visualizes the symbol dependency graph
+starting from a specified symbol.
+
+Enable incremental logging and specify the [fully qualified name](https://kotlinlang.org/docs/packages.html#package-headers) 
+of the symbol to use as the starting point for visualizing the graph:
+
+```properties
+ksp.incremental.log=true
+ksp.incremental.log.graph.origin=<fully-qualified-name>
+```
+
+If you're using KSP from the command line, add the following options:
+
+```bash
+-incremental-log=true -incremental-log.graph.origin=<fully-qualified-name>
+```
+
+The DOT file is generated in the `logs` directory.

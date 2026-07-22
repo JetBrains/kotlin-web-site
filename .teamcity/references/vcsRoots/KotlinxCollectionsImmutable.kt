@@ -11,6 +11,6 @@ object KotlinxCollectionsImmutable : GitVcsRoot({
   branchSpec = "+:refs/tags/*"
   useTagsAsBranches = true
   authMethod = uploadedKey {
-    uploadedKey = "teamcity"
+    uploadedKey = "default teamcity key"
   }
 })
