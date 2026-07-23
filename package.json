@@ -39,7 +39,7 @@
         "@webteam/article": "4.2.5",
         "@webteam/forms": "0.22.3",
         "@webteam/layout": "3.1.1",
-        "@webteam/postcard-section": "^0.1.1",
+        "@webteam/postcard-section": "^0.1.2",
         "@webteam/social-share": "^1.6.4",
         "@webteam/ui-contexts": "0.10.10",
         "@webteam/video-player": "0.5.1",
