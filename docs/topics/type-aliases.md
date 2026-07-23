@@ -23,8 +23,8 @@ typealias DatabaseTransaction = Database.Transaction
 
 A type alias doesn't create a new type. It introduces an alternative name for an existing type. The alias and its underlying
 type are interchangeable. For example, when you add `typealias Predicate<T>` and use `Predicate<Int>`, the compiler
-expands it to `(Int) -> Boolean`. You can use a value of the aliased type wherever the underlying type is expected, and
-vice versa:
+expands it to `(Int) -> Boolean`. You can use a value declared with the alias wherever the underlying type is expected, and
+the other way around:
 
 ```kotlin
 typealias Predicate<T> = (T) -> Boolean
@@ -50,14 +50,15 @@ You can declare a type alias:
 * At the top level of a Kotlin file (top-level type aliases).
 * Inside a class, interface, or object (nested type aliases).
 
-You can't declare a type alias in a local scope, such as inside a function or lambda expression.
+You can't declare a type alias in a local scope, such as inside a function or [lambda expression](lambdas.md#lambda-expressions-and-anonymous-functions).
 
 The declaration location determines the scope of a type alias, while its visibility determines which code can access it.
 By default, a type alias is `public`. The effective accessibility of a type alias depends on its visibility and the accessibility
 of its containing declarations. For example, a `public` alias inside an `internal` class isn't accessible from outside
-the module because the containing class isn't accessible there. When you declare a type alias, its underlying type must
-be at least as visible as the alias. A type alias can't expose a type whose visibility is more restrictive than the alias.
-For example, a `public` type alias can't refer to a `private` class. Learn how visibility affects access in [](visibility-modifiers.md).
+the module.
+
+A type alias can't expose a type with more restrictive [visibility](visibility-modifiers.md) than its own. For example, a `public` type alias can't
+refer to a `private` class.
 
 ### Top-level type aliases
 
@@ -65,24 +66,36 @@ A top-level type alias is a package-level declaration. Within the same package, 
 To use the alias from another package, import the alias or refer to it by its qualified name:
 
 ```kotlin
-// user-id.kt
+// UserId.kt
 package org.example.users
 
 typealias UserId = Long
 
-// user-service.kt
+fun createUser(id: UserId) {
+    // UserId is used by its unqualified name
+}
+
+// UserService.kt
 package org.example.services
 
 import org.example.users.UserId
+
+fun findUser(id: UserId) {
+    // UserId is available by its unqualified name
+}
+
+fun deleteUser(id: org.example.users.UserId) {
+    // UserId is referenced by its fully qualified name
 }
 ```
 
 ### Nested type aliases
 
-Declare a type alias inside a class, interface, or object when the alternative name is relevant only in the context of
-that declaration. This keeps the alias close to the code that uses it and avoids adding another name to the package scope.
 Nested type aliases allow for cleaner, more maintainable code by improving encapsulation, reducing package-level clutter,
 and simplifying internal implementations. Nested type aliases follow the same scope and name-resolution rules as [nested classes](nested-classes.md).
+
+Declare a type alias inside a class, interface, or object when the alternative name is relevant only in the context of
+that declaration. This keeps the alias close to the code that uses it and avoids adding another name to the package scope.
 
 Within the containing declaration, you can refer to the alias by its unqualified name. Outside the declaration, qualify
 the alias with the name of its containing declaration:
@@ -91,36 +104,27 @@ the alias with the name of its containing declaration:
 class UserRepository {
     typealias UserIndex = Map<UserId, User>
 
+    // Refers to the alias by its unqualified name inside UserRepository
     fun saveAll(users: UserIndex) {
         // ...
     }
 }
 
+// Refers to the alias by its qualified name outside UserRepository
 fun synchronizeUsers(users: UserRepository.UserIndex) {
   // ...
 }
 ```
 
-> Nested type aliases are not supported in Kotlin Multiplatform [`expect/actual` declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
+> Nested type aliases aren't supported in Kotlin Multiplatform [`expect/actual` declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
 >
 {style="note"}
 
 #### Type parameters
 
-A nested type alias can't capture type parameters from its containing declaration. Capturing occurs when the alias refers
-to a type parameter declared by its outer class or interface:
+To use type parameters in a nested type alias, add them to the alias declaration:
 
-```kotlin
-class Graph<Node> {
-    // Error: Path captures Graph's Node type parameter
-    typealias Path = List<Node>
-}
 ```
-
-In this example, `Path` can't use `Node` because a nested type alias doesn't capture type parameters from its containing class.
-To make the alias generic, declare its own type parameter:
-
-```kotlin
 class Graph<Node> {
     typealias Path<T> = List<T>
 }
@@ -128,4 +132,16 @@ class Graph<Node> {
 val cityPath: Graph.Path<String> = listOf("London", "Berlin")
 ```
 
-Here, the `T` type parameter belongs to `Path` and is independent of the `Node` type parameter declared by `Graph`.
+In this example, `Path` declares its type parameter `T`. In `Graph.Path<String>`, `String` is the type argument for `T`
+and is independent of the `Node` type parameter declared by `Graph`.
+
+If you refer to a type parameter declared by its containing class or interface, the compiler reports an error:
+
+```
+class Graph<Node> {
+    typealias Path = List<Node>
+    // Unresolved reference 'Node'.
+}
+```
+
+Here, `Path` refers to `Node` from `Graph` instead of declaring its own type parameter.
