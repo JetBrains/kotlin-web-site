@@ -246,3 +246,7 @@ For more information about crash reports, see the [Apple documentation](https://
 
 * Performance of Python bindings.
 * Expression evaluation in debugger tools is not supported, and currently there are no plans for implementing it.
+
+## What's next?
+
+[Learn how to improve crash reports for unhandled Kotlin exceptions in iOS code](native-faq.md#how-do-i-get-better-crash-reports-for-ios)
