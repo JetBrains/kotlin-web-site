@@ -53,7 +53,7 @@ function type with a receiver. There are also two requirements for the receiver 
        fun addItem(x: T) {
            items.add(x)
        }
-
+ 
        fun getLastItem(): T? = items.lastOrNull()
    }
    
@@ -198,7 +198,7 @@ It considers:
   ```kotlin
   fun takeMyLong(x: Long) { ... }
 
-  fun String.isMoreThat3() = length > 3
+  fun String.isMoreThan3() = length > 3
 
   fun takeListOfStrings(x: List<String>) { ... }
 
@@ -210,7 +210,7 @@ It considers:
 
       val result2 = buildList {
           val x = get(0)
-          val isLong = x.isMoreThat3()
+          val isLong = x.isMoreThan3()
       // ...
       } // result2 has the List<String> type
   

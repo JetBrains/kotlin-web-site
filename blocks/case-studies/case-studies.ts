@@ -1,4 +1,4 @@
-export type CaseType = 'multiplatform' | 'server-side' | 'ai';
+export type CaseType = 'multiplatform' | 'backend' | 'ai';
 
 export type  CaseTypeSwitch = 'all' | CaseType;
 

@@ -1355,10 +1355,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.14.6-alpha.3":
-  version "4.14.6-alpha.3"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.14.6-alpha.3.tgz#e87e8769a228075e218d21ad2856b53b834a304b"
-  integrity sha512-GCRa9M/FwiUH1GqOJ0kpdxtcRvzbuKBnn/N+BogWBye5jhCUBxz8gKPPNPZP+bY5dVU/KZ5LDTGiOWYlkbRo3Q==
+"@jetbrains/kotlin-web-site-ui@4.14.9":
+  version "4.14.9"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.14.9.tgz#0912e2799d1f66750b4af1dd3434938a1a3a1a88"
+  integrity sha512-s/CIFZiogYSIAb7l/Nmlw84mpZYs8SdBGI2Q6dAmT2hg1Tacz6qdEGVzVlpLkExf6wR6mWhN1b1W4sTfbylQzQ==
 
 "@jridgewell/gen-mapping@^0.3.12", "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.13"
@@ -3190,6 +3190,11 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-2.0.5.tgz#325db42395cd49fe6c14057f9a900e427df8810e"
   integrity sha512-lqaoKnRYBdo1UgDX8uF24AfGMifWK19TxPmM5FHc2vAGxrJ/qtyUyFBWoY1tISZdelsQ5fBcOusifo5o5wSJxQ==
 
+"@webteam/article@4.2.5":
+  version "4.2.5"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/article/-/article-4.2.5.tgz#44f3949f929dbd88348c76788ab2593b1cf3277f"
+  integrity sha512-19nYNOyVRdW03DbaAip3uR4xuAsLFTX2ZmIwKgzUgJYGCRpp7xU6xew6de4miFPJwARql5iql+gO+1ZS0wMVGg==
+
 "@webteam/bem-cn-fast@~1.1.7":
   version "1.1.7"
   resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/bem-cn-fast/-/bem-cn-fast-1.1.7.tgz#c1f41ebcb3ce1ee5404597b08c1bd35850e45048"
@@ -3284,6 +3289,16 @@
     "@webteam/bem-cn-fast" "~1.1.7"
     classnames "~2.2.6"
 
+"@webteam/postcard-section@^0.1.2":
+  version "0.1.2"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.1.2.tgz#c2a036226e9b4e63e5aefd27c407f6347b955099"
+  integrity sha512-pGLuLEFmCiqOJLq9C9cFAVCPdmV8ByamEXc5uiK0fLLNPjWMCtJPflqV6/yCIjyiCBUddFXMr4y4nAfOTkrTMA==
+  dependencies:
+    "@webteam/social-share" "~1.6.4"
+    classnames "~2.2.6"
+    motion "~12.40.0"
+    react-dropzone "~14.2.3"
+
 "@webteam/promise-cache@~0.3.3":
   version "0.3.3"
   resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/promise-cache/-/promise-cache-0.3.3.tgz#46280dbb13a4a0f5a9974b95a5eed3ef2638c46d"
@@ -3297,6 +3312,14 @@
   integrity sha512-wZMAOCoIAKizyCG1E4DghsTftDncyIqUbYoFHz6o4aLPvBnaSlfVkq2cde/B3Sv2kGibWvxYrWUUMlS7IjskEg==
   dependencies:
     "@babel/runtime-corejs3" "~7.28.2"
+
+"@webteam/social-share@^1.6.4", "@webteam/social-share@~1.6.4":
+  version "1.6.4"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/social-share/-/social-share-1.6.4.tgz#39cc17bebb98fe8fb549d42e872e431438fa764b"
+  integrity sha512-h8kjbioa07KrFTPvdEtNwaKs3gfi1gsWAIwG1F1yz5JjvLQpWqEkw6CxyI5uU8E9l2VKoukQDrVcWQtsrIfSpw==
+  dependencies:
+    "@babel/runtime-corejs3" "~7.28.2"
+    classnames "~2.2.6"
 
 "@webteam/toggle@^2.2.4":
   version "2.2.7"
@@ -3750,7 +3773,7 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-attr-accept@^2.2.4:
+attr-accept@^2.2.2, attr-accept@^2.2.4:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-2.2.5.tgz#d7061d958e6d4f97bf8665c68b75851a0713ab5e"
   integrity sha512-0bDNnY/u6pPwHDMoF0FieU354oBi0a8rD9FcsLwzcGWbc8KS8KPIi7y+s13OlVY+gMWc/9xEMUgNE6Qm8ZllYQ==
@@ -5885,6 +5908,13 @@ file-loader@6.2.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
+file-selector@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.6.0.tgz#fa0a8d9007b829504db4d07dd4de0310b65287dc"
+  integrity sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==
+  dependencies:
+    tslib "^2.4.0"
+
 file-selector@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-2.1.2.tgz#fe7c7ee9e550952dfbc863d73b14dc740d7de8b4"
@@ -6034,6 +6064,15 @@ fraction.js@^4.1.1:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
+
+framer-motion@^12.40.0:
+  version "12.42.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.42.2.tgz#8628ad31a9b5c1ea6f908ea1764784e33870b711"
+  integrity sha512-5XY9luDiu0oHfHBjpDthFMh0ES+122w6p/papSJBweMkO8Sn+PW2QaEgRblQBpWFnuvZS5qvarpt/hO2pjGmnw==
+  dependencies:
+    motion-dom "^12.42.2"
+    motion-utils "^12.39.0"
+    tslib "^2.4.0"
 
 fresh@~0.5.2:
   version "0.5.2"
@@ -7976,6 +8015,26 @@ mitt@^3.0.1:
   resolved "https://registry.yarnpkg.com/mitt/-/mitt-3.0.1.tgz#ea36cf0cc30403601ae074c8f77b7092cdab36d1"
   integrity sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==
 
+motion-dom@^12.42.2:
+  version "12.42.2"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.42.2.tgz#b4661b9b3394ae7e990d76dc954bc1e321c59305"
+  integrity sha512-5gIMWLp/PycBtJRJWRgjxke5n8dlvkSn2DrYW+tr3XcqAZY1xZh6BJyooJXCM8wdfM7wfMjkBJNLge1CKPUIRA==
+  dependencies:
+    motion-utils "^12.39.0"
+
+motion-utils@^12.39.0:
+  version "12.39.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.39.0.tgz#e1c66f0e912999804bc5e69b4630c3bc794ef29f"
+  integrity sha512-8nadJAJjTtqRkmRF36FoJTrywK9nnFmnPwnSMyxaOCU7GDjN9RTMJIxx9De8ErM+vpPhMccr/6fo5WciyQLnMQ==
+
+motion@~12.40.0:
+  version "12.40.0"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-12.40.0.tgz#e993e9a3cba2d455163cd16138ee463a5de0537c"
+  integrity sha512-yjrHUrBFW6kQvjJwRsoiPSAhC5tRwRqNGJWmiJ4CrGnbKp0V88AdzkhBmDoqIsIPfarOe0Uddd37Xq43/gIocA==
+  dependencies:
+    framer-motion "^12.40.0"
+    tslib "^2.4.0"
+
 mrmime@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/mrmime/-/mrmime-2.0.1.tgz#bc3e87f7987853a54c9850eeb1f1078cd44adddc"
@@ -9135,6 +9194,15 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
+
+react-dropzone@~14.2.3:
+  version "14.2.10"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-14.2.10.tgz#b8d86775c616534b44a30bd9c962044d2925c1a2"
+  integrity sha512-Y98LOCYxGO2jOFWREeKJlL7gbrHcOlTBp+9DCM1dh9XQ8+P/8ThhZT7kFb05C+bPcTXq/rixpU+5+LzwYrFLUw==
+  dependencies:
+    attr-accept "^2.2.2"
+    file-selector "^0.6.0"
+    prop-types "^15.8.1"
 
 react-dropzone@~14.3.8:
   version "14.3.8"

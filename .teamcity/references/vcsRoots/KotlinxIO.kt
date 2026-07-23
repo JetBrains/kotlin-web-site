@@ -13,6 +13,6 @@ object KotlinxIO : GitVcsRoot({
   """.trimIndent()
   useTagsAsBranches = true
   authMethod = uploadedKey {
-    uploadedKey = "teamcity"
+    uploadedKey = "default teamcity key"
   }
 })

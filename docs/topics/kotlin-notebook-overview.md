@@ -1,12 +1,17 @@
 [//]: # (title: Kotlin Notebook)
 [//]: # (description: Create and edit interactive Kotlin notebooks in IntelliJ IDEA to run code, visualize data, prototype ideas, and share results.)
 
-Kotlin Notebook provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities. 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
-which is bundled and [enabled in IntelliJ IDEA by default](kotlin-notebook-set-up-env.md).
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
-A notebook is an interactive document where you can mix executable Kotlin code with text, results, and visualizations. 
-Think of it as a Kotlin REPL extended with the ability to organize your code into cells, document it with Markdown, 
+Kotlin Notebook provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities.
+
+A notebook is an interactive document where you can mix executable Kotlin code with text, results, and visualizations.
+Think of it as a Kotlin REPL extended with the ability to organize your code into cells, document it with Markdown,
 and immediately display outputs (from text to plots) alongside the code that produced them.
 
 Get ready for a seamless coding experience where you can develop and experiment with Kotlin code, receive immediate outputs, and integrate code, 
@@ -25,15 +30,11 @@ The Kotlin Notebook plugin comes with [various features](https://www.jetbrains.c
 * Getting insights for debugging with error messages and traceback
 
 Kotlin Notebook is based on our [Kotlin Kernel for Jupyter Notebooks](https://github.com/Kotlin/kotlin-jupyter?tab=readme-ov-file#kotlin-kernel-for-ipythonjupyter), 
-making it easy to integrate with other [Kotlin notebook solutions](data-analysis-overview.md#notebooks).
+making it easy to integrate with other Kotlin notebook solutions.
 Without compatibility issues, you can effortlessly share your work among Kotlin Notebook,
 [Datalore](https://datalore.jetbrains.com/), and [Kotlin-Jupyter Notebook](https://github.com/Kotlin/kotlin-jupyter).
 
-With these capabilities, you can embark on a wide range of tasks, from simple code experiments to comprehensive data projects. 
-
-Dive deeper to discover what you can achieve with Kotlin Notebook!
-
-<a href="get-started-with-kotlin-notebooks.md"><img src="notebook-get-started-button.svg" width="600" alt="Get started with Kotlin Notebook" style="block"/></a>
+With these capabilities, you can embark on a wide range of tasks, from simple code experiments to comprehensive data projects.
 
 ## Data analytics and visualization
 

@@ -96,15 +96,16 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin libraries
 
-| **Component**         | **Status** | **Status since version** | **Comments** |
-|-----------------------|------------|--------------------------|--------------|
-| kotlin-stdlib (JVM)   | Stable     | 1.0.0                    |              |
-| kotlinx-coroutines    | Stable     | 1.3.0                    |              |
-| kotlinx-serialization | Stable     | 1.0.0                    |              |
-| kotlin-metadata-jvm   | Stable     | 2.0.0                    |              |
-| kotlin-reflect (JVM)  | Beta       | 1.0.0                    |              |
-| kotlinx-datetime      | Alpha      | 0.2.0                    |              |
-| kotlinx-io            | Alpha      | 0.2.0                    |              |
+| **Component**                 | **Status** | **Status since version** | **Comments** |
+|-------------------------------|------------|--------------------------|--------------|
+| kotlin-stdlib (JVM)           | Stable     | 1.0.0                    |              |
+| kotlinx-coroutines            | Stable     | 1.3.0                    |              |
+| kotlinx-serialization         | Stable     | 1.0.0                    |              |
+| kotlin-metadata-jvm           | Stable     | 2.0.0                    |              |
+| kotlin-reflect (JVM)          | Beta       | 1.0.0                    |              |
+| kotlinx-datetime              | Alpha      | 0.2.0                    |              |
+| kotlinx-io                    | Alpha      | 0.2.0                    |              |
+| kotlinx-collections-immutable | Alpha      | 0.3.5                    |              |
 
 ### Kotlin Multiplatform
 
@@ -124,6 +125,14 @@ to avoid the accidental use of features that have not been released as stable.
 | CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                                                               |
 
 For more information about the level of support for different targets, see [](native-target-support.md).
+
+### Build tools
+
+| **Component**                                       | **Status** | **Status since version** | **Comments**                                                                                                          |
+|-----------------------------------------------------|------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [Kotlin Gradle plugin](gradle-configure-project.md) | Stable     | 1.1.1                    | The [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#id-and-version) is stable from Kotlin 1.9.20. |
+| [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                       |
+
 
 ### Language tools
 
