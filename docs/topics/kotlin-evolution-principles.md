@@ -206,7 +206,7 @@ and even when it's over and the change ships in a stable version, there's still 
 
 ### Compatibility options
 
-We provide compatibility options that make a new Kotlin version emulate the behavior of an older one for compatibility purposes:
+We provide compatibility options that make a new Kotlin version emulate the behavior of an older one:
 
 * `-language-version X.Y` – compatibility mode for Kotlin language version X.Y. The compiler reports errors when your code uses language
   features introduced in later versions.
@@ -214,17 +214,18 @@ We provide compatibility options that make a new Kotlin version emulate the beha
   library APIs introduced in later versions, including APIs referenced by compiler-generated code.
 
 To give you more time to migrate, on the JVM we support at least three previous language and API versions in addition to the 
-latest stable version. On other platforms, you can use older versions, but you won't be able to use new features.
+latest stable version. On other platforms, you can use older language and API versions, but then you can't use newer 
+language features or standard library APIs.
 
 In most projects, set both options to the same version. A lower API version is mainly useful when you
 need to remain compatible with an older version of the Kotlin standard library.
 
 Actively maintained code bases can benefit from getting bug fixes as soon as possible, without waiting for a full deprecation cycle to complete.
-Projects like these can enable the [`-progressive` option](compiler-reference.md#progressive) and adopt these changes in tooling releases
+These projects can enable the [`-progressive` option](compiler-reference.md#progressive) to adopt these changes in tooling releases
 before they become the default.
 
 You can configure these options on the [command line](#compiler-reference.md#common-options) or with the
-[Gradle](gradle-compiler-options.md##attributes-common-to-jvm-and-javascript) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
+[Gradle](gradle-compiler-options.md#attributes-common-to-jvm-and-javascript) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
 build tools.
 
 ### Evolving the binary format
