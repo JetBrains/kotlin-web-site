@@ -9,15 +9,14 @@ generates a `Foo` class used by the project.
 ## Add KSP to a multiplatform project
 
 In the `build.gradle.kts` file of the client module (the module that uses the processor), add the appropriate KSP 
-processor dependency for each target that requires symbol processing.
-
-`dependencies {}` block:
+processor dependency for each target that requires symbol processing:
 
 ```
-add("ksp<Target>", <processor>)
+dependencies {
+  add("ksp<Target>", <processor>)
+}
 ```
 
-Where:
 
 * `<Target>` is one of the targets used in your multiplatform project. 
 
