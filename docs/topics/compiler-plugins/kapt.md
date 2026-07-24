@@ -454,7 +454,7 @@ To enable statistics reporting:
 
 2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
-   
+   ```
    # gradle.properties
    kapt.verbose=true
    ```
