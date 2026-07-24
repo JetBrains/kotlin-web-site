@@ -1045,7 +1045,7 @@ Other notable changes since the last Kotlin release:
 * [Classes](classes.md) – learn the basics and best practices of using classes in Kotlin.
 * [Extensions](extensions.md) – learn how you can extend classes and interfaces in Kotlin.
 * [Coroutines basics](coroutines-basics.md) – explore key coroutine concepts and learn how to create your first coroutines.
-* [Cancellation and timeouts](cancellation-and-timeouts.md) – learn how coroutine cancellation works and how to make
+* [Cancellation and timeouts](coroutines-cancellation.md) – learn how coroutine cancellation works and how to make
   coroutines respond to cancellation.
 * [Kotlin/Native libraries](native-libraries.md) – see how to produce `klib` library artifacts.
 * [Kotlin Notebook overview](kotlin-notebook-overview.md) – create interactive notebook documents with the Kotlin Notebook plugin.
