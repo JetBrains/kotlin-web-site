@@ -151,6 +151,53 @@ with a receiver instead, specify the type explicitly:
 val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
 ```
 
+#### Default-adapted function references
+
+When a function has parameters with default values, its function reference can adapt to a function type that omits those
+parameters. In the following example, `nullary()` expects a function of type `() -> Unit.` The compiler adapts `::foo`
+to this expected type by omitting the value parameter. When the reference is invoked, value uses its default value:
+
+```kotlin
+fun foo(value: Any? = null) {}
+
+fun nullary(action: () -> Unit) {}
+
+fun main() {
+    nullary(::foo)
+}
+```
+
+#### Arity-adapted function references
+
+A function reference can adapt to a function type with a different number of parameters when the referenced function has
+default or `vararg` parameters. This is called _arity adaptation_.
+
+For example, a reference to a function with a `vararg` parameter can adapt to different function types. In each call,
+the compiler adapts `::foo` to the function type expected by the corresponding parameter:
+
+```kotlin
+fun foo(vararg arguments: Any?) {}
+
+fun nullary(action: () -> Unit) {}
+fun unary(action: (Any?) -> Unit) {}
+fun binary(action: (Any?, Any?) -> Unit) {}
+
+fun main() {
+    nullary(::foo)
+    unary(::foo)
+    binary(::foo)
+}
+```
+
+The compiler can adapt a function reference only when you use the reference directly with an expected function type.
+It can't adapt a reference that is already assigned to a variable:
+
+```kotlin
+val fooReference = ::foo
+unary(fooReference)
+// Error: type mismatch
+```
+
 #### Example: function composition
 
 Consider the following function:
