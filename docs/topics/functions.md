@@ -108,7 +108,7 @@ fun main() {
     // Uses 0 as the default value for 'userId'
     greeting(message = "Hello!")
     
-    // Error: No value passed for parameter 'userId'
+    // Error: No value passed for parameter 'message'
     greeting("Hello!")
 }
 ```
