@@ -47,18 +47,18 @@ fun main() {
 
 You can declare a type alias:
 
-* At the top level of a Kotlin file (top-level type aliases).
-* Inside a class, interface, or object (nested type aliases).
+* At the top level of a Kotlin file with [top-level type aliases](#top-level-type-aliases).
+* Inside a class, interface, or object with [nested type aliases](#nested-type-aliases).
 
 You can't declare a type alias in a local scope, such as inside a function or [lambda expression](lambdas.md#lambda-expressions-and-anonymous-functions).
 
 The declaration location determines the scope of a type alias, while its visibility determines which code can access it.
-By default, a type alias is `public`. The effective accessibility of a type alias depends on its visibility and the accessibility
-of its containing declarations. For example, a `public` alias inside an `internal` class isn't accessible from outside
-the module.
+By default, a type alias is `public`. For [nested type aliases](#nested-type-aliases), effective accessibility also depends on the
+accessibility of the containing declaration. For example, a `public` alias inside an `internal` class isn't accessible
+from outside the module.
 
-A type alias can't expose a type with more restrictive [visibility](visibility-modifiers.md) than its own. For example, a `public` type alias can't
-refer to a `private` class.
+A type alias can't expose an underlying type with more restrictive [visibility](visibility-modifiers.md) than its own. For example, a `public`
+type alias can't refer to a `private` class.
 
 ### Top-level type aliases
 
