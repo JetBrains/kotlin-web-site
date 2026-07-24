@@ -62,8 +62,13 @@ You can use `_` as a context parameter name. In this case, the parameter's value
 // Uses "_" as context parameter name
 context(_: UserService)
 fun logWelcome() {
-    // Resolution still finds the appropriate log function from UserService
+    // Compiles: the UserService context parameter on outputMessage resolves to the
+    // anonymous UserService context parameter of logWelcome
     outputMessage("Welcome!")
+    // Does not compile: the UserService is not implicitly in scope, so UserService.log is not resolved
+    log("Hello!")
+    // Does compile: contextOf resolves the UserService
+    contextOf<UserService>().log("Hi!")
 }
 ```
 
