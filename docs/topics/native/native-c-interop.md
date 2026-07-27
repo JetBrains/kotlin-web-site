@@ -498,4 +498,4 @@ Learn how types, functions, and strings are mapped between Kotlin and C by compl
    <img src="icon-4.svg" width="20" alt="Fourth step"/> <a href="mapping-strings-from-c.md">Mapping strings from C</a><br/>
 </p>
 
-<a href="mapping-primitive-data-types-from-c.md" as="button" icon="arrow-right" icon-position="right">Start</a>
+<a href="mapping-primitive-data-types-from-c.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
