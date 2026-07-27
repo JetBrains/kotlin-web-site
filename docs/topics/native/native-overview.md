@@ -14,7 +14,7 @@ It's easy to include compiled Kotlin code in existing projects written in C, C++
 You can also use existing native code, static or dynamic C libraries, Swift/Objective-C frameworks, graphical engines,
 and anything else directly from Kotlin/Native.
 
-<a href="native-get-started.md"><img src="native-get-started-button.svg" width="350" alt="Get started with Kotlin/Native" style="block"/></a>
+<a href="native-get-started.md" as="button" icon="arrow-right" icon-position="center">Get started with Kotlin/Native</a>
 
 ## Target platforms
 
