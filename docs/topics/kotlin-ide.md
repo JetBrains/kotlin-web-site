@@ -42,7 +42,7 @@ the Kotlin Language Server.
 
 For more information, see [Kotlin Language Server and Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code).
 
-## Other IDEs support
+## Other IDE support
 
 JetBrains doesn't provide official Kotlin plugins for other IDEs.
 You can use the [Kotlin Language Server](kotlin-lsp.md) with other code editors.
