@@ -47,20 +47,7 @@ The AI assistant provides:
 the [Agent Client Protocol](#agent-client-protocol).
 * AI-assisted code completion and next step suggestions.
 
-Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html).
-
-### Agent Client Protocol
-
-The Agent Client Protocol (ACP) is an open protocol for connecting AI agents to IDEs and code editors.
-Instead of requiring a separate integration for every agent and editor combination, ACP defines a common protocol for
-communication between AI agents and development tools.
-
-JetBrains IDEs support ACP, allowing you to use compatible AI agents within your IDE. This is useful when you want flexibility
-in choosing AI agents while working with Kotlin-aware IDE features such as navigation, inspections, refactoring, debugging,
-and project analysis.
-
-The ACP registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
-See the full list of supported agents in the [ACP registry](https://agentclientprotocol.com/get-started/registry).
+Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html). 
 
 ### MCP server
 
@@ -114,6 +101,19 @@ Choose a third-party tool if it matches your preferred development environment o
 Many of these tools support Kotlin code generation, explanations, test creation, and refactoring.
 
 You can use third-party tools independently or connect compatible agents to JetBrains IDEs through [ACP](#agent-client-protocol).
+
+### Agent Client Protocol
+
+The Agent Client Protocol (ACP) is an open protocol for connecting AI agents to IDEs and code editors.
+Instead of requiring a separate integration for every agent and editor combination, ACP defines a common protocol for
+communication between AI agents and development tools.
+
+JetBrains IDEs support ACP, allowing you to use compatible AI agents within your IDE. This is useful when you want flexibility
+in choosing AI agents while working with Kotlin-aware IDE features such as navigation, inspections, refactoring, debugging,
+and project analysis.
+
+The ACP registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
+See the full list of supported agents in the [ACP registry](https://agentclientprotocol.com/get-started/registry).
 
 ### MCP servers
 
