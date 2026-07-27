@@ -8,7 +8,7 @@ The Kotlin ecosystem includes tools for interactive development, AI agents, and 
 Depending on your workflow, you can:
 
 * [](#develop-in-the-ide): Use AI features directly in your JetBrains IDE.
-* [Work with AI agents](#ai-agents): Choose an AI agent such as Junie or a third-party agent and improve its Kotlin expertise
+* [Work with AI agents](#use-ai-agents): Choose an AI agent such as Junie or a third-party agent and improve its Kotlin expertise
 with Kotlin AI skills.
 * [Manage and scale AI development](#manage-ai-agents): Coordinate interactive and automated agent workflows.
 
@@ -62,21 +62,7 @@ and project analysis.
 The ACP registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
 See the full list of supported agents in the [ACP registry](https://agentclientprotocol.com/get-started/registry).
 
-### MCP server
-
-The [MCP server](https://plugins.jetbrains.com/plugin/26071-mcp-server) exposes IDE capabilities through the Model 
-Context Protocol (MCP), allowing compatible AI agents to interact with your IDE.
-
-Without MCP, an external AI agent can typically access only your project files. Through MCP, the agent can also use
-IDE capabilities such as project indexing, code navigation, inspections, refactoring, and build execution.
-This gives the AI agent a better understanding of your Kotlin project.
-
-Use the MCP server when you prefer to work with an AI agent outside the IDE but still want access to your JetBrains IDE's
-Kotlin language support.
-
-Learn more about [MCP server integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/mcp-server.html).
-
-## AI agents
+## Use AI agents
 
 AI agents can perform development tasks with less direct guidance than interactive AI assistants. For example, they
 can explore a project, plan implementation steps, modify multiple files, or run commands and tests.
@@ -115,6 +101,19 @@ Many of these tools support Kotlin code generation, explanations, test creation,
 
 You can use third-party tools independently or connect compatible agents to JetBrains IDEs through [ACP](#agent-client-protocol).
 
+### MCP servers
+
+Model Context Protocol (MCP) connects AI models to external data sources, tools, and systems.
+JetBrains maintains several MCP servers that can make your Kotlin experience more productive:
+
+* The [JetBrains IDE MCP server](https://plugins.jetbrains.com/plugin/26071-mcp-server) exposes IDE capabilities.
+  Using the server, an AI agent can use IDE features such as project indexing, code navigation, refactoring, inspections, and build execution.
+  This gives the agent a better understanding of your Kotlin project as well as more efficient means of generating and evaluating code.
+* For Kotlin Multiplatform projects, the [klibs.io MCP server](https://github.com/JetBrains/klibs-io/blob/master/integrations/mcp/README.md)
+  helps agents access the catalog of available multiplatform libraries to more efficiently look for existing solutions.
+* For Compose Multiplatform projects, the [Compose Hot Reload MCP server](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html#mcp-server-for-ai-agents)
+  allows agents to directly interact with the reloadable app (trigger reloads, take screenshots, read semantic trees, and so on).
+
 ### Kotlin AI skills
 
 Kotlin AI skills are reusable instructions that you provide to an AI agent.
@@ -129,6 +128,19 @@ Kotlin AI skills can be used with different agents and workflows, including IDE-
 command-line agents, and external AI tools that support reusable instructions.
 
 Learn more about [](kotlin-ai-skills.md).
+
+### Kotlin-specific acceptance criteria
+
+Kotlin Multiplatform projects in particular are complex enough for agents to lose track of the entire project structure
+and consequences of specific changes.
+
+To help your agent, include the following as your general ([AGENTS.md](https://agents.md/))
+or task-specific success criteria:
+
+* Run target-specific tests after introducing changes whenever such tests are available. 
+* Verify that all configured KMP targets successfully build before considering a task complete. 
+* Review the implementation for platform-specific APIs leaking into common code
+  to avoid agents (or humans) accidentally using these APIs in common code later on.
 
 ## Manage AI agents
 
