@@ -47,15 +47,14 @@ fun main() {
 
 You can declare a type alias:
 
-* At the top level of a Kotlin file with [top-level type aliases](#top-level-type-aliases).
-* Inside a class, interface, or object with [nested type aliases](#nested-type-aliases).
+* At the top level of a Kotlin file, as a [top-level type alias](#top-level-type-aliases).
+* Inside a class, interface, or object, as a [nested type alias](#nested-type-aliases).
 
 You can't declare a type alias in a local scope, such as inside a function or [lambda expression](lambdas.md#lambda-expressions-and-anonymous-functions).
 
 The declaration location determines the scope of a type alias, while its visibility determines which code can access it.
-By default, a type alias is `public`. For [nested type aliases](#nested-type-aliases), effective accessibility also depends on the
-accessibility of the containing declaration. For example, a `public` alias inside an `internal` class isn't accessible
-from outside the module.
+By default, a type alias is `public`. A [nested type alias](#nested-type-aliases) is accessible only where its containing class, interface,
+or object is accessible. For example, a `public` alias inside an `internal` class isn't accessible from outside the module.
 
 A type alias can't expose an underlying type with more restrictive [visibility](visibility-modifiers.md) than its own. For example, a `public`
 type alias can't refer to a `private` class.
@@ -71,8 +70,9 @@ package org.example.users
 
 typealias UserId = Long
 
+// Refers to the alias within the same package by its unqualified name
 fun createUser(id: UserId) {
-    // UserId is used by its unqualified name
+    // ...
 }
 
 // UserService.kt
@@ -80,12 +80,14 @@ package org.example.services
 
 import org.example.users.UserId
 
+// Uses the imported alias by its unqualified name 
 fun findUser(id: UserId) {
-    // UserId is available by its unqualified name
+    // ...
 }
 
+// Uses the fully qualified name
 fun deleteUser(id: org.example.users.UserId) {
-    // UserId is referenced by its fully qualified name
+    // ...
 }
 ```
 
@@ -124,7 +126,7 @@ fun synchronizeUsers(users: UserRepository.UserIndex) {
 
 To use type parameters in a nested type alias, add them to the alias declaration:
 
-```
+```kotlin
 class Graph<Node> {
     typealias Path<T> = List<T>
 }
@@ -137,7 +139,7 @@ and is independent of the `Node` type parameter declared by `Graph`.
 
 If you refer to a type parameter declared by its containing class or interface, the compiler reports an error:
 
-```
+```kotlin
 class Graph<Node> {
     typealias Path = List<Node>
     // Unresolved reference 'Node'.
