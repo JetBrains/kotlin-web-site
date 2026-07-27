@@ -6,8 +6,8 @@ You can use AI with Kotlin in two ways:
 * [Use Kotlin to build AI-powered applications](#build-ai-powered-apps-with-kotlin)
 * [Use AI to assist with Kotlin development](#develop-with-ai-tools)
 
-You can use one approach, or both together in the same project.
-This page explains each option and helps you decide which to use.
+You can use one approach or both together in the same project.
+This page provides an overview of the approaches.
 
 ## Build AI-powered apps with Kotlin
 
@@ -32,7 +32,7 @@ See [AI-powered Kotlin development](ai-for-development.md) for an overview of th
 
 ### Kotlin AI skills
 
-Kotlin AI skills are reusable, task-specific instructions that help AI agents perform Kotlin development tasks consistently.
+Kotlin AI skills are reusable, task-specific instructions that help AI agents complete Kotlin development tasks consistently.
 
 You can provide AI skills to compatible AI agents to:
 
