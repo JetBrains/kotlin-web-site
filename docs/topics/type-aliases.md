@@ -80,7 +80,7 @@ package org.example.services
 
 import org.example.users.UserId
 
-// Uses the imported alias by its unqualified name 
+// Uses the imported alias by its unqualified name
 fun findUser(id: UserId) {
     // ...
 }
@@ -114,7 +114,7 @@ class UserRepository {
 
 // Refers to the alias by its qualified name outside UserRepository
 fun synchronizeUsers(users: UserRepository.UserIndex) {
-  // ...
+    // ...
 }
 ```
 
