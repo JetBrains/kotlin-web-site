@@ -24,10 +24,6 @@ object PdfGenerator : BuildType({
     doesNotContain("docker.server.osType", "windows")
   }
 
-  params {
-    select("with-pdf", "false", options = listOf("true", "false"))
-  }
-
   steps {
     script {
       id = "script-dist-pdf-html"
@@ -41,15 +37,6 @@ object PdfGenerator : BuildType({
       """.trimIndent()
       dockerImage = KLANG_NODE_CONTAINER
       workingDir = SCRIPT_PATH
-    }
-    script {
-      conditions {
-        equals("with-pdf", "true")
-      }
-      name = "Generate PDF"
-      //language=sh
-      scriptContent = "./scripts/pdf.sh"
-      dockerImage = "python:3.9"
     }
   }
 

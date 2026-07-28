@@ -12,22 +12,12 @@ module.exports = (params = {}) => {
   const isDevServer = process.env.WEBPACK_SERVE === 'true';
   const sourcemaps = params.sourcemaps || isDevelopment;
 
-  const siteHost = 'localhost:8080';
   const nextJSHost = 'localhost:3000';
   const indexName = params['index-name'] || process.env.INDEX_NAME || 'dev_KOTLINLANG';
 
   return {
     entry: {
-      //shared
-      // 'common': './static/js/page/common.js',
-      // 'index': './static/js/page/index/index.js',
-      // 'grammar': './static/js/page/grammar.js',
-      // 'api': './static/js/page/api/api.js',
-      // 'reference': './static/js/page/reference.js',
-      // 'tutorial': './static/js/page/tutorial.js',
       'dokka-template': './static/js/page/dokka-template/index.js',
-      // 'styles': './static/css/styles.scss',
-      // 'styles-v2': './static/css/styles-v2.scss'
     },
 
     output: {
@@ -147,13 +137,6 @@ module.exports = (params = {}) => {
 
       isProduction && new CssoWebpackPlugin(),
 
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        'window.$': 'jquery',
-      }),
-
       new webpack.DefinePlugin({
         indexName: JSON.stringify(indexName),
         'process.env.NODE_ENV': JSON.stringify(env),
@@ -175,12 +158,6 @@ module.exports = (params = {}) => {
           target: `http://${nextJSHost}`,
           bypass: function (req) {
             req.headers.host = nextJSHost;
-          }
-        },
-        '/**': {
-          target: `http://${siteHost}`,
-          bypass: function (req) {
-            req.headers.host = siteHost;
           }
         }
       }
