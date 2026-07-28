@@ -17,7 +17,7 @@ The Kotlin Website project (kotlinlang.org) is the official website for the Kotl
 
 ## Technology Stack
 
-The Kotlin Website is built using a hybrid architecture combining two different approaches for page generation:
+The Kotlin Website is built using Next.js for page generation:
 
 1. **Next.js-based Pages**:
    - Next.js (React framework) for modern, interactive pages
@@ -26,22 +26,16 @@ The Kotlin Website is built using a hybrid architecture combining two different 
    - CSS Modules for component-specific styling
    - Static site generation for performance
 
-2. **Legacy Python/Flask Infrastructure**:
-   - The project contains Python/Flask code that is obsolete and will be removed soon
-   - This legacy infrastructure does not affect the way the website works
-   - New development should focus on Next.js-based approaches
-
-3. **Shared Frontend Technologies**:
-   - Webpack for bundling traditional assets
+2. **Shared Frontend Technologies**:
+   - Webpack for bundling the `dokka-template` API reference assets
    - SCSS/Sass and PostCSS for styling
    - Kotlin Playground for interactive code examples
 
-4. **Build and Testing**:
+3. **Build and Testing**:
    - Yarn/NPM for package management
    - Playwright for end-to-end testing
-   - Docker for containerization
 
-5. **Documentation Tools**:
+4. **Documentation Tools**:
    - Markdown for content
    - JetBrains Writerside for documentation
    - Dokka for API documentation generation
@@ -217,14 +211,6 @@ This command:
 The production build outputs to:
 - `dist/` - Webpack output
 - `out/` - Next.js static export
-
-### Docker Build
-
-The project includes Docker configuration for containerized development and deployment:
-
-```bash
-docker-compose up
-```
 
 ## Testing Information
 
@@ -517,12 +503,6 @@ The Kotlin Website employs a modern architecture based on Next.js and React:
    - Client-side rendered with static generation for production
    - Components are imported directly in Next.js pages
 
-2. **Legacy Infrastructure**:
-   - The project contains legacy Python/Flask code and Jinja2 templates
-   - This infrastructure is obsolete and will be removed soon
-   - Located in `templates/` directory and `kotlin-website.py`
-   - Does not affect current website functionality
-
 #### Next.js Component Organization: Blocks vs Components
 
 The Next.js part of the Kotlin Website follows a specific organizational pattern for React components, dividing them into two main directories:
@@ -685,9 +665,7 @@ The repository is organized with the following top-level directories:
 - `pdf/` - PDF generation assets and templates
 - `public/` - Public assets served directly by Next.js
 - `scripts/` - Utility scripts for development and deployment
-- `src/` - Legacy source code (obsolete, will be removed)
-- `static/` - Static assets for the website
-- `templates/` - Legacy templates (obsolete, will be removed)
+- `static/` - Static assets for the website (the `dokka-template` webpack bundle)
 - `test/` - Test files for automated testing
 
 ### Integration Points
@@ -712,16 +690,9 @@ The project integrates several systems and services:
 
 The project includes a specialized system for generating PDF documentation:
 
-- Core implementation in `src/pdf.py`
-- PDF-related assets and templates in `pdf/` directory
-- Workflow:
-  1. HTML content is generated from Markdown documentation
-  2. PDF generation is triggered via command-line argument (`reference-pdf`)
-  3. Cover page is prepared with the current Kotlin version
-  4. HTML content is processed to fix image links and remove unnecessary sections
-  5. `wkhtmltopdf` tool converts the processed HTML to PDF
-  6. The resulting PDF is saved as `kotlin-docs.pdf`
-- The PDF is accessible on the website at `/docs/kotlin-docs.pdf`
+- Core implementation in `scripts/pdf/generate-pdf.js`, using `@vivliostyle/cli` to render HTML documentation to PDF
+- Triggered via `yarn generate-pdf` (`generate-pdf:html` + `generate-pdf:convert`)
+- Integrated into the TeamCity `PdfGenerator` build configuration
 
 ### TeamCity DSL Pipelines
 
