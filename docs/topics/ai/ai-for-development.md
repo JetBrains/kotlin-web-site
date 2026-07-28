@@ -14,18 +14,6 @@ with Kotlin AI skills.
 
 ```mermaid
 graph LR
-    DefineTask["Define the task<br/><i>AI agent</i>"]
-    Guide["Guide the AI tool<br/><emphasis>Kotlin AI skills</emphasis>"]
-    Connect["Connect to the IDE<br/><i>ACP, MCP server</i>"]
-    Implement["Develop<br/><i>AI agent</i>"]
-    Review["Review and refine<br/><i>AI agent</i>"]
-    Automate["Automate<br/><i>JetBrains Air</i>"]
-
-    DefineTask --> Guide --> Connect --> Implement --> Review --> Automate
-```
-
-```mermaid
-graph LR
     DefineTask["<b>Define the task</b><br/>AI agent</br>"]
     Guide["<b>Guide the AI tool</b><br/>Kotlin AI skills"]
     Connect["<b>Connect to the IDE</b><br/>ACP, MCP server"]
