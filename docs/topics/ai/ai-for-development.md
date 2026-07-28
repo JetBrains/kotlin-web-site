@@ -15,7 +15,7 @@ with Kotlin AI skills.
 ```mermaid
 graph LR
     DefineTask["Define the task<br/><i>AI agent</i>"]
-    Guide["Guide the AI tool<br/><i>Kotlin AI skills</i>"]
+    Guide["Guide the AI tool<br/><emphasis>Kotlin AI skills</emphasis>"]
     Connect["Connect to the IDE<br/><i>ACP, MCP server</i>"]
     Implement["Develop<br/><i>AI agent</i>"]
     Review["Review and refine<br/><i>AI agent</i>"]
