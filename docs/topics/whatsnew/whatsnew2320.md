@@ -808,6 +808,7 @@ Kotlin 2.3.20 brings an important change to make it easier to set up your Maven 
 Kotlin 2.3.20 introduces more changes for developers who want to integrate their build systems with the Kotlin compiler using the build tools API (BTA).
 
 ### Improvements to build operations
+<secondary-label ref="bta"/>
 
 In this release, the BTA improves how build tools manage build operations.
 Build operations let build tools interact with the Kotlin compiler.
@@ -857,6 +858,7 @@ fun prepareBuildOperation(toolchains: KotlinToolchains, sources: List<Path>, des
 ```
 
 ### Consistent metric collection across build tools
+<secondary-label ref="bta"/>
 
 Before Kotlin 2.3.20, the build metrics infrastructure was centered around Gradle, which influenced parts of the infrastructure, like metric names.
 In addition, not all metrics were available for different [compiler execution strategies](compiler-execution-strategy.md).
@@ -883,6 +885,7 @@ operation[BuildOperation.METRICS_COLLECTOR] = object : BuildMetricsCollector {
 ```
 
 ### Easier configuration of compiler plugins by build tools
+<secondary-label ref="bta"/>
 
 In Kotlin 2.3.20, the BTA provides a new and simpler way for build tools to configure compiler plugins.
 This approach allows build tools to propagate the configuration directly to their users.

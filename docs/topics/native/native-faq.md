@@ -2,7 +2,7 @@
 
 ## How do I run my program?
 
-Define a top-level function `fun main(args: Array<String>)` or just  `fun main()` if you are not interested
+Define a top-level function `fun main(args: Array<String>)` or just `fun main()` if you are not interested
 in passed arguments, please ensure it's not in a package.
 Also, compiler switch `-entry` could be used to make any function taking `Array<String>` or no arguments
 and return `Unit` as an entry point.
@@ -47,7 +47,7 @@ use all the public APIs available in your Kotlin/Native program from C/C++ code.
 
 ## How do I run Kotlin/Native behind a corporate proxy?
 
-As Kotlin/Native needs to download a platform specific toolchain, you need to specify
+As Kotlin/Native needs to download a platform-specific toolchain, you need to specify
 `-Dhttp.proxyHost=xxx -Dhttp.proxyPort=xxx` as the compiler's or `gradlew` arguments,
 or set it via the `JAVA_OPTS` environment variable.
 
@@ -86,7 +86,7 @@ kotlin {
 
 ## How do I rename the iOS framework?
 
-The default name is for an iOS framework  is `<project name>.framework`.
+The default name is for an iOS framework is `<project name>.framework`.
 To set a custom name, use the `baseName` option. This will also set the module name.
 
 ```kotlin
@@ -108,6 +108,19 @@ The Kotlin/Native compiler does not support bitcode embedding since Kotlin 2.0.2
 
 If you're using earlier versions of Xcode but want to upgrade to Kotlin 2.0.20 or later versions, disable bitcode
 embedding in your Xcode projects.
+
+## How do I get better crash reports for iOS?
+
+When an unhandled Kotlin exception reaches iOS code, crash reporting tools may show a vague report stating an internal
+Kotlin/Native issue instead of the actual line of code where the exception was thrown. This happens because the original
+Kotlin stack trace is lost by the time the crash is recorded.
+
+You can work around this problem with third-party solutions like [NSExceptionKt](https://github.com/rickclephas/NSExceptionKt),
+which converts uncaught Kotlin exceptions into `NSException` instances so that your crash reporting tool captures the
+correct stack trace. It provides dedicated integrations for popular crash reporting tools:
+
+* [Bugsnag](https://github.com/rickclephas/NSExceptionKt/blob/master/NSExceptionKtBugsnag/README.md)
+* [Firebase Crashlytics](https://github.com/rickclephas/NSExceptionKt/blob/master/NSExceptionKtCrashlytics/README.md)
 
 ## How do I reference objects safely from different coroutines?
 
@@ -131,4 +144,4 @@ For more information about access to shared mutable state, see the [Coroutines d
 First, please consider trying [preview versions](eap.md).
 
 In case you need an even more recent development version, you can build Kotlin/Native from source code:
-clone [Kotlin repository](https://github.com/JetBrains/kotlin) and follow [these steps](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/README.md#building-from-source).
+clone the [Kotlin repository](https://github.com/JetBrains/kotlin) and follow [these steps](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/README.md#building-from-source).

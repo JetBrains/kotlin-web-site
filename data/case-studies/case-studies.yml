@@ -148,6 +148,28 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: philo
+    type: multiplatform
+    description: >-
+      The Philo Engineering team has been using Kotlin Multiplatform (KMP) across our mobile, 
+      TV, and web clients in production for three years. 
+      […] 
+      More recently, we’ve adopted agentic AI workflows across several processes. 
+      We still see substantial value in a shared business-logic project in an agentic development world. 
+      The calculus hasn’t changed: incremental velocity gains, improved stability, and operational excellence still matter.
+      Kotlin is approachable for both humans and robots, and a smaller code surface area helps agents keep context sizes reasonable and token burn efficient.
+    logo:
+      - /images/case-studies/philo-logo.svg
+    alternateLogo:
+      - /images/case-studies/philo-logo-dark.svg
+    carousel: true
+    platforms:
+      - android
+      - ios
+      - frontend
+    isExternal: true
+    link: https://www.philo.com/blog/kotlin-multiplatform-at-philo-3-years-later      
+  #------------------------------------------------------------------------
   - id: workday
     type: multiplatform
     description: >-

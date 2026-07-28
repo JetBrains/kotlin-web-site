@@ -11,6 +11,7 @@ import { RocketIcon, PresentIcon, WinIcon } from '@rescui/icons';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 
 import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { SectionWithGrid } from '@/blocks/kotlin-effect/section-with-grid/section-with-grid';
 
 import { trackEvent } from '@/utils/event-logger';
 
@@ -42,9 +43,9 @@ export const CardStack: FC = () => {
 
     return (
         <section className={cn(styles.section)}>
-            <div className="ktl-layout-v2 ktl-layout--center">
+            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
 
-                <div
+                <SectionWithGrid
                     className={styles.card}
                     data-test="card-stack-card"
                     id={'kotlin-effect-in-real-life'}
@@ -114,7 +115,7 @@ export const CardStack: FC = () => {
                         </Button>
                     </div>
 
-                </div>
+                </SectionWithGrid>
 
 
             </div>

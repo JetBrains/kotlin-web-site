@@ -19,7 +19,7 @@ and [Data Binding](https://developer.android.com/topic/libraries/data-binding/in
 
 > kapt is not supported in the IntelliJ build system. To re-run annotation processing in IntelliJ IDEA, launch the build
 > from the **Maven** tool window.
-> 
+>
 {style="warning"}
 
 ## Set up the plugin
@@ -144,15 +144,8 @@ To manually set up kapt in your Kotlin Maven project, add an execution of the `k
 </execution>
 ```
 
-##### Configure kapt annotation processing
-
-To configure the mode of annotation processing, set the `<aptMode>` option in the `<configuration>` block:
-
-* `stubs` – only generate stubs needed for annotation processing.
-* `apt` – only run annotation processing.
-* `stubsAndApt` – (default) generate stubs and run annotation processing.
-
-For example:
+To configure the annotation processing mode, set the [`aptMode`](#annotation-processor-configuration) option in
+the `<configuration>` block. For example:
 
 ```xml
 <configuration>
@@ -163,60 +156,36 @@ For example:
 
 ### CLI
 
-The kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
+kapt is available as a standalone CLI tool in the binary distribution of the Kotlin compiler.
 
-You can attach the plugin by providing the path to its JAR file using the `-Xplugin` Kotlin compiler option:
-
-```bash
--Xplugin=$KOTLIN_HOME/lib/kotlin-annotation-processing.jar
-```
-
-Here is the list of the available options:
-
-* `sources` (*required*): An output path for the generated files.
-* `classes` (*required*): An output path for the generated class files and resources.
-* `stubs` (*required*): A temporary output path for the stub files.
-* `incrementalData`: An output path for the binary stubs.
-* `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass one `apclasspath` option for each JAR.
-* `apoptions`: A Base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
-* `javacArguments`: A Base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
-* `processors`: A comma-separated list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
-* `verbose`: Enable verbose output.
-* `aptMode` (*required*)
-    * `stubs` – only generate stubs needed for annotation processing.
-    * `apt` – only run annotation processing.
-    * `stubsAndApt` – generate stubs and run annotation processing.
-* `correctErrorTypes`: For more information, see [Non-existent type correction](#non-existent-type-correction). Disabled by default.
-* `dumpFileReadHistory`: An output path to dump for each file a list of classes used during annotation processing.
-
-The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can be repeated.
-
-Here's an example:
+To run kapt from the command line, use:
 
 ```bash
--P plugin:org.jetbrains.kotlin.kapt3:sources=build/kapt/sources
--P plugin:org.jetbrains.kotlin.kapt3:classes=build/kapt/classes
--P plugin:org.jetbrains.kotlin.kapt3:stubs=build/kapt/stubs
-
--P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/ap.jar
--P plugin:org.jetbrains.kotlin.kapt3:apclasspath=lib/anotherAp.jar
-
--P plugin:org.jetbrains.kotlin.kapt3:correctErrorTypes=true
+kapt <options> <source files>
 ```
+
+For example:
+
+```bash
+kapt -Kapt-mode=stubsAndApt \
+  -Kapt-sources=build/kapt/sources \
+  -Kapt-classes=build/kapt/classes \
+  -Kapt-stubs=build/kapt/stubs \
+  -Kapt-classpath=lib/ap.jar \
+  -Kapt-classpath=lib/anotherAp.jar \
+  src/main/kotlin
+```
+
+* See the full list of [kapt-specific compiler options](#compiler-options).
+* You can also pass all valid [Kotlin compiler options](compiler-reference.md). Run `kotlinc -help` to see them.
 
 ## Configure annotation processors
 
-### Pass arguments to annotation processors
+kapt provides options to control how annotation processors are discovered, organized, and executed, including managing
+the processor classpath, inheriting processors from shared configurations, and keeping javac-specific processors active.
 
-Use the `arguments {}` block in your build script file `build.gradle(.kts)` to pass arguments to annotation processors:
-
-```kotlin
-kapt {
-    arguments {
-        arg("key", "value")
-    }
-}
-```
+For more configuration options, such as passing options to annotation processors and javac,
+see [Annotation processor configuration](#annotation-processor-configuration).
 
 ### Configure processor classpath and discovery
 
@@ -329,32 +298,22 @@ kapt {
 If you use Maven, configure the plugin explicitly.
 See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
 
-## Gradle build cache support
+## Optimize kapt builds
 
-The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
-However, annotation processors can run arbitrary code, which may not reliably transform task inputs into outputs,
-or may access and modify files that Gradle doesn't track.
-If the annotation processors used in the build cannot be properly cached,
-you can disable caching for kapt entirely by specifying the `useBuildCache` property in the build script.
-This helps prevent false-positive cache hits for the kapt tasks:
+kapt offers several Gradle-specific strategies to reduce annotation processing time, including running tasks in parallel,
+leveraging the build cache, caching processor classloaders, and using incremental annotation processing.
 
-```groovy
-kapt {
-    useBuildCache = false
-}
-```
-
-## Improve the speed of builds that use kapt
+For more options that affect build behavior, such as error type correction, stub metadata stripping,
+and compile classpath scanning, see [Behavioral options](#behavioral-options).
 
 ### Run kapt tasks in parallel
 
-To improve the speed of builds that use kapt, you can enable the [Gradle Worker API](https://guides.gradle.org/using-the-worker-api/)
-for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
+kapt uses the [Gradle Worker API](https://docs.gradle.org/current/userguide/worker_api.html) to run annotation processing tasks.
+Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
 which in some cases significantly decreases the execution time.
 
-When you use the [custom JDK home](gradle-configure-project.md#gradle-java-toolchains-support) feature in the Kotlin Gradle plugin,
-kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode).
-Note that the `kapt.workers.isolation` property is ignored.
+If you set the [custom JDK version](gradle-configure-project.md#gradle-java-toolchains-support) in the Kotlin Gradle plugin,
+kapt task workers use only the [`processIsolation()`](https://docs.gradle.org/current/userguide/worker_api.html#step_3_change_the_isolation_mode) mode.
 
 If you want to provide additional JVM arguments for a kapt worker process, use the input `kaptProcessJvmArgs` of the `KaptWithoutKotlincTask`:
 
@@ -381,7 +340,22 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 </tab>
 </tabs>
 
-### Caching for annotation processors' classloaders
+### Use Gradle build cache safely
+
+Gradle caches kapt annotation processing tasks [by default](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
+However, annotation processors can run arbitrary code. This may result in unnecessary transformations of task inputs into outputs,
+or accessing and modifying files that Gradle doesn't track.
+
+When annotation processors used in the build can't be properly cached, you can disable caching to prevent
+false-positive hits for kapt tasks. To do this, use the `useBuildCache` property in the build script:
+
+```groovy
+kapt {
+    useBuildCache = false
+}
+```
+
+### Cache annotation processors' classloaders
 
 <primary-label ref="experimental-general"/>
 
@@ -407,16 +381,42 @@ If you run into any problems with caching for annotation processors, disable cac
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
-> If you encounter any issues with the feature, 
+> If you encounter any issues with the feature,
 > we would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
+>
+{style="note"}
+
+### Use incremental annotation processing
+
+With Gradle, kapt supports incremental annotation processing by default so that only the changed files are re-processed.
+
+Currently, incremental annotation processing works only if:
+
+* [Incremental compilation](gradle-compilation-and-caches.md#incremental-compilation) is enabled.
+* All annotation processors in the build are incremental.
+
+To disable incremental annotation processing, add this line to your `gradle.properties` file:
+
+```none
+kapt.incremental.apt=false
+```
+
+> Currently, incremental annotation processing for kapt isn't supported in Maven or the CLI.
 > 
 {style="note"}
 
-### Measure performance of annotation processors
+## Analyze performance
+
+kapt provides built-in diagnostics to help you understand annotation processing performance, including per-processor
+execution time reports and generated file counts to identify unused processors.
+
+For more diagnostic options, such as file read history for debugging incremental processing and memory leak detection,
+see [Diagnostics and statistics options](#diagnostics-and-statistics-options).
+
+### Measure the performance of annotation processors
 
 To get performance statistics on the annotation processors execution,
-use the `-Kapt-show-processor-timings` plugin option.
-An example output:
+use the [`showProcessorStats`](#diagnostics-and-statistics-options) option. An example output:
 
 ```text
 Kapt Annotation Processing performance report:
@@ -424,53 +424,44 @@ com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
 ```
 
-You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
-The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
+You can dump this report to a file with the [`dumpProcessorStats`](#diagnostics-and-statistics-options) option.
+For example, the following CLI command runs kapt and dumps the statistics to the `ap-perf-report.file` file:
 
 ```bash
-kotlinc -cp $MY_CLASSPATH \
--Xplugin=kotlin-annotation-processing-SNAPSHOT.jar -P \
-plugin:org.jetbrains.kotlin.kapt3:aptMode=stubsAndApt,\
-plugin:org.jetbrains.kotlin.kapt3:apclasspath=processor/build/libs/processor.jar,\
-plugin:org.jetbrains.kotlin.kapt3:dumpProcessorTimings=ap-perf-report.file \
--Xplugin=$JAVA_HOME/lib/tools.jar \
--d cli-tests/out \
--no-jdk -no-reflect -no-stdlib -verbose \
-sample/src/main/
+kapt -Kapt-mode=stubsAndApt \
+  -Kapt-classpath=processor/build/libs/processor.jar \
+  -Kapt-dump-processor-stats=ap-perf-report.file \
+  sample/src/main/
 ```
 
-### Measure the number of files generated with annotation processors
+### Track the number of generated files
 
-The `kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
+The kapt plugin can report statistics on the number of generated files for each annotation processor.
 
 This helps track whether any unused annotation processors are included in the build.
 You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to avoid that.
 
 To enable statistics reporting:
 
-1. Set the `showProcessorStats` property value to `true` in your `build.gradle(.kts)`:
+1. In your Gradle build file, set the `showProcessorStats` option to `true`:
 
    ```kotlin
-   // build.gradle.kts
+   // build.gradle(.kts)
    kapt {
        showProcessorStats = true
    }
    ```
 
-2. Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
+2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
-   ```none
+   ```
    # gradle.properties
    kapt.verbose=true
    ```
 
-> You can also enable verbose output with the [command line option `verbose`](#cli).
->
-{style="note"}
-
 The statistics appear in the logs with the `info` level.
 You can see the `Annotation processor stats:` line followed by statistics on the execution time of each annotation processor.
-After these lines, there is the `Generated files report:` line followed by statistics on the number of 
+After these lines, there is the `Generated files report:` line followed by statistics on the number of
 generated files for each annotation processor. For example:
 
 ```text
@@ -480,75 +471,412 @@ generated files for each annotation processor. For example:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
 
-## Incremental annotation processing
-
-kapt supports incremental annotation processing by default. 
-Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
-
-To disable incremental annotation processing, add this line to your `gradle.properties` file:
-
-```none
-kapt.incremental.apt=false
-```
-
-Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
-to be enabled as well.
-
-## Java compiler options
-
-kapt uses Java compiler to run annotation processors.  
-Here is how you can pass arbitrary options to javac:
-
-```groovy
-kapt {
-    javacOptions {
-        // Increase the max count of errors from annotation processors.
-        // Default is 100.
-        option("-Xmaxerrs", 500)
-    }
-}
-```
-
-## Non-existent type correction
-
-Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures.
-By default, kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`,
-but you can change this behavior. Add the option to the `build.gradle(.kts)` file to enable error type inferring in stubs:
-
-```groovy
-kapt {
-    correctErrorTypes = true
-}
-```
+> Currently, tracking the number of generated files with the `showProcessorStats` and `verbose` compiler options isn't supported in Maven or the CLI.
+>
+{style="note"}
 
 ## Generate Kotlin sources
 
-kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
-and these files will be compiled together with the main sources.
+kapt can generate Kotlin sources. To do that, write the generated Kotlin source files to the specified directory using
+`processingEnv.options["kapt.kotlin.generated"]`. Kotlin source files are then compiled together with the main sources.
 
-Note that kapt does not support multiple rounds for the generated Kotlin files.
+> kapt doesn't support multiple rounds of annotation processing for the generated Kotlin files.
+> 
+{style="note"}
 
-## AP/Javac options encoding
+## Compiler options
 
-`apoptions` and `javacArguments` CLI options accept an encoded map of options.  
-Here is how you can encode options by yourself:
+### Annotation processor configuration
 
-```kotlin
-fun encodeList(options: Map<String, String>): String {
-    val os = ByteArrayOutputStream()
-    val oos = ObjectOutputStream(os)
+<table>
+    <tr>
+        <td>Option</td>
+        <td>Description</td>
+        <td>How to set up</td>
+    </tr>
+    <tr>
+        <td><code>aptMode</code></td>
+        <td>
+            Controls the execution of kapt workflow stages:
+            <list>
+                <li><code>stubsAndApt</code> generates stubs and runs annotation processing (default)</li>
+                <li><code>stubs</code> only generates Java stubs from Kotlin</li>
+                <li><code>apt</code> only runs annotation processors (assumes stubs already exist)</li>
+            </list>
+        </td>
+        <td>
+            <p><b>Gradle:</b> not directly available; Gradle runs stubs and apt as separate tasks</p>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<aptMode>stubsAndApt</aptMode>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-mode=stubsAndApt</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>classpath</code></td>
+        <td>Classpath entries where annotation processors are discovered.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    dependencies {
+                        kapt("com.example:processor:1.0")
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<annotationProcessorPaths>
+    <annotationProcessorPath>...</annotationProcessorPath>
+</annotationProcessorPaths>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-classpath=lib/my-processor.jar</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>processors</code></td>
+        <td>Comma-separated fully qualified class names of processors to run, bypassing discovery.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        annotationProcessor("com.example.MyProcessor")
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<annotationProcessors>
+    <annotationProcessor>com.example.MyProcessor</annotationProcessor>
+</annotationProcessors>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-processors=com.example.MyProcessor</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>apOption</code></td>
+        <td>Key-value options passed to annotation processors.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        arguments {
+                            arg("room.schemaLocation", "$projectDir/schemas")
+                        }
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<annotationProcessorArgs>
+    <annotationProcessorArg>room.schemaLocation=/schemas</annotationProcessorArg>
+</annotationProcessorArgs>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-options:room.schemaLocation=/schemas</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>javacOption</code></td>
+        <td>Key-value options passed to the Java compiler.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        javacOptions {
+                            option("-source", "11")
+                        }
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<javacOptions>
+    <javacOption>-source=11</javacOption>
+</javacOptions>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-javac-option:-source=11</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>processIncrementally</code></td>
+        <td>Enables incremental annotation processing; only reprocesses files affected by changes.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    # gradle.properties
+                    kapt.incremental.apt=true
+                </code-block>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+</table>
 
-    oos.writeInt(options.size)
-    for ((key, value) in options.entries) {
-        oos.writeUTF(key)
-        oos.writeUTF(value)
-    }
+### Output directory options
 
-    oos.flush()
-    return Base64.getEncoder().encodeToString(os.toByteArray())
-}
-```
+<table>
+    <tr>
+        <td>Option</td>
+        <td>Description</td>
+        <td>How to set up</td>
+    </tr>
+    <tr>
+        <td><code>sources</code></td>
+        <td>Directory where annotation processors generate <code>.java</code> source files.</td>
+        <td>
+            <p><b>Gradle:</b> set automatically to <code>build/generated/source/kapt/main</code></p>
+            <p><b>Maven:</b> set automatically to <code>target/generated-sources/kapt/</code></p>
+            <p><b>CLI:</b> <code>-Kapt-sources=build/kapt/sources</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>classes</code></td>
+        <td>Directory for <code>.class</code> files compiled from generated sources.</td>
+        <td>
+            <p><b>Gradle:</b> managed automatically</p>
+            <p><b>Maven:</b> managed automatically</p>
+            <p><b>CLI:</b> <code>-Kapt-classes=build/kapt/classes</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>stubs</code></td>
+        <td>Directory for Java stub files generated from Kotlin sources, used as input to annotation processors.</td>
+        <td>
+            <p><b>Gradle:</b> managed automatically</p>
+            <p><b>Maven:</b> managed automatically</p>
+            <p><b>CLI:</b> <code>-Kapt-stubs=build/kapt/stubs</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>incrementalData</code></td>
+        <td>Stores state for incremental builds.</td>
+        <td>
+            <p><b>Gradle:</b> managed automatically</p>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+</table>
+
+### Behavioral options
+
+<table>
+    <tr>
+        <td>Option</td>
+        <td>Description</td>
+        <td>How to set up</td>
+    </tr>
+    <tr>
+        <td><code>correctErrorTypes</code></td>
+        <td>
+            By default, kapt replaces every unknown type (including types for the generated classes) with <code>NonExistentClass</code>.
+            You can enable error type interference in stubs to replace unresolved error types with types from generated sources.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        correctErrorTypes = true
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<correctErrorTypes>true</correctErrorTypes>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-correct-error-types=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>dumpDefaultParameterValues</code></td>
+        <td>
+            Includes default parameter initializers as field values in generated stubs.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        dumpDefaultParameterValues = true
+                    }
+                </code-block>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-dump-default-parameter-values=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>mapDiagnosticLocations</code></td>
+        <td>
+            Maps error messages from stub files back to their original Kotlin source locations.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        mapDiagnosticLocations = true
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<mapDiagnosticLocations>true</mapDiagnosticLocations>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-map-diagnostic-locations=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>strict</code></td>
+        <td>
+            Turns stub generation incompatibilities into errors instead of warnings.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        strictMode = true
+                    }
+                </code-block>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-strict=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>stripMetadata</code></td>
+        <td>
+            Removes <code>@kotlin.Metadata</code> annotations from generated stubs, reducing stub size and hiding Kotlin-specific info from processors.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        stripMetadata = true
+                    }
+                </code-block>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-strip-metadata=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>verbose</code></td>
+        <td>
+            Enables verbose kapt logging.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    # gradle.properties
+                    kapt.verbose=true
+                </code-block>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>infoAsWarnings</code></td>
+        <td>
+            Promotes info-level kapt messages to warnings.
+            <p><code>false</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b> not directly available</p>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>includeCompileClasspath</code></td>
+        <td>
+            Scans the compile classpath for annotation processors. Set to <code>false</code> for reproducibility.
+            <p><code>true</code> by default</p>
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        includeCompileClasspath = false
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<includeCompileClasspath>false</includeCompileClasspath>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+</table>
+
+### Diagnostics and statistics options
+
+<table>
+    <tr>
+        <td>Option</td>
+        <td>Description</td>
+        <td>How to set up</td>
+    </tr>
+    <tr>
+        <td><code>showProcessorStats</code></td>
+        <td>Prints per-processor execution time to stdout.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        showProcessorStats = true
+                    }
+                </code-block>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-show-processor-stats=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>dumpProcessorStats</code></td>
+        <td>Writes processor timing stats to a file.</td>
+        <td>
+            <p><b>Gradle:</b> not available</p>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-dump-processor-stats=build/kapt-stats.txt</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>dumpFileReadHistory</code></td>
+        <td>Writes a list of files read by processors to a file, useful for incremental annotation processor debugging.</td>
+        <td>
+            <p><b>Gradle:</b> not available</p>
+            <p><b>Maven:</b> not available</p>
+            <p><b>CLI:</b> <code>-Kapt-dump-file-read-history=build/kapt-reads.txt</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>detectMemoryLeaks</code></td>
+        <td>Memory leak detection mode: <code>none</code>, <code>default</code>, or <code>paranoid</code>.</td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        detectMemoryLeaks = "paranoid"
+                    }
+                </code-block>
+            <p><b>Maven:</b> currently not supported</p>
+            <p><b>CLI:</b> currently not supported</p>
+        </td>
+    </tr>
+</table>
 
 ## What's next
 
+* [Use kapt with the MapStruct annotation processor](jvm-annotation-processors.md#use-kapt-with-java-annotation-processors)
 * [See how to migrate from kapt to KSP](ksp-kapt-migration.md)
