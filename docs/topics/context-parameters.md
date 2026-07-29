@@ -56,18 +56,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
-You can use `_` as a context parameter name. In this case, the parameter's value is available for resolution but is not accessible by name inside the block:
+You can use `_` as a context parameter name when you don't need to refer to the parameter directly. An anonymous context parameter can still satisfy
+the context parameters required by called functions, but you can't access it by name. To access its value explicitly, use `contextOf<T>()`:
 
 ```kotlin
 // Uses "_" as context parameter name
 context(_: UserService)
 fun logWelcome() {
-    // Compiles: the UserService context parameter on outputMessage resolves to the
-    // anonymous UserService context parameter of logWelcome
+    // The anonymous parameter satisfies the UserService context parameter
+    // required by outputMessage()
     outputMessage("Welcome!")
-    // Does not compile: the UserService is not implicitly in scope, so UserService.log is not resolved
-    log("Hello!")
-    // Does compile: contextOf resolves the UserService
+
+    // Retrieves the UserService value explicitly
     contextOf<UserService>().log("Hi!")
 }
 ```
