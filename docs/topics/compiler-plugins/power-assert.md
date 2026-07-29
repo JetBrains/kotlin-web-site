@@ -63,8 +63,9 @@ plugins {
 
 The Power-assert plugin provides several options to customize its behavior:
 
-* **`functions`**: A list of fully-qualified function paths. The Power-assert plugin will transform the calls to these functions. If not specified, only `kotlin.assert()` calls will be transformed by default.
-* **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If not specified, all _test source sets_ will be transformed by default.
+* **`functions`** lists fully qualified paths to functions whose calls the Power-assert plugin transforms. If not specified, only `kotlin.assert()` calls are transformed.
+* **`includedSourceSets`** lists Gradle source sets that the Power-assert plugin transforms. If not specified, all _test source sets_ are transformed.
+* **`compilationFilter`** controls if the Power-assert plugin is applied to all Kotlin compilations or only to test compilations. If not specified, the plugin is applied to all compilations.
 
 To customize the behavior, add the `powerAssert {}` block to your build script file:
 
@@ -76,6 +77,7 @@ To customize the behavior, add the `powerAssert {}` block to your build script f
 powerAssert {
     functions = listOf("kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull")
     includedSourceSets = listOf("commonMain", "jvmMain", "jsMain", "nativeMain")
+    compilationFilter = PowerAssertCompilationFilter.TESTS
 }
 ```
 
@@ -87,6 +89,7 @@ powerAssert {
 powerAssert {
     functions = ["kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull"]
     includedSourceSets = ["commonMain", "jvmMain", "jsMain", "nativeMain"]
+    compilationFilter = PowerAssertCompilationFilter.TESTS
 }
 ```
 
