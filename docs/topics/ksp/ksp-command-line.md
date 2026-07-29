@@ -11,14 +11,12 @@ Provide the classpath and any necessary arguments:
 java -cp <classpath> <mainclass> <options> <processor>
 ```
 
-Where:
-
-| Argument      | Description                                    |
-|---------------|------------------------------------------------|
-| `<classpath>` | KSP runtime JARs and their dependencies.       |
-| `<mainclass>` | One of the platform-specific KSP entry points. |
-| `<options>`   | Command-line options for KSP.                  |
-| `<processor>` | Path to the processor JAR.                     |
+| Argument      | Description                                      |
+|---------------|--------------------------------------------------|
+| `<classpath>` | Path to KSP runtime JARs and their dependencies. |
+| `<mainclass>` | One of the platform-specific KSP entry points.   |
+| `<options>`   | Command-line options for KSP.                    |
+| `<processor>` | Path to the processor JAR.                       |
 
 ## Classpath
 
@@ -82,14 +80,6 @@ path/to/processor.jar
 
 ## Options
 
-To see the full list of options, run the following command:
-
-```bash
-java -cp <classpath> <mainclass> -h
-```
-
-### Required KSP options
-
 KSP requires the following options when running from the command line:
 
 | Option                        | Description                                                                                                                       |
@@ -106,7 +96,7 @@ KSP requires the following options when running from the command line:
 | `-class-output-dir=<path>`    | The directory for generated class files.                                                                                          |
 | `-kotlin-output-dir=<path>`   | The directory for generated Kotlin files.                                                                                         |
 | `-resource-output-dir=<path>` | The directory for generated resources.                                                                                            |
-| `<processor>`                 | The processor classpath.                                                                                                          |
+| `<processor>`                 | The processor classpath.       
 
 ### Other useful options
 
@@ -123,3 +113,9 @@ classpath. For more information, see [Friend modules](https://kotlinlang.org/api
 > `warn` or `warning`, `info`, and `debug`. The default value is `warn`. KSP treats unsupported values as `warn`.
 >
 {style="tip"}
+
+To see the full list of options, run the following command:
+
+```bash
+java -cp <classpath> <mainclass> -h
+```
