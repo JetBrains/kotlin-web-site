@@ -7,7 +7,7 @@ features, create tests, review changes, refactor existing code, and automate rec
 The Kotlin ecosystem includes tools for interactive development, AI agents, and large-scale agent orchestration.
 Depending on your workflow, you can:
 
-* [](#develop-in-the-ide): Use AI features directly in your JetBrains IDE.
+* [](#develop-in-the-ide): Use AI features directly in IDEs such as IntelliJ IDEA and Android Studio.
 * [Work with AI agents](#use-ai-agents): Choose an AI agent such as Junie or a third-party agent and improve its Kotlin expertise
 with Kotlin AI skills.
 * [Manage and scale AI development](#manage-ai-agents): Coordinate interactive and automated agent workflows.
@@ -28,12 +28,13 @@ Different tools are useful at different stages of the workflow. The following se
 
 ## Develop in the IDE
 
-JetBrains IDEs integrate AI-powered features directly into your development environment. You can write,
-understand, modify, and review Kotlin code without leaving the IDE.
+IDEs can offer AI-powered features directly in your development environment. You can write, understand, modify, and review
+Kotlin code without leaving the IDE.
 
 ### AI Assistant
 
-The [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance directly in JetBrains IDEs, like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), as well as [Android Studio](https://developer.android.com/studio).
+The [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
+directly in JetBrains IDEs, such as in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), and in [Android Studio](https://developer.android.com/studio).
 It's useful for interactive development tasks where you want to stay in control of each change.
 
 The AI assistant provides:
@@ -70,14 +71,14 @@ can explore a project, plan implementation steps, modify multiple files, or run 
 
 ### Junie
 
-[Junie](https://www.jetbrains.com/junie/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/junie-agent.html), [your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [headless](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD
-scripts.
+[Junie](https://www.jetbrains.com/junie/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs and Android Studio](https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains),
+[from your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [in headless mode](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD scripts.
 
 Junie is designed for tasks that require more than a single code suggestion or chat response. Use Junie for development
 tasks that involve multiple files or require planning and execution. You can ask it to implement a feature, update code
 across multiple files, add tests, or perform maintenance work.
 
-When Junie runs in a JetBrains IDE, it can also use IDE capabilities such as project indexing, code navigation, inspections,
+When Junie runs in an IDE, it can also use IDE capabilities such as project indexing, code navigation, inspections,
 refactorings, debugging, and framework-aware project analysis.
 
 Learn more about [Junie](https://junie.jetbrains.com/docs/get-started-with-junie.html).
@@ -99,7 +100,7 @@ You can use third-party tools independently or connect compatible agents to JetB
 
 ### MCP servers
 
-Model Context Protocol (MCP) connects AI models to external data sources, tools, and systems.
+The Model Context Protocol (MCP) connects AI models to external data sources, tools, and systems.
 JetBrains maintains several MCP servers that can make your Kotlin experience more productive:
 
 * The [JetBrains IDE MCP server](https://plugins.jetbrains.com/plugin/26071-mcp-server) exposes IDE capabilities.
@@ -112,13 +113,12 @@ JetBrains maintains several MCP servers that can make your Kotlin experience mor
 
 ### Kotlin AI skills
 
-Kotlin AI skills are reusable instructions that you provide to an AI agent.
-They are not IDE features and are not agents themselves. Instead, they help an agent perform Kotlin development
-tasks more consistently.
+Kotlin AI skills are reusable instructions that you provide to an AI agent. They aren't IDE features or agents themselves.
+Instead, they help an agent perform Kotlin development tasks more consistently.
 
-Use Kotlin AI skills when you want to guide an agent toward idiomatic Kotlin patterns,
-Kotlin coding conventions, and project-specific expectations. Skills help AI agents perform tasks such as writing Kotlin code,
-explaining language features, generating documentation, creating tests, reviewing code, or applying migration guidance.
+Use Kotlin AI skills when you want to guide an agent toward idiomatic Kotlin patterns, Kotlin coding conventions,
+and project-specific expectations. Skills help AI agents perform tasks such as writing Kotlin code, explaining language
+features, generating documentation, creating tests, reviewing code, or applying migration guidance.
 
 Kotlin AI skills can be used with different agents and workflows, including IDE-based agents,
 command-line agents, and external AI tools that support reusable instructions.
