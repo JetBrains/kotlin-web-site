@@ -41,7 +41,7 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
                         <p className={darkTextCn('rs-text-2')}>Multiplatform</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
-                    <a className={styles.navItem} href={'/server-side/'}>
+                    <a className={styles.navItem} href={'/backend/'}>
                         <img src={BackendIcon.src} className={styles.navIcon} alt={`Backend icon`} />
                         <p className={darkTextCn('rs-text-2')}>Backend</p>
                         <ArrowRightIcon className={styles.navArrow} />

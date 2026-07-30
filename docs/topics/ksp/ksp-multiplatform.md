@@ -1,56 +1,213 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
+[//]: # (description: Add KSP to a Kotlin multiplatform project)
 
-For a quick start, see a [sample Kotlin Multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform) 
-defining a KSP processor.
+Here you'll learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. For a quick start, see 
+an example of a multiplatform project with several targets using KSP in the 
+[source repository](https://github.com/google/ksp/tree/main/examples/multiplatform). The processor in this example
+generates a `Foo` class used by the project.
 
-Starting from KSP 1.0.1, applying KSP on a multiplatform project is similar to that on a single platform, JVM project.
-The main difference is that, instead of writing the `ksp(...)` configuration in dependencies, `add(ksp<Target>)` or `add(ksp<SourceSet>)`
-is used to specify which compilation targets need symbol processing, before compilation.
+## Add KSP to a multiplatform project
 
-```kotlin
-plugins {
-    kotlin("multiplatform")
-    id("com.google.devtools.ksp")
-}
+In the `build.gradle.kts` file of the client module (the module that uses the processor), add the appropriate KSP 
+processor dependency for each target that requires symbol processing:
 
-kotlin {
-    jvm()
-    linuxX64 {
-        binaries {
-            executable()
-        }
-    }
-}
-
+```
 dependencies {
-    add("kspCommonMainMetadata", project(":test-processor"))
-    add("kspJvm", project(":test-processor"))
-    add("kspJvmTest", project(":test-processor")) // Not doing anything because there's no test source set for JVM
-    // There is no processing for the Linux x64 main source set, because kspLinuxX64 isn't specified
-    // add("kspLinuxX64Test", project(":test-processor"))
+  add("ksp<Target>", <processor>)
 }
 ```
 
+
+* `<Target>` is one of the targets used in your multiplatform project. 
+
+  > For a full list of targets, see [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
+  > and [Kotlin/Native supported targets](https://kotlinlang.org/docs/native-target-support.html).
+  >
+  {style="tip"}
+
+* `<processor>` is a Gradle project path. It can be:
+
+  * a specific directory in your project that contains the logic for your symbol processor:
+
+      ```
+      add("kspJvm", project(":local-processor"))
+      ```
+
+  * an external processor such as Room:
+
+      ```
+      add("kspJvm", "androidx.room:room-compiler:2.6.1")
+      ```
+
+> Since KSP 2, the catch-all `ksp(...)` configuration is deprecated. Configure each target explicitly to avoid running
+> processors where they are not needed.
+>
+{style="warning"}
+
+### Use mutiple processors in a single target
+
+You can add more than one processor to a target:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+add("kspAndroid", project(":test-processor"))
+add("kspAndroid", "androidx.room:room-compiler:2.6.1")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```Groovy
+add('kspAndroid', project(':test-processor'))
+add('kspAndroid', 'androidx.room:room-compiler:2.6.1')
+```
+
+</tab>
+</tabs> 
+
+### Use the same processor in multiple targets
+
+You can add the same processor to more than one target:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+add("kspIosX64", project(":test-processor"))
+add("kspIosArm64", project(":test-processor"))
+add("kspIosSimulatorArm64", project(":test-processor"))
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```Groovy
+add('kspIosX64', project(':test-processor'))
+add('kspIosArm64', project(':test-processor'))
+add('kspIosSimulatorArm64', project(':test-processor'))
+```
+
+</tab>
+</tabs> 
+
+If you have many iOS targets, you can avoid repetition by looping:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin.targets.filter { it.name.startsWith("ios") }.forEach { target ->
+    add(
+        "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}",
+        project(":test-processor")
+    )
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```Groovy
+kotlin.targets.filter { it.name.startsWith("ios") }.forEach { target ->
+    add(
+        "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}",
+        project(":test-processor")
+    )
+}
+```
+
+</tab>
+</tabs>
+
+### Configure KSP for test compilations
+
+To run KSP during test compilation, add the processor to the corresponding test configurations:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+add("kspJvmTest", project(":test-processor"))
+add("kspJsTest", project(":test-processor"))
+add("kspIosX64Test", project(":test-processor"))
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```Groovy
+add('kspJvmTest', project(':test-processor'))
+add('kspJsTest', project(':test-processor'))
+add('kspIosX64Test', project(':test-processor'))
+```
+
+</tab>
+</tabs> 
+
+For Android host and device tests, KSP derives configuration names from the corresponding source set names:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+add("kspAndroidHostTest", project(":test-processor"))
+add("kspAndroidDeviceTest", project(":test-processor"))
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```Groovy
+add('kspAndroidHostTest', project(':test-processor'))
+add('kspAndroidDeviceTest', project(':test-processor'))
+```
+
+</tab>
+</tabs>
+
+## Find KSP configuration names
+
+KSP derives configuration names from the Kotlin Multiplatform source sets. To view the complete 
+list of KSP configurations for a module, run:
+
+```Bash
+./gradlew :<your-module-name>:dependencies | grep ksp
+```
+
+Look for the configuration names that correspond to your target source sets.
+
 ## Compilation and processing
 
-In a multiplatform project, Kotlin compilation may happen multiple times (`main`, `test`, or other build flavors) for each platform.
-So is symbol processing. A symbol processing task is created whenever there is a Kotlin compilation task and a
-corresponding `ksp<Target>` or `ksp<SourceSet>` configuration is specified.
+In a multiplatform project, Kotlin creates a separate [compilation](https://kotlinlang.org/docs/multiplatform/multiplatform-advanced-project-structure.html#compilations) 
+for each target and source set, such as `main` and`test`. For each Kotlin compilation task with one or more configured 
+KSP processors, KSP creates a corresponding symbol processing task.
 
-For example, in the above `build.gradle.kts`, there are 4 compilation tasks: common/metadata, JVM main, Linux x64 main, Linux x64 test,
-and 3 symbol processing tasks: common/metadata, JVM main, Linux x64 test.
+The [example project](https://github.com/google/ksp/tree/main/examples/multiplatform) defines six targets. Each target has `main` and `test` compilations, resulting in the 
+following compilation and symbol processing tasks:
 
-## Avoid the ksp(...) configuration on KSP 1.0.1+
+* **JVM**: `jvmMain` and `jvmTest`
 
-Before KSP 1.0.1, there is only one, unified `ksp(...)` configuration available. Therefore, processors either applies to all
-compilation targets, or nothing at all. Note that the `ksp(...)` configuration not only applies to the main source set, but also
-the test source set if it exists, even on traditional, non-multiplatform projects. This brought unnecessary overheads to build time.
+* **JS**: `jsMain` and `jsTest`
 
-Starting from KSP 1.0.1, per-target configurations are provided as shown in the above example. In the future:
-1. For multiplatform projects, the `ksp(...)` configuration will be deprecated and removed.
-2. For single platform projects, the `ksp(...)` configuration will only apply to the main, default compilation. 
-   Other targets like `test` will need to specify `kspTest(...)` in order to apply processors.
+* **LinuxX64**: `linuxX64Main` and `linuxX64Test`
 
-Starting from KSP 1.0.1, there is an early access flag `-DallowAllTargetConfiguration=false` to switch to the more efficient behavior.
-If the current behavior is causing performance issues, please give it a try. 
-The default value of the flag will be flipped from `true` to `false` on KSP 2.0.
+* **AndroidNativeX64**: `androidNativeX64Main` and `androidNativeX64Test`
+
+* **AndroidNativeArm64**: `androidNativeArm64Main` and `androidNativeArm64Test`
+
+* **MingwX64**: `mingwX64Main` and `mingwX64Test`
+
+In the example's `workload/build.gradle.kts` file, KSP dependencies are declared for the following configurations:
+
+* `kspJvm` and `kspJvmTest`
+* `kspJs` and `kspJsTest`
+* `kspAndroidNativeX64` and `kspAndroidNativeX64Test`
+* `kspAndroidNativeArm64` and `kspAndroidNativeArm64Test`
+* `kspLinuxX64`
+* `kspMingwX64`
+
+KSP creates a symbol processing task for each configuration where a KSP dependency is declared. In this example, the 
+project creates at least 12 Kotlin compilation tasks and 10 symbol processing tasks. The remaining compilations don't 
+have corresponding KSP tasks because KSP isn't configured for them.

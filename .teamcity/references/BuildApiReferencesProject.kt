@@ -3,6 +3,9 @@ package references
 import BuildParams.API_COMPOSE
 import BuildParams.KGP_REFERENCE
 import jetbrains.buildServer.configs.kotlin.Project
+import references.builds.kotlinx.collectionsImmutable.KotlinxCollectionsImmutableBuildApiReference
+import references.builds.kotlinx.collectionsImmutable.KotlinxCollectionsImmutableBuildSearchIndex
+import references.builds.kotlinx.collectionsImmutable.KotlinxCollectionsImmutablePrepareDokkaTemplates
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildSearchIndex
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesPrepareDokkaTemplates
@@ -35,6 +38,10 @@ object BuildApiReferencesProject : Project({
     buildType(KotlinxIOBuildSearchIndex)
     buildType(KotlinxIOPrepareDokkaTemplates)
 
+    buildType(KotlinxCollectionsImmutableBuildApiReference)
+    buildType(KotlinxCollectionsImmutableBuildSearchIndex)
+    buildType(KotlinxCollectionsImmutablePrepareDokkaTemplates)
+
     buildType(KotlinxSerializationBuildApiReference)
     buildType(KotlinxSerializationBuildSearchIndex)
     buildType(KotlinxSerializationPrepareDokkaTemplates)
@@ -54,6 +61,7 @@ object BuildApiReferencesProject : Project({
     vcsRoot(KotlinxCoroutines)
     vcsRoot(KotlinxDatetime)
     vcsRoot(KotlinxIO)
+    vcsRoot(KotlinxCollectionsImmutable)
     vcsRoot(Kotlin)
 
     template(PrepareDokkaTemplate)

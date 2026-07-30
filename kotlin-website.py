@@ -220,9 +220,9 @@ def education_courses():
 def next_index_page():
     return send_file(path.join(root_folder, 'out', 'index.html'))
 
-@app.route('/server-side/')
-def next_server_side_page():
-    return send_file(path.join(root_folder, 'out', 'server-side/index.html'))
+@app.route('/backend/')
+def next_backend_page():
+    return send_file(path.join(root_folder, 'out', 'backend/index.html'))
 
 @app.route('/multiplatform/')
 def next_multiplatform_page():

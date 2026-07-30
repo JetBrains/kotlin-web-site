@@ -28,7 +28,7 @@ export const AdditionalMaterials: FC = ({}) => {
                     <div className="ktl-col-12">
                         <YoutubePlaylist
                             playlistId="PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1"
-                            playlistTitle="Server-Side Development with Kotlin"
+                            playlistTitle="Backend Development with Kotlin"
                         />
                     </div>
                 </div>

@@ -14,6 +14,6 @@ object KotlinxCoroutines : GitVcsRoot({
   useTagsAsBranches = true
   checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
   authMethod = uploadedKey {
-    uploadedKey = "teamcity"
+    uploadedKey = "default teamcity key"
   }
 })

@@ -151,22 +151,33 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lowercase letter and use camel case with no underscores:
+Names of functions, properties, and local variables start with a lowercase letter and use camel case without underscores:
 
 ```kotlin
 fun processDeclarations() { /*...*/ }
 var declarationCount = 1
 ```
 
-Exception: factory functions used to create instances of classes can have the same name as the abstract return type:
+### Names for class-like functions
 
-```kotlin
-interface Foo { /*...*/ }
+There are two exceptions where function names should follow class-naming convention instead.
+Functions of this kind are usually defined at the top level.
 
-class FooImpl : Foo { /*...*/ }
+* Factory functions that create class instances can have the same name as the abstract return type:
 
-fun Foo(): Foo { return FooImpl() }
-```
+   ```kotlin
+   interface Foo { /*...*/ }
+
+   class FooImpl : Foo { /*...*/ }
+
+   fun Foo(): Foo { return FooImpl() }
+   ```
+
+* `@Composable` functions that return `Unit`:
+
+   ```kotlin
+   @Composable fun TabHeader { /*...*/ }
+   ```
 
 ### Names for test methods
 

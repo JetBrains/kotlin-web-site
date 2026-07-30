@@ -33,12 +33,16 @@ function KotlinPlusAI() {
 
     return (
         <ThemeProvider theme="dark">
-            <div className={styles.wrapper} id="kotlin-plus-ai" data-testid={"kotlin-plus-ai-block"}>
+            <div className={styles.wrapper} id="kotlin-plus-ai" data-testid={'kotlin-plus-ai-block'}>
                 <h2 className={cn(classTitle, styles.introTitle)}>Kotlin + AI</h2>
-                <p className={introClass}>JetBrains is investing in AI models tailored for Kotlin, providing open data,
-                    benchmarks, and AI-native tooling integrated into your workflow.</p>
-                <p className={introClass}>At the same time, Kotlin makes it easy to build your own AI-powered features
-                    with seamless backend integrations and a growing ecosystem.</p>
+                <p className={introClass}>
+                    JetBrains is investing in AI models tailored for Kotlin, providing open data, benchmarks, and
+                    AI-native tooling integrated into your workflow.
+                </p>
+                <p className={introClass}>
+                    At the same time, Kotlin makes it easy to build your own AI-powered features with seamless backend
+                    integrations and a growing ecosystem.
+                </p>
 
                 <div className={styles.getAI}>
                     <h3 className={cn(textCn('rs-h3'), styles.title)}>What you get with Kotlin + AI</h3>
@@ -46,19 +50,24 @@ function KotlinPlusAI() {
                 </div>
 
                 <div className={styles.buttons}>
-                    <Button mode="rock" size={size} href="https://www.jetbrains.com/ai/">Learn about JetBrains AI</Button>
-                    <Button mode="outline" size={size}
-                            href="/docs/kotlin-ai-apps-development-overview.html">Build AI apps with Kotlin</Button>
+                    <Button mode="rock" size={size} href="https://www.jetbrains.com/ai/">
+                        Learn about JetBrains AI
+                    </Button>
+                    <Button mode="outline" size={size} href="/docs/kotlin-ai-apps-development-overview.html">
+                        Build AI apps with Kotlin
+                    </Button>
                 </div>
 
                 <div className={styles.buildAgents}>
                     <div className={styles.buildAgentsContent}>
                         <h3 className={classTitle}>Build your own AI agents with&nbsp;Koog</h3>
-                        <p className={textClass}>Koog is JetBrains’ new Kotlin-native framework for creating powerful AI
-                            agents that run locally, interact with tools, and automate complex tasks. Whether you’re
-                            developing a simple chat assistant or an advanced multi-step workflow, Koog gives you full
-                            control with clean Kotlin code – no external services are required. Build, extend, and
-                            experiment with AI agents entirely in Kotlin.</p>
+                        <p className={textClass}>
+                            Koog is JetBrains’ new Kotlin-native framework for creating powerful AI agents that run
+                            locally, interact with tools, and automate complex tasks. Whether you’re developing a simple
+                            chat assistant or an advanced multi-step workflow, Koog gives you full control with clean
+                            Kotlin code – no external services are required. Build, extend, and experiment with AI
+                            agents entirely in Kotlin.
+                        </p>
                         <Button mode="rock" size={size} className={styles.getStarted} href="https://docs.koog.ai/">
                             Get started
                         </Button>

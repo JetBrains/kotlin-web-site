@@ -1,0 +1,101 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.content {
+    padding-bottom: var(--ktl-box-page-l);
+}
+
+.inner {
+    max-width: 840px;
+    margin-inline: auto;
+    margin-top: var(--ktl-box-section-l);
+}
+
+.section {
+    margin-top: var(--ktl-box-section-l);
+}
+
+.section:first-child {
+    margin-top: 0;
+}
+
+.heading {
+    margin: 0;
+}
+
+.text {
+    margin: 16px 0 0;
+}
+
+.tableCard {
+    overflow: hidden;
+    margin-top: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.th {
+    padding: 16px 24px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.thNum,
+.tdNum {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.td {
+    padding: 16px 24px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.row:last-child .td {
+    border-bottom: 0;
+}
+
+.tdNum {
+    white-space: nowrap;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.card {
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+
+    @media (--ktl-ms-down) {
+        padding: 20px;
+    }
+}
+
+.cardTitle {
+    margin: 0;
+}
+
+.cardText {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--ktl-box-section-l);
+}

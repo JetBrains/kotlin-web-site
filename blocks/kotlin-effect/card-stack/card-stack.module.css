@@ -9,6 +9,19 @@
     }
 }
 
+.layout {
+    @media (--ktl-ts) {
+        width: auto;
+        margin-left: 28px;
+        margin-right: 28px;
+    }
+    @media (--ktl-ms) {
+        width: auto;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
 .card {
     width: 100%;
     border-radius: 32px;
@@ -19,6 +32,7 @@
     box-sizing: border-box;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
     @media (--ktl-ts-down) {
         padding: 12px;
     }

@@ -1,0 +1,23 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    z-index: 0;
+    overflow-x: clip;
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1400px;
+    left: 50%;
+    width: 1800px;
+    height: 1800px;
+    border-radius: 1800px;
+    background: linear-gradient(269deg, #18181B 3.74%, rgba(96, 0, 255, 0.77) 57.5%, #8D48FF 89.41%);
+    filter: blur(200px);
+    transform: translateX(-50%) rotate(-120deg);
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}

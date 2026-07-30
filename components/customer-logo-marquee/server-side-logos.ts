@@ -8,7 +8,7 @@ const logos: LogoItem[] = caseStudiesDataRaw.items
         const link = item.carousel?.link || item.link;
         const logo = item.carousel?.logo || item.logo;
 
-        if (item.type === 'server-side' && link && logo) return {
+        if (item.type === 'backend' && link && logo) return {
             id: item.id,
             logo,
             link

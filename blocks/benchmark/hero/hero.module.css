@@ -1,0 +1,30 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 862px;
+    margin-inline: auto;
+    padding-top: var(--ktl-box-page-l);
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+
+    @media (--ktl-ts-only) {
+        font-size: 42px;
+        line-height: 50px;
+    }
+}
+
+.intro {
+    margin: 24px 0 0;
+
+    @media (--ktl-ts-only) {
+        font-size: 23px;
+        line-height: 30px;
+    }
+}

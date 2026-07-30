@@ -65,7 +65,9 @@ test.describe('Main page buttons', () => {
     });
 
     test('Build AI apps with Kotlin button', async ({ page, baseURL }) => {
-        const buildAIAppsButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Build AI apps with Kotlin' });
+        const buildAIAppsButton = page
+            .getByTestId('highlighted-cases-section')
+            .getByRole('link', { name: 'Build AI apps with Kotlin' });
         await expect(buildAIAppsButton).toBeVisible();
         await buildAIAppsButton.click();
         expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);

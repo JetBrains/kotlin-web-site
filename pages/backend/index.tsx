@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@rescui/button';
-import { SERVER_SIDE_TITLE, SERVER_SIDE_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import { BACKEND_TITLE, BACKEND_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import { LandingLayout } from '../../components/landing-layout/landing-layout';
 import { ServerSideHero } from '../../blocks/server-side/hero/hero';
 import { ServerSidePerformance } from '../../blocks/server-side/performance/performance';
@@ -18,7 +18,7 @@ import './styles.css';
 
 const TOP_MENU_ITEMS = [
     {
-        url: '/case-studies/?type=server-side',
+        url: '/case-studies/?type=backend',
         title: 'Success stories'
     }
 ];
@@ -26,15 +26,15 @@ const TOP_MENU_ITEMS = [
 function Index() {
     return (
         <LandingLayout
-            title={'Kotlin for server-side'}
+            title={'Kotlin for Backend'}
             ogImageName={'server-side.png'}
             description={
-                'Build scalable server-side apps with Kotlin, from web backends to AI-powered services. Use Spring, Ktor, and the vast Java ecosystem'
+                'Build scalable backend apps with Kotlin, from web backends to AI-powered services. Use Spring, Ktor, and the vast Java ecosystem'
             }
-            currentTitle={SERVER_SIDE_TITLE}
-            currentUrl={SERVER_SIDE_URL}
-            topMenuTitle={SERVER_SIDE_TITLE}
-            topMenuHomeUrl={SERVER_SIDE_URL}
+            currentTitle={BACKEND_TITLE}
+            currentUrl={BACKEND_URL}
+            topMenuTitle={BACKEND_TITLE}
+            topMenuHomeUrl={BACKEND_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             dataTestId={'server-side-page'}

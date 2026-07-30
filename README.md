@@ -18,7 +18,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 |-----------------------------------------------------------|----------------------------------------------------------|
 | [Main page](https://kotlinlang.org/)                      | [templates/pages/index.html](templates/pages/index.html) |
 | [Kotlin docs](https://kotlinlang.org/docs/home.html)      | [docs/topics](docs/topics)                               |
-| [Server-side](https://kotlinlang.org/server-side/)        | [pages/server-side](pages/server-side)                   |
+| [Backend](https://kotlinlang.org/backend/)                | [pages/backend](pages/backend)                           |
 | [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
 | [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
 | [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
@@ -100,7 +100,7 @@ Once you publish a pull request, the changes will be validated by [GitHub Action
 To add a case study, do the following:
 1. Fill the case study info in the [case-studies.yml](/data/case-studies/case-studies.yml) with the next:
    - `id`, a unique identifier for the case study.
-    - `type`, the case study category: either `multiplatform` or `server-side`.
+    - `type`, the case study category: either `multiplatform` or `backend`.
     - `description`, a markdown-enabled text description of the case study (supports # header  **bold** and [links](https://example.com), paragraphs are made with two new lines).
     - `logo` (optional), an array of 0-2 image paths relative to the `/public/` directory.
     - `signature` (optional), an object with `name` and `position` fields for the quote author.

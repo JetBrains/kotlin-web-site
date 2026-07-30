@@ -3265,3 +3265,755 @@
   geo:
     lat: 2.44119806
     lng: -76.60484329
+- title: University of Oxford
+  location: Oxford, UK
+  courses:
+  - name: 'Agile Engineering Practices'
+    url: ''
+  geo:
+    lat: 51.7525461
+    lng: -1.2143168
+- title: New York University
+  location: New York, NY, US
+  courses:
+  - name: 'Mobile Application Development (DM-UY 4193)'
+    url: ''
+  geo:
+    lat: 40.7292053
+    lng: -73.9950148
+- title: The University of Tokyo
+  location: Tokyo, Japan
+  courses:
+  - name: 'ソフトウェアII 第7回'
+    url: ''
+  geo:
+    lat: 35.7472291
+    lng: 139.802157
+- title: University of Melbourne
+  location: Melbourne, Australia
+  courses:
+  - name: 'Mobile Computing Systems Programming (COMP90018)'
+    url: ''
+  geo:
+    lat: -37.8241371
+    lng: 144.9170886
+- title: LMU Munich
+  location: Munich, Germany
+  courses:
+  - name: 'Master-Praktikum: Mobile Application Development'
+    url: ''
+  geo:
+    lat: 48.1521649
+    lng: 11.581535
+- title: Paris Sciences et Lettres – PSL Research University
+  location: Paris, France
+  courses:
+  - name: 'MobApp – Introduction `a React Native'
+    url: ''
+  geo:
+    lat: 48.8534951
+    lng: 2.3483915
+- title: Delft University of Technology
+  location: Delft, Netherlands
+  courses:
+  - name: 'Modern Distributed Systems'
+    url: ''
+  geo:
+    lat: 51.9988274
+    lng: 4.3739604
+- title: McGill University
+  location: Montreal, Canada
+  courses:
+  - name: 'BIEN 470: Bioengineering Design Projects'
+    url: ''
+  geo:
+    lat: 45.5068861
+    lng: -73.5787118
+- title: Monash University
+  location: Melbourne, Australia
+  courses:
+  - name: 'FIT2081 – Mobile Application Development (Kotlin/Android)'
+    url: ''
+  geo:
+    lat: -37.7839745
+    lng: 144.9586743
+- title: Université Paris-Saclay (Paris-Sud University)
+  location: Paris, France
+  courses:
+  - name: 'INFORMATIQUE ET INGÉNIERIE MATHÉMATIQUE'
+    url: ''
+  geo:
+    lat: 48.8534951
+    lng: 2.3483915
+- title: KTH Royal Institute of Technology
+  location: Stockholm, Sweden
+  courses:
+  - name: 'ID2216 Developing Mobile Applications'
+    url: ''
+  geo:
+    lat: 59.2016758
+    lng: 17.6203201
+- title: Lund University
+  location: Lund, Sweden
+  courses:
+  - name: 'EDAN55 Advanced Algorithms'
+    url: ''
+  geo:
+    lat: 55.7126504
+    lng: 13.2107587
+- title: Pohang University of Science and Technology (POSTECH)
+  location: Pohang, South Korea
+  courses:
+  - name: 'Mobile & Ubiquitous Computing (CSED490D-01)'
+    url: ''
+  geo:
+    lat: 36.0189315
+    lng: 129.3429384
+- title: University of Exeter
+  location: Exeter, UK
+  courses:
+  - name: 'ECM2425 Mobile and Ubiquitous Computing'
+    url: ''
+  geo:
+    lat: 50.7387148
+    lng: -3.5384011
+- title: Stockholm University
+  location: Stockholm, Sweden
+  courses:
+  - name: 'IB916N Programmering för mobiler'
+    url: ''
+  geo:
+    lat: 59.366141
+    lng: 18.059593
+- title: University of Calgary
+  location: Calgary, Canada
+  courses:
+  - name: 'CPSC_599-4 Special Topics in Computer Science (Competitive Programming)'
+    url: ''
+  geo:
+    lat: 51.075054
+    lng: -114.138805
+- title: University of Miami
+  location: Miami, FL, US
+  courses:
+  - name: 'Kotlin Multiplatform Development'
+    url: ''
+  geo:
+    lat: 25.7172725
+    lng: -80.2787069
+- title: Northeastern University - USA
+  location: Boston, MA, US
+  courses:
+  - name: 'CS2500 Fundamentals of Computer Science'
+    url: ''
+  geo:
+    lat: 42.3588336
+    lng: -71.0578303
+- title: University College Dublin
+  location: Dublin, Ireland
+  courses:
+  - name: 'COMP30970 Competitive Programming'
+    url: ''
+  geo:
+    lat: 53.3070788
+    lng: -6.2229585
+- title: University of Bergen
+  location: Bergen, Norway
+  courses:
+  - name: 'INF237 Algorithms Engineering'
+    url: ''
+  geo:
+    lat: 60.3809342
+    lng: 5.3313021
+- title: LUT University - Lappeenranta-Lahti University of Technology LUT
+  location: Lappeenranta, Finland
+  courses:
+  - name: 'CT70A9800 Full Stack Development'
+    url: ''
+  geo:
+    lat: 61.0583417
+    lng: 28.1862293
+- title: Flinders University
+  location: Adelaide, Australia
+  courses:
+  - name: 'COMP2012 Mobile Application Development'
+    url: ''
+  geo:
+    lat: -35.0248752
+    lng: 138.5734181
+- title: Hebrew University of Jerusalem
+  location: Jerusalem, Israel
+  courses:
+  - name: 'Workshop in Modern Application Development (67503)'
+    url: ''
+  geo:
+    lat: 31.7918555
+    lng: 35.244723
+- title: Sharif University of Technology
+  location: Tehran, Iran
+  courses:
+  - name: 'CE-429: Android Development'
+    url: ''
+  geo:
+    lat: 35.7027174
+    lng: 51.35172
+- title: Amirkabir University of Technology
+  location: Tehran, Iran
+  courses:
+  - name: 'Mobile Programming course'
+    url: ''
+  geo:
+    lat: 35.7043042
+    lng: 51.4093392
+- title: Free University of Bozen-Bolzano
+  location: Bolzano, Italy
+  courses:
+  - name: 'Mobile and Physical Systems'
+    url: ''
+  geo:
+    lat: 46.498298
+    lng: 11.3501018
+- title: Heriot-Watt University
+  location: Edinburgh, UK
+  courses:
+  - name: 'Android development'
+    url: ''
+  geo:
+    lat: 55.9102959
+    lng: -3.3234475
+- title: University of Milano-Bicocca
+  location: Milan, Italy
+  courses:
+  - name: 'Mobile Programming 2526-3-E3101Q135'
+    url: ''
+  geo:
+    lat: 45.515245
+    lng: 9.2128363
+- title: University of Trento
+  location: Trento, Italy
+  courses:
+  - name: 'Introduction to web programming'
+    url: ''
+  geo:
+    lat: 46.0661807
+    lng: 11.1166177
+- title: University of Brescia
+  location: Brescia, Italy
+  courses:
+  - name: 'MOBILE PROGRAMMING'
+    url: ''
+  geo:
+    lat: 45.7795805
+    lng: 10.425873
+- title: University of Lisbon
+  location: Lisbon, Portugal
+  courses:
+  - name: 'Computação Móvel'
+    url: ''
+  geo:
+    lat: 38.7527961
+    lng: -9.1570276
+- title: University of Porto
+  location: Porto, Portugal
+  courses:
+  - name: 'Compiladores'
+    url: ''
+  geo:
+    lat: 41.1784933
+    lng: -8.5961974
+- title: University of Cyprus
+  location: Nicosia, Cyprus
+  courses:
+  - name: 'EPL421 Systems Programming'
+    url: ''
+  geo:
+    lat: 35.1451302
+    lng: 33.4102924
+- title: University of Granada
+  location: Granada, Spain
+  courses:
+  - name: 'Programación de Dispositivos Móviles'
+    url: ''
+  geo:
+    lat: 37.1827211
+    lng: -3.6056278
+- title: University of Klagenfurt
+  location: Klagenfurt, Austria
+  courses:
+  - name: '623.950 App Development'
+    url: ''
+  geo:
+    lat: 46.6164026
+    lng: 14.2646809
+- title: UiT The Arctic University of Norway - University of Tromso
+  location: Tromso, Norway
+  courses:
+  - name: 'DTE-2603 Programmering for mobil'
+    url: ''
+  geo:
+    lat: 69.6516345
+    lng: 18.9558585
+- title: Bilkent University
+  location: Ankara, Turkey
+  courses:
+  - name: 'CTIS 487 Mobile Application Development'
+    url: ''
+  geo:
+    lat: 39.870469
+    lng: 32.7539193
+- title: Cankaya University
+  location: Ankara, Turkey
+  courses:
+  - name: 'CENG 407 Innovative System Design and Development I'
+    url: ''
+  geo:
+    lat: 39.8201935
+    lng: 32.5626928
+- title: Chulalongkorn University
+  location: Bangkok, Thailand
+  courses:
+  - name: '2110215 Programming Methodology I'
+    url: ''
+  geo:
+    lat: 13.7430893
+    lng: 100.5328725
+- title: Jagiellonian University
+  location: Krakow, Poland
+  courses:
+  - name: 'Programowanie urządzeń mobilnych – Android'
+    url: ''
+  geo:
+    lat: 50.0606586
+    lng: 19.9304539
+- title: Monterrey Institute of Technology and Higher Education - Instituto Tecnológico y de Estudios Superiores de Monterrey (ITESM)
+  location: Monterrey, Mexico
+  courses:
+  - name: 'Android Software developer'
+    url: ''
+  geo:
+    lat: 25.6802019
+    lng: -100.315258
+- title: University of Parma
+  location: Parma, Italy
+  courses:
+  - name: 'PROGRAMMING OF MOBILE SYSTEMS'
+    url: ''
+  geo:
+    lat: 44.6952006
+    lng: 10.0979869
+- title: Polytechnic University of Valencia
+  location: Valencia, Spain
+  courses:
+  - name: 'Programación en Android'
+    url: ''
+  geo:
+    lat: 38.694335
+    lng: -0.4775731
+- title: VIT University
+  location: Vellore, India
+  courses:
+  - name: 'Programming Languages for Industry 4.0 (VAC2334)'
+    url: ''
+  geo:
+    lat: 12.9697498
+    lng: 79.1606601
+- title: Athens University of Economics and Business
+  location: Athens, Greece
+  courses:
+  - name: 'Mobile programming (Kotlin for Android & Swift for IOS)'
+    url: ''
+  geo:
+    lat: 37.9941383
+    lng: 23.7324792
+- title: BRAC University
+  location: Dhaka, Bangladesh
+  courses:
+  - name: 'CSE489 Andriod App Development'
+    url: ''
+  geo:
+    lat: 23.7733146
+    lng: 90.424371
+- title: University of Camerino (Unicam)
+  location: Camerino, Italy
+  courses:
+  - name: 'Progettazione di Applicazioni Web e Mobili'
+    url: ''
+  geo:
+    lat: 43.1357641
+    lng: 13.0683092
+- title: Delhi Technological University
+  location: Delhi, India
+  courses:
+  - name: 'AND202 Android Development'
+    url: ''
+  geo:
+    lat: 28.7508153
+    lng: 77.1162765
+- title: Indraprastha Institute of Information Technology Delhi
+  location: New Delhi, India
+  courses:
+  - name: 'Mobile Computing'
+    url: ''
+  geo:
+    lat: 28.6138954
+    lng: 77.2090057
+- title: University of Lahore
+  location: Lahore, Pakistan
+  courses:
+  - name: 'Mobile Application Development'
+    url: ''
+  geo:
+    lat: 31.5603732
+    lng: 74.3302278
+- title: National Taipei University of Technology
+  location: Taipei, Taiwan
+  courses:
+  - name: '354848 Mobile Phone Programming'
+    url: ''
+  geo:
+    lat: 25.0430636
+    lng: 121.5346877
+- title: UPES
+  location: Dehradun, India
+  courses:
+  - name: 'Mobile Application Development Using Android (CSMC3025)'
+    url: ''
+  geo:
+    lat: 30.41761
+    lng: 77.9682677
+- title: Universidad Politécnica de Madrid
+  location: Madrid, Spain
+  courses:
+  - name: '615001061 - Mobile App Development'
+    url: ''
+  geo:
+    lat: 40.5473558
+    lng: -3.6918341
+- title: University of Vic – Central University of Catalonia
+  location: Vic, Spain
+  courses:
+  - name: 'Android Application Development'
+    url: ''
+  geo:
+    lat: 41.9302021
+    lng: 2.2545943
+- title: Vilnius University
+  location: Vilnius, Lithuania
+  courses:
+  - name: 'Software Engineering'
+    url: ''
+  geo:
+    lat: 54.6828203
+    lng: 25.2878334
+- title: AGH University of Science and Technology
+  location: Krakow, Poland
+  courses:
+  - name: 'Object-Oriented Programming'
+    url: ''
+  geo:
+    lat: 50.0657583
+    lng: 19.9192221
+- title: Czech Technical University in Prague
+  location: Prague, Czech Republic
+  courses:
+  - name: 'Programování v jazyku Kotlin'
+    url: ''
+  geo:
+    lat: 50.1029026
+    lng: 14.3946353
+- title: Kharkiv National University of Radio Electronics - NURE
+  location: Kharkiv, Ukraine
+  courses:
+  - name: 'Високорівневі мови програмування та фреймворки'
+    url: ''
+  geo:
+    lat: 49.9923181
+    lng: 36.2310146
+- title: University of South Wales
+  location: Ponty pridd, UK
+  courses:
+  - name: 'ISS3S664 Advanced Internet and Mobile Computing'
+    url: ''
+  geo:
+    lat: 51.5881447
+    lng: -3.3261149
+- title: Staffordshire University
+  location: Stoke-on-Trent, UK
+  courses:
+  - name: 'MOBILE APP DEVELOPMENT COMP50011'
+    url: ''
+  geo:
+    lat: 53.0094747
+    lng: -2.1742692
+- title: Technological University Dublin
+  location: Dublin, Ireland
+  courses:
+  - name: 'Computing with Software Development'
+    url: ''
+  geo:
+    lat: 53.3579326
+    lng: -6.287314
+- title: University of Zagreb
+  location: Zagreb, Croatia
+  courses:
+  - name: 'Razvoj usluga i aplikacija za operacijski sustav Android'
+    url: ''
+  geo:
+    lat: 45.8168948
+    lng: 15.897824
+- title: Bandung Institute of Technology (ITB)
+  location: Bandung, Indonesia
+  courses:
+  - name: 'IF3210 Mobile App Development'
+    url: ''
+  geo:
+    lat: -6.8904487
+    lng: 107.6103136
+- title: University of Chester
+  location: Chester, UK
+  courses:
+  - name: 'Android Development'
+    url: ''
+  geo:
+    lat: 53.1862498
+    lng: -2.8847593
+- title: Lodz University of Technology
+  location: Lodz, Poland
+  courses:
+  - name: 'Mobile Systems'
+    url: ''
+  geo:
+    lat: 51.7728245
+    lng: 19.478486
+- title: Poznań University of Technology
+  location: Poznan, Poland
+  courses:
+  - name: 'Mobile Application Development with AI Elements [S2SI1E>PAM]'
+    url: ''
+  geo:
+    lat: 52.3942703
+    lng: 16.9181304
+- title: Universidad Rey Juan Carlos
+  location: Madrid, Spain
+  courses:
+  - name: 'Laboratorio de Sistemas Móviles y Ubicuos'
+    url: ''
+  geo:
+    lat: 40.4060315
+    lng: -3.610933
+- title: Université Saint-Joseph de Beyrouth
+  location: Beirut, Lebanon
+  courses:
+  - name: 'Programmation Android'
+    url: ''
+  geo:
+    lat: 33.8898459
+    lng: 35.5104635
+- title: SRM Institute of Science and Technology
+  location: Chennai, India
+  courses:
+  - name: 'Mobile Application Development'
+    url: ''
+  geo:
+    lat: 13.0836939
+    lng: 80.270186
+- title: Technical University of Košice
+  location: Kosice, Slovakia
+  courses:
+  - name: 'Úvod do vývoja aplikácií pre chytré zariadenia'
+    url: ''
+  geo:
+    lat: 48.7331148
+    lng: 21.2439925
+- title: Warsaw University of Technology
+  location: Warsaw, Poland
+  courses:
+  - name: 'Systemy i Aplikacje Mobilne'
+    url: ''
+  geo:
+    lat: 52.2216394
+    lng: 21.007377
+- title: Bialystok University of Technology
+  location: Bialystok, Poland
+  courses:
+  - name: 'Mobile Systems'
+    url: ''
+  geo:
+    lat: 53.1175618
+    lng: 23.1493258
+- title: Cracow University of Technology
+  location: Krakow, Poland
+  courses:
+  - name: 'BIP: Mobile Programming and Technologies'
+    url: ''
+  geo:
+    lat: 50.0469432
+    lng: 19.9971534
+- title: Hanoi University of Science and Technology
+  location: Hanoi, Vietnam
+  courses:
+  - name: 'IT4785 Programming for Mobile Devices'
+    url: ''
+  geo:
+    lat: 21.0055269
+    lng: 105.8435926
+- title: National Polytechnic University (IPN)
+  location: Mexico City, Mexico
+  courses:
+  - name: 'Mobile Applications'
+    url: ''
+  geo:
+    lat: 19.3207722
+    lng: -99.1514678
+- title: Kasetsart University
+  location: Bangkok, Thailand
+  courses:
+  - name: '01219244, Software Specification and Design Laboratory'
+    url: ''
+  geo:
+    lat: 13.8482589
+    lng: 100.5675435
+- title: University of Santo Tomas
+  location: Manila, Philippines
+  courses:
+  - name: 'Web and Mobile App Development'
+    url: ''
+  geo:
+    lat: 14.6098426
+    lng: 120.9894646
+- title: University of Montana Missoula
+  location: Missoula, MT, US
+  courses:
+  - name: 'MART 462 - Mobile Game Programming'
+    url: ''
+  geo:
+    lat: 46.8541841
+    lng: -113.9655283
+- title: Brigham Young University
+  location: Provo, UT, US
+  courses:
+  - name: 'IS 590R Android Mobile Development'
+    url: ''
+  geo:
+    lat: 40.2554196
+    lng: -111.6496806
+- title: California State University, Long Beach
+  location: Long Beach, CA, US
+  courses:
+  - name: 'CECS 453 – Mobile Application Development'
+    url: ''
+  geo:
+    lat: 33.7817709
+    lng: -118.1152001
+- title: Oregon State University
+  location: Corvallis, OR, US
+  courses:
+  - name: 'CS 492: Mobile Software Development'
+    url: ''
+  geo:
+    lat: 44.563056
+    lng: -123.2839234
+- title: Rose-Hulman Institute of Technology
+  location: Terre Haute, IN, US
+  courses:
+  - name: 'CSSE 483: Android Application Development'
+    url: ''
+  geo:
+    lat: 39.4829201
+    lng: -87.3241582
+- title: TalTech IT College
+  location: Tallinn, Estonia
+  courses:
+  - name: 'Native Mobile Applications'
+    url: ''
+  geo:
+    lat: 59.437242
+    lng: 24.7572693
+- title: Télécom SudParis
+  location: Paris, France
+  courses:
+  - name: 'Développement mobile et Intelligence Artificielle'
+    url: ''
+  geo:
+    lat: 48.8534951
+    lng: 2.3483915
+- title: University of Alabama at Birmingham
+  location: Birmingham, AL, US
+  courses:
+  - name: 'CS 422L - Mobile App Development Lab'
+    url: ''
+  geo:
+    lat: 33.5016153
+    lng: -86.8060476
+- title: University of Cincinnati
+  location: Cincinnati, OH, US
+  courses:
+  - name: 'IT3048C: Mobile Device Programming'
+    url: ''
+  geo:
+    lat: 39.1315542
+    lng: -84.5202952
+- title: Boise State University
+  location: Boise, ID, US
+  courses:
+  - name: 'CS 402 Mobile Application Development'
+    url: ''
+  geo:
+    lat: 43.6032821
+    lng: -116.19941
+- title: Universidad Tecnológica de Puebla (UTP)
+  location: Puebla, Mexico
+  courses:
+  - name: 'Mobile Application Development'
+    url: ''
+  geo:
+    lat: 18.833333
+    lng: -98.0
+- title: ENET'Com Sfax - École Nationale d'Électronique et des Télécommunications de Sfax
+  location: Sfax, Tunisia
+  courses:
+  - name: 'Android Development with Kotlin'
+    url: ''
+  geo:
+    lat: 34.7394361
+    lng: 10.7604024
+- title: Varsity College
+  location: Sandton, South Africa
+  courses:
+  - name: 'Mobile app development'
+    url: ''
+  geo:
+    lat: -26.0682406
+    lng: 28.0479844
+- title: European Humanities University
+  location: Vilnius, Lithuania
+  courses:
+  - name: 'Basics of Mobile Development'
+    url: ''
+  geo:
+    lat: 54.6787612
+    lng: 25.2905379
+- title: Universitas Lambung Mangkurat
+  location: Banjarmasin, Indonesia
+  courses:
+  - name: 'Mobile Programming'
+    url: ''
+  geo:
+    lat: -3.2963061
+    lng: 114.586271
+- title: AARHUS GYMNASIUM
+  location: Aarhus, Denmark
+  courses:
+  - name: 'Kotlin development'
+    url: ''
+  geo:
+    lat: 56.1858509
+    lng: 10.1129983
+- title: Tecsup
+  location: Arequipa, Peru
+  courses:
+  - name: 'Modern Android Apps with Jetpack Compose'
+    url: ''
+  geo:
+    lat: -16.4277494
+    lng: -71.5202792
