@@ -191,9 +191,9 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>${project.basedir}/main/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
                             <!-- Ensure Kotlin code can reference Java code -->
-                            <sourceDir>${project.basedir}/main/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -205,8 +205,8 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>${project.basedir}/test/kotlin</sourceDir>
-                            <sourceDir>${project.basedir}/test/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -386,8 +386,9 @@ module org.example.myapp {
 
 Keep in mind that:
 
-* Since your Java module is used instead of the classpath during compilation, it should include all dependencies that your Kotlin code uses:
-  the standard library, JDK modules (except for `java.base`), and other libraries to avoid `Unresolved reference` errors.
+* Your Java module can only use what you declared. Since compilation goes through the module path instead of the classpath,
+  the descriptor should include all dependencies that your Kotlin code uses: the standard library, JDK modules (except for `java.base`),
+  and other libraries to avoid `Unresolved reference` errors.
 * For a module, the package name in Kotlin files must be equal to the package name from `module-info.java` to avoid the
   `Package is empty or does not exist` build failures.
 * The `pom.xml` build file should be configured so that [Kotlin is compiled before Java](#compile-kotlin-and-java-sources).
