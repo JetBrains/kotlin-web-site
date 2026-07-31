@@ -191,9 +191,9 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>src/main/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/main/kotlin</sourceDir>
                             <!-- Ensure Kotlin code can reference Java code -->
-                            <sourceDir>src/main/java</sourceDir>
+                            <sourceDir>${project.basedir}/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -205,8 +205,8 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>src/test/kotlin</sourceDir>
-                            <sourceDir>src/test/java</sourceDir>
+                            <sourceDir>${project.basedir}/test/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -365,23 +365,31 @@ and has no impact on other plugins in the build.
 The Kotlin Maven plugin supports the [Java Platform Module System (JPMS)](https://dev.java/learn/modules/), so you can
 compile Kotlin code alongside a `module-info.java` descriptor and consume the resulting module like other Java modules.
 
-On Maven's side, no extra JPMS-specific options are required. The configuration is set by the `module-info.java`
-descriptor and correct plugin ordering: Kotlin sources are compiled before the Maven compiler processes `module-info.java`.
+In the build file, no extra JPMS-specific options are required beyond the correct plugin ordering: the Kotlin compiler
+should be configured before Maven.
 
-To configure a Java module, create the `module-info.java` file with a module descriptor in the `src/main/java` directory.
-List the Kotlin modules that your module requires and exports your packages. For example:
+When a `module-info.java` descriptor is present, the Kotlin compiler uses it as a source file and compiles against
+its module path instead of the classpath. The Kotlin compiler reads the descriptor to resolve the module graph, and then
+the Maven compiler compiles it into the `module-info.class` file.
+
+To configure a Java module, create the `module-info.java` file in the `${project.basedir}/src/main/java` directory.
+In the module descriptor, declare all the dependencies that your module requires and the packages it exports. For example:
 
 ```java
 module org.example.myapp {
     requires transitive kotlin.stdlib;
-    requires kotlin.stdlib.jdk8;
-
+    requires java.net.http;
+    
     exports org.example.myapp;
 }
 ```
 
-* For a module, the package name in Kotlin files must be equal to the package name from `module-info.java` to avoid a
-  "package is empty or does not exist" build failure.
+Keep in mind that:
+
+* Since your Java module is used instead of the classpath during compilation, it should include all dependencies that your Kotlin code uses:
+  the standard library, JDK modules (except for `java.base`), and other libraries to avoid `Unresolved reference` errors.
+* For a module, the package name in Kotlin files must be equal to the package name from `module-info.java` to avoid the
+  `Package is empty or does not exist` build failures.
 * The `pom.xml` build file should be configured so that [Kotlin is compiled before Java](#compile-kotlin-and-java-sources).
   If you use [automatic project configuration](#automatic-configuration), the `<extensions>` option already ensures that. 
 
