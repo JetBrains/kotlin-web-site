@@ -514,13 +514,13 @@ the `jsBrowserProductionWebpack` task when preparing your project for production
 
 Note that these tasks will only be available if your target is configured to generate executable files (via `binaries.executable()`).
 
-To generate the distribution placed into `build/dist`, run the `jsBrowserDistribution` task instead:
+To generate the distribution in the `build/dist/<targetName>/<binaryName>` directory, run the `jsBrowserDistribution` task instead:
 
 ```bash
 ./gradlew jsBrowserDistribution
 ```
 
-This task produces the ready-to-use distribution together with the project resources.
+This task generates a ready-to-use distribution that includes the project resources.
 
 ## CSS
 
