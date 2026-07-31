@@ -635,15 +635,14 @@ each of which defines a mode, as well as [include](https://webpack.js.org/config
 ## Node.js
 
 For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and installs the Node.js environment on the
-host.
-You can also use an existing Node.js instance if you have it.
-
-### Configuring Node.js settings
+host. You can also use an existing Node.js instance if you have it.
 
 You can configure Node.js settings for each subproject or set them for the project as a whole.
 
-For example, the default Node.js version is currently 24.16.0, but you can use a different version for a specific subproject.
-Add the following lines to your subproject's `build.gradle(.kts)` file:
+### Change Node.js version
+
+The default Node.js version is currently 24.16.0, but you can use a different version for a specific subproject.
+Add the following lines to your subproject's `build.gradle(.kts)` file. For example:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -666,7 +665,7 @@ project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlu
 </tab>
 </tabs>
 
-To set a version for the entire project, including all subprojects, apply the same code to the `allProjects {}` block:
+To set a version for the entire project, including all subprojects, apply the same code to the `allprojects {}` block. For example:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -692,11 +691,6 @@ allprojects {
 
 </tab>
 </tabs>
-
-> Using the `NodeJsRootPlugin` class to configure Node.js setting for the entire project is deprecated and will eventually
-> stop being supported.
-> 
-{style="note"}
 
 ### Use pre-installed Node.js
 
