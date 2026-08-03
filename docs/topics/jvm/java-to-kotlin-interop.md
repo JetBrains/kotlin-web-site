@@ -366,7 +366,7 @@ The Kotlin maps visibility modifiers to Java as follows:
   Note that Java allows accessing protected members from other classes in the same package, and Kotlin doesn't.
 * `internal` declarations become `public` in Java.
 
-  The Koltin compiler mangles the names of `internal` members in bytecode. This prevents accidental overrides across modules,
+  The Kotlin compiler mangles the names of `internal` members in bytecode. This prevents accidental overrides across modules,
   for example, when extending a Kotlin class from Java, and allows overloading for members with the same signature.
 
   Note that the names of public members of `internal` classes aren't mangled and remain callable from Java.

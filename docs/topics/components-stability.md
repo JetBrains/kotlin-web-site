@@ -1,7 +1,7 @@
 [//]: # (title: Stability of Kotlin components)
 
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
-the Standard Library, various accompanying tools and so on.
+the Standard Library, various accompanying tools, and so on.
 Many of these components were officially released as **Stable**, which means that they were evolved
 in a backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
 
@@ -109,9 +109,9 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin Multiplatform
 
-| **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                                         |
-|------------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Kotlin Multiplatform                           | Stable     | 1.9.20                   |                                                                                                                                      |
+| **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                           |
+|------------------------------------------------|------------|--------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Kotlin Multiplatform                           | Stable     | 1.9.20                   |                                                                                                                        |
 | Kotlin Multiplatform plugin for Android Studio | Beta       | 0.8.0                    | [Versioned separately from the language](https://kotlinlang.org/docs/multiplatform/multiplatform-plugin-releases.html) |
 
 ### Kotlin/Native
@@ -128,10 +128,10 @@ For more information about the level of support for different targets, see [](na
 
 ### Build tools
 
-| **Component**                                       | **Status** | **Status since version** | **Comments**                                                                                                          |
-|-----------------------------------------------------|------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **Component**                                       | **Status** | **Status since version** | **Comments**                                                                                                                                                      |
+|-----------------------------------------------------|------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Kotlin Gradle plugin](gradle-configure-project.md) | Stable     | 1.1.1                    | The [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#id-and-version) is stable from Kotlin 1.9.20. |
-| [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                       |
+| [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                                                                   |
 
 
 ### Language tools

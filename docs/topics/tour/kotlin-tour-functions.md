@@ -110,7 +110,7 @@ fun main() {
 
 ## Functions without return
 
-If your function doesn't return a useful value then its return type is `Unit`. `Unit` is a type with only one value – 
+If your function doesn't return a useful value, then its return type is `Unit`. `Unit` is a type with only one value – 
 `Unit`. You don't have to declare that `Unit` is returned explicitly in your function body. This means that you don't 
 have to use the `return` keyword or declare a return type:
 
@@ -338,7 +338,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-variable"}
 
-Lambda expressions can be hard to understand at first glance so let's break it down. Lambda expressions are written 
+Lambda expressions can be hard to understand at first glance, so let's break it down. Lambda expressions are written 
 within curly braces `{}`.
 
 Within the lambda expression, you write:
@@ -416,7 +416,7 @@ the type of function parameters (`x`) in the lambda expression.
 >
 {style="note"}
 
-Another good example, is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
+Another good example is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
 function to transform items in a collection:
 
 ```kotlin
@@ -471,7 +471,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-type"}
 
-If your lambda expression has no parameters then the parentheses `()` are left empty. For example: `() -> Unit`
+If your lambda expression has no parameters, then the parentheses `()` are left empty. For example: `() -> Unit`
 
 > You must declare parameter and return types either in the lambda expression or as a function type. Otherwise, the
 > compiler won't be able to know what type your lambda expression is.

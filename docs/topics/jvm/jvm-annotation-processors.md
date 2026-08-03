@@ -255,7 +255,7 @@ A new processor requires three modules:
 * An `annotation` module that declares the custom annotation.
 * A `processor` module that implements the `SymbolProcessor` and `SymbolProcessorProvider` factories. `SymbolProcessor`
   contains the main logic, while `SymbolProcessorProvider` creates the processor and registers the provider in the `META-INF/services/` path.
-* An `app` module that applies the KSP plugin, depends on the processor, and uses the annotation.
+* An `app` module that applies the KSP plugin depends on the processor, and uses the annotation.
 
 For complete step-by-step instructions, see the [KSP quickstart](ksp-quickstart.md#create-your-own-processor).
 

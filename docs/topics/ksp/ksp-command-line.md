@@ -82,21 +82,21 @@ path/to/processor.jar
 
 KSP requires the following options when running from the command line:
 
-| Option                        | Description                                                                                                                       |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `-language-version=<version>` | The [Kotlin language version](https://kotlinlang.org/docs/compiler-reference.html#language-version-version) used in the project.  |
-| `-api-version=<version>`      | The [Kotlin API version](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).                                |
-| `-jvm-target=<version>`       | The target JVM version.                                                                                                           |
-| `-module-name=<name>`         | The module name.                                                                                                                  |
-| `-source-roots=<paths>`       | The source root directories. Use a colon-separated list for multiple directories.                                                 |
-| `-project-base-dir=<path>`    | The project root directory.                                                                                                       |
-| `-output-base-dir=<path>`     | The base directory for KSP output.                                                                                                |
-| `-caches-dir=<path>`          | The directory for KSP caches.                                                                                                     |
-| `-java-output-dir=<path>`     | The directory for generated Java files.                                                                                           |
-| `-class-output-dir=<path>`    | The directory for generated class files.                                                                                          |
-| `-kotlin-output-dir=<path>`   | The directory for generated Kotlin files.                                                                                         |
-| `-resource-output-dir=<path>` | The directory for generated resources.                                                                                            |
-| `<processor>`                 | The processor classpath.       
+| Option                        | Description                                                                                                                      |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `-language-version=<version>` | The [Kotlin language version](https://kotlinlang.org/docs/compiler-reference.html#language-version-version) used in the project. |
+| `-api-version=<version>`      | The [Kotlin API version](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).                               |
+| `-jvm-target=<version>`       | The target JVM version.                                                                                                          |
+| `-module-name=<name>`         | The module name.                                                                                                                 |
+| `-source-roots=<paths>`       | The source root directories. Use a colon-separated list for multiple directories.                                                |
+| `-project-base-dir=<path>`    | The project root directory.                                                                                                      |
+| `-output-base-dir=<path>`     | The base directory for KSP output.                                                                                               |
+| `-caches-dir=<path>`          | The directory for KSP caches.                                                                                                    |
+| `-java-output-dir=<path>`     | The directory for generated Java files.                                                                                          |
+| `-class-output-dir=<path>`    | The directory for generated class files.                                                                                         |
+| `-kotlin-output-dir=<path>`   | The directory for generated Kotlin files.                                                                                        |
+| `-resource-output-dir=<path>` | The directory for generated resources.                                                                                           |
+| `<processor>`                 | The processor classpath.                                                                                                         |
 
 ### Other useful options
 

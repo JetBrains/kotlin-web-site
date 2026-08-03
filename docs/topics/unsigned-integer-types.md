@@ -96,4 +96,4 @@ There are a couple of reasons:
 * Using signed integers can help to detect accidental overflows and signal error conditions, such as 
   [`List.lastIndex`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last-index.html) being -1 for an empty list.
 * Unsigned integers cannot be treated as a range-limited version of signed ones because their range of values is not a 
-  subset of the signed integers range. Neither signed, nor unsigned integers are subtypes of each other.
+  subset of the signed integers range. Neither signed nor unsigned integers are subtypes of each other.

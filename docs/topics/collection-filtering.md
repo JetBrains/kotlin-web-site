@@ -130,7 +130,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-`any()` and `none()` can also be used without a predicate: in this case they just check the collection emptiness.
+`any()` and `none()` can also be used without a predicate: in this case, they just check the collection emptiness.
 `any()` returns `true` if there are elements and `false` if there aren't; `none()` does the opposite.
 
 ```kotlin

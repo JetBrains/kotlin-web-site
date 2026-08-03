@@ -5,7 +5,7 @@ or subtracting collections from each other.
 
 To merge two collections into one, use the [`union()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/union.html)
 function. It can be used in the infix form `a union b`.
-Note that for ordered collections the order of the operands is important. In the resulting collection, the elements of the
+Note that for ordered collections, the order of the operands is important. In the resulting collection, the elements of the
 first operand go before the elements of the second:
 
 ```kotlin

@@ -821,7 +821,7 @@ The project includes a specialized system for generating and updating the Algoli
 1. **Search Index**: Uploaded to Algolia for powering the website's search functionality
 2. **Sitemap.xml**: Generated in the `dist/` directory, containing:
    - URLs for all pages on the website
-   - Priority values based on page type (home page and documentation have highest priority)
+   - Priority values based on page type (home page and documentation have the highest priority)
    - Last modified dates when available
 3. **Statistics Reports**: Generated in the `reports/` directory, including:
    - `files-list.json5` - A list of all files processed

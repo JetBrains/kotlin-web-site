@@ -87,7 +87,7 @@ There are two main reasons why we are doing it:
 ### Create the logo of your user group
 
 To create a logo of your users group:
-1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google drive (you have to be signed in to your Google account).
+1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google Drive (you have to be signed in to your Google account).
 2. Replace the **Your City** text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 

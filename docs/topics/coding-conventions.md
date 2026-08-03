@@ -238,7 +238,7 @@ class C {
 The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
 
 The name of a method is usually a verb or a verb phrase saying what the method _does_: `close`, `readPersons`.
-The name should also suggest if the method is mutating the object or returning a new one. For instance `sort` is
+The name should also suggest if the method is mutating the object or returning a new one. For instance, `sort` is
 sorting a collection in place, while `sorted` is returning a sorted copy of the collection.
 
 The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words

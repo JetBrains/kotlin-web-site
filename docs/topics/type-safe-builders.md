@@ -1,6 +1,6 @@
 [//]: # (title: Type-safe builders)
 
-By using well-named functions as builders in combination with [function literals with receiver](lambdas.md#function-literals-with-receiver) 
+By using well-named functions as builders in combination with [function literals with receiver](lambdas.md#function-literals-with-receiver),
 it is possible to create type-safe, statically-typed builders in Kotlin.
 
 Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) suitable for building complex hierarchical 
@@ -211,7 +211,7 @@ fun html(init: HTML.() -> Unit): HTML {
 ## How it works
 
 Assume that you need to implement a type-safe builder in Kotlin.
-First of all, define the model you want to build. In this case you need to model HTML tags.
+First of all, define the model you want to build. In this case, you need to model HTML tags.
 It is easily done with a bunch of classes.
 For example, `HTML` is a class that describes the `<html>` tag defining children like `<head>` and `<body>`.
 (See its declaration [below](#full-definition-of-the-com-example-html-package).)
@@ -262,7 +262,7 @@ html {
 
 So, what does this call do? Let's look at the body of `html` function as defined above.
 It creates a new instance of `HTML`, then it initializes it by calling the function that is passed as an argument
-(in this example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
+(in this example, this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
 This is exactly what a builder should do.
 
 The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
@@ -284,7 +284,7 @@ fun body(init: Body.() -> Unit): Body {
 }
 ```
 
-Actually these two functions do just the same thing, so you can have a generic version, `initTag`:
+Actually, these two functions do just the same thing, so you can have a generic version, `initTag`:
 
 ```kotlin
 protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
@@ -304,7 +304,7 @@ fun body(init: Body.() -> Unit) = initTag(Body(), init)
 
 And you can use them to build `<head>` and `<body>` tags. 
 
-One other thing to be discussed here is how you add text to tag bodies. In the example above you say something like:
+One other thing to be discussed here is how you add text to tag bodies. In the example above, you say something like:
 
 ```kotlin
 html {
@@ -330,7 +330,7 @@ So, what the prefix `+` does here is wrapping a string into an instance of `Text
 so that it becomes a proper part of the tag tree.
 
 All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
-In the last section you can read through the full definition of this package.
+In the last section, you can read through the full definition of this package.
 
 ## Scope control: @DslMarker
 
@@ -347,12 +347,12 @@ html {
 }
 ```
 
-In this example only members of the nearest implicit receiver `this@head` must be available; `head()` is a member of the 
+In this example, only members of the nearest implicit receiver `this@head` must be available; `head()` is a member of the 
 outer receiver `this@html`, so it must be illegal to call it.
 
 To address this problem, there is a special mechanism to control receiver scope.
 
-To make the compiler start controlling scopes you only have to annotate the types of all receivers used in the DSL with 
+To make the compiler start controlling scopes, you only have to annotate the types of all receivers used in the DSL with 
 the same marker annotation.
 For instance, for HTML Builders you declare an annotation `@HtmlTagMarker`:
 
@@ -377,7 +377,7 @@ Applying a DSL marker to other targets (such as functions or properties) has no 
 >
 {style="note"}
 
-In our DSL all the tag classes extend the same superclass `Tag`.
+In our DSL, all the tag classes extend the same superclass `Tag`.
 It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the 
 inherited classes as annotated:
 

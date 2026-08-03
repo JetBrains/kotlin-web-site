@@ -44,7 +44,7 @@ dependencies {
 >
 {style="warning"}
 
-### Use mutiple processors in a single target
+### Use multiple processors in a single target
 
 You can add more than one processor to a target:
 

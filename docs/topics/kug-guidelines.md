@@ -4,7 +4,7 @@ A Kotlin User Group, or KUG, is a community that is dedicated to Kotlin and that
 Kotlin programming experience with like-minded people.
 
 To become a KUG, your community should have some specific features shared by every KUG. It should:
-* Provide Kotlin-related content, with regular meetups as the main form of activity.
+* Provide Kotlin-related content with regular meetups as the main form of activity.
 * Host regular events (at least once every 3 months) with open registration and without any restriction for attendance.
 * Be driven and organized by the community, and it should not use events to earn money or gain any other business
   benefits from members and attendees.

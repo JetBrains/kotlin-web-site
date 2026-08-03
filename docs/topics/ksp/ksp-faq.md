@@ -20,7 +20,7 @@ is smaller. This is not possible for kapt because it delegates processing to jav
 
 ### Is KSP Kotlin-specific?
 
-KSP can process Java sources as well. The API is unified, meaning that when you parse a Java class and a Kotlin class
+KSP can process Java sources as well. The API is unified, meaning that when you parse a Java class and a Kotlin class,
 you get a unified data structure in KSP.
 
 ### How to upgrade KSP?
@@ -72,7 +72,7 @@ Here is a list of requirements for libraries/infrastructures:
 
 The following items have been planned:
 * Support [new Kotlin compiler](roadmap.md)
-* Improve support to multiplatform. For example, running KSP on a subset of targets/sharing computations between targets.
+* Improve support for multiplatform. For example, running KSP on a subset of targets/sharing computations between targets.
 * Improve performance. There are a bunch of optimizations to be done!
 * Keep fixing bugs.
 

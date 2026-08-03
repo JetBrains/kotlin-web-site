@@ -33,7 +33,7 @@ It's here for a reason and also contains practical information.
 * Do *not* post or display sexually explicit or violent material.
 * Do *not* post or threaten to post other people's personally identifying information ("doxing").
 * Do *not* make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
-* Do *not* engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
+* Do *not* engage in sexual attention. This includes sexualized comments or jokes and sexual advances.
 * Do *not* advocate for, or encourage, any of the above behavior.
 
 ## How to report issues
@@ -67,7 +67,7 @@ If we all follow a set of guidelines, it can help make things more useful and be
 * Don't split messages into multiple ones. Ask it all in a single message.
 * Use code blocks. Don't paste code as plain text. Slack supports Kotlin markup. 
   If the code you are pasting is longer than a few lines, use "Code or text snippet" available from `+` menu next to message input.
-  Only first few lines will be displayed to all users and people interested in the code can expand your code to look into details.
+  Only first few lines will be displayed to all users, and people interested in the code can expand your code to look into details.
 * While it's polite to say "Hi" or "I have a question" before asking something, it doesn't scale and leads to noise.
   You can say hello in the same message you ask the question if you like.
 * Using threads is not required, but do take into account that it does allow people to more easily follow conversations, 

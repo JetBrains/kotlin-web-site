@@ -24,71 +24,71 @@ In Kotlin, there are many operations on collections that look exactly the same a
 
 ### Operations on lists, sets, queues, and deques
 
-| Description | Common operations | More Kotlin alternatives |
-|-------------|-----------|---------------------|
-| Add an element or elements | `add()`, `addAll()` | Use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `collection += element`, `collection += anotherCollection`. |
-| Check whether a collection contains an element or elements | `contains()`, `containsAll()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in collection`. |
-| Check whether a collection is empty | `isEmpty()` | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a collection is not empty. |
-| Remove under a certain condition | `removeIf()` | |
-| Leave only selected elements | `retainAll()` | |
-| Remove all elements from a collection | `clear()` | |
-| Get a stream from a collection | `stream()` | Kotlin has its own way to process streams: [sequences](#sequences) and methods like [`map()`](collection-filtering.md) and [`filter()`](#filter-elements). |
-| Get an iterator from a collection | `iterator()` | |
+| Description                                                | Common operations             | More Kotlin alternatives                                                                                                                                   |
+|------------------------------------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Add an element or elements                                 | `add()`, `addAll()`           | Use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `collection += element`, `collection += anotherCollection`.                               |
+| Check whether a collection contains an element or elements | `contains()`, `containsAll()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in collection`.                 |
+| Check whether a collection is empty                        | `isEmpty()`                   | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a collection is not empty.        |
+| Remove under a certain condition                           | `removeIf()`                  |                                                                                                                                                            |
+| Leave only selected elements                               | `retainAll()`                 |                                                                                                                                                            |
+| Remove all elements from a collection                      | `clear()`                     |                                                                                                                                                            |
+| Get a stream from a collection                             | `stream()`                    | Kotlin has its own way to process streams: [sequences](#sequences) and methods like [`map()`](collection-filtering.md) and [`filter()`](#filter-elements). |
+| Get an iterator from a collection                          | `iterator()`                  |                                                                                                                                                            |
 
 ### Operations on maps
 
-| Description | Common operations | More Kotlin alternatives |
-|-------------|-----------|---------------------|
-| Add an element or elements | `put()`, `putAll()`, `putIfAbsent()`| In Kotlin, the assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `map += Pair(key, value)` or `map += anotherMap`. |
-| Replace an element or elements | `put()`, `replace()`, `replaceAll()` | Use the indexing operator `map[key] = value` instead of `put()` and `replace()`. |
-| Get an element | `get()` | Use the indexing operator to get an element: `map[index]`. |
-| Check whether a map contains an element or elements | `containsKey()`, `containsValue()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in map`. |
-| Check whether a map is empty |  `isEmpty()` | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a map is not empty. |
-| Remove an element | `remove(key)`, `remove(key, value)` | Use the [`minusAssign`(`-=`) operator](collection-plus-minus.md): `map -= key`. |
-| Remove all elements from a map | `clear()` | |
-| Get a stream from a map | `stream()` on entries, keys, or values | |
+| Description                                         | Common operations                      | More Kotlin alternatives                                                                                                                                                                                             |
+|-----------------------------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Add an element or elements                          | `put()`, `putAll()`, `putIfAbsent()`   | In Kotlin, the assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `map += Pair(key, value)` or `map += anotherMap`. |
+| Replace an element or elements                      | `put()`, `replace()`, `replaceAll()`   | Use the indexing operator `map[key] = value` instead of `put()` and `replace()`.                                                                                                                                     |
+| Get an element                                      | `get()`                                | Use the indexing operator to get an element: `map[index]`.                                                                                                                                                           |
+| Check whether a map contains an element or elements | `containsKey()`, `containsValue()`     | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in map`.                                                                                  |
+| Check whether a map is empty                        | `isEmpty()`                            | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a map is not empty.                                                                         |
+| Remove an element                                   | `remove(key)`, `remove(key, value)`    | Use the [`minusAssign`(`-=`) operator](collection-plus-minus.md): `map -= key`.                                                                                                                                      |
+| Remove all elements from a map                      | `clear()`                              |                                                                                                                                                                                                                      |
+| Get a stream from a map                             | `stream()` on entries, keys, or values |                                                                                                                                                                                                                      |
 
 ### Operations that exist only for lists
 
-| Description | Common operations | More Kotlin alternatives |
-|-------------|-----------|---------------------|
-| Get an index of an element | `indexOf()` | |
-| Get the last index of an element | `lastIndexOf()` | |
-| Get an element | `get()` | Use the indexing operator to get an element: `list[index]`. |
-| Take a sublist | `subList()` | |
-| Replace an element or elements | `set()`,  `replaceAll()` | Use the indexing operator instead of `set()`: `list[index] = value`. |
+| Description                      | Common operations        | More Kotlin alternatives                                             |
+|----------------------------------|--------------------------|----------------------------------------------------------------------|
+| Get an index of an element       | `indexOf()`              |                                                                      |
+| Get the last index of an element | `lastIndexOf()`          |                                                                      |
+| Get an element                   | `get()`                  | Use the indexing operator to get an element: `list[index]`.          |
+| Take a sublist                   | `subList()`              |                                                                      |
+| Replace an element or elements   | `set()`,  `replaceAll()` | Use the indexing operator instead of `set()`: `list[index] = value`. |
 
 ## Operations that differ a bit
 
 ### Operations on any collection type
 
-| Description | Java | Kotlin |
-|-------------|------|--------|
-| Get a collection's size | `size()` | `count()`, `size` |
-| Get flat access to nested collection elements | `collectionOfCollections.forEach(flatCollection::addAll)` or `collectionOfCollections.stream().flatMap().collect()` | [`flatten()`](collection-transformations.md#flatten) or [`flatMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html) |
-| Apply the given function to every element | `stream().map().collect()` | [`map()`](collection-filtering.md) |
-| Apply the provided operation to collection elements sequentially and return the accumulated result | `stream().reduce()` | [`reduce()`, `fold()`](collection-aggregate.md#fold-and-reduce) |
-| Group elements by a classifier and count them | `stream().collect(Collectors.groupingBy(classifier, counting()))` | [`eachCount()`](collection-grouping.md) |
-| Filter by a condition | `stream().filter().collect()` | [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) |
-| Check whether collection elements satisfy a condition | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [`none()`, `any()`, `all()`](collection-filtering.md) |
-| Sort elements | `stream().sorted().collect()` | [`sorted()`](collection-ordering.md#natural-order) |
-| Take the first N elements | `stream().limit(N).collect()` | [`take(N)`](collection-parts.md#take-and-drop) |
-| Take elements with a predicate | `stream().takeWhile().collect()` | [`takeWhile()`](collection-parts.md#take-and-drop) |
-| Skip the first N elements | `stream().skip(N).collect()` | [`drop(N)`](collection-parts.md#take-and-drop) |
-| Skip elements with a predicate | `stream().dropWhile().collect()` | [`dropWhile()`](collection-parts.md#take-and-drop) |
-| Build maps from collection elements and certain values associated with them | `stream().collect(toMap(keyMapper, valueMapper))` | [`associate()`](collection-transformations.md#associate) |
+| Description                                                                                        | Java                                                                                                                | Kotlin                                                                                                                                               |
+|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Get a collection's size                                                                            | `size()`                                                                                                            | `count()`, `size`                                                                                                                                    |
+| Get flat access to nested collection elements                                                      | `collectionOfCollections.forEach(flatCollection::addAll)` or `collectionOfCollections.stream().flatMap().collect()` | [`flatten()`](collection-transformations.md#flatten) or [`flatMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html) |
+| Apply the given function to every element                                                          | `stream().map().collect()`                                                                                          | [`map()`](collection-filtering.md)                                                                                                                   |
+| Apply the provided operation to collection elements sequentially and return the accumulated result | `stream().reduce()`                                                                                                 | [`reduce()`, `fold()`](collection-aggregate.md#fold-and-reduce)                                                                                      |
+| Group elements by a classifier and count them                                                      | `stream().collect(Collectors.groupingBy(classifier, counting()))`                                                   | [`eachCount()`](collection-grouping.md)                                                                                                              |
+| Filter by a condition                                                                              | `stream().filter().collect()`                                                                                       | [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html)                                                            |
+| Check whether collection elements satisfy a condition                                              | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()`                                                | [`none()`, `any()`, `all()`](collection-filtering.md)                                                                                                |
+| Sort elements                                                                                      | `stream().sorted().collect()`                                                                                       | [`sorted()`](collection-ordering.md#natural-order)                                                                                                   |
+| Take the first N elements                                                                          | `stream().limit(N).collect()`                                                                                       | [`take(N)`](collection-parts.md#take-and-drop)                                                                                                       |
+| Take elements with a predicate                                                                     | `stream().takeWhile().collect()`                                                                                    | [`takeWhile()`](collection-parts.md#take-and-drop)                                                                                                   |
+| Skip the first N elements                                                                          | `stream().skip(N).collect()`                                                                                        | [`drop(N)`](collection-parts.md#take-and-drop)                                                                                                       |
+| Skip elements with a predicate                                                                     | `stream().dropWhile().collect()`                                                                                    | [`dropWhile()`](collection-parts.md#take-and-drop)                                                                                                   |
+| Build maps from collection elements and certain values associated with them                        | `stream().collect(toMap(keyMapper, valueMapper))`                                                                   | [`associate()`](collection-transformations.md#associate)                                                                                             |
 
 To perform all of the operations listed above on maps, you first need to get an `entrySet` of a map.
 
 ### Operations on lists
 
-| Description | Java | Kotlin |
-|-------------|------|--------|
-| Sort a list into natural order | `sort(null)` | `sort()` |
-| Sort a list into descending order | `sort(comparator)` | `sortDescending()` |
-| Remove an element from a list | `remove(index)`, `remove(element)`| `removeAt(index)`, `remove(element)` or [`collection -= element`](collection-plus-minus.md) |
-| Fill all elements of a list with a certain value | `Collections.fill()` | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) |
-| Get unique elements from a list | `stream().distinct().toList()` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
+| Description                                      | Java                               | Kotlin                                                                                        |
+|--------------------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------|
+| Sort a list into natural order                   | `sort(null)`                       | `sort()`                                                                                      |
+| Sort a list into descending order                | `sort(comparator)`                 | `sortDescending()`                                                                            |
+| Remove an element from a list                    | `remove(index)`, `remove(element)` | `removeAt(index)`, `remove(element)` or [`collection -= element`](collection-plus-minus.md)   |
+| Fill all elements of a list with a certain value | `Collections.fill()`               | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html)         |
+| Get unique elements from a list                  | `stream().distinct().toList()`     | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
 
 ## Operations that don't exist in Java's standard library
 
@@ -340,7 +340,7 @@ System.out.println(sum); // Prints 145
 ```
 {id="sequences-java"}
 
-In Kotlin, use _[sequences](sequences.md)_. Multi-step processing of
+In Kotlin, use _[sequences](sequences.md)_. Multistep processing of
 sequences is executed lazily when possible –
 actual computing happens only when the result of the whole processing chain is requested.
 
