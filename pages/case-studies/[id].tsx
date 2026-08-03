@@ -107,50 +107,45 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
     );
 }
 
-function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType } | null {
-    const caseTypes: CaseType[] = ['multiplatform', 'backend'];
+const CASE_STUDY_TYPES: CaseType[] = ['multiplatform', 'backend'];
 
-    for (const caseType of caseTypes) {
+interface CaseStudyFile {
+    slug: string;
+    filePath: string;
+    caseType: CaseType;
+}
+
+function getAllCaseStudyFiles(): CaseStudyFile[] {
+    const files: CaseStudyFile[] = [];
+
+    for (const caseType of CASE_STUDY_TYPES) {
         const contentDir = path.join(process.cwd(), `data/case-studies/${caseType}`);
-        if (!fs.existsSync(contentDir)) continue;
+        if (!fs.existsSync(contentDir)) {
+            throw new Error(
+                `Case study content directory not found: "${contentDir}". ` +
+                `If "${caseType}" was renamed, update CASE_STUDY_TYPES in pages/case-studies/[id].tsx ` +
+                `and move the matching folder under data/case-studies/.`
+            );
+        }
 
-        const files = fs.readdirSync(contentDir);
-        const filename = files.find(file => {
-            if (!file.endsWith('.md')) return false;
-            const filePath = path.join(contentDir, file);
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            const { data } = matter(fileContent);
-            return data.slug === slug;
-        });
-
-        if (filename) {
-            return {
-                filePath: path.join(contentDir, filename),
-                caseType
-            };
+        for (const filename of fs.readdirSync(contentDir)) {
+            if (!filename.endsWith('.md')) continue;
+            const filePath = path.join(contentDir, filename);
+            const { data } = matter(fs.readFileSync(filePath, 'utf-8'));
+            files.push({ slug: data.slug, filePath, caseType });
         }
     }
 
-    return null;
+    return files;
+}
+
+function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType } | null {
+    const file = getAllCaseStudyFiles().find(f => f.slug === slug);
+    return file ? { filePath: file.filePath, caseType: file.caseType } : null;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const caseTypes: CaseType[] = ['multiplatform', 'backend'];
-    const paths: { params: { id: string } }[] = [];
-
-    for (const caseType of caseTypes) {
-        const contentDir = path.join(process.cwd(), `data/case-studies/${caseType}`);
-        if (!fs.existsSync(contentDir)) continue;
-
-        const files = fs.readdirSync(contentDir);
-        for (const filename of files) {
-            if (!filename.endsWith('.md')) continue;
-            const filePath = path.join(contentDir, filename);
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            const { data } = matter(fileContent);
-            paths.push({ params: { id: data.slug } });
-        }
-    }
+    const paths = getAllCaseStudyFiles().map(file => ({ params: { id: file.slug } }));
 
     return {
         paths,
