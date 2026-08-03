@@ -39,9 +39,9 @@ It's useful for interactive development tasks where you want to stay in control 
 
 The AI assistant provides:
 
-* Context-aware AI chat using JetBrains, third-party, or local AI models.
-* Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support
+* Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support 
 the [Agent Client Protocol](#agent-client-protocol).
+* Context-aware AI chat using JetBrains, third-party, or local AI models.
 * AI-assisted code completion and next step suggestions.
 
 Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html).
@@ -71,7 +71,7 @@ can explore a project, plan implementation steps, modify multiple files, or run 
 
 ### Junie
 
-[Junie](https://www.jetbrains.com/junie/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs and Android Studio](https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains),
+[Junie](https://junie.jetbrains.com/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs and Android Studio](https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains),
 [from your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [in headless mode](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD scripts.
 
 Junie is designed for tasks that require more than a single code suggestion or chat response. Use Junie for development
@@ -146,29 +146,30 @@ The following tools support AI-assisted development beyond individual coding ses
 
 ### JetBrains Air
 
-[JetBrains Air](https://air.dev/) is an agentic development environment for delegating coding tasks to multiple AI agents
-and running them concurrently. Air is available:
+[JetBrains Air](https://air.dev/) is an Agentic Development Environment (ADE) for delegating coding tasks to AI agents.
+With Air, you can provide context for each task, choose the agent, model, and execution environment, and then review or
+refine the resulting changes before applying them to your code.
 
-* As an IDE on your desktop, for interactive, agent-driven development locally or in an isolated environment.
-* For organizations, on the web as a way to manage automated development workflows in remote cloud environments.
+Use Air when you want to delegate a defined coding task to an AI agent, isolate AI-generated changes from your local working copy,
+run multiple implementation tasks in parallel, or turn recurring development tasks into scheduled or event-driven automations.
+You can run tasks in your local workspace, isolated Git worktree or Docker container, and JetBrains-managed cloud environment.
 
-Use JetBrains Air when you want several agents to work on tasks at the same time while keeping each task isolated from
-the main codebase. This is useful for experimentation, parallel implementation attempts, comparing agent output, or 
-assigning different tasks to different agents.
+JetBrains Air provide:
+
+* **Air Desktop** – Run local and cloud tasks from a desktop application.
+* **Air Web** – Run, monitor, and manage cloud tasks and automations from a web browser.
+* **AI Assistant** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
+Air Web.
 
 Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
 
 ### JetBrains Central
 
-[JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is an open platform for coordinating, monitoring, and governing agent-driven software development
-across teams. It connects tools, agents, and infrastructure so you can run, monitor, and manage automated work in one place.
-The platform lets you start agent workflows from the tools you already use and work with the AI agents of your choice.
+[JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is a tool that helps organizations coordinate AI agents as part of software production across
+teams rather than treating them as isolated developer tools.
 
 Use JetBrains Central when AI-assisted development needs to move beyond individual coding sessions.
 For teams and organizations, the challenge is not only generating code but also managing visibility, cost,
 performance, results, and governance across many agent-driven tasks.
-
-JetBrains Central helps organizations coordinate AI agents as part of software production across teams rather than treating
-them as isolated developer tools.
 
 Learn more about [JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html).
