@@ -34,7 +34,7 @@ object KotlinWithCoroutines: WritersideBuilder(
         addSubDocumentation("kotlinx-lincheck", KotlinxLincheckRoot, """
             +:.git => kotlinx-lincheck/.git
             +:docs => kotlinx-lincheck/docs
-            +:lincheck => kotlinx-lincheck/lincheck
+            +:examples => kotlinx-lincheck/examples
         """.trimIndent())
     }
 }
