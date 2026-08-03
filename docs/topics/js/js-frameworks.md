@@ -40,7 +40,6 @@ For documentation and examples, see the [Kilua repository](https://github.com/rj
 
 For updates and discussions about the framework, join the [#kilua](https://kotlinlang.slack.com/archives/C06UAH52PA7) channel in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
-Great addition—here are two sections you can paste into the doc (matching the existing style):
 
 ## Summon
 
