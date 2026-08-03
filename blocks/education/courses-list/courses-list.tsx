@@ -34,9 +34,13 @@ export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
                     <div className={cn(styles.cell, styles.cellSecond)}>{university.location}</div>
                     <div className={cn(styles.cell, styles.cellThird)}>
                         {university.courses.map((course) => (
-                            <a className={textCn('rs-link', { external: true, hardness: 'hard' })} href={course.url} target="_blank" rel="noopener noreferrer" key={`${course.name}-${course.url}`}>
-                                {course.name}
-                            </a>
+                            course.url ? (
+                                <a className={textCn('rs-link', { external: true, hardness: 'hard' })} href={course.url} target="_blank" rel="noopener noreferrer" key={`${course.name}-${course.url}`}>
+                                    {course.name}
+                                </a>
+                            ) : (
+                                <div key={`${course.name}-${course.url}`}>{course.name}</div>
+                            )
                         ))}
                     </div>
                 </div>
