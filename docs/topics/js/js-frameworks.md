@@ -40,6 +40,23 @@ For documentation and examples, see the [Kilua repository](https://github.com/rj
 
 For updates and discussions about the framework, join the [#kilua](https://kotlinlang.slack.com/archives/C06UAH52PA7) channel in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
+Great addition—here are two sections you can paste into the doc (matching the existing style):
+
+## Summon
+
+[Summon](https://summon.yousef.codes/) is a Kotlin Multiplatform frontend framework for building high-performance applications across JVM, Kotlin/JS, and Kotlin/Wasm.
+It supports component-based UI development, first-class server-side rendering (SSR) with HTML streaming, and modifier-driven styling that compiles to clean CSS.
+
+Summon also focuses on runtime-aware components for accessibility and advanced behavior, while keeping a unified codebase across platforms.
+
+For documentation and examples, see the [Summon website](https://summon.yousef.codes/).
+
+## Kinetica
+
+[Kinetica](https://kinetica.heapy.io/) is a Kotlin UI framework focused on practical outcomes for web apps: fast initial page delivery through server rendering, SEO-friendly HTML output, and a smooth handoff to interactive client-side UI after the page loads. It also supports headless testing, which helps teams test UI behavior quickly and reliably without depending on full browser environments. [^1]
+
+Out of the box, Kinetica includes routing, forms, and persistence modules, so teams can ship common app features faster. Its update model applies minimal DOM patches, which helps keep interactions responsive as state changes, and its consistent reactive model is designed to reduce unexpected behavior in larger apps.
+
 ## Kotlin React
 
 [React](https://react.dev/) is a component-based library, widely used for web and native user interfaces. 
