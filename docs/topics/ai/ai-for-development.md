@@ -158,7 +158,7 @@ JetBrains Air provide:
 
 * **Air Desktop** – Run local and cloud tasks from a desktop application.
 * **Air Web** – Run, monitor, and manage cloud tasks and automations from a web browser.
-* **AI Assistant** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
+* **AI Assistant Plugin in IDEs** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
 Air Web.
 
 Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
