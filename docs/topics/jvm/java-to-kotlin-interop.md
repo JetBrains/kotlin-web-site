@@ -208,8 +208,8 @@ Kotlin represents package-level functions as static methods.
 It also generates static methods for functions defined in named objects or companion objects if you annotate such
 functions with [`@JvmStatic`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/).
 
-For a function in a companion object, the compiler generates both a static method in the enclosing class and
-an instance method in the companion object itself:
+If you use `@JvmStatic` on a function in a companion object, the compiler generates both a static method in the enclosing
+class and an instance method in the companion object itself:
 
 ```kotlin
 // Kotlin
@@ -221,7 +221,7 @@ class C {
 }
 ```
 
-Now, the `callStatic()` method is static in Java while `callNonStatic()` is not:
+In Java, the `callStatic()` method is static while `callNonStatic()` is not:
 
 ```java
 // Java
@@ -242,7 +242,7 @@ object Obj {
 }
 ```
 
-In Java:
+In Java, the `callStatic()` method is static, while `callNonStatic()` is only available through the singleton instance:
 
 ```java
 // Java
