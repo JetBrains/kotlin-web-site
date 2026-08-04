@@ -1,12 +1,15 @@
 [//]: # (title: Browser and DOM API)
 
 The [`kotlinx-browser`](https://github.com/Kotlin/kotlinx-browser) library lets you access browser-specific functionality.
-It includes typical top-level objects such as `document` and `window` and provides typesafe wrappers
-for the functionality exposed by these objects where possible.
+It includes common top-level objects such as `document` and `window` and, where possible, provides typesafe wrappers
+for their functionality.
 
-As a fallback, the `dynamic` type is used to provide interaction with functions that do not map well into the Kotlin type system.
+As a fallback, the `dynamic` type provides access to functions that do not map well into the Kotlin type system.
 
-To use the browser and DOM API, add the `kotlinx-browser` library as a dependency to your project's build file:
+To use the browser and DOM API, add the `kotlinx-browser` library as a dependency to your project's `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 repositories {
@@ -21,12 +24,38 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-browser:0.5.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-browser:%kotlinxBrowserVersion%")
             }
         }
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    js {
+        browser()
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-browser:%kotlinxBrowserVersion%'
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Interaction with the DOM
 
