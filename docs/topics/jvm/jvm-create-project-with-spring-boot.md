@@ -2,11 +2,6 @@
 
 <web-summary>Create a Spring Boot application with Kotlin using IntelliJ IDEA.</web-summary>
 
-<tldr>
-    <p>This is the first part of the <strong>Get started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
-    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for the Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
-</tldr>
-
 The first part of the tutorial shows how to create a Spring Boot project with Gradle in IntelliJ IDEA using the Project Wizard.
 
 > This tutorial doesn't require using Gradle as the build system. You can follow the same steps if you use Maven.
@@ -278,4 +273,8 @@ The Spring application is now ready to run:
 
 In the next part of the tutorial, you'll learn about Kotlin data classes and how you can use them in your application.
 
-**[Proceed to the next chapter](jvm-spring-boot-add-data-class.md)**
+<list id="tour-nav">
+  <li>
+    <a as="button" href="jvm-spring-boot-add-data-class.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

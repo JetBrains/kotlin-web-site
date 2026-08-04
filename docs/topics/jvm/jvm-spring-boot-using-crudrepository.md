@@ -2,11 +2,6 @@
 
 <web-summary>Work with Spring Data interface in a Spring Boot project written in Kotlin.</web-summary>
 
-<tldr>
-    <p>This is the final part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
-</tldr>
-
 In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
 _CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type.
 It provides several methods out of the box for interacting with a database.
@@ -211,6 +206,12 @@ Congratulations! The application is ready to run again.
 After replacing `JdbcTemplate` with `CrudRepository`, the functionality remains the same, so the application works just as before.
 
 You can now [run the POST and GET HTTP requests](jvm-spring-boot-add-db-support.md#add-messages-to-database-via-http-request) from the `requests.http` file and get the same results.
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="jvm-spring-boot-add-db-support.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+</list>
 
 ## What's next
 

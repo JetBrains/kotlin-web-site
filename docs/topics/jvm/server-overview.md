@@ -13,7 +13,7 @@ writing tests or new production code in Kotlin while keeping other parts of your
 Configure your Java project to work with Kotlin and make use of the automated Java-to-Kotlin converter
 included in IntelliJ IDEA:
 
-<a href="mixing-java-kotlin-intellij.md"><img src="backend-get-started-button.svg" alt="Introduce Kotlin to your Java project" style="block"/></a>
+<a href="mixing-java-kotlin-intellij.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Introduce Kotlin to your Java project</a>
 
 ## Explore frameworks
 
@@ -26,14 +26,14 @@ such as support for Spring and Ktor in IntelliJ IDEA with an Ultimate subscripti
 [Spring](https://spring.io) makes use of Kotlin's language features to offer more concise APIs.
 The [online project generator](https://start.spring.io/#!language=kotlin) allows you to quickly generate a new project in Kotlin.
 
-<a href="jvm-get-started-spring-boot.md"><img src="spring-get-started-button.svg" alt="Get started with Spring Boot and Kotlin" style="block"/></a>
+<a href="jvm-get-started-spring-boot.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Get started with Spring Boot and Kotlin</a>
 
 ### Ktor
 
 [Ktor](https://github.com/kotlin/ktor) is a JetBrains framework for creating web applications in Kotlin.
 It uses coroutines for high scalability and offers an easy-to-use idiomatic API.
 
-<a href="https://ktor.io/docs/server-create-a-new-project.html"><img src="ktor-get-started-button.svg" alt="Create a new Ktor project" style="block"/></a>
+<a href="https://ktor.io/docs/server-create-a-new-project.html" as="button" mode="classic" icon="arrow-right" icon-position="right">Create a new Ktor project</a>
 
 ### Other frameworks
 

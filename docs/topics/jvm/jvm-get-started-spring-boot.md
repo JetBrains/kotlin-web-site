@@ -7,17 +7,13 @@ application with Spring Boot and adding a database to store the information.
 
 Going through these four steps, you'll learn a lot of essential features of the Kotlin language: 
 
-![First step](icon-1.svg){width=25}{type="joined"}  [Create a Spring Boot project](jvm-create-project-with-spring-boot.md)
+<p><img src="icon-1.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project</a><br/>
+   <img src="icon-2.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/>
+   <img src="icon-3.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for the Spring Boot project</a><br/>
+   <img src="icon-4.svg" width="20" alt="Fourth step"/> <a href="jvm-spring-boot-using-crudrepository.md">Use Spring Data CrudRepository for database access</a><br/>
+</p>
 
-![Second step](icon-2.svg){width=25}{type="joined"} [Add a data class to Spring Boot project](jvm-spring-boot-add-data-class.md)
-
-![Third step](icon-3.svg){width=25}{type="joined"}  [Add database support for the Spring Boot project](jvm-spring-boot-add-db-support.md)
-
-![Fourth step](icon-4.svg){width=25}{type="joined"} [Use Spring Data CrudRepository for database access](jvm-spring-boot-using-crudrepository.md)
-
-## Next step
-
-Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md) with Kotlin using IntelliJ IDEA.
+<a href="jvm-create-project-with-spring-boot.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
 
 ### See also
 
