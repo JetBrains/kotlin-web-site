@@ -356,7 +356,7 @@ Kotlin supports the following annotations in the `org.jspecify.annotations` pack
 
 * `@Nullable` marks a type as nullable.
 * `@NonNull` marks a type as non-nullable.
-* `@NullMarked` marks all types within a scope, for example, a class or package, as non-nullable by default unless annotated
+* `@NullMarked` marks all types within a scope, for example a class or package, as non-nullable by default unless annotated
   otherwise.
 
   This annotation doesn't apply to local variables and [type variables (generics)](https://jspecify.dev/docs/user-guide/#using-type-variables-in-generic-types).
