@@ -3,8 +3,8 @@
 In Kotlin, classes and their members are `final` by default. This can cause issues with frameworks and libraries that rely on
 subclassing and runtime proxies, which require classes to be `open`.
 
-The `all-open` compiler plugin makes classes and their members open without using the `open` keyword at the compile time. 
-To use it, create an annotation, add it in the plugin options, and annotate the classes you want to make open:
+The `all-open` compiler plugin makes classes and their members `open` at compile time without requiring the `open` keyword.
+You need to create an annotation, add it to the plugin options, and annotate the classes you want to make `open`:
 
 ```kotlin
 @YourAnnotation
@@ -16,14 +16,14 @@ class MyService {
 
 If a class or any of its superclasses is annotated with a configured annotation, the class and its members become `open`.
 
-> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).  
-> It marks all classes and methods as `open` if they are annotated with Spring annotations.
+> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
+> It makes a class and its members `open` when they have a Spring annotation.
 >
 {style="note"}
 
 ## Declare an annotation
 
-Before enabling the `all-open` plugin, declare an annotation to mark the classes you want to make open.
+Before enabling the `all-open` plugin, declare an annotation to mark the classes you want to make `open`.
 For example, `AllOpenMarker`:
 
 ```kotlin
@@ -63,7 +63,7 @@ plugins {
 </tab>
 </tabs>
 
-Then specify an annotation or a list of annotations that make classes open:
+Then specify an annotation or a list of annotations that make classes `open`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -125,16 +125,11 @@ Add the plugin in your `pom.xml` file:
 
 ## Use the all-open plugin
 
-If the class (or any of its superclasses) is annotated with created `com.example.AllOpenMarker`,
-the class itself and all its members become open:
+If a class or any of its superclasses has the `com.example.AllOpenMarker` annotation you created,
+the class and all its members become `open`:
 
 ```kotlin
-// Use the AllOpenMarker annotation in your project
 package com.example
-
-fun main() {
-    // 
-}
 
 @AllOpenMarker
 class TestClass {
@@ -142,8 +137,8 @@ class TestClass {
 }
 ```
 
-It also works with meta-annotations. If you mark another annotation with `AllOpenMarker`,
-all classes and members annotated with it become open:
+The plugin also works with meta-annotations. If you mark another annotation with `@AllOpenMarker`,
+all classes and members annotated with it become `open`:
 
 ```kotlin
 package com.example
@@ -163,7 +158,7 @@ class AnotherClass {
 }
 ```
 
-<!-- 
+<!--
 ## Command-line compiler
 
 All-open compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
@@ -188,4 +183,8 @@ Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and
 
 ## What's next?
 
+* For Spring applications, use the [`kotlin-spring` plugin](kotlin-spring-plugin.md), a preconfigured wrapper
+  that makes classes with Spring annotations `open`.
+* For JPA entities, use the [`kotlin-jpa` plugin](kotlin-jpa-plugin.md), which makes entities `open` and generates
+  zero-argument constructors for them.
 * Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).

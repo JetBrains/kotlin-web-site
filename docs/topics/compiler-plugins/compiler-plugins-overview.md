@@ -13,7 +13,7 @@ The Kotlin team maintains the following compiler plugins:
 | [All-open](all-open-plugin.md)                                                                 | Automatically makes annotated classes and their members `open` so frameworks can extend them at runtime.                                  |
 | [AtomicFU](https://github.com/Kotlin/kotlinx-atomicfu)                                         | Transforms atomic operations into efficient, platform-specific implementations for lock-free concurrency.                                 |
 | [DataFrame](https://kotlin.github.io/dataframe/compiler-plugin.html)                           | Generates typed APIs that let you work with a [`DataFrame`](https://kotlin.github.io/dataframe/home.html) in a safe, Kotlin-friendly way. |
-| [JPA](kotlin-jpa-plugin.md) |  |
+| [JPA](kotlin-jpa-plugin.md)                                                                    | Makes JPA-annotated entities `open` and generates zero-argument constructors for them; wraps `all-open` and `no-arg`.                     |
 | [`jvm-abi-gen`](https://github.com/JetBrains/kotlin/tree/master/plugins/jvm-abi-gen)           | Generates Application Binary Interface (ABI) JARs.                                                                                        |
 | [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects) | Exposes Kotlin classes as plain JavaScript objects to improve interop with JS tooling and libraries.                                      |
 | [kapt](kapt.md)                                                                                | Runs Java annotation processors on Kotlin code and generates additional source files.                                                     |
@@ -21,7 +21,7 @@ The Kotlin team maintains the following compiler plugins:
 | [`no-arg`](no-arg-plugin.md)                                                                   | Generates no-argument constructors for annotated classes to support frameworks that require them.                                         |
 | [Power-assert](power-assert.md)                                                                | Enhances assertion failures by showing detailed values for each part of an expression.                                                    |
 | [SAM with receiver](sam-with-receiver-plugin.md)                                               | Allows SAM interfaces to use lambdas with receivers for a more DSL-like syntax.                                                           |
-| [Spring](kotlin-spring-plugin.md) | |
+| [Spring](kotlin-spring-plugin.md)                                                              | Makes Spring-annotated classes and members `open`; a preconfigured wrapper around `all-open`.                                            |
 | [Serialization](serialization.md)                                                              | Generates code that serializes and deserializes Kotlin objects without reflection.                                                        |
 
 The Android team at Google maintains:
