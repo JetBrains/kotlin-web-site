@@ -217,9 +217,7 @@ You can now [run the POST and GET HTTP requests](jvm-spring-boot-add-db-support.
 
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language:
 
-<a href="https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Language_Features_Map.pdf">
-   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map" style="block"/>
-</a>
+<a as="button" href="https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Language_Features_Map.pdf" mode="rock" icon="arrow-right" icon-position="right">Get the Kotlin language map</a>
 
 * Check out the [Spring Framework](https://docs.spring.io/spring-framework/reference/) documentation.
 * Create a simple web application with protected resources in the [Securing a web application](https://spring.io/guides/gs/securing-web) tutorial.
