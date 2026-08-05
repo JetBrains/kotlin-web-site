@@ -208,11 +208,12 @@ and `.def` files and consume those wrappers through cinterop.
 In most cases, however, we recommend using the _reverse import_ approach: you define the expected behavior on the Kotlin
 side, implement the actual functionality on the Swift side, and pass it back to Kotlin.
 
-You can define the expected part in one of two ways:
+You can define the expected part in one of the following ways:
 
 * Create an interface. The interface-based approach scales better for multiple functions and testability.
 * Use Swift closures. They are great for quick prototypes, but this approach has its limitations —
   for example, it doesn't hold state.
+* Use [Swift export](native-swift-export.md). You can implement a Kotlin interface directly in Swift and pass the Swift object back to Kotlin, without Objective-C bridging.
 
 Consider this example of reverse importing the [CryptoKit](https://developer.apple.com/documentation/cryptokit/)
 Swift library into a Kotlin project:
@@ -316,6 +317,41 @@ Swift library into a Kotlin project:
         func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
     }
     ```
+
+</tab>
+<tab title="Swift export">
+
+1. On the Kotlin side, create an interface and a function that accepts it:
+
+   ```kotlin
+   // CryptoProvider.kt
+   interface CryptoProvider {
+       fun hashMD5(input: String): String
+   }
+
+   fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
+   ```
+
+2. On the Swift side, implement the interface using the pure Swift CryptoKit library and pass it back to Kotlin:
+
+   ```swift
+   // iosApp/ContentView.swift
+   import CryptoKit
+
+   class IosCryptoProvider: KotlinBase & CryptoProvider {
+       func hashMD5(input: String) -> String {
+           guard let data = input.data(using: .utf8) else { return "failed" }
+           return Insecure.MD5.hash(data: data).description
+       }
+   }
+
+   let provider = IosCryptoProvider()
+
+   // The call is dispatched to the Swift implementation
+   print(processHash(provider: provider, input: "Hello, world!"))
+   ```
+
+When Kotlin receives the Swift object, it treats it like an implementation of a regular interface, executing Swift code.
 
 </tab>
 </tabs>
