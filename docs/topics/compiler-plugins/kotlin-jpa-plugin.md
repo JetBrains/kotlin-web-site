@@ -16,12 +16,6 @@ The `kotlin-jpa` plugin addresses both. It's a preconfigured wrapper that applie
 
 The generated constructor is synthetic, so you can't call it directly from Java or Kotlin, but JPA can call it through reflection.
 
-> Applying `all-open` together with `no-arg` is available since Kotlin 2.3.20. In earlier versions, `kotlin-jpa` configured
-> only `no-arg`, so you had to add `all-open` (or [`kotlin-spring`](kotlin-spring-plugin.md)) with a JPA preset manually
-> to make lazy loading work.
->
-{style="note"}
-
 > If you generate a project template using [start.spring.io](https://start.spring.io/#!language=kotlin) with the JPA dependency,
 > the `kotlin-jpa` plugin is enabled by default.
 >
