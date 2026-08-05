@@ -527,7 +527,7 @@ class MyStringCollection {
 
 fun main() {
     val myStrings = MyStringCollection()
-    // Adds "first" and "second" to the list twice
+    // Adds "first" and "second" to the list
     myStrings.build()
       
     myStrings.printAll()
