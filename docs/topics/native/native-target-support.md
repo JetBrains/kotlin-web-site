@@ -46,7 +46,6 @@ Tier tables have the following columns:
 | `linuxArm64`            | `aarch64-unknown-linux-gnu`       |               | Linux on ARM64 platforms                                         |
 | Apple macOS hosts only: |                                   |               |                                                                  |
 | `watchosSimulatorArm64` | `aarch64-apple-watchos-simulator` | ✅             | Apple watchOS simulator 8.0 and later on Apple Silicon platforms |
-| `watchosArm32`          | `armv7k-apple-watchos`            |               | Apple watchOS 8.0 and later on ARM32 platforms                   |
 | `watchosArm64`          | `arm64_32-apple-watchos`          |               | Apple watchOS 8.0 and later on ARM64 platforms with ILP32        |
 | `tvosSimulatorArm64`    | `aarch64-apple-tvos-simulator`    | ✅             | Apple tvOS simulator 15.0 and later on Apple Silicon platforms   |
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS 15.0 and later on ARM64 platforms                     |
@@ -73,17 +72,9 @@ Tier tables have the following columns:
 | `watchosDeviceArm64`    | `aarch64-apple-watchos`          |               | Apple watchOS 8.0 and later on ARM64 platforms                                           |
 | `iosX64`                | `x86_64-apple-ios-simulator`     | ✅             | Apple iOS simulator 15.0 and later on x86-64 platforms                                   |
 
-> The `linuxArm32Hfp` target is deprecated and will be removed in future releases.
-> 
-{style="note"}
-
 ### Deprecated targets
 
-Starting with Kotlin 2.3.20, the following targets are deprecated:
-
-* `macosX64` (Apple macOS on x86_64 platforms)
-* `watchosX64` (Apple watchOS 64-bit simulator on x86_64 platforms)
-* `tvosX64` (Apple tvOS simulator on x86_64 platforms)
+The `watchosArm32` target (Apple watchOS devices on ARM32 platforms) is deprecated and will be removed in future releases.
 
 ### Supporting lower Apple target versions
 
