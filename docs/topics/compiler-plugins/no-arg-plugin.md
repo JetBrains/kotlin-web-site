@@ -60,7 +60,7 @@ noArg {
 ```
 
 Enable the `invokeInitializers` option if you want the plugin to run the class initialization logic
-from the synthetic constructor. This option is disabled by default.
+from the synthetic constructor. This option is disabled by default:
 
 ```groovy
 noArg {
@@ -80,7 +80,6 @@ Add the plugin to your `pom.xml` file:
 
     <configuration>
         <compilerPlugins>
-            <!-- Or "jpa" for JPA support -->
             <plugin>no-arg</plugin>
         </compilerPlugins>
 
