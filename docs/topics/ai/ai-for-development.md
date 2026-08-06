@@ -13,7 +13,7 @@ with Kotlin AI skills.
 * [Manage and scale AI development](#manage-ai-agents): Coordinate interactive and automated agent workflows.
 
 ```mermaid
-flowchart LR
+graph LR
     DefineTask["`Define the task
         _AI agent_`"]
     Guide["`Guide the AI tool
