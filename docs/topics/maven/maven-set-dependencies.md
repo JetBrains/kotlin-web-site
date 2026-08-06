@@ -137,13 +137,13 @@ To add a dependency on the [`kotlinx-datetime`](https://kotlinlang.org/api/kotli
 </dependencies>
 ```
 
-## Manage dependencies with BOM
+## Manage dependencies with a BOM
 
 A [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms)
 is a special POM file that manages dependency versions in your project. This keeps related artifacts aligned and avoids version conflicts.
 
 Kotlin publishes the [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom) artifact, which
-sets the versions of Kotlin libraries (such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`) that belong to a
+specifies the versions of Kotlin libraries, such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`, that corresponds to a
 single Kotlin release. This is useful when other libraries in your project have transitive dependencies on Kotlin
 artifacts, ensuring that all dependencies resolve to the same Kotlin version.
 
@@ -171,7 +171,7 @@ they come from the BOM file automatically.
 * If you still specify a `<version>` for a dependency, that value overrides the version from the BOM.
 
 If your project publishes several libraries that are released together, you can provide your own BOM so that users
-can align their versions the same way the Kotlin BOM does. To learn how to author your own BOM, see the
+can align the versions of those libraries in the same way. To learn how to author your own BOM, see the
 [Maven documentation](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms).
 
 ## What's next?
