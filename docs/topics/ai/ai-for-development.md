@@ -141,7 +141,7 @@ Learn more about [](kotlin-ai-skills.md).
 Kotlin Multiplatform projects in particular are complex enough for agents to lose track of the entire project structure
 and consequences of specific changes.
 
-To help your agent, include the following as your general ([AGENTS.md](https://agents.md/))
+To help the agent, you can include the following examples as your general ([AGENTS.md](https://agents.md/))
 or task-specific success criteria:
 
 * Run target-specific tests after introducing changes whenever such tests are available. 
