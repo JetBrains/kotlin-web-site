@@ -143,9 +143,9 @@ A [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introdu
 is a special POM file that manages dependency versions in your project. This keeps related artifacts aligned and avoids version conflicts.
 
 Kotlin publishes the [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom) artifact, which
-specifies the versions of Kotlin libraries, such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`, that corresponds to a
-single Kotlin release. This is useful when other libraries in your project have transitive dependencies on Kotlin
-artifacts, ensuring that all dependencies resolve to the same Kotlin version.
+specifies the versions of Kotlin libraries, such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`, that correspond
+to the same Kotlin release. This is useful when other libraries in your project have transitive dependencies on Kotlin
+artifacts because it ensures that all dependencies resolve to the same Kotlin version.
 
 To use the Kotlin BOM, import it in the `<dependencyManagement>` section of your `pom.xml` file as follows:
 
@@ -166,8 +166,8 @@ To use the Kotlin BOM, import it in the `<dependencyManagement>` section of your
 After importing the BOM, you can declare Kotlin dependencies in the `<dependencies>` section without specifying their versions;
 they come from the BOM file automatically.
 
-* Importing a BOM doesn't add any dependencies to your project on its own. It only controls the versions of dependencies
-  that you declare explicitly or that come in transitively.
+* Importing a BOM doesn't add any dependencies to your project on its own. It only controls the versions of explicitly
+  declared and transitive dependencies.
 * If you still specify a `<version>` for a dependency, that value overrides the version from the BOM.
 
 If your project publishes several libraries that are released together, you can provide your own BOM so that users
