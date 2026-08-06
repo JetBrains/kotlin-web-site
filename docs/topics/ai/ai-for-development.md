@@ -14,14 +14,23 @@ with Kotlin AI skills.
 
 ```mermaid
 graph LR
-    DefineTask["<b>Define the task</b><br/>AI agent</br>"]
-    Guide["<b>Guide the AI tool</b><br/>Kotlin AI skills"]
-    Connect["<b>Connect to the IDE</b><br/>ACP, MCP server"]
-    Implement["<b>Develop</b><br/>AI agent"]
-    Review["<b>Review and refine</b><br/>AI agent"]
-    Automate["<b>Automate</b><br/>JetBrains Air"]
+    DefineTask["**Define the task**
+        AI agent"]
+    Guide["**Guide the AI tool**
+        Kotlin AI skills"]
+    Connect["**Connect to the IDE**
+        ACP, MCP server"]
+    Implement["**Develop**
+        AI agent"]
+    Review["**Review and refine**
+        AI agent"]
+    Automate["**Automate**
+        JetBrains Air"]
 
     DefineTask --> Guide --> Connect --> Implement --> Review --> Automate
+
+    classDef largeNode font-size:18px;
+    class DefineTask,Guide,Connect,Implement,Review,Automate largeNode;
 ```
 
 Different tools are useful at different stages of the workflow. The following sections describe each tool and when to use it.
@@ -73,6 +82,8 @@ can explore a project, plan implementation steps, modify multiple files, or run 
 
 [Junie](https://junie.jetbrains.com/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs and Android Studio](https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains),
 [from your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [in headless mode](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD scripts.
+You can also integrate Junie into your [GitHub workflows](https://junie.jetbrains.com/docs/junie-on-github.html).
+
 
 Junie is designed for tasks that require more than a single code suggestion or chat response. Use Junie for development
 tasks that involve multiple files or require planning and execution. You can ask it to implement a feature, update code
