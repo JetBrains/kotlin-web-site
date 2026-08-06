@@ -10,31 +10,15 @@ Quickly learn the essentials of the Kotlin programming language through our tour
 tour. Deepen your understanding with the intermediate tour.
 
 <p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements-->
-<list columns="2" id="kotlin-tour-starting-page">
-    <li>
-        <a href="kotlin-tour-hello-world.md" as="button" icon="arrow-right" icon-position="right">Beginner</a>
-    </li>
-    <li>
-        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right">Intermediate</a>
-    </li>
-    <li>
-        <p><img src="icon-1.svg" width="20" alt="Step 1"/> <a href="kotlin-tour-hello-world.md">Hello world</a></p>
-        <p><img src="icon-2.svg" width="20" alt="Step 2"/> <a href="kotlin-tour-basic-types.md">Basic types</a></p>
-        <p><img src="icon-3.svg" width="20" alt="Step 3"/> <a href="kotlin-tour-collections.md">Collections</a></p>
-        <p><img src="icon-4.svg" width="20" alt="Step 4"/> <a href="kotlin-tour-control-flow.md">Control flow</a></p>
-        <p><img src="icon-5.svg" width="20" alt="Step 5"/> <a href="kotlin-tour-functions.md">Functions</a></p>
-        <p><img src="icon-6.svg" width="20" alt="Step 6"/> <a href="kotlin-tour-classes.md">Classes</a></p>
-        <p><img src="icon-7.svg" width="20" alt="Step 7"/> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-    </li>
-    <li>
-        <p><img src="icon-1.svg" width="20" alt="Step 1"/> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a></p>
-        <p><img src="icon-2.svg" width="20" alt="Step 2"/> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a></p>
-        <p><img src="icon-3.svg" width="20" alt="Step 3"/> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a></p>
-        <p><img src="icon-4.svg" width="20" alt="Step 4"/> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a></p>
-        <p><img src="icon-5.svg" width="20" alt="Step 5"/> <a href="kotlin-tour-intermediate-objects.md">Objects</a></p>
-        <p><img src="icon-6.svg" width="20" alt="Step 6"/> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a></p>
-        <p><img src="icon-7.svg" width="20" alt="Step 7"/> <a href="kotlin-tour-intermediate-properties.md">Properties</a></p>
-        <p><img src="icon-8.svg" width="20" alt="Step 8"/> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a></p>
-        <p><img src="icon-9.svg" width="20" alt="Step 9"/> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-    </li>
-</list>
+<panels columns="2" id="kotlin-tour-starting-page">
+    <panel>
+        <title>Beginner Kotlin tour</title>
+        <p>Start with our beginner tour to grasp the fundamentals.</p>
+        <a href="kotlin-tour-hello-world.md" as="button" icon="arrow-right" icon-position="right">Start</a>
+    </panel>
+    <panel>
+        <title>Intermediate Kotlin tour</title>
+        <p>If you're ready to take your understanding of Kotlin to the next level, take our intermediate tour.</p>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right">Start</a>
+    </panel>
+</panels>
