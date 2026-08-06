@@ -13,15 +13,24 @@ with Kotlin AI skills.
 * [Manage and scale AI development](#manage-ai-agents): Coordinate interactive and automated agent workflows.
 
 ```mermaid
-graph LR
-    DefineTask["<b>Define the task</b><br/>AI agent</br>"]
-    Guide["<b>Guide the AI tool</b><br/>Kotlin AI skills"]
-    Connect["<b>Connect to the IDE</b><br/>ACP, MCP server"]
-    Implement["<b>Develop</b><br/>AI agent"]
-    Review["<b>Review and refine</b><br/>AI agent"]
-    Automate["<b>Automate</b><br/>JetBrains Air"]
+flowchart LR
+    DefineTask["`Define the task
+        _AI agent_`"]
+    Guide["`Guide the AI tool
+        _Kotlin AI skills_`"]
+    Connect["`Connect to the IDE
+        _ACP, MCP server_`"]
+    Implement["`Develop
+        _AI agent_`"]
+    Review["`Review and refine
+        _AI agent_`"]
+    Automate["`Automate
+        _JetBrains Air_`"]
 
     DefineTask --> Guide --> Connect --> Implement --> Review --> Automate
+
+    classDef largeNode font-size:18px;
+    class Automate largeNode;
 ```
 
 Different tools are useful at different stages of the workflow. The following sections describe each tool and when to use it.
