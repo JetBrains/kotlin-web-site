@@ -33,6 +33,27 @@ graph LR
     class Automate largeNode;
 ```
 
+```mermaid
+graph LR
+    DefineTask["`**Define the task**
+        _AI agent_`"]
+    Guide["`**Guide the AI tool**
+        _Kotlin AI skills_`"]
+    Connect["`**Connect to the IDE**
+        _ACP, MCP server_`"]
+    Implement["`**Develop**
+        _AI agent_`"]
+    Review["`**Review and refine**
+        _AI agent_`"]
+    Automate["`**Automate**
+        _JetBrains Air_`"]
+
+    DefineTask --> Guide --> Connect --> Implement --> Review --> Automate
+
+    classDef largeNode font-size:18px;
+    class DefineTask,Guide,Connect,Implement,Review,Automate largeNode;
+```
+
 Different tools are useful at different stages of the workflow. The following sections describe each tool and when to use it.
 
 ## Develop in the IDE
