@@ -488,11 +488,11 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
 
 ### Annotation processor configuration
 
-<table>
+<table sticky-header="true">
     <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>How to set up</td>
+        <td width="50">Option</td>
+        <td width="200">Description</td>
+        <td width="200">How to set up</td>
     </tr>
     <tr>
         <td><code>aptMode</code></td>
@@ -620,11 +620,11 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
 
 ### Output directory options
 
-<table>
+<table sticky-header="true">
     <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>How to set up</td>
+        <td width="50">Option</td>
+        <td width="200">Description</td>
+        <td width="200">How to set up</td>
     </tr>
     <tr>
         <td><code>sources</code></td>
@@ -666,11 +666,11 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
 
 ### Behavioral options
 
-<table>
+<table sticky-header="true">
     <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>How to set up</td>
+        <td width="50">Option</td>
+        <td width="200">Description</td>
+        <td width="200">How to set up</td>
     </tr>
     <tr>
         <td><code>correctErrorTypes</code></td>
@@ -822,11 +822,11 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
 
 ### Diagnostics and statistics options
 
-<table>
+<table sticky-header="true">
     <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>How to set up</td>
+        <td width="50">Option</td>
+        <td width="200">Description</td>
+        <td width="200">How to set up</td>
     </tr>
     <tr>
         <td><code>showProcessorStats</code></td>
