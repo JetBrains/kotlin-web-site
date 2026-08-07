@@ -1,0 +1,189 @@
+# Kotlin turns 15 anniversary meetups, shown on /kotlin-effect/ (KTL-4795).
+# Ordered by date. Coordinates for hosts that are also listed in data/user-groups.yml
+# are copied from there; the rest are city coordinates.
+# Leave `url` empty until the organizer's event page is public — the block then renders
+# the name as plain text instead of a link.
+- name: Kotlin User Group Berlin
+  city: Berlin
+  country: Germany
+  date: '2026-07-16'
+  url: ''
+  position:
+    lat: 52.5200066
+    lng: 13.404954
+- name: GDG Taoyuan
+  city: Taoyuan
+  country: Taiwan
+  date: '2026-07-19'
+  url: https://gdg.community.dev/events/details/google-gdg-taoyuan-presents-google-cloud-next-2026-kotlin-turns-15yrs-party-huo-dong/
+  position:
+    lat: 24.993628
+    lng: 121.300979
+- name: Laravel Taipei Meetups
+  city: Taipei
+  country: Taiwan
+  date: '2026-07-21'
+  url: https://www.accupass.com/go/laravel-meetups-2607
+  position:
+    lat: 25.0329694
+    lng: 121.5654177
+- name: Paphos Coders and Designers
+  city: Paphos
+  country: Cyprus
+  date: '2026-07-23'
+  url: https://www.meetup.com/pafos-coders-designers/events/315294561
+  position:
+    lat: 34.7745909
+    lng: 32.4190263
+- name: Kotlin User Group Guadalajara
+  city: Guadalajara
+  country: Mexico
+  date: '2026-07-23'
+  url: https://luma.com/fc5yijwd
+  position:
+    lat: 20.6596988
+    lng: -103.3496092
+- name: Kotlin User Group Kaduna
+  city: Kaduna
+  country: Nigeria
+  date: '2026-08-01'
+  url: https://www.eventbrite.com/e/kotlin-turns-15-party-kaduna-tickets-1992017835971
+  position:
+    lat: 10.5104642
+    lng: 7.4165053
+- name: Beijing Kotlin User Group
+  city: Beijing
+  country: China Mainland
+  date: '2026-08-01'
+  url: https://beijing-kug.github.io/events/kotlin-15th-anniversary-2026/
+  position:
+    lat: 39.9041999
+    lng: 116.4073963
+- name: Kotlin User Group Uganda
+  city: Kampala
+  country: Uganda
+  date: '2026-08-09'
+  url: https://kommunity.com/kotlin-uganda-user-group/events/kotlin-turns-15-party-kampala-ccbec7e8
+  position:
+    lat: 0.3475964
+    lng: 32.5825197
+- name: Kotlin User Groups Seoul
+  city: Seoul
+  country: South Korea
+  date: '2026-08-16'
+  url: https://ticketa.co/event/ic97nj1c
+  position:
+    lat: 37.5326
+    lng: 127.024612
+- name: Taiwan Kotlin User Group
+  city: Taipei
+  country: Taiwan
+  date: '2026-08-18'
+  url: https://www.meetup.com/taiwan-kotlin-user-group/events/315529731/
+  position:
+    lat: 25.0530
+    lng: 121.6100
+- name: Kotlin Kenya
+  city: Nairobi
+  country: Kenya
+  date: '2026-08-22'
+  url: https://www.meetup.com/kotlinkenya/events/315310018/
+  position:
+    lat: -1.2920659
+    lng: 36.8219462
+- name: Shenzhen Kotlin User Group
+  city: Shenzhen
+  country: China Mainland
+  date: '2026-08-23'
+  url: https://hdxu.cn/1KW8H
+  position:
+    lat: 22.543096
+    lng: 114.057865
+- name: Kotlin User Group Abakaliki
+  city: Abakaliki
+  country: Nigeria
+  date: '2026-08-29'
+  url: https://gdg.community.dev/events/details/google-gdg-abakaliki-presents-kotlins-15th-birthday-bash-code-amp-celebrate/
+  position:
+    lat: 6.3248966
+    lng: 8.1137223
+- name: Shunnek Labs
+  city: Dhaka
+  country: Bangladesh
+  date: '2026-08-29'
+  url: https://www.shunneklabs.com/events/kotlin-turns-15-bangladesh-2026
+  position:
+    lat: 23.8103
+    lng: 90.4125
+- name: GDG Kaohsiung
+  city: Kaohsiung
+  country: Taiwan
+  date: '2026-09-05'
+  url: https://gdg.community.dev/events/details/google-gdg-kaohsiung-presents-code-renaissance-a-handcrafted-meetup/
+  position:
+    lat: 22.6272784
+    lng: 120.3014353
+- name: Spring Meetup Paris
+  city: Paris
+  country: France
+  date: '2026-09-09'
+  url: https://www.meetup.com/fr-fr/spring-meetup-paris/
+  position:
+    lat: 48.856614
+    lng: 2.3522219
+- name: Kotlin Kraków User Group
+  city: Kraków
+  country: Poland
+  date: '2026-09-09'
+  url: https://www.meetup.com/krakow-kotlin/events/315854981/
+  position:
+    lat: 50.0646501
+    lng: 19.9449799
+- name: Kotlin User Group Prayagraj
+  city: Prayagraj
+  country: India
+  date: '2026-09-13'
+  url: https://luma.com/midzls20
+  position:
+    lat: 25.42012
+    lng: 81.88385
+- name: BordeauxKt
+  city: Bordeaux
+  country: France
+  date: '2026-09-22'
+  url: https://www.eventbrite.fr/e/15-ans-de-kotlin-tickets-1994958612914
+  position:
+    lat: 44.845576
+    lng: -0.572983
+- name: Kotlin Cairo User Group
+  city: Cairo
+  country: Egypt
+  date: '2026-09-26'
+  url: https://www.meetup.com/gdg-helwan/events/315521064/
+  position:
+    lat: 30.0444196
+    lng: 31.2357116
+- name: GDG Venezia
+  city: Venice
+  country: Italy
+  date: '2026-09-28'
+  url: https://gdg.community.dev/events/details/google-gdg-venezia-presents-kotlin-turns-15-party/
+  position:
+    lat: 45.4408474
+    lng: 12.3155151
+- name: 'BcnKode: Mobile & Kotlin'
+  city: Barcelona
+  country: Spain
+  date: '2026-09-29'
+  url: https://www.meetup.com/bcnkode-mobile-kotlin/events/315574964
+  position:
+    lat: 41.3873974
+    lng: 2.168568
+- name: Kotlin User Group Chhattisgarh
+  city: Raipur
+  country: India
+  date: '2026-09-30'
+  url: https://luma.com/txyed0bi
+  position:
+    lat: 21.27866
+    lng: 81.86614
