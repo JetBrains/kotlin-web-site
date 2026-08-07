@@ -27,9 +27,11 @@
 
     <var name="lincheckVersion" value="3.6"/>
 
-    <var name="ktorVersion" value="3.5.1"/>
+    <var name="ktorVersion" value="3.5.2"/>
 
     <var name="lombokVersion" value="9.5.0"/>
+
+    <var name="kotlinxBrowserVersion" value="0.5.0"/>
 
     <var name="sqlDelightVersion" value="2.3.2"/>
 

@@ -18,10 +18,11 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Standard library:** [Support for coroutine stack trace recovery and new features for checking equality and uniqueness of collection elements](#standard-library)
-* **Kotlin/Native:** [Incremental compilation of `klib` artifacts enabled by default, new Swift export features, and the first Kotlin compiler native image](#kotlin-native)
+* **Kotlin/Native:** [Incremental compilation of `klib` artifacts enabled by default and new Swift export features](#kotlin-native)
 * **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations, improved companion object initialization order, and support for Wasmtime in the Kotlin Gradle plugin](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing and support for exporting suspend lambdas as async functions](#kotlin-js)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
+* **Kotlin compiler:** [Experimental release of the native image](#kotlin-compiler-native-image)
 
 > For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
 >
@@ -316,29 +317,6 @@ to be distributed along with the XCFramework.
 
 For details, see the [SwiftPM export page](https://kotlinlang.org/docs/multiplatform/multiplatform-spm-export.html).
 
-### Kotlin compiler native image
-<primary-label ref="experimental-general"/>
-<secondary-label ref="native"/>
-
-Kotlin %kotlinEapVersion% features the first [Experimental](components-stability.md#stability-levels-explained) release of
-the Kotlin compiler native image. The native image provides a drop-in replacement for the standard `kotlinc` command-line tool,
-while offering faster startup time and higher performance.
-
-To try out the native image, download the build from [GitHub Releases](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
-
-The native image also bundles the following compiler plugins you can use with the `-Xplugin` or `-Xcompiler-plugin` CLI options:
-
-* [Serialization](serialization.md)
-* [Compose compiler](compose-compiler-options.md)
-* [All-open](all-open-plugin.md)
-* [`no-arg`](no-arg-plugin.md)
-* [SAM with receiver](sam-with-receiver-plugin.md)
-* [Assignment](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.assignment)
-* [Lombok](lombok.md)
-* [Power-assert](power-assert.md)
-
-For more information on the Kotlin compiler native image, see its [README](https://github.com/JetBrains/kotlin/blob/master/prepare/compiler-native-image/README.md).
-
 ## Kotlin/Wasm
 
 Kotlin %kotlinEapVersion% changes how Kotlin/Wasm handles top-level `require()` calls in `@JsFun` declarations,
@@ -586,3 +564,26 @@ We plan to roll out the BTA support for the new targets in the Kotlin Gradle plu
 * Starting with Kotlin 2.5.0, BTA will be enabled in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default again.
 
 If you're curious about the BTA proposal or want to share your feedback, see this [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).
+
+### Kotlin compiler: Native image
+<primary-label ref="experimental-general"/>
+<secondary-label ref="compiler"/>
+
+Kotlin %kotlinEapVersion% features the first [Experimental](components-stability.md#stability-levels-explained) release of
+the Kotlin compiler native image. The native image provides a drop-in replacement for the standard `kotlinc` command-line tool,
+while offering faster startup time and higher performance.
+
+To try out the native image, download the build from [GitHub Releases](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
+
+The native image also bundles the following compiler plugins you can use with the `-Xplugin` or `-Xcompiler-plugin` CLI options:
+
+* [Serialization](serialization.md)
+* [Compose compiler](compose-compiler-options.md)
+* [All-open](all-open-plugin.md)
+* [`no-arg`](no-arg-plugin.md)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [Assignment](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.assignment)
+* [Lombok](lombok.md)
+* [Power-assert](power-assert.md)
+
+For more information on the Kotlin compiler native image, see its [README](https://github.com/JetBrains/kotlin/blob/master/prepare/compiler-native-image/README.md).

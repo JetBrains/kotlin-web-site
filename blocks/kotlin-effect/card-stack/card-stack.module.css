@@ -131,6 +131,25 @@
     transform: translate(50%, -50%);
 }
 
+.buttonWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @media (--ktl-ts-down) {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+.buttonHint {
+    display: none;
+    margin: 0;
+    @media (--ktl-ds-down) {
+        display: block;
+    }
+}
+
 .button {
     @media (--ktl-ts-down) {
         width: 100%;

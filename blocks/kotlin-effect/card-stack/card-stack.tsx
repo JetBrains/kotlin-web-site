@@ -103,7 +103,7 @@ export const CardStack: FC = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className={styles.buttonWrapper}>
                         <Button
                             href={'https://game.kotlinlang.org/'}
                             mode={'rock'}
@@ -113,6 +113,9 @@ export const CardStack: FC = () => {
                         >
                             Play the Game
                         </Button>
+                        <span className={cn(textCn('rs-text-3'), styles.buttonHint)}>
+                            For the best experience, play on desktop
+                        </span>
                     </div>
 
                 </SectionWithGrid>
