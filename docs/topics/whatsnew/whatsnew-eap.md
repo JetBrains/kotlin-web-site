@@ -18,7 +18,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Standard library:** [Support for coroutine stack trace recovery and new features for checking equality and uniqueness of collection elements](#standard-library)
-* **Kotlin/Native:** [Incremental compilation of `klib` artifacts enabled by default and new Swift export features](#kotlin-native)
+* **Kotlin/Native:** [New Swift export features and automatically generated `Package.swift` files for SwiftPM dependencies](#kotlin-native)
 * **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations, improved companion object initialization order, and support for Wasmtime in the Kotlin Gradle plugin](#kotlin-wasm)
 * **Kotlin/JS:** [New DSL for browser-testing and support for exporting suspend lambdas as async functions](#kotlin-js)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
@@ -44,9 +44,9 @@ This includes features with [Beta](components-stability.md#stability-levels-expl
 
 * [Standard library: Support for coroutine stack trace recovery](#support-for-coroutine-stack-trace-recovery)
 * [Standard library: New functions to check collection elements for equality and uniqueness](#new-functions-to-check-collection-elements-for-equality-and-uniqueness)
-* [Kotlin/Native: separate Kotlin compiler image](#kotlin-compiler-native-image)
-* [Kotlin/JS: New DSL for browser-testing](#new-dsl-for-browser-testing)
+* [Kotlin/JS: New DSL for browser-testing](#a-new-dsl-for-browser-testing)
 * [Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
+* [Kotlin compiler: Separate Kotlin compiler image](#kotlin-compiler-native-image)
 
 ## Standard library
 
@@ -61,7 +61,7 @@ Kotlin %kotlinEapVersion% adds the `StackTraceRecoverable` interface to the stan
 This improves integration with the `kotlinx.coroutines` library because it lets you define how to create new exception
 instances for stack trace recovery without adding a dependency on `kotlinx.coroutines`.
 
-Stack trace recovery helps with debugging when one coroutine throws an exception, and another rethrows it.
+Stack trace recovery helps with debugging when one coroutine throws an exception and another rethrows it.
 It lets you see where the exception originates and where another coroutine rethrows it.
 
 The `kotlinx.coroutines` library performs stack trace recovery by creating a new exception instance with additional
@@ -71,7 +71,7 @@ exception message, a cause, both, or no arguments.
 If an exception constructor has additional required arguments, such as a line number or an error code, implement the
 `StackTraceRecoverable` interface to define how the `kotlinx.coroutines` library creates a new instance of that exception.
 
-To implement the interface, override the `copyForStackTraceRecovery()` function. This function returns a new exception
+To implement the interface, override the `copyForStackTraceRecovery()` function. In the override, return a new exception
 instance for stack trace recovery, or `null` if you don't want the `kotlinx.coroutines` library to copy the exception.
 
 > The `StackTraceRecoverable` interface is available on all targets, but the `kotlinx.coroutines`
@@ -87,7 +87,7 @@ recovery:
 
 ```kotlin
 import kotlin.coroutines.ExperimentalStdlibCoroutineSupportApi
-import kotlin.coroutines.StackTraceRecoverable
+import kotlin.coroutines.debug.StackTraceRecoverable
 
 @OptIn(ExperimentalStdlibCoroutineSupportApi::class)
 class FileEditException
@@ -108,9 +108,11 @@ private constructor(
         FileEditException(line, detail, this)
     }
 
-@OptIn(ExperimentalStdlibCoroutineSupportApi::class) 
 fun main() {
     val original = FileEditException(15, "Unexpected token")
+    
+    // Normally, you don't need to call this function directly unless you're testing its behavior
+    // The kotlinx.coroutines library invokes it automatically during stack trace recovery
     val copy = original.copyForStackTraceRecovery()
 
     println(copy.message)
@@ -120,8 +122,10 @@ fun main() {
     // true
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4.20-Beta2"}
 
 For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/stdlib/KEEP-0461-stacktrace-recoverable.md).
+
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-86595).
 
 ### New functions to check collection elements for equality and uniqueness
@@ -189,35 +193,8 @@ We would appreciate hearing your feedback on your experience with these function
 
 ## Kotlin/Native
 
-Kotlin %kotlinEapVersion% enables incremental compilation of `klib` artifacts by default, brings new Swift export
-features, including support for sealed classes and cross-language inheritance, and introduces the first release of the
-Kotlin compiler native image.
-
-### Incremental compilation enabled by default
-<secondary-label ref="native"/>
-
-Starting with %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default.
-
-With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, only the affected part
-of the `klib` is further recompiled into a binary.
-
-This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts)
-and has proven to drastically reduce compilation time for debug builds.
-
-Note that in some cases, this optimization may come with a performance cost for clean builds.
-
-If you face unexpected problems with this feature, you can disable it manually. To do that, set the following option
-in your `gradle.properties` file:
-
-```none
-kotlin.incremental.native=false
-```
-
-Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue). For more tips on improving compilation
-time, see our [documentation](native-improving-compilation-time.md).
-
-### New Swift export features
-<secondary-label ref="native"/>
+Kotlin %kotlinEapVersion% brings new Swift export features, including support for sealed classes and cross-language
+inheritance, and automatic generation of `Package.swift` files for SwiftPM dependencies.
 
 #### Sealed classes
 
@@ -424,25 +401,25 @@ We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/i
 
 ## Kotlin/JS
 
-Kotlin %kotlinEapVersion% introduces a new experimental DSL for browser testing and adds support for exporting suspend
+Kotlin %kotlinEapVersion% introduces a new experimental DSL for browser testing and adds support for exporting suspending
 lambdas as JavaScript async functions.
 
-### New DSL for browser-testing
+### A new DSL for browser-testing
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="js"/>
 
 Kotlin %kotlinEapVersion% introduces a new experimental DSL for running Kotlin/JS tests in a browser environment.
 
 Currently, the Kotlin Gradle plugin uses [Karma](https://github.com/karma-runner/karma) as a browser launcher to run
-JavaScript tests across different browsers. The Karma project has been deprecated for 2 years now, which made us explore
-alternative ways to support browser testing.
+JavaScript tests across different browsers. The Karma project has been deprecated for two years now, which has led us to
+explore alternative ways to support browser testing.
 
 The new DSL is intended to replace Karma as a manager of different tools under the hood and includes:
 
 * [Mocha](https://mochajs.org/) as a test runner.
 * [Webpack](https://webpack.js.org/) as a bundler (will be replaced with [Vite](https://vite.dev/)
   in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
-* [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports Chromium, Firefox,
+* [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports the Chromium, Firefox,
   and WebKit (Safari) browser engines.
 
 To try out the new testing DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
@@ -482,13 +459,13 @@ kotlin {
 
 The new DSL is in active development. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897).
 
-### Support for exporting suspend lambdas as async functions
+### Support for exporting suspending lambdas as async functions
 <secondary-label ref="js"/>
 
-With Kotlin %kotlinEapVersion%, you can now export suspend lambdas as JavaScript async functions.
+With Kotlin %kotlinEapVersion%, you can now export suspending lambda expressions as JavaScript `async` functions.
 
-Previously, there was no way to export declarations containing suspend lambdas from Kotlin/JS libraries. Now the Kotlin
-compiler automatically handles the bridging between Kotlin's suspend functions and native JavaScript's [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+Previously, there was no way to export declarations containing suspending lambdas from Kotlin/JS libraries. Now the Kotlin
+compiler automatically handles the bridging between Kotlin's `suspend` functions and JavaScript's native [`async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 model, which is useful for mixed Kotlin/TypeScript codebases.
 
 To enable this feature, add the following compiler option to your `build.gradle.kts` file:
@@ -519,7 +496,7 @@ class TaskRunner {
 }
 ```
 
-From the TypeScript side, the suspend lambda appears as a regular async function:
+From the TypeScript side, the `suspend` lambda appears as a regular `async` function:
 
 ```typescript
 // TypeScript
@@ -548,24 +525,20 @@ from faster, more stable compilation.
 The BTA is a universal API that acts as an abstraction layer between build systems and the Kotlin compiler ecosystem.
 It helps support Kotlin features and compatibility with the Kotlin compiler in available build tools.
 
-We plan to roll out the BTA support for the new targets in the Kotlin Gradle plugin gradually:
+In Kotlin %kotlinEapVersion%, BTA is available as an opt-in for the new targets.
+To try it out, add the corresponding properties to your `gradle.properties` file:
 
-* In Kotlin 2.4.20-Beta1, BTA is enabled in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default to gather feedback.
-  No additional changes in projects are required.
-* Between Kotlin 2.4.20-Beta2 and the final Kotlin 2.4.20 release, BTA in the new targets is available as an opt-in.
-  To try it out, add the corresponding properties to your `gradle.properties` file:
+```kotlin
+kotlin.wasm.runViaBuildToolsApi=true
+kotlin.js.runViaBuildToolsApi=true
+kotlin.metadata.runViaBuildToolsApi=true
+```
 
-  ```kotlin
-  kotlin.wasm.runViaBuildToolsApi = true
-  kotlin.js.runViaBuildToolsApi = true
-  kotlin.metadata.runViaBuildToolsApi = true
-  ```
-
-* Starting with Kotlin 2.5.0, BTA will be enabled in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default again.
+Starting with Kotlin 2.5.0, we plan to enable BTA in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default.
 
 If you're curious about the BTA proposal or want to share your feedback, see this [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).
 
-### Kotlin compiler: Native image
+## Kotlin compiler: Native image
 <primary-label ref="experimental-general"/>
 <secondary-label ref="compiler"/>
 
