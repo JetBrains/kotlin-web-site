@@ -66,7 +66,7 @@ The Power-assert plugin provides several options to customize its behavior:
 * **`functions`** lists fully qualified paths to functions whose calls the Power-assert plugin transforms. If not specified, only `kotlin.assert()` calls are transformed.
 * **`compilationFilter`** controls which Kotlin compilations the Power-assert plugin is applied to. You can create your own custom filter or use the predefined options:
   * `PowerAssertCompilationFilter.TESTS` applies to all test source sets (default).
-  * `PowerAssertCompilationFilter.ALL` – applies to all source sets.
+  * `PowerAssertCompilationFilter.ALL` applies to all source sets.
 
   > The `compilationFilter` option has replaced the deprecated `includedSourceSets`, which listed Gradle source sets that the Power-assert plugin transforms.
   > These two options are mutually exclusive: if `includedSourceSets` is specified, `compilationFilter` is ignored.
