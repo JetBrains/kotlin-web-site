@@ -64,8 +64,14 @@ plugins {
 The Power-assert plugin provides several options to customize its behavior:
 
 * **`functions`** lists fully qualified paths to functions whose calls the Power-assert plugin transforms. If not specified, only `kotlin.assert()` calls are transformed.
-* **`includedSourceSets`** lists Gradle source sets that the Power-assert plugin transforms. If not specified, all _test source sets_ are transformed.
-* **`compilationFilter`** controls if the Power-assert plugin is applied to all Kotlin compilations or only to test compilations. If not specified, the plugin is applied to all compilations.
+* **`compilationFilter`** controls which Kotlin compilations the Power-assert plugin is applied to. You can create your own custom filter or use the predefined options:
+  * `PowerAssertCompilationFilter.TESTS` applies to all test source sets (default).
+  * `PowerAssertCompilationFilter.ALL` – applies to all source sets.
+
+  > The `compilationFilter` option has replaced the deprecated `includedSourceSets`, which listed Gradle source sets that the Power-assert plugin transforms.
+  > These two options are mutually exclusive: if `includedSourceSets` is specified, `compilationFilter` is ignored.
+  >
+  {style="note"}
 
 To customize the behavior, add the `powerAssert {}` block to your build script file:
 
@@ -76,8 +82,9 @@ To customize the behavior, add the `powerAssert {}` block to your build script f
 // build.gradle.kts
 powerAssert {
     functions = listOf("kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull")
-    includedSourceSets = listOf("commonMain", "jvmMain", "jsMain", "nativeMain")
-    compilationFilter = PowerAssertCompilationFilter.TESTS
+    compilationFilter = PowerAssertCompilationFilter {
+        it.name in setOf("commonMain", "jvmMain", "jsMain", "nativeMain")
+    }
 }
 ```
 
@@ -88,8 +95,9 @@ powerAssert {
 // build.gradle
 powerAssert {
     functions = ["kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull"]
-    includedSourceSets = ["commonMain", "jvmMain", "jsMain", "nativeMain"]
-    compilationFilter = PowerAssertCompilationFilter.TESTS
+    compilationFilter = PowerAssertCompilationFilter {
+        it.name in ["commonMain", "jvmMain", "jsMain", "nativeMain"]
+    }
 }
 ```
 
