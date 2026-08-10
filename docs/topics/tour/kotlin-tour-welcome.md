@@ -14,11 +14,11 @@ tour. Deepen your understanding with the intermediate tour.
     <panel>
         <title>Beginner Kotlin tour</title>
         <p>Start with our beginner tour to grasp the fundamentals.</p>
-        <a href="kotlin-tour-hello-world.md" as="button" icon="arrow-right" icon-position="right">Start</a>
+        <a href="kotlin-tour-hello-world.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true">Start</a>
     </panel>
     <panel>
         <title>Intermediate Kotlin tour</title>
         <p>If you're ready to take your understanding of Kotlin to the next level, take our intermediate tour.</p>
-        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right">Start</a>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true">Start</a>
     </panel>
 </panels>
