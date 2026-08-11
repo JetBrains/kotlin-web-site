@@ -28,7 +28,7 @@ fail() { printf '[startup %s] ERROR: %s\n' "$(date -u +%H:%M:%S)" "$*" >&2; exit
 # the snapshot-baking WARMUP run in the env-setup companion does not.
 _ps="$(ps -ax -o args= 2>/dev/null || true)"
 if grep -q 'dind.sh air-workspace-start.sh' <<<"$_ps"; then WARMUP=; else WARMUP=1; fi
-log "mode: ${WARMUP:+WARMUP}${WARMUP:-TASK}, repo: $REPO_DIR"
+log "mode: $([ -n "${WARMUP:-}" ] && echo WARMUP || echo TASK), repo: $REPO_DIR"
 
 # ---------------------------------------------------------------------------
 # 1. Node.js (pinned by .nvmrc) + yarn, installed in userspace (no sudo here).
