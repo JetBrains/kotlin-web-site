@@ -424,7 +424,7 @@ You can find more information about type mapping in [Interoperability with Swift
 Now you can connect the generated framework to your iOS project as a dependency. There are multiple ways to set it up
 and automate the process, choose the method that suits you best:
 
-<a href="https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html" as="button" mode="classic" icon="arrow-right" icon-position="right">Choose iOS integration method</a>
+<a href="https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html" as="button" mode="rock" icon="arrow-right" icon-position="right">Choose iOS integration method</a>
 
 ## What's next
 

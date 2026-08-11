@@ -87,7 +87,7 @@ Explore the fundamentals and initial steps to start working with Kotlin/JS:
 
 Would you like to try Kotlin/JS yourself?
 
-<a href="js-get-started.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Get started with Kotlin/JS</a>
+<a href="js-get-started.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Kotlin/JS</a>
 
 ## Sample projects for Kotlin/JS
 

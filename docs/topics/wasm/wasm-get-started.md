@@ -104,4 +104,4 @@ Once your site is created, open the browser and navigate to your platform's page
 
 * Join the Kotlin/Wasm community in Kotlin Slack:
 
-  <a href="https://slack-chats.kotlinlang.org/c/webassembly" as="button" mode="classic" icon="arrow-right" icon-position="right">Join the Kotlin/Wasm community</a>
+  <a href="https://slack-chats.kotlinlang.org/c/webassembly" as="button" mode="rock" icon="arrow-right" icon-position="right">Join the Kotlin/Wasm community</a>

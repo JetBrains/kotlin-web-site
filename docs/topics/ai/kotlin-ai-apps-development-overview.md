@@ -29,7 +29,7 @@ fun main() {
 }
 ```
 
-<a href="https://docs.koog.ai/quickstart/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
+<a href="https://docs.koog.ai/quickstart/" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Koog</a>
 
 ### Key features
 

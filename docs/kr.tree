@@ -245,7 +245,7 @@
             </toc-element>
             <toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
             <toc-element hidden="true" topic="kotlin-notebook-overview.md" toc-title="Kotlin Notebook overview"/>
-            <toc-element hidden="true" toc-title="Get started with Kotlin Notebook">
+            <toc-element hidden="true" toc-title="Get started with Kotlin Notebook" progress-tracking="true">
                 <toc-element hidden="true" toc-title="Introduction to Kotlin Notebook" topic="get-started-with-kotlin-notebooks.md"/>
                 <toc-element hidden="true" toc-title="1. Set up an environment" topic="kotlin-notebook-set-up-env.md"/>
                 <toc-element hidden="true" toc-title="2. Create your first Kotlin Notebook" topic="kotlin-notebook-create.md"/>

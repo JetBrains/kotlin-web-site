@@ -8,7 +8,7 @@ Kotlin is a modern language that's concise, multiplatform, and interoperable wit
 
 New to Kotlin? Take our tour to learn the fundamentals directly in your browser.
 
-<a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
+<a href="kotlin-tour-welcome.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start the Kotlin tour</a>
 
 ## Install Kotlin
 
