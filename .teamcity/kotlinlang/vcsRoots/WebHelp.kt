@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object WebHelp : GitVcsRoot({
   name = "webhelp"
-  url = "ssh://git@git.jetbrains.team/writerside/writerside-webhelp.git"
+  url = "ssh://git@git.jetbrains.team/writerside/writerside-monorepo.git"
   branch = "refs/heads/ked-websites-stable"
   branchSpec = """
         refs/heads/(*)
