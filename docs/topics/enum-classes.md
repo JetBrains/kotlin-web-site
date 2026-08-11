@@ -7,7 +7,7 @@ Each value in an enum class is called an _enum constant_. Enum constants are [si
 of the enum class type, so they can have properties, functions, and custom behavior.
 
 Use enum classes when all possible values are known in advance and have the same structure. Use [sealed classes or interfaces](sealed-classes.md)
-when you need to ahve hold different data or have a different structure for each case.
+when you need to hold different data or have a different structure for each case.
 
 ## Create enum classes
 
@@ -44,10 +44,10 @@ Every enum class in Kotlin inherits from the [`Enum<T>`](https://kotlinlang.org/
 where `T` is the enum class itself. For example, the `Direction` enum class inherits from `Enum<Direction>`.
 This is why enum constants have built-in properties, such as [`name`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/name.html) and [`ordinal`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/ordinal.html).
 
+## Working with enum constants
+
 Since enum constants are values, you can assign them to variables, print them, pass them to functions, compare them,
 and use them in `when` expressions.
-
-## Working with enum constants
 
 ### Declare enum constants
 
@@ -198,8 +198,7 @@ When you use all enum constants in a when expression, you don't need an `else` b
 ### Find enum constants
 
 Sometimes you need to get an enum constant from a string, an index, or one of its associated values. Kotlin provides
-built-in APIs to look up constants by name and use [`entries`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/)
-to look them up by position or custom values.
+built-in APIs to look up constants by name, position, or custom values.
 
 For example, consider an enum class where each color has an associated RGB value. To find an enum constant by its name,
 use the `valueOf()` function:
@@ -222,7 +221,8 @@ fun main() {
 The name passed to `valueOf()` must match the enum constant name exactly. If there is no enum constant with the
 specified name, `valueOf()` throws an `IllegalArgumentException`.
 
-To find an enum constant by its position in the enum declaration, use [`entries.getOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/get-or-null.html):
+To find an enum constant by its position in the enum declaration, use the [`getOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/get-or-null.html)
+function on the enum's `entries` property:
 
 ```kotlin
 enum class Color(val rgb: Int) {
