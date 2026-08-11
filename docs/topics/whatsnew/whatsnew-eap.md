@@ -20,7 +20,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 * **Standard library:** [Support for coroutine stack trace recovery and new features for checking equality and uniqueness of collection elements](#standard-library)
 * **Kotlin/Native:** [New Swift export features and automatically generated `Package.swift` files for SwiftPM dependencies](#kotlin-native)
 * **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations, improved companion object initialization order, and support for Wasmtime in the Kotlin Gradle plugin](#kotlin-wasm)
-* **Kotlin/JS:** [New DSL for browser-testing and support for exporting suspend lambdas as async functions](#kotlin-js)
+* **Kotlin/JS:** [New DSL for browser testing and support for exporting suspend lambdas as async functions](#kotlin-js)
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
 * **Kotlin compiler:** [Experimental release of the native image](#kotlin-compiler-native-image)
 
@@ -44,7 +44,7 @@ This includes features with [Beta](components-stability.md#stability-levels-expl
 
 * [Standard library: Support for coroutine stack trace recovery](#support-for-coroutine-stack-trace-recovery)
 * [Standard library: New functions to check collection elements for equality and uniqueness](#new-functions-to-check-collection-elements-for-equality-and-uniqueness)
-* [Kotlin/JS: New DSL for browser-testing](#a-new-dsl-for-browser-testing)
+* [Kotlin/JS: New DSL for browser testing](#a-new-dsl-for-browser-testing)
 * [Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
 * [Kotlin compiler: Separate Kotlin compiler image](#kotlin-compiler-native-image)
 
@@ -195,6 +195,9 @@ We would appreciate hearing your feedback on your experience with these function
 
 Kotlin %kotlinEapVersion% brings new Swift export features, including support for sealed classes and cross-language
 inheritance, and automatic generation of `Package.swift` files for SwiftPM dependencies.
+
+### New Swift export features
+<secondary-label ref="native"/>
 
 #### Sealed classes
 
@@ -404,7 +407,7 @@ We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/i
 Kotlin %kotlinEapVersion% introduces a new experimental DSL for browser testing and adds support for exporting suspending
 lambdas as JavaScript async functions.
 
-### A new DSL for browser-testing
+### A new DSL for browser testing
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="js"/>
 
@@ -462,7 +465,8 @@ The new DSL is in active development. We would appreciate your feedback in [YouT
 ### Support for exporting suspending lambdas as async functions
 <secondary-label ref="js"/>
 
-With Kotlin %kotlinEapVersion%, you can now export suspending lambda expressions as JavaScript `async` functions.
+With Kotlin %kotlinEapVersion%, you can now export suspending [lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions)
+as JavaScript `async` functions.
 
 Previously, there was no way to export declarations containing suspending lambdas from Kotlin/JS libraries. Now the Kotlin
 compiler automatically handles the bridging between Kotlin's `suspend` functions and JavaScript's native [`async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -496,7 +500,7 @@ class TaskRunner {
 }
 ```
 
-From the TypeScript side, the `suspend` lambda appears as a regular `async` function:
+From the TypeScript side, the suspending lambda appears as a regular `async` function:
 
 ```typescript
 // TypeScript
@@ -528,7 +532,7 @@ It helps support Kotlin features and compatibility with the Kotlin compiler in a
 In Kotlin %kotlinEapVersion%, BTA is available as an opt-in for the new targets.
 To try it out, add the corresponding properties to your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.wasm.runViaBuildToolsApi=true
 kotlin.js.runViaBuildToolsApi=true
 kotlin.metadata.runViaBuildToolsApi=true
