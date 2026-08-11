@@ -13,7 +13,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {},
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
-    val dockerImageTag = "2.1.2245-p8929" // stable-2026.07 + KTL-4152
+    val dockerImageTag = "ked-websites-stable" // stable-2026.07 + KTL-4152
     val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"
@@ -71,6 +71,7 @@ abstract class WritersideBuilder(
                 bash -euo pipefail /usr/local/bin/script.sh
             """.trimIndent()
             dockerImage = "registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag"
+            dockerPull = true
             dockerRunParameters = """
                 --rm -v %teamcity.build.checkoutDir%:/opt/sources
                 -v %teamcity.build.checkoutDir%/static:/opt/static

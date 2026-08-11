@@ -18,18 +18,24 @@ object BuildWebHelpFrontend : BuildType({
   }
 
   vcs {
-    root(WebHelp)
+    root(WebHelp, """
+      +:webhelp
+    """.trimIndent())
   }
 
   steps {
     script {
+      // language=sh
       scriptContent = """
+        PACKAGE_MANAGER_VERSION=$(node -e "console.log(JSON.parse(fs.readFileSync('./package.json').toString()).packageManager)")
+        
         corepack enable
-        corepack prepare pnpm@latest --activate
+        corepack prepare "${'$'}PACKAGE_MANAGER_VERSION" --activate
         
         pnpm i --no-frozen-lockfile
         pnpm run build:kotlin
       """.trimIndent()
+      workingDir = "webhelp"
       formatStderrAsError = true
       dockerImage = "node:18-alpine"
     }
