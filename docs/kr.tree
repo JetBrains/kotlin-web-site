@@ -60,7 +60,6 @@
         <toc-element toc-title="Functions">
             <toc-element topic="functions.md"/>
             <toc-element toc-title="Lambdas" topic="lambdas.md"/>
-            <toc-element topic="this-expressions.md"/>
             <toc-element toc-title="Builders">
                 <toc-element topic="type-safe-builders.md"/>
                 <toc-element topic="using-builders-with-builder-inference.md"/>
@@ -78,6 +77,7 @@
             <toc-element topic="delegation.md"/>
             <toc-element topic="inheritance.md"/>
             <toc-element topic="object-declarations.md"/>
+            <toc-element topic="this-expressions.md"/>
             <toc-element toc-title="Special classes and interfaces">
                 <toc-element topic="sealed-classes.md"/>
                 <toc-element topic="enum-classes.md"/>
