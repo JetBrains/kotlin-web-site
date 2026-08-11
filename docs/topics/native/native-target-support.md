@@ -74,7 +74,15 @@ Tier tables have the following columns:
 
 ### Deprecated targets
 
-The `watchosArm32` target (Apple watchOS devices on ARM32 platforms) is deprecated and will be removed in future releases.
+The following targets are deprecated and scheduled for removal:
+
+| Target          | Deprecation start | Description                                        |
+|-----------------|-------------------|----------------------------------------------------|
+| `watchosArm32`  | Kotlin 2.4.20     | Apple watchOS devices on ARM32 platforms           |
+| `macosX64`      | Kotlin 2.3.20     | Apple macOS on x86_64 platforms                    |
+| `watchosX64`    | Kotlin 2.3.20     | Apple watchOS 64-bit simulator on x86_64 platforms | 
+| `tvosX64`       | Kotlin 2.3.20     | Apple tvOS simulator on x86_64 platforms           | 
+| `linuxArm32Hfp` | Kotlin 1.8.20     | Linux on ARM32 platforms                           |
 
 ### Supporting lower Apple target versions
 
