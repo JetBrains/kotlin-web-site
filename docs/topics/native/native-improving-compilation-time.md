@@ -163,7 +163,7 @@ With incremental compilation, if only a part of the `klib` artifact produced by 
 just a part of `klib` is further recompiled into a binary.
 
 This feature is still [Experimental](components-stability.md#stability-levels-explained). To enable it,
-add the following option to your `gradle.properties` file.
+add the following option to your `gradle.properties` file:
 
 ```properties
 kotlin.incremental.native=true
