@@ -82,7 +82,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
-The Gradle file is standard for Spring Boot, but it also contains necessary Kotlin dependencies, including the kotlin-spring Gradle plugin – `kotlin("plugin.spring")`.
+The Gradle file is standard for Spring Boot, but it also contains necessary Kotlin dependencies, including the [kotlin-spring Gradle plugin](kotlin-spring-plugin.md) – `kotlin("plugin.spring")`.
 
 Here is the full script with the explanation of all parts and dependencies:
 

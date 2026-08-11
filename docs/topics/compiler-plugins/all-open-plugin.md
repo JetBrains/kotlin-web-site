@@ -1,27 +1,50 @@
 [//]: # (title: All-open compiler plugin)
 
-Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such
-as Spring AOP that require classes to be `open`. The `all-open` compiler plugin adapts Kotlin to the requirements of those
-frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
+In Kotlin, classes and their members are `final` by default. This can cause issues with frameworks and libraries that rely on
+subclassing and runtime proxies, which require classes to be `open`.
 
-For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific
-annotations like `@Configuration` or `@Service`. The `all-open` plugin allows you to specify such annotations.
+The `all-open` compiler plugin makes classes and their members `open` at compile time without requiring the `open` keyword.
+You need to create an annotation, add it to the plugin options, and annotate the classes you want to make `open`:
 
-Kotlin provides `all-open` plugin support both for Gradle and Maven with the complete IDE integration.
+```kotlin
+@YourAnnotation
+class MyService {
+    // This class and all its members are open now
+    fun doWork() { /* ... */ }
+}
+```
 
-> For Spring, you can use the [`kotlin-spring` compiler plugin](#spring-support).
+If a class or any of its superclasses is annotated with a configured annotation, the class and its members become `open`.
+
+> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
+> It makes a class and its members `open` when they have a Spring annotation.
 >
 {style="note"}
 
-## Gradle
+## Declare an annotation
 
-Add the plugin in your `build.gradle(.kts)` file:
+Before enabling the `all-open` plugin, declare an annotation to mark the classes you want to make `open`.
+For example, `AllOpenMarker`:
+
+```kotlin
+package com.example
+
+annotation class AllOpenMarker()
+```
+
+## Apply the plugin
+
+### Gradle
+
+To enable the plugin, add it to the `plugins {}` block of your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
 plugins {
+    kotlin("jvm") version "%kotlinVersion%"
     kotlin("plugin.allopen") version "%kotlinVersion%"
 }
 ```
@@ -30,7 +53,9 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
 plugins {
+    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
     id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
 }
 ```
@@ -38,15 +63,16 @@ plugins {
 </tab>
 </tabs>
 
-Then specify the list of annotations that will make classes open:
+Then specify an annotation or a list of annotations that make classes `open`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 allOpen {
-    annotation("com.my.Annotation")
-    // annotations("com.another.Annotation", "com.third.Annotation")
+    annotation("com.example.AllOpenMarker")
+    // You can specify multiple annotations:
+    // annotations("com.example.AllOpenMarker", "com.anotherPackage.OtherAnnotation")
 }
 ```
 
@@ -55,8 +81,9 @@ allOpen {
 
 ```groovy
 allOpen {
-    annotation("com.my.Annotation")
-    // annotations("com.another.Annotation", "com.third.Annotation")
+    annotation("com.example.AllOpenMarker")
+    // You can specify multiple annotations:
+    // annotations("com.example.AllOpenMarker", "com.anotherPackage.OtherAnnotation")
 }
 ```
 
@@ -64,23 +91,7 @@ allOpen {
 </tabs>
 
 
-If the class (or any of its superclasses) is annotated with `com.my.Annotation`, the class itself and all its members
-will become open.
-
-It also works with meta-annotations:
-
-```kotlin
-@com.my.Annotation
-annotation class MyFrameworkAnnotation
-
-@MyFrameworkAnnotation
-class MyClass // will be all-open
-```
-
-`MyFrameworkAnnotation` is annotated with the all-open meta-annotation `com.my.Annotation`, so it becomes an all-open
-annotation as well.
-
-## Maven
+### Maven
 
 Add the plugin in your `pom.xml` file:
 
@@ -92,14 +103,13 @@ Add the plugin in your `pom.xml` file:
 
     <configuration>
         <compilerPlugins>
-            <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
         </compilerPlugins>
 
         <pluginOptions>
-            <!-- Each annotation is placed on its own line -->
-            <option>all-open:annotation=com.my.Annotation</option>
-            <option>all-open:annotation=com.their.AnotherAnnotation</option>
+            <!-- Add multiple lines for multiple annotations  -->
+            <option>all-open:annotation=com.example.AllOpenMarker</option>
+            <option>all-open:annotation=com.anotherPackage.OtherAnnotation</option>
         </pluginOptions>
     </configuration>
 
@@ -113,75 +123,42 @@ Add the plugin in your `pom.xml` file:
 </plugin>
 ```
 
-Please refer to the [Gradle section](#gradle) for the detailed information about how all-open annotations work.
+## Use the all-open plugin
 
-## Spring support
-
-If you use Spring, you can enable the `kotlin-spring` compiler plugin instead of specifying Spring annotations manually.
-The `kotlin-spring` is a wrapper on top of `all-open`, and it behaves exactly the same way.
-
-Add the `spring` plugin in your `build.gradle(.kts)` file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+If a class or any of its superclasses has the `com.example.AllOpenMarker` annotation you created,
+the class and all its members become `open`:
 
 ```kotlin
-plugins {
-    id("org.jetbrains.kotlin.plugin.spring") version "%kotlinVersion%"
+package com.example
+
+@AllOpenMarker
+class TestClass {
+    // This class and all its members are open
 }
 ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+The plugin also works with meta-annotations. If you mark another annotation with `@AllOpenMarker`,
+all classes and members annotated with it become `open`:
 
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
+```kotlin
+package com.example
+
+// An annotation marked with a previously created annotation
+@AllOpenMarker
+annotation class AnotherAllOpenMarker()
+
+@AllOpenMarker
+class NewClass {
+    // This class and all its members are open
+}
+
+@AnotherAllOpenMarker
+class AnotherClass {
+    // This class and all its members are open as well
 }
 ```
 
-</tab>
-</tabs>
-
-In Maven, the `spring` plugin is provided by the `kotlin-maven-allopen` plugin dependency, so to enable it in your 
-`pom.xml` file:
-
-```xml
-<compilerPlugins>
-    <plugin>spring</plugin>
-</compilerPlugins>
-
-<dependencies>
-    <dependency>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-maven-allopen</artifactId>
-        <version>${kotlin.version}</version>
-    </dependency>
-</dependencies>
-```
-
-The plugin specifies the following annotations: 
-* [`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html)
-* [`@Async`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/annotation/Async.html)
-* [`@Transactional`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html)
-* [`@Cacheable`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html)
-* [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html)
-
-Thanks to meta-annotations support, classes annotated with [`@Configuration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html),
-[`@Controller`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html),
-[`@RestController`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html),
-[`@Service`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html)
-or [`@Repository`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Repository.html)
-are automatically opened since these annotations are meta-annotated with
-[`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html).
- 
-Of course, you can use both `kotlin-allopen` and `kotlin-spring` in the same project.
-
-> If you generate the project template by the [start.spring.io](https://start.spring.io/#!language=kotlin)
-> service, the `kotlin-spring` plugin will be enabled by default.
->
-{style="note"}
-
+<!--
 ## Command-line compiler
 
 All-open compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
@@ -202,3 +179,12 @@ You can specify all-open annotations directly, using the `annotation` plugin opt
 ```
 
 Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and `quarkus`.
+-->
+
+## What's next?
+
+* For Spring applications, use the [`kotlin-spring` plugin](kotlin-spring-plugin.md), a preconfigured wrapper
+  that makes classes with Spring annotations `open`.
+* For JPA entities, use the [`kotlin-jpa` plugin](kotlin-jpa-plugin.md), which makes entities `open` and generates
+  zero-argument constructors for them.
+* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).
