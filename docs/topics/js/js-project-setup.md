@@ -966,15 +966,13 @@ Aside from basic package attributes, `package.json` can define how a JavaScript 
 identifying scripts that are available to run.
 
 You can add custom entries to the project's `package.json` via the Gradle DSL. To add custom fields to your `package.json`,
-use the `customField()` function in the `packageJson` block of the `jsMain` source set:
+use the `customField()` function in the compilations' `packageJson` block:
 
 ```kotlin
 kotlin {
-    sourceSets {
-        jsMain {
-            packageJson {
-                customField("hello", mapOf("one" to 1, "two" to 2))
-            }
+    js {
+        compilations["main"].packageJson {
+            customField("hello", mapOf("one" to 1, "two" to 2))
         }
     }
 }
