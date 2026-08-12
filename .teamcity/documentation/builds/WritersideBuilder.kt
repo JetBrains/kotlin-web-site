@@ -13,7 +13,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {},
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
-    val dockerImageTag = "2.1.2233-p8891"
+    val dockerImageTag = "2.1.2245-p8929" // stable-2026.07 + KTL-4152
     val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"

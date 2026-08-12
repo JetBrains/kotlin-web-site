@@ -27,7 +27,7 @@
         </toc-element>
     </toc-element>
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element toc-title="Kotlin 2.4.20-Beta2" topic="whatsnew-eap.md"/>
+        <toc-element toc-title="Kotlin 2.4.20-RC" topic="whatsnew-eap.md"/>
         <toc-element toc-title="Kotlin 2.4.0" accepts-web-file-names="whatsnew.html" topic="whatsnew24.md"/>
         <toc-element toc-title="Compatibility guide" topic="compatibility-guide-24.md"/>
     </toc-element>
@@ -60,7 +60,6 @@
         <toc-element toc-title="Functions">
             <toc-element topic="functions.md"/>
             <toc-element toc-title="Lambdas" topic="lambdas.md"/>
-            <toc-element topic="this-expressions.md"/>
             <toc-element toc-title="Builders">
                 <toc-element topic="type-safe-builders.md"/>
                 <toc-element topic="using-builders-with-builder-inference.md"/>
@@ -78,6 +77,7 @@
             <toc-element topic="delegation.md"/>
             <toc-element topic="inheritance.md"/>
             <toc-element topic="object-declarations.md"/>
+            <toc-element topic="this-expressions.md"/>
             <toc-element toc-title="Special classes and interfaces">
                 <toc-element topic="sealed-classes.md"/>
                 <toc-element topic="enum-classes.md"/>
