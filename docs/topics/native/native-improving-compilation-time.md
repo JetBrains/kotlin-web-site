@@ -157,13 +157,19 @@ remove them and check whether the build completes successfully. It is possible t
 to work around issues that have already been fixed.
 
 ### Try incremental compilation of klib artifacts
+<primary-label ref="experimental-opt-in"/>
 
 With incremental compilation, if only a part of the `klib` artifact produced by the project module changes,
 just a part of `klib` is further recompiled into a binary.
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). To enable it,
-add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
-create an [issue in YouTrack](https://kotl.in/issue).
+This feature is still [Experimental](components-stability.md#stability-levels-explained). To enable it,
+add the following option to your `gradle.properties` file:
+
+```properties
+kotlin.incremental.native=true
+```
+
+If you face any problems, create an [issue in YouTrack](https://kotl.in/issue).
 
 ## Windows configuration
 
