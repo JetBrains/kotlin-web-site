@@ -451,7 +451,7 @@ For example, the following Kotlin declaration:
 val map: Map<String, String>
 ```
 
-In Swift, might look like this:
+In Swift, it looks like this:
 
 ```Swift
 map[key]?.count ?? 0
@@ -575,7 +575,7 @@ class Sample<T>() {
 }
 ```
 
-Looks in Swift like this:
+In Swift, it looks like this:
 
 ```swift
 class Sample<T>() {
@@ -709,7 +709,7 @@ inheriting Swift/Objective-C types.
 Normal methods can be overridden using the `override` Kotlin keyword. In this case, the overriding method must have the
 same parameter names as the overridden one.
 
-Sometimes it is required to override initializers, for example when subclassing `UIViewController`. Initializers imported
+Sometimes it is required to override initializers, for example, when subclassing `UIViewController`. Initializers imported
 as Kotlin constructors can be overridden by Kotlin constructors marked with the `@OverrideInit` annotation:
 
 ```swift

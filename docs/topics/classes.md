@@ -489,7 +489,7 @@ class Person private constructor() { /*...*/ }
 Class inheritance in Kotlin allows you to create a new class (derived class) from an existing class (base class), 
 inheriting its properties and functions while adding or modifying behavior.
 
-For detailed information about inheritance hierarchies and how to use of the `open` keyword, see the [Inheritance](inheritance.md) section.
+For detailed information about inheritance hierarchies and how to use the `open` keyword, see the [Inheritance](inheritance.md) section.
 
 ## Abstract classes
 

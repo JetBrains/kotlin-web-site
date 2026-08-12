@@ -371,23 +371,23 @@ fun main() {
 ## Time sources
 
 By default, time is measured using a monotonic time source. Monotonic time sources only move forward and are not affected
-by variations like timezones. An alternative to monotonic time is elapsed real time which is also known as wall-clock time.
+by variations like timezones. An alternative to monotonic time is elapsed real time, which is also known as wall-clock time.
 Elapsed real time is measured relative to another point in time.
 
 ### Default time sources per platform
 
 This table explains the default source of monotonic time for each platform:
 
-| Platform            | Source |
-|---------------------|---|
-| Kotlin/JVM          | `System.nanoTime()`|
-| Kotlin/JS (Node.js) | `process.hrtime()`|
-| Kotlin/JS (browser) | `window.performance.now()` or `Date.now()`|
-| Kotlin/Native       | `std::chrono::high_resolution_clock` or `std::chrono::steady_clock`|
+| Platform            | Source                                                              |
+|---------------------|---------------------------------------------------------------------|
+| Kotlin/JVM          | `System.nanoTime()`                                                 |
+| Kotlin/JS (Node.js) | `process.hrtime()`                                                  |
+| Kotlin/JS (browser) | `window.performance.now()` or `Date.now()`                          |
+| Kotlin/Native       | `std::chrono::high_resolution_clock` or `std::chrono::steady_clock` |
 
 ### Create time source
 
-There are some cases where you might want to use a different time source. For example in Android, `System.nanoTime()`
+There are some cases where you might want to use a different time source. For example, in Android, `System.nanoTime()`
 only counts time while the device is active. It loses track of time when the device enters deep sleep. To keep track of
 time while the device is in deep sleep, you can create a time source that uses [`SystemClock.elapsedRealtimeNanos()`](https://developer.android.com/reference/android/os/SystemClock#elapsedRealtimeNanos()):
 

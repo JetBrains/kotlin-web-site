@@ -62,7 +62,7 @@ dependencies {
 </tab>
 </tabs>
 
-To exclude default Kotlin libraries that comes as transitive dependencies you can use the following approach:
+To exclude default Kotlin libraries that come as transitive dependencies, you can use the following approach:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -93,7 +93,7 @@ dependencies {
 
 ### Why not just add required manifest options to all Kotlin libraries
 
-Even though it is the most preferred way to provide OSGi support, unfortunately it couldn't be done for now due to so called
+Even though it is the most preferred way to provide OSGi support, unfortunately it couldn't be done for now due to so-called
 ["package split" issue](https://docs.osgi.org/specification/osgi.core/7.0.0/framework.module.html#d0e5999) that couldn't be easily eliminated and such a big change is
 not planned for now. There is `Require-Bundle` feature but it is not the best option too and not recommended to use.
 So it was decided to make a separate artifact for OSGi.

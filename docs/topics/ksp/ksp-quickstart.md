@@ -1,7 +1,7 @@
 [//]: # (title: Getting started with KSP)
 [//]: # (description: Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the KSP API to create your own.)
 
-In this guide you will learn:
+In this guide, you will learn:
 
 * How to add KSP-based annotation processors to your project.
 * How to create your own annotation processor with the KSP API.
@@ -151,7 +151,6 @@ Create a new module at the root of the project and declare an annotation:
 ### Create and register a processor
 
 1. Create another module at the root of the project called **processor**.
-
 2. Add the KSP API and the annotation you declared as dependencies in the module's `build.gradle(.kts)` file:
 
     <tabs group="build-script">
@@ -188,7 +187,6 @@ Create a new module at the root of the project and declare an annotation:
 
     </tab>
     </tabs>
-
 3. In the processor module, create a new `HelloWorldProcessor.kt` file and add the following code:
 
     ```kotlin
@@ -259,33 +257,31 @@ Create a new module at the root of the project and declare an annotation:
     import java.io.OutputStream
     ```
     {collapsible="true" collapsed-title="Import statements"}
-   
 
-    Let's go through the code:
-    
+   Let's go through the code:
+
     * 1️⃣ The `process()` function contains the main logic of the processor. It gets all symbols
-        annotated with `HelloWorldAnnotation` and calls `HelloWorldVisitor` for each one.
-    
-        The `process()` function returns a list of unprocessed symbols to process in a later round. In this example,
-        it safely returns `emptyList()`. For more information, see [Multiple round processing](ksp-multi-round.md).
-    
-    * 2️⃣ Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the `HelloWorldPocessor` 
-        class, the `HelloWorldVisitor` class is the visitor. Since the `HelloWorldAnnotation` is only used on a function, 
-        only `visitFunctionDeclaration()` is overridden.
-    
-        >   `KSVisitorVoid` is one of the visitor classes provided by KSP that you can override and adapt.
-        >   You can also create your own visitor by implementing the [`KSVisitor<D, R>` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
-        > 
-        {style="tip"}
-    
+      annotated with `HelloWorldAnnotation` and calls `HelloWorldVisitor` for each one.
+
+       The `process()` function returns a list of unprocessed symbols to process in a later round. In this example,
+       it safely returns `emptyList()`. For more information, see [Multiple round processing](ksp-multi-round.md).
+
+    * 2️⃣ Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
+      `HelloWorldPocessor` class, the `HelloWorldVisitor` class is the visitor. Since the `HelloWorldAnnotation` is only used on a function,
+      only `visitFunctionDeclaration()` is overridden.
+   
+       > `KSVisitorVoid` is one of the visitor classes provided by KSP that you can override and adapt.
+       > You can also create your own visitor by implementing the [`KSVisitor<D, R>` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt).
+       >
+       {style="tip"}
+
     * 3️⃣ `createNewFileFrom()` creates the file where KSP generates code. `createDependencyOn()` makes the output
-        file depend on the source file where the annotation is used.
+      file depend on the source file where the annotation is used.
 
-        >   To learn more about how KSP creates and manages files, visit the source code for the 
-        >   [`CodeGenerator` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/processing/CodeGenerator.kt)
-        > 
-        {style="tip"} 
-
+       > To learn more about how KSP creates and manages files, visit the source code for the
+       > [`CodeGenerator` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/processing/CodeGenerator.kt)
+       >
+       {style="tip"}
 4. Create a `HelloWorldProcessorProvider.kt` file. In it, declare a `HelloWorldProcessorProvider` class which inherits 
     from `SymbolProcessorProvider`:
 
@@ -302,7 +298,6 @@ Create a new module at the root of the project and declare an annotation:
         }  
     }
     ```
-
 5. Register the processor provider. In the `resources/META-INF/services` directory, create a 
 `com.google.devtools.ksp.processing.SymbolProcessorProvider` file and add the provider's fully qualified name:
 

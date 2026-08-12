@@ -84,7 +84,7 @@ non-`external` class.
 
 ### Declare (static) members of a class
 
-In JavaScript you can define members either on a prototype or a class itself:
+In JavaScript, you can define members either on a prototype or a class itself:
 
 ``` javascript
 function MyClass() { ... }

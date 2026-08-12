@@ -26,7 +26,7 @@ When KSP-based plugins process source programs, constructs like classes, class m
 are accessible for the processors, while things like `if` blocks and `for` loops are not.
 
 Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) in Kotlin reflection.
-The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice-versa.
+The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice versa.
 You can also substitute type arguments, specify variances, apply star projections, and mark nullabilities of types.
 
 Another way to think of KSP is as a preprocessor framework of Kotlin programs. By considering KSP-based plugins as

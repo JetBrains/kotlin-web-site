@@ -25,12 +25,12 @@ no longer recommended for production use and have become legacy.
 
 **Comfortable Updates**. Incompatible changes, such as removing things from a language, may lead to painful migration from
 one version to the next if carried out without proper care. We will always announce such changes well in advance, mark things
-as deprecated and provide automated migration tools _before the change happens_. By the time the language changes we
+as deprecated and provide automated migration tools _before the change happens_. By the time the language changes, we
 want most of the code in the world to be already updated and thus have no issues migrating to the new version.
 
 **Feedback Loop**. Going through deprecation cycles requires significant effort, so we want to minimize the number of
 incompatible changes we'll be making in the future. Apart from using our best judgement, we believe that trying things out
-in real life is the best way to validate a design. Before casting things in stone we want them battle-tested. This is why
+in real life is the best way to validate a design. Before casting things in stone, we want them battle-tested. This is why
 we use every opportunity to make early versions of our designs available in production versions of the language, but in one
 of the _pre-stable_ statuses: [Experimental, Alpha, or Beta](components-stability.md). Such features are not stable,
 they can be changed at any time, and the users that opt into using them do so explicitly to indicate that they are ready
@@ -136,7 +136,7 @@ A Kotlin language feature can have one of the following statuses:
   Typically, ideas are documented as YouTrack issues, where the discussion continues.
 
 * **KEEP discussion**. We are fairly certain that the feature should be added to the language.
-  We aim to provide a motivation, use-cases, design, and other important details in a document called a _KEEP_.
+  We aim to provide motivation, use-cases, design, and other important details in a document called a _KEEP_.
   We expect feedback from users to focus on discussing all the information provided in the KEEP.
 
 * **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
@@ -206,7 +206,7 @@ and even when it's over and the change ships in a stable version, there's still 
 
 ### Compatibility options
 
-We provide compatiblity options that make a new Kotlin version emulate the behavior of an old one for compatibility purposes:
+We provide compatibility options that make a new Kotlin version emulate the behavior of an old one for compatibility purposes:
 
 * `-language-version X.Y` - compatibility mode for Kotlin language version X.Y, reports errors for all language features
   that came out later.

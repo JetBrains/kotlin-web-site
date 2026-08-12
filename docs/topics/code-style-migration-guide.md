@@ -57,7 +57,7 @@ large feature branches currently in work.
 
 In general, for small projects, we recommend converting all the files at once.
 
-For medium and large projects the decision may be tough. If you are not ready to update many files right away, you may
+For medium and large projects, the decision may be tough. If you are not ready to update many files right away, you may
 decide to migrate module by module or continue with gradual migration for modified files only.
 
 ## Migration to a new code style
@@ -95,7 +95,7 @@ After updating your code style settings, activate **Reformat Code** in the proje
 
 For a gradual migration, it's possible to enable the **File is not formatted according to project settings** inspection.
 It will highlight the places that should be reformatted. After enabling the **Apply only to modified files** option,
-inspection will show formatting problems only in modified files. Such files are probably going to be committed soon anyway.
+the inspection will show formatting problems only in modified files. Such files are probably going to be committed soon anyway.
 
 ## Store old code style in project
 

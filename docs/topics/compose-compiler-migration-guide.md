@@ -25,39 +25,39 @@ For Android modules:
 
 1. Add the Compose compiler Gradle plugin to the [Gradle version catalog](https://docs.gradle.org/current/userguide/platforms.html#sub:conventional-dependencies-toml):
 
- ```toml
- [versions]
- # ...
- kotlin = "%kotlinVersion%"
- 
- [plugins]
- # ...
- org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
- compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
- ```
-
-> If you're using AGP 9.0.0 or later, you no longer need the `org-jetbrains-kotlin-android` plugin because the AGP has
-> built-in Kotlin support.
-> 
-{style ="note"}
+     ```toml
+     [versions]
+     # ...
+     kotlin = "%kotlinVersion%"
+     
+     [plugins]
+     # ...
+     org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+     compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+     ```
+    
+    > If you're using AGP 9.0.0 or later, you no longer need the `org-jetbrains-kotlin-android` plugin because the AGP has
+    > built-in Kotlin support.
+    > 
+    {style ="note"}
 
 2. Add the Gradle plugin to the root `build.gradle.kts` file:
 
- ```kotlin
- plugins {
-     // ...
-     alias(libs.plugins.compose.compiler) apply false
- }
- ```
+     ```kotlin
+     plugins {
+         // ...
+         alias(libs.plugins.compose.compiler) apply false
+     }
+     ```
 
 3. Apply the plugin to every module that uses Jetpack Compose:
 
- ```kotlin
- plugins {
-     // ...
-     alias(libs.plugins.compose.compiler)
- }
- ```
+     ```kotlin
+     plugins {
+         // ...
+         alias(libs.plugins.compose.compiler)
+     }
+     ```
 
 4. If you are using compiler options for the Jetpack Compose compiler, set them in the `composeCompiler {}` block.
    See [the list of compiler options](compose-compiler-options.md) for reference.

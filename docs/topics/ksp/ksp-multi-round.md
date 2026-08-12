@@ -36,7 +36,7 @@ Defer symbols only when:
 
     > Never defer symbols from the classpath. KSP filters out classpath symbols automatically.
     > 
-    {syle="note"}
+    {style="note"}
 
 For example, a processor that generates a builder for an annotated class might require all constructor parameter types 
 to resolve to concrete types. In the first round, one of the parameter types might not be resolvable. In a later round, 

@@ -81,7 +81,7 @@ data class Person(val name: String, @all:Positive val age: Int)
 
 When you use `@JvmRecord` with `@all:`, Kotlin:
 
-* Propagates the annotation to the property, backing field, constructor parameter, getter and setter.
+* Propagates the annotation to the property, backing field, constructor parameter, getter, and setter.
 * Applies the annotation to the record component as well, if the annotation supports Java's `RECORD_COMPONENT`.
 
 ## Make annotations work with record components

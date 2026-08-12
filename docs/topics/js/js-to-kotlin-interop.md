@@ -1,7 +1,7 @@
 [//]: # (title: Use Kotlin code from JavaScript)
 
 Depending on the selected [JavaScript Module](js-modules.md) system, the Kotlin/JS compiler generates different output.
-But in general, the Kotlin compiler generates normal JavaScript classes, functions and properties, which you can freely
+But in general, the Kotlin compiler generates normal JavaScript classes, functions, and properties, which you can freely
 use from JavaScript code. There are some subtle things you should remember, though.
 
 ## Isolating declarations in a separate JavaScript object in plain mode 
@@ -178,7 +178,7 @@ console.log(await auth.login(new Email("not-an-email")));
 You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
 It allows for direct mapping to regular TypeScript interfaces.
 
-To export a Kotlin interface, for example from a Kotlin Multiplatform project:
+To export a Kotlin interface, for example, from a Kotlin Multiplatform project:
 
 1. Annotate the Kotlin interface with `@JsNoRuntime` in common code:
 
@@ -296,17 +296,17 @@ To enable this feature:
 1. Allow exporting `Long` in Kotlin/JS. Add the following compiler option to the `freeCompilerArgs` attribute
    in your `build.gradle(.kts)` file:
 
- ```kotlin
-// build.gradle.kts
-kotlin {
-    js {
-        ...
-        compilerOptions { 
-            freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+     ```kotlin
+    // build.gradle.kts
+    kotlin {
+        js {
+            ...
+            compilerOptions { 
+                freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+            }
         }
     }
-}
-```
+    ```
 
 2. Enable the `BigInt` type. See how to enable it in [Use `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
 

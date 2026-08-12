@@ -193,7 +193,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 Both `put()` and `putAll()` overwrite the values if the given keys already exist in the map. Thus, you can use them to update
-values of map entries.
+the values of map entries.
 
 ```kotlin
 

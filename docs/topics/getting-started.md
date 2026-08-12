@@ -1,7 +1,7 @@
 [//]: # (title: Get started with Kotlin)
 
 <tldr>
-<p>Latest Kotlin release:<b> <a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
+<p>Latest Kotlin release: <b><a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
 </tldr>
 
 Kotlin is a modern language that's concise, multiplatform, and interoperable with Java and other languages.

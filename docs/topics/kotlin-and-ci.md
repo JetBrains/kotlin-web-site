@@ -20,7 +20,7 @@ executing for the Runner Type.
 Since all the dependencies required for Kotlin are defined in the Gradle file, nothing else needs to be configured
 specifically for Kotlin to run correctly.
 
-If using Maven, the same configuration applies. The only difference being that the Runner Type would be Maven.
+If using Maven, the same configuration applies. The only difference is that the Runner Type would be Maven.
 
 ## IntelliJ IDEA Build System
 
@@ -41,7 +41,7 @@ Download that meta-runner and import it from the TeamCity user interface
 
 ### Setup Kotlin compiler fetching step
 
-Basically this step is limited to defining the Step Name and the version of Kotlin you need. Tags can be used.
+Basically, this step is limited to defining the Step Name and the version of Kotlin you need. Tags can be used.
 
 <img src="teamcity-setupkotlin.png" alt="Setup Kotlin Compiler" width="700"/>
 

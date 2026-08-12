@@ -129,33 +129,33 @@ Other known issues:
 
 The table below shows how Kotlin concepts are mapped to Swift.
 
-| Kotlin                                     | Swift                          |
-|--------------------------------------------|--------------------------------|
-| [`class`](#classes)                        | `class`                        |
-| [`object`](#objects)                       | `class` with `shared` property |
-| [`enum class`](#enums)                     | `enum`                         |
-| [`typealias`](#type-aliases)               | `typealias`                    |
-| [Function](#functions)                     | Function                       |
-| [`suspend fun`](#suspending-functions)     | `async`                        |
-| [`kotlinx.coroutines` flows](#flows) | `AsyncSequence`                |
-| [Property](#properties)                    | Property                       |
-| [Constructor](#constructors)               | Initializer                    |
-| [Package](#packages)                       | Nested enum                    |
-| `Boolean`                                  | `Bool`                         |
-| `Char`                                     | `Unicode.UTF16.CodeUnit`       |
-| `Byte`                                     | `Int8`                         |
-| `Short`                                    | `Int16`                        |
-| `Int`                                      | `Int32`                        |
-| `Long`                                     | `Int64`                        |
-| `UByte`                                    | `UInt8`                        |
-| `UShort`                                   | `UInt16`                       |
-| `UInt`                                     | `UInt32`                       |
-| `ULong`                                    | `UInt64`                       |
-| `Float`                                    | `Float`                        |
-| `Double`                                   | `Double`                       |
-| `Any`                                      | `KotlinBase` class             |
-| `Unit`                                     | `Void`                         |
-| [`Nothing`](#kotlin-nothing)               | `Never`                        |
+| Kotlin                                 | Swift                          |
+|----------------------------------------|--------------------------------|
+| [`class`](#classes)                    | `class`                        |
+| [`object`](#objects)                   | `class` with `shared` property |
+| [`enum class`](#enums)                 | `enum`                         |
+| [`typealias`](#type-aliases)           | `typealias`                    |
+| [Function](#functions)                 | Function                       |
+| [`suspend fun`](#suspending-functions) | `async`                        |
+| [`kotlinx.coroutines` flows](#flows)   | `AsyncSequence`                |
+| [Property](#properties)                | Property                       |
+| [Constructor](#constructors)           | Initializer                    |
+| [Package](#packages)                   | Nested enum                    |
+| `Boolean`                              | `Bool`                         |
+| `Char`                                 | `Unicode.UTF16.CodeUnit`       |
+| `Byte`                                 | `Int8`                         |
+| `Short`                                | `Int16`                        |
+| `Int`                                  | `Int32`                        |
+| `Long`                                 | `Int64`                        |
+| `UByte`                                | `UInt8`                        |
+| `UShort`                               | `UInt16`                       |
+| `UInt`                                 | `UInt32`                       |
+| `ULong`                                | `UInt64`                       |
+| `Float`                                | `Float`                        |
+| `Double`                               | `Double`                       |
+| `Any`                                  | `KotlinBase` class             |
+| `Unit`                                 | `Void`                         |
+| [`Nothing`](#kotlin-nothing)           | `Never`                        |
 
 ### Declarations
 
