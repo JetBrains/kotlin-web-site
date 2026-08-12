@@ -441,6 +441,41 @@ when (animal) {
 }
 ```
 
+### Bytecode generation on the JVM
+
+When you compile Kotlin code for JVM 21 or later, the compiler generates an [`invokedynamic`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/invoke/package-summary.html)
+instruction for eligible `when` expressions. This produces smaller bytecode, similar to the bytecode produced by Java `switch` statements.
+
+The compiler uses `invokedynamic` with [`SwitchBootstraps.typeSwitch`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/runtime/SwitchBootstraps.html)
+methods when all the following conditions are met:
+
+* All conditions except for `else` are `is` or `null` checks.
+* The expression doesn't contain [guard conditions (`if`)](#guard-conditions-in-when-expressions).
+* The conditions don't include types that can't be type-checked directly, such as mutable Kotlin collections
+  (`MutableList`) or function types (`kotlin.Function1`, `kotlin.Function2`, and so on).
+* There are at least two conditions besides `else`.
+* All branches check the same subject of the `when` expression.
+
+For example:
+
+```kotlin
+open class Shape
+
+class Circle : Shape()
+class Rectangle : Shape()
+class Triangle : Shape()
+
+fun countCorners(shape: Shape) = when (shape) {
+    is Circle -> 0
+    is Rectangle -> 4
+    is Triangle -> 3
+    else -> -1
+}
+```
+
+The `when (shape)` expression here compiles to a single `invokedynamic` type switch instead of multiple `instanceof` checks
+in the bytecode.
+
 ## For loops
 
 Use the `for` loop to iterate through a [collection](collections-overview.md), [array](arrays.md), or [range](ranges.md):
