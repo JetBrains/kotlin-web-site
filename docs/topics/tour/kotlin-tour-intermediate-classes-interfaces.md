@@ -460,9 +460,9 @@ Finally, add another function called `adjustTemperature()` that accepts a temper
     </def>
 </deflist>
 
-|--|--|
+|---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1">
 abstract class // Write your code here
 
 class SmartLight(name: String) : SmartDevice(name) {
@@ -499,11 +499,10 @@ fun main() {
     bedroomThermostat.turnOff()
     // Bedroom Thermostat thermostat is now off.
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1">
 abstract class SmartDevice(val name: String) {
     abstract fun turnOn()
     abstract fun turnOff()
@@ -556,8 +555,7 @@ fun main() {
     bedroomThermostat.turnOff()
     // Bedroom Thermostat thermostat is now off.
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-2"}
 
@@ -578,7 +576,7 @@ the `play()` function to print the following: `"Playing audio: $title, composed 
 </deflist>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2">
 interface // Write your code here
 
 class // Write your code here
@@ -588,11 +586,10 @@ fun main() {
     audio.play()
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2">
 interface Media {
     val title: String
     fun play()
@@ -609,8 +606,7 @@ fun main() {
     audio.play()
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-3"}
 
@@ -630,7 +626,7 @@ statements:
    * `"Processing credit card payment of $amount."`
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3">
 interface Refundable {
     // Write your code here
 }
@@ -651,11 +647,10 @@ fun main() {
     visa.refund(50.0)
     // Refunding $50.0 to the credit card.
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-3"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3">
 interface Refundable {
     fun refund(amount: Double)
 }
@@ -688,8 +683,7 @@ fun main() {
     visa.refund(50.0)
     // Refunding $50.0 to the credit card.
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
+</code>
 
 ### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-4"}
 
@@ -709,7 +703,7 @@ a `message` as an input and return a printed statement: `"Sending a smart messag
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4">
 interface Messenger {
     fun sendMessage(message: String)
     fun receiveMessage(): String
@@ -739,11 +733,10 @@ fun main() {
     // Sending a smart message: Hello from SmartMessenger!
     // Sending message: [smart] Hello from SmartMessenger!
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-4"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4">
 interface Messenger {
     fun sendMessage(message: String)
     fun receiveMessage(): String
@@ -778,8 +771,7 @@ fun main() {
     // Sending a smart message: Hello from SmartMessenger!
     // Sending message: [smart] Hello from SmartMessenger!
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
+</code>
 
 <seealso></seealso>
 

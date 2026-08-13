@@ -81,7 +81,7 @@ fun main() {
     // Exception in thread "main" java.lang.StackOverflowError
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-stackoverflow"}
+{validate="false" kotlin-runnable="true" id="kotlin-tour-properties-stackoverflow"}
 
 To fix this, you can use the backing field in your `set()` function instead by referencing it with the `field` keyword:
 
@@ -100,7 +100,7 @@ fun main() {
     // Kodee
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-backingfield"}
+{kotlin-runnable="true" id="kotlin-tour-properties-backingfield"}
 
 Backing fields are also useful when you want to add logging, send notifications when a property value changes,
 or use additional logic that compares the old and new property values.
@@ -150,7 +150,7 @@ fun main() {
     // John Doe
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-extension"}
+{kotlin-runnable="true" id="kotlin-tour-properties-extension"}
 
 > Extension properties can't override existing properties of a class.
 > 
@@ -271,7 +271,7 @@ fun main() {
     // John Doe
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-delegated"}
+{kotlin-runnable="true" id="kotlin-tour-properties-delegated"}
 
 This example:
 
@@ -335,7 +335,7 @@ fun main() {
     // Data: [Data1, Data2, Data3]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-lazy"}
+{kotlin-runnable="true" id="kotlin-tour-properties-lazy"}
 
 In this example:
 
@@ -393,7 +393,7 @@ fun main() {
     // Warning: Temperature is too high! (22.5°C -> 27.0°C)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-observable"}
+{kotlin-runnable="true" id="kotlin-tour-properties-observable"}
 
 In this example:
 
@@ -439,7 +439,7 @@ Write a function called `findOutOfStockBooks()` that returns a list of indices f
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/FindOutOfStockBooksTest.kt" validate="false" id="kotlin-tour-properties-exercise-1">
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     // Write your code here
 }
@@ -449,11 +449,10 @@ fun main() {
     println(findOutOfStockBooks(inventory))
     // [1, 3]
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/FindOutOfStockBooksTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1">
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     val outOfStockIndices = mutableListOf<Int>()
     for (index in inventory.indices) {
@@ -469,11 +468,10 @@ fun main() {
     println(findOutOfStockBooks(inventory))
     // [1, 3]
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/FindOutOfStockBooksTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2">
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> = buildList {
     for (index in inventory.indices) {
         if (inventory[index] == 0) {
@@ -487,8 +485,7 @@ fun main() {
     println(findOutOfStockBooks(inventory))
     // [1, 3]
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-2"}
 
@@ -507,7 +504,7 @@ You have a travel app that needs to display distances in both kilometers and mil
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AsMilesTest.kt" validate="false" id="kotlin-tour-properties-exercise-2">
 val // Write your code here
 
 fun main() {
@@ -519,11 +516,10 @@ fun main() {
     println("$marathonDistance km is ${marathonDistance.asMiles} miles")
     // 42.195 km is 26.218757 miles
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AsMilesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2">
 val Double.asMiles: Double
     get() = this * 0.621371
 
@@ -536,8 +532,7 @@ fun main() {
     println("$marathonDistance km is ${marathonDistance.asMiles} miles")
     // 42.195 km is 26.218757 miles
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
 
@@ -547,7 +542,7 @@ functions are only run when needed:
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/LazyHealthCheckTest.kt" validate="false" id="kotlin-tour-properties-exercise-3">
 fun checkAppServer(): Boolean {
     println("Performing application server health check...")
     return true
@@ -569,11 +564,10 @@ fun main() {
     // Performing application server health check...
     // Application server is online and healthy
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-3"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/LazyHealthCheckTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3">
 fun checkAppServer(): Boolean {
     println("Performing application server health check...")
     return true
@@ -596,8 +590,7 @@ fun main() {
    // Performing application server health check...
    // Application server is online and healthy
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
+</code>
 
 ### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-4"}
 
@@ -610,7 +603,7 @@ that contains the initial budget amount. Within the class, create an observable 
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/BudgetTest.kt" validate="false" id="kotlin-tour-properties-exercise-4">
 import kotlin.properties.Delegates.observable
 
 class Budget(val totalBudget: Int) {
@@ -627,11 +620,10 @@ fun main() {
     myBudget.remainingBudget = 300
     // Good news: Your remaining budget increased to 300.
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-4"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/BudgetTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4">
 import kotlin.properties.Delegates.observable
 
 class Budget(val totalBudget: Int) {
@@ -654,8 +646,7 @@ fun main() {
     myBudget.remainingBudget = 300
     // Good news: Your remaining budget increased to 300.
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
+</code>
 
 <seealso></seealso>
 

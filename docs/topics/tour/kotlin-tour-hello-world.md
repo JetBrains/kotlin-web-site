@@ -11,7 +11,7 @@ fun main() {
     // Hello, world!
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="hello-world-kotlin"}
+{kotlin-runnable="true" id="hello-world-kotlin"}
 
 In Kotlin:
 
@@ -53,7 +53,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-variables"}
+{kotlin-runnable="true" id="kotlin-tour-variables"}
 
 > Variables can be declared outside the `main()` function at the beginning of your program. Variables declared in this way
 > are said to be declared at **top level**.
@@ -89,7 +89,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-string-templates"}
+{kotlin-runnable="true" id="kotlin-tour-string-templates"}
 
 For more information, see [String templates](strings.md#string-templates).
 
@@ -103,24 +103,22 @@ explains the different Kotlin basic types and how to declare them in the [next c
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" validate="false" id="kotlin-tour-hello-world-exercise">
 fun main() {
     val name = "Mary"
     val age = 20
     // Write your code here
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-hello-world-exercise"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution">
 fun main() {
     val name = "Mary"
     val age = 20
     println("$name is $age years old")
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+</code>
 
 <seealso></seealso>
 

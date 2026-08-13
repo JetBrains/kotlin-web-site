@@ -54,7 +54,7 @@ fun main() {
     println(strLength(nullable))  // Throws a compiler error
 }
 ```
-{kotlin-runnable="true" validate="false" kotlin-min-compiler-version="1.3" id="kotlin-tour-nullable-type"}
+{kotlin-runnable="true" validate="false" id="kotlin-tour-nullable-type"}
 
 > `length` is a property of the [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) class that 
 > contains the number of characters within a string.
@@ -81,7 +81,7 @@ fun main() {
     // Empty or null string
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-check-nulls"}
+{kotlin-runnable="true" id="kotlin-tour-check-nulls"}
 
 ## Use safe calls
 
@@ -100,7 +100,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-property"}
+{kotlin-runnable="true" id="kotlin-tour-safe-call-property"}
 
 > Safe calls can be chained so that if any property of an object contains a `null` value, then `null` is returned without 
 > an error being thrown. For example:
@@ -124,7 +124,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-function"}
+{kotlin-runnable="true" id="kotlin-tour-safe-call-function"}
 
 ## Use Elvis operator
 
@@ -143,7 +143,7 @@ fun main() {
     // 0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-elvis-operator"}
+{kotlin-runnable="true" id="kotlin-tour-elvis-operator"}
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
@@ -156,7 +156,7 @@ function returns a value of the `Employee?` type, so the result can be `null`. Y
 returns the salary of an employee when their `id` is provided, or `0` if the employee is missing from the database.
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise">
 data class Employee (val name: String, var salary: Int)
 
 fun employeeById(id: Int) = when(id) {
@@ -172,11 +172,10 @@ fun salaryById(id: Int) = // Write your code here
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution">
 data class Employee (val name: String, var salary: Int)
 
 fun employeeById(id: Int) = when(id) {
@@ -192,8 +191,7 @@ fun salaryById(id: Int) = employeeById(id)?.salary ?: 0
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+</code>
 
 ## What's next?
 

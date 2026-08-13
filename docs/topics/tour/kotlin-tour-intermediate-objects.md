@@ -140,7 +140,7 @@ fun main() {
     // BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-companion-object"}
+{kotlin-runnable="true" id="kotlin-tour-classes-companion-object"}
 
 This example creates a class called `BigBen` that contains a companion object called `Bonger`. The companion object
 has a member function called `getBongs()` that accepts an integer and prints `"BONG"` to the console the same number of times
@@ -160,7 +160,7 @@ of the second data object so that the following code in the `main()` function ru
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/OrderTwoTest.kt" validate="false" id="kotlin-tour-objects-exercise-1">
 interface Order {
     val orderId: String
     val customerName: String
@@ -196,11 +196,10 @@ fun main() {
     println("Do the orders have the same customer name? ${OrderOne.customerName == OrderTwo.customerName}")
     // Do the orders have the same customer name? false
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/OrderTwoTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1">
 interface Order {
     val orderId: String
     val customerName: String
@@ -240,8 +239,7 @@ fun main() {
     println("Do the orders have the same customer name? ${OrderOne.customerName == OrderTwo.customerName}")
     // Do the orders have the same customer name? false
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-2"}
 
@@ -251,7 +249,7 @@ successfully:
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/FlyingSkateboardTest.kt" validate="false" id="kotlin-tour-objects-exercise-2">
 interface Vehicle {
     val name: String
     fun move(): String
@@ -265,11 +263,10 @@ fun main() {
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.fly()}")
     // Flying Skateboard: Woooooooo
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/FlyingSkateboardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2">
 interface Vehicle {
     val name: String
     fun move(): String
@@ -288,8 +285,7 @@ fun main() {
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.fly()}")
     // Flying Skateboard: Woooooooo
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
@@ -304,7 +300,7 @@ the following code in the `main()` function runs successfully:
 </deflist>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/TemperatureTest.kt" validate="false" id="kotlin-tour-objects-exercise-3">
 data class Temperature(val celsius: Double) {
     val fahrenheit: Double = celsius * 9 / 5 + 32
 
@@ -317,11 +313,10 @@ fun main() {
     println("${temp.celsius}°C is $fahrenheit °F")
     // 32.22222222222222°C is 90.0 °F
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/TemperatureTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3">
 data class Temperature(val celsius: Double) {
     val fahrenheit: Double = celsius * 9 / 5 + 32
 
@@ -336,8 +331,7 @@ fun main() {
     println("${temp.celsius}°C is $fahrenheit °F")
     // 32.22222222222222°C is 90.0 °F
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
+</code>
 
 <seealso></seealso>
 

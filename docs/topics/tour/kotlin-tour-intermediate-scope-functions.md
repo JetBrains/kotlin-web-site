@@ -429,7 +429,7 @@ Rewrite the `.getPriceInEuros()` function as a single-expression function that u
 </deflist>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetPriceInEurosTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-1">
 data class ProductInfo(val priceInDollars: Double?)
 
 class Product {
@@ -462,11 +462,10 @@ fun main() {
         println("Price information is not available.")
     }
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetPriceInEurosTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1">
 data class ProductInfo(val priceInDollars: Double?)
 
 class Product {
@@ -492,8 +491,7 @@ fun main() {
         println("Price information is not available.")
     }
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-2"}
 
@@ -501,7 +499,7 @@ You have an `updateEmail()` function that updates the email address of a user. U
 to update the email address and then the `also` scope function to print a log message: `Updating email for user with ID: ${it.id}`.
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/UpdateEmailTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-2">
 data class User(val id: Int, var email: String)
 
 fun updateEmail(user: User, newEmail: String): User = // Write your code here
@@ -514,11 +512,10 @@ fun main() {
     println("Updated User: $updatedUser")
     // Updated User: User(id=1, email=new_email@example.com)
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/UpdateEmailTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2">
 data class User(val id: Int, var email: String)
 
 fun updateEmail(user: User, newEmail: String): User = user.apply {
@@ -533,8 +530,7 @@ fun main() {
     println("Updated User: $updatedUser")
     // Updated User: User(id=1, email=new_email@example.com)
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
+</code>
 
 <seealso></seealso>
 

@@ -401,7 +401,7 @@ Complete the `getNotificationPreferences()` function so that:
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetNotificationPreferencesTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-1">
 data class User(val name: String?)
 
 fun getNotificationPreferences(user: Any, emailEnabled: Boolean, smsEnabled: Boolean): List<String> {
@@ -423,12 +423,11 @@ fun main() {
     println(getNotificationPreferences(invalidUser, emailEnabled = true, smsEnabled = true))
     // []
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-1"}
+</code>
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetNotificationPreferencesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-1">
 data class User(val name: String?)
 
 fun getNotificationPreferences(user: Any, emailEnabled: Boolean, smsEnabled: Boolean): List<String> {
@@ -453,8 +452,7 @@ fun main() {
     println(getNotificationPreferences(invalidUser, emailEnabled = true, smsEnabled = true))
     // []
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-2"}
 
@@ -464,7 +462,7 @@ with a predicate to return a `null` value if there is more than one active subsc
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveSubscriptionTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-2">
 data class Subscription(val name: String, val isActive: Boolean)
 
 fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? // Write your code here
@@ -486,12 +484,11 @@ fun main() {
     println(getActiveSubscription(userWithConflictingPlans))
     // null
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-2"}
+</code>
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveSubscriptionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-2-1">
 data class Subscription(val name: String, val isActive: Boolean)
 
 fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? {
@@ -515,12 +512,11 @@ fun main() {
     println(getActiveSubscription(userWithConflictingPlans))
     // null
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-2-1"}
+</code>
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveSubscriptionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-2-2">
 data class Subscription(val name: String, val isActive: Boolean)
 
 fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? =
@@ -543,8 +539,7 @@ fun main() {
     println(getActiveSubscription(userWithConflictingPlans))
     // null
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-2-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-3"}
 
@@ -554,7 +549,7 @@ has a predicate that returns the username if it is active or a `null` value if i
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveUsernamesTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-3">
 data class User(val username: String, val isActive: Boolean)
 
 fun getActiveUsernames(users: List<User>): List<String> {
@@ -571,8 +566,7 @@ fun main() {
     println(getActiveUsernames(allUsers))
     // [alice123, charlie99]
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-3"}
+</code>
 
 |--|--|
 
@@ -583,7 +577,7 @@ fun main() {
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveUsernamesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-3-1">
 data class User(val username: String, val isActive: Boolean)
 
 fun getActiveUsernames(users: List<User>): List<String> {
@@ -602,12 +596,11 @@ fun main() {
     println(getActiveUsernames(allUsers))
     // [alice123, charlie99]
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-3-1"}
+</code>
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/GetActiveUsernamesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-3-2">
 data class User(val username: String, val isActive: Boolean)
 
 fun getActiveUsernames(users: List<User>): List<String> =
@@ -623,8 +616,7 @@ fun main() {
     println(getActiveUsernames(allUsers))
     // [alice123, charlie99]
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-3-2"}
+</code>
 
 ### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-4"}
 
@@ -642,7 +634,7 @@ In all of the above cases, the function must return early with the value of `-1`
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ValidateStockTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-4">
 fun validateStock(requested: Int?, available: Int?): Int {
     // Write your code here
 }
@@ -655,12 +647,11 @@ fun main() {
     println(validateStock(-2,10))
     // -1
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-4"}
+</code>
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ValidateStockTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-4">
 fun validateStock(requested: Int?, available: Int?): Int {
     val validRequested = requested ?: return -1
     val validAvailable = available ?: return -1
@@ -679,8 +670,7 @@ fun main() {
     println(validateStock(-2,10))
     // -1
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-4"}
+</code>
 
 <seealso></seealso>
 

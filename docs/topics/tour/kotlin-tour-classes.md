@@ -61,7 +61,7 @@ fun main() {
     val contact = Contact(1, "mary@gmail.com")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-class-create-instance"}
+{kotlin-runnable="true" id="kotlin-tour-class-create-instance"}
 
 In the example:
 
@@ -95,7 +95,7 @@ fun main() {
     // jane@gmail.com
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-access-property"}
+{kotlin-runnable="true" id="kotlin-tour-access-property"}
 
 > To concatenate the value of a property as part of a string, you can use string templates (`$`).
 > For example:
@@ -127,7 +127,7 @@ fun main() {
     // 1
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-member-function"}
+{kotlin-runnable="true" id="kotlin-tour-member-function"}
 
 ## Data classes
 
@@ -178,7 +178,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-print-string"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-print-string"}
 
 This is particularly useful when debugging or creating logs.
 
@@ -205,7 +205,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-compare-instances"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-compare-instances"}
 
 ### Copy instance
 
@@ -237,7 +237,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-copy-instance"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-copy-instance"}
 
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
@@ -255,7 +255,7 @@ for salary is mutable, otherwise you won't get a salary boost at the end of the 
 you can use this data class.
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1">
 // Write your code here
 
 fun main() {
@@ -264,11 +264,10 @@ fun main() {
     emp.salary += 10
     println(emp)
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1">
 data class Employee(val name: String, var salary: Int)
 
 fun main() {
@@ -277,15 +276,14 @@ fun main() {
     emp.salary += 10
     println(emp)
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
 Declare the additional data classes that are needed for this code to compile.
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2">
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 // Write your code here
 // data class Name(...)
@@ -297,11 +295,10 @@ fun main() {
         ownsAPet = false
     )
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2">
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 data class Name(val first: String, val last: String)
 data class Address(val street: String, val city: City)
@@ -314,8 +311,7 @@ fun main() {
         ownsAPet = false
     )
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -343,7 +339,7 @@ how you can use this class.
 </deflist>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3">
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -359,11 +355,10 @@ fun main() {
     empGen.maxSalary = 100
     println(empGen.generateEmployee())
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3">
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -384,8 +379,7 @@ fun main() {
     empGen.maxSalary = 100
     println(empGen.generateEmployee())
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+</code>
 
 <seealso></seealso>
 

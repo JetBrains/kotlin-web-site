@@ -189,7 +189,7 @@ Update the code to:
 
 |--|--|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CalculateCompoundInterestTest.kt" validate="false" id="kotlin-tour-libraries-exercise-1">
 // Write your code here
 
 fun calculateCompoundInterest(P: Double, r: Double, n: Int, t: Int): Double {
@@ -205,12 +205,10 @@ fun main() {
     println("The accumulated amount is: $amount")
     // The accumulated amount is: 1282.0372317085844
 }
-
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-1"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CalculateCompoundInterestTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1">
 import kotlin.math.*
 
 fun calculateCompoundInterest(P: Double, r: Double, n: Int, t: Int): Double {
@@ -226,8 +224,7 @@ fun main() {
     println("The accumulated amount is: $amount")
     // The accumulated amount is: 1282.0372317085844
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1"}
+</code>
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-2"}
 
@@ -236,7 +233,7 @@ to add the correct import statements and functions from the [`kotlin.time`](http
 
 |---|---|
 
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/MeasureTimeTest.kt" validate="false" id="kotlin-tour-libraries-exercise-2">
 // Write your code here
 
 fun main() {
@@ -252,11 +249,10 @@ fun main() {
 
     println("Time taken: $timeTaken") // e.g. 16 ms
 }
-```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-2"}
+</code>
 
 |---|---|
-```kotlin
+<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/MeasureTimeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2">
 import kotlin.time.measureTime
 
 fun main() {
@@ -272,8 +268,7 @@ fun main() {
 
     println("Time taken: $timeTaken") // e.g. 16 ms
 }
-```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2"}
+</code>
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
 
