@@ -7,7 +7,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Hero section Get started button', async ({ page, baseURL }) => {
-        const getStartedButton = page.getByTestId('ab-hero-button');
+        const getStartedButton = page.getByTestId('hero-get-started-button');
         await expect(getStartedButton).toBeVisible();
         await getStartedButton.click();
         expect(page.url()).toContain(`${baseURL}/docs/getting-started.html`);
@@ -16,13 +16,50 @@ test.describe('Main page buttons', () => {
     });
 
     test('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
-        const jetBrainsLink = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'JetBrains' });
+        const jetBrainsLink = page.getByTestId('hero-jetbrains-link');
         await expect(jetBrainsLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await jetBrainsLink.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
         expect(newPage.url()).toContain('https://www.jetbrains.com/');
+    });
+
+    test('Hero Multiplatform nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Multiplatform' });
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/multiplatform/`);
+        const pageTitle = page.locator('h1').first();
+        await expect(pageTitle).toContainText('Kotlin Multiplatform');
+    });
+
+    test('Hero Backend nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Backend' });
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/backend/`);
+    });
+
+    test('Hero AI nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'AI' });
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);
+    });
+
+    test('Hero Android nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Android' });
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/android-overview.html`);
+    });
+
+    test('Hero Kotlin tour nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Kotlin tour' });
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/kotlin-tour-welcome.html`);
     });
 
     test('Kotlin blog button', async ({ page }) => {

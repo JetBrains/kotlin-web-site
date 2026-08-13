@@ -12,17 +12,11 @@ export const Developer: FC = () => {
     return (
         <div className={styles.developer}>
             <div className={styles.developerContent}>
-                <div
-                    className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>Developed
-                    by
+                <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>
+                    Developed by
                 </div>
-                <a
-                    href="https://www.jetbrains.com/"
-                    target={'_blank'}
-                    rel={'noreferrer noopener'}
-                >
-                    <img src={JBLogo.src} alt="jetbrains logo"
-                         className={styles.developerLogo} />{' '}
+                <a href="https://www.jetbrains.com/" target={'_blank'} rel={'noreferrer noopener'} data-testid={'hero-jetbrains-link'}>
+                    <img src={JBLogo.src} alt="JetBrains logo" className={styles.developerLogo} />{' '}
                 </a>
             </div>
         </div>

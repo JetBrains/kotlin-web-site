@@ -19,7 +19,7 @@ export const HeroLayout: FC<Props> = ({ children, testId }) => {
         <ThemeProvider theme={'dark'}>
             <section className={cn(styles.heroSection)} data-testid={testId}>
                 <img className={styles.backgroundImg} src={HeroImg.src} width={1786} height={1786} alt={'Hero Image'} />
-                <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
+                <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={styles.content}>{children}</div>
                 </div>
             </section>
