@@ -344,8 +344,6 @@ or use the console command in your terminal, in this example:
 
 In the next part of the series, you'll learn how function pointers are mapped between Kotlin and C:
 
-<seealso></seealso>
-
 <list columns="2" id="tour-nav">
   <li>
     <a as="button" href="mapping-primitive-data-types-from-c.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>

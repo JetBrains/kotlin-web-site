@@ -272,8 +272,6 @@ or use the console command in your terminal, in this example:
 
 In the next part of the series, you'll learn how struct and union types are mapped between Kotlin and C:
 
-<seealso></seealso>
-
 <list id="tour-nav">
   <li>
     <a as="button" href="mapping-struct-union-types-from-c.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>

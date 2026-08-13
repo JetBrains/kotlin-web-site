@@ -226,8 +226,6 @@ or use the console command in your terminal, in this example:
 ./gradlew runDebugExecutableMacosArm64
 ```
 
-<seealso></seealso>
-
 <list id="tour-nav">
   <li>
     <a as="button" href="mapping-function-pointers-from-c.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
