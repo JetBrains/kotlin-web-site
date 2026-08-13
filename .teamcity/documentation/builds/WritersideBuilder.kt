@@ -13,7 +13,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {},
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
-    val dockerImageTag = "ked-websites-stable"
+    val dockerImageTag = "kotlin-junit"
     val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"
