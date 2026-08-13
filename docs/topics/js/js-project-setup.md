@@ -350,9 +350,11 @@ Once the build of your project has succeeded, the `webpack-dev-server` will auto
 
 ## test task
 
-The Kotlin Multiplatform Gradle plugin automatically sets up a test infrastructure for projects. For browser projects, it downloads
-and installs the [Karma](https://karma-runner.github.io/) test runner with other required dependencies;
-for Node.js projects, the [Mocha](https://mochajs.org/) test framework is used. 
+The Kotlin Multiplatform Gradle plugin automatically sets up a test infrastructure for projects. It downloads
+and installs the required test runners and other dependencies.
+
+For browser projects, [Karma](#karma) test runner and [Kotlin DSL](#kotlin-dsl) are available.
+For Node.js projects, the [Mocha](#node-js) test framework is used.
 
 The plugin also provides useful testing features, for example:
 
@@ -360,9 +362,15 @@ The plugin also provides useful testing features, for example:
 * Test reports generation
 * Test run results in the console
 
-For running browser tests, the plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
-by default. You can also choose another browser to run tests in by adding the corresponding entries inside the `useKarma {}`
-block of the build script:
+### Karma
+
+> The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
+> expected. As an alternative, try out the new [Kotlin DSL for browser testing](#kotlin-dsl). 
+> 
+{style="warning"}
+
+To configure the [Karma](https://karma-runner.github.io/) test runner, add the `useKarma {}` block inside the browser's
+`testTask` in your `build.gradle(.kts)` file. For example, to run tests against specific browsers, use:
 
 ```kotlin
 kotlin {
@@ -393,35 +401,75 @@ Alternatively, you can add test targets for browsers in the `gradle.properties` 
 kotlin.js.browser.karma.browsers=firefox,safari
 ```
 
-This approach allows you to define a list of browsers for all modules and then add specific browsers in the build scripts of particular modules. 
+This allows you to define a list of browsers for all modules and then add specific browsers in the build files of
+particular modules. 
 
-Note that the Kotlin Multiplatform Gradle plugin doesn't automatically install these browsers for you but only uses those
-that are available in its execution environment. If you are executing Kotlin/JS tests on a continuous integration server,
-for example, make sure that the browsers you want to test against are installed.
+The Kotlin Multiplatform Gradle plugin automatically generates a Karma configuration file at build time to the
+`build/js/packages/projectName-test/karma.conf.js` directory. The file includes settings you set in the `useKarma {}`
+block in your build file.
 
-If you want to skip tests, add the line `enabled = false` to the `testTask {}`:
+You can also place additional configuration files inside the `karma.config.d` directory at the root of your project.
+All `.js` configuration files in this directory are picked up and automatically merged into the generated `karma.conf.js`
+at build time.
+
+For more information on the Karma configuration, see the [Karma's documentation](https://karma-runner.github.io/6.4/config/configuration-file.html).
+
+### Kotlin DSL
+<primary-label ref="experimental-opt-in"/>
+
+Kotlin offers an experimental DSL for running Kotlin/JS tests in a browser environment.
+The Kotlin DSL manages different tools under the hood:
+
+* [Mocha](https://mochajs.org/) as a test runner.
+* [Webpack](https://webpack.js.org/) as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
+* [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports the Chromium, Firefox,
+  and WebKit (Safari) browser engines.
+
+To try out the new DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
 
 ```kotlin
 kotlin {
     js {
         browser {
-            testTask {
-                enabled = false
+            @OptIn(ExperimentalJsTestDsl::class)
+            // Add and configure the new test{} block
+            test {
+                // Set up options common for all browsers
+                browserDefaults {
+                    timeout = Duration.ofSeconds(2)
+                    headless = true
+                  }
+                // Enable Chromium test runner
+                chromium {
+                    // Override the common timeout option
+                    timeout = Duration.ofSeconds(5)
+                    launchArgs.add("--no-sandbox")
+                }
+                // Enable Firefox test runner
+                firefox()
+                // Enable WebKit (Safari) test runner
+                webkit()
+                // Enable and configure an additional WebKit test runner
+                webkit("noheadless") {
+                    // Set up custom options
+                    headless = false
+                }
             }
         }
-        binaries.executable()
-        // ...
     }
 }
 ```
 
-To run tests, execute the standard lifecycle `check` task:
+For more information on the Kotlin DSL configuration, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
 
-```bash
-./gradlew check
-```
+### Node.js {id="node-js-test-task"}
 
-To specify environment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment()` function with a key-value pair inside the `testTask {}` block in your build script:
+For Node.js projects, the Kotlin Multiplatform Gradle plugin automatically sets up the [Mocha](https://mochajs.org/)
+test framework.
+
+To specify environment variables used by your Node.js test runners (for example, to pass external information to your tests,
+or to fine-tune package resolution), use the `environment()` function with a key-value pair inside the `testTask {}` block
+in your build file:
 
 ```kotlin
 kotlin {
@@ -435,16 +483,34 @@ kotlin {
 }
 ```
 
-### Karma configuration
+### Run tests
 
-The Kotlin Multiplatform Gradle plugin automatically generates a Karma configuration file at build time which includes your settings
-from the [`kotlin.js.browser.testTask.useKarma {}` block](#test-task) in your `build.gradle(.kts)`. You can find
-the file at `build/js/packages/projectName-test/karma.conf.js`. 
-To make adjustments to the configuration used by Karma, place your additional configuration files inside a directory
-called `karma.config.d` in the root of your project. All `.js` configuration files in this directory will be picked up
-and are automatically merged into the generated `karma.conf.js` at build time.
+By default, the Kotlin Multiplatform Gradle plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
+to run browser tests. Any other browsers should already be installed on your machine so that the plugin can use them to
+run tests. If you are executing Kotlin/JS tests on a continuous integration server, ensure that the browsers you want to
+test against are installed there as well.
 
-All Karma configuration abilities are well described in Karma's [documentation](https://karma-runner.github.io/5.0/config/configuration-file.html).
+To run tests, execute the standard lifecycle `check` task:
+
+```bash
+./gradlew check
+```
+
+If you want to skip tests, disable them in the `testTask {}` block in your build file:
+
+```kotlin
+kotlin {
+    js {
+        browser {
+            testTask {
+                enabled.set(false)
+            }
+        }
+        binaries.executable()
+        // ...
+    }
+}
+```
 
 ## webpack bundling
 
