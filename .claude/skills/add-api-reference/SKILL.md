@@ -4,8 +4,8 @@ description: Publish a new kotlinx library API reference on kotlinlang.org/api v
   Kotlin DSL, the way kotlinx.coroutines, kotlinx.serialization, kotlinx-datetime and kotlinx-io
   are published. Use when wiring a Dokka-generated API reference for a Kotlin/* repo into the
   site. Covers the BuildParams consts + API_URLS entry, the VCS root, the three build objects
-  (templates / pages / search index), their project registration, the kr.tree nav link, and the
-  production navigation test. The worked example is kotlinx.collections.immutable (KTL-4524).
+  (templates / pages / search index), their project registration, the kr.tree nav link, the card on
+  the API references overview page, and the production navigation test. The worked example is kotlinx.collections.immutable (KTL-4524).
 ---
 
 # Add a new kotlinx API reference
@@ -47,7 +47,9 @@ example). Derive the casing variants from the base name.
 | Dokka HTML output | `core/build/dokka/html` | datetime-style (`core/` module). Root-module libs use `build/dokka/html`. |
 | Dokka templates dir | `core/dokka-templates` | Where `dependsOnDokkaTemplate` drops the site templates. Root-module libs use `dokka-templates` (the helper default). |
 | Dokka Gradle task | `:kotlinx-collections-immutable:dokkaGenerate` | The task `stepBuildHtml` runs. **Confirm against the repo** (see Pre-conditions). |
-| TOC title | `Immutable collections (kotlinx.collections.immutable)` | Sidebar label + the production-test button text. |
+| TOC title | `Immutable collections (kotlinx.collections.immutable)` | Sidebar label, overview-page card title, and the production-test button text. |
+| Library description | `A multiplatform library providing immutable and persistent collection interfaces…` | One or two sentences for the overview-page card. |
+| GitHub repo URL + name | `https://github.com/Kotlin/kotlinx.collections.immutable` / `kotlinx.collections.immutable` | HTTPS form of the Git SSH URL; the name is the card's link text. |
 
 ## Steps — apply these edits
 
@@ -248,7 +250,28 @@ library entries:
 <toc-element toc-title="<TOC title>" href="https://kotlinlang.org/api/<api id>/"/>
 ```
 
-### 6. Add the production navigation test
+### 6. Add the card to the API references overview page
+
+File: `docs/topics/api-references.topic`
+
+The sidebar link is not enough — the library must also appear on the "API references" overview
+page. Add an `<li>` to the `<list columns="2">`, in the position that matches the `kr.tree`
+ordering (this page is **not** alphabetical; place it relative to the same neighbours it has in
+the TOC):
+
+```xml
+<li>
+    <a href="https://kotlinlang.org/api/<api id>/"><b><TOC title></b></a>
+    <br/>
+    <p><library description></p>
+    <img src="github.svg" width="18" alt="GitHub"/> <a href="<GitHub repo URL>"><repo name></a>
+    <br/>
+</li>
+```
+
+Keep the link text and URL identical to the `kr.tree` entry from Step 5 so the two stay in sync.
+
+### 7. Add the production navigation test
 
 File: `test/production/api-navigation.spec.ts`
 
@@ -423,6 +446,20 @@ object KotlinxCollectionsImmutableBuildSearchIndex : TemplateSearchIndex({
      <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
 ```
 
+```diff
+# docs/topics/api-references.topic  (inside <list columns="2">, after the datetime card)
+         </li>
++        <li>
++            <a href="https://kotlinlang.org/api/kotlinx.collections.immutable/"><b>Immutable collections (kotlinx.collections.immutable)</b></a>
++            <br/>
++            <p>A multiplatform library providing immutable and persistent collection interfaces and implementations. It offers efficient copy-on-write operations that share structure between versions, so updating a collection doesn't copy the whole thing.</p>
++            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.collections.immutable">kotlinx.collections.immutable</a>
++            <br/>
++        </li>
+         <li>
+             <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
+```
+
 ```typescript
 // test/production/api-navigation.spec.ts  (new test next to the others)
 test('Click on "Immutable collections" button should open the related page', async ({ page }) => {
@@ -456,11 +493,13 @@ the build details on request):
 - Compile/validate the TeamCity DSL so the new objects, imports and registration are valid
   Kotlin: `cd .teamcity && mvn -q teamcity-configs:generate` (or the repo's configured DSL
   check). It should generate without errors and emit configs for the three new build types.
-- Confirm `docs/kr.tree` is still valid XML and the new entry sits under "API reference".
+- Confirm `docs/kr.tree` and `docs/topics/api-references.topic` are still valid XML, that the new
+  TOC entry sits under "API reference", and that the new card is inside the `<list columns="2">`
+  with the same link text and URL as the TOC entry.
 - The change should touch only: `.teamcity/BuildParams.kt`,
   `.teamcity/references/BuildApiReferencesProject.kt`, the new `vcsRoots/<Base>.kt`, the three
-  new `builds/kotlinx/<segment>/*.kt` files, `docs/kr.tree`, and
-  `test/production/api-navigation.spec.ts` — nothing else.
+  new `builds/kotlinx/<segment>/*.kt` files, `docs/kr.tree`,
+  `docs/topics/api-references.topic`, and `test/production/api-navigation.spec.ts` — nothing else.
 - After the build runs on TeamCity, `<Base>BuildApiReference` → `<Base>BuildSearchIndex`
   produce and index `/api/<id>/`; the new production navigation test should pass against the
   deployed site.
