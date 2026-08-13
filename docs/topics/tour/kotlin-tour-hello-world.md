@@ -103,22 +103,24 @@ explains the different Kotlin basic types and how to declare them in the [next c
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" validate="false" id="kotlin-tour-hello-world-exercise">
+```kotlin
 fun main() {
     val name = "Mary"
     val age = 20
     // Write your code here
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" validate="false" id="kotlin-tour-hello-world-exercise"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution">
+```kotlin
 fun main() {
     val name = "Mary"
     val age = 20
     println("$name is $age years old")
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
 <seealso></seealso>
 

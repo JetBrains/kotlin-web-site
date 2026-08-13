@@ -115,24 +115,26 @@ For more information about extension functions, see [Extensions](extensions.md).
 Write an extension function called `isPositive` that takes an integer and checks whether it is positive.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/IsPositiveTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-1">
+```kotlin
 fun Int.// Write your code here
 
 fun main() {
     println(1.isPositive())
     // true
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/IsPositiveTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/IsPositiveTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1">
+```kotlin
 fun Int.isPositive(): Boolean = this > 0
 
 fun main() {
     println(1.isPositive())
     // true
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/IsPositiveTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-2"}
 
@@ -146,24 +148,26 @@ Write an extension function called `toLowercaseString` that takes a string and r
 </deflist>
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ToLowercaseStringTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-2">
+```kotlin
 fun // Write your code here
 
 fun main() {
     println("Hello World!".toLowercaseString())
     // hello world!
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ToLowercaseStringTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ToLowercaseStringTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2">
+```kotlin
 fun String.toLowercaseString(): String = this.lowercase()
 
 fun main() {
     println("Hello World!".toLowercaseString())
     // hello world!
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/ToLowercaseStringTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
 
 <seealso></seealso>
 

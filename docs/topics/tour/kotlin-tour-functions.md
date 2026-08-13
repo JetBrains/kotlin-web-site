@@ -221,7 +221,7 @@ area of that circle.
 </deflist>
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" validate="false" id="kotlin-tour-functions-exercise-1">
+```kotlin
 import kotlin.math.PI
 
 // Write your code here
@@ -229,10 +229,11 @@ import kotlin.math.PI
 fun main() {
     println(circleArea(2))
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" validate="false" id="kotlin-tour-functions-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1">
+```kotlin
 import kotlin.math.PI
 
 fun circleArea(radius: Int): Double {
@@ -242,14 +243,15 @@ fun circleArea(radius: Int): Double {
 fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-2"}
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" validate="false" id="kotlin-tour-functions-exercise-2">
+```kotlin
 import kotlin.math.PI
 
 // Write your code here
@@ -257,10 +259,11 @@ import kotlin.math.PI
 fun main() {
     println(circleArea(2))
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" validate="false" id="kotlin-tour-functions-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2">
+```kotlin
 import kotlin.math.PI
 
 fun circleArea(radius: Int): Double = PI * radius * radius
@@ -268,7 +271,8 @@ fun circleArea(radius: Int): Double = PI * radius * radius
 fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-3"}
 
@@ -277,7 +281,7 @@ you need to pass only one or two function parameters while the rest are equal to
 calls it by using default parameter values and named arguments so that the code is easier to read.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" validate="false" id="kotlin-tour-functions-exercise-3">
+```kotlin
 fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
     ((hours * 60) + minutes) * 60 + seconds
 
@@ -288,10 +292,11 @@ fun main() {
     println(intervalInSeconds(0, 10, 0))
     println(intervalInSeconds(1, 0, 1))
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" validate="false" id="kotlin-tour-functions-exercise-3"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3">
+```kotlin
 fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
     ((hours * 60) + minutes) * 60 + seconds
 
@@ -302,7 +307,8 @@ fun main() {
     println(intervalInSeconds(minutes = 10))
     println(intervalInSeconds(hours = 1, seconds = 1))
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
 
 ## Lambda expressions
 
@@ -555,7 +561,7 @@ To request an action `title` over the resource with ID: 5, you need to create th
 Use a lambda expression to create a list of URLs from the list of actions.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-1">
+```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
     val prefix = "https://example.com/book-info"
@@ -563,10 +569,11 @@ fun main() {
     val urls = // Write your code here
     println(urls)
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1">
+```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
     val prefix = "https://example.com/book-info"
@@ -574,7 +581,8 @@ fun main() {
     val urls = actions.map { action -> "$prefix/$id/$action" }
     println(urls)
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-2"}
 
@@ -582,7 +590,7 @@ Write a function that takes an `Int` value and an action (a function with type `
 action the given number of times. Then use this function to print “Hello” 5 times.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-2">
+```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     // Write your code here
 }
@@ -590,10 +598,11 @@ fun repeatN(n: Int, action: () -> Unit) {
 fun main() {
     // Write your code here
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2">
+```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     for (i in 1..n) {
         action()
@@ -605,7 +614,8 @@ fun main() {
         println("Hello")
     }
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
 <seealso></seealso>
 

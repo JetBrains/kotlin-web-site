@@ -389,7 +389,7 @@ the `DeliveryStatus` class declaration so that the code in the `main()` function
 
 |---|---|
 
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1">
+```kotlin
 sealed class // Write your code here
 
 fun printDeliveryStatus(status: DeliveryStatus) {
@@ -424,10 +424,11 @@ fun main() {
     printDeliveryStatus(status4)
     // The delivery was canceled due to: Address not found.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/DeliveryStatusTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1">
+```kotlin
 sealed class DeliveryStatus {
     data class Pending(val sender: String) : DeliveryStatus()
     data class InTransit(val estimatedDeliveryDate: String) : DeliveryStatus()
@@ -467,7 +468,8 @@ fun main() {
     printDeliveryStatus(status4)
     // The delivery was canceled due to: Address not found.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/DeliveryStatusTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-2"}
 
@@ -477,7 +479,7 @@ called `Problem` that represents the different problem types: `NETWORK`, `TIMEOU
 
 |---|---|
 
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2">
+```kotlin
 sealed class Status {
     data object Loading : Status()
     data class Error(val problem: Problem) : Status() {
@@ -508,10 +510,11 @@ fun main() {
     handleStatus(status2)
     // Data received: [Data1, Data2]
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/StatusProblemTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2">
+```kotlin
 sealed class Status {
     data object Loading : Status()
     data class Error(val problem: Problem) : Status() {
@@ -546,7 +549,8 @@ fun main() {
     handleStatus(status2)
     // Data received: [Data1, Data2]
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/StatusProblemTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
 
 <seealso></seealso>
 

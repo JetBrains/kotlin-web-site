@@ -255,7 +255,7 @@ for salary is mutable, otherwise you won't get a salary boost at the end of the 
 you can use this data class.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1">
+```kotlin
 // Write your code here
 
 fun main() {
@@ -264,10 +264,11 @@ fun main() {
     emp.salary += 10
     println(emp)
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1">
+```kotlin
 data class Employee(val name: String, var salary: Int)
 
 fun main() {
@@ -276,14 +277,15 @@ fun main() {
     emp.salary += 10
     println(emp)
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
 Declare the additional data classes that are needed for this code to compile.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2">
+```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 // Write your code here
 // data class Name(...)
@@ -295,10 +297,11 @@ fun main() {
         ownsAPet = false
     )
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2">
+```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 data class Name(val first: String, val last: String)
 data class Address(val street: String, val city: City)
@@ -311,7 +314,8 @@ fun main() {
         ownsAPet = false
     )
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -339,7 +343,7 @@ how you can use this class.
 </deflist>
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3">
+```kotlin
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -355,10 +359,11 @@ fun main() {
     empGen.maxSalary = 100
     println(empGen.generateEmployee())
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3">
+```kotlin
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -379,7 +384,8 @@ fun main() {
     empGen.maxSalary = 100
     println(empGen.generateEmployee())
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
 <seealso></seealso>
 

@@ -156,7 +156,7 @@ function returns a value of the `Employee?` type, so the result can be `null`. Y
 returns the salary of an employee when their `id` is provided, or `0` if the employee is missing from the database.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise">
+```kotlin
 data class Employee (val name: String, var salary: Int)
 
 fun employeeById(id: Int) = when(id) {
@@ -172,10 +172,11 @@ fun salaryById(id: Int) = // Write your code here
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution">
+```kotlin
 data class Employee (val name: String, var salary: Int)
 
 fun employeeById(id: Int) = when(id) {
@@ -191,7 +192,8 @@ fun salaryById(id: Int) = employeeById(id)?.salary ?: 0
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
 
 ## What's next?
 

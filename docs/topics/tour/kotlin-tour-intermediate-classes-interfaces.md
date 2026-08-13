@@ -462,7 +462,7 @@ Finally, add another function called `adjustTemperature()` that accepts a temper
 
 |---|---|
 
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1">
+```kotlin
 abstract class // Write your code here
 
 class SmartLight(name: String) : SmartDevice(name) {
@@ -499,10 +499,11 @@ fun main() {
     bedroomThermostat.turnOff()
     // Bedroom Thermostat thermostat is now off.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1">
+```kotlin
 abstract class SmartDevice(val name: String) {
     abstract fun turnOn()
     abstract fun turnOff()
@@ -555,7 +556,8 @@ fun main() {
     bedroomThermostat.turnOff()
     // Bedroom Thermostat thermostat is now off.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartDeviceTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-2"}
 
@@ -576,7 +578,7 @@ the `play()` function to print the following: `"Playing audio: $title, composed 
 </deflist>
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2">
+```kotlin
 interface // Write your code here
 
 class // Write your code here
@@ -586,10 +588,11 @@ fun main() {
     audio.play()
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2">
+```kotlin
 interface Media {
     val title: String
     fun play()
@@ -606,7 +609,8 @@ fun main() {
     audio.play()
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/AudioTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-3"}
 
@@ -626,7 +630,7 @@ statements:
    * `"Processing credit card payment of $amount."`
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3">
+```kotlin
 interface Refundable {
     // Write your code here
 }
@@ -647,10 +651,11 @@ fun main() {
     visa.refund(50.0)
     // Refunding $50.0 to the credit card.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3">
+```kotlin
 interface Refundable {
     fun refund(amount: Double)
 }
@@ -683,7 +688,8 @@ fun main() {
     visa.refund(50.0)
     // Refunding $50.0 to the credit card.
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/CreditCardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
 
 ### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-4"}
 
@@ -703,7 +709,7 @@ a `message` as an input and return a printed statement: `"Sending a smart messag
 
 |--|--|
 
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4">
+```kotlin
 interface Messenger {
     fun sendMessage(message: String)
     fun receiveMessage(): String
@@ -733,10 +739,11 @@ fun main() {
     // Sending a smart message: Hello from SmartMessenger!
     // Sending message: [smart] Hello from SmartMessenger!
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4">
+```kotlin
 interface Messenger {
     fun sendMessage(message: String)
     fun receiveMessage(): String
@@ -771,7 +778,8 @@ fun main() {
     // Sending a smart message: Hello from SmartMessenger!
     // Sending message: [smart] Hello from SmartMessenger!
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/intermediate/SmartMessengerTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
 
 <seealso></seealso>
 

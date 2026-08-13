@@ -426,23 +426,25 @@ You have a list of “green” numbers and a list of “red” numbers. Complete
 are in total.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1">
+```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
     val redNumbers = listOf(17, 2)
     // Write your code here
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1">
+```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
     val redNumbers = listOf(17, 2)
     val totalCount = greenNumbers.count() + redNumbers.count()
     println(totalCount)
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -450,14 +452,15 @@ You have a set of protocols supported by your server. A user requests to use a p
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2">
+```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
     val requested = "smtp"
     val isSupported = // Write your code here 
     println("Support for $requested: $isSupported")
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2"}
 
 <deflist collapsible="true" id="kotlin-tour-collections-exercise-2-hint">
     <def title="Hint">
@@ -467,14 +470,15 @@ function to help you with this.
 </deflist>
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2">
+```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
     val requested = "smtp"
     val isSupported = requested.uppercase() in SUPPORTED
     println("Support for $requested: $isSupported")
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -482,22 +486,24 @@ Define a map that relates integer numbers from 1 to 3 to their corresponding spe
 number.
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3">
+```kotlin
 fun main() {
     val number2word = // Write your code here
     val n = 2
     println("$n is spelled as '${<Write your code here >}'")
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
 
 |---|---|
-<code kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3">
+```kotlin
 fun main() {
     val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
     val n = 2
     println("$n is spelt as '${number2word[n]}'")
 }
-</code>
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
 <seealso></seealso>
 
