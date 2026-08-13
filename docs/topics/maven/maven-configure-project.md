@@ -365,12 +365,12 @@ and has no impact on other plugins in the build.
 The Kotlin Maven plugin supports the [Java Platform Module System (JPMS)](https://dev.java/learn/modules/), so you can
 compile Kotlin code alongside a `module-info.java` descriptor and consume the resulting module like other Java modules.
 
-In the build file, no extra JPMS-specific options are required beyond the correct plugin ordering: the Kotlin compiler
-should be configured before Maven.
+You don't need any extra JPMS-specific options in the build file. 
+Just configure the Kotlin compiler before Maven.
 
 When a `module-info.java` descriptor is present, the Kotlin compiler uses it as a source file and compiles against
-its module path instead of the classpath. The Kotlin compiler reads the descriptor to resolve the module graph, and then
-the Maven compiler compiles it into the `module-info.class` file.
+its module path instead of the classpath. The Kotlin compiler reads the descriptor to resolve the module graph, and
+the Maven compiler then compiles it into a `module-info.class` file.
 
 To configure a Java module, create the `module-info.java` file in the `${project.basedir}/src/main/java` directory.
 In the module descriptor, declare all the dependencies that your module requires and the packages it exports. For example:
@@ -386,13 +386,13 @@ module org.example.myapp {
 
 Keep in mind that:
 
-* Your Java module can only use what you declared. Since compilation goes through the module path instead of the classpath,
+* Your Java module can only use what you declare. Since compilation uses the module path instead of the classpath,
   the descriptor should include all dependencies that your Kotlin code uses: the standard library, JDK modules (except for `java.base`),
-  and other libraries to avoid `Unresolved reference` errors.
-* For a module, the package name in Kotlin files must be equal to the package name from `module-info.java` to avoid the
+  and other libraries. Otherwise, you may get `Unresolved reference` errors.
+* For a module, the package name in Kotlin files must match the package name from `module-info.java` to avoid the
   `Package is empty or does not exist` build failures.
 * The `pom.xml` build file should be configured so that [Kotlin is compiled before Java](#compile-kotlin-and-java-sources).
-  If you use [automatic project configuration](#automatic-configuration), the `<extensions>` option already ensures that. 
+  If you use [automatic project configuration](#automatic-configuration), the `<extensions>` option already ensures this. 
 
 ## What's next?
 
