@@ -3,13 +3,13 @@
 Enum classes represent a fixed set of possible values. Use an enum class when a value can only be one of several
 predefined options, such as available states or modes.
 
-Each value in an enum class is called an _enum constant_. Enum constants are [singleton objects](object-declarations.md)
+Each value in an enum class is called an _enum constant_. Enum constants behave like [singleton objects](object-declarations.md)
 of the enum class type, so they can have properties, functions, and custom behavior.
 
 Use enum classes when all possible values are known in advance and have the same structure. Use [sealed classes or interfaces](sealed-classes.md)
 when you need to hold different data or have a different structure for each case.
 
-## Create enum classes
+## Declare enum classes
 
 To create an enum class, use the `enum` keyword and list the enum constants inside the class body, separated by
 commas:
@@ -40,9 +40,9 @@ fun main() {
 ```
 {kotlin-runnable="true" id="create-enum-class-kotlin"}
 
-Every enum class in Kotlin inherits from the [`Enum<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/) constructor,
+Every enum class in Kotlin inherits from the [`Enum<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/) base class,
 where `T` is the enum class itself. For example, the `Direction` enum class inherits from `Enum<Direction>`.
-This is why enum constants have built-in properties, such as [`name`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/name.html) and [`ordinal`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/ordinal.html).
+This is why enum constants have built-in properties, such as [`name` and `ordinal`](#access-enum-constants-and-their-properties).
 
 ## Working with enum constants
 
@@ -51,8 +51,8 @@ and use them in `when` expressions.
 
 ### Declare enum constants
 
-In Kotlin, enum constants don't use assignment syntax like `RED = "#FF0000"` or `LOW = 0`.
-Instead, you can define properties in the enum class constructor and pass values to each enum constant in parentheses.
+To declare enum constants, first define properties in the enum class constructor and then pass values to each enum
+constant in parentheses. Don't use assignment syntax, for example `RED = "#FF0000"`, like in C#.
 
 Enum constants can have associated values of any type. Strings and numbers are common examples, but you can also use
 other types, such as `Boolean`, another enum class, or a custom class.
@@ -105,8 +105,8 @@ enum class Color(val hex: String) {
 fun main() {
     val color: Color = Color.RED
 
-    println(color) // RED
-    println(color.hex) // #FF0000
+    println(color)           // RED
+    println(color.hex)       // #FF0000
     println(Color.GREEN.hex) // #00FF00
 }
 ```
@@ -157,6 +157,11 @@ fun main() {
 {kotlin-runnable="true" id="pass-enum-to-function-kotlin"}
 
 Here, the `printColor()` function accepts a value of type `Color`, so you can pass any `Color` enum constant to it.
+
+> Although enum constants behave like singleton objects, they aren't the same. Only the enum class can be used as a type.
+> Enum constants cannot be types, only values.
+> 
+{style="note"}
 
 ### Use enum constants in `when` expressions
 
@@ -241,7 +246,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="find-enum-getornull-kotlin"}
 
-Enum positions start from `0`. In this example, `RED` has position 0, `GREEN` has position 1, and `BLUE` has position 2.
+Enum positions start from `0`. In this example, `RED` has the position `0`, `GREEN` is at `1`, and `BLUE` is at `2`.
 
 This is useful when you need to look up an enum constant by index. Kotlin doesn't support directly casting an `Int` to
 an enum constant. If you have an integer, use it as an index with `entries.getOrNull(index)` or define a stable numeric
@@ -328,9 +333,9 @@ In this context, synthetic means that Kotlin provides these members automaticall
 yourself. This is why every enum class can list its constants with `entries` and get a constant by name with `valueOf()`
 without you writing extra code.
 
-Some generic enum helper functions use reified type parameters. A reified type parameter keeps the actual enum type
-available inside an inline generic function. This allows functions such as [`enumEntries<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/enum-entries.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/enum-value-of.html) to
-work with the enum type `T` directly. You can access the constants in an enum class using the following functions:
+You can access the constants in an enum class using generic helper functions such as [`enumEntries<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/enum-entries.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/enum-value-of.html).
+These functions use reified type parameters. Such parameters keep the actual enum type available inside a generic inline
+function, so the helper functions can work with the enum type `T` directly:
 
 | Function                                                                                           | Description                                                                                                    |
 |----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -375,15 +380,15 @@ enum class Color(val hex: String) {
 fun main() {
     val color = Color.RED
 
-    println(color == Color.RED) // true
+    println(color == Color.RED)  // true
     println(color == Color.BLUE) // false
 }
 //sampleEnd
 ```
 {kotlin-runnable="true" id="compare-enum-constants-kotlin"}
 
-Since each enum constant is a singleton object, comparing enum constants checks whether both values refer to the same
-constant.
+Since each enum constant behaves like a singleton object, comparing enum constants checks whether both values refer to
+the same constant.
 
 All enum classes implement the [`Comparable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface by default, so you can compare and sort enum constants. Constants are ordered by their position in the enum
@@ -541,6 +546,32 @@ fun main() {
 
 Here, each constant implements the abstract `signal()` function differently, so calling `signal()` returns a different
 next state depending on the constant.
+
+Although enum constants behave like singleton objects, they aren't the same. You can't access members declared inside
+the body anonymous class:
+
+```kotlin
+enum class ProtocolState {
+    WAITING {
+        val waitingMessage = "Waiting for a signal"
+        override fun signal() = TALKING
+    },
+
+    TALKING {
+        override fun signal() = WAITING
+    };
+
+    abstract fun signal(): ProtocolState
+}
+
+fun main() {
+    println(ProtocolState.WAITING.waitingMessage)
+    // Error: unresolved reference 'waitingMessage'
+}
+```
+
+To expose data or behavior for every constant, declare it in the enum class body, using an abstract member when each
+constant needs its own implementation.
 
 ## Implement interfaces in enum classes
 
