@@ -13,6 +13,8 @@ Going through these four steps, you'll learn a lot of essential features of the 
    <img src="icon-4.svg" width="20" alt="Fourth step"/> <a href="jvm-spring-boot-using-crudrepository.md">Use Spring Data CrudRepository for database access</a><br/>
 </p>
 
+## Next step
+
 <a href="jvm-create-project-with-spring-boot.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
 
 ### See also
