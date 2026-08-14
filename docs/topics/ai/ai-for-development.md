@@ -157,7 +157,7 @@ The following tools support AI-assisted development beyond individual coding ses
 
 ### JetBrains Air
 
-[JetBrains Air](https://air.dev/) is an Agentic Development Environment (ADE) for delegating coding tasks to AI agents.
+[JetBrains Air](https://air.dev/) is the Agentic Development Environment (ADE) for engineering teams building products with AI.
 With Air, you can provide context for each task, choose the agent, model, and execution environment, and then review or
 refine the resulting changes before applying them to your code.
 
