@@ -165,11 +165,11 @@ Use Air when you want to delegate a defined coding task to an AI agent, isolate 
 run multiple implementation tasks in parallel, or turn recurring development tasks into scheduled or event-driven automations.
 You can run tasks in your local workspace, isolated Git worktree or Docker container, and JetBrains-managed cloud environment.
 
-JetBrains Air provide:
+You can work with JetBrains Air through:
 
 * **Air Desktop** – Run local and cloud tasks from a desktop application.
 * **Air Web** – Run, monitor, and manage cloud tasks and automations from a web browser.
-* **AI Assistant Plugin in IDEs** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
+* **AI Assistant in IntelliJ-based IDEs** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
 Air Web.
 
 Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
