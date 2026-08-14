@@ -42,16 +42,15 @@ import MetaLogo from '../public/images/companies/meta.svg';
 import BlockLogo from '../public/images/companies/block.svg';
 
 import styles from './index.module.css';
+import cn from 'classnames';
 
 import searchConfig from '../search-config.json';
 
-
 import releasesDataRaw from '../data/releases.yml';
-import { KotlinPlusAiInfo } from '@/blocks/main/kotlin-plus-ai';
 import { HeroBlock } from '../blocks/main/hero/hero-block';
-import cn from 'classnames';
 import { PromoBanner } from '../blocks/main/promo-banner';
 import { KotlinEffectBanner } from '@/blocks/main/kotlin-effect-banner';
+import { KotlinAiBanner } from '@/blocks/main/kotlin-ai-banner';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -174,6 +173,8 @@ function Index() {
                 <div className={'ktl-layout ktl-layout--center'}>
                     <KotlinEffectBanner />
 
+                    <KotlinAiBanner />
+
                     <LatestNews />
                 </div>
             </ThemeProvider>
@@ -203,8 +204,6 @@ function Index() {
                             }
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
-
-                        <KotlinPlusAiInfo />
 
                         <InfoBlock
                             title={'Big, friendly and helpful community'}
