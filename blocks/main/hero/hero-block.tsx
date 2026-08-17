@@ -26,7 +26,7 @@ export const HeroBlock: FC<Props> = ({}) => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <HeroLayout data-testid={'hero-block-main-page'}>
+        <HeroLayout testId={'hero-block-main-page'}>
             <div className={styles.grid}>
                 <div className={styles.heading}>
                     <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
