@@ -26,37 +26,39 @@ test.describe('Main page buttons', () => {
     });
 
     test('Hero Multiplatform nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Multiplatform' });
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/multiplatform/"]');
         await expect(link).toBeVisible();
         await link.click();
-        expect(page.url()).toContain(`${baseURL}/multiplatform/`);
+        await page.waitForURL('**/multiplatform/');
         const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('Kotlin Multiplatform');
     });
 
     test('Hero Backend nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Backend' });
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/backend/"]');
         await expect(link).toBeVisible();
         await link.click();
-        expect(page.url()).toContain(`${baseURL}/backend/`);
+        await page.waitForURL('**/backend/');
+        const pageTitle = page.locator('h1').first();
+        await expect(pageTitle).toContainText('Modern backend development with Kotlin');
     });
 
     test('Hero AI nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'AI' });
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-ai-apps-development-overview.html"]');
         await expect(link).toBeVisible();
         await link.click();
         expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);
     });
 
     test('Hero Android nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Android' });
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/android-overview.html"]');
         await expect(link).toBeVisible();
         await link.click();
         expect(page.url()).toContain(`${baseURL}/docs/android-overview.html`);
     });
 
     test('Hero Kotlin tour nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').getByRole('link', { name: 'Kotlin tour' });
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-tour-welcome.html"]');
         await expect(link).toBeVisible();
         await link.click();
         expect(page.url()).toContain(`${baseURL}/docs/kotlin-tour-welcome.html`);
