@@ -122,7 +122,7 @@ abstract class WritersideBuilder(
 
     dependencies {
         artifacts(BuildWebHelpFrontend) {
-            buildRule = lastPinned("+:*")
+            buildRule = lastSuccessful("+:chernenko/kotlin-junit")
             cleanDestination = true
             artifactRules = "+:static.zip!** => static/"
         }
