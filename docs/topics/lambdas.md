@@ -245,12 +245,12 @@ fun parse(value: String) = "String: $value"
 fun parse(value: Int) = "Int: $value"
 
 fun main() {
-val parseText: (String) -> String = ::parse
-val parseNumber: (Int) -> String = ::parse
+val parseString: (String) -> String = ::parse
+val parseInt: (Int) -> String = ::parse
 
-    println(parseText("Kotlin"))
+    println(parseString("Kotlin"))
     // String: Kotlin
-    println(parseNumber(22))
+    println(parseInt(22))
     // Int: 22
 }
 ```

@@ -219,9 +219,9 @@ For more information, see [Guard conditions in when expressions](control-flow.md
 
 ## Inspect sealed subclasses with reflection
 
-You can use [Reflection](reflection.md) functionality to inspect sealed subclasses. If you need to inspect a known direct subclass,
-use [sealedSubclasses](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/sealed-subclasses.html).
+You can use [Reflection](reflection.md) functionality to inspect sealed subclasses. 
 
+If you need to inspect a known direct subclass, use [sealedSubclasses](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/sealed-subclasses.html).
 The complier returns a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) that can represent a regular class or an object declaration. For an object declaration,
 [`objectInstance`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/object-instance.html) returns its singleton instance:
 
@@ -245,7 +245,7 @@ fun main() {
 }
 ```
 
-In this example, `objectInstance` filters out `Send` because every `Send` value must be constructed separately. Since `Start`
+In this example, `objectInstance` filters out `Send`, because every `Send` value must be constructed separately. Since `Start`
 and `Stop` are object declarations, the compiler returns their existing singleton instances.
 
 > If one of the direct subclasses is also sealed, traverse its `sealedSubclasses` recursively to collect the complete hierarchy.

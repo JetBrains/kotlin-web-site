@@ -11,13 +11,10 @@ You can inspect these objects and use them to access a value or invoke a functio
 
 ## How reflection works
 
-The Kotlin compiler records metadata about declarations in the compiled output. The reflection API reads this metadata and
+The Kotlin compiler records metadata about declarations in the compiled output. The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) reads this metadata and
 presents it through Kotlin types such as `KClass` or `KFunction`. A reflection object describes this declaration, but it isn't
 the declaration's value. For example, you can use a `KProperty` to get a property's name and return its type without reading
 that property from an object.
-
-Reflection can only inspect declarations that are present in the compiled program. It doesn't parse the original source code or
-search the classpath for every class matching a condition.
 
 Kotlin provides some basic features, such as class literals or callable references, as part of the language and standard
 library. To access more extensive runtime introspection, import the [`kotlin-reflect`](https://kotlinlang.org/api/core/kotlin-reflect/) library
@@ -27,21 +24,23 @@ that consists of the following packages:
 * [`kotlin.reflect.full`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/) with extensions for inspecting Kotlin declarations.
 * [`kotlin.reflect.jvm`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.jvm/) with JVM-specific extensions that connect Kotlin and Java reflections.
 
-> Reflection support differs between platforms. This page aligns with Kotlin/JVM reflection API. Learn more about [reflection
+Reflection can only inspect declarations that are present in the compiled program. It doesn't parse the original source code or
+search the classpath for every class matching a condition.
+
+> Reflection support may differ between platforms. This page aligns with Kotlin/JVM reflection API. Learn more about [reflection
 > in Kotlin/JS](js-reflection.md).
 > 
 {style="note"}
 
 ## Obtain a runtime class
 
-If your code receives a general value like `Any`, you need a runtime class. However, you must choose processing based
-on the concrete object it received:
+To obtain a runtime class, choose processing based on the concrete object it received:
 
 * If you know the class from the sourse code, use `ClassName::class`.
 * If you need the actual class of a runtime value, use `object::class`.
 
 The approach depends on the way an API accepts values: through a common superclass or through `Any`. The declared type tells
-the compiler which operations are safe in source code, while `object::class` reveals the class that produced the value
+the compiler which operations are safe in the source code, while `object::class` reveals the class that produced the value
 at runtime:
 
 ```kotlin
@@ -123,7 +122,7 @@ val value: Any = "Kotlin"
 ## Inspect a class
 
 After obtaining a `KClass`, you can inspect its members. This way, your program learns which declarations exist before
-deciding whether to use any of them. You can use:
+deciding whether to use any of them. For example, you can use:
 
 * The [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html) and [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html) properties to return the declarations from the class itself.
 * The [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html) and [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html) properties to return the declarations from the class and all of its superclasses.
@@ -155,7 +154,7 @@ library.
 ## Read a property
 
 Reflection allows you to read a property selected at runtime.
-For example, you have a UI configuration contains `name` and asks the application to display that property for a `User`.
+For example, you have a UI configuration that contains `name` and asks the application to display that property for a `User`.
 For that, the application must find the matching property declaration and then invoke its getter:
 
 ```kotlin
@@ -190,13 +189,13 @@ This example uses [`memberProperties`](https://kotlinlang.org/api/core/kotlin-re
 that belong to the class but aren't attached to a particular instance. Therefore, `getter.call()` needs `instance` as its
 receiver. The result has the `Any?` type because a property selected at runtime can return any type.
 
-> If the property is known at compile time, use normal access or a callable reference.
+> If the property is known at compile time, use normal access or callable references.
 > 
 {style="tip"}
 
 ## Call functions
 
-Dynamic function calls follow the same pattern as properties. If all arguments are available in their declared order, you
+Dynamic function calls follow the same pattern as [properties](#read-a-property). If all arguments are available in their declared order, you
 can use [`call()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-callable/call.html). Declare an unbound member function with its object instance first, then add its regular arguments:
 
 ```kotlin

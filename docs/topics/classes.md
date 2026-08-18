@@ -444,7 +444,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="class-delegation-sequence"}
 
-## Constructor references
+### Constructor references
 
 Use a constructor reference when an API needs a factory, but construction already provides the required behavior. In this case,
 you don't need to repeat it in a [lambda](lambdas.md).

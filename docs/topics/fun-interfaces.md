@@ -66,7 +66,7 @@ You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conve
 
 ### Pass callable references to SAM parameters
 
-If the required behavior already exists as a named function, you can pass a callable reference instead of repeating the call
+If the required behavior already exists as a named function, you can pass a [callable reference](lambdas.md#callable-reference) instead of repeating the call
 in a lambda. Kotlin adapts a compatible callable reference to the expected functional interface.
 
 In the following example, `::start` refers to the existing `start()` function. Because `execute()` expects `Action`,
