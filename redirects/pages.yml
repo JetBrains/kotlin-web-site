@@ -859,3 +859,6 @@
 
 - from: /docs/multiplatform/choosing-web-target.html
   to: /docs/web-overview.html
+
+- from: /docs/ksp/ksp-why-ksp.html
+  to: /docs/ksp/ksp-overview.html
