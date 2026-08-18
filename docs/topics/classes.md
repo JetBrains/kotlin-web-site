@@ -444,6 +444,31 @@ fun main() {
 ```
 {kotlin-runnable="true" id="class-delegation-sequence"}
 
+## Constructor references
+
+Use a constructor reference when an API needs a factory, but construction already provides the required behavior. In this case,
+you don't need to repeat it in a [lambda](lambdas.md).
+
+To create a reference to a constructor, use `::ClassName`:
+
+```kotlin
+data class User(val name: String, val age: Int)
+
+fun createUser(factory: (String, Int) -> User): User =
+    factory("Jane Doe", 22)
+
+fun main() {
+    val user = createUser(::User)
+    println(user)
+    // User(name=Jane Doe, age=22)
+}
+```
+{kotlin-runnable="true"}
+
+Callable references to constructors are typed as one of the [`KFunction<out R>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-function/) subtypes depending on the parameter count.
+However, the compiler resolves and checks the constructor references at compile time and doesn't require the
+[kotlin-reflect](reflection.md) library.
+
 ### Classes without constructors
 
 Classes that don't declare any constructors (primary or secondary) have an implicit primary constructor
