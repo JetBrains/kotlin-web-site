@@ -12,8 +12,8 @@ private const val EXPECTED_ALT = "2 is spelt as 'two'"
 class CollectionsExercise3Test {
 
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
+    fun `step 1 - the map lookup finds a word`() = when {
+        output.isNotEmpty() && "null" !in output -> ok()
 
         actualOutput.isEmpty() ->
             fail(
@@ -21,26 +21,26 @@ class CollectionsExercise3Test {
                         "and the lookup inside println()."
             )
 
-        else ->
+        output.isEmpty() ->
             fail(
                 "println() is called, but the message is empty. " +
                         "Print the spelling message: \$n is spelled as '...'."
+            )
+
+        else ->
+            fail(
+                "The map lookup returned null. Check that the map keys are " +
+                        "the numbers 1, 2, and 3 (Int), not strings."
             )
     }
 
     // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 2 - the output is the spelling of 2`() = when {
+    fun `step 2 - the number 2 is spelled as 'two'`() = when {
         output == EXPECTED || output == EXPECTED_ALT -> ok()
 
-        output.isEmpty() ->
+        output.isEmpty() || "null" in output ->
             fail("Fix step 1 first.")
-
-        "null" in output ->
-            fail(
-                "The map lookup returned null. Check that the map keys are " +
-                        "the numbers 1, 2, and 3 (Int), not strings."
-            )
 
         "two" in output && "'two'" !in output ->
             fail("Keep the single quotes around the word: ... is spelled as 'two'.")

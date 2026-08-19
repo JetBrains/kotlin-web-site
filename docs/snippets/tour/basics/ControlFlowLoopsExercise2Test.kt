@@ -17,9 +17,10 @@ private val outputLines: List<String> by lazy {
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowLoopsExercise2Test {
 
+    // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
+    fun `step 1 - the for loop covers 1 to 100`() = when {
+        outputLines.size == 100 -> ok()
 
         actualOutput.isEmpty() ->
             fail(
@@ -27,19 +28,11 @@ class ControlFlowLoopsExercise2Test {
                         "to print a number or word on each step."
             )
 
-        else ->
+        output.isEmpty() ->
             fail(
                 "println() is called, but the message is empty. " +
                         "Print the number, \"fizz\", \"buzz\", or \"fizzbuzz\"."
             )
-    }
-
-    @Test
-    fun `step 2 - the program prints 100 lines`() = when {
-        outputLines.size == 100 -> ok()
-
-        output.isEmpty() ->
-            fail("Fix step 1 first.")
 
         outputLines.size == 1 ->
             fail(
@@ -60,10 +53,10 @@ class ControlFlowLoopsExercise2Test {
     // This step reports the first wrong line, so it prepares the mismatch
     // details and a window of the output around it before choosing a hint.
     @Test
-    fun `step 3 - every line follows the fizz buzz rules`() {
+    fun `step 2 - every line follows the fizz buzz rules`() {
         val lines = outputLines
         if (lines.size != 100) {
-            fail("Fix step 2 first.", shownOutput = "")
+            fail("Fix step 1 first.", shownOutput = "")
         }
         val mismatch = (0..99).firstOrNull { lines[it] != expectedFor(it + 1) }
             ?: return

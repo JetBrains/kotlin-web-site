@@ -14,9 +14,10 @@ private val outputLines: List<String> by lazy {
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowLoopsExercise1Test {
 
+    // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
+    fun `step 1 - the loop repeats 8 times`() = when {
+        outputLines.size == 8 -> ok()
 
         actualOutput.isEmpty() ->
             fail(
@@ -24,20 +25,11 @@ class ControlFlowLoopsExercise1Test {
                         "that counts the slices and run again."
             )
 
-        else ->
+        output.isEmpty() ->
             fail(
                 "println() is called, but the message is empty. " +
                         "Print how many slices of pizza there are."
             )
-    }
-
-    // Order matters: the most specific symptoms go first.
-    @Test
-    fun `step 2 - the program prints 8 lines`() = when {
-        outputLines.size == 8 -> ok()
-
-        output.isEmpty() ->
-            fail("Fix step 1 first.")
 
         outputLines.size == 1 ->
             fail(
@@ -61,10 +53,10 @@ class ControlFlowLoopsExercise1Test {
     // This step reports the first wrong line, so it prepares the mismatch
     // details before choosing a hint.
     @Test
-    fun `step 3 - every line tells the pizza story correctly`() {
+    fun `step 2 - every line tells the pizza story correctly`() {
         val lines = outputLines
         if (lines.size != 8) {
-            fail("Fix step 2 first.", shownOutput = "")
+            fail("Fix step 1 first.", shownOutput = "")
         }
         val mismatch = EXPECTED_LINES.indices.firstOrNull { lines[it] != EXPECTED_LINES[it] }
             ?: return

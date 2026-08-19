@@ -14,31 +14,23 @@ private val OTHER_ACTIONS = mapOf(
 class ControlFlowConditionalExercise2Test {
 
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
-
-        actualOutput.isEmpty() ->
-            fail(
-                "Nothing is printed yet. Write a when expression inside println() " +
-                        "that turns the button name into its action."
-            )
-
-        else ->
-            fail(
-                "println() prints an empty line so far. Pass it a when expression " +
-                        "that turns the button name into its action."
-            )
-    }
-
-    @Test
-    fun `step 2 - pressing button A prints 'Yes'`() {
+    fun `step 1 - the when expression maps the button to an action`() {
         val lines = output.lines().map { it.trim() }.filter { it.isNotEmpty() }
         // Order matters: the most specific symptoms go first.
         when {
-            output == EXPECTED -> ok()
+            output == EXPECTED || output in OTHER_ACTIONS -> ok()
+
+            actualOutput.isEmpty() ->
+                fail(
+                    "Nothing is printed yet. Write a when expression inside println() " +
+                            "that turns the button name into its action."
+                )
 
             output.isEmpty() ->
-                fail("Fix step 1 first.")
+                fail(
+                    "println() prints an empty line so far. Pass it a when expression " +
+                            "that turns the button name into its action."
+                )
 
             output == "A" ->
                 fail(
@@ -46,33 +38,42 @@ class ControlFlowConditionalExercise2Test {
                             "Your when expression should turn \"A\" into \"Yes\"."
                 )
 
-            output in OTHER_ACTIONS ->
+            lines.size > 1 && (EXPECTED in lines || lines.any { it in OTHER_ACTIONS }) ->
                 fail(
-                    "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
-                            "but the pressed button is \"A\". " +
-                            "Check which branch of your when expression matches \"A\"."
-                )
-
-            lines.size > 1 && EXPECTED in lines ->
-                fail(
-                    "\"Yes\" is there, but so is extra output. A when expression " +
-                            "returns a single value - print only the action for \"A\"."
+                    "An action is there, but so is extra output. A when expression " +
+                            "returns a single value - print only the action for the pressed button."
                 )
 
             lines.size > 1 ->
                 fail(
                     "There is more than one line of output. " +
-                            "Print only the action for the pressed button: \"Yes\"."
+                            "Print only the action for the pressed button."
                 )
 
-            output.equals(EXPECTED, ignoreCase = true) ->
+            output.equals(EXPECTED, ignoreCase = true) ||
+                    OTHER_ACTIONS.keys.any { it.equals(output, ignoreCase = true) } ->
                 fail("So close! Only the capitalization is off.")
 
             else ->
                 fail(
-                    "Pressing \"A\" should print \"Yes\". " +
-                            "Check the branches of your when expression."
+                    "The output isn't one of the actions from the table. " +
+                            "Check the value each branch of your when expression returns."
                 )
         }
+    }
+
+    @Test
+    fun `step 2 - pressing button A prints 'Yes'`() = when {
+        output == EXPECTED -> ok()
+
+        output in OTHER_ACTIONS ->
+            fail(
+                "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
+                        "but the pressed button is \"A\". " +
+                        "Check which branch of your when expression matches \"A\"."
+            )
+
+        else ->
+            fail("Fix step 1 first.")
     }
 }

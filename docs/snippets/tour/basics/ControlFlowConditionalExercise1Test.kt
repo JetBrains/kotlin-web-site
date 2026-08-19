@@ -9,31 +9,23 @@ private const val LOSE = "You lose :("
 class ControlFlowConditionalExercise1Test {
 
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
-
-        actualOutput.isEmpty() ->
-            fail(
-                "Nothing is printed yet. Add an if/else that compares the dice " +
-                        "and prints the result, then run again."
-            )
-
-        else ->
-            fail(
-                "println() is called, but the message is empty. " +
-                        "Print \"You win :)\" or \"You lose :(\"."
-            )
-    }
-
-    @Test
-    fun `step 2 - the output is a valid game result`() {
+    fun `step 1 - the if-else picks one game result`() {
         val lines = output.lines().map { it.trim() }.filter { it.isNotEmpty() }
         // Order matters: the most specific symptoms go first.
         when {
             output == WIN || output == LOSE -> ok()
 
+            actualOutput.isEmpty() ->
+                fail(
+                    "Nothing is printed yet. Add an if/else that compares the dice " +
+                            "and prints the result, then run again."
+                )
+
             output.isEmpty() ->
-                fail("Fix step 1 first.")
+                fail(
+                    "println() is called, but the message is empty. " +
+                            "Print \"You win :)\" or \"You lose :(\"."
+                )
 
             lines.any { it.equals(WIN, ignoreCase = true) } &&
                     lines.any { it.equals(LOSE, ignoreCase = true) } ->
@@ -66,14 +58,14 @@ class ControlFlowConditionalExercise1Test {
     // The dice are random, so this step runs main() many times on its own instead
     // of inspecting the single shared run.
     @Test
-    fun `step 3 - both outcomes are possible`() {
+    fun `step 2 - the result depends on the dice`() {
         var wins = 0
         var losses = 0
         repeat(100) {
             when (val result = runMain(echo = false).trim()) {
                 WIN -> wins++
                 LOSE -> losses++
-                else -> fail("Fix step 2 first.", shownOutput = result)
+                else -> fail("Fix step 1 first.", shownOutput = result)
             }
         }
         when {

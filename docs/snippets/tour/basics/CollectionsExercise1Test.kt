@@ -7,50 +7,25 @@ private const val EXPECTED = "5"
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CollectionsExercise1Test {
 
+    // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 1 - the program prints output`() = when {
-        output.isNotEmpty() -> ok()
+    fun `step 1 - count() gives a single number`() = when {
+        output.isNotEmpty() && '\n' !in output && output.toIntOrNull() != null -> ok()
 
         actualOutput.isEmpty() ->
             fail("Nothing is printed yet. Add a println() call inside main() and run again.")
 
-        else ->
+        output.isEmpty() ->
             fail(
                 "println() is called, but the message is empty. " +
                         "Print the total number of numbers in both lists."
             )
-    }
 
-    @Test
-    fun `step 2 - the output is a single line`() = when {
-        output.isNotEmpty() && '\n' !in output -> ok()
-
-        output.isEmpty() ->
-            fail("Fix step 1 first.")
-
-        else ->
+        '\n' in output ->
             fail(
                 "There is more than one line of output. " +
                         "Print only one line - the total count of numbers in both lists."
             )
-    }
-
-    // Order matters: the most specific symptoms go first.
-    @Test
-    fun `step 3 - the output is the total count 5`() = when {
-        output == EXPECTED -> ok()
-
-        output.isEmpty() ->
-            fail("Fix step 1 first.")
-
-        '\n' in output ->
-            fail("Fix step 2 first.")
-
-        output == "3" ->
-            fail("That's only the green numbers. Don't forget the red ones!")
-
-        output == "2" ->
-            fail("That's only the red numbers. Add the green ones too.")
 
         '[' in output ->
             fail(
@@ -58,8 +33,22 @@ class CollectionsExercise1Test {
                         "instead - try the .count() function."
             )
 
-        output.toIntOrNull() == null ->
+        else ->
             fail("The output should be a single number - the total count of numbers in both lists.")
+    }
+
+    @Test
+    fun `step 2 - the total over both lists is 5`() = when {
+        output == EXPECTED -> ok()
+
+        '\n' in output || output.toIntOrNull() == null ->
+            fail("Fix step 1 first.")
+
+        output == "3" ->
+            fail("That's only the green numbers. Don't forget the red ones!")
+
+        output == "2" ->
+            fail("That's only the red numbers. Add the green ones too.")
 
         else ->
             fail("Not quite the right total. Count the items in both lists and add them together.")
