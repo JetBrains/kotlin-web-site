@@ -1,7 +1,6 @@
 import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
 import kotlin.test.Test
-import kotlin.test.fail
 
 private val EXPECTED_LINES =
     (1..7).map { "There's only $it slice/s of pizza :(" } +
@@ -9,55 +8,63 @@ private val EXPECTED_LINES =
 
 // The learner's output as trimmed, non-empty lines; main() still runs only once.
 private val outputLines: List<String> by lazy {
-    actualOutput.trim().lines().map { it.trim() }.filter { it.isNotEmpty() }
-}
-
-// Symptom -> hint table for step 2. Order matters: the most specific hints go first.
-// Built lazily because the hint texts include the actual line count.
-private val STEP_2_HINTS: List<Hint> by lazy {
-    listOf(
-        Hint(
-            { outputLines.size == 1 },
-            "Everything is printed on a single line. " +
-                    "Use println() instead of print() to put each message on its own line."
-        ),
-        Hint(
-            { outputLines.size < 8 },
-            "Only ${outputLines.size} lines are printed, but 8 are expected. " +
-                    "The loop stops too early - check its condition."
-        ),
-    )
+    output.lines().map { it.trim() }.filter { it.isNotEmpty() }
 }
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowLoopsExercise1Test {
 
     @Test
-    fun `step 1 - the program prints output`() = checkStep(
-        emptyHint = "Nothing is printed yet. Refactor the repeated code into a loop " +
-                "that counts the slices and run again.",
-        blankHint = "println() is called, but the message is empty. " +
-                "Print how many slices of pizza there are.",
-        hints = emptyList(),
-        fallbackHint = "Fix step 1 first.",
-    ) { it.isNotEmpty() }
+    fun `step 1 - the program prints output`() = when {
+        output.isNotEmpty() -> ok()
 
+        actualOutput.isEmpty() ->
+            fail(
+                "Nothing is printed yet. Refactor the repeated code into a loop " +
+                        "that counts the slices and run again."
+            )
+
+        else ->
+            fail(
+                "println() is called, but the message is empty. " +
+                        "Print how many slices of pizza there are."
+            )
+    }
+
+    // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 2 - the program prints 8 lines`() = checkStep(
-        emptyHint = "Fix step 1 first.",
-        blankHint = "Fix step 1 first.",
-        hints = STEP_2_HINTS,
-        fallbackHint = "${outputLines.size} lines are printed, but only 8 are expected. " +
-                "The loop runs too many times - check its condition.",
-    ) { outputLines.size == 8 }
+    fun `step 2 - the program prints 8 lines`() = when {
+        outputLines.size == 8 -> ok()
 
-    // This step reports the first wrong line, so it builds its own detailed
-    // messages instead of using a fixed hint table.
+        output.isEmpty() ->
+            fail("Fix step 1 first.")
+
+        outputLines.size == 1 ->
+            fail(
+                "Everything is printed on a single line. " +
+                        "Use println() instead of print() to put each message on its own line."
+            )
+
+        outputLines.size < 8 ->
+            fail(
+                "Only ${outputLines.size} lines are printed, but 8 are expected. " +
+                        "The loop stops too early - check its condition."
+            )
+
+        else ->
+            fail(
+                "${outputLines.size} lines are printed, but only 8 are expected. " +
+                        "The loop runs too many times - check its condition."
+            )
+    }
+
+    // This step reports the first wrong line, so it prepares the mismatch
+    // details before choosing a hint.
     @Test
     fun `step 3 - every line tells the pizza story correctly`() {
         val lines = outputLines
         if (lines.size != 8) {
-            fail("Fix step 2 first.")
+            fail("Fix step 2 first.", shownOutput = "")
         }
         val mismatch = EXPECTED_LINES.indices.firstOrNull { lines[it] != EXPECTED_LINES[it] }
             ?: return
@@ -65,47 +72,34 @@ class ControlFlowLoopsExercise1Test {
         val actual = lines[mismatch]
         val details = "Line ${mismatch + 1}: expected \"${escapeHtml(expected)}\", " +
                 "but was \"${escapeHtml(actual)}\". "
-        val output = lines.joinToString("\n")
         when {
             mismatch == 7 && "There's only" in actual ->
                 fail(
-                    withOutput(
-                        details + "The last line should celebrate the whole pizza. " +
-                                "The loop should stop before the 8th slice so the final " +
-                                "println() can run after it.",
-                        output
-                    )
+                    details + "The last line should celebrate the whole pizza. " +
+                            "The loop should stop before the 8th slice so the final " +
+                            "println() can run after it."
                 )
 
             mismatch == 7 && "There are" in actual ->
                 fail(
-                    withOutput(
-                        details + "By the final line, pizzaSlices should be 8. " +
-                                "Don't forget the last pizzaSlices++ after the loop.",
-                        output
-                    )
+                    details + "By the final line, pizzaSlices should be 8. " +
+                            "Don't forget the last pizzaSlices++ after the loop."
                 )
 
             "There's only" in actual && "$mismatch " in actual ->
                 fail(
-                    withOutput(
-                        details + "The count is one behind. Increment pizzaSlices " +
-                                "before printing it, so the first line says 1.",
-                        output
-                    )
+                    details + "The count is one behind. Increment pizzaSlices " +
+                            "before printing it, so the first line says 1."
                 )
 
             "There's only" in actual ->
                 fail(
-                    withOutput(
-                        details + "Line ${mismatch + 1} should say there are ${mismatch + 1} " +
-                                "slice/s. Check where you increment pizzaSlices inside the loop.",
-                        output
-                    )
+                    details + "Line ${mismatch + 1} should say there are ${mismatch + 1} " +
+                            "slice/s. Check where you increment pizzaSlices inside the loop."
                 )
 
             else ->
-                fail(withOutput(details + "Almost there - every character counts.", output))
+                fail(details + "Almost there - every character counts.")
         }
     }
 }

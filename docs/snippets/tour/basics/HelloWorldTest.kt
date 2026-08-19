@@ -4,42 +4,46 @@ import kotlin.test.Test
 
 private const val EXPECTED = "Mary is 20 years old"
 
-private val HINTS: List<Hint> = listOf(
-    Hint(
-        { "name" in it || "age" in it },
-        "The words 'name' and 'age' appear as plain text. " +
-                "Add a dollar sign to print a variable's value: \"\$name is ...\"."
-    ),
-    Hint(
-        { !(it.contains("Mary", ignoreCase = true) && "20" in it) },
-        "The output should include the values of both variables: Mary and 20."
-    ),
-    Hint(
-        { it.equals(EXPECTED, ignoreCase = true) },
-        "So close! Only the capitalization is off."
-    ),
-    Hint(
-        { out -> out.lines().any { it.trim() == EXPECTED } },
-        "The right message is there, but there is extra output. Print only the expected line."
-    ),
-)
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class HelloWorldTest {
     @Test
-    fun `step 1 - print something`() = checkStep(
-        emptyHint = "Nothing is printed yet. Add a println() call inside main() and run again.",
-        blankHint = "println() is called, but the message is empty. " +
-                "Put the text to print inside the quotes: println(\"...\").",
-        isOk = { it.isNotEmpty() }
-    )
+    fun `step 1 - print something`() = when {
+        output.isNotEmpty() -> ok()
+
+        actualOutput.isEmpty() ->
+            fail("Nothing is printed yet. Add a println() call inside main() and run again.")
+
+        else ->
+            fail(
+                "println() is called, but the message is empty. " +
+                        "Put the text to print inside the quotes: println(\"...\")."
+            )
+    }
 
     @Test
-    fun `step 2 - print exactly 'Mary is 20 years old'`() = checkStep(
-        emptyHint = "Fix step 1 first.",
-        blankHint = "Fix step 1 first.",
-        hints = HINTS,
-        fallbackHint = "Almost there - every character counts.",
-        isOk = { it == EXPECTED }
-    )
+    fun `step 2 - print exactly 'Mary is 20 years old'`() = when {
+        output == EXPECTED -> ok()
+
+        output.isEmpty() ->
+            fail("Fix step 1 first.")
+
+        "name" in output || "age" in output -> fail(withOutput(
+            "The words 'name' and 'age' appear as plain text. " +
+                "Add a dollar sign to print a variable's value: \"\$name is ...\"."
+        ))
+
+        !(output.contains("Mary", ignoreCase = true) && "20" in output) ->
+            fail(withOutput("The output should include the values of both variables: Mary and 20."))
+
+        output.equals(EXPECTED, ignoreCase = true) ->
+            fail(withOutput("So close! Only the capitalization is off."))
+
+        output.lines().any { it.trim() == EXPECTED } -> fail(withOutput(
+            "The right message is there, but there is extra output. " +
+                "Print only the expected line."
+        ))
+
+        else ->
+            fail("Almost there - every character counts.")
+    }
 }

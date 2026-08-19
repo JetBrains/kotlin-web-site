@@ -1,6 +1,5 @@
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
-import kotlin.test.fail
 
 // Shared support code for the tour exercise tests. The playground compiles all
 // files listed in kotlin-hidden-files together with the learner's code.
@@ -24,35 +23,26 @@ fun runMain(echo: Boolean = false): String {
 // and the learner sees their output in the console exactly once.
 val actualOutput: String by lazy { runMain(echo = true) }
 
-// A symptom -> hint rule: when matches() is true for the learner's output,
-// the hint is shown.
-class Hint(val matches: (String) -> Boolean, val hint: String)
+// The learner's output with the surrounding whitespace stripped - what the step
+// checks compare against. To tell an empty output from a blank one, check the
+// raw actualOutput directly.
+val output: String by lazy { actualOutput.trim() }
 
-// Checks one step of an exercise: passes when isOk() is true for the trimmed
-// output, otherwise fails with the most specific hint. Order of hints matters -
-// the most specific ones go first.
-fun checkStep(
-    emptyHint: String,
-    blankHint: String,
-    hints: List<Hint> = emptyList(),
-    fallbackHint: String = "Not quite. Compare your output with the expected one.",
-    isOk: (String) -> Boolean,
-) {
-    val output = actualOutput.trim()
-    if (isOk(output)) return
-    when {
-        actualOutput.isEmpty() -> fail(emptyHint)
-        actualOutput.isBlank() -> fail(blankHint)
-        else -> {
-            val hint = hints.firstOrNull { it.matches(output) }?.hint ?: fallbackHint
-            fail(withOutput(hint, output))
-        }
-    }
-}
+// Passes the step. Together with fail() it lets every step read as a single
+// when expression over the output: the success condition goes first, then the
+// symptoms from the most specific to the most general, and the compiler
+// guarantees an exhaustive else fallback.
+fun ok() = Unit
+
+// Fails the step with the hint. shownOutput is attached to the message unless
+// it is empty: by default it is the learner's whole output, but a step can pass
+// only the relevant part of a long output, or "" to attach nothing.
+fun fail(hint: String, shownOutput: String = output): Nothing =
+    kotlin.test.fail(if (shownOutput.isEmpty()) hint else withOutput(hint, shownOutput))
 
 // The playground renders test messages as raw HTML, so the actual output is attached
 // as an extra console block that is displayed in the regular (non-error) text color.
-fun withOutput(hint: String, output: String): String {
+private fun withOutput(hint: String, output: String): String {
     val display = output.trimEnd('\n')
         .replace("&", "&#38;")
         .replace("<", "&#60;")
