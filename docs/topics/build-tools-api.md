@@ -34,6 +34,8 @@ The Kotlin Gradle plugin (KGP) uses the BTA by default for Kotlin/JVM compilatio
 
 ### Enable the BTA for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata
 
+<primary-label ref="alpha"/>
+
 Since Kotlin 2.4.20, the KGP can also run Kotlin/JS, Kotlin/Wasm, and Kotlin metadata compilations through the BTA.
 This makes the KGP interact with the compiler more consistently, and in some cases compilation becomes faster and
 more stable.
