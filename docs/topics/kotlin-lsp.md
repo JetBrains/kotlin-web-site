@@ -22,6 +22,9 @@ If you use Visual Studio Code for Kotlin development,
 install the official [Kotlin by JetBrains](https://marketplace.visualstudio.com/items?itemName=JetBrains.kotlin-server)
 extension from the Visual Studio Marketplace.
 
+For VS Code-compatible editors, such as Cursor or VSCodium,
+install the extension from the [Open VSX Registry](https://open-vsx.org/extension/JetBrains/kotlin-server).
+
 To activate the **Kotlin by JetBrains** extension, open a Kotlin project in Visual Studio Code, and then open any Kotlin file.
 
 ## Supported features
