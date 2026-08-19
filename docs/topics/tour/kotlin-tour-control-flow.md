@@ -194,7 +194,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowConditionalExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -209,7 +209,7 @@ fun main() {
         println("You lose :(")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowConditionalExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-2"}
 
@@ -234,7 +234,7 @@ fun main() {
     )
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -252,7 +252,7 @@ fun main() {
     )
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowConditionalExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
 
 ## Ranges
 
@@ -415,7 +415,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -429,7 +429,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
 
 |---|---|
 ```kotlin
@@ -443,7 +443,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-2"}
 
@@ -471,7 +471,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -488,7 +488,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-3"}
 
@@ -508,7 +508,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise3Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -520,7 +520,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/ControlFlowLoopsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
 
 <seealso></seealso>
 

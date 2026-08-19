@@ -110,7 +110,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" validate="false" id="kotlin-tour-hello-world-exercise"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/HelloWorldTest.kt" validate="false" id="kotlin-tour-hello-world-exercise"}
 
 |---|---|
 ```kotlin
@@ -120,7 +120,7 @@ fun main() {
     println("$name is $age years old")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
 <seealso></seealso>
 

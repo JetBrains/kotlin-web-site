@@ -433,7 +433,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -444,7 +444,7 @@ fun main() {
     println(totalCount)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -460,7 +460,7 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2"}
 
 <deflist collapsible="true" id="kotlin-tour-collections-exercise-2-hint">
     <def title="Hint">
@@ -478,7 +478,7 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -493,7 +493,7 @@ fun main() {
     println("$n is spelled as '${<Write your code here >}'")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -503,7 +503,7 @@ fun main() {
     println("$n is spelt as '${number2word[n]}'")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CollectionsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
 <seealso></seealso>
 
