@@ -13,22 +13,22 @@ class CollectionsExercise3Test {
 
     @Test
     fun `step 1 - the map lookup finds a word`() = when {
-        output.isNotEmpty() && "null" !in output -> ok()
+        output.isNotEmpty() && "null" !in output -> passed()
 
         actualOutput.isEmpty() ->
-            fail(
+            hint(
                 "Nothing is printed yet. Fill in both gaps: the map definition " +
                         "and the lookup inside println()."
             )
 
         output.isEmpty() ->
-            fail(
+            hint(
                 "println() is called, but the message is empty. " +
                         "Print the spelling message: \$n is spelled as '...'."
             )
 
         else ->
-            fail(
+            hint(
                 "The map lookup returned null. Check that the map keys are " +
                         "the numbers 1, 2, and 3 (Int), not strings."
             )
@@ -37,21 +37,21 @@ class CollectionsExercise3Test {
     // Order matters: the most specific symptoms go first.
     @Test
     fun `step 2 - the number 2 is spelled as 'two'`() = when {
-        output == EXPECTED || output == EXPECTED_ALT -> ok()
+        output == EXPECTED || output == EXPECTED_ALT -> passed()
 
         output.isEmpty() || "null" in output ->
-            fail("Fix step 1 first.")
+            hint("Fix step 1 first.")
 
         "two" in output && "'two'" !in output ->
-            fail("Keep the single quotes around the word: ... is spelled as 'two'.")
+            hint("Keep the single quotes around the word: ... is spelled as 'two'.")
 
         output.equals(EXPECTED, ignoreCase = true) || output.equals(EXPECTED_ALT, ignoreCase = true) ->
-            fail("So close! Only the capitalization is off.")
+            hint("So close! Only the capitalization is off.")
 
         output.lines().any { it.trim() == EXPECTED || it.trim() == EXPECTED_ALT } ->
-            fail("The right message is there, but there is extra output. Print only the expected line.")
+            hint("The right message is there, but there is extra output. Print only the expected line.")
 
         else ->
-            fail("Almost there - the expected output is: 2 is spelled as 'two'.")
+            hint("Almost there - the expected output is: 2 is spelled as 'two'.")
     }
 }

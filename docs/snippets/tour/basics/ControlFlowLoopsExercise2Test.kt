@@ -20,28 +20,28 @@ class ControlFlowLoopsExercise2Test {
     // Order matters: the most specific symptoms go first.
     @Test
     fun `step 1 - the for loop covers 1 to 100`() = when {
-        outputLines.size == 100 -> ok()
+        outputLines.size == 100 -> passed()
 
         actualOutput.isEmpty() ->
-            fail(
+            hint(
                 "Nothing is printed yet. Use a for loop over 1..100 and println() " +
                         "to print a number or word on each step."
             )
 
         output.isEmpty() ->
-            fail(
+            hint(
                 "println() is called, but the message is empty. " +
                         "Print the number, \"fizz\", \"buzz\", or \"fizzbuzz\"."
             )
 
         outputLines.size == 1 ->
-            fail(
+            hint(
                 "Everything is printed on a single line. " +
                         "Use println() instead of print() to put each answer on its own line."
             )
 
         else ->
-            fail(
+            hint(
                 "${outputLines.size} lines are printed, but 100 are expected - " +
                         "one for every number from 1 to 100. Check the range of your for loop.",
                 // Show only the edges of the output to keep the message readable.
@@ -56,7 +56,7 @@ class ControlFlowLoopsExercise2Test {
     fun `step 2 - every line follows the fizz buzz rules`() {
         val lines = outputLines
         if (lines.size != 100) {
-            fail("Fix step 1 first.", shownOutput = "")
+            hint("Fix step 1 first.", shownOutput = "")
         }
         val mismatch = (0..99).firstOrNull { lines[it] != expectedFor(it + 1) }
             ?: return
@@ -70,14 +70,14 @@ class ControlFlowLoopsExercise2Test {
             .joinToString("\n") { "${it + 1}: ${lines[it]}" }
         when {
             actual.equals(expected, ignoreCase = true) ->
-                fail(
+                hint(
                     details + "So close! Only the capitalization is off - " +
                             "use lowercase: \"$expected\".",
                     window
                 )
 
             expected == "fizzbuzz" && actual in listOf("fizz", "buzz") ->
-                fail(
+                hint(
                     details + "$number is divisible by both 3 and 5. Check the order " +
                             "of your when branches: the \"fizzbuzz\" check must come " +
                             "before \"fizz\" and \"buzz\".",
@@ -85,35 +85,35 @@ class ControlFlowLoopsExercise2Test {
                 )
 
             expected == "fizz" && actual == "$number" ->
-                fail(
+                hint(
                     details + "$number is divisible by 3, so it should be replaced " +
                             "with \"fizz\". Check your number % 3 == 0 condition.",
                     window
                 )
 
             expected == "buzz" && actual == "$number" ->
-                fail(
+                hint(
                     details + "$number is divisible by 5, so it should be replaced " +
                             "with \"buzz\". Check your number % 5 == 0 condition.",
                     window
                 )
 
             expected == "fizzbuzz" && actual == "$number" ->
-                fail(
+                hint(
                     details + "$number is divisible by both 3 and 5, so it should be " +
                             "replaced with \"fizzbuzz\".",
                     window
                 )
 
             expected == "$number" ->
-                fail(
+                hint(
                     details + "$number is not divisible by 3 or 5, so the number " +
                             "itself should be printed. Check your conditions.",
                     window
                 )
 
             else ->
-                fail(details + "Almost there - every character counts.", window)
+                hint(details + "Almost there - every character counts.", window)
         }
     }
 }

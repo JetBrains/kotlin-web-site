@@ -20,29 +20,29 @@ class ControlFlowLoopsExercise3Test {
     // Order matters: the most specific symptoms go first.
     @Test
     fun `step 1 - the loop prints words from the list`() = when {
-        printsWordsFromTheList(outputLines) -> ok()
+        printsWordsFromTheList(outputLines) -> passed()
 
         actualOutput.isEmpty() ->
-            fail(
+            hint(
                 "Nothing is printed yet. Loop over the list with for and print the " +
                         "words that start with \"l\". If you already have a condition " +
                         "but nothing matches, make sure it checks for a lowercase \"l\"."
             )
 
         output.isEmpty() ->
-            fail(
+            hint(
                 "println() is called, but the message is empty. " +
                         "Print the words that start with \"l\"."
             )
 
         outputLines.size == 1 && outputLines[0].equals("limousinelanguage", ignoreCase = true) ->
-            fail(
+            hint(
                 "The right words are there, but they are glued together. " +
                         "Use println() instead of print() to put each word on its own line."
             )
 
         else ->
-            fail(
+            hint(
                 "The output should contain only words from the list, " +
                         "each on its own line."
             )
@@ -55,35 +55,35 @@ class ControlFlowLoopsExercise3Test {
         val missingWord = EXPECTED_WORDS.firstOrNull { it !in lines }
         // Order matters: the most specific symptoms go first.
         when {
-            lines == EXPECTED_WORDS -> ok()
+            lines == EXPECTED_WORDS -> passed()
 
             !printsWordsFromTheList(lines) ->
-                fail("Fix step 1 first.")
+                hint("Fix step 1 first.")
 
             lines.containsAll(ALL_WORDS) ->
-                fail(
+                hint(
                     "Every word is printed. Add an if condition with " +
                             "startsWith(\"l\") inside the loop so that only " +
                             "\"limousine\" and \"language\" pass the check."
                 )
 
             lines.map { it.lowercase() } == EXPECTED_WORDS ->
-                fail("So close! Only the capitalization is off.")
+                hint("So close! Only the capitalization is off.")
 
             wrongWord != null ->
-                fail(
+                hint(
                     "\"$wrongWord\" doesn't start with \"l\", so it shouldn't be " +
                             "printed. Check the condition of your if."
                 )
 
             missingWord != null && lines.all { it in EXPECTED_WORDS } ->
-                fail(
+                hint(
                     "\"$missingWord\" starts with \"l\", but it isn't printed. " +
                             "Check the condition of your if."
                 )
 
             else ->
-                fail(
+                hint(
                     "The output should be \"limousine\" and \"language\", " +
                             "each on its own line."
                 )

@@ -13,45 +13,45 @@ class ControlFlowConditionalExercise1Test {
         val lines = output.lines().map { it.trim() }.filter { it.isNotEmpty() }
         // Order matters: the most specific symptoms go first.
         when {
-            output == WIN || output == LOSE -> ok()
+            output == WIN || output == LOSE -> passed()
 
             actualOutput.isEmpty() ->
-                fail(
+                hint(
                     "Nothing is printed yet. Add an if/else that compares the dice " +
                             "and prints the result, then run again."
                 )
 
             output.isEmpty() ->
-                fail(
+                hint(
                     "println() is called, but the message is empty. " +
                             "Print \"You win :)\" or \"You lose :(\"."
                 )
 
             lines.any { it.equals(WIN, ignoreCase = true) } &&
                     lines.any { it.equals(LOSE, ignoreCase = true) } ->
-                fail(
+                hint(
                     "Both results are printed, but the dice can't win and lose at " +
                             "the same time. Use if/else so that only one branch runs."
                 )
 
             lines.size > 1 ->
-                fail(
+                hint(
                     "The right idea, but there is extra output. " +
                             "Print only one line: \"You win :)\" or \"You lose :(\"."
                 )
 
             output.equals(WIN, ignoreCase = true) || output.equals(LOSE, ignoreCase = true) ->
-                fail("So close! Only the capitalization is off.")
+                hint("So close! Only the capitalization is off.")
 
             output.startsWith("You win", ignoreCase = true) ||
                     output.startsWith("You lose", ignoreCase = true) ->
-                fail(
+                hint(
                     "Almost there! Don't forget the smiley: " +
                             "\"You win :)\" or \"You lose :(\"."
                 )
 
             else ->
-                fail("The output should be exactly \"You win :)\" or \"You lose :(\".")
+                hint("The output should be exactly \"You win :)\" or \"You lose :(\".")
         }
     }
 
@@ -65,12 +65,12 @@ class ControlFlowConditionalExercise1Test {
             when (val result = runMain(echo = false).trim()) {
                 WIN -> wins++
                 LOSE -> losses++
-                else -> fail("Fix step 1 first.", shownOutput = result)
+                else -> hint("Fix step 1 first.", shownOutput = result)
             }
         }
         when {
             losses == 0 ->
-                fail(
+                hint(
                     "The program always prints \"You win :)\", no matter what the dice show. " +
                             "Compare the two dice with firstResult == secondResult " +
                             "instead of always printing the same result.",
@@ -78,7 +78,7 @@ class ControlFlowConditionalExercise1Test {
                 )
 
             wins == 0 ->
-                fail(
+                hint(
                     "The program always prints \"You lose :(\", no matter what the dice show. " +
                             "Compare the two dice with firstResult == secondResult " +
                             "instead of always printing the same result.",

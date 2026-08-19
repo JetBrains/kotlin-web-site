@@ -28,16 +28,21 @@ val actualOutput: String by lazy { runMain(echo = true) }
 // raw actualOutput directly.
 val output: String by lazy { actualOutput.trim() }
 
-// Passes the step. Together with fail() it lets every step read as a single
+// Passes the step. Together with hint() it lets every step read as a single
 // when expression over the output: the success condition goes first, then the
 // symptoms from the most specific to the most general, and the compiler
-// guarantees an exhaustive else fallback.
-fun ok() = Unit
+// guarantees an exhaustive else fallback. Touching the lazy actualOutput
+// guarantees the learner sees their output in the console - exactly once, and
+// only when it is not empty - even if the step's check never read it.
+fun passed() {
+    actualOutput.let {}
+}
 
-// Fails the step with the hint. shownOutput is attached to the message unless
-// it is empty: by default it is the learner's whole output, but a step can pass
-// only the relevant part of a long output, or "" to attach nothing.
-fun fail(hint: String, shownOutput: String = output): Nothing =
+// Fails the step and shows the hint to the learner. shownOutput is attached to
+// the message unless it is empty: by default it is the learner's whole output,
+// but a step can pass only the relevant part of a long output, or "" to attach
+// nothing.
+fun hint(hint: String, shownOutput: String = output): Nothing =
     kotlin.test.fail(if (shownOutput.isEmpty()) hint else withOutput(hint, shownOutput))
 
 // The playground renders test messages as raw HTML, so the actual output is attached

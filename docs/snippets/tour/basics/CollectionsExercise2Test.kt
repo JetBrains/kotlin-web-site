@@ -18,19 +18,19 @@ class CollectionsExercise2Test {
 
     @Test
     fun `step 1 - isSupported holds a Boolean`() = when {
-        hasBoolean -> ok()
+        hasBoolean -> passed()
 
         actualOutput.isEmpty() ->
-            fail("Nothing is printed yet. Complete the isSupported value and run again.")
+            hint("Nothing is printed yet. Complete the isSupported value and run again.")
 
         output.isEmpty() ->
-            fail(
+            hint(
                 "println() is called, but the message is empty. " +
                         "Print the support message: Support for \$requested: \$isSupported."
             )
 
         else ->
-            fail(
+            hint(
                 "There is no true or false in the output. Make isSupported a Boolean: " +
                         "check whether the requested protocol is in the SUPPORTED set."
             )
@@ -39,36 +39,36 @@ class CollectionsExercise2Test {
     // Order matters: the most specific symptoms go first.
     @Test
     fun `step 2 - smtp is reported as not supported`() = when {
-        output == EXPECTED -> ok()
+        output == EXPECTED -> passed()
 
         !hasBoolean ->
-            fail("Fix step 1 first.")
+            hint("Fix step 1 first.")
 
         output == "Support for smtp: true" ->
-            fail(
+            hint(
                 "isSupported should reflect whether the requested protocol is in the " +
                         "SUPPORTED set. SMTP isn't there, so the result should be false."
             )
 
         "SMTP" in output ->
-            fail(
+            hint(
                 "Uppercase the protocol only inside the check. " +
                         "Keep printing the original \$requested value."
             )
 
         output.equals(EXPECTED, ignoreCase = true) ->
-            fail("So close! Only the capitalization is off.")
+            hint("So close! Only the capitalization is off.")
 
         output.lines().any { it.trim() == EXPECTED } ->
-            fail("The right message is there, but there is extra output. Print only the expected line.")
+            hint("The right message is there, but there is extra output. Print only the expected line.")
 
         "false" in output ->
-            fail(
+            hint(
                 "The Boolean is right, but keep the exact message format: " +
                         "Support for \$requested: \$isSupported."
             )
 
         else ->
-            fail("Almost there - every character counts.")
+            hint("Almost there - every character counts.")
     }
 }
