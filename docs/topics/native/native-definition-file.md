@@ -149,14 +149,12 @@ Use the `package` property to specify a package prefix for the generated Kotlin 
 package = png
 ```
 
-Some names are reserved in the cinterop tool and cannot be used as package prefixes:
+Without the package prefix, the declarations are automatically generated in the root package.
 
-* `kotlin`
-* `kotlinx.cinterop`
-
-These packages and their subpackages are reserved for the Kotlin standard library.
-This restriction allows you to tell whether a type referenced from a C-interop library comes from Kotlin itself
-or from C or Objective-C.
+> The `kotlin` and `kotlinx.cinterop` names are reserved in the cinterop tool for the Kotlin standard library and cannot
+> be used as package prefixes.
+>
+{style="note"}
 
 ### Pass compiler and linker options
 
