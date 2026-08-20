@@ -65,6 +65,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/SKIKO-982" target="_blank">Improved rendering reliability and future-proof GPU support via Graphite in Skiko</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KMT-2910" target="_blank">Xcode integration for Kotlin/Native debugger</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-86791" target="_blank">Swift Export: from Alpha to Beta</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/CMP-10598" target="_blank">Make Native Text Input default in Compose Multiplatform for iOS</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-86492" target="_blank">Native compiler caches in release mode</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between stable Kotlin targets</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80307" target="_blank">Kotlin/JS: Improve onboarding materials for Kotlin/JS</a></li> 
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80308" target="_blank">Kotlin/JS: Compile to the modern JavaScript</a></li> 
@@ -77,8 +79,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-88545" target="_blank">Frictionless Kotlin-on-Maven onboarding via a unified compiler-plugins bundle</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-86492" target="_blank">Native compiler caches in release mode</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-88545" target="_blank">Streamline the Kotlin-on-Maven onboarding with a unified compiler-plugins bundle</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KMT-2910" target="_blank">Xcode integration for Kotlin/Native debugger</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-88546" target="_blank">Enable Native tasks parallelization without configuration cache enabled</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTC-5718" target="_blank">Kotlin Toolchain: a single entry point into Kotlin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-84572" target="_blank">Kotlin/Native debugger health and performance improvements</a></li>
@@ -109,14 +111,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <p><b>Ktor:</b></p>
             <list>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-9266" target="_blank">Improve authentication in Ktor</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTOR-7938" target="_blank">Support HTTP/3</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTOR-6026" target="_blank">Create Kubernetes Generator plugin</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTOR-9498" target="_blank">Support HTTP/3</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-1501" target="_blank">Add gRPC support to Ktor with a generator plugin and tutorial</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-6622" target="_blank">Improve Ktor administration and observability</a></li>
             </list>
             <p><b>Exposed:</b></p>
             <list>
-                <li><a href="https://youtrack.jetbrains.com/issue/EXPOSED-778" target="_blank">Release Exposed DAO 2.0</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/EXPOSED-819" target="_blank">Release Exposed DAO 2.0</a></li>
             </list>
          </td>
     </tr>
@@ -153,10 +154,11 @@ We've **added** the following items to the roadmap:
 * 🆕 Compiler: [Promote Kotlin/Wasm to Stable](https://youtrack.jetbrains.com/issue/KT-88663)
 * 🆕 Compiler: [Improve KAPT performance to be comparable with Java APT](https://youtrack.jetbrains.com/issue/KT-88664)
 * 🆕 Multiplatform: [Improved rendering reliability and future-proof GPU support via Graphite in Skiko](https://youtrack.jetbrains.com/issue/SKIKO-982)
-* 🆕 Multiplatform: [Xcode integration for Kotlin/Native debugger](https://youtrack.jetbrains.com/issue/KMT-2910)
 * 🆕 Multiplatform: [Swift Export: from Alpha to Beta](https://youtrack.jetbrains.com/issue/KT-86791)
-* 🆕 Tooling: [Frictionless Kotlin-on-Maven onboarding via a unified compiler-plugins bundle](https://youtrack.jetbrains.com/issue/KT-88545)
-* 🆕 Tooling: [Native compiler caches in release mode](https://youtrack.jetbrains.com/issue/KT-86492)
+* 🆕 Multiplatform: [Make Native Text Input default in Compose Multiplatform for iOS](https://youtrack.jetbrains.com/issue/CMP-10598)
+* 🆕 Multiplatform: [Native compiler caches in release mode](https://youtrack.jetbrains.com/issue/KT-86492)
+* 🆕 Tooling: [Streamline the Kotlin-on-Maven onboarding with a unified compiler-plugins bundle](https://youtrack.jetbrains.com/issue/KT-88545)
+* 🆕 Tooling: [Xcode integration for Kotlin/Native debugger](https://youtrack.jetbrains.com/issue/KMT-2910)
 * 🆕 Tooling: [Enable Native tasks parallelization without configuration cache enabled](https://youtrack.jetbrains.com/issue/KT-88546)
 * 🆕 Tooling: [Kotlin Toolchain: a single entry point into Kotlin](https://youtrack.jetbrains.com/issue/KTC-5718)
 * 🆕 Ecosystem: [Implement first-class JPA/Hibernate support for Kotlin stdlib types](https://youtrack.jetbrains.com/issue/KT-88665)
