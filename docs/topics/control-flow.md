@@ -450,10 +450,10 @@ The compiler uses `invokedynamic` with the [`SwitchBootstraps.typeSwitch()`](htt
 method when all the following conditions are met:
 
 * All conditions except for `else` are `is` or `null` checks.
-* The expression doesn't contain [guard conditions (`if`)](#guard-conditions-in-when-expressions).
+* The `when` expression doesn't contain [guard conditions (`if`)](#guard-conditions-in-when-expressions).
 * The conditions don't include types that can't be type-checked directly, such as mutable Kotlin collections
   (`MutableList`) or function types (`kotlin.Function1`, `kotlin.Function2`, and so on).
-* There are at least two conditions besides `else`.
+* The `when` expression has at least two conditions besides `else`.
 * All branches check the same subject of the `when` expression.
 
 For example:
