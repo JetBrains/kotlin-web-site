@@ -78,7 +78,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
                 <li><code>false</code> (default)</li>
             </list>
         </td>
-        <td>Enables the compiler to use caches in the <code>opt</code> mode, making release builds faster at the expense of some optimizations.</td>
+        <td>Enables the compiler to use caches in the release mode, making builds faster at the expense of some compiler optimizations.</td>
         <td>Experimental since 2.4.20</td>
     </tr>
     <tr>
