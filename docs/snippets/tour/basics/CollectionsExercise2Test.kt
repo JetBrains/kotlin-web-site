@@ -4,45 +4,30 @@ import kotlin.test.Test
 
 private const val EXPECTED = "Support for smtp: false"
 
-// Note: skipping .uppercase() is indistinguishable by stdout - both
-// "smtp" in SUPPORTED and "smtp".uppercase() in SUPPORTED evaluate to false.
-// The hint in the article guides the learner towards .uppercase().
-
-// The in check produced a Boolean if either result shows up in the message.
-private val hasBoolean: Boolean by lazy {
-    output.contains("true", ignoreCase = true) || output.contains("false", ignoreCase = true)
-}
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CollectionsExercise2Test {
-
+    // Order matters: the success condition must go first - the broad
+    // "false" in output branch below would otherwise catch the correct answer.
+    // After it, the symptoms go from the most specific to the most general.
+    // Known limitation: skipping .uppercase() is indistinguishable by stdout
+    // ("smtp" in SUPPORTED and "smtp".uppercase() in SUPPORTED both print
+    // false); the exercise hint already points at .uppercase().
     @Test
-    fun `step 1 - isSupported holds a Boolean`() = when {
-        hasBoolean -> passed()
+    fun `the support message is printed`() = when {
+        output == EXPECTED -> passed()
 
         actualOutput.isEmpty() ->
-            hint("Nothing is printed yet. Complete the isSupported value and run again.")
+            hint(
+                "Nothing is printed. The exercise starts with a " +
+                        "println(\"Support for \$requested: \$isSupported\") line - " +
+                        "bring it back and complete the isSupported value."
+            )
 
         output.isEmpty() ->
             hint(
                 "println() is called, but the message is empty. " +
                         "Print the support message: Support for \$requested: \$isSupported."
             )
-
-        else ->
-            hint(
-                "There is no true or false in the output. Make isSupported a Boolean: " +
-                        "check whether the requested protocol is in the SUPPORTED set."
-            )
-    }
-
-    // Order matters: the most specific symptoms go first.
-    @Test
-    fun `step 2 - smtp is reported as not supported`() = when {
-        output == EXPECTED -> passed()
-
-        !hasBoolean ->
-            hint("Fix step 1 first.")
 
         output == "Support for smtp: true" ->
             hint(
@@ -62,13 +47,22 @@ class CollectionsExercise2Test {
         output.lines().any { it.trim() == EXPECTED } ->
             hint("The right message is there, but there is extra output. Print only the expected line.")
 
-        "false" in output ->
+        output.equals("true", ignoreCase = true) || output.equals("false", ignoreCase = true) ->
             hint(
-                "The Boolean is right, but keep the exact message format: " +
+                "The Boolean is right, but print the whole message: " +
+                        "Support for \$requested: \$isSupported."
+            )
+
+        "true" in output || "false" in output ->
+            hint(
+                "The Boolean is there, but keep the exact message format: " +
                         "Support for \$requested: \$isSupported."
             )
 
         else ->
-            hint("Almost there - every character counts.")
+            hint(
+                "There is no true or false in the output. Make isSupported a Boolean: " +
+                        "check whether the requested protocol is in the SUPPORTED set."
+            )
     }
 }

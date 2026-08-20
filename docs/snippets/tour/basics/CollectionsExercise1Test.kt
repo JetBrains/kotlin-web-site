@@ -2,30 +2,27 @@ import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
 import kotlin.test.Test
 
-private const val EXPECTED = "5"
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CollectionsExercise1Test {
-
-    // Order matters: the most specific symptoms go first.
+    // Order matters: the success condition goes first, then the symptoms from
+    // the most specific to the most general.
     @Test
-    fun `step 1 - count() gives a single number`() = when {
-        output.isNotEmpty() && '\n' !in output && output.toIntOrNull() != null -> passed()
+    fun `the total over both lists is printed`() = when {
+        output.toIntOrNull() == greenNumbers.count() + redNumbers.count() ->
+            passed()
 
         actualOutput.isEmpty() ->
             hint("Nothing is printed yet. Add a println() call inside main() and run again.")
 
-        output.isEmpty() ->
-            hint(
-                "println() is called, but the message is empty. " +
-                        "Print the total number of numbers in both lists."
-            )
+        output.isEmpty() -> hint(
+            "println() is called, but the message is empty. " +
+                    "Print the total number of numbers in both lists."
+        )
 
-        '\n' in output ->
-            hint(
-                "There is more than one line of output. " +
-                        "Print only one line - the total count of numbers in both lists."
-            )
+        '\n' in output -> hint(
+            "There is more than one line of output. " +
+                    "Print only one line - the total count of numbers in both lists."
+        )
 
         '[' in output ->
             hint(
@@ -33,21 +30,13 @@ class CollectionsExercise1Test {
                         "instead - try the .count() function."
             )
 
-        else ->
+        output.toIntOrNull() == null ->
             hint("The output should be a single number - the total count of numbers in both lists.")
-    }
 
-    @Test
-    fun `step 2 - the total over both lists is 5`() = when {
-        output == EXPECTED -> passed()
-
-        '\n' in output || output.toIntOrNull() == null ->
-            hint("Fix step 1 first.")
-
-        output == "3" ->
+        output.toIntOrNull() == greenNumbers.count() ->
             hint("That's only the green numbers. Don't forget the red ones!")
 
-        output == "2" ->
+        output.toIntOrNull() == redNumbers.count() ->
             hint("That's only the red numbers. Add the green ones too.")
 
         else ->
