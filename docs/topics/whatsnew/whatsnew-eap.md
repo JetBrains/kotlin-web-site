@@ -106,11 +106,11 @@ private constructor(
     // Copies the line number and message details
     override fun copyForStackTraceRecovery(): FileEditException =
         FileEditException(line, detail, this)
-    }
+}
 
 fun main() {
     val original = FileEditException(15, "Unexpected token")
-    
+
     // Normally, you don't need to call this function directly unless you're testing its behavior
     // The kotlinx.coroutines library invokes it automatically during stack trace recovery
     val copy = original.copyForStackTraceRecovery()
@@ -217,11 +217,11 @@ For example, declare a sealed interface with a class hierarchy in Kotlin:
 sealed interface Shape
 
 class Circle : Shape {
-   override fun toString(): String = "Circle"
+    override fun toString(): String = "Circle"
 }
 
 class Rectangle : Shape {
-   override fun toString(): String = "Rectangle"
+    override fun toString(): String = "Rectangle"
 }
 
 fun createCircle(): Shape = Circle()
@@ -234,8 +234,8 @@ On the Swift side, you can use an exhaustive `switch` without a `default` case:
 let shape = createCircle()
 
 let name = switch shape.sealedType() {
-   case let .circle(type): "It's a \(type.value)"
-   case let .rectangle(type): "It's a \(type.value)"
+case let .circle(type): "It's a \(type.value)"
+case let .rectangle(type): "It's a \(type.value)"
 }
 // name == "It's a Circle"
 ```

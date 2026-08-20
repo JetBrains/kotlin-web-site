@@ -230,7 +230,7 @@ Swift library into a Kotlin project:
    }
    ```
 
-2. On the Kotlin side, pass the platform-specific implementation from `MainViewController`, then receive it in the `App` composable as a parameter and use it where needed:
+2. On the Kotlin side, pass the platform-specific implementation from `MainViewController`, then receive it in the `App` composable as a parameter, and use it where needed:
 
     ```kotlin
     // App.kt
@@ -321,7 +321,8 @@ Swift library into a Kotlin project:
 </tab>
 <tab title="Swift export">
 
-1. On the Kotlin side, create an interface and a function that accepts it:
+1. On the Kotlin side, create an interface, a function that accepts it, and an `open` base class for the Swift
+   implementation to inherit from:
 
    ```kotlin
    // CryptoProvider.kt
@@ -330,15 +331,18 @@ Swift library into a Kotlin project:
    }
 
    fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
+
+   open class SwiftBase
    ```
 
-2. On the Swift side, implement the interface using the pure Swift CryptoKit library and pass it back to Kotlin:
+2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using the pure Swift
+   CryptoKit library, and pass the object back to Kotlin:
 
    ```swift
    // iosApp/ContentView.swift
    import CryptoKit
 
-   class IosCryptoProvider: KotlinBase & CryptoProvider {
+   final class IosCryptoProvider: SwiftBase, CryptoProvider {
        func hashMD5(input: String) -> String {
            guard let data = input.data(using: .utf8) else { return "failed" }
            return Insecure.MD5.hash(data: data).description
