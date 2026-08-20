@@ -127,10 +127,6 @@ in the terminal from the `kotlin-wasm-wasi-template` root directory:
   ./gradlew wasmWasiWasmEdgeTest
   ```
 
-The terminal displays the test results:
-
-![Kotlin/Wasm and WASI test](wasm-wasi-tests-results.png){width=600}
-
 ## What's next?
 
 Join the Kotlin/Wasm community in Kotlin Slack:
