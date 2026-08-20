@@ -446,8 +446,8 @@ when (animal) {
 When you compile Kotlin code for JVM 21 or later, the compiler generates an [`invokedynamic`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/invoke/package-summary.html)
 instruction for eligible `when` expressions. This produces smaller bytecode, similar to the bytecode produced by Java `switch` statements.
 
-The compiler uses `invokedynamic` with [`SwitchBootstraps.typeSwitch`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/runtime/SwitchBootstraps.html)
-methods when all the following conditions are met:
+The compiler uses `invokedynamic` with the [`SwitchBootstraps.typeSwitch()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/runtime/SwitchBootstraps.html)
+method when all the following conditions are met:
 
 * All conditions except for `else` are `is` or `null` checks.
 * The expression doesn't contain [guard conditions (`if`)](#guard-conditions-in-when-expressions).
