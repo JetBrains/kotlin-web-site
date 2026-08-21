@@ -225,7 +225,7 @@ Actively maintained code bases can benefit from getting bug fixes as soon as pos
 These projects can enable the [`-progressive` option](compiler-reference.md#progressive) to adopt these changes in tooling releases
 before they become the default.
 
-You can configure these options on the [command line](#compiler-reference.md#common-options) or with the
+You can configure these options on the [command line](compiler-reference.md#common-options) or with the
 [Gradle](gradle-compiler-options.md#attributes-common-to-jvm-and-javascript) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
 build tools.
 
