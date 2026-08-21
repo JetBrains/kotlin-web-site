@@ -76,7 +76,7 @@ For more information, see the corresponding sections below.
 | [`excludedFunctions`](#ignore-specific-functions)                                   | A space-separated list of function names that should be ignored.                                                                                                                                                         |                                              
 | [`staticLibraries`](#include-a-static-library)                                      | [Experimental](components-stability.md#stability-levels-explained). Includes a static library into `.klib`.                                                                                                              |
 | [`libraryPaths`](#include-a-static-library)                                         | [Experimental](components-stability.md#stability-levels-explained). A space-separated list of directories where the cinterop tool searches for the library to be included in `.klib`.                                    |
-| `package`                                                                       | Package prefix for the generated Kotlin API.                                                                                                                                                                             |
+| [`package`](#set-the-package-name)                                                  | Package prefix for the generated Kotlin API.                                                                                                                                                                             |
 | [`headerFilter`](#filter-headers-by-globs)                                          | Filters headers by globs and includes only them when importing a library.                                                                                                                                                |
 | [`excludeFilter`](#exclude-headers)                                                 | Excludes specific headers when importing a library and takes priority over `headerFilter`.                                                                                                                               |
 | [`strictEnums`](#configure-enums-generation)                                        | A space-separated list of enums that should be generated as [Kotlin enums](enum-classes.md).                                                                                                                             |
@@ -140,6 +140,20 @@ If an Objective-C library has a Clang module, use the `modules` property to spec
 ```none
 modules = UIKit
 ```
+
+### Set the package name
+
+Use the `package` property to specify a package prefix for the generated Kotlin API:
+
+```none
+package = png
+```
+
+If not specified, the declarations are generated in the root package.
+
+> The `kotlin` and `kotlinx.cinterop names are reserved and cannot be used as package prefixes.
+>
+{style="note"}
 
 ### Pass compiler and linker options
 
