@@ -1,0 +1,19 @@
+name: Validate anniversary meetups data
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_anniversary_meetups_data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chrisdickinson/setup-yq@latest
+        with:
+          yq-version: 'v4.9.5'
+      - run: |
+         jsonschema -i <(yq eval --tojson -j data/kotlin-effect/anniversary-meetups.yml) data/schemas/anniversary-meetups.json
+         echo "Anniversary meetups data is valid!"
