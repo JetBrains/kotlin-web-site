@@ -202,7 +202,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="kotlin-tour-function-early-return"}
 
-## Functions practice
+## Functions practice {completion-point="true"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-1"}
 
@@ -230,7 +230,7 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" validate="false" id="kotlin-tour-functions-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" validate="false" id="kotlin-tour-functions-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -244,7 +244,7 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-2"}
 
@@ -254,25 +254,29 @@ Rewrite the `circleArea` function from the previous exercise as a single-express
 ```kotlin
 import kotlin.math.PI
 
+//sampleStart
 // Write your code here
+//sampleEnd
 
 fun main() {
     println(circleArea(2))
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" validate="false" id="kotlin-tour-functions-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaExpressionTest.kt" validate="false" id="kotlin-tour-functions-exercise-2"}
 
 |---|---|
 ```kotlin
 import kotlin.math.PI
 
+//sampleStart
 fun circleArea(radius: Int): Double = PI * radius * radius
+//sampleEnd
 
 fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/CircleAreaExpressionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaExpressionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-3"}
 
@@ -293,7 +297,7 @@ fun main() {
     println(intervalInSeconds(1, 0, 1))
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" validate="false" id="kotlin-tour-functions-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" validate="false" id="kotlin-tour-functions-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -308,7 +312,7 @@ fun main() {
     println(intervalInSeconds(hours = 1, seconds = 1))
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/IntervalInSecondsTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
 
 ## Lambda expressions
 
@@ -570,7 +574,7 @@ fun main() {
     println(urls)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise1Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -582,7 +586,7 @@ fun main() {
     println(urls)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-2"}
 
@@ -599,7 +603,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise2Test.kt" validate="false" id="kotlin-tour-lambdas-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -615,7 +619,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="tour/basics/LambdasExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
 <seealso></seealso>
 
