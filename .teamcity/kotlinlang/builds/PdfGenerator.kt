@@ -1,12 +1,10 @@
 package kotlinlang.builds
 
 import BuildParams.KLANG_NODE_CONTAINER
-import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import templates.DockerImageBuilder
-import templates.SCRIPT_PATH
 
 object PdfGenerator : BuildType({
   name = "PDF Generator"
@@ -14,11 +12,7 @@ object PdfGenerator : BuildType({
 
   templates(DockerImageBuilder)
 
-  artifactRules = """
-    dist/** => dist.zip!
-    docs/kr.tree => dist.zip
-    pdf/kotlin-docs.pdf
-  """.trimIndent()
+  artifactRules = "assets/kotlin-reference.pdf"
 
   requirements {
     doesNotContain("docker.server.osType", "windows")
@@ -26,31 +20,28 @@ object PdfGenerator : BuildType({
 
   steps {
     script {
-      id = "script-dist-pdf-html"
-      name = "Generate pdf.html"
-        //language=bash
-        scriptContent = """
+      id = "script-generate-pdf"
+      name = "Generate PDF"
+      //language=bash
+      scriptContent = """
         #!/bin/sh
         set -e
-        npm install
-        npm run generate-pdf
+        yarn install --frozen-lockfile
+        cd scripts/dist && yarn install --frozen-lockfile && cd ../..
+        yarn run generate-pdf
       """.trimIndent()
       dockerImage = KLANG_NODE_CONTAINER
-      workingDir = SCRIPT_PATH
     }
   }
 
   dependencies {
-    dependency(KotlinWithCoroutines) {
+    dependency(BuildSitePages) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
         onDependencyCancel = FailureAction.CANCEL
       }
       artifacts {
-        artifactRules = """
-          +:webHelpImages.zip!** => dist/docs/images/
-          +:webHelpKR2.zip!** => dist/docs/
-        """.trimIndent()
+        artifactRules = "+:pages.zip!** => ./"
       }
     }
   }
