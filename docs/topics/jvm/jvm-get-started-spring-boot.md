@@ -26,9 +26,3 @@ Look through our Java to Kotlin (J2K) interop and migration guides:
 * [Calling Java from Kotlin](java-interop.md) and [Calling Kotlin from Java](java-to-kotlin-interop.md)
 * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md)
 * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
-
-## Join the community
-
-* ![Slack](slack.svg){width=25}{type="joined"} **Kotlin slack**: [get an invitation](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4) and [#server](https://kotlinlang.slack.com/archives/C0B8RC352) channels 
-* ![Stack Overflow](stackoverflow.svg){width=25}{type="joined"} **Stack Overflow**: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags
-* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin with Spring](https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x)

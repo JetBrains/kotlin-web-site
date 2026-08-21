@@ -60,6 +60,12 @@ Google Cloud Platform (GCP), and many others.
 * **Spring** applications are also compatible with most popular cloud providers. See how to deploy Spring Boot applications
   to the cloud in the [official Spring documentation](https://docs.spring.io/spring-boot/how-to/deployment/cloud.html).
 
+## Join the community
+
+* ![Slack](slack.svg){width=25}{type="joined"} **Kotlin slack**: [get an invitation](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4) and [#server](https://kotlinlang.slack.com/archives/C0B8RC352) channels
+* ![Stack Overflow](stackoverflow.svg){width=25}{type="joined"} **Stack Overflow**: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags
+* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin with Spring](https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x)
+
 ## Next steps
 
 * [Learn how to test your Java Maven project with Kotlin and JUnit](jvm-test-using-junit.md)
