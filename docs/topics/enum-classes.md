@@ -65,12 +65,7 @@ enum class Color(val hex: String) {
     GREEN("#00FF00"),
     BLUE("#0000FF")
 }
-
-fun main() {
-    println(Color.RED.hex) // #FF0000
-}
 ```
-{kotlin-runnable="true" id="declare-enum-hex-kotlin"}
 
 The value passed to each enum constant must match the constructor parameter type. Here, `hex` is a string property of the
 `Color` enum class. Each enum constant passes its own string value for this property.
@@ -84,12 +79,7 @@ enum class Priority(val level: Int) {
     MEDIUM(1),
     HIGH(2)
 }
-
-fun main() {
-    println(Priority.MEDIUM.level) // 1
-}
 ```
-{kotlin-runnable="true" id="declare-enum-level-kotlin"}
 
 ### Access enum constants and their properties
 
@@ -158,10 +148,23 @@ fun main() {
 
 Here, the `printColor()` function accepts a value of type `Color`, so you can pass any `Color` enum constant to it.
 
-> Although enum constants behave like singleton objects, they aren't the same. Only the enum class can be used as a type.
-> Enum constants cannot be types, only values.
-> 
-{style="note"}
+Although enum constants behave like singleton objects, they aren't the same. You can only use the enum class name as a type.
+On the contrary, enum constants cannot be valid types, only values:
+
+```kotlin
+enum class Color {
+    RED, GREEN, BLUE
+}
+
+fun printColor(color: Color) {
+    println(color)
+}
+
+fun printRed(color: Color.RED) {
+    println(color)
+    // Error: enum entry cannot be used as a type
+}
+```
 
 ### Use enum constants in `when` expressions
 
