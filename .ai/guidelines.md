@@ -675,7 +675,7 @@ The project includes a specialized system for generating PDF documentation:
 
 - Core implementation in `scripts/pdf/generate-pdf.js`, using `@vivliostyle/cli` to render HTML documentation to PDF
 - Triggered via `yarn generate-pdf` (`generate-pdf:html` + `generate-pdf:convert`)
-- Integrated into the TeamCity `PdfGenerator` build configuration
+- Integrated into the TeamCity `PdfGenerator` build configuration (manual build that uses artifacts from `BuildSitePages`)
 
 ### TeamCity DSL Pipelines
 

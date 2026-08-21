@@ -123,11 +123,11 @@ Before you begin, make sure your local environment is connected to the WebTeam r
 
 To generate a PDF version of the Kotlin documentation:
 
-1. Download the documentation artifacts from the [Kotlin Reference with coroutines CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_KotlinWithCoroutines) and place them in the `dist` folder. Note that images should be placed into /dist/images.
+1. Download and extract the `pages.zip` artifacts from the [Build site pages CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildSitePages) into the project root. This will provide the `dist/docs` directory.
 2. Run:
    ```bash
    yarn install
-   cd scripts/dist && npm install && cd ../../
+   cd scripts/dist && yarn install && cd ../../
    yarn generate-pdf
    ```
 
