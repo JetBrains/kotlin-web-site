@@ -114,11 +114,11 @@ There are several ways to obtain an instance of a function type:
   [Function literals with receiver](#function-literals-with-receiver) can be used as values of function types with receiver.
 
 * Use a callable reference to an existing declaration:
-    * a top-level, local, member, or extension [function](reflection.md#function-references): `::isOdd`, `String::toInt`,
-    * a top-level, member, or extension [property](reflection.md#property-references): `List<Int>::size`,
-    * a [constructor](reflection.md#constructor-references): `::Regex`
+    * a top-level, local, member, or extension [function](#function-references): `::isOdd`, `String::toInt`,
+    * a top-level, member, or extension [property](properties.md#property-references): `List<Int>::size`,
+    * a [constructor](classes.md#constructor-references): `::Regex`
 
-  These include [bound callable references](reflection.md#bound-function-and-property-references) that point to a member of a particular instance: `foo::toString`.
+  These include [bound callable references](#bound-and-unbound-references) that point to a member of a particular instance: `foo::toString`.
 
 * Use instances of a custom class that implements a function type as an interface:
 
@@ -193,6 +193,101 @@ fun main() {
 ### Inline functions
 
 Sometimes it is beneficial to use [inline functions](inline-functions.md), which provide flexible control flow, for higher-order functions.
+
+## Callable reference
+
+Callable references let you refer to a function, property, or constructor without calling or accessing it immediately.
+You can store the reference in a variable, pass it to another function, or invoke it later.
+
+To create a callable reference, use the `::` operator:
+
+```kotlin
+fun isOdd(number: Int) = number % 2 != 0
+
+fun main() {
+val numbers = listOf(1, 2, 3, 4, 5)
+
+    // Pass a reference to isOdd()
+    println(numbers.filter(::isOdd))
+    // [1, 3, 5]
+}
+```
+{kotlin-runnable="true"}
+
+Callable-reference objects implement [reflection](reflection.md) interfaces, such as `KFunction` and `KProperty`.
+
+### Function references
+
+Use a function reference when an API expects behavior as a value, and you already have a function that implements it.
+To refer to a top-level or local named function, use `::functionName`:
+
+```kotlin
+fun calculateLength(text: String) = text.length
+
+fun main() {
+val length: (String) -> Int = ::calculateLength
+
+    println(length("Kotlin"))
+    // 6
+    println(::calculateLength.name)
+    // calculateLength
+}
+```
+{kotlin-runnable="true"}
+
+Function references belong to one of the [`KFunction<out R>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-function/) subtypes, depending on the parameter count.
+For instance, `KFunction3<T1, T2, T3, R>`.
+
+If several functions have the same name, the compiler uses the expected function type to select the matching overload:
+
+```kotlin
+fun parse(value: String) = "String: $value"
+fun parse(value: Int) = "Int: $value"
+
+fun main() {
+val parseString: (String) -> String = ::parse
+val parseInt: (Int) -> String = ::parse
+
+    println(parseString("Kotlin"))
+    // String: Kotlin
+    println(parseInt(22))
+    // Int: 22
+}
+```
+{kotlin-runnable="true"}
+
+### Bound and unbound references
+
+A reference to a member can be _bound_ and _unbound_:
+
+* Bound reference captures a particular instance and requires only the function's declared arguments. Use it when every
+  invocation should use the same object.
+* Unbound reference isn't attached to an instance, so its function type includes the receiver. Use it when the caller
+  should provide the object.
+
+```kotlin
+class User(val name: String) {
+fun hasName(prefix: String) = name.startsWith(prefix)
+}
+
+fun main() {
+    // The first parameter of an unbound reference is the User receiver
+    val unbound: (User, String) -> Boolean = User::hasName
+    println(unbound(User("Jane"), "Ja"))
+    // true
+
+    val jane = User("Jane")
+
+    // Reference captures jane as its receiver
+    val bound: (String) -> Boolean = jane::hasName
+    println(bound("Doe"))
+    // false
+}
+```
+{kotlin-runnable="true"}
+
+Extension functions follow the same rule. For example, `String::isBlank` is unbound and needs a `String` receiver.
+`"Kotlin"::isBlank` is bound to one string.
 
 ## Lambda expressions and anonymous functions
 
