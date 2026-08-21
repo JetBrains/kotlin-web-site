@@ -12,13 +12,15 @@ private val OTHER_ACTIONS = mapOf(
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowConditionalExercise2Test {
-
+    // Order matters: the success condition goes first, then the symptoms from
+    // the most specific to the most general.
+    // Known limitation: a hardcoded println("Yes") with no when expression is
+    // indistinguishable by stdout from the reference solution.
     @Test
-    fun `step 1 - the when expression maps the button to an action`() {
+    fun `pressing button A prints 'Yes'`() {
         val lines = output.lines().map { it.trim() }.filter { it.isNotEmpty() }
-        // Order matters: the most specific symptoms go first.
         when {
-            output == EXPECTED || output in OTHER_ACTIONS -> passed()
+            output == EXPECTED -> passed()
 
             actualOutput.isEmpty() ->
                 hint(
@@ -36,6 +38,13 @@ class ControlFlowConditionalExercise2Test {
                 hint(
                     "The button name is printed instead of its action. " +
                             "Your when expression should turn \"A\" into \"Yes\"."
+                )
+
+            output in OTHER_ACTIONS ->
+                hint(
+                    "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
+                            "but the pressed button is \"A\". " +
+                            "Check which branch of your when expression matches \"A\"."
                 )
 
             lines.size > 1 && (EXPECTED in lines || lines.any { it in OTHER_ACTIONS }) ->
@@ -60,20 +69,5 @@ class ControlFlowConditionalExercise2Test {
                             "Check the value each branch of your when expression returns."
                 )
         }
-    }
-
-    @Test
-    fun `step 2 - pressing button A prints 'Yes'`() = when {
-        output == EXPECTED -> passed()
-
-        output in OTHER_ACTIONS ->
-            hint(
-                "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
-                        "but the pressed button is \"A\". " +
-                        "Check which branch of your when expression matches \"A\"."
-            )
-
-        else ->
-            hint("Fix step 1 first.")
     }
 }
