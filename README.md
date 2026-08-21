@@ -113,7 +113,7 @@ To add a case study, do the following:
 ## Local deployment
 
 Currently, there is no way to deploy the full Kotlin website locally. This ticket tracks the effort of adding support for local testing: [KT-47049](https://youtrack.jetbrains.com/issue/KT-47049).
-See [Local development](#local-development) below for running the Next.js pages and the webpack dev server locally.
+See [Local development](#local-development) below for running the website locally.
 
 You can contribute to the Kotlin website by sending us a pull request.
 
