@@ -1,10 +1,10 @@
 [//]: # (title: Build tools API)
 
-<primary-label ref="experimental-general"/>
+<primary-label ref="beta"/>
 
-<tldr>Currently, the BTA supports Kotlin/JVM only.</tldr>
+<tldr>The BTA supports Kotlin/JVM, Kotlin/JS, Kotlin/Wasm.<p/>  It doesn't support Kotlin/Native.</tldr>
 
-Kotlin has an experimental Build tools API (BTA) that simplifies how build systems integrate with the 
+Kotlin has the Build tools API (BTA) that simplifies how build systems integrate with the 
 Kotlin compiler.
 
 Adding full Kotlin support to a build system (like incremental compilation, Kotlin compiler plugins, 
@@ -13,19 +13,41 @@ a unified API between build systems and the Kotlin compiler ecosystem.
 
 The BTA defines a single entry point that build systems can implement. This removes the need to deeply integrate with internal compiler details.
 
-> The BTA itself is not yet publicly available for direct use in your own build tool integrations.
-> If you're interested in the proposal or want to share feedback, see the [KEEP](https://github.com/Kotlin/KEEP/issues/421).
+The BTA is generally available for Kotlin/JVM since Kotlin 2.3.0.
+
+The stability level differs per target: the BTA is Beta for Kotlin/JVM, and Alpha for Kotlin/JS and Kotlin/Wasm.
+For details, see [](components-stability.md). Using the BTA requires an opt-in with
+`@OptIn(ExperimentalBuildToolsApi::class)`.
+
+> If you're interested in the proposal or want to share feedback, see the [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).
 > Follow the status of its implementation in [YouTrack](https://youtrack.jetbrains.com/issue/KT-76255).
 > 
-{style="warning"}
+{style="note"}
 
 ## Integration with Gradle
 
-The Kotlin Gradle plugin (KGP) has experimental support for the BTA. The KGP uses the BTA by default for Kotlin/JVM compilation.
+The Kotlin Gradle plugin (KGP) uses the BTA by default for Kotlin/JVM compilation.
 
 > We'd appreciate your feedback on your experience with the KGP in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
 > 
 {style="note"}
+
+### Enable the BTA for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata
+
+<primary-label ref="alpha"/>
+
+Since Kotlin 2.4.20, the KGP can also run Kotlin/JS, Kotlin/Wasm, and Kotlin metadata compilations through the BTA.
+This makes the KGP interact with the compiler more consistently, and in some cases compilation becomes faster and
+more stable.
+
+In Kotlin 2.4.20, these targets are available as an opt-in. To try them out, add the corresponding properties to your
+`gradle.properties` file:
+
+```none
+kotlin.js.runViaBuildToolsApi = true
+kotlin.wasm.runViaBuildToolsApi = true
+kotlin.metadata.runViaBuildToolsApi = true
+```
 
 ### Configure different compiler versions
 
@@ -41,7 +63,7 @@ import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("jvm") version "2.2.0"
+    kotlin("jvm") version "2.4.20"
 }
 
 group = "org.jetbrains.example"
@@ -54,7 +76,7 @@ repositories {
 kotlin {
     jvmToolchain(8)
     @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
-    compilerVersion.set("2.1.21") // <-- different version than 2.2.0
+    compilerVersion.set("2.3.21") // <-- different version than 2.4.20
 }
 ```
 
