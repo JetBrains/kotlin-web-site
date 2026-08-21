@@ -5,60 +5,42 @@ import kotlin.test.Test
 private val ALL_WORDS = listOf("dinosaur", "limousine", "magazine", "language")
 private val EXPECTED_WORDS = listOf("limousine", "language")
 
-// The learner's output as trimmed, non-empty lines; main() still runs only once.
 private val outputLines: List<String> by lazy {
     output.lines().map { it.trim() }.filter { it.isNotEmpty() }
 }
 
-// The loop works if every printed line is a word from the list.
-private fun printsWordsFromTheList(lines: List<String>): Boolean =
-    lines.isNotEmpty() && lines.all { line -> ALL_WORDS.any { it.equals(line, ignoreCase = true) } }
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowLoopsExercise3Test {
 
-    // Order matters: the most specific symptoms go first.
     @Test
-    fun `step 1 - the loop prints words from the list`() = when {
-        printsWordsFromTheList(outputLines) -> passed()
-
-        actualOutput.isEmpty() ->
-            hint(
-                "Nothing is printed yet. Loop over the list with for and print the " +
-                        "words that start with \"l\". If you already have a condition " +
-                        "but nothing matches, make sure it checks for a lowercase \"l\"."
-            )
-
-        output.isEmpty() ->
-            hint(
-                "println() is called, but the message is empty. " +
-                        "Print the words that start with \"l\"."
-            )
-
-        outputLines.size == 1 && outputLines[0].equals("limousinelanguage", ignoreCase = true) ->
-            hint(
-                "The right words are there, but they are glued together. " +
-                        "Use println() instead of print() to put each word on its own line."
-            )
-
-        else ->
-            hint(
-                "The output should contain only words from the list, " +
-                        "each on its own line."
-            )
-    }
-
-    @Test
-    fun `step 2 - only the words starting with 'l' are printed`() {
+    fun `only the words starting with 'l' are printed`() {
         val lines = outputLines
-        val wrongWord = lines.firstOrNull { it in ALL_WORDS && it !in EXPECTED_WORDS }
+        val wrongWord = lines.firstOrNull { line ->
+            ALL_WORDS.any { it.equals(line, ignoreCase = true) } &&
+                    EXPECTED_WORDS.none { it.equals(line, ignoreCase = true) }
+        }
         val missingWord = EXPECTED_WORDS.firstOrNull { it !in lines }
-        // Order matters: the most specific symptoms go first.
         when {
             lines == EXPECTED_WORDS -> passed()
 
-            !printsWordsFromTheList(lines) ->
-                hint("Fix step 1 first.")
+            actualOutput.isEmpty() ->
+                hint(
+                    "Nothing is printed yet. Loop over the list with for and print the " +
+                            "words that start with \"l\". If you already have a condition " +
+                            "but nothing matches, make sure it checks for a lowercase \"l\"."
+                )
+
+            output.isEmpty() ->
+                hint(
+                    "println() is called, but the message is empty. " +
+                            "Print the words that start with \"l\"."
+                )
+
+            lines.size == 1 && lines[0].equals("limousinelanguage", ignoreCase = true) ->
+                hint(
+                    "The right words are there, but they are glued together. " +
+                            "Use println() instead of print() to put each word on its own line."
+                )
 
             lines.containsAll(ALL_WORDS) ->
                 hint(
@@ -80,6 +62,12 @@ class ControlFlowLoopsExercise3Test {
                 hint(
                     "\"$missingWord\" starts with \"l\", but it isn't printed. " +
                             "Check the condition of your if."
+                )
+
+            lines.size == EXPECTED_WORDS.size && lines.toSet() == EXPECTED_WORDS.toSet() ->
+                hint(
+                    "Both words are there, but not in the right order. Print the " +
+                            "words in the order they appear in the list."
                 )
 
             else ->

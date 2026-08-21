@@ -45,13 +45,17 @@ fun passed() {
 fun hint(hint: String, shownOutput: String = output): Nothing =
     kotlin.test.fail(if (shownOutput.isEmpty()) hint else withOutput(hint, shownOutput))
 
+// Escapes the characters that the playground's raw-HTML rendering would
+// otherwise interpret, so learner output can be embedded in hint messages.
+fun escapeHtml(text: String): String = text
+    .replace("&", "&#38;")
+    .replace("<", "&#60;")
+    .replace(">", "&#62;")
+
 // The playground renders test messages as raw HTML, so the actual output is attached
 // as an extra console block that is displayed in the regular (non-error) text color.
 private fun withOutput(hint: String, output: String): String {
-    val display = output.trimEnd('\n')
-        .replace("&", "&#38;")
-        .replace("<", "&#60;")
-        .replace(">", "&#62;")
+    val display = escapeHtml(output.trimEnd('\n'))
     val separator = if ('\n' in display) "\n" else " "
     return hint +
             "</div></div>" +

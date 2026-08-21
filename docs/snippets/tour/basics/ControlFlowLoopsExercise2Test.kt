@@ -16,48 +16,52 @@ private val outputLines: List<String> by lazy {
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class ControlFlowLoopsExercise2Test {
-
-    // Order matters: the most specific symptoms go first.
+    // Order matters: the success condition goes first, then the symptoms from
+    // the most specific to the most general - the shape of the output before
+    // the content of the lines.
+    // Known limitation: stdout alone can't prove a loop was used - a hardcoded
+    // line-by-line printout would also pass; the exercise text already asks
+    // for a for loop.
     @Test
-    fun `step 1 - the for loop covers 1 to 100`() = when {
-        outputLines.size == 100 -> passed()
-
-        actualOutput.isEmpty() ->
-            hint(
-                "Nothing is printed yet. Use a for loop over 1..100 and println() " +
-                        "to print a number or word on each step."
-            )
-
-        output.isEmpty() ->
-            hint(
-                "println() is called, but the message is empty. " +
-                        "Print the number, \"fizz\", \"buzz\", or \"fizzbuzz\"."
-            )
-
-        outputLines.size == 1 ->
-            hint(
-                "Everything is printed on a single line. " +
-                        "Use println() instead of print() to put each answer on its own line."
-            )
-
-        else ->
-            hint(
-                "${outputLines.size} lines are printed, but 100 are expected - " +
-                        "one for every number from 1 to 100. Check the range of your for loop.",
-                // Show only the edges of the output to keep the message readable.
-                shownOutput = outputLines.take(3).joinToString("\n") + "\n...\n" +
-                        outputLines.takeLast(3).joinToString("\n")
-            )
-    }
-
-    // This step reports the first wrong line, so it prepares the mismatch
-    // details and a window of the output around it before choosing a hint.
-    @Test
-    fun `step 2 - every line follows the fizz buzz rules`() {
+    fun `every number from 1 to 100 follows the fizz buzz rules`() {
         val lines = outputLines
-        if (lines.size != 100) {
-            hint("Fix step 1 first.", shownOutput = "")
+        when {
+            lines.size == 100 && (0..99).all { lines[it] == expectedFor(it + 1) } ->
+                return passed()
+
+            actualOutput.isEmpty() ->
+                hint(
+                    "Nothing is printed yet. Use a for loop over 1..100 and println() " +
+                            "to print a number or word on each step."
+                )
+
+            output.isEmpty() ->
+                hint(
+                    "println() is called, but the message is empty. " +
+                            "Print the number, \"fizz\", \"buzz\", or \"fizzbuzz\"."
+                )
+
+            lines.size == 1 ->
+                hint(
+                    "Everything is printed on a single line. " +
+                            "Use println() instead of print() to put each answer on its own line."
+                )
+
+            lines.size != 100 ->
+                hint(
+                    "${lines.size} lines are printed, but 100 are expected - " +
+                            "one for every number from 1 to 100. Check the range of your for loop.",
+                    // Show only the edges of the output to keep the message readable.
+                    shownOutput = lines.take(3).joinToString("\n") + "\n...\n" +
+                            lines.takeLast(3).joinToString("\n")
+                )
+
+            else -> {}
         }
+
+        // 100 lines are printed, but at least one is wrong: report the first
+        // wrong line, so the mismatch details and a window of the output
+        // around it are prepared before choosing a hint.
         val mismatch = (0..99).firstOrNull { lines[it] != expectedFor(it + 1) }
             ?: return
         val number = mismatch + 1
@@ -117,9 +121,3 @@ class ControlFlowLoopsExercise2Test {
         }
     }
 }
-
-
-private fun escapeHtml(text: String): String = text
-    .replace("&", "&#38;")
-    .replace("<", "&#60;")
-    .replace(">", "&#62;")
