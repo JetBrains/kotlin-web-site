@@ -44,7 +44,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lists-declaration"}
+{kotlin-runnable="true" id="kotlin-tour-lists-declaration"}
 
 > To prevent unwanted modifications, you can create a read-only view of a mutable list by assigning it to a `List`:
 > 
@@ -67,7 +67,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-access"}
+{kotlin-runnable="true" id="kotlin-tour-list-access"}
 
 To get the first or last item in a list, use [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html)
 and [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html) functions respectively:
@@ -81,7 +81,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-first"}
+{kotlin-runnable="true" id="kotlin-tour-list-first"}
 
 > [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) and [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html)
 > functions are examples of **extension** functions. To call an extension function on an object, write the function name 
@@ -104,7 +104,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-count"}
+{kotlin-runnable="true" id="kotlin-tour-list-count"}
 
 To check that an item is in a list, use the [`in` operator](operator-overloading.md#in-operator):
 
@@ -117,7 +117,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-in"}
+{kotlin-runnable="true" id="kotlin-tour-list-in"}
 
 To add or remove items from a mutable list, use [`.add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html)
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
@@ -138,7 +138,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-add-remove"}
+{kotlin-runnable="true" id="kotlin-tour-list-add-remove"}
 
 ## Set
 
@@ -166,7 +166,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-sets-declaration"}
+{kotlin-runnable="true" id="kotlin-tour-sets-declaration"}
 
 You can see in the previous example that because sets only contain unique elements, the duplicate `"cherry"` item is dropped.
 
@@ -195,7 +195,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-count"}
+{kotlin-runnable="true" id="kotlin-tour-set-count"}
 
 To check that an item is in a set, use the [`in` operator](operator-overloading.md#in-operator):
 
@@ -208,7 +208,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-in"}
+{kotlin-runnable="true" id="kotlin-tour-set-in"}
 
 To add or remove items from a mutable set, use [`.add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/add.html)
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
@@ -225,7 +225,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-add-remove"}
+{kotlin-runnable="true" id="kotlin-tour-set-add-remove"}
 
 ## Map
 
@@ -266,7 +266,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-maps-declaration"}
+{kotlin-runnable="true" id="kotlin-tour-maps-declaration"}
 
 > To prevent unwanted modifications, you can create a read-only view of a mutable map by assigning it to a `Map`:
 > 
@@ -290,7 +290,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-access"}
+{kotlin-runnable="true" id="kotlin-tour-map-access"}
 
 > If you try to access a key-value pair with a key that doesn't exist in a map, you see a `null` value:
 >
@@ -304,7 +304,7 @@ fun main() {
 > //sampleEnd
 > }
 > ```
-> {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-no-key" validate="false"}
+> {kotlin-runnable="true" id="kotlin-tour-map-no-key" validate="false"}
 > 
 > This tour explains null values later in the [Null safety](kotlin-tour-null-safety.md) chapter.
 > 
@@ -322,7 +322,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-add-item"}
+{kotlin-runnable="true" id="kotlin-tour-map-add-item"}
 
 To remove items from a mutable map, use the [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) 
 function:
@@ -337,7 +337,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-put-remove"}
+{kotlin-runnable="true" id="kotlin-tour-map-put-remove"}
 
 To get the number of items in a map, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
@@ -352,7 +352,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-count"}
+{kotlin-runnable="true" id="kotlin-tour-map-count"}
 
 To check if a specific key is already included in a map, use the [`.containsKey()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/contains-key.html)
 function:
@@ -366,7 +366,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-contains-keys"}
+{kotlin-runnable="true" id="kotlin-tour-map-contains-keys"}
 
 To obtain a collection of the keys or values of a map, use the [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html)
 and [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html) properties respectively:
@@ -382,7 +382,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-keys-values"}
+{kotlin-runnable="true" id="kotlin-tour-map-keys-values"}
 
 > [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html) and [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html)
 > are examples of **properties** of an object. To access the property of an object, write the property name
@@ -411,7 +411,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-in"}
+{kotlin-runnable="true" id="kotlin-tour-map-in"}
 
 For more information on what you can do with collections, see [Collections](collections-overview.md).
 
@@ -427,24 +427,26 @@ are in total.
 
 |---|---|
 ```kotlin
+val greenNumbers = listOf(1, 4, 23)
+val redNumbers = listOf(17, 2)
+
 fun main() {
-    val greenNumbers = listOf(1, 4, 23)
-    val redNumbers = listOf(17, 2)
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1"}
 
 |---|---|
 ```kotlin
+val greenNumbers = listOf(1, 4, 23)
+val redNumbers = listOf(17, 2)
+
 fun main() {
-    val greenNumbers = listOf(1, 4, 23)
-    val redNumbers = listOf(17, 2)
     val totalCount = greenNumbers.count() + redNumbers.count()
     println(totalCount)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -460,7 +462,7 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2"}
 
 <deflist collapsible="true" id="kotlin-tour-collections-exercise-2-hint">
     <def title="Hint">
@@ -478,7 +480,7 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -493,7 +495,7 @@ fun main() {
     println("$n is spelled as '${<Write your code here >}'")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -503,7 +505,7 @@ fun main() {
     println("$n is spelt as '${number2word[n]}'")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
 <seealso></seealso>
 

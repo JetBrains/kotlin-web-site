@@ -1,0 +1,44 @@
+import org.junit.FixMethodOrder
+import org.junit.runners.MethodSorters
+import kotlin.test.Test
+
+private const val EXPECTED = "Mary is 20 years old"
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+class HelloWorldTest {
+    @Test
+    fun `step 1 - print something`() = when {
+        output.isNotEmpty() -> passed()
+
+        actualOutput.isEmpty() ->
+            hint("Nothing is printed yet. Add a println() call inside main() and run again.")
+
+        else -> hint(
+            "println() is called, but the message is empty. "
+                + "Put the text to print inside the quotes: println(\"...\")."
+        )
+    }
+
+    @Test
+    fun `step 2 - print exactly 'Mary is 20 years old'`() = when {
+        output == EXPECTED -> passed()
+
+        output.isEmpty() -> hint("Fix step 1 first.")
+
+        "name" in output || "age" in output -> hint(
+            "The words 'name' and 'age' appear as plain text. " +
+                "Add a dollar sign to print a variable's value: \"\$name is ...\"."
+        )
+
+        !(output.contains("Mary", ignoreCase = true) && "20" in output) ->
+            hint("The output should include the values of both variables: Mary and 20.")
+
+        output.equals(EXPECTED, ignoreCase = true) ->
+            hint("So close! Only the capitalization is off.")
+
+        output.lines().any { it.trim() == EXPECTED } ->
+            hint("The right message is there, but there is extra output. Print only the expected line.")
+
+        else -> hint("Almost there - every character counts.")
+    }
+}
