@@ -134,8 +134,7 @@
         "build": "yarn run build:production && yarn generate-data && yarn run next-build-static && yarn run generate-redirects",
         "build:production": "NODE_ENV=production webpack  --mode production",
         "postinstall": "cd node_modules/codemirror && rollup -c",
-        "start": "webpack serve",
-        "next-dev": "next dev",
+        "start": "next dev",
         "next-build-static": "next build",
         "generate-data": "node scripts/generate-data.mjs",
         "generate-llms-index": "node scripts/llms/generate-llms-index.mjs",
@@ -149,7 +148,7 @@
         "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
         "test:e2e:update": "playwright test test/e2e --update-snapshots",
         "test:e2e:screenshots": "E2E_PROJECTS=breakpoints-v2 E2E_WITH_SCREENSHOTS=true playwright test test/e2e",
-        "test:e2e:new": "playwright codegen localhost:9000",
+        "test:e2e:new": "playwright codegen localhost:3000",
         "generate-pdf:html": "cd scripts/dist && yarn generate-pdf",
         "generate-pdf:convert": "node scripts/pdf/generate-pdf.js",
         "generate-pdf": "yarn generate-pdf:html && yarn generate-pdf:convert"

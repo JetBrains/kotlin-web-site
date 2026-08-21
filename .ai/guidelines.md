@@ -63,22 +63,13 @@ The Kotlin Website project includes various scripts defined in `package.json` fo
 
 These scripts start development servers that continue running until manually stopped. They are not "builds" in the traditional sense and should not be expected to complete on their own.
 
-- **`yarn start`**: Starts the webpack development server on port 9000.
-  - **Purpose**: Main development server that integrates Next.js components.
+- **`yarn start`**: Starts the Next.js development server on port 3000.
+  - **Purpose**: Main development server for the website.
   - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
   - **Details**:
-    - Serves the website on http://localhost:9000
-    - Proxies requests to the Next.js server (port 3000) for `/community/**` and `/_next/**` routes
-    - Enables hot module replacement for frontend assets
-  - **When to use**: For general website development when working on Next.js components.
-
-- **`yarn next-dev`**: Starts the Next.js development server on port 3000.
-  - **Purpose**: Development server for Next.js components only.
-  - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
-  - **Details**: 
-    - Serves Next.js pages on http://localhost:3000
+    - Serves the website on http://localhost:3000
     - Provides fast refresh for React components
-  - **When to use**: When focusing solely on Next.js components (e.g., home page, community section).
+  - **When to use**: For general website development.
 
 #### Build Scripts (One-time Commands)
 
@@ -117,13 +108,13 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test`**: Runs all Playwright tests.
   - **Purpose**: Executes all automated tests.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For comprehensive testing before submitting changes.
 
 - **`yarn test:production`**: Runs production tests.
   - **Purpose**: Tests production-specific functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: To verify production-specific features.
 
 - **`yarn test:production:ci`**: Runs production tests in CI environment.
@@ -135,19 +126,19 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test:production:headed`**: Runs production tests with visible browser.
   - **Purpose**: Tests production-specific functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For debugging production tests visually.
 
 - **`yarn test:production:debug`**: Runs production tests in debug mode.
   - **Purpose**: Debugs production tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For detailed debugging of production tests.
 
 - **`yarn test:e2e`**: Runs end-to-end tests.
   - **Purpose**: Tests end-to-end functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: To verify end-to-end functionality.
 
 - **`yarn test:e2e:ci`**: Runs end-to-end tests in CI environment.
@@ -159,25 +150,25 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test:e2e:headed`**: Runs end-to-end tests with visible browser.
   - **Purpose**: Tests end-to-end functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For debugging end-to-end tests visually.
 
 - **`yarn test:e2e:debug`**: Runs end-to-end tests in debug mode.
   - **Purpose**: Debugs end-to-end tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For detailed debugging of end-to-end tests.
 
 - **`yarn test:e2e:update`**: Updates test snapshots.
   - **Purpose**: Updates visual regression test snapshots.
   - **Behavior**: One-time command that completes when snapshots are updated.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: When intentional UI changes cause snapshot tests to fail.
 
 - **`yarn test:e2e:new`**: Generates new Playwright tests.
   - **Purpose**: Creates new test scripts using Playwright's codegen tool.
   - **Behavior**: Interactive process that opens Playwright's codegen interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: When creating new automated tests.
 
 #### Utility Scripts
@@ -227,21 +218,13 @@ The project uses Playwright for end-to-end testing. Tests are written in TypeScr
 
 ### Running Tests
 
-Before running tests, ensure the development server is running on http://localhost:9000:
+Before running tests, ensure the development server is running on http://localhost:3000:
 
 ```bash
 yarn start
 ```
 
-This is the most common approach as the webpack development server proxies requests to the Next.js server. Tests are configured to use port 9000 by default.
-
-#### For Testing Next.js Pages
-
-If you're specifically testing or developing Next.js-based pages (like the home page or `/community/`), you should also run the Next.js development server:
-
-```bash
-yarn next-dev
-```
+Tests are configured to use port 3000 by default.
 
 To run all tests:
 
@@ -572,7 +555,7 @@ The TeamCity configuration is defined in the `.teamcity/` directory using Kotlin
 ### Common Issues and Solutions
 
 1. **Missing dependencies**: Ensure Node.js dependencies are installed.
-2. **Port conflicts**: The development server uses port 9000. Ensure it's available.
+2. **Port conflicts**: The development server uses port 3000. Ensure it's available.
 3. **Test failures**: Visual regression tests may fail due to minor UI changes. Update snapshots if needed.
 4. **Build errors**: Check webpack and Next.js configurations if build fails.
 

@@ -168,13 +168,10 @@ yarn install
 # at first start you need to build the static
 yarn run next-build-static
 
-# run NextJS server
-yarn run next-dev
-
-# run webpack dev server (builds the dokka-template bundle used by API reference pages)
+# run development server
 yarn start
 ```
-Now you can open the Next.js pages at [http://localhost:3000](http://localhost:3000).
+Now you can open the website at [http://localhost:3000](http://localhost:3000).
 
 
 ## Pages on Next.js
