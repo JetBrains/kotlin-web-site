@@ -293,13 +293,15 @@ fun main() {
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
-You are building a user registration module for an app. When users are creating accounts, you want to
-validate email addresses without instantiating a `User` object first. Complete the data class so that
+You are building a user registration module for an app. You want to keep email validation associated with the `User` class 
+and make it available without a `User` instance. Complete the data class so that
 the following code in the `main()` function runs successfully:
+
+For this exercise, consider an email address valid if it contains both `@` and `.`.
 
 <deflist collapsible="true">
     <def title="Hint">
-        Use a companion object with a utility function.
+        Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
     </def>
 </deflist>
 
