@@ -42,7 +42,7 @@ the Kotlin Language Server.
 
 For more information, see [Kotlin Language Server and Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code).
 
-## Other IDEs support
+## Other IDE support
 
 JetBrains doesn't provide official Kotlin plugins for other IDEs.
 You can use the [Kotlin Language Server](kotlin-lsp.md) with other code editors.
@@ -57,6 +57,14 @@ such as [Homebrew](command-line.md#homebrew), [SDKMAN!](command-line.md#sdkman),
 For IntelliJ IDEA and Android Studio, the Kotlin plugin is bundled with each release.
 When the new Kotlin version is released, these tools will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version in [Kotlin releases](releases.md#ide-support).
+
+## AI support in IDEs
+
+IntelliJ IDEA and Android Studio support AI-assisted Kotlin development through built-in AI features and integrations 
+with AI coding agents. Depending on your workflow, you can use AI directly in the IDE, connect external agents, or 
+combine AI tools with Kotlin-specific guidance.
+
+For an overview of the available AI tools and when to use them, see [](ai-for-development.md).
 
 ## What's next?
 
