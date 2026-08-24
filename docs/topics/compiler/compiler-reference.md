@@ -90,7 +90,7 @@ If you use an older language version, you also need to use an older API version.
 For more information, see [](#api-version-version).
 
 > Technically, you can configure a newer language version to try upcoming language features before they are stabilized.
-> However, we recommend enabling individual features by following their dedicated instructions.
+> However, it's best to enable individual features by following their dedicated instructions.
 > 
 {style="tip"}
 
