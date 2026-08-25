@@ -176,11 +176,13 @@ Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-star
 
 ### JetBrains Central
 
-[JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is a tool that helps organizations coordinate AI agents as part of software production across
-teams rather than treating them as isolated developer tools.
+[JetBrains Central](https://www.jetbrains.com/agentic-software-development/) is a platform for agentic software development
+across an organization. It connects AI agents, development tools, and infrastructure so that agent-driven work can run,
+be monitored, and be managed across teams, with visibility into results, costs, and performance.
 
-Use JetBrains Central when AI-assisted development needs to move beyond individual coding sessions.
-For teams and organizations, the challenge is not only generating code but also managing visibility, cost,
-performance, results, and governance across many agent-driven tasks.
+[JetBrains Central Console](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is the web
+interface for organization-level AI governance in JetBrains Central. Organization administrators can use the Console to
+manage access and policies, monitor AI usage and spending, analyze adoption, and control which AI models and features teams
+can use.
 
-Learn more about [JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html).
+Learn more about [agentic software development](https://www.jetbrains.com/agentic-software-development/).
