@@ -104,17 +104,17 @@ By default, Kotlin/Native compiles release binaries in the link-time optimizatio
 optimized together. This makes release binaries faster but significantly increases compilation time.
 
 If you prefer a different trade-off, faster compilation time at the expense of some compiler optimizations, you can enable
-caching in the release mode. To do so, add both of the following options to your `gradle.properties` file:
+caching in the release mode. To enable caching, add the following options to your `gradle.properties` file:
 
 ```properties
-# Enables the compiler to use caches in the release mode
+# Enables the compiler to use caches in release mode
 kotlin.native.binary.enableReleaseBinaryCache=true
 # Makes the Kotlin Gradle plugin invoke the compiler with `-Xauto-cache-from` and related options
 kotlin.internal.native.enableReleaseBinaryCache=true
 ```
 
-> The feature is in active development, so runtime performance is still suboptimal.
-> Performance improvements are planned for the upcoming Kotlin releases.
+> The feature is in active development, so runtime performance still has room for improvement.
+> Performance improvements are planned in upcoming Kotlin releases.
 > 
 {style="warning"}
 
