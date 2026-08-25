@@ -133,6 +133,17 @@ For more information about the level of support for different targets, see [](na
 | [Kotlin Gradle plugin](gradle-configure-project.md) | Stable     | 1.1.1                    | The [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#id-and-version) is stable from Kotlin 1.9.20. |
 | [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                       |
 
+### Build tools API (BTA)
+
+| **Component** | **Status** | **Status since version** | **Comments** |
+|---------------|------------|--------------------------|--------------|
+| BTA for JVM   | Beta       | 2.4.20                   |              |
+| BTA for JS    | Alpha      | 2.4.20                   |              |
+| BTA for Wasm  | Alpha      | 2.4.20                   |              |
+
+> The Build tools API currently doesn't support Kotlin/Native.
+> 
+{style="note"}
 
 ### Language tools
 
