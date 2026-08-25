@@ -2,7 +2,7 @@
 
 <primary-label ref="beta"/>
 
-<tldr>The BTA supports Kotlin/JVM, Kotlin/JS, Kotlin/Wasm.<p/>  It doesn't support Kotlin/Native.</tldr>
+<tldr>The BTA supports Kotlin/JVM, Kotlin/JS, Kotlin/Wasm.<p/>  It currently doesn't support Kotlin/Native.</tldr>
 
 Kotlin has the Build tools API (BTA) that simplifies how build systems integrate with the 
 Kotlin compiler.
