@@ -63,13 +63,13 @@ _No preview versions are currently available._
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.4.20-RC</strong>
-            <p>Released: <strong>August 12, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.4.20-RC2</strong>
+            <p>Released: <strong>August 26, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A tooling release with performance improvements, bug fixes, and tooling updates.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.20-RC</a>.</p>
+            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.20-RC2</a>.</p>
         </td>
     </tr>
 </table>
