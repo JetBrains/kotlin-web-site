@@ -2,7 +2,7 @@
 
 <primary-label ref="beta"/>
 
-<tldr>The BTA supports Kotlin/JVM, Kotlin/JS, Kotlin/Wasm.<p/>  It currently doesn't support Kotlin/Native.</tldr>
+<tldr>The BTA supports Kotlin/JVM, Kotlin/JS, and Kotlin/Wasm.<p/>  It currently doesn't support Kotlin/Native.</tldr>
 
 Kotlin has the Build tools API (BTA) that simplifies how build systems integrate with the 
 Kotlin compiler.
@@ -13,10 +13,8 @@ a unified API between build systems and the Kotlin compiler ecosystem.
 
 The BTA defines a single entry point that build systems can implement. This removes the need to deeply integrate with internal compiler details.
 
-The BTA is generally available for Kotlin/JVM since Kotlin 2.3.0.
-
 The stability level differs per target: the BTA is Beta for Kotlin/JVM, and Alpha for Kotlin/JS and Kotlin/Wasm.
-For details, see [](components-stability.md). Using the BTA requires an opt-in with
+For more details, see [](components-stability.md#build-tools-api-bta). Using the BTA requires an opt-in with
 `@OptIn(ExperimentalBuildToolsApi::class)`.
 
 > If you're interested in the proposal or want to share feedback, see the [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).

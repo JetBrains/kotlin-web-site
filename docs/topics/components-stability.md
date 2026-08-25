@@ -141,7 +141,7 @@ For more information about the level of support for different targets, see [](na
 | BTA for JS    | Alpha      | 2.4.20                   |              |
 | BTA for Wasm  | Alpha      | 2.4.20                   |              |
 
-> The Build Tools API currently doesn't support Kotlin/Native.
+> The Build tools API currently doesn't support Kotlin/Native.
 > 
 {style="note"}
 
