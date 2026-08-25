@@ -122,7 +122,7 @@ abstract class WritersideBuilder(
 
     dependencies {
         artifacts(BuildWebHelpFrontend) {
-            buildRule = lastPinned("+:*")
+            buildRule = lastSuccessful("+:chernenko/ktl-4898-exercises-list")
             cleanDestination = true
             artifactRules = "+:static.zip!** => static/"
         }
