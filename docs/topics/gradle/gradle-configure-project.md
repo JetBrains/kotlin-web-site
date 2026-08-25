@@ -736,12 +736,12 @@ kotlin {
 }
 ```
 
-For WASI environments, configure the `wasmWasi` target:
+For WASI environments, configure the `wasmWasi` target with Node.js or Wasmtime:
 
 ```kotlin
 kotlin {
     wasmWasi {
-        nodejs {
+        nodejs { // or wasmtime
             /* ... */
         }
     }
