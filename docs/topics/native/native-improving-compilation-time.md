@@ -101,10 +101,10 @@ Similarly, instead of running `assembleXCFramework`, you can run `assembleShared
 <primary-label ref="experimental-opt-in"/>
 
 By default, Kotlin/Native compiles release binaries in the link-time optimization (LTO) mode: all modules are compiled and
-optimized together. This makes release binaries faster but significantly increases compilation time.
+optimized together. This makes release binaries faster at runtime but significantly increases compilation time.
 
-If you prefer a different trade-off, faster compilation time at the expense of some compiler optimizations, you can enable
-caching in the release mode. To enable caching, add the following options to your `gradle.properties` file:
+If you prefer to prioritize faster compilation over some compiler optimizations, you can enable
+caching in release mode. To enable caching, add both following options to your `gradle.properties` file:
 
 ```properties
 # Enables the compiler to use caches in release mode
