@@ -110,11 +110,11 @@ For more information about extension functions, see [Extensions](extensions.md).
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-1"}
+<deflist type="expandable" numbered="true">
+<def title="Check whether an integer is positive" id="extension-functions-exercise-1">
 
 Write an extension function called `isPositive` that takes an integer and checks whether it is positive.
 
-|---|---|
 ```kotlin
 fun Int.// Write your code here
 
@@ -125,7 +125,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-1"}
 
-|---|---|
 ```kotlin
 fun Int.isPositive(): Boolean = this > 0
 
@@ -136,7 +135,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-2"}
+</def>
+<def title="Convert a string to lowercase" id="extension-functions-exercise-2">
 
 Write an extension function called `toLowercaseString` that takes a string and returns a lowercase version.
 
@@ -147,7 +147,6 @@ Write an extension function called `toLowercaseString` that takes a string and r
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun // Write your code here
 
@@ -158,7 +157,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-2"}
 
-|---|---|
 ```kotlin
 fun String.toLowercaseString(): String = this.lowercase()
 
@@ -168,6 +166,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

@@ -417,7 +417,8 @@ For more information, see [Observable properties](delegated-properties.md#observ
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-1"}
+<deflist type="expandable" numbered="true">
+<def title="Find out-of-stock books using indices" id="properties-exercise-1">
 
 You manage an inventory system at a bookstore. The inventory is stored in a list where each item represents the quantity
 of a specific book. For example, `listOf(3, 0, 7, 12)` means the store has 3 copies of the first book, 0 of the second,
@@ -437,8 +438,6 @@ Write a function called `findOutOfStockBooks()` that returns a list of indices f
     </def>
 </deflist>
 
-|--|--|
-
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     // Write your code here
@@ -452,7 +451,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-1"}
 
-|---|---|
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     val outOfStockIndices = mutableListOf<Int>()
@@ -472,7 +470,6 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1"}
 
-|---|---|
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> = buildList {
     for (index in inventory.indices) {
@@ -490,7 +487,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-2"}
+</def>
+<def title="Convert kilometers to miles with an extension property" id="properties-exercise-2">
 
 You have a travel app that needs to display distances in both kilometers and miles. Create an extension property for the
 `Double` type called `asMiles` to convert a distance in kilometers to miles:
@@ -504,8 +502,6 @@ You have a travel app that needs to display distances in both kilometers and mil
         Remember that extension properties need a custom <code>get()</code> function.
     </def>
 </deflist>
-
-|---|---|
 
 ```kotlin
 val // Write your code here
@@ -522,7 +518,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-2"}
 
-|---|---|
 ```kotlin
 val Double.asMiles: Double
     get() = this * 0.621371
@@ -539,13 +534,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
+</def>
+<def title="Delay expensive health checks with lazy properties" id="properties-exercise-3">
 
 You have a system health checker that can determine the state of a cloud system. However, the two functions it can run 
 to perform a health check are performance intensive. Use lazy properties to initialize the checks so that the expensive
 functions are only run when needed:
-
-|---|---|
 
 ```kotlin
 fun checkAppServer(): Boolean {
@@ -572,7 +566,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-3"}
 
-|---|---|
 ```kotlin
 fun checkAppServer(): Boolean {
     println("Performing application server health check...")
@@ -599,7 +592,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
 
-### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-4"}
+</def>
+<def title="Track budget changes with an observable property" id="properties-exercise-4">
 
 You're building a simple budget tracker app. The app needs to observe changes to the user's remaining budget and notify
 them whenever it goes below a certain threshold. You have a `Budget` class that is initialized with a `totalBudget` property
@@ -607,8 +601,6 @@ that contains the initial budget amount. Within the class, create an observable 
 
 * A warning when the value is lower than 20% of the initial budget.
 * An encouraging message when the budget is increased from the previous value.
-
-|---|---|
 
 ```kotlin
 import kotlin.properties.Delegates.observable
@@ -630,7 +622,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-4"}
 
-|---|---|
 ```kotlin
 import kotlin.properties.Delegates.observable
 
@@ -656,6 +647,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

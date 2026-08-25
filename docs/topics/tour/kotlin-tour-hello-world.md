@@ -98,11 +98,11 @@ explains the different Kotlin basic types and how to declare them in the [next c
 
 ## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist type="expandable" numbered="true">
+<def title="Print a greeting using string templates">
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
-|---|---|
 ```kotlin
 fun main() {
     val name = "Mary"
@@ -112,7 +112,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-hello-world-exercise"}
 
-|---|---|
 ```kotlin
 fun main() {
     val name = "Mary"
@@ -121,6 +120,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 
