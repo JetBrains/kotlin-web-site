@@ -50,7 +50,7 @@ The AI assistant provides:
 
 * Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support 
 the [Agent Client Protocol](#agent-client-protocol).
-* Context-aware AI chat using models from cloud providers, such as Google Gemini, OpenAI, and Anthropic, as well as your own local models.
+* Context-aware AI chat using cloud-hosted models, such as Gemini, GPT, and Claude, as well as your own local models.
 * AI-assisted code completion and next edit suggestions.
 
 Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html).
