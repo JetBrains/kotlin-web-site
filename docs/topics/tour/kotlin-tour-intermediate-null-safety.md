@@ -368,7 +368,8 @@ For more information about how you can use `return` in your code, see [Returns a
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-1"}
+<deflist type="expandable" numbered="true">
+<def title="Validate user data with safe casts and the Elvis operator" id="null-safety-exercise-1">
 
 You are developing a notification system for an app where users can enable or disable different types of notifications.
 Complete the `getNotificationPreferences()` function so that:
@@ -399,8 +400,6 @@ Complete the `getNotificationPreferences()` function so that:
 >
 {style = "tip"}
 
-|--|--|
-
 ```kotlin
 data class User(val name: String?)
 
@@ -425,8 +424,6 @@ fun main() {
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-1"}
-
-|--|--|
 
 ```kotlin
 data class User(val name: String?)
@@ -456,13 +453,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-2"}
+</def>
+<def title="Find a single active subscription with singleOrNull()" id="null-safety-exercise-2">
 
 You are working on a subscription-based streaming service where users can have multiple subscriptions, but **only one 
 can be active at a time**. Complete the `getActiveSubscription()` function so that it uses the `singleOrNull()` function
 with a predicate to return a `null` value if there is more than one active subscription:
-
-|--|--|
 
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
@@ -488,8 +484,6 @@ fun main() {
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-2"}
-
-|--|--|
 
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
@@ -518,8 +512,6 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-2-1"}
 
-|--|--|
-
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
 
@@ -546,13 +538,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-2-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-3"}
+</def>
+<def title="Filter active usernames with mapNotNull()" id="null-safety-exercise-3">
 
 You are working on a social media platform where users have usernames and account statuses. You want to see the list of 
 currently active usernames. Complete the `getActiveUsernames()` function so that the [`mapNotNull()` function](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/map-not-null.html)
 has a predicate that returns the username if it is active or a `null` value if it isn't:
-
-|--|--|
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -574,14 +565,10 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-3"}
 
-|--|--|
-
 > Just like in Exercise 1, you can use the [`takeIf()` function](scope-functions.md#takeif-and-takeunless) when you check
 > if the user is active.
 >
 { style = "tip" }
-
-|--|--|
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -605,8 +592,6 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-3-1"}
 
-|--|--|
-
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
 
@@ -626,7 +611,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-3-2"}
 
-### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-4"}
+</def>
+<def title="Validate stock with early returns and the Elvis operator" id="null-safety-exercise-4">
 
 You are working on an inventory management system for an e-commerce platform. Before processing a sale, you need to check
 if the requested quantity of a product is valid based on the available stock.
@@ -639,8 +625,6 @@ Complete the `validateStock()` function so that it uses early returns and the El
 * The amount in the `requested` variable is higher than in the `available` variable.
 
 In all of the above cases, the function must return early with the value of `-1`.
-
-|--|--|
 
 ```kotlin
 fun validateStock(requested: Int?, available: Int?): Int {
@@ -657,8 +641,6 @@ fun main() {
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise-4"}
-
-|--|--|
 
 ```kotlin
 fun validateStock(requested: Int?, available: Int?): Int {
@@ -681,6 +663,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-4"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

@@ -381,13 +381,12 @@ For more information about inline value classes, see [Inline value classes](inli
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-1"}
+<deflist type="expandable" numbered="true">
+<def title="Model delivery statuses with a sealed class" id="special-classes-exercise-1">
 
 You manage a delivery service and need a way to track the status of packages. Create a sealed class called `DeliveryStatus`,
 containing data classes to represent the following statuses: `Pending`, `InTransit`, `Delivered`, `Canceled`. Complete
 the `DeliveryStatus` class declaration so that the code in the `main()` function runs successfully:
-
-|---|---|
 
 ```kotlin
 sealed class // Write your code here
@@ -427,7 +426,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-1"}
 
-|---|---|
 ```kotlin
 sealed class DeliveryStatus {
     data class Pending(val sender: String) : DeliveryStatus()
@@ -471,13 +469,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-2"}
+</def>
+<def title="Nest an enum class inside a sealed class subtype" id="special-classes-exercise-2">
 
 In your program, you want to be able to handle different statuses and types of errors. You have a sealed class to capture
 the different statuses which are declared in data classes or objects. Complete the code below by creating an enum class 
 called `Problem` that represents the different problem types: `NETWORK`, `TIMEOUT`, and `UNKNOWN`.
-
-|---|---|
 
 ```kotlin
 sealed class Status {
@@ -513,7 +510,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-2"}
 
-|---|---|
 ```kotlin
 sealed class Status {
     data object Loading : Status()
@@ -551,6 +547,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 
