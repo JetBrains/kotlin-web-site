@@ -42,7 +42,7 @@ Kotlin code without leaving the IDE.
 
 ### AI Assistant
 
-The [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
+[AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
 directly in JetBrains IDEs, such as in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), and in [Android Studio](https://developer.android.com/studio).
 It's useful for interactive development tasks where you want to stay in control of each change.
 
@@ -50,10 +50,10 @@ The AI assistant provides:
 
 * Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support 
 the [Agent Client Protocol](#agent-client-protocol).
-* Context-aware AI chat using JetBrains, third-party, or local AI models.
-* AI-assisted code completion and next step suggestions.
+* Context-aware AI chat using cloud-hosted models, such as Gemini, GPT, and Claude, as well as your own local models.
+* AI-assisted code completion and next edit suggestions.
 
-Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html).
+Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html).
 
 ### Agent Client Protocol
 
@@ -167,20 +167,21 @@ You can run tasks in your local workspace, isolated Git worktree or Docker conta
 
 You can work with JetBrains Air through:
 
-* **Air Desktop** – Run local and cloud tasks from a desktop application.
-* **Air Web** – Run, monitor, and manage cloud tasks and automations from a web browser.
-* **AI Assistant in IntelliJ-based IDEs** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
-Air Web.
+* **Air desktop app** – Run local and cloud tasks from a desktop application.
+* **Air on the web** – Run, monitor, and manage cloud tasks and automations from a web browser.
+* **AI Assistant in IntelliJ-based IDEs** – Start cloud tasks and review results without leaving your IDE. Work with the same tasks in the Air desktop app or in the web version.
 
 Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
 
 ### JetBrains Central
 
-[JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is a tool that helps organizations coordinate AI agents as part of software production across
-teams rather than treating them as isolated developer tools.
+[JetBrains Central](https://www.jetbrains.com/agentic-software-development/) is a platform for agentic software development
+across an organization. It connects AI agents, development tools, and infrastructure so that agent-driven work can run,
+be monitored, and be managed across teams, with visibility into results, costs, and performance.
 
-Use JetBrains Central when AI-assisted development needs to move beyond individual coding sessions.
-For teams and organizations, the challenge is not only generating code but also managing visibility, cost,
-performance, results, and governance across many agent-driven tasks.
+[JetBrains Central Console](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is the web
+interface for organization-level AI governance in JetBrains Central. Organization administrators can use the Console to
+manage access and policies, monitor AI usage and spending, analyze adoption, and control which AI models and features teams
+can use.
 
-Learn more about [JetBrains Central](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html).
+Learn more about [agentic software development](https://www.jetbrains.com/agentic-software-development/).
