@@ -42,7 +42,7 @@ Kotlin code without leaving the IDE.
 
 ### AI Assistant
 
-The [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
+[AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
 directly in JetBrains IDEs, such as in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), and in [Android Studio](https://developer.android.com/studio).
 It's useful for interactive development tasks where you want to stay in control of each change.
 
@@ -50,10 +50,10 @@ The AI assistant provides:
 
 * Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support 
 the [Agent Client Protocol](#agent-client-protocol).
-* Context-aware AI chat using JetBrains, third-party, or local AI models.
-* AI-assisted code completion and next step suggestions.
+* Context-aware AI chat using models from cloud providers, such as Google Gemini, OpenAI, and Anthropic, as well as your own local models.
+* AI-assisted code completion and next edit suggestions.
 
-Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/idea/ai-assistant-in-jetbrains-ides.html).
+Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html).
 
 ### Agent Client Protocol
 
