@@ -287,7 +287,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
+</def>
+<def title="Validate email addresses with a companion object" id="objects-exercise-3">
 
 You are building a user registration module for an app. You want to keep email validation associated with the `User`
 class but don't want to create an unnecessary `User` instance if the email address is invalid.
