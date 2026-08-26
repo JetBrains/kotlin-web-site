@@ -102,7 +102,7 @@ Note that there are some cases in which the Kotlin compiler does not apply mangl
 - Any overridden functions in non-`external` classes inheriting from `external` classes are not mangled.
 
 The parameter of `@JsName` is required to be a constant string literal which is a valid identifier.
-The compiler will report an error on any attempt to pass non-identifier string to `@JsName`.
+The compiler will report an error on any attempt to pass a non-identifier string to `@JsName`.
 The following example produces a compile-time error:
 
 ```kotlin
@@ -140,7 +140,7 @@ The `@JsExport` annotation is also available:
   This helps to resolve ambiguities in exports (like overloads for functions with the same name).
 * At the file level using `@file:JsExport`.
 
-#### Support for value class export
+#### Export value classes
 
 You can export Kotlin's [inline value classes](inline-classes.md) as regular TypeScript classes.
 
@@ -160,7 +160,7 @@ class AuthService {
 }
 ```
 
-From the TypeScript side, it looks like a regular class:
+On the TypeScript side, it looks like a regular class:
 
 ```typescript
 // TypeScript
@@ -172,6 +172,50 @@ console.log(await auth.login(new Email("jane@example.com")));
 console.log(await auth.login(new Email("not-an-email"))); 
 // "Invalid email"
 ```
+
+#### Export suspending lambdas
+
+You can export Kotlin's [suspending lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions) as
+JavaScript [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
+
+1. To enable this feature, add the following compiler option to your `build.gradle.kts` file:
+
+    ```kotlin
+    kotlin {
+        js {
+            compilations.all {
+                compileTaskProvider.configure {
+                    compilerOptions {
+                        freeCompilerArgs.add("-Xsuspend-lambda-exporting")
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+2. Mark the relevant Kotlin declarations with the `@JsExport` annotation:
+
+    ```kotlin
+    // Kotlin
+    @JsExport
+    class TaskRunner {
+        suspend fun runTask(task: suspend () -> String): String {
+            return task()
+        }
+    }
+    ```
+
+3. On the TypeScript side, the `suspend` lambda will be mapped to a regular `async` function:
+
+    ```typescript
+    // TypeScript
+    import { TaskRunner } from "..."
+    
+    const runner = new TaskRunner();
+    const result = await runner.runTask(async () => "done");
+    console.log(result); // "done"
+    ```
 
 ### `@JsNoRuntime` annotation
 
