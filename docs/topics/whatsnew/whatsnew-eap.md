@@ -249,40 +249,44 @@ Kotlin %kotlinEapVersion% introduces cross-language inheritance support to Swift
 
 A common use case for this feature is the [reverse import](native-lib-import-stability.md#swift-library-import) pattern,
 where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
+This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
 
-For example, you can declare a Kotlin interface, implement it in Swift, and then pass the Swift object to Kotlin functions
-that accept that interface. This is especially useful when you need to use pure Swift libraries that can't be directly
-imported into Kotlin.
+To implement the pattern, declare a Kotlin superclass for the Swift implementation to inherit from and
+a Kotlin interface. Then implement the interface in Swift and pass the Swift object to Kotlin functions that accept
+that interface. For example, for the CryptoKit library:
 
-For example, declare a Kotlin interface and a function that accepts it:
+1. On the Kotlin side, declare an `open` base class and a Kotlin interface with a function that accepts it:
 
-```kotlin
-// Kotlin
-interface CryptoProvider {
-   fun hashMD5(input: String): String
-}
-
-fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
-```
-
-On the Swift side, implement this interface using a pure Swift library and pass it back to Kotlin:
-
-```swift
-// Swift
-import CryptoKit
-
-class IosCryptoProvider: KotlinBase & CryptoProvider {
-   func hashMD5(input: String) -> String {
-       guard let data = input.data(using: .utf8) else { return "failed" }
-       return Insecure.MD5.hash(data: data).description
+   ```kotlin
+   // Kotlin
+   interface CryptoProvider {
+      fun hashMD5(input: String): String
    }
-}
 
-let provider = IosCryptoProvider()
+   fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
 
-// The call is dispatched to the Swift implementation
-print(processHash(provider: provider, input: "Hello, world!"))
-```
+   open class SwiftBase 
+   ```
+
+2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using a pure Swift library,
+   and pass the object back to Kotlin:
+
+   ```swift
+   // Swift
+   import CryptoKit
+
+   final class IosCryptoProvider: SwiftBase, CryptoProvider {
+      func hashMD5(input: String) -> String {
+          guard let data = input.data(using: .utf8) else { return "failed" }
+          return Insecure.MD5.hash(data: data).description
+      }
+   }
+
+   let provider = IosCryptoProvider()
+
+   // The call is dispatched to the Swift implementation
+   print(processHash(provider: provider, input: "Hello, world!"))
+   ```
 
 When Kotlin receives a Swift object, it treats it like an implementation of a regular interface, executing Swift code.
 
@@ -428,27 +432,33 @@ The new DSL is intended to replace Karma as a manager of different tools under t
 To try out the new testing DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
 
 ```kotlin
+import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
+import kotlin.time.Duration.Companion.seconds
+
 kotlin {
     js {
         browser {
             @OptIn(ExperimentalJsTestDsl::class)
             // Add and configure the new test{} block
             test {
-                // Set up options common for all browsers
-                browserDefaults {
-                    timeout = Duration.ofSeconds(2)
-                    headless = true
-                }
-                // Enable Chromium test runner
+                // Configure default timeout for all runners
+                timeout = 2.seconds
+                // Configure headless mode using Gradle providers
+                headless = providers
+                    .environmentVariable("IS_IN_CI")
+                    .map { it.toBoolean() }
+                    .orElse(false)
+                // Enable and configure Chromium test runner
                 chromium {
                     // Override the common timeout option
-                    timeout = Duration.ofSeconds(5)
+                    timeout = 5.seconds
+                    // Add extra launch arguments
                     launchArgs.add("--no-sandbox")
                 }
                 // Enable Firefox test runner
                 firefox()
                 // Enable WebKit test runner
-                webkit { }
+                webkit()
                 // Enable and configure an additional WebKit test runner
                 webkit("noheadless") {
                     // Set up custom options
