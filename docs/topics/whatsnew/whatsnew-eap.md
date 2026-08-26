@@ -251,8 +251,8 @@ A common use case for this feature is the [reverse import](native-lib-import-sta
 where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
 This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
 
-To implement the pattern, you need to declare a Kotlin superclass for the Swift implementation to inherit from and
-a Kotlin interface. You then implement this interface in Swift and pass the Swift object to Kotlin functions that accept
+To implement the pattern, declare a Kotlin superclass for the Swift implementation to inherit from and
+a Kotlin interface. Then implement the interface in Swift and pass the Swift object to Kotlin functions that accept
 that interface. For example, for the CryptoKit library:
 
 1. On the Kotlin side, declare an `open` base class and a Kotlin interface with a function that accepts it:
