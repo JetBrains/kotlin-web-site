@@ -15,7 +15,7 @@ fun main() {
     // Hello, world!
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-function-demo"}
+{kotlin-runnable="true" id="kotlin-tour-function-demo"}
 
 In Kotlin:
 
@@ -47,7 +47,7 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function"}
+{kotlin-runnable="true" id="kotlin-tour-simple-function"}
 
 > We recommend in our [coding conventions](coding-conventions.md#function-names) that you name functions starting with 
 > a lowercase letter and use camel case with no underscores.
@@ -76,7 +76,7 @@ fun main() {
     // [Log] Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-named-arguments-function"}
+{kotlin-runnable="true" id="kotlin-tour-named-arguments-function"}
 
 ## Default parameter values
 
@@ -101,7 +101,7 @@ fun main() {
     // [Log] Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-default-param-function"}
+{kotlin-runnable="true" id="kotlin-tour-default-param-function"}
 
 > You can skip specific parameters with default values, rather than omitting them all. However, after the 
 > first skipped parameter, you must name all subsequent parameters.
@@ -125,7 +125,7 @@ fun main() {
     // Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-unit-function"}
+{kotlin-runnable="true" id="kotlin-tour-unit-function"}
 
 ## Single-expression functions
 
@@ -141,7 +141,7 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function-before"}
+{kotlin-runnable="true" id="kotlin-tour-simple-function-before"}
 
 You can remove the curly braces `{}` and declare the function body using the assignment operator `=`. When you use the 
 assignment operator `=`, Kotlin uses type inference, so you can also omit the return type. The `sum()` function then becomes one line:
@@ -154,7 +154,7 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function-after"}
+{kotlin-runnable="true" id="kotlin-tour-simple-function-after"}
 
 However, if you want your code to be quickly understood by other developers, it's a good idea to explicitly define the 
 return type even when using the assignment operator `=`.
@@ -200,7 +200,7 @@ fun main() {
     // User registered successfully: new_user
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-function-early-return"}
+{kotlin-runnable="true" id="kotlin-tour-function-early-return"}
 
 ## Functions practice
 
@@ -230,7 +230,7 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-1"}
+{validate="false" kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" id="kotlin-tour-functions-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -244,7 +244,7 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-2"}
 
@@ -254,25 +254,29 @@ Rewrite the `circleArea` function from the previous exercise as a single-express
 ```kotlin
 import kotlin.math.PI
 
+//sampleStart
 // Write your code here
+//sampleEnd
 
 fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-2"}
+{validate="false" kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" folded-button="false" id="kotlin-tour-functions-exercise-2"}
 
 |---|---|
 ```kotlin
 import kotlin.math.PI
 
+//sampleStart
 fun circleArea(radius: Int): Double = PI * radius * radius
+//sampleEnd
 
 fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" folded-button="false" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-3"}
 
@@ -282,10 +286,12 @@ calls it by using default parameter values and named arguments so that the code 
 
 |---|---|
 ```kotlin
+// Refactor this function: give hours, minutes, and seconds default values of 0
 fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
     ((hours * 60) + minutes) * 60 + seconds
 
 fun main() {
+    // Then simplify these calls with named arguments where possible
     println(intervalInSeconds(1, 20, 15))
     println(intervalInSeconds(0, 1, 25))
     println(intervalInSeconds(2, 0, 0))
@@ -293,7 +299,7 @@ fun main() {
     println(intervalInSeconds(1, 0, 1))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-3"}
+{validate="false" kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" id="kotlin-tour-functions-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -308,7 +314,7 @@ fun main() {
     println(intervalInSeconds(hours = 1, seconds = 1))
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
 
 ## Lambda expressions
 
@@ -325,7 +331,7 @@ fun main() {
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-before"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-function-before"}
 
 Can also be written as a lambda expression:
 
@@ -336,7 +342,7 @@ fun main() {
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-variable"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-variable"}
 
 Lambda expressions can be hard to understand at first glance, so let's break it down. Lambda expressions are written 
 within curly braces `{}`.
@@ -391,7 +397,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-filter"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-filter"}
 
 The `.filter()` function accepts a lambda expression as a predicate and applies it to each element of the list. The function keeps an element only if the predicate returns `true`:
 
@@ -435,7 +441,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-map"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-map"}
 
 The `.map()` function accepts a lambda expression as a transform function:
 
@@ -469,7 +475,7 @@ fun main() {
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-type"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-function-type"}
 
 If your lambda expression has no parameters, then the parentheses `()` are left empty. For example: `() -> Unit`
 
@@ -508,7 +514,7 @@ fun main() {
     // Total time is 1680 secs
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-return-from-function"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-return-from-function"}
 
 ### Invoke separately
 
@@ -523,7 +529,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-standalone"}
+{kotlin-runnable="true" id="kotlin-tour-lambda-standalone"}
 
 ### Trailing lambdas
 
@@ -546,7 +552,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-trailing-lambda"}
+{kotlin-runnable="true" id="kotlin-tour-trailing-lambda"}
 
 For more information on lambda expressions, see [Lambda expressions and anonymous functions](lambdas.md#lambda-expressions-and-anonymous-functions).
 
@@ -562,27 +568,31 @@ Use a lambda expression to create a list of URLs from the list of actions.
 
 |---|---|
 ```kotlin
+fun buildUrls(actions: List<String>, prefix: String, id: Int): List<String> {
+    return TODO() // Write your code here
+}
+
 fun main() {
     val actions = listOf("title", "year", "author")
-    val prefix = "https://example.com/book-info"
-    val id = 5
-    val urls = // Write your code here
+    val urls = buildUrls(actions, "https://example.com/book-info", 5)
     println(urls)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-1"}
+{validate="false" kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise1Test.kt" id="kotlin-tour-lambdas-exercise-1"}
 
 |---|---|
 ```kotlin
+fun buildUrls(actions: List<String>, prefix: String, id: Int): List<String> {
+    return actions.map { action -> "$prefix/$id/$action" }
+}
+
 fun main() {
     val actions = listOf("title", "year", "author")
-    val prefix = "https://example.com/book-info"
-    val id = 5
-    val urls = actions.map { action -> "$prefix/$id/$action" }
+    val urls = buildUrls(actions, "https://example.com/book-info", 5)
     println(urls)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-2"}
 
@@ -599,7 +609,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-2"}
+{validate="false" kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise2Test.kt" id="kotlin-tour-lambdas-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -615,7 +625,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
 <seealso></seealso>
 
