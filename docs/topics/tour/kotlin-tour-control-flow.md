@@ -166,7 +166,7 @@ Using `when` with a subject makes your code easier to read and maintain. When yo
 it also helps Kotlin check that all possible cases are covered. Otherwise, if you don't use a subject with a 
 `when` expression, you need to provide an else branch.
 
-## Conditional expressions practice
+## Practice: Conditional expressions
 
 <deflist type="expandable" numbered="true">
 <def title="Check whether two dice rolls match" id="conditional-expressions-exercise-1">
@@ -383,7 +383,7 @@ For more information and examples of conditional expressions and loops, see [Con
 
 Now that you know the fundamentals of Kotlin control flow, it's time to learn how to write your own [functions](kotlin-tour-functions.md).
 
-## Loops practice {completion-point="true"}
+## Practice: Loops {completion-point="true"}
 
 <deflist type="expandable" numbered="true">
 <def title="Count pizza slices using while and do-while loops" id="loops-exercise-1">

@@ -202,7 +202,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-function-early-return"}
 
-## Functions practice
+## Practice: Functions
 
 <deflist type="expandable" numbered="true">
 <def title="Calculate the area of a circle" id="functions-exercise-1">
@@ -552,7 +552,7 @@ For more information on lambda expressions, see [Lambda expressions and anonymou
 
 The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in Kotlin.
 
-## Lambda expressions practice {completion-point="true"}
+## Practice: Lambda expressions {completion-point="true"}
 
 <deflist type="expandable" numbered="true">
 <def title="Build a list of URLs using a lambda expression" id="lambdas-exercise-1">
