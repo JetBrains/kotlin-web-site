@@ -4,9 +4,10 @@ Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin.
 processors that inspect static information about your source code and generate new code from it. A common use case is 
 generating code based on [annotations](annotations.md).
 
-KSP aims to simplify the creation of lightweight compiler plugins. Its well-defined API hides compiler changes, 
-so you don't need to spend much effort maintaining your processors. However, this approach comes with trade-offs. 
-For example, KSP-based processors can't examine expressions or statements, and they can't modify the source code.
+KSP aims to simplify the creation of lightweight compiler plugins. A compiler plugin built with KSP is called a symbol 
+processor, or processor for short. KSP’s well-defined API hides compiler changes, so you don't need to spend much effort 
+maintaining your processors. However, this approach comes with trade-offs. For example, KSP-based processors can't 
+examine expressions or statements, and they can't modify the source code.
 
 Typical use cases for KSP-based plugins include: 
 * Dependency injection ([Dagger](https://dagger.dev/dev-guide/ksp))
@@ -82,9 +83,9 @@ KSFile
 
 This view lists common things that are declared in the file: classes, functions, properties, and so on.
 
-## SymbolProcessorProvider: the entry point
+## How KSP runs a processor
 
-KSP expects an implementation of the `SymbolProcessorProvider` interface to instantiate `SymbolProcessor`:
+KSP uses a `SymbolProcessorProvider` as the entry point for creating a `SymbolProcessor`:
 
 ```kotlin
 interface SymbolProcessorProvider {
@@ -92,50 +93,19 @@ interface SymbolProcessorProvider {
 }
 ```
 
-While `SymbolProcessor` is defined as:
+The `SymbolProcessor` contains the processing logic. KSP calls its `process()` function and provides a `Resolver`, which 
+the processor uses to access symbols in the source code:
 
 ```kotlin
 interface SymbolProcessor {
-    fun process(resolver: Resolver): List<KSAnnotated> // Let's focus on this
+    fun process(resolver: Resolver): List<KSAnnotated>
     fun finish() {}
     fun onError() {}
 }
 ```
 
-A `Resolver` provides `SymbolProcessor` with access to compiler details such as symbols.
-A processor that finds all top-level functions and non-local functions in top-level classes might look something like
-the following:
+For a step-by-step example of implementing and registering a processor, see the [KSP quickstart guide](ksp-quickstart.md).
 
-```kotlin
-class HelloFunctionFinderProcessor : SymbolProcessor() {
-    // ...
-    val functions = mutableListOf<KSFunctionDeclaration>()
-    val visitor = FindFunctionsVisitor()
-
-    override fun process(resolver: Resolver) {
-        resolver.getAllFiles().forEach { it.accept(visitor, Unit) }
-    }
-
-    inner class FindFunctionsVisitor : KSVisitorVoid() {
-        override fun visitClassDeclaration(classDeclaration: KSClassDeclaration, data: Unit) {
-            classDeclaration.getDeclaredFunctions().forEach { it.accept(this, Unit) }
-        }
-
-        override fun visitFunctionDeclaration(function: KSFunctionDeclaration, data: Unit) {
-            functions.add(function)
-        }
-
-        override fun visitFile(file: KSFile, data: Unit) {
-            file.declarations.forEach { it.accept(this, Unit) }
-        }
-    }
-    // ...
-    
-    class Provider : SymbolProcessorProvider {
-        override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor = TODO()
-    }
-}
-```
 
 ## Resources
 
