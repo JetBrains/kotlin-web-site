@@ -293,11 +293,11 @@ fun main() {
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
-You are building a user registration module for an app. You want to keep email validation associated with the `User` class 
-and make it available without a `User` instance. Complete the data class so that
-the following code in the `main()` function runs successfully:
+You are building a user registration module for an app. You want to keep email validation associated with the `User`
+class but don't want to create an unnecessary `User` instance if the email address is invalid.
 
-For this exercise, consider an email address valid if it contains both `@` and `.`.
+For this exercise, consider an email address valid if it contains both `@` and `.`. Complete the data class so that the
+following code in the `main()` function runs successfully:
 
 <deflist collapsible="true">
     <def title="Hint">
