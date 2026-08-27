@@ -1,0 +1,58 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+    padding: 72px 0;
+}
+
+.title {
+    color: #19191c;
+    margin: 0;
+}
+
+.columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+}
+
+/*
+ * `min-width: 0` is what keeps the two halves inside the content column: a flex item's
+ * automatic minimum size is its content, and the accordion titles are wide enough to push the
+ * row past the layout width without it.
+ */
+.column {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/*
+ * The two halves become one list: no gap between them, so the border under the last question of
+ * the first column reads as the divider before the first question of the second.
+ */
+@media (--ktl-tl-down) {
+    /*
+     * rescui's Accordion sits between this section and the columns below and is itself a flex
+     * item, so with the section only aligning to the start it would shrink to the width of its
+     * widest question instead of filling the content column.
+     */
+    .wrapper {
+        align-items: stretch;
+    }
+
+    .columns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    /* `flex` is now the block axis, so each half takes its own height and the full width */
+    .column {
+        flex: 0 0 auto;
+    }
+}

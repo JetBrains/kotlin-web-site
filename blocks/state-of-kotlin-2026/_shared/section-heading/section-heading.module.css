@@ -1,0 +1,22 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.title {
+    margin: 0;
+    max-width: var(--sok-heading-title-max-width, none);
+}
+
+.description {
+    margin: 32px 0 0;
+    max-width: 732px;
+}
+
+/*
+ * Both caps exist to reproduce line breaks the design draws into the widest layout only. From
+ * the first step down the design sets title and description across the full content column.
+ */
+@media (--ktl-ds-down) {
+    .title,
+    .description {
+        max-width: none;
+    }
+}

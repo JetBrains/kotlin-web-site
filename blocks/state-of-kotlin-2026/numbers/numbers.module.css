@@ -1,0 +1,118 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    padding: 72px 0;
+}
+
+.title {
+    margin: 0;
+}
+
+.grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+}
+
+/*
+ * `min-height`, not a fixed height: the `gap` below is the floor the design puts between the
+ * figure and its caption, so a card whose caption wraps further grows instead of clipping.
+ */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 128px;
+    min-height: 312px;
+    padding: 24px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: radial-gradient(130.09% 130.13% at 94.72% 87.29%, #FAFAFA 0%, #BCB9FB 0%, #B0AAFD 0%, #FAFAFA 100%);
+}
+
+.render {
+    position: absolute;
+    right: -48px;
+    bottom: -24px;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.figure {
+    position: relative;
+    margin: 0;
+}
+
+.caption {
+    position: relative;
+    max-width: 190px;
+    margin: 0;
+}
+
+/*
+ * The 190px cap keeps the caption clear of the render. The design sets the captions across the
+ * card's full content box on the layouts where the render sits above the caption line, and
+ * only narrows the two that would otherwise run into it — a per-item width our copy, which
+ * wraps rather than carrying the design's own line breaks, cannot reproduce. So the cap is
+ * dropped where the render clears the copy and reinstated where it does not.
+ */
+@media (--ktl-ds-down) {
+    .caption {
+        max-width: none;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (--ktl-ts-down) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* one wide card per row: the design lets it hug its copy */
+    .card {
+        gap: 8px;
+        min-height: 0;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .card {
+        gap: 24px;
+        min-height: 220px;
+    }
+
+    /* the render is redrawn smaller and anchored to the card's top-right corner */
+    .render {
+        top: -8px;
+        right: -120px;
+        bottom: auto;
+        width: 303px;
+        height: 271px;
+    }
+
+    /* the short card puts the render alongside the caption rather than above it */
+    .caption {
+        max-width: 190px;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .card {
+        min-height: 200px;
+    }
+
+    .render {
+        right: -142px;
+    }
+}

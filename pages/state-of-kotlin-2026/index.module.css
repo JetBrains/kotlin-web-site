@@ -1,0 +1,85 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/*
+ * `overflow-x: clip` rather than `hidden`: several blocks bleed decoration past the content
+ * column on purpose, and just above each breakpoint the page margin is narrower than the
+ * bleed. `clip` cuts it at the viewport edge without creating a scroll container, so the
+ * sticky section nav below keeps working — `hidden` would break it.
+ *
+ * `--sok-shape-scale` is the other half of that: every decorative shape on the page — the
+ * hero's four layers and the one or two each section from Organizations down carries — is drawn
+ * against the 1144px content column, and the scale follows that column as it narrows so the
+ * shapes keep the same relationship to the copy instead of swamping it. The values below are
+ * each breakpoint's `--ktl-layout-width` over 1144. It lives here rather than on `.content`
+ * because the hero's shapes sit outside the column, in a full-width box of their own.
+ */
+.wrapper {
+    overflow-x: clip;
+    position: relative;
+    --sok-shape-scale: 1;
+}
+
+@media (--ktl-ds-down) {
+    .wrapper {
+        --sok-shape-scale: 0.83;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .wrapper {
+        --sok-shape-scale: 0.66;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .wrapper {
+        --sok-shape-scale: 0.5;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .wrapper {
+        --sok-shape-scale: 0.37;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .wrapper {
+        --sok-shape-scale: 0.27;
+    }
+}
+
+.wrapper [id] {
+    scroll-margin-top: 80px;
+}
+
+/* nothing sticky is left above the content once the section nav is dropped */
+@media (--ktl-ts-down) {
+    .wrapper [id] {
+        scroll-margin-top: 0;
+    }
+}
+
+/* @webteam/horizontal-barchart labels its rows with bare <p>s and ships no margin reset of its
+   own (it assumes a global one). Without this the default 1em margin drops each title out of
+   line with its bar. */
+.wrapper :global([data-test='horizontal-barchart-single']) p {
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/*
+ * The design sets body copy at 16/24 on the narrowest screens, where rescui keeps rs-text-1 at
+ * 20/28 at every width. rescui exposes the metrics as overridable custom properties, so one
+ * rule here re-scales every rs-text-1 on the page rather than each block doing it for itself.
+ */
+@media (--ktl-ms-down) {
+    .content {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+    }
+}

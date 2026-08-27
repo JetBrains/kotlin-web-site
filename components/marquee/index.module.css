@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-around;
     min-width: 100%;
-    animation: scroll 60s linear infinite;
+    animation: scroll var(--marquee-duration, 60s) linear infinite;
     gap: var(--marquee-gap);
     flex-shrink: 0;
 }
@@ -40,5 +40,25 @@
     }
     100% {
         transform: translateX(-100%);
+    }
+}
+
+/*
+ * A marquee that cannot be stopped fails WCAG 2.2.2: `pauseOnHover` is mouse-only.
+ * Freeze the animation and drop the duplicated track, leaving one static row that the
+ * consumer can make scrollable on its own wrapper.
+ */
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        /* the frozen track would otherwise be clipped and unreachable */
+        overflow-x: auto;
+    }
+
+    .group {
+        animation: none;
+    }
+
+    .duplicate {
+        display: none;
     }
 }

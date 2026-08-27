@@ -1,0 +1,79 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/*
+ * The crop. In the design the group runs off the left, right and top edges of the artboard, so
+ * this box starts at the top of the page and clips everything above and beside it — the shapes
+ * below keep the offsets the design gives them and lose whatever falls outside.
+ *
+ * `height` is the composition's own 1379px (the cylinder's box is the lowest thing in it) plus
+ * room for the parallax and drift to carry a shape further down without the clip biting into it.
+ */
+.decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    /* a stacking context, so the shapes' own negative z-index stays inside this box */
+    z-index: 0;
+    height: calc(1560px * var(--sok-shape-scale, 1));
+    overflow: clip;
+    pointer-events: none;
+}
+
+/*
+ * From here down the composition has shrunk far enough that the renders sit behind the lead
+ * paragraph rather than beside it, and the speckled surface costs the copy too much contrast.
+ * Fading them back keeps the hero readable at the cost of some of the design's punch; drop
+ * this rule if the design would rather keep them at full strength.
+ */
+@media (--ktl-ts-down) {
+    .decoration {
+        opacity: 0.8;
+    }
+}
+
+/*
+ * The four layers. Every offset below is the design's own, measured from the top of the page
+ * and from the centre of the artboard — the content column is centred, so anchoring to `50%`
+ * keeps each shape in the same relationship to the copy at any window width.
+ */
+
+/*
+ * The glow. In the design this is one blurred ellipse filled with a rotated multi-stop radial
+ * gradient; Figma exports it as an SVG whose filter doesn't survive being scaled inside an
+ * `<img>`, so it is painted here instead. The stops were fitted against the Figma render
+ * sampled down the middle of the hero: the core lands on rgb(185, 181, 252) over white and
+ * fades out a little under a viewport away, and the hue pales from violet to blue on the way.
+ *
+ * The gradient's centre sits up and left of the box's own middle, which is where the rotation
+ * puts it in the design.
+ */
+.gradient {
+    --sok-shape-paint: radial-gradient(
+        50% 51% at 39% 40%,
+        rgba(23, 5, 249, 0.3) 0%,
+        rgba(23, 5, 249, 0.245) 32%,
+        rgba(58, 45, 250, 0.195) 49%,
+        rgba(96, 96, 245, 0.14) 67%,
+        rgba(140, 140, 240, 0.06) 84%,
+        rgba(160, 160, 240, 0) 100%
+    );
+
+    top: calc(-448px * var(--sok-shape-scale, 1));
+    left: calc(50% - 958px * var(--sok-shape-scale, 1));
+}
+
+.triangle {
+    top: calc(-102px * var(--sok-shape-scale, 1));
+    left: calc(50% - 1270px * var(--sok-shape-scale, 1));
+}
+
+.hollowCylinder {
+    top: calc(-250px * var(--sok-shape-scale, 1));
+    left: calc(50% + 153px * var(--sok-shape-scale, 1));
+}
+
+.cylinder {
+    top: calc(289px * var(--sok-shape-scale, 1));
+    left: calc(50% - 135px * var(--sok-shape-scale, 1));
+}

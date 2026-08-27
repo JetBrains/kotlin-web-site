@@ -1,0 +1,96 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    padding: 72px 0;
+}
+
+.panel {
+    padding: 64px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: radial-gradient(101.13% 110.28% at 94.72% 87.29%, #B0AAFD 3.33%, #FAFAFA 100%);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+        background: var(--Opacity-White-T80, rgba(255, 255, 255, 0.80));
+    }
+}
+
+.question {
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.answer {
+    margin: 48px 0 0;
+}
+
+.link {
+    align-self: flex-start;
+}
+
+@media (--ktl-tl-down) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: auto;
+    }
+
+    /*
+     * Stacked, each card hugs its own copy, so there is no equal-height row left to pin the
+     * answer to the bottom of — the design sets it a fixed 24px below the question instead.
+     */
+    .card {
+        justify-content: flex-start;
+    }
+
+    .answer {
+        margin-top: 24px;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .panel {
+        padding: 32px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .panel {
+        padding: 24px;
+    }
+}
+
+/*
+ * These are the only rs-h1 headings the design steps down on the narrowest screens — the
+ * section titles keep rescui's own mobile metrics. rescui exposes them as overridable vars.
+ */
+@media (--ktl-ms-down) {
+    .question {
+        --rs-h1-font-size-mobile: 28px;
+        --rs-h1-line-height-mobile: 32px;
+    }
+}

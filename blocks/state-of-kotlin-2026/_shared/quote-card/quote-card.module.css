@@ -1,0 +1,56 @@
+/*
+ * `align-self: stretch` rather than `height: 100%`: an explicit height makes the card's cross
+ * size non-auto, which opts it out of a row's `align-items: stretch` and leaves every card at
+ * its own content height.
+ */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* a block-level image keeps its intrinsic width and stays at the card's left edge */
+.logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 48px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* the heading carries a default margin from the browser/global stylesheet */
+.company {
+    margin: 24px 0 0;
+    color: #19191c;
+}
+
+.quote {
+    margin: 12px 0 0;
+    color: #19191c;
+}
+
+/* with no company name the quote takes over the gap the heading would have owned */
+.logo + .quote {
+    margin-top: 24px;
+}
+
+.attribution {
+    margin-top: 24px;
+}
+
+.author,
+.role {
+    margin: 0;
+    color: #19191c;
+}
+
+.link {
+    margin-top: 24px;
+}

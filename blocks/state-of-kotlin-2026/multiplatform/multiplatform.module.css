@@ -1,0 +1,276 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/* the section owns its own vertical rhythm; everything inside spaces itself with margin-top */
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+/*
+ * The cube, level with the "Business impact" panel a little over halfway down. Measured as a
+ * share of the section's height so it keeps that relationship as the panels reflow, and bled
+ * past the content column, where the page wrapper's `overflow-x: clip` cuts it off.
+ */
+.cube {
+    top: 54%;
+    left: calc(-275px * var(--sok-shape-scale, 1));
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+/* the heading carries a default margin from the browser/global stylesheet */
+.panelTitle {
+    margin: 0;
+    /* the design calls for H3-plus (28/34); rescui exposes rs-h3 metrics as overridable vars */
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+    max-width: 706px;
+    color: #19191c;
+}
+
+/* every card in this section pins its copy to the bottom of a 240px box */
+.maturityCard,
+.growthCard {
+    display: flex;
+    flex: 1 0 0;
+    align-items: flex-end;
+    min-height: 240px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.maturityRow,
+.growthCardsRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.maturityText,
+.growthCardText {
+    margin: 0;
+    color: #19191c;
+}
+
+.link {
+    margin-top: 32px;
+}
+
+.growthTopCard {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    width: 100%;
+    margin-top: 32px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* 502px is the column the design gives the copy; the bubbles centre in what is left */
+.growthLead {
+    flex: 1 0 0;
+    max-width: 502px;
+    margin: 0;
+    color: #19191c;
+}
+
+.circles {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.circleItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* the 100% track each bubble is measured against, and the positioning context for its label */
+.circleTrack {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(25, 25, 28, 0.08);
+}
+
+.circleBubble {
+    border-radius: 50%;
+    background: rgba(25, 25, 28, 0.4);
+}
+
+.circleBubbleActive {
+    background: #6b57ff;
+}
+
+.circleValue {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+.circleValueInside {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+/* `left` is set inline, from the bubble's own radius */
+.circleValueOutside {
+    color: rgba(25, 25, 28, 0.7);
+}
+
+.circleYear {
+    margin: 8px 0 0;
+    color: rgba(25, 25, 28, 0.7);
+    text-align: center;
+}
+
+.circleYearActive {
+    color: #6b57ff;
+}
+
+.impactGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+/*
+ * Compound selectors so these outrank StatCard's own `.card`, whatever order the modules land
+ * in. The design pins the figure to the top of a 240px box and the caption to the bottom.
+ */
+.impactGrid .impactCard {
+    min-height: 240px;
+    height: auto;
+    justify-content: space-between;
+}
+
+.impactGrid .impactCardFull {
+    grid-column: span 2;
+}
+
+.quoteRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.quoteRow .quoteCard {
+    flex: 1 0 0;
+}
+
+@media (--ktl-tl-down) {
+    /* the four maturity cards fold into a 2x2 block, shorter than the single row's 240px */
+    .maturityRow {
+        flex-wrap: wrap;
+    }
+
+    .maturityCard {
+        flex: 1 0 calc(50% - 4px);
+        min-height: 180px;
+    }
+
+    /* the copy moves above the bubbles, which then centre in the card's full width */
+    .growthTopCard {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .growthLead {
+        flex: 0 0 auto;
+        max-width: none;
+    }
+
+    .quoteRow {
+        flex-direction: column;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .maturityRow {
+        flex-wrap: nowrap;
+    }
+
+    .maturityRow,
+    .growthCardsRow {
+        flex-direction: column;
+    }
+
+    /* one card per row: every card hugs its own copy from here down */
+    .maturityCard,
+    .growthCard {
+        flex: 0 0 auto;
+        min-height: 0;
+    }
+
+    .impactGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .impactGrid .impactCard {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    .impactGrid .impactCardFull {
+        grid-column: auto;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .panel {
+        padding: 24px;
+    }
+
+    /* below 640px rescui drops its own headings a step, and the design follows for H3-plus */
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+
+    /* the two bubbles no longer fit side by side */
+    .circles {
+        flex-direction: column;
+        gap: 32px;
+    }
+}

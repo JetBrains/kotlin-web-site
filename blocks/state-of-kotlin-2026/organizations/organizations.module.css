@@ -1,0 +1,235 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+/*
+ * The sphere the design floats over the top panel. `top` is the design's own offset from the
+ * top of the section, which is where the design puts it relative to the heading; the rest of
+ * the section is free to grow underneath without dragging it out of place.
+ */
+.sphere {
+    top: 205px;
+    left: 49%;
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.sizePanel,
+.industryPanel {
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(130.09% 130.13% at 94.72% 87.29%, #FAFAFA 0%, #BCB9FB 0%, #B0AAFD 0%, #FAFAFA 100%);
+}
+
+.sizePanel {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.industryPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.sizeText {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 24px;
+    padding-right: 32px;
+}
+
+/* h3 carries a default margin from the browser/global stylesheet */
+.panelTitle {
+    margin: 0;
+    /* the design calls for H3-plus (28/34); rescui exposes rs-h3 metrics as overridable vars */
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+}
+
+.sizeIntro,
+.bullets {
+    margin: 0;
+}
+
+.chartCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 536px;
+    /* the design fixes the card at 393px, which is what gives this panel its height */
+    min-height: 393px;
+    gap: 32px;
+    padding: 0 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.chartCardInner {
+    max-width: 380px;
+}
+
+.chartFootnote {
+    margin: 0;
+    color: #19191c;
+}
+
+.industryRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.industryText {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.industryLead {
+    margin: 0;
+}
+
+/* wraps StatCard so the column, not the card's own width:100%, owns the flex sizing */
+.industryStat {
+    display: flex;
+    flex: 1 0 0;
+    min-width: 0;
+}
+
+.industryFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.industries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    margin: 0;
+    padding: 0;
+    color: #6b57ff;
+    list-style: none;
+    text-align: center;
+}
+
+.industry {
+    white-space: nowrap;
+}
+
+.strip {
+    width: 100%;
+}
+
+/*
+ * The design masks the strip rather than overlaying gradients, so the cut-off cards fade into
+ * the panel's gradient. Stops are the ones from the design's own mask asset (6% / 94%).
+ * `hasFadingEdges={false}` is passed so Marquee's own, much heavier fade doesn't compete here.
+ */
+.marquee {
+    border-radius: 8px;
+    mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+
+.caseCard {
+    display: flex;
+    flex: 0 0 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    /*
+     * Fixed rather than stretched, because Marquee's track centres its children — an `auto`
+     * height would leave the row ragged.
+     *
+     * 224px, not the design's 200px: 24 padding + 40 logo + 16 gap + 24 padding leaves room for
+     * five 24px lines, which "Streamlined collaboration between their Android and iOS teams"
+     * (Cash App) needs. The design was drawn with six companies, none of which ran past four
+     * lines. Shortening a company's own words was not an option, and the alternative — clipping
+     * — is worse. An e2e test guards the fit, so copy edits that outgrow this will fail loudly.
+     */
+    height: 224px;
+    padding: 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+/*
+ * 40px keeps every logo inside the card's 152px content box — the shared case-study assets are
+ * all intrinsically 64px tall, and Duolingo, the widest, lands at 144px. Going to the design's
+ * other logo size, 64px, would cost a line of outcome text the copy cannot spare.
+ */
+.caseLogo {
+    align-self: flex-start;
+    flex-shrink: 0;
+    width: auto;
+    max-width: 100%;
+    height: 40px;
+    object-fit: contain;
+}
+
+.caseText {
+    margin: 0;
+    color: #000;
+}
+
+/* the panel splits 50/50 from here down — 536px is the widest layout's figure */
+@media (--ktl-ds-down) {
+    .chartCard {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .sizePanel {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    /*
+     * Stacked, the card no longer takes its height from the design's fixed 393px, and the
+     * horizontal-only padding becomes an even 24px inset.
+     */
+    .chartCard {
+        flex: 0 0 auto;
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .industryRow {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .sizePanel,
+    .industryPanel {
+        padding: 24px;
+    }
+
+    /* below 640px rescui drops its own headings a step, and the design follows for H3-plus */
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+}

@@ -1,0 +1,65 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.hero {
+    padding-bottom: 72px;
+}
+
+.title {
+    color: #19191c;
+    max-width: 980px;
+    margin: 84px 0 0;
+}
+
+.lead {
+    max-width: 860px;
+    margin: 32px 0 0;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    margin-top: 64px;
+}
+
+/* the switcher above sits right on top of the title from here down, so it owns the gap */
+@media (--ktl-tl-down) {
+    .title {
+        margin-top: 0;
+    }
+}
+
+/* the section nav is dropped below TL, so the title takes back the space it held */
+@media (--ktl-ts-down) {
+    .title {
+        margin-top: 72px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .downloadButton {
+        width: 100%;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .actions {
+        align-items: center;
+    }
+
+    /* the design stacks the "Share" label above the icon row and centres both */
+    .share {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /*
+     * SocialShare renders the label as its first child and offsets it towards the icons; with
+     * the two stacked that offset would knock the label off centre. Matched on the element
+     * because the component's own class name is scoped to its module.
+     */
+    .share > span:first-child {
+        margin-right: 0;
+    }
+}
