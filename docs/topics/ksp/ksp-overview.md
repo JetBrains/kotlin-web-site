@@ -1,7 +1,8 @@
 [//]: # (title: Kotlin Symbol Processing API)
 
 Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create 
-processors that generate code based on [annotations](annotations.md) in your source code.
+processors that inspect static information about your source code and generate new code from it. A common use case is 
+generating code based on [annotations](annotations.md).
 
 KSP aims to simplify the creation of lightweight compiler plugins. Its well-defined API hides compiler changes, 
 so you don't need to spend much effort maintaining your processors. However, this approach comes with trade-offs. 
@@ -12,38 +13,24 @@ Typical use cases for KSP-based plugins include:
 * Serialization ([Moshi](https://github.com/square/moshi))
 * Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
 
-To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).
-
-
 ## Overview
 
-The KSP API processes Kotlin programs idiomatically. KSP understands Kotlin-specific features, such as extension functions,
-declaration-site variance, and local functions. It also models types explicitly and provides basic type checking,
-such as equivalence and assign-compatibility.
+To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).KSP represents Kotlin 
+source code as a hierarchy of symbols based on the Kotlin grammar. Processors use these symbols to inspect declarations 
+such as classes, functions, properties, and types.
 
-The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/grammar/).
-When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters 
-are accessible for the processors, while things like `if` blocks and `for` loops are not.
+> KSP models declarations and type information, but doesn't provide access to expressions or
+> function bodies.
+{style=”note”}
 
-Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) in Kotlin reflection.
-The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice versa.
-You can also substitute type arguments, specify variances, apply star projections, and mark nullabilities of types.
+KSP fits into the compilation process as follows:
+1. KSP processors analyze source code and resources.
+2. The processors generate source files or other outputs.
+3. The Kotlin compiler compiles the original source code together with the generated code.
 
-Another way to think of KSP is as a preprocessor framework of Kotlin programs. By considering KSP-based plugins as
-_symbol processors_, or simply _processors_, the data flow in a compilation can be described in the following steps:
-
-1. Processors read and analyze source programs and resources.
-2. Processors generate code or other forms of output.
-3. The Kotlin compiler compiles the source programs together with the generated code.
-
-Unlike a full-fledged compiler plugin, processors cannot modify the code.
-A compiler plugin that changes language semantics can sometimes be very confusing.
-KSP avoids that by treating the source programs as read-only.
-
-You can also get an overview of KSP in this video:
+To learn more about KSP, watch this video:
 
 <video src="https://www.youtube.com/v/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
-
 
 ## How KSP looks at source files
 
