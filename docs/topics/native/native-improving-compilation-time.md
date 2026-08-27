@@ -162,14 +162,13 @@ To use the Gradle configuration cache, add the `org.gradle.configuration-cache=t
 
 ### Enable previously disabled features
 
-There are Kotlin/Native options that disable some of the useful features:
+You might have disabled some Kotlin/Native features in the past to work around build issues. For example:
 
-* `kotlin.native.disableCompilerDaemon=true` for [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)
-* `disableNativeCache` DSL for [compilation cache](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#binaries)
+* `kotlin.native.disableCompilerDaemon=true` disables the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html).
+* `disableNativeCache` disables the [compilation cache](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#binaries).
 
-If you had issues with these features before and added these lines to your `gradle.properties` file or Gradle build files,
-remove them and check whether the build completes successfully. It is possible that these properties were added previously
-to work around issues that have already been fixed.
+The issues that originally required these workarounds might have already been fixed. If your `gradle.properties` file
+or Gradle build files contain these lines, remove them and check whether the build completes successfully.
 
 ### Try incremental compilation of klib artifacts
 
