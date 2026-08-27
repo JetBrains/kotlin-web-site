@@ -106,18 +106,6 @@ interface SymbolProcessor {
 
 For a step-by-step example of implementing and registering a processor, see the [KSP quickstart guide](ksp-quickstart.md).
 
-
-## Resources
-
-* [Quickstart](ksp-quickstart.md)
-* [Examples](ksp-examples.md)
-* [How KSP models Kotlin code](ksp-additional-details.md)
-* [Reference for Java annotation processor authors](ksp-reference.md)
-* [Incremental processing notes](ksp-incremental.md)
-* [Multiple round processing notes](ksp-multi-round.md)
-* [KSP on multiplatform projects](ksp-multiplatform.md)
-* [Running KSP from command line](ksp-command-line.md)
-
 ## Supported libraries
 
 The table includes a list of popular libraries on Android and their various stages of support for KSP:
@@ -147,3 +135,14 @@ The table includes a list of popular libraries on Android and their various stag
 | Motif            | [Alpha](https://github.com/uber/motif)                                                            |
 | Hilt             | [In progress](https://dagger.dev/dev-guide/ksp)                                                   |
 | Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                    |
+
+## Resources
+
+* [Quickstart](ksp-quickstart.md)
+* [Examples](ksp-examples.md)
+* [How KSP models Kotlin code](ksp-additional-details.md)
+* [Reference for Java annotation processor authors](ksp-reference.md)
+* [Incremental processing notes](ksp-incremental.md)
+* [Multiple round processing notes](ksp-multi-round.md)
+* [KSP on multiplatform projects](ksp-multiplatform.md)
+* [Running KSP from command line](ksp-command-line.md)
