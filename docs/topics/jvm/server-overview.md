@@ -64,3 +64,4 @@ Google Cloud Platform (GCP), and many others.
 
 * [Learn how to test your Java Maven project with Kotlin and JUnit](jvm-test-using-junit.md)
 * [Explore how to build asynchronous server applications with Ktor](https://ktor.io/docs/server-create-a-new-project.html)
+* [Find answers to common questions in the FAQ for Kotlin backend development](jvm-backend-faq.md)

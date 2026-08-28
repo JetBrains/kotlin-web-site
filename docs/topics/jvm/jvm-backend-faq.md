@@ -29,7 +29,7 @@ For more information, see [Manage dependencies with a BOM](maven-set-dependencie
 ### Do I need to keep the Kotlin Maven plugin version aligned with Kotlin library versions?
 
 Yes. Mixing a compiler version with incompatible Kotlin libraries may lead to "Mixed Kotlin versions" failures and metadata
-incompatibilities. The easiest way to stay consistent is to use the same Kotliin version defined once. For example:
+incompatibilities. The easiest way to stay consistent is to use the same Kotlin version defined once. For example:
 
 * Set the [`kotlin-maven-plugin`](maven-kotlin-compiler.md) version once in your parent `pom.xml` file and then
   reference it as `${kotlin.version}` everywhere.
