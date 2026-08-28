@@ -6,15 +6,15 @@ configuration.
 The general workflow for running tests in Kotlin/JS is to add test dependencies, configure the test task in the build file,
 add tests, and run them.
 
-For browser testing, you have two options:
+For browser testing, you can choose between:
 
 * The [Karma](https://karma-runner.github.io/) test runner.
-* The new experimental Kotlin DSL.
+* The [Playwright](https://playwright.dev/) framework through the Kotlin DSL.
 
 > The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
 > expected. As an alternative, try out the new Kotlin DSL for browser testing.
 >
-> The Kotlin DSL is currently [Experimental](components-stability.md#stability-levels-explained). It may be changed at any time.
+> The Kotlin DSL for Playwright is currently [Experimental](components-stability.md#stability-levels-explained). It may be changed at any time.
 > Opt-in is required with the `@OptIn(ExperimentalJsTestDsl::class)` annotation.
 >
 {style="warning"}
@@ -31,7 +31,7 @@ target, by using a single dependency in `commonTest`:
 // build.gradle.kts
 kotlin {
     sourceSets {
-         commonTest.dependencies {
+        commonTest.dependencies {
             implementation(kotlin("test")) // Enables test annotations and functionality in JS
         }
     }
@@ -66,8 +66,8 @@ No browsers are bundled with the Kotlin Multiplatform Gradle plugin by default. 
 all necessary browsers on your target system (locally or on the CI).
 
 By default, the plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
-to run browser tests. To enable additional browsers, use the `test` block for Kotlin DSL and the `testTask` block for Karma.
-See all available options here:
+to run browser tests. To enable additional browsers, use the `testTask{}` block for Karma and the `test{}` block for the
+Playwight solution with Kotlin DSL. See all available options here:
 
 <tabs group="js-test-dsl">
 <tab title="Karma" group-key="karma">
@@ -96,7 +96,7 @@ kotlin {
 For more information on Karma functionality, see [Set up a Kotlin/JS project](js-project-setup.md#karma).
 
 </tab>
-<tab title="Kotlin DSL" group-key="new-dsl">
+<tab title="Playwright" group-key="Playwright">
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
@@ -115,7 +115,7 @@ kotlin {
 }
 ```
 
-For additional settings available in the Kotlin DSL, see [Advanced configuration](#advanced-configuration)
+For additional settings available in the Kotlin DSL for Playwright, see [Advanced configuration](#advanced-configuration)
 
 </tab>
 </tabs>
@@ -170,11 +170,11 @@ the resulting total of 50% successful tests. To get more information about indiv
 ## Advanced configuration
 <primary-label ref="experimental-opt-in"/>
 
-> This section applies only to the new experimental Kotlin DSL.
-> 
+> This section applies only to the new experimental Kotlin DSL for Playwright.
+>
 {style="note"}
 
-The Kotlin DSL exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can share defaults
+The Kotlin DSL for Playwright exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can share defaults
 between runners, override them for a specific browser, and compute values lazily with providers:
 
 ```kotlin
@@ -217,7 +217,7 @@ kotlin {
 }
 ```
 
-You can set the options for all test runners directly in the `test{}` block. To override these common options for 
+You can set the options for all test runners directly in the `test{}` block. To override these common options for
 a particular runner, use a custom name for it and provide different values inside a runner block.
 In this example, Chromium and WebKit (Safari) browsers run with their own timeouts of 10 and 35 seconds,
 while Firefox uses the common timeout of 30 seconds.
@@ -227,76 +227,47 @@ Each runner is registered under its own name, so the test report tells you which
 ## Configuration for plugin authors
 <primary-label ref="experimental-opt-in"/>
 
-> This section applies only to the new experimental Kotlin DSL.
+> This section applies only to the new experimental Kotlin DSL for Playwright.
 >
 {style="note"}
 
-If you write a Gradle plugin on top of the Kotlin Multiplatform Gradle plugin, the Kotlin DSL also gives you access to
-the browser runners and to the location of the generated test bundle.
+If you write a Gradle plugin on top of the Kotlin Multiplatform Gradle plugin, the Kotlin DSL for Playwright also gives
+you access to the browser runners and to the location of the generated test bundle.
 
-With access to it, you can:
+Kotlin generates the test bundle for running browser tests using the default [test runner page](https://github.com/Kotlin/kotlin-web-helpers/blob/main/static/test.html).
+You can replace it by pointing to a different location in the `testsLocation` property:
+
+```kotlin
+kotlin {
+    js {
+        browser {
+            @OptIn(ExperimentalJsTestDsl::class)
+            test {
+                // Implement customJsTestsLocation to modify or replace default JS test bundle
+                @OptIn(DelicateKotlinGradlePluginApi::class)
+                testsLocation = customJsTestsLocation(extendFrom = defaultTestsLocationProvider)
+
+                chromium()
+            }
+        }
+    }
+}
+```
+
+Your custom test bundler can feature your own development server, a bundler, or a test runner. The `defaultTestsLocationProvider`
+property gives you access to the default location, so you can build on top of it instead of implementing everything from
+scratch.
+
+Each tests location (through the `KotlinJsTestsLocation` interface) exposes the directory with the generated test
+bundle (`bundleLocation`), the name of the test page (`testHtmlFileName`), and the URL that the browser opens (`url`).
+
+With access to these APIs, you can:
 
 * Customize the URL that the browser opens. Each browser runner has its own tests location, so you can override it either
   for all runners in the `test{}` block or for a particular runner.
 * Override the bundle location itself, for example, to add extra files to the bundle.
 * Post-process the generated test bundle. Register your own task and modify the files there before the browser opens them,
-  for example, to inject your own configuration into `test.html`:
-
-```kotlin
-import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
-import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsBrowserDsl
-import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTestsLocation
-import org.jetbrains.kotlin.gradle.targets.js.ir.KotlinJsIrTarget
-
-abstract class BundlePostProcessor : DefaultTask() {
-    @get:InputDirectory
-    @get:OutputDirectory
-    abstract val inputDir: DirectoryProperty
-
-    fun action() {
-        // https://github.com/Kotlin/kotlin-web-helpers/blob/main/static/test.html
-        val testHtmlFile = inputDir.file("test.html").get().asFile
-        val testHtmlFileContent = testHtmlFile
-            .readText()
-            .replace(
-                "KOTLIN_TEST_BROWSER_CONFIG",
-                """
-                    window.myPluginConfig = { "hello": "world" }
-                """.trimIndent()
-            )
-        testHtmlFile.writeText(testHtmlFileContent)
-    }
-}
-
-@OptIn(ExperimentalJsTestDsl::class)
-fun postProcessBundleLocation() {
-    kotlin.targets
-        .withType(KotlinJsIrTarget::class)
-        .configureEach {
-            val target = this
-            target.subTargets.configureEach {
-                val subtarget = this
-                if (subtarget is KotlinJsBrowserDsl) {
-                    // Warning! This enables the new test pipeline, disabling Karma
-                    val testDsl = subtarget.test
-
-                    afterEvaluate {
-                        val allRunners = testDsl.allBrowserRunners.get()
-                        allRunners.get("post-process-bundle")
-
-                        val defaultLocation = testDsl.defaultTestsLocationProvider
-                        val postProcessTask = tasks.register<BundlePostProcessor>("postProcessBundle") {
-                            inputDir = defaultLocation.flatMap { it.bundleLocation }
-                        }
-                    }
-                }
-            }
-        }
-}
-```
-
-Here, the test location (through the `KotlinJsTestsLocation` interface) exposes the directory with the generated test
-bundle (`bundleLocation`), the name of the test page (`testHtmlFileName`), and the URL that the browser opens (`url`).
+  for example, to inject your own configuration into `test.html`.
 
 Keep the following limitations in mind when you build plugins using these APIs:
 
@@ -308,7 +279,8 @@ Keep the following limitations in mind when you build plugins using these APIs:
 
 ## Leave feedback
 
-The new Kotlin DSL is in active development. New features, for example debugging, are planned for the next Kotlin releases. 
+The new Kotlin DSL for Playwright is in active development. New features, for example debugging, are planned for the next
+Kotlin releases.
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897) or in the [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
 Slack channel.

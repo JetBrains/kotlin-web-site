@@ -353,8 +353,8 @@ Once the build of your project has succeeded, the `webpack-dev-server` will auto
 The Kotlin Multiplatform Gradle plugin automatically sets up a test infrastructure for projects. It downloads
 and installs the required test runners and other dependencies.
 
-For browser projects, [Karma](#karma) test runner and [Kotlin DSL](#kotlin-dsl) are available.
-For Node.js projects, the [Mocha](#node-js) test framework is used.
+For browser projects, you can choose between the [Karma](#karma) test runner and the [Kotlin DSL for Playwright](#playwright).
+For Node.js projects, the [Mocha](#node-js) test framework is available.
 
 The plugin also provides useful testing features, for example:
 
@@ -365,7 +365,7 @@ The plugin also provides useful testing features, for example:
 ### Karma
 
 > The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
-> expected. As an alternative, try out the new [Kotlin DSL for browser testing](#kotlin-dsl). 
+> expected. As an alternative for browser testing, try out the new solution that enables [Playwright through Kotlin DSL](#playwright). 
 > 
 {style="warning"}
 
@@ -414,44 +414,49 @@ at build time.
 
 For more information on the Karma configuration, see the [Karma's documentation](https://karma-runner.github.io/6.4/config/configuration-file.html).
 
-### Kotlin DSL
+### Playwright
 <primary-label ref="experimental-opt-in"/>
 
-Kotlin offers an experimental DSL for running Kotlin/JS tests in a browser environment.
-The Kotlin DSL manages different tools under the hood:
+Kotlin provides access to the Playwright framework for running Kotlin/JS tests in a browser environment through an
+experimental Kotlin DSL. This solution manages different tools under the hood:
 
-* [Mocha](https://mochajs.org/) as a test runner.
-* [Webpack](https://webpack.js.org/) as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
-* [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports the Chromium, Firefox,
+* [Playwright](https://playwright.dev/) acts as a browser driver and a distribution manager that supports the Chromium, Firefox,
   and WebKit (Safari) browser engines.
+* [Mocha](https://mochajs.org/) acts as a test runner.
+* [Webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-To try out the new DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
+To try out Kotlin DSL for Playwright, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
 
 ```kotlin
+import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
+import kotlin.time.Duration.Companion.seconds
+
 kotlin {
     js {
         browser {
             @OptIn(ExperimentalJsTestDsl::class)
-            // Add and configure the new test{} block
             test {
-                // Set up options common for all browsers
-                browserDefaults {
-                    timeout = Duration.ofSeconds(2)
-                    headless = true
-                  }
-                // Enable Chromium test runner
-                chromium {
-                    // Override the common timeout option
-                    timeout = Duration.ofSeconds(5)
-                    launchArgs.add("--no-sandbox")
+                // Configures the default timeout for all runners with kotlin.Duration
+                timeout = 30.seconds
+                // Configures headless mode using Gradle providers
+                headless = providers
+                    .environmentVariable("IS_IN_CI")
+                    .map { it.toBoolean() }
+                    .orElse(false)
+                // Enables and configures a custom Chromium runner
+                chromium("chromium-no-webgl2") {
+                    // Overrides the default timeout for this runner
+                    timeout = 10.seconds
+
+                    // Chromium-specific extra launch argument
+                    launchArgs.add("--disable-webgl2")
                 }
-                // Enable Firefox test runner
+                // Enables the Firefox runner
                 firefox()
                 // Enable WebKit (Safari) test runner
                 webkit()
-                // Enable and configure an additional WebKit test runner
-                webkit("noheadless") {
-                    // Set up custom options
+                // Enables and configures a custom WebKit runner
+                webkit("headful") {
                     headless = false
                 }
             }
@@ -460,7 +465,7 @@ kotlin {
 }
 ```
 
-For more information on the Kotlin DSL configuration, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
+For more information on the Playwright configuration, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
 
 ### Node.js {id="node-js-test-task"}
 
