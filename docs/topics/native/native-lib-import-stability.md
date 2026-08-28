@@ -230,38 +230,39 @@ Swift library into a Kotlin project:
    }
    ```
 
-2. On the Kotlin side, pass the platform-specific implementation from `MainViewController`, then receive it in the `App` composable as a parameter, and use it where needed:
+2. On the Kotlin side, pass the platform-specific implementation from `MainViewController` to the `App` composable as a
+  parameter and use it where needed:
 
-    ```kotlin
-    // App.kt
-    @Composable
-    fun App(cryptoProvider: CryptoProvider) {
-        // Example usage inside your UI
-        val hashed = cryptoProvider.hashMD5("Hello, world!")
-        androidx.compose.material3.Text("Compose: $hashed")
-    }
-    ```
+   ```kotlin
+   // App.kt
+   @Composable
+   fun App(cryptoProvider: CryptoProvider) {
+       // Example usage inside your UI
+       val hashed = cryptoProvider.hashMD5("Hello, world!")
+       androidx.compose.material3.Text("Compose: $hashed")
+   }
+   ```
 
-    ```kotlin
-    // MainViewController.kt
-    fun MainViewController(cryptoProvider: CryptoProvider) = ComposeUIViewController {
-        App(cryptoProvider)
-    }
-    ```
+   ```kotlin
+   // MainViewController.kt
+   fun MainViewController(cryptoProvider: CryptoProvider) = ComposeUIViewController {
+       App(cryptoProvider)
+   }
+   ```
 
 3. On the Swift side, implement the MD5-hashing functionality using a pure Swift library, CryptoKit:
 
-    ```swift
-    // iosApp/ContentView.swift
-    import CryptoKit
-    
-    class IosCryptoProvider: CryptoProvider {
-        func hashMD5(input: String) -> String {
-            guard let data = input.data(using: .utf8) else { return "failed" }
-            return Insecure.MD5.hash(data: data).description
-        }
-    }
-    ```
+   ```swift
+   // iosApp/ContentView.swift
+   import CryptoKit
+  
+   class IosCryptoProvider: CryptoProvider {
+       func hashMD5(input: String) -> String {
+           guard let data = input.data(using: .utf8) else { return "failed" }
+           return Insecure.MD5.hash(data: data).description
+       }
+   }
+   ```
 
 4. Pass the Swift implementation to the Kotlin component:
 
@@ -321,8 +322,8 @@ Swift library into a Kotlin project:
 </tab>
 <tab title="Swift export">
 
-1. On the Kotlin side, create an interface, a function that accepts it, and an `open` base class for the Swift
-   implementation to inherit from:
+1. On the Kotlin side, declare an interface, a function that accepts it, and an `open` base class that the Swift
+   implementation can inherit from:
 
    ```kotlin
    // CryptoProvider.kt
@@ -351,11 +352,12 @@ Swift library into a Kotlin project:
 
    let provider = IosCryptoProvider()
 
-   // The call is dispatched to the Swift implementation
+   // Calls the Kotlin function, which calls hashMD5() back in Swift
    print(processHash(provider: provider, input: "Hello, world!"))
    ```
 
-When Kotlin receives the Swift object, it treats it like an implementation of a regular interface, executing Swift code.
+When Kotlin receives the Swift object, it treats it like an implementation of a regular Kotlin interface, calling
+the Swift code directly.
 
 </tab>
 </tabs>

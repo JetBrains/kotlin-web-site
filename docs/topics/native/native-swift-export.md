@@ -516,15 +516,15 @@ suspend fun runOnMain(): Int = withContext(Dispatchers.Main) {
 
 ## Cross-language inheritance
 
-Swift export supports cross-language inheritance. It's useful for importing pure Swift libraries using the [reverse import](native-lib-import-stability.md#swift-library-import)
+Swift export supports cross-language inheritance. A common use case for this feature is the [reverse import](native-lib-import-stability.md#swift-library-import)
 pattern, where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
 This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
 
-To implement the pattern, you need to declare a Kotlin superclass for the Swift implementation to inherit from and a
-Kotlin interface. You then implement it the interface in Swift and then pass the Swift object to Kotlin
+To implement the pattern, you need to declare a Kotlin interface and a Kotlin superclass that the Swift implementation
+can inherit from. You then implement the interface in Swift and pass the Swift object to Kotlin
 functions that accept that interface. For example, for the CryptoKit library:
 
-1. On the Kotlin side, declare an `open` base class and a Kotlin interface, a function that accepts it:
+1. On the Kotlin side, declare an interface, a function that accepts it, and an `open` base class:
 
     ```kotlin
     // Kotlin
@@ -553,11 +553,12 @@ functions that accept that interface. For example, for the CryptoKit library:
 
     let provider = IosCryptoProvider()
     
-    // The call is dispatched to the Swift implementation
+    // Calls the Kotlin function, which calls hashMD5() back in Swift
     print(processHash(provider: provider, input: "Hello, world!"))
     ```
 
-When Kotlin receives a Swift object, it treats it like an implementation of a regular interface, executing Swift code.
+When Kotlin receives the Swift object, it treats it like an implementation of a regular Kotlin interface, calling
+the Swift code directly.
 
 ## Evolution of Swift export
 
