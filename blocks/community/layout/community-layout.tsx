@@ -13,7 +13,6 @@ import { StickyHeader } from '../../../components/sticky-header/sticky-header';
 import styles from './community-layout.module.css';
 import releasesDataRaw from '../../../data/releases.yml';
 import searchConfig from '../../../search-config.json';
-import { CommunityAddEvent } from '../event-list/event-list';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -112,15 +111,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                         items={items}
                         linkHandler={linkHandler}
                         mobileOverview={false}
-                    >
-                        {pathname === '/community/events/' && (
-                            <CommunityAddEvent
-                                className={styles.add}
-                                size="s"
-                                href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
-                            />
-                        )}
-                    </TopMenu>
+                    />
                 </div>
             </StickyHeader>
 
