@@ -33,6 +33,7 @@ test.describe('Kotlin Effect anniversary meetups block', () => {
         // an empty url in anniversary-meetups.yml must not produce <a href=""
         // target="_blank">, which reopens the landing page in a new tab
         const emptyLinks = await page
+            .locator(testSelector('meetups-block'))
             .locator('a[target="_blank"]')
             .evaluateAll((anchors) => anchors.filter((anchor) => !anchor.getAttribute('href')).length);
         expect(emptyLinks).toBe(0);

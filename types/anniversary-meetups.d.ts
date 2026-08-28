@@ -6,7 +6,7 @@ interface AnniversaryMeetup {
     country: string;
     /** ISO date, YYYY-MM-DD */
     date: string;
-    /** Empty until the organizer's event page is public. */
-    url: string;
+    /** Omitted, empty or null until the organizer's event page is public. */
+    url?: string | null;
     position: UserGroupPosition;
 }
