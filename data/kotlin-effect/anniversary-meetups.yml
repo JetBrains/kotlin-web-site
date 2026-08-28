@@ -1,8 +1,9 @@
 # Kotlin turns 15 anniversary meetups, shown on /kotlin-effect/ (KTL-4795).
-# Ordered by date. Coordinates for hosts that are also listed in data/user-groups.yml
-# are copied from there; the rest are city coordinates.
-# Leave `url` empty until the organizer's event page is public — the block then renders
-# the name as plain text instead of a link.
+# Kept in date order for readability; the block sorts by date anyway, so a row appended out
+# of order still renders correctly. Coordinates for hosts that are also listed in
+# data/user-groups.yml are copied from there; the rest are city coordinates.
+# Leave `url` empty (or drop the line) until the organizer's event page is public — the block
+# then renders the name as plain text instead of a link.
 - name: Kotlin User Group Berlin
   city: Berlin
   country: Germany

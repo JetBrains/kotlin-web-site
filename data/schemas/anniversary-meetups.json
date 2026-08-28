@@ -21,7 +21,10 @@
         "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
       },
       "url": {
-        "type": "string"
+        "type": [
+          "string",
+          "null"
+        ]
       },
       "position": {
         "type": "object",
@@ -50,7 +53,6 @@
       "city",
       "country",
       "date",
-      "url",
       "position"
     ]
   }

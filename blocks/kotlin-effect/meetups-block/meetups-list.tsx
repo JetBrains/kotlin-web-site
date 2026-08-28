@@ -14,19 +14,24 @@ interface MeetupMonth {
     meetups: AnniversaryMeetupEntity[];
 }
 
+// Sorts rather than trusting anniversary-meetups.yml to be date-ordered: a row appended out of
+// order would otherwise open a second group for a month already emitted, duplicating both the
+// heading and the React `key` below. 'YYYY-MM-DD' sorts chronologically as a plain string.
 function groupByMonth(meetups: AnniversaryMeetupEntity[]): MeetupMonth[] {
     const months: MeetupMonth[] = [];
 
-    meetups.forEach((meetup) => {
-        const title = formatMeetupMonth(meetup.date);
-        const month = months[months.length - 1];
+    [...meetups]
+        .sort((a, b) => a.date.localeCompare(b.date))
+        .forEach((meetup) => {
+            const title = formatMeetupMonth(meetup.date);
+            const month = months[months.length - 1];
 
-        if (month?.title === title) {
-            month.meetups.push(meetup);
-        } else {
-            months.push({ title, meetups: [meetup] });
-        }
-    });
+            if (month?.title === title) {
+                month.meetups.push(meetup);
+            } else {
+                months.push({ title, meetups: [meetup] });
+            }
+        });
 
     return months;
 }
