@@ -361,6 +361,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
 
+> As an extension of this exercise, try using class-level functions in companion objects as factory methods to construct
+> instances of a class. For an example of this pattern and more information, see [](object-declarations.md#companion-objects).
+>
+{style="tip"}
+
 <seealso></seealso>
 
 <list columns="2" id="tour-nav">
