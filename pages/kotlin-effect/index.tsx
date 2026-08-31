@@ -37,14 +37,12 @@ function Index() {
 
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
                     <OfferBlock />
-                    <MeetupsBlock />
                     {/*<ReportBlock />*/}
                     {/*<NoteBlock />*/}
                     <PostcardBlock />
+                    <MeetupsBlock />
                 </div>
             </div>
-
-
         </LandingLayout>
     );
 }
