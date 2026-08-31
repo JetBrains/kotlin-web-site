@@ -13,9 +13,17 @@ in the Air documentation.
 2. Activates the yarn release pinned by the `packageManager` field in
    [`package.json`](../../package.json) (`1.22.22`).
 3. Writes `~/.air-kotlinlang-env.sh` and sources it from `~/.bashrc` and `~/.profile`, so the agent
-   session gets the same Node and yarn. The script runs in a separate process, so exports made in
-   it are not inherited by the agent — this file is the way across. `~/.profile` is hooked as well
-   because the stock Ubuntu `~/.bashrc` returns early in non-interactive shells.
+   session gets the same Node and yarn, plus `WEBTEAM_UI_NPM_TOKEN`. The script runs in a separate
+   process, so exports made in it are not inherited by the agent — this file is the way across.
+   `~/.profile` is hooked as well because the stock Ubuntu `~/.bashrc` returns early in
+   non-interactive shells.
+
+   The token has to be forwarded explicitly, because the agent needs to run `yarn` itself and
+   [`.npmrc`](../../.npmrc) interpolates `${WEBTEAM_UI_NPM_TOKEN}` — yarn aborts with
+   `Failed to replace env in config` when the variable is absent, so a token stored anywhere other
+   than the environment does not help. The file is rewritten from scratch on every launch and holds
+   mode `600`; because it is rewritten rather than appended to, resuming a task cannot accumulate
+   duplicate entries or leave a stale token behind.
 4. Runs `yarn install --frozen-lockfile`, then `yarn generate-data` to produce the gitignored
    `public/data/` JSON.
 5. Downloads the Playwright Chromium browser, the default project in
