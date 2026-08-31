@@ -319,6 +319,13 @@ make sure to check the actual result because the compiler may infer a type that 
 In the example above, if you want the `double()` function to return `Number` instead of `Int`, 
 you have to declare this explicitly.
 
+If you use a `return` statement inside an expression body, you must specify the return type explicitly:
+
+```kotlin
+fun getDisplayNameOrDefault(userId: String?): String =
+    getDisplayName(userId ?: return "default")
+```
+
 ### Unit-returning functions
 
 If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
@@ -385,13 +392,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
-
-You can use a `return` statement inside an expression body if the function's return type is specified explicitly:
-
-```kotlin
-fun getDisplayNameOrDefault(userId: String?): String =
-    getDisplayName(userId ?: return "default")
-```
 
 ### Variable number of arguments (varargs)
 
