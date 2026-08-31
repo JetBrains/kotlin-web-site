@@ -228,6 +228,15 @@ There are also additional options to run tests:
 - `yarn test:e2e:headed` or `yarn test:production:headed` to run tests in headed mode locally.
 - `yarn test:e2e:debug` or `yarn test:production:debug` to run e2e tests in headed mode with debug locally.
 
+### What CI runs
+
+- `yarn test:ci` — every spec under `test/`. This is what the *E2E Branch tests* build runs
+  (through `docker-compose-e2e.yml`) against the `dist/` output of *Build site pages*. A new spec
+  file added anywhere under `test/` is picked up by this build automatically.
+- `yarn test:ci:production` — the subset that is meaningful against the live site
+  (`test/production`, `test/e2e/grammar/`, `test/e2e/docs/`). This is what the scheduled
+  *E2E Test in Production* build runs against https://kotlinlang.org.
+
 To ease the process of adding and maintaining e2e tests:
 - `yarn test:e2e:new` to generate the test for the user interactions.
 - `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.

@@ -38,7 +38,7 @@ object E2EProductionTest : E2ERunner({
             // language=sh
             scriptContent = """
                 yarn install --immutable
-                yarn test:ci
+                yarn test:ci:production
             """.trimIndent()
             dockerImage = "mcr.microsoft.com/playwright:v1.57.0"
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
