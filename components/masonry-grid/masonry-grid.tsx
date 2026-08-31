@@ -48,6 +48,11 @@ function isSameDistribution<T>(current: Distribution<T> | null, next: Distributi
     );
 }
 
+// A card is only as tall as its media, so the grid is not measurable until the media has arrived.
+function hasLoadingImages(container: HTMLElement): boolean {
+    return Array.from(container.querySelectorAll('img')).some((image) => !image.complete);
+}
+
 export function MasonryGrid<T>({
     items,
     columnCount = 2,
@@ -61,6 +66,8 @@ export function MasonryGrid<T>({
     onLayoutReady
 }: MasonryGridProps<T>) {
     const [isMobile, setIsMobile] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
 
     // Refs to the rendered items, indexed by the item's position in `items`
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -89,6 +96,20 @@ export function MasonryGrid<T>({
 
     const effectiveColumnCount = Math.max(1, isMobile ? 1 : columnCount);
 
+    // Cards reflow when the grid gets wider or narrower, so a width change re-opens the measuring window
+    const [containerWidth, setContainerWidth] = useState(0);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        // Rounded, so that a subpixel width does not keep re-triggering the measurement
+        const observer = new ResizeObserver(([entry]) => setContainerWidth(Math.round(entry.contentRect.width)));
+        observer.observe(container);
+
+        return () => observer.disconnect();
+    }, []);
+
     // Until the items have been measured, fall back to a simple cyclic distribution to avoid empty UI
     const cyclicColumns = useMemo(
         () =>
@@ -115,41 +136,75 @@ export function MasonryGrid<T>({
     );
 
     // Measure the rendered items and redistribute them. Card heights only settle once their images
-    // have loaded, so the measurement is repeated whenever an item changes size.
+    // have loaded, so the measurement is repeated until the last one arrives — and then stopped.
+    // Redistributing moves cards between columns, which React implements as a remount, so a grid that
+    // kept re-measuring would rearrange itself under a reader and reset the state of the cards it moves.
+    // Past that point the layout is only recomputed when `items`, the column count or the width change,
+    // each of which re-runs this effect.
     useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
         itemRefs.current.length = items.length;
 
         let frame = 0;
-        const redistribute = () => {
+
+        const measure = () => {
+            const heights = items.map((_, index) => itemRefs.current[index]?.offsetHeight ?? 0);
+            const next: Distribution<T> = {
+                source: items,
+                columnCount: effectiveColumnCount,
+                columns: distributeByHeight(heights, effectiveColumnCount, gap ?? 0)
+            };
+            setDistribution((current) => (isSameDistribution(current, next) ? current : next));
+        };
+
+        const stopMeasuring = () => {
+            window.cancelAnimationFrame(frame);
+            container.removeEventListener('load', remeasure, true);
+            container.removeEventListener('error', remeasure, true);
+            window.removeEventListener('load', onWindowLoad);
+        };
+
+        // The layout is final: hand it to `onLayoutReady` and leave it alone from here on.
+        const settle = () => {
+            stopMeasuring();
+            onLayoutReadyRef.current?.();
+        };
+
+        // Coalesced into a single frame, so a batch of images arriving together is measured once.
+        function remeasure() {
             window.cancelAnimationFrame(frame);
             frame = window.requestAnimationFrame(() => {
-                const heights = items.map((_, index) => itemRefs.current[index]?.offsetHeight ?? 0);
-                const next: Distribution<T> = {
-                    source: items,
-                    columnCount: effectiveColumnCount,
-                    columns: distributeByHeight(heights, effectiveColumnCount, gap ?? 0)
-                };
-                setDistribution((current) => (isSameDistribution(current, next) ? current : next));
-                onLayoutReadyRef.current?.();
+                const isLastMeasurement = !hasLoadingImages(container);
+                measure();
+                if (isLastMeasurement) settle();
             });
-        };
+        }
 
-        const observer = new ResizeObserver(redistribute);
-        itemRefs.current.forEach((element) => element && observer.observe(element));
-        redistribute();
-
-        return () => {
+        // Whatever has not arrived by now never will, so this is as final as the layout gets.
+        function onWindowLoad() {
             window.cancelAnimationFrame(frame);
-            observer.disconnect();
-        };
-        // `columns` is a dependency because moving an item to another column remounts it,
-        // which leaves the observer watching detached nodes.
-    }, [items, columns, effectiveColumnCount, gap]);
+            measure();
+            settle();
+        }
+
+        // `load` and `error` do not bubble, but they do reach a capturing listener on the grid. Listening
+        // there rather than on each image keeps working for the images React remounts with their card.
+        container.addEventListener('load', remeasure, true);
+        container.addEventListener('error', remeasure, true);
+        // Backstop for images that never resolve, and for those the browser decided not to fetch at all.
+        if (document.readyState !== 'complete') window.addEventListener('load', onWindowLoad);
+
+        remeasure();
+
+        return stopMeasuring;
+    }, [items, effectiveColumnCount, gap, containerWidth]);
 
     const style = gap !== undefined ? { gap: `${gap}px` } : undefined;
 
     return (
-        <div className={cn(styles.grid, className)} style={style}>
+        <div ref={containerRef} className={cn(styles.grid, className)} style={style}>
             {columns.map((column, columnIndex) => (
                 <div
                     key={columnIndex}

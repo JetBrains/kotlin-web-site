@@ -173,6 +173,28 @@ test.describe('Case-studies grid layout', async () => {
         expect(spaceBelowFooter).toBeLessThanOrEqual(1);
     });
 
+    test('Case-studies: the grid stops rearranging its cards once the images have loaded', async ({ page }) => {
+        await serveCardImages(page);
+
+        const caseStudiesPage = new CaseStudiesPage(page);
+        await caseStudiesPage.init();
+        await caseStudiesPage.waitForGridLayout();
+
+        const arrangement = await caseStudiesPage.columnCardIds();
+        expect(arrangement.flat().length).toBeGreaterThan(0);
+
+        // React remounts every card that changes column, which throws away what the reader was doing
+        // with it — an opened video, a half-read story. Once the layout is final the grid has to hold
+        // still, however the cards are resized afterwards.
+        await caseStudiesPage.gridItem.first().evaluate((card: HTMLElement) => {
+            card.style.paddingBottom = '600px';
+        });
+        // There is nothing to wait for: the assertion is that no redistribution is coming.
+        await page.waitForTimeout(2000);
+
+        expect(await caseStudiesPage.columnCardIds()).toEqual(arrangement);
+    });
+
     test('Case-studies: every case study is rendered exactly once', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();

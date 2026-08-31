@@ -65,6 +65,17 @@ export class CaseStudiesPage implements PageWithGlobalSearch {
     }
 
     /**
+     * Ids of the case studies in each column, top to bottom, i.e. the arrangement the grid settled on.
+     */
+    async columnCardIds(): Promise<string[][]> {
+        return this.gridColumn.evaluateAll((columns) =>
+            columns.map((column) =>
+                Array.from(column.querySelectorAll('[data-testid="case-studies-card"]'), (card) => card.id)
+            )
+        );
+    }
+
+    /**
      * Waits until the grid stops redistributing its cards, i.e. the column heights are the same in
      * two consecutive samples.
      */
