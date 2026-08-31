@@ -13,7 +13,11 @@ const reporter: ReporterDescription[] = isDevelopment ? [['list']] : [
 ];
 
 const retries = isDevelopment ? 0 : 2;
-const timeout = isDevelopment ? 10000 : 5000;
+
+// Assertion timeout. CI agents are slower than a developer machine, so this budget must never be
+// tighter in CI than it is locally - it used to be half, which turned slow pages into failures
+// that nobody could reproduce.
+const timeout = 10000;
 
 const forbidOnly = !isDevelopment;
 

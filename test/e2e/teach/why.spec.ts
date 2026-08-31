@@ -77,7 +77,7 @@ test.describe('Why Teach Kotlin page appearance and functionality', async () => 
             if (quotesSize < 2) {
                 const controls = quotesSlider.locator('[class*=ktl-quotes-slider-module_control_]');
                 expect(await controls.count(), `Controls for section "${label}" should not exist`).toBe(0);
-                return;
+                continue;
             }
 
             // Check for navigation controls - but don't fail if they don't exist

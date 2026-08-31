@@ -88,18 +88,19 @@ test.describe('Footer kotlin ecosystem buttons', () => {
         await expect(newPage.url()).toContain('https://www.jetbrainsmerchandise.com/view-all.html?brand=32');
     });
 
-    test('Opt-Out button should navigate to Opt-Out page', async ({ page, baseURL }) => {
+    test('Opt-Out button should open the cookie settings dialog', async ({ page, baseURL }) => {
+        // The CookieHub dialog this test asserts on is only served on production. Skipping
+        // reports that honestly; wrapping the assertions in `if (isProduction(baseURL))` made
+        // the test pass everywhere else while checking nothing beyond the link being visible.
+        test.skip(!isProduction(baseURL), 'The cookie settings dialog is only served on production');
+
         const optOutButton = page.getByTestId('footer').getByRole('link', { name: 'Opt-Out' });
         await expect(optOutButton).toBeVisible();
         await optOutButton.click();
 
-        if (isProduction(baseURL)) {
-            await test.step('check Opt-Out popup', async () => {
-                const cookieSettingsPopup = page.locator('#ch2-settings-dialog');
-                await expect(cookieSettingsPopup).toBeVisible();
-                await expect(cookieSettingsPopup).toContainText('Cookie Settings');
-            });
-        }
+        const cookieSettingsPopup = page.locator('#ch2-settings-dialog');
+        await expect(cookieSettingsPopup).toBeVisible();
+        await expect(cookieSettingsPopup).toContainText('Cookie Settings');
     });
 
     // Click on the JetBrains logo button in footer.

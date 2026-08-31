@@ -9,7 +9,9 @@ test.describe('Community Kotlin User Groups page', () => {
             const kotlinUserGroupsButton = page.getByRole('link', { name: 'Overview' });
             await expect(kotlinUserGroupsButton).toBeVisible();
             await kotlinUserGroupsButton.click();
-            await expect(page.url()).toContain('/community/');
+            // Not toContain('/community/'): the page this test starts on is
+            // /community/user-groups/, which contains that substring already.
+            await expect(page).toHaveURL(/\/community\/$/);
         });
 
         test('KUG Guidelines button opens the related page', async ({ page }) => {
