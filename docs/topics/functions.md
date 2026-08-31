@@ -291,14 +291,98 @@ mergeStrings(strings = arrayOf("a", "b", "c"))
 
 ### Return types
 
-When you declare a function with a block body (by putting instructions within curly braces `{}`),
-you must always specify a return type explicitly.
-The only exception is when they return `Unit`,
-[in which case specifying the return type is optional](#unit-returning-functions).
+When you declare a function with a block body (by putting instructions within curly braces `{}`), you must always specify
+a return type explicitly. The only exception is when the function returns `Unit`,[in which case specifying the return type is optional](#unit-returning-functions).
 
-Kotlin doesn't infer return types for functions with block bodies.
-Their control flow can be complex, which makes the return type unclear to the reader and sometimes even to the compiler.
-However, Kotlin can infer the return type for [single-expression functions](#single-expression-functions) if you don't specify it.
+Kotlin doesn't infer return types for functions with block bodies. Their control flow can be complex, which makes the
+return type unclear to the reader and sometimes even to the compiler. However, Kotlin can infer the return type for
+[single-expression functions](#single-expression-functions) if you don't specify it.
+
+Kotlin functions return a single value, but that value can contain multiple pieces of data. For ways to represent these
+values, see [Return multiple values](#return-multiple-values).
+
+#### Return multiple values
+
+When you need to return multiple related values with distinct meanings, declare a [data class](data-classes.md), even if you only use
+it with one function:
+
+```kotlin
+data class OrderSummary(
+    val subtotal: Double,
+    val tax: Double,
+)
+
+fun calculateOrderSummary(prices: List<Double>): OrderSummary {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return OrderSummary(subtotal, tax)
+}
+
+fun main() {
+    val summary = calculateOrderSummary(listOf(12.50, 8.00, 4.50))
+
+    println(summary.subtotal)
+    // 25.0
+    println(summary.tax)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-data-class"}
+
+A data class works well when you need to return multiple values with distinct meanings. If the returned values
+are of the same kind and you want to handle them as a group, consider returning a collection instead:
+
+```kotlin
+data class Person(val name: String)
+
+val friendGroups = listOf(
+    listOf(Person("Alice"), Person("Bob")),
+    listOf(Person("Charlie"), Person("Diana"), Person("Eve")),
+    listOf(Person("Frank"))
+)
+
+fun findLargestGroupOfFriends(): List<Person> {
+    return friendGroups.maxByOrNull { it.size } ?: emptyList()
+}
+
+fun main() {
+    val largestGroup = findLargestGroupOfFriends()
+
+    println(largestGroup.map { it.name })
+    // [Charlie, Diana, Eve]
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4" id="return-multiple-values-list"}
+
+If you need to return a fixed number of values, you can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/)
+data classes from the standard library. However, their properties have generic names such as `first`, `second`, and `third`,
+which can make the result difficult to understand.
+
+For example, although the `calculateOrderTotals()` function returns a `Pair`, it's not clear what each `Double` represents:
+
+```kotlin
+fun calculateOrderTotals(prices: List<Double>): Pair<Double, Double> {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return Pair(subtotal, tax)
+}
+
+fun main() {
+    val totals = calculateOrderTotals(listOf(12.50, 8.00, 4.50))
+
+    // What does 'first' mean?
+    println(totals.first)
+    // 25.0
+  
+    // What does 'second' mean?
+    println(totals.second)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
+
+For results with distinct meanings, prefer a data class with descriptive property names, as demonstrated in the 
+[`OrderSummary` data class example](#return-multiple-values).
 
 ### Single-expression functions
 
