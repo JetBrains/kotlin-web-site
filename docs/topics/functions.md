@@ -48,7 +48,10 @@ You must separate parameters using commas and give each parameter a type explici
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-Inside the body of a function, received arguments are read-only (implicitly declared as `val`):
+When you pass an object to a function through its parameters, the compiler passes a copy of the reference to that object.
+The copied reference points to the same object, so the function can modify the object's mutable state.
+
+Function parameters are read-only inside the function body (implicitly declared as `val`), so you can't reassign them:
 
 ```kotlin
 fun powerOf(number: Int, exponent: Int): Int {
