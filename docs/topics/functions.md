@@ -294,6 +294,85 @@ Kotlin doesn't infer return types for functions with block bodies.
 Their control flow can be complex, which makes the return type unclear to the reader and sometimes even to the compiler.
 However, Kotlin can infer the return type for [single-expression functions](#single-expression-functions) if you don't specify it.
 
+#### Return multiple values
+
+A Kotlin function returns a single value, but that value can contain multiple pieces of data. When you need to return 
+multiple related values with distinct meanings, declare a [data class](data-classes.md), even if you only use it with one function:
+
+```kotlin
+data class OrderSummary(
+    val subtotal: Double,
+    val tax: Double,
+)
+
+fun calculateOrderSummary(prices: List<Double>): OrderSummary {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return OrderSummary(subtotal, tax)
+}
+
+fun main() {
+    val summary = calculateOrderSummary(listOf(12.50, 8.00, 4.50))
+
+    println(summary.subtotal)
+    // 25.0
+    println(summary.tax)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-data-class"}
+
+A data class covers most cases where you need to return multiple values with distinct meanings. If the returned values
+are of the same kind and you want to handle them as a group, consider returning a collection instead:
+
+```kotlin
+data class Person(val name: String)
+
+val friendGroups = listOf(
+    listOf(Person("Alice"), Person("Bob")),
+    listOf(Person("Charlie"), Person("Diana"), Person("Eve")),
+    listOf(Person("Frank"))
+)
+
+fun findLargestGroupOfFriends(): List<Person> {
+    return friendGroups.maxByOrNull { it.size } ?: emptyList()
+}
+
+fun main() {
+    val largestGroup = findLargestGroupOfFriends()
+
+    println(largestGroup.map { it.name })
+    // [Charlie, Diana, Eve]
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4" id="return-multiple-values-list"}
+
+For a small group of values whose meaning is clear from the context, you can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/).
+These types can contain values of different types. However, their properties have generic names such as `first`, `second`, and `third`,
+which don't describe what each value represents. Use a data class when descriptive property names would make the
+result easier to understand. For example:
+
+```kotlin
+fun calculateOrderTotals(prices: List<Double>): Pair<Double, Double> {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return Pair(subtotal, tax)
+}
+
+fun main() {
+    val totals = calculateOrderTotals(listOf(12.50, 8.00, 4.50))
+
+    // What does 'first' mean?
+    println(totals.first)
+    // 25.0
+  
+    // What does 'second' mean?
+    println(totals.second)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
+
 ### Single-expression functions
 
 When the function body consists of a single expression, you can omit the curly braces and specify the body after an `=` symbol:
