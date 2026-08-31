@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useMemo, ReactNode, useEffect, useRef, useState } from 'react';
+import { useCallback, useMemo, ReactNode, useEffect, useRef, useState } from 'react';
 import styles from './masonry-grid.module.css';
 
 export interface MasonryGridProps<T> {
@@ -15,10 +15,43 @@ export interface MasonryGridProps<T> {
     onLayoutReady?: () => void;
 }
 
+// Greedy placement: every item goes to the currently shortest column.
+function distributeByHeight(heights: number[], columnCount: number, gap: number): number[][] {
+    const cols: number[][] = Array.from({ length: columnCount }, () => []);
+    const colHeights: number[] = Array.from({ length: columnCount }, () => 0);
+
+    heights.forEach((height, index) => {
+        let minIndex = 0;
+        for (let c = 1; c < columnCount; c++) {
+            if (colHeights[c] < colHeights[minIndex]) minIndex = c;
+        }
+        cols[minIndex].push(index);
+        // Add gap except for the very first item in a column
+        colHeights[minIndex] += (colHeights[minIndex] > 0 ? gap : 0) + height;
+    });
+
+    return cols;
+}
+
+// The distribution holds indexes into `items`, so it is only usable for the list it was measured on.
+interface Distribution<T> {
+    source: T[];
+    columnCount: number;
+    columns: number[][];
+}
+
+function isSameDistribution<T>(current: Distribution<T> | null, next: Distribution<T>): boolean {
+    if (current === null) return false;
+    if (current.source !== next.source || current.columnCount !== next.columnCount) return false;
+    return current.columns.every(
+        (column, i) => column.length === next.columns[i].length && column.every((index, j) => index === next.columns[i][j])
+    );
+}
+
 export function MasonryGrid<T>({
     items,
     columnCount = 2,
-    gap, 
+    gap,
     renderItem,
     getKey,
     className,
@@ -29,12 +62,11 @@ export function MasonryGrid<T>({
 }: MasonryGridProps<T>) {
     const [isMobile, setIsMobile] = useState(false);
 
-    // Container refs for measuring and responsive recalculation
-    const gridRef = useRef<HTMLDivElement | null>(null);
-    const measureWrapperRef = useRef<HTMLDivElement | null>(null);
-    const measureItemRefs = useRef<(HTMLDivElement | null)[]>([]);
+    // Refs to the rendered items, indexed by the item's position in `items`
+    const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const [containerWidth, setContainerWidth] = useState<number>(0);
+    const onLayoutReadyRef = useRef(onLayoutReady);
+    onLayoutReadyRef.current = onLayoutReady;
 
     // Debounce helper
     const debounce = (fn: () => void, ms: number) => {
@@ -45,16 +77,9 @@ export function MasonryGrid<T>({
         };
     };
 
-    // Track viewport breakpoint and container width
+    // Track viewport breakpoint
     useEffect(() => {
-        const handleResize = () => {
-            if (typeof window !== 'undefined') {
-                setIsMobile(window.innerWidth <= mobileBreakpoint);
-                if (gridRef.current) {
-                    setContainerWidth(gridRef.current.clientWidth);
-                }
-            }
-        };
+        const handleResize = () => setIsMobile(window.innerWidth <= mobileBreakpoint);
         // Debounced to avoid thrashing
         const debounced = debounce(handleResize, 150);
         handleResize();
@@ -64,125 +89,85 @@ export function MasonryGrid<T>({
 
     const effectiveColumnCount = Math.max(1, isMobile ? 1 : columnCount);
 
-    // Compute per-column width (used by hidden measuring container)
-    const columnWidth = useMemo(() => {
-        const g = gap ?? 0;
-        if (!containerWidth || effectiveColumnCount <= 0) return 0;
-        return Math.max(0, Math.floor((containerWidth - g * (effectiveColumnCount - 1)) / effectiveColumnCount));
-    }, [containerWidth, effectiveColumnCount, gap]);
+    // Until the items have been measured, fall back to a simple cyclic distribution to avoid empty UI
+    const cyclicColumns = useMemo(
+        () =>
+            items.reduce<number[][]>(
+                (cols, _, index) => {
+                    cols[index % effectiveColumnCount].push(index);
+                    return cols;
+                },
+                Array.from({ length: effectiveColumnCount }, () => [])
+            ),
+        [items, effectiveColumnCount]
+    );
 
-    // State with the final greedy distribution
-    const [greedyColumns, setGreedyColumns] = useState<T[][] | null>(null);
+    const [distribution, setDistribution] = useState<Distribution<T> | null>(null);
+    const isDistributionCurrent =
+        distribution !== null && distribution.source === items && distribution.columnCount === effectiveColumnCount;
+    const columns = isDistributionCurrent ? distribution.columns : cyclicColumns;
 
-    // Measure item heights in a hidden container and distribute greedily
+    const setItemRef = useCallback(
+        (index: number) => (element: HTMLDivElement | null) => {
+            itemRefs.current[index] = element;
+        },
+        []
+    );
+
+    // Measure the rendered items and redistribute them. Card heights only settle once their images
+    // have loaded, so the measurement is repeated whenever an item changes size.
     useEffect(() => {
-        // Avoid running on server or when measurement isn't possible yet
-        if (typeof window === 'undefined') return;
-        if (effectiveColumnCount <= 0) return;
-        if (!measureWrapperRef.current) return;
-        if (columnWidth <= 0) return;
+        itemRefs.current.length = items.length;
 
-        // Defer until browser lays out hidden nodes
-        const id = window.setTimeout(() => {
-            // Collect heights for each item (fallback to 0 if not measurable)
-            const heights = items.map((_, i) => measureItemRefs.current[i]?.offsetHeight ?? 0);
-
-            // Greedy placement by current column total heights
-            const cols: T[][] = Array.from({ length: effectiveColumnCount }, () => []);
-            const colHeights: number[] = Array.from({ length: effectiveColumnCount }, () => 0);
-            const g = gap ?? 0;
-
-            items.forEach((item, i) => {
-                // Find the shortest column
-                let minIndex = 0;
-                let minValue = colHeights[0];
-                for (let c = 1; c < effectiveColumnCount; c++) {
-                    if (colHeights[c] < minValue) {
-                        minIndex = c;
-                        minValue = colHeights[c];
-                    }
-                }
-                cols[minIndex].push(item);
-                const h = heights[i] || 0;
-                // Add gap except for the very first item in a column
-                colHeights[minIndex] += (colHeights[minIndex] > 0 ? g : 0) + h;
+        let frame = 0;
+        const redistribute = () => {
+            window.cancelAnimationFrame(frame);
+            frame = window.requestAnimationFrame(() => {
+                const heights = items.map((_, index) => itemRefs.current[index]?.offsetHeight ?? 0);
+                const next: Distribution<T> = {
+                    source: items,
+                    columnCount: effectiveColumnCount,
+                    columns: distributeByHeight(heights, effectiveColumnCount, gap ?? 0)
+                };
+                setDistribution((current) => (isSameDistribution(current, next) ? current : next));
+                onLayoutReadyRef.current?.();
             });
+        };
 
-            setGreedyColumns(cols);
-            setTimeout(onLayoutReady, 0);
-        }, 0);
+        const observer = new ResizeObserver(redistribute);
+        itemRefs.current.forEach((element) => element && observer.observe(element));
+        redistribute();
 
-        return () => window.clearTimeout(id);
-        // Recompute when items, columns or width change
-    }, [items, effectiveColumnCount, columnWidth, gap]);
-
-    // If we don't have measurements yet, fall back to simple cyclic distribution to avoid empty UI
-    const cyclicColumns = useMemo(() => {
-        const cols: T[][] = Array.from({ length: effectiveColumnCount }, () => []);
-        items.forEach((item, index) => {
-            const columnIndex = index % effectiveColumnCount;
-            cols[columnIndex].push(item);
-        });
-        return cols;
-    }, [items, effectiveColumnCount]);
-
-    const columns = greedyColumns ?? cyclicColumns;
+        return () => {
+            window.cancelAnimationFrame(frame);
+            observer.disconnect();
+        };
+        // `columns` is a dependency because moving an item to another column remounts it,
+        // which leaves the observer watching detached nodes.
+    }, [items, columns, effectiveColumnCount, gap]);
 
     const style = gap !== undefined ? { gap: `${gap}px` } : undefined;
 
     return (
-        <>
-            {/* Visible grid */}
-            <div ref={gridRef} className={cn(styles.grid, className)} style={style}>
-                {columns.map((column, columnIndex) => (
-                    <div
-                        key={columnIndex}
-                        className={cn(styles.column, columnClassName)}
-                        style={style}
-                    >
-                        {column.map((item, itemIndex) => {
-                            // Preserve stable keys based on original index order
-                            const originalIndex = columnIndex + itemIndex * Math.max(1, effectiveColumnCount);
-                            return (
-                                <div
-                                    key={getKey(item, originalIndex)}
-                                    className={cn(styles.item, itemClassName)}
-                                >
-                                    {renderItem(item, originalIndex)}
-                                </div>
-                            );
-                        })}
-                    </div>
-                ))}
-            </div>
-
-            {/* Hidden measuring container: renders all items at exact column width to get real heights */}
-            <div
-                ref={measureWrapperRef}
-                aria-hidden
-                style={{
-                    position: 'absolute',
-                    visibility: 'hidden',
-                    pointerEvents: 'none',
-                    left: -99999,
-                    top: 0,
-                    width: columnWidth || undefined,
-                }}
-            >
-                {/* Force the same width as a column so heights match real layout */}
-                <div style={{ width: columnWidth }}>
-                    {items.map((item, i) => (
+        <div className={cn(styles.grid, className)} style={style}>
+            {columns.map((column, columnIndex) => (
+                <div
+                    key={columnIndex}
+                    className={cn(styles.column, columnClassName)}
+                    style={style}
+                    data-testid="masonry-column"
+                >
+                    {column.map((index) => (
                         <div
-                            key={getKey(item, i)}
-                            ref={(el) => (measureItemRefs.current[i] = el)}
+                            key={getKey(items[index], index)}
+                            ref={setItemRef(index)}
                             className={cn(styles.item, itemClassName)}
-                            style={{ marginBottom: gap && i < items.length - 1 ? gap : undefined }}
                         >
-                            {renderItem(item, i)}
+                            {renderItem(items[index], index)}
                         </div>
                     ))}
                 </div>
-            </div>
-        </>
+            ))}
+        </div>
     );
 }
