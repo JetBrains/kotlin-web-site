@@ -172,6 +172,22 @@ yarn start
 ```
 Now you can open the website at [http://localhost:3000](http://localhost:3000).
 
+### Code checks
+
+```
+# report ESLint problems in blocks/, components/ and pages/
+yarn lint
+
+# type-check the whole project without emitting anything
+yarn tsc --noEmit
+```
+
+Both run on every pull request in the *Verify frontend* workflow
+([.github/workflows/verify-frontend.yml](.github/workflows/verify-frontend.yml)), so it is worth
+running them locally before pushing. Building the site is not part of that workflow: `yarn build`
+needs the grammar, WebHelp and blog-news artifacts that only TeamCity produces, so the build verdict
+comes from the *Build site JS Assets* and *Build site pages* configurations instead.
+
 
 ## Pages on Next.js
 

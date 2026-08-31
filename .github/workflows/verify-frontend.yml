@@ -1,0 +1,43 @@
+name: Verify frontend
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+concurrency:
+  group: verify-frontend-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify_frontend:
+    name: Lint and type-check
+    runs-on: ubuntu-latest
+    # Job-wide, not step-wide: .npmrc interpolates this token for the private @webteam/* packages,
+    # and every yarn invocation parses .npmrc — including the `yarn cache dir` that
+    # actions/setup-node runs to set up the cache, before the install step is reached.
+    env:
+      WEBTEAM_UI_NPM_TOKEN: ${{ secrets.WEBTEAM_UI_NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Type-check
+        # yarn, not npx: npx resolves an unrelated `tsc` package from the registry when the local
+        # one is missing, which reports a failure that has nothing to do with the sources.
+        # Runs even when linting failed, so a pull request gets both verdicts at once.
+        if: ${{ !cancelled() }}
+        run: yarn tsc --noEmit

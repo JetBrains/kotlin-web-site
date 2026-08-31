@@ -29,6 +29,7 @@ uiDesigner.xml
 grammar.xml
 /build/
 node_modules
+tsconfig.tsbuildinfo
 pdf/tmp.html
 .vivliostyle/
 *.pyc
