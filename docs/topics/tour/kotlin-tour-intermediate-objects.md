@@ -308,7 +308,6 @@ following code in the `main()` function runs successfully:
 |---|---|
 ```kotlin
 data class User(val name: String, val email: String) {
-
     // Write your code here
 }
 
@@ -361,8 +360,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
 
-> As an extension of this exercise, try using class-level functions in companion objects as factory methods to construct
-> instances of a class. For an example of this pattern and more information, see [](object-declarations.md#companion-objects).
+> As an extension of this exercise, try using functions in companion objects as factory methods to construct
+> instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).
 >
 {style="tip"}
 
