@@ -62,12 +62,10 @@ kotlin {
 You can run tests in Kotlin/JS against specific browsers. To do so, adjust the settings available in the `browser{}` configuration
 block of the Gradle build file.
 
-No browsers are bundled with the Kotlin Multiplatform Gradle plugin by default. This means that you need to install
-all necessary browsers on your target system (locally or on the CI).
-
 By default, the plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
-to run browser tests. To enable additional browsers, use the `testTask{}` block for Karma and the `test{}` block for the
-Kotlin DSL with Playwight. See all available options here:
+to run browser tests. No browsers are bundled with the Kotlin Multiplatform Gradle plugin by default.
+To enable additional browsers, use the `testTask{}` block for Karma and the `test{}` block for the
+Kotlin DSL with Playwright. See all available options here:
 
 <tabs group="js-test-dsl">
 <tab title="Karma" group-key="karma">
@@ -93,6 +91,8 @@ kotlin {
 }
 ```
 
+With Karma, you need to install all necessary browsers on your target system (locally or on the CI).
+
 For more information on Karma functionality, see [Set up a Kotlin/JS project](js-project-setup.md#karma).
 
 </tab>
@@ -114,6 +114,10 @@ kotlin {
     }
 }
 ```
+
+With the Kotlin DSL with Playwright, the Kotlin Multiplatform Gradle plugin installs the necessary browsers on the first
+run by using the [`playwright install`](https://playwright.dev/docs/browsers#install-browsers) command. Playwright manages
+the location of these browsers and doesn't use locally installed browsers.
 
 For additional settings available in the Kotlin DSL with Playwright, see [Advanced configuration](#advanced-configuration)
 

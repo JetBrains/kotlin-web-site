@@ -491,9 +491,14 @@ kotlin {
 ### Run tests
 
 By default, the Kotlin Multiplatform Gradle plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
-to run browser tests. Any other browsers should already be installed on your machine so that the plugin can use them to
-run tests. If you are executing Kotlin/JS tests on a continuous integration server, ensure that the browsers you want to
-test against are installed there as well.
+to run browser tests. No browsers are bundled with the plugin; test runners handle missing browsers differently:
+
+* With [Karma](#karma), any other browser should already be installed on your machine so that the plugin can use it to
+  run tests. If you are executing Kotlin/JS tests on a continuous integration server, ensure that the browsers you want
+  to test against are installed there as well.
+* With the [Kotlin DSL with Playwright](#playwright), the plugin installs the necessary browsers on the first run by using
+  the [`playwright install`](https://playwright.dev/docs/browsers#install-browsers) command. Playwright manages the
+  location of these browsers and doesn't use locally installed browsers.
 
 To run tests, execute the standard lifecycle `check` task:
 
