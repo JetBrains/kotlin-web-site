@@ -276,19 +276,7 @@ fun main() {
 
 There's a new feature in the standard library available in the latest Kotlin release. You want to try it out, but it 
 requires opt-in. The feature falls under [`@ExperimentalStdlibApi`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-experimental-stdlib-api/).
-Add the opt-in annotation so that `printBuildInfo()` compiles and runs:
-
-```kotlin
-// Write your code here
-fun printBuildInfo() {
-    println("experimental build info")
-}
-
-fun main() {
-    printBuildInfo()
-}
-```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/PrintBuildInfoTest.kt" validate="false" id="kotlin-tour-libraries-exercise-3"}
+What should the opt-in look like in your code?
 
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
