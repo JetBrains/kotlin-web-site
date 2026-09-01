@@ -479,7 +479,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 </def>
-<def title="Spell a number using a map">
+<def title="Spell out a number using a map">
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.

@@ -150,7 +150,7 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 ## Practice {completion-point="true"}
 
 <deflist type="expandable">
-<def title="Calculate an employee's salary with the Elvis operator">
+<def title="Calculate an employee's salary">
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 

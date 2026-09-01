@@ -163,7 +163,7 @@ standard library.
 ## Practice {completion-point="true"}
 
 <deflist type="expandable" numbered="true">
-<def title="Append text to a StringBuilder receiver" id="lambda-receivers-exercise-1">
+<def title="Process data with a lambda expression with receiver" id="lambda-receivers-exercise-1">
 
 You have a `fetchData()` function that accepts a lambda expression with receiver. Update the lambda expression to use 
 the `append()` function so that the output of your code is: `Data received - Processed`.
@@ -200,7 +200,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
 
 </def>
-<def title="Trigger a callback on a receiver via an event class" id="lambda-receivers-exercise-2">
+<def title="Handle a double-click event" id="lambda-receivers-exercise-2">
 
 You have a `Button` class and `ButtonEvent` and `Position` data classes. Write some code that triggers the `onEvent()`
 member function of the `Button` class to trigger a double-click event. Your code should print `"Double click!"`.
@@ -270,7 +270,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
 
 </def>
-<def title="Build a list using a receiver extension function" id="lambda-receivers-exercise-3">
+<def title="Create an incremented list" id="lambda-receivers-exercise-3">
 
 Write a function that creates a copy of a list of integers where every element is incremented by 1. Use the provided 
 function skeleton that extends `List<Int>` with an `incremented` function.

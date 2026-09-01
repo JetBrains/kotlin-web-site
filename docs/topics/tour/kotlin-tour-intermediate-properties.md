@@ -418,7 +418,7 @@ For more information, see [Observable properties](delegated-properties.md#observ
 ## Practice {completion-point="true"}
 
 <deflist type="expandable" numbered="true">
-<def title="Find out-of-stock books using indices" id="properties-exercise-1">
+<def title="Find out-of-stock books" id="properties-exercise-1">
 
 You manage an inventory system at a bookstore. The inventory is stored in a list where each item represents the quantity
 of a specific book. For example, `listOf(3, 0, 7, 12)` means the store has 3 copies of the first book, 0 of the second,
@@ -488,7 +488,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
 
 </def>
-<def title="Convert kilometers to miles with an extension property" id="properties-exercise-2">
+<def title="Convert kilometers to miles" id="properties-exercise-2">
 
 You have a travel app that needs to display distances in both kilometers and miles. Create an extension property for the
 `Double` type called `asMiles` to convert a distance in kilometers to miles:
@@ -535,7 +535,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
 
 </def>
-<def title="Delay expensive health checks with lazy properties" id="properties-exercise-3">
+<def title="Initialize health checks lazily" id="properties-exercise-3">
 
 You have a system health checker that can determine the state of a cloud system. However, the two functions it can run 
 to perform a health check are performance intensive. Use lazy properties to initialize the checks so that the expensive
@@ -593,7 +593,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
 
 </def>
-<def title="Track budget changes with an observable property" id="properties-exercise-4">
+<def title="Track budget changes" id="properties-exercise-4">
 
 You're building a simple budget tracker app. The app needs to observe changes to the user's remaining budget and notify
 them whenever it goes below a certain threshold. You have a `Budget` class that is initialized with a `totalBudget` property

@@ -242,7 +242,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
 
 </def>
-<def title="Create an object declaration that inherits from an interface" id="objects-exercise-2">
+<def title="Create an object declaration" id="objects-exercise-2">
 
 Create an object declaration that inherits from the `Vehicle` interface to create a unique vehicle type: `FlyingSkateboard`.
 Implement the `name` property and the `move()` function in your object so that the following code in the `main()` function runs 

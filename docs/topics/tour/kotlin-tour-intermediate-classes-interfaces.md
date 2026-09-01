@@ -443,7 +443,7 @@ For more information, see [Delegation](delegation.md).
 ## Practice {completion-point="true"}
 
 <deflist type="expandable" numbered="true">
-<def title="Implement an abstract SmartDevice class and a subclass" id="classes-interfaces-exercise-1">
+<def title="Implement smart devices with an abstract class" id="classes-interfaces-exercise-1">
 
 Imagine you're working on a smart home system. A smart home typically has different types of devices that all have some
 basic features but also unique behaviors. In the code sample below, complete the `abstract` class called `SmartDevice` 
@@ -558,7 +558,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
 
 </def>
-<def title="Implement a Media interface in an Audio class" id="classes-interfaces-exercise-2">
+<def title="Implement a media interface" id="classes-interfaces-exercise-2">
 
 Create an interface called `Media` that you can use to implement specific media classes like `Audio`, `Video`, or 
 `Podcast`. Your interface must include:
@@ -610,7 +610,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
 
 </def>
-<def title="Combine an interface and an abstract class for a credit card" id="classes-interfaces-exercise-3">
+<def title="Combine an interface and an abstract class" id="classes-interfaces-exercise-3">
 
 You're building a payment processing system for an e-commerce application. Each payment method needs to be able to 
 authorize a payment and process a transaction. Some payments also need to be able to process refunds.
@@ -688,7 +688,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
 
 </def>
-<def title="Delegate an interface implementation with by" id="classes-interfaces-exercise-4">
+<def title="Customize behavior with interface delegation" id="classes-interfaces-exercise-4">
 
 You have a simple messaging app that has some basic functionality, but you want to add some functionality for 
 _smart_ messages without significantly duplicating your code.

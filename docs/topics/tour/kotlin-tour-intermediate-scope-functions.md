@@ -495,7 +495,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
 
 </def>
-<def title="Configure an object with apply and also" id="scope-functions-exercise-2">
+<def title="Chain apply and also" id="scope-functions-exercise-2">
 
 You have an `updateEmail()` function that updates the email address of a user. Use the `apply` scope function
 to update the email address and then the `also` scope function to print a log message: `Updating email for user with ID: ${it.id}`.
