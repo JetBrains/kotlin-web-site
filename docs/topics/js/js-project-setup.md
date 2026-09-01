@@ -353,7 +353,7 @@ Once the build of your project has succeeded, the `webpack-dev-server` will auto
 The Kotlin Multiplatform Gradle plugin automatically sets up a test infrastructure for projects. It downloads
 and installs the required test runners and other dependencies.
 
-For browser projects, you can choose between the [Karma](#karma) test runner and the [Kotlin DSL for Playwright](#playwright).
+For browser projects, you can choose between the [Karma](#karma) test runner and the [Kotlin DSL with Playwright](#playwright).
 For Node.js projects, the [Mocha](#node-js) test framework is available.
 
 The plugin also provides useful testing features, for example:
@@ -425,7 +425,7 @@ experimental Kotlin DSL. This solution manages different tools under the hood:
 * [Mocha](https://mochajs.org/) acts as a test runner.
 * [Webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-To try out Kotlin DSL for Playwright, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
+To try out Kotlin DSL with Playwright, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
@@ -465,7 +465,7 @@ kotlin {
 }
 ```
 
-For more information on the Playwright configuration, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
+For more information on the configuration of the Kotlin DSL with Playwright, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
 
 ### Node.js {id="node-js-test-task"}
 

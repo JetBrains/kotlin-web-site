@@ -14,7 +14,7 @@ For browser testing, you can choose between:
 > The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
 > expected. As an alternative, try out the new Kotlin DSL for browser testing.
 >
-> The Kotlin DSL for Playwright is currently [Experimental](components-stability.md#stability-levels-explained). It may be changed at any time.
+> The Kotlin DSL with Playwright is currently [Experimental](components-stability.md#stability-levels-explained). It may be changed at any time.
 > Opt-in is required with the `@OptIn(ExperimentalJsTestDsl::class)` annotation.
 >
 {style="warning"}
@@ -67,7 +67,7 @@ all necessary browsers on your target system (locally or on the CI).
 
 By default, the plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 to run browser tests. To enable additional browsers, use the `testTask{}` block for Karma and the `test{}` block for the
-Playwight solution with Kotlin DSL. See all available options here:
+Kotlin DSL with Playwight. See all available options here:
 
 <tabs group="js-test-dsl">
 <tab title="Karma" group-key="karma">
@@ -115,7 +115,7 @@ kotlin {
 }
 ```
 
-For additional settings available in the Kotlin DSL for Playwright, see [Advanced configuration](#advanced-configuration)
+For additional settings available in the Kotlin DSL with Playwright, see [Advanced configuration](#advanced-configuration)
 
 </tab>
 </tabs>
@@ -170,11 +170,11 @@ the resulting total of 50% successful tests. To get more information about indiv
 ## Advanced configuration
 <primary-label ref="experimental-opt-in"/>
 
-> This section applies only to the new experimental Kotlin DSL for Playwright.
+> This section applies only to the new experimental Kotlin DSL with Playwright.
 >
 {style="note"}
 
-The Kotlin DSL for Playwright exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can share defaults
+The Kotlin DSL with Playwright exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can share defaults
 between runners, override them for a specific browser, and compute values lazily with providers:
 
 ```kotlin
@@ -227,11 +227,11 @@ Each runner is registered under its own name, so the test report tells you which
 ## Configuration for plugin authors
 <primary-label ref="experimental-opt-in"/>
 
-> This section applies only to the new experimental Kotlin DSL for Playwright.
+> This section applies only to the new experimental Kotlin DSL with Playwright.
 >
 {style="note"}
 
-If you write a Gradle plugin on top of the Kotlin Multiplatform Gradle plugin, the Kotlin DSL for Playwright also gives
+If you write a Gradle plugin on top of the Kotlin Multiplatform Gradle plugin, the Kotlin DSL with Playwright also gives
 you access to the browser runners and to the location of the generated test bundle.
 
 Kotlin generates the test bundle for running browser tests using the default [test runner page](https://github.com/Kotlin/kotlin-web-helpers/blob/main/static/test.html).
@@ -279,7 +279,7 @@ Keep the following limitations in mind when you build plugins using these APIs:
 
 ## Leave feedback
 
-The new Kotlin DSL for Playwright is in active development. New features, for example debugging, are planned for the next
+The new Kotlin DSL with Playwright is in active development. New features, for example debugging, are planned for the next
 Kotlin releases.
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897) or in the [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
