@@ -584,7 +584,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
 </def>
-<def title="Repeat an action a given number of times" id="lambdas-exercise-2">
+<def title="Repeat an action multiple times" id="lambdas-exercise-2">
 
 Write a function that takes an `Int` value and an action (a function with type `() -> Unit`) which then repeats the 
 action the given number of times. Then use this function to print “Hello” 5 times.

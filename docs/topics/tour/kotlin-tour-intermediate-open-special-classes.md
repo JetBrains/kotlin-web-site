@@ -470,7 +470,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
 </def>
-<def title="Nest an enum class inside a sealed class subtype" id="special-classes-exercise-2">
+<def title="Define problem types with an enum class" id="special-classes-exercise-2">
 
 In your program, you want to be able to handle different statuses and types of errors. You have a sealed class to capture
 the different statuses which are declared in data classes or objects. Complete the code below by creating an enum class 
