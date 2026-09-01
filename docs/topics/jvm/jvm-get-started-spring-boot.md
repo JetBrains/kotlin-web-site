@@ -7,17 +7,15 @@ application with Spring Boot and adding a database to store the information.
 
 Going through these four steps, you'll learn a lot of essential features of the Kotlin language: 
 
-![First step](icon-1.svg){width=25}{type="joined"}  [Create a Spring Boot project](jvm-create-project-with-spring-boot.md)
-
-![Second step](icon-2.svg){width=25}{type="joined"} [Add a data class to Spring Boot project](jvm-spring-boot-add-data-class.md)
-
-![Third step](icon-3.svg){width=25}{type="joined"}  [Add database support for the Spring Boot project](jvm-spring-boot-add-db-support.md)
-
-![Fourth step](icon-4.svg){width=25}{type="joined"} [Use Spring Data CrudRepository for database access](jvm-spring-boot-using-crudrepository.md)
+<p><img src="icon-1.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project</a><br/>
+   <img src="icon-2.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/>
+   <img src="icon-3.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for the Spring Boot project</a><br/>
+   <img src="icon-4.svg" width="20" alt="Fourth step"/> <a href="jvm-spring-boot-using-crudrepository.md">Use Spring Data CrudRepository for database access</a><br/>
+</p>
 
 ## Next step
 
-Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md) with Kotlin using IntelliJ IDEA.
+<a href="jvm-create-project-with-spring-boot.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
 
 ### See also
 
@@ -28,9 +26,3 @@ Look through our Java to Kotlin (J2K) interop and migration guides:
 * [Calling Java from Kotlin](java-interop.md) and [Calling Kotlin from Java](java-to-kotlin-interop.md)
 * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md)
 * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
-
-## Join the community
-
-* ![Slack](slack.svg){width=25}{type="joined"} **Kotlin slack**: [get an invitation](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4) and [#server](https://kotlinlang.slack.com/archives/C0B8RC352) channels 
-* ![Stack Overflow](stackoverflow.svg){width=25}{type="joined"} **Stack Overflow**: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags
-* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin with Spring](https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x)

@@ -2,11 +2,6 @@
 
 <web-summary>Add a database support for Sprint Boot project written in Kotlin using JDBC template.</web-summary>
 
-<tldr>
-    <p>This is the third part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add database support for Spring Boot project</strong><br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
-</tldr>
-
 In this part of the tutorial, you'll add and configure a database to your project using _Java Database Connectivity_ (JDBC).
 In JVM applications, you use JDBC to interact with databases.
 For convenience, the Spring Framework provides the `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
@@ -496,4 +491,11 @@ The Spring application is ready to run:
 
 The final step shows you how to use a more popular connection to the database using Spring Data. 
 
-**[Proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)**
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="jvm-spring-boot-add-data-class.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="jvm-spring-boot-using-crudrepository.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
