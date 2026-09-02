@@ -19,7 +19,7 @@ private class Check(
 class IntervalInSecondsTest {
 
     @Test
-    fun `intervalInSeconds supports defaults and named arguments`() {
+    fun `supports default and named arguments`() {
         val checks = listOf(
             Check("intervalInSeconds(1, 20, 15)", intervalInSeconds(1, 20, 15), 4815, false),
             Check("intervalInSeconds(minutes = 1, seconds = 25)", intervalInSeconds(minutes = 1, seconds = 25), 85, true),
@@ -32,31 +32,30 @@ class IntervalInSecondsTest {
 
         when {
             firstWrong == null && outputLines == EXPECTED_OUTPUT -> passed(
-                "Nice - every parameter now defaults to 0, so a call can pass only what it needs. " +
-                        "Named arguments are the other half: intervalInSeconds(minutes = 1, seconds = 25) " +
-                        "says much more than intervalInSeconds(0, 1, 25)."
+                "With 0 as the default, you only need to pass the values you want to change. " +
+                        "Named arguments make it clear which value is which."
             )
 
             firstWrong != null && firstWrong.omitsArguments -> hint(
-                "Give hours, minutes, and seconds a default value of 0. " +
-                        "${firstWrong.call} returned ${firstWrong.actual}, " +
-                        "but ${firstWrong.expected} was expected.",
+                "Set the default value of hours, minutes, and seconds to 0. " +
+                        "${firstWrong.call} returns ${firstWrong.actual}, " +
+                        "but ${firstWrong.expected} is expected.",
                 ""
             )
 
             firstWrong != null -> hint(
-                "Keep the original formula - only the parameters change. " +
-                        "${firstWrong.call} returned ${firstWrong.actual}, " +
-                        "but ${firstWrong.expected} was expected.",
+                "Keep the original formula – only the parameters change. " +
+                        "${firstWrong.call} returns ${firstWrong.actual}, " +
+                        "but ${firstWrong.expected} is expected.",
                 ""
             )
 
             actualOutput.isEmpty() -> hint(
-                "Bring the println() calls back in main() - the function itself already works!"
+                "Add the println() calls inside main()."
             )
 
             else -> hint(
-                "Print the same five intervals as before: " +
+                "Print these five results in order: " +
                         EXPECTED_OUTPUT.joinToString(", ") + "."
             )
         }
