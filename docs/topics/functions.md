@@ -347,10 +347,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4" id="return-multiple-values-list"}
 
-For a small group of values whose meaning is clear from the context, you can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/).
-These types can contain values of different types. However, their properties have generic names such as `first`, `second`, and `third`,
-which don't describe what each value represents. Use a data class when descriptive property names would make the
-result easier to understand. For example:
+You can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/) to return multiple values but their properties have generic names such
+as `first`, `second`, and `third`, which can make the result difficult to understand.
+
+For example, although the `calculateOrderTotals()` function returns a `Pair`, it's not clear what each `Double` represents:
 
 ```kotlin
 fun calculateOrderTotals(prices: List<Double>): Pair<Double, Double> {
@@ -372,6 +372,9 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
+
+For results with distinct meanings, prefer a data class with descriptive property names, as in the `OrderSummary` data
+class example at the beginning.
 
 ### Single-expression functions
 
