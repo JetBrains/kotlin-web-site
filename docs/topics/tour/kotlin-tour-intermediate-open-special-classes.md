@@ -32,7 +32,7 @@ fun main() {
     // Car Info: Make - Toyota, Model - Corolla, Number of doors - 4
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-open-class"}
+{kotlin-runnable="true" id="kotlin-tour-classes-open-class"}
 
 Just like when creating a normal class instance, if your class inherits from a parent class, then it must initialize
 all the parameters declared in the parent class header. So in the example, the `car` instance of the `Car` class initializes
@@ -424,7 +424,7 @@ fun main() {
     // The delivery was canceled due to: Address not found.
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1"}
 
 ```kotlin
 sealed class DeliveryStatus {
@@ -467,7 +467,7 @@ fun main() {
     // The delivery was canceled due to: Address not found.
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
 </def>
 <def title="Define problem types with an enum class" id="special-classes-exercise-2">
@@ -508,7 +508,7 @@ fun main() {
     // Data received: [Data1, Data2]
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2"}
 
 ```kotlin
 sealed class Status {
@@ -546,7 +546,7 @@ fun main() {
     // Data received: [Data1, Data2]
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
 
 </def>
 </deflist>
