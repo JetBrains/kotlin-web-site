@@ -5,7 +5,7 @@ processors that inspect static information about your source code and generate n
 generating code based on [annotations](annotations.md).
 
 KSP aims to simplify the creation of lightweight compiler plugins. A compiler plugin built with KSP is called a symbol 
-processor, or processor for short. KSP’s well-defined API hides compiler changes, so you don't need to spend much effort 
+processor, or processor for short. KSP's well-defined API hides compiler changes, so you don't need to spend much effort 
 maintaining your processors. However, this approach comes with trade-offs. For example, KSP-based processors can't 
 examine expressions or statements, and they can't modify the source code.
 
@@ -23,7 +23,7 @@ inspect declarations such as classes, functions, properties, and types.
 
 > KSP models declarations and type information, but doesn't provide access to expressions or
 > function bodies.
-{style=”note”}
+{style="note"}
 
 KSP fits into the compilation process as follows:
 
