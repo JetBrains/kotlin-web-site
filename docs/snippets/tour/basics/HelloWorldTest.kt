@@ -12,24 +12,21 @@ class HelloWorldTest {
         output.isNotEmpty() -> passed()
 
         actualOutput.isEmpty() ->
-            hint("Add a println() call inside main() and run again. Nothing is printed yet.")
+            hint("Add a println() call inside main().")
 
-        else -> hint(
-            "Put the text to print inside the quotes: println(\"...\"). "
-                    + "println() is called, but the message is empty."
-        )
+        else -> hint("Add some text to println(). The program prints an empty line.")
     }
 
     @Test
-    fun `then print exactly 'Mary is 20 years old'`() = when {
+    fun `print the expected output`() = when {
 
-        output == EXPECTED -> passed(
-            "Checked: the printed text is exactly right. The test can't see how you " +
-                    "built it - the example solution prints the name and age variables " +
-                    "with a string template."
-        )
+    output == EXPECTED -> passed(
+        "Checked: the program prints exactly \"Mary is 20 years old\". " +
+                "The test doesn't check how you build the string. " +
+                "The example solution uses a string template with the name and age variables."
+    )
 
-        output.isEmpty() -> hint("Make the program print something first.")
+        output.isEmpty() -> hint("Make the program print something.")
 
         "name" in output && "age" in output -> hint(
             "Add a dollar sign before both variable names: \$name and \$age. " +
@@ -47,14 +44,14 @@ class HelloWorldTest {
         )
 
         !(output.contains("Mary", ignoreCase = true) && "20" in output) ->
-            hint("The output should include the values of both variables: Mary and 20.")
+            hint("Make the output include both variable values: Mary and 20.")
 
         output.equals(EXPECTED, ignoreCase = true) ->
-            hint("So close! Only the capitalization is off.")
+            hint("Check the capitalization.")
 
         output.lines().any { it.trim() == EXPECTED } ->
-            hint("The right message is there, but there is extra output. Print only the expected line.")
+            hint("Remove the extra output. Print only \"Mary is 20 years old\".")
 
-        else -> hint("Almost there - every character counts.")
+        else -> hint("Check the output carefully. Every character counts.")
     }
 }
