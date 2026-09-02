@@ -106,6 +106,18 @@ interface SymbolProcessor {
 
 For a step-by-step example of implementing and registering a processor, see the [KSP quickstart guide](ksp-quickstart.md).
 
+## Requirements
+
+To use KSP 2.3.x, make sure your project meets the following requirements:
+
+* **Kotlin Gradle plugin** (KGP): 2.2.10–2.3.x
+
+* **Android Gradle Plugin** (AGP): 8.12.0 or later
+
+* **Gradle**: 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.
+
+* **JDK**: 17 or later
+
 ## Supported libraries
 
 The table includes a list of popular libraries on Android and their various stages of support for KSP:
