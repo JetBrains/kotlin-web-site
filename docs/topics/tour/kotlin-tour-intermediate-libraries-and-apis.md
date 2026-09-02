@@ -204,9 +204,8 @@ fun main() {
     println("The accumulated amount is: $amount")
     // The accumulated amount is: 1282.0372317085844
 }
-
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CalculateCompoundInterestTest.kt" validate="false" id="kotlin-tour-libraries-exercise-1"}
 
 ```kotlin
 import kotlin.math.*
@@ -225,7 +224,7 @@ fun main() {
     // The accumulated amount is: 1282.0372317085844
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CalculateCompoundInterestTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1"}
 
 </def>
 <def title="Measure the time taken by data processing" id="libraries-exercise-2">
@@ -250,7 +249,7 @@ fun main() {
     println("Time taken: $timeTaken") // e.g. 16 ms
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/MeasureTimeTest.kt" validate="false" id="kotlin-tour-libraries-exercise-2"}
 
 ```kotlin
 import kotlin.time.measureTime
@@ -269,19 +268,39 @@ fun main() {
     println("Time taken: $timeTaken") // e.g. 16 ms
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/MeasureTimeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2"}
 
 </def>
 <def title="Opt in to an experimental API" id="libraries-exercise-3">
 
 There's a new feature in the standard library available in the latest Kotlin release. You want to try it out, but it 
 requires opt-in. The feature falls under [`@ExperimentalStdlibApi`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-experimental-stdlib-api/).
-What should the opt-in look like in your code?
+Add the opt-in annotation so that `printBuildInfo()` compiles and runs:
+
+|---|---|
+```kotlin
+// Write your code here
+fun printBuildInfo() {
+    println("experimental build info")
+}
+
+fun main() {
+    printBuildInfo()
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/PrintBuildInfoTest.kt" validate="false" id="kotlin-tour-libraries-exercise-3"}
 
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
+fun printBuildInfo() {
+    println("experimental build info")
+}
+
+fun main() {
+    printBuildInfo()
+}
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/PrintBuildInfoTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
 
 </def>
 </deflist>

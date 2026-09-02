@@ -49,6 +49,7 @@ class ControlFlowConditionalExercise2Test {
                     shownOutput = ""
                 )
 
+            output == "A" ->
             lines.size > 1 ->
                 hint(
                     "$details Remove the extra output. A when expression returns a " +

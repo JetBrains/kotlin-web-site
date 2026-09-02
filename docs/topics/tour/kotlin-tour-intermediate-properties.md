@@ -81,7 +81,7 @@ fun main() {
     // Exception in thread "main" java.lang.StackOverflowError
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-stackoverflow"}
+{validate="false" kotlin-runnable="true" id="kotlin-tour-properties-stackoverflow"}
 
 To fix this, you can use the backing field in your `set()` function instead by referencing it with the `field` keyword:
 
@@ -100,7 +100,7 @@ fun main() {
     // Kodee
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-backingfield"}
+{kotlin-runnable="true" id="kotlin-tour-properties-backingfield"}
 
 Backing fields are also useful when you want to add logging, send notifications when a property value changes,
 or use additional logic that compares the old and new property values.
@@ -150,7 +150,7 @@ fun main() {
     // John Doe
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-extension"}
+{kotlin-runnable="true" id="kotlin-tour-properties-extension"}
 
 > Extension properties can't override existing properties of a class.
 > 
@@ -271,7 +271,7 @@ fun main() {
     // John Doe
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-delegated"}
+{kotlin-runnable="true" id="kotlin-tour-properties-delegated"}
 
 This example:
 
@@ -335,7 +335,7 @@ fun main() {
     // Data: [Data1, Data2, Data3]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-lazy"}
+{kotlin-runnable="true" id="kotlin-tour-properties-lazy"}
 
 In this example:
 
@@ -393,7 +393,7 @@ fun main() {
     // Warning: Temperature is too high! (22.5°C -> 27.0°C)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-observable"}
+{kotlin-runnable="true" id="kotlin-tour-properties-observable"}
 
 In this example:
 
@@ -449,7 +449,7 @@ fun main() {
     // [1, 3]
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FindOutOfStockBooksTest.kt" validate="false" id="kotlin-tour-properties-exercise-1"}
 
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
@@ -468,7 +468,7 @@ fun main() {
     // [1, 3]
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FindOutOfStockBooksTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1"}
 
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> = buildList {
@@ -485,7 +485,7 @@ fun main() {
     // [1, 3]
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FindOutOfStockBooksTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
 
 </def>
 <def title="Convert kilometers to miles" id="properties-exercise-2">
@@ -513,10 +513,10 @@ fun main() {
 
     val marathonDistance = 42.195
     println("$marathonDistance km is ${marathonDistance.asMiles} miles")
-    // 42.195 km is 26.218757 miles
+    // 42.195 km is 26.218749345 miles
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AsMilesTest.kt" validate="false" id="kotlin-tour-properties-exercise-2"}
 
 ```kotlin
 val Double.asMiles: Double
@@ -529,10 +529,10 @@ fun main() {
 
     val marathonDistance = 42.195
     println("$marathonDistance km is ${marathonDistance.asMiles} miles")
-    // 42.195 km is 26.218757 miles
+    // 42.195 km is 26.218749345 miles
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AsMilesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
 
 </def>
 <def title="Initialize health checks lazily" id="properties-exercise-3">
@@ -564,7 +564,7 @@ fun main() {
     // Application server is online and healthy
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/LazyHealthCheckTest.kt" validate="false" id="kotlin-tour-properties-exercise-3"}
 
 ```kotlin
 fun checkAppServer(): Boolean {
@@ -590,7 +590,7 @@ fun main() {
    // Application server is online and healthy
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/LazyHealthCheckTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
 
 </def>
 <def title="Track budget changes" id="properties-exercise-4">
@@ -620,7 +620,7 @@ fun main() {
     // Good news: Your remaining budget increased to 300.
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-4"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/BudgetTest.kt" validate="false" id="kotlin-tour-properties-exercise-4"}
 
 ```kotlin
 import kotlin.properties.Delegates.observable
@@ -646,7 +646,7 @@ fun main() {
     // Good news: Your remaining budget increased to 300.
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/BudgetTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
 
 </def>
 </deflist>
