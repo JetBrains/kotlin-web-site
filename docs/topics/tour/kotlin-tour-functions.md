@@ -204,7 +204,7 @@ fun main() {
 
 ## Practice: Functions
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Calculate the area of a circle" id="functions-exercise-1">
 
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
@@ -554,7 +554,7 @@ The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in
 
 ## Practice: Lambda expressions {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Build a list of URLs using a lambda expression" id="lambdas-exercise-1">
 
 You have a list of actions supported by a web service, a common prefix for all requests, and an ID of a particular resource.

@@ -110,7 +110,7 @@ For more information about extension functions, see [Extensions](extensions.md).
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Check whether an integer is positive" id="extension-functions-exercise-1">
 
 Write an extension function called `isPositive` that takes an integer and checks whether it is positive.

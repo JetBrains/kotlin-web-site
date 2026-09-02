@@ -153,7 +153,7 @@ For more information, see [](object-declarations.md#companion-objects).
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Implement a data object for order tracking" id="objects-exercise-1">
 
 You run a coffee shop and have a system for tracking customer orders. Consider the code below and complete the declaration

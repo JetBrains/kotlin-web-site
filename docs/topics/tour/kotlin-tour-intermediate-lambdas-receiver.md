@@ -162,7 +162,7 @@ standard library.
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Process data with a lambda expression with receiver" id="lambda-receivers-exercise-1">
 
 You have a `fetchData()` function that accepts a lambda expression with receiver. Update the lambda expression to use 

@@ -332,9 +332,9 @@ jvmTest<Scope>
    </def>
 </deflist>
 
-### Expandable definition list
+### Clear definition list
 
-<deflist type="expandable">
+<deflist appearance="clear" collapsible="true">
 <def title="Expandable item #1">
 
 An expandable item without numbering. Its body is plain text so that only the widget chrome is under test.
@@ -352,9 +352,9 @@ A third expandable item, closing the non-numbered list.
 </def>
 </deflist>
 
-### Numbered expandable definition list
+### Numbered clear definition list
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Numbered item #1">
 
 Description of the numbered item rendered with the generated number 1.
@@ -414,7 +414,7 @@ Description of the numbered item rendered with the generated number 11.
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Print a greeting using string templates" id="test-page-practice-1">
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:

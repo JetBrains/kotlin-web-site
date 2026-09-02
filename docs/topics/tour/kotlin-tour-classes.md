@@ -248,7 +248,7 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Declare a data class">
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property

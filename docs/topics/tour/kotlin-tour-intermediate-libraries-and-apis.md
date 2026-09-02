@@ -167,7 +167,7 @@ This is the easiest way to opt in, but there are other ways. To learn more, see 
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Calculate compound interest" id="libraries-exercise-1">
 
 You are developing a financial application that helps users calculate the future value of their investments. The formula

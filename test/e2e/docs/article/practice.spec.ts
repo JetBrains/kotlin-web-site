@@ -24,7 +24,7 @@ test.describe('Docs: Test Page practice exercises', async () => {
     test(`Should render practice exercises collapsed`, async ({ page }) => {
         const practice = deflistIn(page, 'practice');
 
-        await expect(practice).toContainClass('definition-list--type-expandable');
+        await expect(practice).toContainClass('definition-list--appearance-clear');
         await expect(practice).toContainClass('definition-list--numbered');
 
         const exercises = itemsOf(practice);

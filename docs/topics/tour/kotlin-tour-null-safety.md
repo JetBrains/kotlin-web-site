@@ -149,7 +149,7 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable">
+<deflist appearance="clear" collapsible="true">
 <def title="Calculate an employee's salary">
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
