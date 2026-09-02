@@ -26,8 +26,11 @@ inspect declarations such as classes, functions, properties, and types.
 {style=”note”}
 
 KSP fits into the compilation process as follows:
+
 1. KSP processors analyze source code and resources.
+
 2. The processors generate source files or other outputs.
+
 3. The Kotlin compiler compiles the original source code together with the generated code.
 
 To learn more about KSP, watch this video:
