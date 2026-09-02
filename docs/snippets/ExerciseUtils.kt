@@ -69,10 +69,10 @@ class Expectation internal constructor(
     val isTodo: Boolean = thrown is NotImplementedError
 
     val report: String = when (thrown) {
-        null -> "${escapeHtml(call)} returned ${show(actual)}, but ${show(expected)} was expected."
-        else -> "${escapeHtml(call)} threw ${thrown::class.simpleName ?: "an exception"}" +
+        null -> "${escapeHtml(call)} returns ${show(actual)}, but ${show(expected)} is expected."
+        else -> "${escapeHtml(call)} throws ${thrown::class.simpleName ?: "an exception"}" +
                 (thrown.message?.let { ": " + escapeHtml(it) } ?: "") +
-                ", but ${show(expected)} was expected."
+                ", but ${show(expected)} is expected."
     }
 }
 

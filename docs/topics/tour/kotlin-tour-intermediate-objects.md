@@ -140,7 +140,7 @@ fun main() {
     // BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-companion-object"}
+{kotlin-runnable="true" id="kotlin-tour-classes-companion-object"}
 
 This example creates a class called `BigBen` that contains a companion object called `Bonger`. The companion object
 has a member function called `getBongs()` that accepts an integer and prints `"BONG"` to the console the same number of times
@@ -197,7 +197,7 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" validate="false" id="kotlin-tour-objects-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -241,7 +241,7 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-2"}
 
@@ -266,7 +266,7 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" validate="false" id="kotlin-tour-objects-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -289,7 +289,7 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
@@ -329,7 +329,7 @@ fun main() {
     }
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/TemperatureTest.kt" validate="false" id="kotlin-tour-objects-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -358,7 +358,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/TemperatureTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
 
 > As an extension of this exercise, try using functions in companion objects as factory methods to construct
 > instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).
