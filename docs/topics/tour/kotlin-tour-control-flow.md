@@ -41,7 +41,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if"}
+{kotlin-runnable="true" id="kotlin-tour-if"}
 
 There is no ternary operator `condition ? then : else` in Kotlin. Instead, `if` can be used as an expression. If there is
 only one line of code per action, the curly braces `{}` are optional:
@@ -56,7 +56,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if-expression"}
+{kotlin-runnable="true" id="kotlin-tour-if-expression"}
 
 ### When
 
@@ -90,7 +90,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-statement"}
+{kotlin-runnable="true" id="kotlin-tour-when-statement"}
 
 > Note that all branch conditions are checked sequentially until one of them is satisfied. So only the first suitable 
 > branch is executed.
@@ -120,7 +120,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression"}
 
 The examples of `when` that you've seen so far both had a subject: `obj`. But `when` can also be used without a subject.
 
@@ -141,7 +141,7 @@ fun main() {
     // Stop
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression-boolean"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression-boolean"}
 
 However, you can have the same code but with `trafficLightState` as the subject:
 
@@ -160,7 +160,7 @@ fun main() {
     // Stop
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression-boolean-subject"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression-boolean-subject"}
 
 Using `when` with a subject makes your code easier to read and maintain. When you use a subject with a `when` expression, 
 it also helps Kotlin check that all possible cases are covered. Otherwise, if you don't use a subject with a 
@@ -194,7 +194,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-conditional-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-1"}
 
 ```kotlin
 import kotlin.random.Random
@@ -208,7 +208,7 @@ fun main() {
         println("You lose :(")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
 
 </def>
 <def title="Print the action for a game console button" id="conditional-expressions-exercise-2">
@@ -233,7 +233,7 @@ fun main() {
     )
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-conditional-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
 ```kotlin
 fun main() {
@@ -250,7 +250,7 @@ fun main() {
     )
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
 
 </def>
 </deflist>
@@ -297,7 +297,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-loop"}
+{kotlin-runnable="true" id="kotlin-tour-for-loop"}
 
 Collections can also be iterated over by loops:
 
@@ -315,7 +315,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-collection-loop"}
+{kotlin-runnable="true" id="kotlin-tour-for-collection-loop"}
 
 ### While
 
@@ -348,7 +348,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-loop"}
+{kotlin-runnable="true" id="kotlin-tour-while-loop"}
 
 In the second use case (`do-while`):
 
@@ -377,7 +377,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-do-loop"}
+{kotlin-runnable="true" id="kotlin-tour-while-do-loop"}
 
 For more information and examples of conditional expressions and loops, see [Conditions and loops](control-flow.md).
 
@@ -416,7 +416,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -429,7 +429,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
 
 ```kotlin
 fun main() {
@@ -441,9 +441,8 @@ fun main() {
     } while ( pizzaSlices < 8 )
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
-
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
 
 </def>
 <def title="Play the Fizz buzz game" id="loops-exercise-2">
@@ -471,7 +470,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-2"}
 
 ```kotlin
 fun main() {
@@ -487,7 +486,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
 
 </def>
 <def title="Print words that start with a given letter" id="loops-exercise-3">
@@ -507,7 +506,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-3"}
 
 ```kotlin
 fun main() {
@@ -518,7 +517,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
 
 </def>
 </deflist>
