@@ -168,7 +168,7 @@ it also helps Kotlin check that all possible cases are covered. Otherwise, if yo
 
 ## Practice: Conditional expressions
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Check whether two dice rolls match" id="conditional-expressions-exercise-1">
 
 Create a simple game where you win if throwing two dice results in the same number. Use `if` to print `You win :)`
@@ -385,7 +385,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ## Practice: Loops {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Count pizza slices using while and do-while loops" id="loops-exercise-1">
 
 You have a program that counts pizza slices until there's a whole pizza with 8 slices. Refactor this program in two ways:

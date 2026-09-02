@@ -92,7 +92,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable">
+<deflist appearance="clear" collapsible="true">
 <def title="Declare explicit types for variables">
 
 Explicitly declare the correct type for each variable:

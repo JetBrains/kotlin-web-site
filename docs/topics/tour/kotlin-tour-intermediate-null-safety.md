@@ -368,7 +368,7 @@ For more information about how you can use `return` in your code, see [Returns a
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Validate user data with safe casts and the Elvis operator" id="null-safety-exercise-1">
 
 You are developing a notification system for an app where users can enable or disable different types of notifications.

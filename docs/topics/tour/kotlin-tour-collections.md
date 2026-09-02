@@ -420,7 +420,7 @@ that you can use in your programs.
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Count the total number of items in two lists">
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there

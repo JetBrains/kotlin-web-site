@@ -442,7 +442,7 @@ For more information, see [Delegation](delegation.md).
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Implement smart devices with an abstract class" id="classes-interfaces-exercise-1">
 
 Imagine you're working on a smart home system. A smart home typically has different types of devices that all have some

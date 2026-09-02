@@ -417,7 +417,7 @@ For more information, see [Observable properties](delegated-properties.md#observ
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Find out-of-stock books" id="properties-exercise-1">
 
 You manage an inventory system at a bookstore. The inventory is stored in a list where each item represents the quantity

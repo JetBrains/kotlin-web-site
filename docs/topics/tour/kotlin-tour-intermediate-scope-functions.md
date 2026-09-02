@@ -417,7 +417,7 @@ For more information about scope functions, see [Scope functions](scope-function
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Rewrite a function using safe calls and let" id="scope-functions-exercise-1">
 
 Rewrite the `.getPriceInEuros()` function as a single-expression function that uses safe call operators `?.` and the `let` scope function.

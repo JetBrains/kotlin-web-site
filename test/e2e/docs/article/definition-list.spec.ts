@@ -4,7 +4,7 @@ import { ELEMENT_PADDING_OFFSET, RESOLUTIONS } from '../../visual-constants';
 import { WebHelpPage } from '../page';
 import { bodyOf, deflistIn, expandItem, itemsOf, pixelValue, TEST_PAGE_URL } from './utils';
 
-test.describe('Docs: Test Page expandable definition list', async () => {
+test.describe('Docs: Test Page clear definition list', async () => {
     skipProduction();
 
     test.beforeEach(async ({ page }) => {
@@ -12,11 +12,11 @@ test.describe('Docs: Test Page expandable definition list', async () => {
         await webHelpPage.init();
     });
 
-    test(`Should render expandable definition list without numbering`, async ({ page }) => {
-        const deflist = deflistIn(page, 'expandable-definition-list');
+    test(`Should render clear definition list without numbering`, async ({ page }) => {
+        const deflist = deflistIn(page, 'clear-definition-list');
 
         await expect(deflist).toBeVisible();
-        await expect(deflist).toContainClass('definition-list--type-expandable');
+        await expect(deflist).toContainClass('definition-list--appearance-clear');
         await expect(deflist).not.toContainClass('definition-list--numbered');
 
         const items = itemsOf(deflist);
@@ -35,11 +35,11 @@ test.describe('Docs: Test Page expandable definition list', async () => {
         await expect(item.locator(testSelector('definition-list-description'))).toBeVisible();
     });
 
-    test(`Should render numbered expandable definition list`, async ({ page }) => {
-        const numbered = deflistIn(page, 'numbered-expandable-definition-list');
+    test(`Should render numbered clear definition list`, async ({ page }) => {
+        const numbered = deflistIn(page, 'numbered-clear-definition-list');
 
         await expect(numbered).toBeVisible();
-        await expect(numbered).toContainClass('definition-list--type-expandable');
+        await expect(numbered).toContainClass('definition-list--appearance-clear');
         await expect(numbered).toContainClass('definition-list--numbered');
 
         // 11 items, so that two-digit numbers are rendered as well
@@ -50,7 +50,7 @@ test.describe('Docs: Test Page expandable definition list', async () => {
         await expect(numberedTitle).toHaveCSS('padding-left', '30px');
         await expect(numberedTitle).toHaveCSS('text-indent', '-30px');
 
-        const plainTitle = deflistIn(page, 'expandable-definition-list')
+        const plainTitle = deflistIn(page, 'clear-definition-list')
             .locator(testSelector('definition-list-title-text'))
             .first();
         expect(await pixelValue(numberedTitle, 'padding-left')).toBeGreaterThan(
@@ -73,9 +73,9 @@ test.describe('Docs: Test Page expandable definition list', async () => {
     });
 
     for (const [resolutionName, resolution] of Object.entries(RESOLUTIONS)) {
-        test(`Should render expandable definition list properly on ${resolutionName}`, async ({ page }) => {
+        test(`Should render clear definition list properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = deflistIn(page, 'expandable-definition-list');
+            const element = deflistIn(page, 'clear-definition-list');
             await expect(element).toBeVisible();
             await element.scrollIntoViewIfNeeded();
             await checkScreenshot(element, { clip: ELEMENT_PADDING_OFFSET });
@@ -83,7 +83,7 @@ test.describe('Docs: Test Page expandable definition list', async () => {
 
         test(`Should render numbered definition list properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = deflistIn(page, 'numbered-expandable-definition-list');
+            const element = deflistIn(page, 'numbered-clear-definition-list');
             await expect(element).toBeVisible();
             await element.scrollIntoViewIfNeeded();
             // the list has 11 items, so the screenshot covers two-digit numbers as well
@@ -92,7 +92,7 @@ test.describe('Docs: Test Page expandable definition list', async () => {
 
         test(`Should render expanded numbered definition list properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = deflistIn(page, 'numbered-expandable-definition-list');
+            const element = deflistIn(page, 'numbered-clear-definition-list');
 
             // the last item has a long title, which has to wrap without breaking the number gutter
             const item = itemsOf(element).last();

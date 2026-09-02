@@ -381,7 +381,7 @@ For more information about inline value classes, see [Inline value classes](inli
 
 ## Practice {completion-point="true"}
 
-<deflist type="expandable" numbered="true">
+<deflist appearance="clear" collapsible="true" numbered="true">
 <def title="Model delivery statuses with a sealed class" id="special-classes-exercise-1">
 
 You manage a delivery service and need a way to track the status of packages. Create a sealed class called `DeliveryStatus`,
