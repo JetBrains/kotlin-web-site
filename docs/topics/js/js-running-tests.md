@@ -59,12 +59,12 @@ kotlin {
 
 ## Configure browsers
 
-You can run tests in Kotlin/JS against specific browsers. To do so, adjust the settings available in the `browser{}` configuration
-block of the Gradle build file.
+You can run tests in Kotlin/JS against specific browsers. To do so, adjust the settings available in the `browser {}`
+configuration block of the Gradle build file.
 
 By default, the plugin uses [Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 to run browser tests. No browsers are bundled with the Kotlin Multiplatform Gradle plugin by default.
-To enable additional browsers, use the `testTask{}` block for Karma and the `test{}` block for the
+To enable additional browsers, use the `testTask {}` block for Karma and the `test {}` block for the
 Kotlin DSL with Playwright. See all available options here:
 
 <tabs group="js-test-dsl">
@@ -221,7 +221,7 @@ kotlin {
 }
 ```
 
-You can set the options for all test runners directly in the `test{}` block. To override these common options for
+You can set the options for all test runners directly in the `test {}` block. To override these common options for
 a particular runner, use a custom name for it and provide different values inside a runner block.
 In this example, Chromium and WebKit (Safari) browsers run with their own timeouts of 10 and 35 seconds,
 while Firefox uses the common timeout of 30 seconds.
@@ -268,7 +268,7 @@ bundle (`bundleLocation`), the name of the test page (`testHtmlFileName`), and t
 With access to these APIs, you can:
 
 * Customize the URL that the browser opens. Each browser runner has its own tests location, so you can override it either
-  for all runners in the `test{}` block or for a particular runner.
+  for all runners in the `test {}` block or for a particular runner.
 * Override the bundle location itself, for example, to add extra files to the bundle.
 * Post-process the generated test bundle. Register your own task and modify the files there before the browser opens them,
   for example, to inject your own configuration into `test.html`.

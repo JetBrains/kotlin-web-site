@@ -423,9 +423,9 @@ experimental Kotlin DSL. This solution manages different tools under the hood:
 * [Playwright](https://playwright.dev/) acts as a browser driver and a distribution manager that supports the Chromium, Firefox,
   and WebKit (Safari) browser engines.
 * [Mocha](https://mochajs.org/) acts as a test runner.
-* [Webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
+* [webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-To try out Kotlin DSL with Playwright, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
+To try out Kotlin DSL with Playwright, add the opt-in `test {}` block inside `browser {}` for your Kotlin/JS target:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
