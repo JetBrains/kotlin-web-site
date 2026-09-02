@@ -524,7 +524,7 @@ exported with the `@JsExport` annotation from JavaScript/TypeScript.
 <primary-label ref="experimental-general"/>
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
-``
+
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>
 
