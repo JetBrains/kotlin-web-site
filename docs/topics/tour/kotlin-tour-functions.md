@@ -291,7 +291,7 @@ fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
     ((hours * 60) + minutes) * 60 + seconds
 
 fun main() {
-    // Then simplify these calls with named arguments where possible
+    // Simplify these calls with named arguments where possible
     println(intervalInSeconds(1, 20, 15))
     println(intervalInSeconds(0, 1, 25))
     println(intervalInSeconds(2, 0, 0))
