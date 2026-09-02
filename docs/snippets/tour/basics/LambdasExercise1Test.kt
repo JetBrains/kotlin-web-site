@@ -19,14 +19,13 @@ private val outputLines: List<String> by lazy {
 class LambdasExercise1Test {
 
     @Test
-    fun `buildUrls builds a URL for every action`() {
+    fun `build a URL for every action`() {
         val reference = try {
             buildUrls(ACTIONS, PREFIX, 5)
         } catch (e: NotImplementedError) {
             hint(
                 "Replace the TODO() with an actions.map call. " +
-                        "map turns each action into a new list item - " +
-                        "build one URL for every action.",
+                        "Build one URL for every action.",
                 ""
             )
         }
@@ -36,15 +35,14 @@ class LambdasExercise1Test {
                     (output == EXPECTED.toString() || outputLines == EXPECTED) -> passed()
 
             reference == EXPECTED && alternate != ALT_EXPECTED -> hint(
-                "Build the URLs from the parameters instead of fixed values. " +
-                        "They are correct for this list of actions, " +
-                        "but buildUrls returns the same URLs for any other list.",
+                "Build the URLs from the function parameters instead of fixed values. " +
+                        "The URLs are correct for the example inputs, but not for different inputs.",
                 ""
             )
 
             reference.any { "/5/" !in it && it.startsWith(PREFIX) } -> hint(
                 "Put the id between the prefix and the action: " +
-                        "the URL for \"${ACTIONS[0]}\" should be \"${EXPECTED[0]}\".",
+                        "For \"${ACTIONS[0]}\", the URL should be \"${EXPECTED[0]}\".",
                 ""
             )
 
@@ -54,30 +52,29 @@ class LambdasExercise1Test {
             )
 
             reference.size != ACTIONS.size -> hint(
-                "Build one URL for every action - try actions.map. " +
-                        "buildUrls returned ${reference.size} URLs for ${ACTIONS.size} actions.",
+                "Build one URL for every action with actions.map. " +
+                        "buildUrls returns ${reference.size} URLs for ${ACTIONS.size} actions.",
                 ""
             )
 
             reference != EXPECTED && reference.toSet() == EXPECTED.toSet() -> hint(
-                "Keep the URLs in the order of the actions list. " +
-                        "All of them are there, just in a different order.",
+                "Keep the URLs in the same order as the actions list. " +
+                        "All the expected URLs are there, but the order is different.",
                 ""
             )
 
             reference != EXPECTED -> hint(
-                "Check how each URL is built: buildUrls returned $reference, " +
-                        "but $EXPECTED was expected.",
+                "Check how each URL is built. buildUrls returns $reference, " +
+                        "but $EXPECTED is expected.",
                 ""
             )
 
             actualOutput.isEmpty() -> hint(
-                "Bring the println(urls) call back in main() - buildUrls itself already works!"
+                "Add println(urls) inside main(). buildUrls already returns the expected list."
             )
 
             else -> hint(
-                "Print the urls list - buildUrls itself already works, " +
-                        "only the output doesn't match."
+                "Print the urls list with println(urls). buildUrls already returns the expected list."
             )
         }
     }
