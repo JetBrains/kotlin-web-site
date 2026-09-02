@@ -29,7 +29,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-arithmetic"}
+{kotlin-runnable="true" id="kotlin-tour-basic-types-arithmetic"}
 
 > `+=`, `-=`, `*=`, `/=`, and `%=` are augmented assignment operators. For more information, see [Augmented assignments](operator-overloading.md#augmented-assignments).
 > 
@@ -70,7 +70,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-initialization"}
+{kotlin-runnable="true" id="kotlin-tour-basic-types-initialization"}
 
 If you don't initialize a variable before it is read, you see an error:
 
@@ -86,7 +86,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-no-initialization" validate="false"}
+{kotlin-runnable="true" id="kotlin-tour-basic-types-no-initialization" validate="false"}
 
 Now that you know how to declare basic types, it's time to learn about [collections](kotlin-tour-collections.md).
 
@@ -107,7 +107,7 @@ fun main() {
     val f = '\n'
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-exercise"}
+{validate="false" kotlin-runnable="true" id="kotlin-tour-basic-types-exercise"}
 
 |---|---|
 ```kotlin
