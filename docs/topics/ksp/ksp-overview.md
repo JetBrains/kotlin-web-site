@@ -14,11 +14,12 @@ Typical use cases for KSP-based plugins include:
 * Serialization ([Moshi](https://github.com/square/moshi))
 * Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
 
+To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).
+
 ## Overview
 
-To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).KSP represents Kotlin 
-source code as a hierarchy of symbols based on the Kotlin grammar. Processors use these symbols to inspect declarations 
-such as classes, functions, properties, and types.
+KSP represents Kotlin source code as a hierarchy of symbols based on the Kotlin grammar. Processors use these symbols to 
+inspect declarations such as classes, functions, properties, and types.
 
 > KSP models declarations and type information, but doesn't provide access to expressions or
 > function bodies.
