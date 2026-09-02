@@ -10,7 +10,7 @@ private val outputLines: List<String> by lazy {
 class LambdasExercise2Test {
 
     @Test
-    fun `repeatN repeats the action and main prints Hello five times`() {
+    fun `repeat an action and print Hello five times`() {
         var count3 = 0
         repeatN(3) { count3++ }
 
@@ -23,43 +23,43 @@ class LambdasExercise2Test {
             count3 == 3 && count0 == 0 && lines == List(5) { "Hello" } -> passed()
 
             count3 == 0 -> hint(
-                "Call action() inside repeatN - the action never runs at the moment. " +
-                        "Repeat that call n times with a loop.",
+                "Call action() inside repeatN. " +
+                        "Use a loop to run the action n times.",
                 ""
             )
 
             count3 == 4 || count0 == 1 -> hint(
-                "Make the loop run exactly n times - it repeats the action once too often. " +
+                "Make the loop run exactly n times. The action currently runs once too often. " +
                         "The range 1..n covers exactly n steps.",
                 ""
             )
 
             count3 != 3 -> hint(
-                "Check the loop inside repeatN - asked for 3 repeats, " +
-                        "but the action ran $count3 times.",
+                "Check the loop inside repeatN." +
+                        "For n = 3, the action runs $count3 times instead of 3.",
                 ""
             )
 
             actualOutput.isEmpty() -> hint(
-                "Call repeatN(5) in main() with a lambda that prints \"Hello\" - " +
-                        "repeatN itself already works!"
+                "Call repeatN(5) inside main() and pass a lambda that prints \"Hello\"."
             )
 
             output.isEmpty() -> hint(
-                "Print \"Hello\" inside the lambda - println() is called with an empty message."
+                "Print \"Hello\" inside the lambda. println() currently prints an empty line."
             )
 
             lines.all { it == "Hello" } && lines.size != 5 -> hint(
-                "Repeat the action 5 times - \"Hello\" is printed ${lines.size} times so far."
+                "Repeat the action 5 times. " +  
+                "\"Hello\" is printed ${lines.size} times."
             )
 
             lines.map { it.lowercase() } == List(5) { "hello" } -> hint(
-                "Print \"Hello\" with a capital H - only the capitalization is off. So close!"
+                "Print \"Hello\" with a capital H."
             )
 
             else -> hint(
-                "Call repeatN(5) with a lambda that prints \"Hello\" - " +
-                        "the output should be \"Hello\" on 5 separate lines."
+                "Call repeatN(5) with a lambda that prints \"Hello\". " +
+                        "The program should print \"Hello\" on 5 separate lines."
             )
         }
     }
