@@ -5,11 +5,6 @@
     padding: 72px 0;
 }
 
-/*
- * The sphere the design floats over the top panel. `top` is the design's own offset from the
- * top of the section, which is where the design puts it relative to the heading; the rest of
- * the section is free to grow underneath without dragging it out of place.
- */
 .sphere {
     top: 205px;
     left: 49%;
@@ -51,7 +46,6 @@
     padding-right: 32px;
 }
 
-/* h3 carries a default margin from the browser/global stylesheet */
 .panelTitle {
     margin: 0;
     /* the design calls for H3-plus (28/34); rescui exposes rs-h3 metrics as overridable vars */
@@ -76,6 +70,10 @@
     border-radius: 8px;
     box-sizing: border-box;
     background: #fff;
+}
+
+.chartCaption {
+    margin: 0;
 }
 
 .chartCardInner {

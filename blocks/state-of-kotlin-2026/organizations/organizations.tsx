@@ -188,6 +188,9 @@ export const Organizations: FC = () => {
                     </div>
 
                     <div className={styles.chartCard} data-testid="sok-organizations-size-chart">
+                        <p className={cn(styles.chartCaption, textCn('rs-h5'))}>
+                            Kotlin developers by organization size
+                        </p>
                         <div className={styles.chartCardInner}>
                             <HorizontalBarchart model={SIZE_CHART_MODEL} coloredSections={SIZE_CHART_HIGHLIGHT} />
                         </div>
