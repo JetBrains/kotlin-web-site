@@ -64,9 +64,9 @@ for equality and uniqueness, as well as new overloads for `kotlin.test` assertio
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="standard-library"/>
 
-Kotlin 2.4.20 adds the `StackTraceRecoverable` interface to the standard library.
-This improves integration with the `kotlinx.coroutines` library because it lets you define how to create new exception
-instances for stack trace recovery without adding a dependency on `kotlinx.coroutines`.
+Kotlin 2.4.20 adds the [`StackTraceRecoverable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/)
+interface to the standard library. This improves integration with the `kotlinx.coroutines` library because it lets you
+define how to create new exception instances for stack trace recovery without adding a dependency on `kotlinx.coroutines`.
 
 Stack trace recovery helps with debugging when one coroutine throws an exception and another rethrows it.
 It lets you see where the exception originates and where another coroutine rethrows it.
@@ -78,9 +78,9 @@ message, a cause, both, or no arguments.
 If an exception constructor has additional required arguments, such as a line number or an error code, implement the
 `StackTraceRecoverable` interface to define how the `kotlinx.coroutines` library creates a new instance of that exception.
 
-To implement the interface, override the `copyForStackTraceRecovery()` function.
-In the override, return a new exception instance for stack trace recovery, or `null` if you don't want the `kotlinx.coroutines`
-library to copy the exception.
+To implement the interface, override the [`copyForStackTraceRecovery()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/copy-for-stack-trace-recovery.html)
+function. In the override, return a new exception instance for stack trace recovery, or `null` if you don't want the
+`kotlinx.coroutines` library to copy the exception.
 
 > The `StackTraceRecoverable` interface is available on all targets, but the `kotlinx.coroutines`
 > library uses it for stack trace recovery only on the JVM.
@@ -211,7 +211,7 @@ Previously, `kotlin.test` assertion functions like `assertTrue()` or `assertEqua
 messages built on every assertion, even when the assertion succeeded, and the message was never actually used.
 
 The new overloads align the `kotlin.test` API with JUnit 5 and accept a message supplier through a lambda, instead of a
-plain string. This improves performance, especially for the [Power-Assert compiler plugin](power-assert.md), which
+plain string. This improves performance, especially for the [Power-assert compiler plugin](power-assert.md), which
 generates detailed error messages for assertions.
 
 The new overloads are available for the following assertion functions:
@@ -358,7 +358,7 @@ When Kotlin receives a Swift object, it treats it like an implementation of a re
 For more details on Swift export, see our [documentation](native-swift-export.md).
 
 ### Improved incremental compilation of `klib` artifacts
-<primary-label ref="experimental-opt-in"/>
+<primary-label ref="beta"/>
 <secondary-label ref="native"/>
 
 Kotlin 2.4.20 brings stabilization improvements to incremental compilation of `klib` artifacts.
@@ -765,7 +765,7 @@ This section highlights important breaking changes and deprecations. For a compl
 * Starting with Kotlin 2.4.20, the Kotlin/Native compiler prohibits AtomicFU atomic operations inside a `public` inline
   function or inside an `internal` inline function called from another file.
 * Kotlin 2.4.20 updates the npm dependency for webpack to 5.108.1. This can affect your project in two ways:
-  * webpack has moved its built-in minimizer dependency from `terser-webpack-plugin` to the broader [`minimizer-webpack-plugin`](https://www.npmjs.com/package/terser-webpack-plugin).
+  * webpack has moved its built-in minimizer dependency from `terser-webpack-plugin` to the broader [`minimizer-webpack-plugin`](https://www.npmjs.com/package/minimizer-webpack-plugin).
     Terser remains the default JavaScript minimizer, but if your project configures or depends on `terser-webpack-plugin`
     directly, you may need to update its configuration.
   * webpack no longer ignores `import.meta` when determining a JavaScript file's module type. If `import.meta` is present,
