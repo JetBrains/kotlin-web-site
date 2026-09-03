@@ -47,82 +47,88 @@ type CaseTag = 'Backend' | 'Cross-platform';
 interface ProductionCase {
     company: string;
     tag: CaseTag;
-    /** The outcome line the card shows under the logo. */
     result: string;
     logo: string;
+    href: string;
 }
 
-/**
- * The companies from the "Teams that have already made the move" block on
- * /lp/kotlin-for-business/. Logos are the shared case-study assets, which are all
- * brand-coloured and intrinsically 64px tall.
- */
 const PRODUCTION_CASES: ProductionCase[] = [
     {
         company: 'ING',
         tag: 'Backend',
         result: 'Eliminated null-related crashes to zero',
         logo: '/images/case-studies/ing-logo.svg',
+        href: 'https://www.youtube.com/watch?v=mexcjkGZIm8',
     },
     {
         company: 'Amazon',
         tag: 'Backend',
         result: 'Sped up feature delivery',
         logo: '/images/case-studies/amazon-logo.svg',
+        href: 'https://youtu.be/rvyUgcxfang',
     },
     {
         company: 'Google',
         tag: 'Backend',
         result: 'Increased developer productivity',
         logo: '/images/case-studies/google-logo.svg',
+        href: 'https://www.youtube.com/watch?v=o14wGByBRAQ',
     },
     {
         company: 'Wolt',
         tag: 'Backend',
         result: 'Ensured payment accuracy',
         logo: '/images/case-studies/wolt-logo.svg',
+        href: 'https://youtu.be/puBXoKkQInE',
     },
     {
         company: 'Worldline',
         tag: 'Backend',
         result: 'Scaled their AI platform to 1M+ users',
         logo: '/images/case-studies/worldline-logo.svg',
+        href: 'https://www.youtube.com/watch?v=3IxDICQTutw',
     },
     {
         company: 'Duolingo',
         tag: 'Cross-platform',
         result: 'Sped up shipping with shared code',
         logo: '/images/case-studies/duolingo-logo.svg',
+        href: 'https://www.youtube.com/watch?v=RJtiFt5pbfs',
     },
     {
         company: "McDonald's",
         tag: 'Cross-platform',
         result: 'Reduced crashes and improved performance',
         logo: '/images/case-studies/mcdonalds-logo.svg',
+        href: 'https://www.youtube.com/watch?v=uCkYZ-PvCmw',
     },
     {
         company: 'Forbes',
         tag: 'Cross-platform',
         result: 'Started shipping features simultaneously on iOS and Android',
         logo: '/images/case-studies/forbes-logo.svg',
+        href: 'https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/',
     },
     {
         company: 'Bolt',
         tag: 'Cross-platform',
         result: 'Built features cross-platform without expanding their team',
         logo: '/images/case-studies/bolt-logo.svg',
+        href: 'https://www.youtube.com/watch?v=Qu3jZX8RyFk',
     },
     {
         company: 'Cash App',
         tag: 'Cross-platform',
         result: 'Streamlined collaboration between their Android and iOS teams',
         logo: '/images/case-studies/cash-app-logo.svg',
+        href: 'https://kotlinlang.org/case-studies/cash-app/',
     },
     {
         company: 'Philips',
         tag: 'Cross-platform',
         result: 'Cut feature delivery cycles from 2 months to 1',
         logo: '/images/case-studies/philips-logo.svg',
+        href: 'https://www.youtube.com/watch?v=hZPL8QqiLi8',
     },
 ];
 
@@ -133,27 +139,8 @@ const CARD_GAP = 8;
 /** Pixels per second, so the strip's pace doesn't depend on how many cards it carries. */
 const SCROLL_SPEED = 40;
 
-/** Alternate the two tags, so the strip doesn't read as two blocks bolted together. */
-function interleaveByTag(cases: ProductionCase[]): ProductionCase[] {
-    const backend = cases.filter((item) => item.tag === 'Backend');
-    const crossPlatform = cases.filter((item) => item.tag === 'Cross-platform');
-    const interleaved: ProductionCase[] = [];
 
-    for (let i = 0; i < Math.max(backend.length, crossPlatform.length); i++) {
-        if (backend[i]) {
-            interleaved.push(backend[i]);
-        }
-        if (crossPlatform[i]) {
-            interleaved.push(crossPlatform[i]);
-        }
-    }
-
-    return interleaved;
-}
-
-const STRIP_CASES = interleaveByTag(PRODUCTION_CASES);
-
-const TRACK_WIDTH = STRIP_CASES.length * (CARD_WIDTH + CARD_GAP) - CARD_GAP;
+const TRACK_WIDTH = PRODUCTION_CASES.length * (CARD_WIDTH + CARD_GAP) - CARD_GAP;
 
 const SCROLL_DURATION = Math.round(TRACK_WIDTH / SCROLL_SPEED);
 
@@ -260,9 +247,12 @@ export const Organizations: FC = () => {
                                 hasFadingEdges={false}
                                 hideDuplicateFromA11y
                             >
-                                {STRIP_CASES.map((item) => (
-                                    <div
+                                {PRODUCTION_CASES.map((item) => (
+                                    <a
                                         key={item.company}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className={styles.caseCard}
                                         data-testid="sok-organizations-case-card"
                                         data-company={item.company}
@@ -274,7 +264,7 @@ export const Organizations: FC = () => {
                                             height={40}
                                         />
                                         <p className={cn(styles.caseText, textCn('rs-h4'))}>{item.result}</p>
-                                    </div>
+                                    </a>
                                 ))}
                             </Marquee>
                         </div>

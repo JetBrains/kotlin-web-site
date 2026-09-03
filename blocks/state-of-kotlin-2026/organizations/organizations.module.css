@@ -137,11 +137,6 @@
     width: 100%;
 }
 
-/*
- * The design masks the strip rather than overlaying gradients, so the cut-off cards fade into
- * the panel's gradient. Stops are the ones from the design's own mask asset (6% / 94%).
- * `hasFadingEdges={false}` is passed so Marquee's own, much heavier fade doesn't compete here.
- */
 .marquee {
     border-radius: 8px;
     mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
@@ -153,28 +148,20 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    /*
-     * Fixed rather than stretched, because Marquee's track centres its children — an `auto`
-     * height would leave the row ragged.
-     *
-     * 224px, not the design's 200px: 24 padding + 40 logo + 16 gap + 24 padding leaves room for
-     * five 24px lines, which "Streamlined collaboration between their Android and iOS teams"
-     * (Cash App) needs. The design was drawn with six companies, none of which ran past four
-     * lines. Shortening a company's own words was not an option, and the alternative — clipping
-     * — is worse. An e2e test guards the fit, so copy edits that outgrow this will fail loudly.
-     */
     height: 224px;
     padding: 24px;
     border-radius: 8px;
     box-sizing: border-box;
     background: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 8px 24px rgba(25, 25, 28, 0.16);
+    }
 }
 
-/*
- * 40px keeps every logo inside the card's 152px content box — the shared case-study assets are
- * all intrinsically 64px tall, and Duolingo, the widest, lands at 144px. Going to the design's
- * other logo size, 64px, would cost a line of outcome text the copy cannot spare.
- */
 .caseLogo {
     align-self: flex-start;
     flex-shrink: 0;
@@ -189,7 +176,6 @@
     color: #000;
 }
 
-/* the panel splits 50/50 from here down — 536px is the widest layout's figure */
 @media (--ktl-ds-down) {
     .chartCard {
         flex: 1 1 0;
@@ -203,10 +189,6 @@
         gap: 32px;
     }
 
-    /*
-     * Stacked, the card no longer takes its height from the design's fixed 393px, and the
-     * horizontal-only padding becomes an even 24px inset.
-     */
     .chartCard {
         flex: 0 0 auto;
         min-height: 0;
@@ -225,7 +207,6 @@
         padding: 24px;
     }
 
-    /* below 640px rescui drops its own headings a step, and the design follows for H3-plus */
     .panelTitle {
         --rs-h3-font-size: 20px;
         --rs-h3-line-height: 28px;
