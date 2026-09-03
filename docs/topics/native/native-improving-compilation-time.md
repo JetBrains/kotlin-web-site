@@ -171,12 +171,12 @@ The issues that originally required these workarounds might have already been fi
 or Gradle build files contain these lines, remove them and check whether the build completes successfully.
 
 ### Try incremental compilation of klib artifacts
-<primary-label ref="experimental-opt-in"/>
+<primary-label ref="beta"/>
 
 With incremental compilation, if only a part of the `klib` artifact produced by the project module changes,
 just a part of `klib` is further recompiled into a binary.
 
-This feature is still [Experimental](components-stability.md#stability-levels-explained). To enable it,
+This feature is in [Beta](components-stability.md#stability-levels-explained). To enable it,
 add the following option to your `gradle.properties` file:
 
 ```properties
