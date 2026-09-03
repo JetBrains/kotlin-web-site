@@ -48,14 +48,17 @@ You must separate parameters using commas and give each parameter a type explici
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-When you pass an object to a function through its parameters, the compiler passes a copy of the reference to that object.
+When you pass an object to a function, the compiler passes a copy of the reference to that object.
 The copied reference points to the same object, so the function can modify the object's mutable state.
 
 Function parameters are read-only inside the function body (implicitly declared as `val`), so you can't reassign them:
 
 ```kotlin
-fun powerOf(number: Int, exponent: Int): Int {
-    number = 2 // Error: 'val' cannot be reassigned.
+class Counter(var value: Int)
+
+fun reset(counter: Counter) {
+    counter.value = 0    // Allowed: modifies the object
+    counter = Counter(0) // Error: 'val' cannot be reassigned
 }
 ```
 
