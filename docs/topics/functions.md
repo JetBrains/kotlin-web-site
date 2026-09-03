@@ -322,7 +322,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-data-class"}
 
-A data class covers most cases where you need to return multiple values with distinct meanings. If the returned values
+A data class works well when you need to return multiple values with distinct meanings. If the returned values
 are of the same kind and you want to handle them as a group, consider returning a collection instead:
 
 ```kotlin
@@ -347,8 +347,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4" id="return-multiple-values-list"}
 
-You can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/) to return multiple values but their properties have generic names such
-as `first`, `second`, and `third`, which can make the result difficult to understand.
+If you need to return a fixed number of values, you can also use a [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/).
+However, their properties have generic names such as `first`, `second`, and `third`, which can make the result difficult to understand.
 
 For example, although the `calculateOrderTotals()` function returns a `Pair`, it's not clear what each `Double` represents:
 
@@ -373,8 +373,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
 
-For results with distinct meanings, prefer a data class with descriptive property names, as in the `OrderSummary` data
-class example at the beginning.
+For results with distinct meanings, prefer a data class with descriptive property names, as demonstrated in the `OrderSummary` data
+class example at the beginning of this section.
 
 ### Single-expression functions
 
