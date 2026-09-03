@@ -11,10 +11,9 @@ You can inspect these objects and use them to access a value or invoke a functio
 
 ## How reflection works
 
-The Kotlin compiler records metadata about declarations in the compiled output. The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) reads this metadata and
-presents it through Kotlin types such as `KClass` or `KFunction`. A reflection object describes this declaration, but it isn't
-the declaration's value. For example, you can use a `KProperty` to get a property's name and return its type without reading
-that property from an object.
+The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) represents compiled declarations through Kotlin types such as `KClass` or `KFunction`.
+A reflection object describes this declaration, but it isn't the declaration's value. For example, you can use a `KProperty`
+to get a property's name and return its type without reading that property from an object.
 
 Kotlin provides some basic features, such as class literals or callable references, as part of the language and standard
 library. To access more extensive runtime introspection, import the [`kotlin-reflect`](https://kotlinlang.org/api/core/kotlin-reflect/) library
@@ -24,30 +23,67 @@ that consists of the following packages:
 * [`kotlin.reflect.full`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/) with extensions for inspecting Kotlin declarations.
 * [`kotlin.reflect.jvm`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.jvm/) with JVM-specific extensions that connect Kotlin and Java reflections.
 
-Reflection can only inspect declarations that are present in the compiled program. It doesn't parse the original source code or
-search the classpath for every class matching a condition.
-
 > Reflection support may differ between platforms. This page aligns with Kotlin/JVM reflection API. Learn more about [reflection
 > in Kotlin/JS](js-reflection.md).
 > 
 {style="note"}
 
+## Add the JVM dependency
+
+On the JVM platform, the Kotlin compiler distribution includes the runtime component required for using the reflection
+features as a separate artifact, `kotlin-reflect.jar`. This allows applications without reflection features to reduce the
+size of the runtime classpath.
+
+To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
+
+<tabs group="build-script">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+dependencies {
+    implementation(kotlin("reflect"))
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-reflect</artifactId>
+    </dependency>
+</dependencies>
+```
+
+</tab>
+</tabs>
+
+If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
+In other supported cases (IntelliJ IDEA projects that use the command-line compiler),
+it is added by default. In the command-line compiler, you can use the `-no-reflect` compiler option to exclude
+`kotlin-reflect.jar` from the classpath.
+
+To convert the class representations themselves, use `.java` on a `KClass` and `.kotlin` on a Java Class.
+The conversion changes the API used to describe the class, not the underlying class itself.
+
 ## Obtain a runtime class
 
 To obtain a runtime class, choose processing based on the concrete object it received:
 
-* If you know the class from the sourse code, use `ClassName::class`.
-* If you need the actual class of a runtime value, use `object::class`.
+* If you know the class from the source code, use `ClassName::class`.
+* If you need the actual class of a runtime value, use `value::class`.
 
 The approach depends on the way an API accepts values: through a common superclass or through `Any`. The declared type tells
-the compiler which operations are safe in the source code, while `object::class` reveals the class that produced the value
+the compiler which operations are safe in the source code, while `value::class` reveals the class that produced the value
 at runtime:
 
 ```kotlin
 class User(val name: String)
 
 open class Language
-class English : Language()
+class Kotlin : Language()
 
 fun main() {
     // The class written before ::class
@@ -55,11 +91,11 @@ fun main() {
     println(userClass.simpleName)
     // User
 
-    val language: Language = English()
+    val language: Language = Kotlin()
 
     // The actual class of the object
     println(language::class.simpleName)
-    // English
+    // Kotlin
 }
 ```
 {kotlin-runnable="true"}
@@ -127,8 +163,9 @@ deciding whether to use any of them. For example, you can use:
 * The [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html) and [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html) properties to return the declarations from the class itself.
 * The [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html) and [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html) properties to return the declarations from the class and all of its superclasses.
 
-For example, the following code lists the properties declared directly in a class. Each returned `KProperty` describes a
-declaration without reading it from a `User` object. Therefore, you can inspect metadata without creating an instance:
+For example, the following code lists the properties declared directly in a class. `declaredMemberProperties` returns `KProperty`
+objects that describe the declarations. Reading `property.name` or `property.returnType` doesn't access a `User` value.
+It inspects the declaration itself. You need a `User` instance only if you want to read the property's value:
 
 ```kotlin
 import kotlin.reflect.full.declaredMemberProperties
@@ -143,13 +180,7 @@ fun main() {
 }
 ```
 
-Reflection can inspect classes to which you already have a reference. However, it doesn't scan the classpath or discover
-every implementation of an open class or interface. For that, maintain an explicit registry or use a dedicated classpath-scanning
-library.
-
-> Learn how to [inspect sealed subclasses](sealed-classes.md#inspect-sealed-subclasses-with-reflection) with reflection.
-> 
-{style="tip"}
+You can also [inspect sealed subclasses](sealed-classes.md#inspect-sealed-subclasses-with-reflection) with reflection.
 
 ## Read a property
 
@@ -202,17 +233,18 @@ can use [`call()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/
 import kotlin.reflect.full.memberFunctions
 
 class Formatter {
-fun format(text: String, uppercase: Boolean): String =
-if (uppercase) text.uppercase() else text
+    fun format(text: String, uppercase: Boolean): String =
+        if (uppercase) text.uppercase() else text
 }
 
 fun main() {
-val formatter = Formatter()
+    val formatter = Formatter()
 
-    // Discover the function from runtime metadata
+    // Find the function by its name at runtime
     val function = Formatter::class.memberFunctions
         .single { it.name == "format" }
-    
+
+    // Supply the receiver first, then the declared arguments in order
     val result = function.call(formatter, "Kotlin", true)
 
     println(result)
@@ -263,46 +295,6 @@ In this example, `instanceParameter` identifies the member-function receiver, an
 
 > Use `call()` when the complete ordered argument list is already available.
 > 
-> Use `callBy()` when you match the arguments by metadata or should omit the optional arguments.
+> Use `callBy()` when you match arguments to parameter objects or let optional parameters use their defaults.
 > 
 {style="tip"}
-
-## Add the JVM dependency
-
-On the JVM platform, the Kotlin compiler distribution includes the runtime component required for using the reflection
-features as a separate artifact, `kotlin-reflect.jar`. This allows applications without reflection features to reduce the
-required size of the runtime library.
-
-To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
-
-<tabs group="build-script">
-<tab title="Gradle" group-key="gradle">
-
-```kotlin
-dependencies {
-    implementation(kotlin("reflect"))
-}
-```
-
-</tab>
-<tab title="Maven" group-key="maven">
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-reflect</artifactId>
-    </dependency>
-</dependencies>
-```
-
-</tab>
-</tabs>
-
-If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
-In other supported cases (IntelliJ IDEA projects that use the command-line compiler),
-it is added by default. In the command-line compiler, you can use the `-no-reflect` compiler option to exclude
-`kotlin-reflect.jar` from the classpath.
-
-To convert the class representations themselves, use `.java` on a `KClass` and `.kotlin` on a Java Class.
-The conversion changes the API used to describe the class, not the underlying class itself.

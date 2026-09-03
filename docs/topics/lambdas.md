@@ -115,8 +115,8 @@ There are several ways to obtain an instance of a function type:
 
 * Use a callable reference to an existing declaration:
     * a top-level, local, member, or extension [function](#function-references): `::isOdd`, `String::toInt`,
-    * a top-level, member, or extension [property](properties.md#property-references): `List<Int>::size`,
-    * a [constructor](classes.md#constructor-references): `::Regex`
+    * a top-level, member, or extension [property](#property-references): `List<Int>::size`,
+    * a [constructor](#constructor-references): `::Regex`
 
   These include [bound callable references](#bound-and-unbound-references) that point to a member of a particular instance: `foo::toString`.
 
@@ -255,6 +255,81 @@ val parseInt: (Int) -> String = ::parse
 }
 ```
 {kotlin-runnable="true"}
+
+### Property references
+
+Use a property reference when you need to pass a statically checked property accessor. For example, another function can
+use the reference to select which value to read or update.
+
+To create a property reference, use the `::` operator. You can read the property by calling the reference as a function
+or by using the `get()` function. A mutable property reference also provides `set()`:
+
+```kotlin
+var greeting = "Hello"
+
+class User(var name: String)
+
+fun main() {
+    // A top-level property reference
+    // No receiver is needed
+    println(::greeting.get())
+    // Hello
+
+    ::greeting.set("Hi")
+    println(greeting)
+    // Hi
+
+    // An unbound member property
+    // a User receiver is needed
+    val name = User::name
+    val user = User("Jane")
+
+    println(name.get(user))
+    // Jane
+    name.set(user, "Jane Doe")
+    println(user.name)
+    // Jane Doe
+}
+```
+{kotlin-runnable="true"}
+
+Property-reference types indicate how many receivers are required:
+
+* [`KProperty0<V>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-property0/) requires no receiver. This includes top-level properties and properties bound to an object.
+* [`KProperty1<T, V>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-property1/) requires one receiver.
+* [`KProperty2<D, E, V>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-property2/) requires two receivers and represents a member extension property: one receiver for the containing class and another for the extended type.
+
+Mutable properties have corresponding [`KMutableProperty0`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-mutable-property0/), [`KMutableProperty1`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-mutable-property1/), and [`KMutableProperty2`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-mutable-property2/) types.
+Usually, you don't need to write these types explicitly because the compiler infers them from the reference.
+
+> To discover the property at runtime, use [Kotlin reflection](reflection.md).
+>
+{style="tip"}
+
+### Constructor references
+
+Use a constructor reference when an API needs a factory and an existing constructor already has the required parameters
+and return type. The constructor reference lets the API create new instances through a function value.
+
+To create a reference to a constructor, use `::ClassName`:
+
+```kotlin
+data class User(val name: String, val age: Int)
+
+fun createUser(factory: (String, Int) -> User): User =
+    factory("Jane Doe", 22)
+
+fun main() {
+    val user = createUser(::User)
+    println(user)
+    // User(name=Jane Doe, age=22)
+}
+```
+{kotlin-runnable="true"}
+
+Callable references to constructors are typed as one of the [`KFunction<out R>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-function/) subtypes depending on the parameter count.
+However, the compiler resolves and checks the constructor references at compile time and doesn't require the
+[kotlin-reflect](reflection.md) library.
 
 ### Bound and unbound references
 
