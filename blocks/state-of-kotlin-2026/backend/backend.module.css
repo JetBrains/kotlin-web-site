@@ -277,11 +277,17 @@
     width: 100%;
 }
 
+.caseLogoBox {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
 .caseLogo {
     display: block;
     width: auto;
     max-width: 100%;
-    height: 48px;
+    height: var(--sok-logo-height, 48px);
     object-fit: contain;
     object-position: left center;
 }

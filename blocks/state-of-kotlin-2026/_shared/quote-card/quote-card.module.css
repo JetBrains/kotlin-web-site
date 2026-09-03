@@ -15,12 +15,18 @@
     box-sizing: border-box;
 }
 
+.logoBox {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
 /* a block-level image keeps its intrinsic width and stays at the card's left edge */
 .logo {
     display: block;
     width: auto;
     max-width: 100%;
-    height: 48px;
+    height: var(--sok-logo-height, 48px);
     object-fit: contain;
     object-position: left center;
 }
@@ -37,7 +43,7 @@
 }
 
 /* with no company name the quote takes over the gap the heading would have owned */
-.logo + .quote {
+.logoBox + .quote {
     margin-top: 24px;
 }
 

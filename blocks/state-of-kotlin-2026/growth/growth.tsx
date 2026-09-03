@@ -69,7 +69,7 @@ export const Growth: FC = () => {
 
             <div className={styles.row}>
                 <ChartFigure
-                    src="/images/state-of-kotlin-2026/growth-adoption-curve.png"
+                    src="/images/state-of-kotlin-2026/growth-adoption-curve.webp"
                     alt={CHART_ALT}
                     width={776}
                     height={533}

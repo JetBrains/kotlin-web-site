@@ -8,32 +8,32 @@ const NUMBER_ITEMS = [
     {
         figure: '8M+',
         caption: 'Kotlin developers worldwide',
-        render: '/images/state-of-kotlin-2026/numbers-render-1.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-1.webp',
     },
     {
         figure: '50%+',
         caption: 'Use Kotlin for&nbsp;backend tasks',
-        render: '/images/state-of-kotlin-2026/numbers-render-2.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-2.webp',
     },
     {
         figure: '30%',
         caption: 'Use Kotlin on&nbsp;multiplatform projects',
-        render: '/images/state-of-kotlin-2026/numbers-render-3.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-3.webp',
     },
     {
         figure: '80%',
         caption: 'Use it in real&nbsp;production environments',
-        render: '/images/state-of-kotlin-2026/numbers-render-4.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-4.webp',
     },
     {
         figure: '81%',
         caption: 'say AI-generated Kotlin is usually correct or needs only minor fixes',
-        render: '/images/state-of-kotlin-2026/numbers-render-5.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-5.webp',
     },
     {
         figure: '87%',
         caption: 'Are satisfied or&nbsp;very satisfied with the language',
-        render: '/images/state-of-kotlin-2026/numbers-render-6.png',
+        render: '/images/state-of-kotlin-2026/numbers-render-6.webp',
     },
 ];
 

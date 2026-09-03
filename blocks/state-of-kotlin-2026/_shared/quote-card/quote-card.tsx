@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
@@ -8,6 +8,7 @@ type QuoteCardProps = {
     logoSrc?: string;
     logoAlt?: string;
     logoWidth?: number;
+    logoHeight?: number;
     company?: string;
     quote: string;
     /**
@@ -27,6 +28,7 @@ export const QuoteCard: FC<QuoteCardProps> = ({
     logoSrc,
     logoAlt,
     logoWidth,
+    logoHeight = 48,
     company,
     quote,
     quoted = true,
@@ -41,7 +43,18 @@ export const QuoteCard: FC<QuoteCardProps> = ({
 
     return (
         <div className={cn(styles.card, className, textCn('rs-text-1'))} data-testid={testId}>
-            {logoSrc && <img src={logoSrc} alt={logoAlt || ''} className={styles.logo} width={logoWidth} height={48} />}
+            {logoSrc && (
+                <span className={styles.logoBox}>
+                    <img
+                        src={logoSrc}
+                        alt={logoAlt || ''}
+                        className={styles.logo}
+                        width={logoWidth}
+                        height={logoHeight}
+                        style={{ '--sok-logo-height': `${logoHeight}px` } as CSSProperties}
+                    />
+                </span>
+            )}
             {company && <h4 className={cn(styles.company, textCn('rs-h3'))}>{company}</h4>}
             <p className={cn(styles.quote, textCn('rs-text-1'))}>{quoted ? <>&ldquo;{quote}&rdquo;</> : quote}</p>
             {author && (

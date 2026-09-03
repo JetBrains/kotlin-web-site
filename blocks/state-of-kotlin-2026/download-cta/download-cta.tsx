@@ -8,7 +8,7 @@ import { REPORT_PDF_URL } from '@/blocks/state-of-kotlin-2026/constants';
 
 import styles from './download-cta.module.css';
 
-const RENDER_IMAGE = '/images/state-of-kotlin-2026/download-cta-render.png';
+const RENDER_IMAGE = '/images/state-of-kotlin-2026/download-cta-render.webp';
 
 export const DownloadCta: FC = () => {
     const textCn = useTextStyles();

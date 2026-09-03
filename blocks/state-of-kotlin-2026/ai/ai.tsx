@@ -108,7 +108,7 @@ const BUILD_AI_CAPABILITIES: Capability[] = [
 const AGENT_CASES: AgentCase[] = [
     {
         company: 'Mercedes-Benz.io',
-        logo: '/images/state-of-kotlin-2026/ai-logo-mercedes-benz.svg',
+        logo: '/images/case-studies/mercedes-benz-logo.svg',
         logoAlt: 'Mercedes-Benz.io',
         logoWidth: 200,
         text: "Thanks to Kotlin's strong typing and concise syntax, reasoning steps remain explicit and testable, while Koog also provides execution and tracing.",
@@ -120,9 +120,9 @@ const AGENT_CASES: AgentCase[] = [
     },
     {
         company: 'Worldline',
-        logo: '/images/state-of-kotlin-2026/ai-logo-worldline.svg',
+        logo: '/images/case-studies/worldline-logo.svg',
         logoAlt: 'Worldline',
-        logoWidth: 70,
+        logoWidth: 69,
         text: 'Runs its AI conversational platform for more than 1M monthly active users on Kotlin and Spring Boot – and is consolidating Python services onto the same stack.',
         quoted: false,
         linkText: 'Watch video',

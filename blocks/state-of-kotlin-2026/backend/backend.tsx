@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { CSSProperties, FC, ReactNode } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { HorizontalBarchart } from '@webteam/horizontal-barchart';
@@ -18,6 +18,7 @@ type ProductionCase = {
     logo: string;
     logoAlt: string;
     logoWidth: number;
+    logoHeight?: number;
     text: ReactNode;
     linkText: string;
     linkHref: string;
@@ -74,7 +75,7 @@ const FRAMEWORK_STATS: Stat[] = [
 const PRODUCTION_CASES: ProductionCase[] = [
     {
         company: 'Amazon',
-        logo: '/images/state-of-kotlin-2026/backend-logo-amazon.svg',
+        logo: '/images/case-studies/amazon-logo.svg',
         logoAlt: 'Amazon',
         logoWidth: 115,
         text: 'Migrated a 10,000-line backend service from Java to Kotlin – powering an AI-driven size recommendation system for hundreds of millions of customers across 19 locales.',
@@ -92,9 +93,10 @@ const PRODUCTION_CASES: ProductionCase[] = [
     },
     {
         company: 'ING',
-        logo: '/images/state-of-kotlin-2026/backend-logo-ing.svg',
+        logo: '/images/case-studies/ing-logo.svg',
         logoAlt: 'ING',
-        logoWidth: 144,
+        logoWidth: 142,
+        logoHeight: 53,
         text: (
             <>
                 Modernized its mission-critical payment engine – <b>6M mobile users</b>, <b>4.5B payments a year</b> –
@@ -222,13 +224,20 @@ export const Backend: FC = () => {
                         {PRODUCTION_CASES.map((productionCase, index) => (
                             <div className={cn(styles.caseCard, textCn('rs-text-1'))} key={index}>
                                 <div className={styles.caseBody}>
-                                    <img
-                                        src={productionCase.logo}
-                                        alt={productionCase.logoAlt}
-                                        className={styles.caseLogo}
-                                        width={productionCase.logoWidth}
-                                        height={48}
-                                    />
+                                    <span className={styles.caseLogoBox}>
+                                        <img
+                                            src={productionCase.logo}
+                                            alt={productionCase.logoAlt}
+                                            className={styles.caseLogo}
+                                            width={productionCase.logoWidth}
+                                            height={productionCase.logoHeight ?? 48}
+                                            style={
+                                                {
+                                                    '--sok-logo-height': `${productionCase.logoHeight ?? 48}px`,
+                                                } as CSSProperties
+                                            }
+                                        />
+                                    </span>
                                     <div className={styles.caseTextGroup}>
                                         <h4 className={cn(styles.caseCompany, textCn('rs-h3'))}>
                                             {productionCase.company}

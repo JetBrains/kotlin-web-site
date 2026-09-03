@@ -17,6 +17,7 @@ type Quote = {
     logo: string;
     logoAlt: string;
     logoWidth: number;
+    logoHeight?: number;
     quote: string;
     author: string;
     role: string;
@@ -66,9 +67,10 @@ const GROWTH_CARDS = [
 const PRODUCTION_QUOTES: Quote[] = [
     {
         company: 'Booking.com',
-        logo: '/images/state-of-kotlin-2026/multiplatform-logo-booking.svg',
+        logo: '/images/case-studies/booking-logo.svg',
         logoAlt: 'Booking.com',
-        logoWidth: 135,
+        logoWidth: 137,
+        logoHeight: 31,
         quote: "Adopting KMP for our experimentation library was a calculated bet. […] The reality exceeded our expectations: KMP performed great on iOS, proving it's a viable, long-term solution for our team.",
         author: 'Diego Gómez Olvera',
         role: 'Principal Android Developer',
@@ -78,9 +80,9 @@ const PRODUCTION_QUOTES: Quote[] = [
     },
     {
         company: 'Duolingo',
-        logo: '/images/state-of-kotlin-2026/multiplatform-logo-duolingo.svg',
+        logo: '/images/case-studies/duolingo-logo.svg',
         logoAlt: 'Duolingo',
-        logoWidth: 174,
+        logoWidth: 173,
         quote: 'The more that we use Kotlin Multiplatform internally, the more we find ourselves speeding up in terms of shipping.',
         author: 'John Rodriguez',
         role: 'The client platform team',
@@ -220,6 +222,7 @@ export const Multiplatform: FC = () => {
                                 logoSrc={quote.logo}
                                 logoAlt={quote.logoAlt}
                                 logoWidth={quote.logoWidth}
+                                logoHeight={quote.logoHeight}
                                 company={quote.company}
                                 quote={quote.quote}
                                 author={quote.author}
