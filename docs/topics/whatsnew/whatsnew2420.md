@@ -809,8 +809,8 @@ Since the last release, we've created new pages and tutorials for the Kotlin eco
   representation, and work with more advanced serialization scenarios.
 * [Flow](coroutines-flow.md) and [Flow operators](coroutines-flow-operators.md) – Learn how to create and collect cold
   and hot flows, handle exceptions, and use a wide range of flow operators.
-* [Debug coroutines](coroutines-debugging.md) – Learn how to debug coroutines on the JVM using debug mode, stack trace
-  recovery, and the debug agent.
+<!-- * [Debug coroutines](coroutines-debugging.md) – Learn how to debug coroutines on the JVM using debug mode, stack trace
+  recovery, and the debug agent. -->
 * Lincheck – Learn how [model checking](lincheck-model-checking.md) works in Lincheck, how to use [operation execution options](lincheck-operation-execution-options.md),
   and how to [verify](lincheck-results-validation.md) the test results.
 * [kapt compiler plugin](kapt.md) – Learn how to configure the kapt compiler plugin in Gradle, Maven, and the command-line
