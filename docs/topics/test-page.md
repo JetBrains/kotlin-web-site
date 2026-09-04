@@ -332,6 +332,173 @@ jvmTest<Scope>
    </def>
 </deflist>
 
+### Clear definition list
+
+<deflist appearance="clear" collapsible="true">
+<def title="Expandable item #1">
+
+An expandable item without numbering. Its body is plain text so that only the widget chrome is under test.
+
+</def>
+<def title="Expandable item #2">
+
+A second expandable item. Expanding it must not change the state of its siblings.
+
+</def>
+<def title="Expandable item #3">
+
+A third expandable item, closing the non-numbered list.
+
+</def>
+</deflist>
+
+### Numbered clear definition list
+
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Numbered item #1">
+
+Description of the numbered item rendered with the generated number 1.
+
+</def>
+<def title="Numbered item #2">
+
+Description of the numbered item rendered with the generated number 2.
+
+</def>
+<def title="Numbered item #3">
+
+Description of the numbered item rendered with the generated number 3.
+
+</def>
+<def title="Numbered item #4">
+
+Description of the numbered item rendered with the generated number 4.
+
+</def>
+<def title="Numbered item #5">
+
+Description of the numbered item rendered with the generated number 5.
+
+</def>
+<def title="Numbered item #6">
+
+Description of the numbered item rendered with the generated number 6.
+
+</def>
+<def title="A deliberately long item title that has to wrap onto several lines on narrow viewports so that the hanging indent of the generated number stays intact">
+
+Description of the numbered item rendered with the generated number 7.
+
+</def>
+<def title="Numbered item #8">
+
+Description of the numbered item rendered with the generated number 8.
+
+</def>
+<def title="Numbered item #9">
+
+Description of the numbered item rendered with the generated number 9.
+
+</def>
+<def title="Numbered item #10">
+
+Description of the numbered item rendered with the generated number 10.
+
+</def>
+<def title="Numbered item #11">
+
+Description of the numbered item rendered with the generated number 11.
+
+</def>
+</deflist>
+
+## Practice {completion-point="true"}
+
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Print a greeting using string templates" id="test-page-practice-1">
+
+Complete the code to make the program print `"Mary is 20 years old"` to standard output:
+
+```kotlin
+fun main() {
+    val name = "Mary"
+    val age = 20
+    // Write your code here
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-1"}
+
+```kotlin
+fun main() {
+    val name = "Mary"
+    val age = 20
+    println("$name is $age years old")
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-1"}
+
+</def>
+<def title="Check whether two results match" id="test-page-practice-2">
+
+Use `if` to print `You win :)` when both results are equal and `You lose :(` otherwise.
+
+> This exercise also carries a nested hint, so the inner collapsible list must open without collapsing the exercise itself.
+>
+{style="tip"}
+
+<deflist collapsible="true">
+    <def title="Hint">
+        Use the equality operator (<code>==</code>) to compare the results.
+    </def>
+</deflist>
+
+```kotlin
+fun main() {
+    val firstResult = 3
+    val secondResult = 3
+    // Write your code here
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-2"}
+
+```kotlin
+fun main() {
+    val firstResult = 3
+    val secondResult = 3
+    if (firstResult == secondResult)
+        println("You win :)")
+    else
+        println("You lose :(")
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-2"}
+
+</def>
+<def title="Filter a list of numbers" id="test-page-practice-3">
+
+Print only the even numbers of the list using `filter()`:
+
+```kotlin
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5)
+    println(numbers)
+    // Write your code here
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-3"}
+
+```kotlin
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5)
+    println(numbers)
+    println(numbers.filter { it % 2 == 0 })
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-3"}
+
+</def>
+</deflist>
+
 ## Text elements
 
 * **Bold text**
