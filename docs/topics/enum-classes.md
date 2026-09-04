@@ -6,13 +6,11 @@ predefined options, such as available states or modes.
 Each value in an enum class is called an _enum constant_. Enum constants behave like [singleton objects](object-declarations.md)
 of the enum class type, so they can have properties, functions, and custom behavior.
 
-Use enum classes when all possible values are known in advance and have the same structure. Use [sealed classes or interfaces](sealed-classes.md)
-when you need to hold different data or have a different structure for each case.
+Enum classes are the best fit when all possible values are known in advance and have the same structure. If you need to hold different data or have a different structure for each case, use [sealed classes or interfaces](sealed-classes.md).
 
 ## Declare enum classes
 
-To create an enum class, use the `enum` keyword and list the enum constants inside the class body, separated by
-commas:
+To create an enum class, use the `enum` keyword and follow the usual class syntax with a body enclosed in curly braces. Inside the class body, list the enum constants separated by commas:
 
 ```kotlin
 enum class Direction {
@@ -168,7 +166,7 @@ fun printRed(color: Color.RED) {
 
 ### Use enum constants in `when` expressions
 
-Enum classes are commonly used with when expressions when you want to handle each constant separately:
+Enum classes work best with `when` expressions when you want to handle each constant separately:
 
 ```kotlin
 enum class Color(val hex: String) {
@@ -196,7 +194,7 @@ fun main() {
 
 When you use all enum constants in a when expression, you don't need an `else` branch.
 
-> To reduce repetition when working with enum entries, try out context-sensitive resolution (currently in preview).
+> To reduce repetition when working with enum entries, try context-sensitive resolution (currently in preview).
 > This feature allows you to omit the enum class name when the expected type is known, such as in `when` expressions or when assigning to a typed variable.
 >
 > For more information, see [Preview of context-sensitive resolution](whatsnew22.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
@@ -283,7 +281,7 @@ fun main() {
 The `first()` function throws a `NoSuchElementException` if no matching constant is found. To get `null` instead, use
 [`firstOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/first-or-null.html).
 
-To get the number of enum constants, use the [`size`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/size.html) function. For example:
+To get the number of enum constants, use the [`size`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/size.html) property. For example:
 
 ```kotlin
 enum class RGB { RED, GREEN, BLUE }
@@ -323,18 +321,18 @@ enum class Color(val rgb: Int) {
 fun main() {
     println(Color.fromName("RED"))   // RED
     println(Color.fromPosition(1))   // GREEN
-    println(Color.fromRgb(0x0000FF)) // BLUE 
+    println(Color.fromRgb(0x0000FF)) // BLUE
     println(Color.fromRgb(0xABCDEF)) // null
 }
 ```
 {kotlin-runnable="true" id="find-enum-companion-object-kotlin"}
 
-Companion object helper functions are useful when you want safe lookups that return null instead of throwing an exception.
+Companion object helper functions are useful when you want safe lookups that return `null` instead of throwing an exception.
 
 The lookup APIs used above, such as `entries` and `valueOf()`, are examples of _synthetic_ members.
 In this context, synthetic means that Kotlin provides these members automatically, even though you don't declare them
-yourself. This is why every enum class can list its constants with `entries` and get a constant by name with `valueOf()`
-without you writing extra code.
+yourself. This is why every enum class can list its constants with the `entries` property and get a constant by name with the `valueOf()` function
+without you needing to write extra code.
 
 You can access the constants in an enum class using generic helper functions such as [`enumEntries<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/enum-entries.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/enum-value-of.html).
 These functions use reified type parameters. Such parameters keep the actual enum type available inside a generic inline
@@ -469,7 +467,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="enum-shared-function-kotlin"}
 
-Every enum constant can call the shared function. Inside the function, `this` refers to the enum constant it was called on.
+Every enum constant can call the shared function. Inside the function, `this` refers to the enum constant it's called on.
 
 You can combine constructor properties with functions to associate data with each constant and add behavior that uses
 that data:
@@ -519,7 +517,7 @@ fun main() {
 
 Enum constants can declare their own anonymous classes with their corresponding methods, as well as with overriding base
 methods. With anonymous classes, you write the class body directly after the enum constant
-name, and Kotlin infers the enum class as the supertype.
+name and Kotlin infers the enum class as the supertype.
 
 This is useful when you declare an abstract function in the enum class and require each constant to provide its own
 implementation. Each constant overrides the abstract function inside its own anonymous class:
@@ -551,7 +549,7 @@ Here, each constant implements the abstract `signal()` function differently, so 
 next state depending on the constant.
 
 Although enum constants behave like singleton objects, they aren't the same. You can't access members declared inside
-the body anonymous class:
+the body of an anonymous class:
 
 ```kotlin
 enum class ProtocolState {
@@ -578,9 +576,10 @@ constant needs its own implementation.
 
 ## Implement interfaces in enum classes
 
-An enum class can implement an interface (but it cannot derive from a class), providing either a common implementation of
-interface members for all the entries or separate implementations for each entry within its anonymous class.
-This is done by adding the interfaces you want to implement to the enum class declaration as follows:
+An enum class can implement an interface, but it cannot inherit from a class. You can provide a common implementation of 
+the interface members for all enum constants or let each constant provide its own implementation in an anonymous class.
+
+To implement an interface, add it to the enum class declaration:
 
 ```kotlin
 import java.util.function.BinaryOperator
