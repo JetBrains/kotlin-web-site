@@ -353,7 +353,7 @@ Once the build of your project has succeeded, the `webpack-dev-server` will auto
 The Kotlin Multiplatform Gradle plugin automatically sets up a test infrastructure for projects. It downloads
 and installs the required test runners and other dependencies.
 
-For browser projects, you can choose between the [Karma](#karma) test runner and the [Kotlin DSL with Playwright](#playwright).
+For browser projects, you can choose between the [Karma](#karma) test runner and the new [DSL for browser testing](#dsl-for-browser-testing).
 For Node.js projects, the [Mocha](#node-js) test framework is available.
 
 The plugin also provides useful testing features, for example:
@@ -365,7 +365,7 @@ The plugin also provides useful testing features, for example:
 ### Karma
 
 > The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
-> expected. As an alternative for browser testing, try out the new solution that enables [Playwright through Kotlin DSL](#playwright). 
+> expected. As an alternative for browser testing, try out the new [DSL for browser testing](#dsl-for-browser-testing).
 > 
 {style="warning"}
 
@@ -414,18 +414,18 @@ at build time.
 
 For more information on the Karma configuration, see the [Karma's documentation](https://karma-runner.github.io/6.4/config/configuration-file.html).
 
-### Playwright
+### DSL for browser testing
 <primary-label ref="experimental-opt-in"/>
 
-Kotlin provides access to the Playwright framework for running Kotlin/JS tests in a browser environment through an
-experimental Kotlin DSL. This solution manages different tools under the hood:
+Kotlin offers an experimental DSL for running Kotlin/JS tests in a browser environment. It's designed to be technology-agnostic.
+The current implementation includes the following tools under the hood:
 
 * [Playwright](https://playwright.dev/) acts as a browser driver and a distribution manager that supports the Chromium, Firefox,
   and WebKit (Safari) browser engines.
 * [Mocha](https://mochajs.org/) acts as a test runner.
 * [webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-To try out Kotlin DSL with Playwright, add the opt-in `test {}` block inside `browser {}` for your Kotlin/JS target:
+To try out the new DSL for browser testing, add the opt-in `test {}` block inside `browser {}` for your Kotlin/JS target:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
@@ -465,7 +465,7 @@ kotlin {
 }
 ```
 
-For more information on the configuration of the Kotlin DSL with Playwright, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
+For more information on the configuration of the new DSL for browser testing, see [Run tests in Kotlin/JS](js-running-tests.md#advanced-configuration).
 
 ### Node.js {id="node-js-test-task"}
 
@@ -496,8 +496,8 @@ to run browser tests. No browsers are bundled with the plugin; test runners hand
 * With [Karma](#karma), any other browser should already be installed on your machine so that the plugin can use it to
   run tests. If you are executing Kotlin/JS tests on a continuous integration server, ensure that the browsers you want
   to test against are installed there as well.
-* With the [Kotlin DSL with Playwright](#playwright), the plugin installs the necessary browsers on the first run by using
-  the [`playwright install`](https://playwright.dev/docs/browsers#install-browsers) command. Playwright manages the
+* With the new [DSL for browser testing](#dsl-for-browser-testing), the plugin installs the necessary browsers on the
+  first run by using the [`playwright install`](https://playwright.dev/docs/browsers#install-browsers) command. Playwright manages the
   location of these browsers and doesn't use locally installed browsers.
 
 To run tests, execute the standard lifecycle `check` task:
