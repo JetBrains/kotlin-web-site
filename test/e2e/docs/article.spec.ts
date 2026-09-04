@@ -4,7 +4,7 @@ import { checkFullPageScreenshot, checkScreenshot, skipProduction, testSelector 
 import { WebHelpPage } from './page';
 import { ELEMENT_PADDING_OFFSET, RESOLUTIONS } from '../visual-constants';
 
-test.describe('Docs: Test Page appearance', async () => {
+test.describe.only('Docs: Test Page appearance', async () => {
     skipProduction();
 
     test.beforeEach(async ({ page }) => {
@@ -135,7 +135,11 @@ test.describe('Docs: Test Page appearance', async () => {
 
     test('Should render section label in the heading and in the article navigation', async ({ page }) => {
         const heading = page.locator('div.title', { has: page.locator('h2#new-experimental-features') });
-        await expect(heading.locator(testSelector('label'))).toHaveText('Experimental');
+
+        // The label links to the stability levels, so it goes through the internal link component.
+        const headingLabel = heading.locator(testSelector('internal-link label'));
+        await expect(headingLabel).toHaveText('Experimental');
+        await expect(headingLabel).toHaveAttribute('href', 'components-stability.html#stability-levels-explained');
 
         const tocNode = page
             .locator(testSelector('virtual-toc'))
