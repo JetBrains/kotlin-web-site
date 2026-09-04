@@ -58,6 +58,19 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+**Performance tip**: To improve performance when chaining `map()` with operations like `filter()` or `sorted()`, place `filter()` before `map()` to reduce the number of elements processed. For large collections or complex chains, consider using [`asSequence()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/as-sequence.html) to avoid creating intermediate collections.
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = listOf(1, 2, 3, 4, 5, 6)
+    val result = numbers.filter { it % 2 == 0 }.map { it * 2 }
+    println(result) // [4, 8, 12]
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 ## Zip
 
 _Zipping_ transformation is building pairs from elements with the same positions in both collections.
