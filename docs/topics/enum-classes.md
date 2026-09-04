@@ -33,7 +33,8 @@ fun main() {
     // `Direction.NORTH` is an enum constant of type `Direction`.
     val direction: Direction = Direction.NORTH
 
-    println(direction) // NORTH
+    println(direction)
+    // NORTH
 }
 ```
 {kotlin-runnable="true" id="create-enum-class-kotlin"}
@@ -50,7 +51,7 @@ and use them in `when` expressions.
 ### Declare enum constants
 
 To declare enum constants, first define properties in the enum class constructor and then pass values to each enum
-constant in parentheses. Don't use assignment syntax, for example `RED = "#FF0000"`, like in C#.
+constant in parentheses. Unlike some other languages, Kotlin doesn't use assignment syntax, for example `RED = "#FF0000"`.
 
 Enum constants can have associated values of any type. Strings and numbers are common examples, but you can also use
 other types, such as `Boolean`, another enum class, or a custom class.
@@ -81,7 +82,8 @@ enum class Priority(val level: Int) {
 
 ### Access enum constants and their properties
 
-You can access an enum constant through the enum class name:
+You can access an enum constant through the enum class name. To access a property associated with an enum constant,
+use the dot notation, such as `color.hex` or `Color.GREEN.hex`:
 
 ```kotlin
 enum class Color(val hex: String) {
@@ -93,34 +95,37 @@ enum class Color(val hex: String) {
 fun main() {
     val color: Color = Color.RED
 
-    println(color)           // RED
-    println(color.hex)       // #FF0000
-    println(Color.GREEN.hex) // #00FF00
+    println(color)
+    // RED
+    println(color.hex)
+    // #FF0000
+    println(Color.GREEN.hex)
+    // #00FF00
 }
 ```
 {kotlin-runnable="true" id="access-enum-properties-kotlin"}
 
 Here, `Color.RED` is an enum constant of the `Color` type. The color variable stores this enum constant.
 
-When you print an enum constant directly, Kotlin prints its name. To access a property associated with an enum constant,
-use dot notation, such as `color.hex` or `Color.GREEN.hex`.
-
 Besides any properties you define, every enum constant also has the built-in `name` and `ordinal` properties for
-obtaining its name and position (starting from 0) in the enum class declaration:
+getting its name and position (starting from `0`) in the enum class declaration:
 
 ```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
-    println(RGB.RED.name)    // RED
-    println(RGB.RED.ordinal) // 0
+    println(RGB.RED.name)
+    // RED
+    println(RGB.RED.ordinal)
+    // 0
 }
 ```
 {kotlin-runnable="true" id="rgb-enums-properties-kotlin"}
 
 ### Pass enum constants to functions
 
-Because enum constants are values, you can pass them to functions:
+Because enum constants are values, you can pass them to functions. This way a function accepts only the fixed set of
+options defined in the enum class, ensuring type-safe code:
 
 ```kotlin
 enum class Color(val hex: String) {
@@ -146,8 +151,8 @@ fun main() {
 
 Here, the `printColor()` function accepts a value of type `Color`, so you can pass any `Color` enum constant to it.
 
-Although enum constants behave like singleton objects, they aren't the same. You can only use the enum class name as a type.
-On the contrary, enum constants cannot be valid types, only values:
+Although enum constants behave like singleton objects, the compiler treats them as values of the enum class type.
+You can use the enum class name itself as a type, but you can't use enum constants as enum types:
 
 ```kotlin
 enum class Color {
@@ -219,7 +224,8 @@ enum class Color(val rgb: Int) {
 fun main() {
     val color = Color.valueOf("RED")
 
-    println(color) // RED
+    println(color)
+    // RED
 }
 ```
 {kotlin-runnable="true" id="find-enum-valueof-kotlin"}
@@ -241,7 +247,8 @@ enum class Color(val rgb: Int) {
 fun main() {
     val color = Color.entries.getOrNull(0)
 
-    println(color) // RED
+    println(color)
+    // RED
 }
 //sampleEnd
 ```
@@ -249,9 +256,10 @@ fun main() {
 
 Enum positions start from `0`. In this example, `RED` has the position `0`, `GREEN` is at `1`, and `BLUE` is at `2`.
 
-This is useful when you need to look up an enum constant by index. Kotlin doesn't support directly casting an `Int` to
-an enum constant. If you have an integer, use it as an index with `entries.getOrNull(index)` or define a stable numeric
-property and look up the matching enum constant.
+This is useful when you have an integer, for example read from a file or user input, and need the matching enum constant.
+Unlike some other languages, Kotlin doesn't let you cast an `Int` directly to an enum constant. Instead, use the integer
+as a position index and look up the constant with `entries.getOrNull(index)` or define a stable numeric property and
+search for the constant with the matching value.
 
 > Avoid relying on positions for values that need to stay stable. If you reorder the enum constants, their positions
 > change. For stable values, define an explicit property, for example, `rgb` or `code`.
@@ -272,7 +280,8 @@ enum class Color(val rgb: Int) {
 fun main() {
     val color = Color.entries.first { it.rgb == 0xFF0000 }
 
-    println(color) // RED
+    println(color)
+    // RED
 }
 //sampleEnd
 ```
@@ -319,10 +328,14 @@ enum class Color(val rgb: Int) {
 }
 
 fun main() {
-    println(Color.fromName("RED"))   // RED
-    println(Color.fromPosition(1))   // GREEN
-    println(Color.fromRgb(0x0000FF)) // BLUE
-    println(Color.fromRgb(0xABCDEF)) // null
+    println(Color.fromName("RED"))
+    // RED
+    println(Color.fromPosition(1))
+    // GREEN
+    println(Color.fromRgb(0x0000FF))
+    // BLUE
+    println(Color.fromRgb(0xABCDEF))
+    // null
 }
 ```
 {kotlin-runnable="true" id="find-enum-companion-object-kotlin"}
@@ -331,12 +344,13 @@ Companion object helper functions are useful when you want safe lookups that ret
 
 The lookup APIs used above, such as `entries` and `valueOf()`, are examples of _synthetic_ members.
 In this context, synthetic means that Kotlin provides these members automatically, even though you don't declare them
-yourself. This is why every enum class can list its constants with the `entries` property and get a constant by name with the `valueOf()` function
-without you needing to write extra code.
+yourself. This is why every enum class can list its constants with the `entries` property and get a constant by name with
+the `valueOf()` function without the need to write extra code.
 
 You can access the constants in an enum class using generic helper functions such as [`enumEntries<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/enum-entries.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/enum-value-of.html).
-These functions use reified type parameters. Such parameters keep the actual enum type available inside a generic inline
-function, so the helper functions can work with the enum type `T` directly:
+These functions use [reified type parameters](https://kotlinlang.org/docs/inline-functions.html#reified-type-parameters).
+Such parameters keep the actual enum type available inside a generic inline function, so the helper functions can work
+with the enum type `T` directly:
 
 | Function                                                                                           | Description                                                                                                    |
 |----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -358,8 +372,10 @@ inline fun <reified T : Enum<T>> printAllValues() {
 inline fun <reified T : Enum<T>> findByName(name: String): T = enumValueOf<T>(name)
 
 fun main() {
-    printAllValues<RGB>() // RED, GREEN, BLUE
-    println(findByName<RGB>("GREEN")) // GREEN
+    printAllValues<RGB>()
+    // RED, GREEN, BLUE
+    println(findByName<RGB>("GREEN"))
+    // GREEN
 }
 ```
 {kotlin-runnable="true" id="enum-reified-type-parameters-kotlin"}
@@ -381,8 +397,10 @@ enum class Color(val hex: String) {
 fun main() {
     val color = Color.RED
 
-    println(color == Color.RED)  // true
-    println(color == Color.BLUE) // false
+    println(color == Color.RED)
+    // true
+    println(color == Color.BLUE)
+    // false
 }
 //sampleEnd
 ```
@@ -401,8 +419,10 @@ enum class Priority {
 }
 
 fun main() {
-    println(Priority.LOW < Priority.HIGH)    // true
-    println(Priority.HIGH > Priority.MEDIUM) // true
+    println(Priority.LOW < Priority.HIGH)
+    // true
+    println(Priority.HIGH > Priority.MEDIUM)
+    // true
 }
 ```
 {kotlin-runnable="true" id="compare-enum-comparable-kotlin"}
@@ -416,7 +436,8 @@ enum class Priority {
 }
 
 fun main() {
-    println(Priority.entries.sorted()) // [HIGH, LOW, MEDIUM]
+    println(Priority.entries.sorted())
+    // [HIGH, LOW, MEDIUM]
 }
 ```
 {kotlin-runnable="true" id="sort-enum-declaration-order-kotlin"}
@@ -461,8 +482,10 @@ enum class Direction {
 }
 
 fun main() {
-    println(Direction.NORTH.isVertical()) // true
-    println(Direction.EAST.isVertical())  // false
+    println(Direction.NORTH.isVertical())
+    // true
+    println(Direction.EAST.isVertical())
+    // false
 }
 ```
 {kotlin-runnable="true" id="enum-shared-function-kotlin"}
@@ -482,7 +505,8 @@ enum class Color(val hex: String) {
 }
 
 fun main() {
-    println(Color.RED.describe()) // RED has hex code #FF0000
+    println(Color.RED.describe())
+    // RED has hex code #FF0000
 }
 ```
 {kotlin-runnable="true" id="enum-properties-functions-kotlin"}
@@ -508,16 +532,17 @@ enum class Direction {
 }
 
 fun main() {
-    println(!Direction.NORTH) // SOUTH
+    println(!Direction.NORTH)
+    // SOUTH
 }
 ```
 {kotlin-runnable="true" id="enum-operator-function-kotlin"}
 
 ## Use anonymous classes
 
-Enum constants can declare their own anonymous classes with their corresponding methods, as well as with overriding base
-methods. With anonymous classes, you write the class body directly after the enum constant
-name and Kotlin infers the enum class as the supertype.
+Enum constants can declare their own anonymous classes with their corresponding functions, as well as with overriding base
+functions. With anonymous classes, you write the class body directly after the enum constant name and Kotlin
+infers the enum class as the supertype.
 
 This is useful when you declare an abstract function in the enum class and require each constant to provide its own
 implementation. Each constant overrides the abstract function inside its own anonymous class:
@@ -538,9 +563,11 @@ enum class ProtocolState {
 fun main() {
     var state = ProtocolState.WAITING
 
-    println(state) // WAITING
+    println(state)
+    // WAITING
     state = state.signal()
-    println(state) // TALKING
+    println(state)
+    // TALKING
 }
 ```
 {kotlin-runnable="true" id="enum-abstract-function-kotlin"}
@@ -548,8 +575,8 @@ fun main() {
 Here, each constant implements the abstract `signal()` function differently, so calling `signal()` returns a different
 next state depending on the constant.
 
-Although enum constants behave like singleton objects, they aren't the same. You can't access members declared inside
-the body of an anonymous class:
+Although enum constants behave like singleton objects, the type of enum constant is the enum class itself,
+not its own anonymous class. That's why you can't access members declared inside the body of an anonymous class:
 
 ```kotlin
 enum class ProtocolState {
