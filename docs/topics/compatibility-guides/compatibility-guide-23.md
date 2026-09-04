@@ -792,6 +792,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.20: report a warning
+> - 2.4.20: raise the warning to an error
 
 ### Deprecate `kotlin.kmp.isolated-projects.support` Gradle property
 
