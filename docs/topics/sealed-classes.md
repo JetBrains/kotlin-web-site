@@ -217,6 +217,41 @@ For more information, see [Guard conditions in when expressions](control-flow.md
 >
 {style="note"}
 
+## Inspect sealed subclasses with reflection
+
+You can use [Reflection](reflection.md) functionality to inspect sealed subclasses. 
+
+If you need to inspect a known direct subclass, use [sealedSubclasses](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/sealed-subclasses.html).
+The complier returns a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) that can represent a regular class or an object declaration. For an object declaration,
+[`objectInstance`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/object-instance.html) returns its singleton instance:
+
+```kotlin
+sealed interface Status
+data class Send(val message: String) : Status
+data object Start : Status
+data object Stop : Status
+
+fun main() {
+    // Get the direct subclasses known to the sealed hierarchy
+    val subclasses = Status::class.sealedSubclasses
+    println(subclasses.mapNotNull { it.simpleName })
+
+    val singletonStatus = subclasses.mapNotNull { subclass ->
+        // Return null for Send because it is a regular class
+        subclass.objectInstance
+    }
+    println(singletonStatus)
+    // [Start, Stop]
+}
+```
+
+In this example, `objectInstance` filters out `Send`, because every `Send` value must be constructed separately. Since `Start`
+and `Stop` are object declarations, the compiler returns their existing singleton instances.
+
+> If one of the direct subclasses is also sealed, traverse its `sealedSubclasses` recursively to collect the complete hierarchy.
+> 
+{style="tip"}
+
 ## Use case scenarios
 
 Let's explore some practical scenarios where sealed classes and interfaces can be particularly useful.

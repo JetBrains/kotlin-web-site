@@ -97,7 +97,6 @@
             <toc-element topic="async-programming.md"/>
             <toc-element topic="coroutines-overview.md"/>
         </toc-element>
-        <toc-element topic="reflection.md"/>
         <toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
         <toc-element toc-title="Language reference">
             <toc-element toc-title="Grammar" href="https://kotlinlang.org/grammar/"/>
@@ -294,6 +293,7 @@
             <include from="serialization.tree" origin="serialization" element-id="serialization"/>
         </toc-element>
         <toc-element toc-title="Kotlin Metadata JVM (kotlin-metadata-jvm)" topic="metadata-jvm.md"/>
+        <toc-element toc-title="Reflection (kotlin-reflection)" topic="reflection.md"/>
         <toc-element toc-title="Lincheck (kotlinx.lincheck)">
             <include from="kl.tree" origin="lincheck" element-id="lincheck"/>
         </toc-element>
