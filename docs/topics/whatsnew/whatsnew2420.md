@@ -50,7 +50,7 @@ including those with [Beta](components-stability.md#stability-levels-explained),
 * [Standard library: New overloads for `kotlin.test` assertion functions](#new-overloads-for-kotlin-test-assertion-functions)
 * [Kotlin/Native: New Swift export features](#new-swift-export-features)
 * [Kotlin/Native: Improved incremental compilation of `klib` artifacts](#improved-incremental-compilation-of-klib-artifacts)
-* [Kotlin/JS: A new DSL for browser testing](#a-new-dsl-for-browser-testing-with-playwright)
+* [Kotlin/JS: A new DSL for browser testing](#a-new-dsl-for-browser-testing)
 * [Kotlin/JS: Support for exporting suspending lambdas as async functions](#support-for-exporting-suspending-lambdas-as-async-functions)
 * [Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#support-for-kotlin-js-kotlin-wasm-and-kotlin-metadata)
 * [Kotlin compiler: Separate native image](#native-image)
@@ -361,7 +361,7 @@ For more details on Swift export, see our [documentation](native-swift-export.md
 <primary-label ref="beta"/>
 <secondary-label ref="native"/>
 
-Kotlin 2.4.20 brings stabilization improvements to incremental compilation of `klib` artifacts.
+Kotlin 2.4.20 brings stabilization improvements to incremental compilation of `klib` artifacts, which is now [in Beta](components-stability.md#kotlin-native).
 
 This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts) and
 proved to drastically reduce compilation time for debug builds. Since then, we've fixed a number of bugs and improved performance.
@@ -558,12 +558,11 @@ Now that the issue is fixed, the compiler accounts for `@JsExport.Ignore` annota
 and `componentN()` functions no longer trigger warnings about the non-exported type `DatabaseConnection`. This aligns
 with the visibility rules introduced by the [`@ConsistentCopyVisibility` and `@ExposedCopyVisibility` annotations](whatsnew2020.md#data-class-copy-function-to-have-the-same-visibility-as-constructor).
 
-### A new DSL for browser testing with Playwright
+### A new DSL for browser testing
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="js"/>
 
-Kotlin 2.4.20 introduces a new experimental DSL that provides access to the Playwright framework for running Kotlin/JS
-tests in a browser environment.
+Kotlin 2.4.20 introduces a new experimental DSL for running Kotlin/JS tests in a browser environment.
 
 Currently, the Kotlin Gradle plugin uses [Karma](https://github.com/karma-runner/karma) as a browser launcher to run
 JavaScript tests across different browsers. The Karma project has been deprecated for two years now, which has led us to
@@ -576,7 +575,7 @@ The new DSL is intended to replace Karma as a manager of different tools under t
 * [Mocha](https://mochajs.org/) as a test runner.
 * [webpack](https://webpack.js.org/) as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-To try out the new DSL with Playwright, add the opt-in `test {}` block inside `browser {}` for your Kotlin/JS target:
+To try out the new DSL for browser testing, add the opt-in `test {}` block inside `browser {}` for your Kotlin/JS target:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
@@ -617,7 +616,9 @@ kotlin {
 }
 ```
 
-The new DSL with Playwright is in active development. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897).
+The new DSL for browser testing is in active development. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897).
+
+For more information, see [Run tests in Kotlin/JS](js-running-tests.md).
 
 ### Support for exporting suspending lambdas as async functions
 <primary-label ref="experimental-general"/>
