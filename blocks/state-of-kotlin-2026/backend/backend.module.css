@@ -1,0 +1,358 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/* the section owns its own vertical rhythm; everything inside spaces itself with margin-top */
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+/*
+ * Two shapes. The cylinder is measured from the top of the section, level with the heading;
+ * the pentagon sits halfway down, so it is measured as a share of the section's height and
+ * follows the panels as they reflow rather than staying pinned to a px offset.
+ *
+ * Both bleed past the content column — the page wrapper's `overflow-x: clip` cuts them off at
+ * the window edge.
+ */
+.cylinder {
+    top: 264px;
+    left: calc(-161px * var(--sok-shape-scale, 1));
+}
+
+.pentagon {
+    top: 51.5%;
+    right: calc(-197px * var(--sok-shape-scale, 1));
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+/*
+ * Stretched, not bottom-aligned: the two cards carry titles of different height, and the design
+ * has both of them – and the white cards inside – ending on the same line.
+ */
+.topRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+.gradientCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+/* headings carry a default margin from the browser/global stylesheet */
+.cardTitle,
+.panelTitle {
+    margin: 0;
+    /* the design calls for H3-plus (28/34); rescui exposes rs-h3 metrics as overridable vars */
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+    color: #19191c;
+}
+
+/*
+ * Two lines are reserved even for the one-line title, so the white cards in the two columns
+ * start on the same line – which is how the design draws them.
+ */
+.cardTitle {
+    min-height: calc(2 * 34px);
+}
+
+.whiteCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.statCardInner {
+    justify-content: space-between;
+}
+
+.chartCaption {
+    margin: 0;
+    color: #19191c;
+}
+
+/* the design draws the chart at 383px inside the card's content box */
+.chart {
+    max-width: 383px;
+    margin-top: 32px;
+}
+
+.figure {
+    margin: 0;
+    color: #000;
+}
+
+.figureFooter {
+    width: 100%;
+}
+
+.caption {
+    margin: 0;
+    color: #19191c;
+}
+
+.smallFootnote {
+    margin: 32px 0 0;
+    color: rgba(25, 25, 28, 0.7);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+.panelHeading {
+    max-width: 706px;
+}
+
+.panelLead {
+    margin: 24px 0 0;
+    color: #19191c;
+}
+
+.statRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+/* compound selector so it outranks StatCard's own `.card`, whatever order the modules land in */
+.statRow .flexCard {
+    flex: 1 0 0;
+    /*
+     * StatCard sets `height: 100%`, which makes the card's cross size non-auto and so opts it
+     * out of the row's `stretch` – leaving each card at its own content height. Back to `auto`
+     * so the three cards match, and `space-between` then puts every caption on the same
+     * bottom line, as the design draws them.
+     */
+    height: auto;
+    justify-content: space-between;
+}
+
+.commitmentRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.commitmentList {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.commitmentCard {
+    display: flex;
+    flex: 1 0 0;
+    align-items: flex-start;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/*
+ * text-decoration rather than rs-link: these labels wrap, and rs-link underlines with a
+ * border-bottom, which a flex item draws once under the whole box instead of following the text
+ * onto the second line – hover included.
+ */
+.commitmentLink {
+    color: #19191c;
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 25, 28, 0.4);
+
+    &:hover {
+        text-decoration-color: rgba(25, 25, 28, 0.8);
+    }
+}
+
+.frameworksColumn {
+    flex: 1 0 0;
+}
+
+.frameworksTitle {
+    margin: 0;
+    color: #000;
+}
+
+/*
+ * Bottom-aligned rather than stretched: in the design each card hugs its own copy, so the two
+ * end up different heights and line up along their bottom edge.
+ */
+.frameworksRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.frameworkStat {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.frameworkFigure {
+    margin: 0;
+    color: #000;
+}
+
+.frameworkCaption {
+    margin: 24px 0 0;
+    color: #19191c;
+}
+
+.caseRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.caseCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/*
+ * A block, not a flex column: as a flex column it stretched the logo to the card width and
+ * `object-fit` then centred the glyph inside it, instead of leaving it at the left edge.
+ */
+.caseBody {
+    width: 100%;
+}
+
+.caseLogoBox {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+.caseLogo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: var(--sok-logo-height, 48px);
+    object-fit: contain;
+    object-position: left center;
+}
+
+.caseTextGroup {
+    margin-top: 24px;
+}
+
+.caseCompany {
+    margin: 0;
+    color: #19191c;
+}
+
+.caseText {
+    margin: 12px 0 0;
+    color: #19191c;
+}
+
+.caseLink {
+    margin-top: 24px;
+    /* rs-link's border-bottom spans the flex item, so it has to shrink to its own text */
+    align-self: flex-start;
+}
+
+@media (--ktl-tl-down) {
+    .topRow,
+    .statRow,
+    .caseRow {
+        flex-direction: column;
+    }
+
+    /* stacked, the two card titles no longer have to line their white cards up with each other */
+    .cardTitle {
+        min-height: 0;
+    }
+
+    /*
+     * Each stat card now hugs its own copy, so the caption follows the figure at the card's own
+     * gap instead of being pushed to the bottom of an equal-height row.
+     */
+    .statRow .flexCard {
+        justify-content: flex-start;
+    }
+
+    .commitmentRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .gradientCard,
+    .panel {
+        padding: 24px;
+    }
+
+    /* below 640px rescui drops its own headings a step, and the design follows for H3-plus */
+    .cardTitle,
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+
+    .frameworksRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

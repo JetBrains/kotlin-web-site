@@ -1,0 +1,22 @@
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    background: #6b57ff;
+    box-sizing: border-box;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: rgba(107, 87, 255, 0.80);
+    }
+}
+
+.text {
+    color: #fff;
+    text-align: center;
+}

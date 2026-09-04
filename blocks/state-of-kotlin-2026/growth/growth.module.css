@@ -1,0 +1,75 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    padding: 72px 0;
+}
+
+.row {
+    margin-top: 48px;
+}
+
+.chart {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.chart img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.rankings {
+    margin-top: 8px;
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+.rankingCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 16px;
+    background: radial-gradient(492.8% 248.06% at 199.47% -148.61%, #FAFAFA 0%, #BCB9FB 0%, #B0AAFD 0%, #FAFAFA 100%);
+
+    &:nth-child(2) {
+        background: radial-gradient(604.74% 452.97% at 100% -150%, #FAFAFA 0%, #BCB9FB 0%, #B0AAFD 0%, #FAFAFA 100%);
+    }
+
+    &:nth-child(3) {
+        background: radial-gradient(237.86% 176.46% at 11.7% -25%, #FAFAFA 0%, #BCB9FB 0%, #B0AAFD 0%, #FAFAFA 100%);
+    }
+}
+
+.rankingTitle {
+    margin: 0;
+}
+
+.rankingLink {
+
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 25, 28, 0.4);
+
+    &:hover {
+        text-decoration-color: rgba(25, 25, 28, 0.8);
+    }
+}
+
+.rankingText {
+    margin: 0;
+}
+
+.goDeeperBanner {
+    margin-top: 8px;
+}
+
+/* the three ranking cards drop into a single column, still 8px apart */
+@media (--ktl-tl-down) {
+    .rankings {
+        flex-direction: column;
+    }
+}

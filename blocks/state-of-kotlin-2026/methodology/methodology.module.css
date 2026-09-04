@@ -1,0 +1,13 @@
+.wrapper {
+    width: 100%;
+    padding: 72px 0;
+}
+
+.text {
+    width: 100%;
+    padding: 24px;
+    border-radius: 16px;
+    background: #f4f4f4;
+    color: #000;
+    box-sizing: border-box;
+}

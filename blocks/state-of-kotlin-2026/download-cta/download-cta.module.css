@@ -1,0 +1,111 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    width: 100%;
+    padding: 72px 0;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 433px;
+    padding: 24px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        140% 140% at 92% 90%,
+        #6e65f9 0%,
+        #8f88fb 13%,
+        #b0aafd 26%,
+        #d5d2fc 63%,
+        #fafafa 100%
+    );
+}
+
+.background {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 378px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 682px;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    margin: 0;
+    color: #19191c;
+}
+
+.lead {
+    color: #19191c;
+    margin: 0;
+}
+
+/* the design sets the copy against the card's own padding, and narrows it to clear the render */
+@media (--ktl-ds-down) {
+    .content {
+        max-width: 560px;
+        padding: 0;
+    }
+
+    .background {
+        right: -67px;
+        width: 387px;
+    }
+}
+
+/*
+ * The render drops below the copy, centred, and keeps bleeding past the card's bottom edge as
+ * it does in the design — so it goes back into the flow and pulls the overhang up with a
+ * negative margin, which also absorbs the card's own bottom padding.
+ */
+@media (--ktl-tl-down) {
+    .card {
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 0;
+    }
+
+    .content {
+        max-width: none;
+    }
+
+    /* `order` because the render precedes the copy in the DOM, where it is out of flow */
+    .background {
+        position: static;
+        order: 1;
+        align-self: center;
+        top: auto;
+        right: auto;
+        width: 387px;
+        margin: 26px 0 -114px;
+        transform: none;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .background {
+        width: 290px;
+        margin: 32px 0 -84px;
+    }
+
+    /* the button spans the copy column from here down, as the hero's does */
+    .button {
+        width: 100%;
+    }
+}

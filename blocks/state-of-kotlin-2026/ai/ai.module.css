@@ -1,0 +1,341 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+
+.hollowCylinder {
+    top: 151px;
+    right: calc(-122px * var(--sok-shape-scale, 1));
+}
+
+.triangle {
+    top: 45%;
+    left: calc(-188px * var(--sok-shape-scale, 1));
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+.panelTitle {
+    margin: 0;
+    /* the design calls for H3-plus (28/34); rescui exposes rs-h3 metrics as overridable vars */
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+    color: #19191c;
+}
+
+.panelLead {
+    margin: 24px 0 0;
+    color: #19191c;
+}
+
+/*
+ * Compound selectors so these outrank StatCard's own `.card`, whatever order the modules land
+ * in. The design pins the figure to the top of a 240px box and the caption to the bottom.
+ */
+.statGrid .statCard,
+.benchmarkRow .statCard {
+    min-height: 240px;
+    height: auto;
+    justify-content: space-between;
+}
+
+/* AI-assisted Kotlin development */
+
+.assistedHeading {
+    max-width: 706px;
+}
+
+.statGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+/* Verified by developers */
+
+.verifiedRow {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.verifiedText {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-right: 32px;
+}
+
+/* the design fixes the card at 536x393px, which is what gives this panel its height */
+.chartCard {
+    display: flex;
+    flex: 0 0 536px;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 393px;
+    padding: 0 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.chartTitle {
+    margin: 0;
+    color: #19191c;
+}
+
+/* the bar column the chart is drawn against; the rest of the card is padding */
+.chartCardInner {
+    max-width: 380px;
+    margin-top: 32px;
+}
+
+.chartFootnote {
+    margin: 32px 0 0;
+    color: #19191c;
+}
+
+/* the tall quote sits on the left, the two short ones stack beside it */
+.quoteGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.quoteGrid > :first-child {
+    grid-row: span 2;
+}
+
+.quoteBox {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.quoteText {
+    margin: 0;
+    color: #19191c;
+}
+
+.quoteAuthor {
+    margin: 24px 0 0;
+    color: #19191c;
+}
+
+/* Measured in the open: the Kotlin Benchmark */
+
+.benchmarkRow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 8px;
+    width: 100%;
+}
+
+.benchmarkText {
+    padding-right: 24px;
+}
+
+.leaderboardGroup {
+    width: 100%;
+    margin-top: 48px;
+}
+
+.leaderboard {
+    margin-top: 24px;
+}
+
+.benchmarkLink {
+    margin-top: 48px;
+}
+
+/* Build AI in Kotlin */
+
+.buildAiHeading {
+    max-width: 720px;
+}
+
+.capabilityGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+/*
+ * The design staggers the cards by 64px a column and keeps every bottom edge flush with the
+ * row, so the offset is padding on the stretched column rather than a height on the card.
+ */
+.capabilityColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.capabilityColumn:nth-child(1) {
+    padding-top: 128px;
+}
+
+.capabilityColumn:nth-child(2) {
+    padding-top: 64px;
+}
+
+.capabilityCard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.capabilityTitle {
+    margin: 0;
+    color: #19191c;
+}
+
+.capabilityText {
+    margin: 12px 0 0;
+    color: #19191c;
+}
+
+.capabilityTags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.agentsTitle {
+    max-width: 720px;
+}
+
+.caseRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.caseRow .caseCard {
+    flex: 1 0 0;
+}
+
+/* the verified panel splits 50/50 from here down — 536px is the widest layout's figure */
+@media (--ktl-ds-down) {
+    .chartCard {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .verifiedRow {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* stacked, the gap above replaces the column's own right-hand gutter */
+    .verifiedText,
+    .benchmarkText {
+        padding-right: 0;
+    }
+
+    /*
+     * Stacked, the card no longer takes its height from the design's fixed 393px, and the
+     * horizontal-only padding becomes an even 24px inset.
+     */
+    .chartCard {
+        flex: 0 0 auto;
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .benchmarkRow {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .benchmarkRow .statCard {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    /* one card per row, so there is no row of three left to stagger */
+    .capabilityGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .capabilityColumn:nth-child(1),
+    .capabilityColumn:nth-child(2) {
+        padding-top: 0;
+    }
+
+    .caseRow {
+        flex-direction: column;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .statGrid,
+    .quoteGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .statGrid .statCard {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    /* a single column has no second column for the tall quote to stand beside */
+    .quoteGrid > :first-child {
+        grid-row: auto;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .panel {
+        padding: 24px;
+    }
+
+    /* below 640px rescui drops its own headings a step, and the design follows for H3-plus */
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+}

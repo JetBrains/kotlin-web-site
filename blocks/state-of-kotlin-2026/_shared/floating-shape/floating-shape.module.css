@@ -1,0 +1,97 @@
+
+.shape {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: calc(var(--sok-shape-width) * var(--sok-shape-scale, 1));
+    /* holds the box open before the render arrives, so the parallax measures the right height */
+    aspect-ratio: var(--sok-shape-ratio);
+    pointer-events: none;
+    transform: translate3d(0, var(--sok-parallax-y, 0px), 0);
+    will-change: transform;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: var(--sok-shape-paint, none);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    /* the shapes have to come back where they started, or the drift would walk them off screen */
+    animation-direction: alternate;
+}
+
+.driftA {
+    animation-name: driftA;
+    animation-duration: 17s;
+    animation-delay: -4s;
+}
+
+.driftB {
+    animation-name: driftB;
+    animation-duration: 21s;
+    animation-delay: -9s;
+}
+
+.driftC {
+    animation-name: driftC;
+    animation-duration: 19s;
+    animation-delay: -2s;
+}
+
+.driftD {
+    animation-name: driftD;
+    animation-duration: 26s;
+    animation-delay: -13s;
+}
+
+@keyframes driftA {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(10px, -24px, 0) rotate(1.6deg);
+    }
+}
+
+@keyframes driftB {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(-14px, -18px, 0) rotate(-1.8deg);
+    }
+}
+
+@keyframes driftC {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(12px, 20px, 0) rotate(1.2deg);
+    }
+}
+
+@keyframes driftD {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(-18px, 22px, 0) rotate(-0.8deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shape {
+        transform: none;
+    }
+
+    .image {
+        animation: none;
+    }
+}

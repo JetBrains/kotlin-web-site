@@ -1,0 +1,42 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.bar {
+    display: flex;
+    justify-content: center;
+    padding: 36px 0 12px;
+    position: relative;
+    transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.barStuck {
+    padding-top: 12px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+.switcher {
+    flex-wrap: wrap;
+}
+
+/* the design puts the switcher directly above the hero title from here down */
+@media (--ktl-tl-down) {
+    .bar {
+        padding: 32px 0 0;
+    }
+
+    /* re-stated because the rule above is later in the source than the base `.barStuck` */
+    .barStuck {
+        padding-top: 12px;
+    }
+}
+
+/*
+ * Below TL the switcher is wider than the content column, and the bar is dropped rather than
+ * made to scroll sideways: every section it links to is a short scroll away once the page is
+ * one column wide. The hero takes over the space it occupied.
+ */
+@media (--ktl-ts-down) {
+    .bar {
+        display: none;
+    }
+}
