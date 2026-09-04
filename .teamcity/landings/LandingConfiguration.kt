@@ -28,5 +28,9 @@ val landingConfigurations = listOf(
   LandingConfiguration(
     name = "kotlin-spring-ai-tutorial",
     repositoryUrl = "git@github.com:jetbrains-lovable/kotlin-ai-tutorial.git"
+  ),
+  LandingConfiguration(
+    name = "kotlin-webflux",
+    repositoryUrl = "git@github.com:jetbrains-lovable/webflux-kotlin-draft.git"
   )
 )
