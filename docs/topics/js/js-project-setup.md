@@ -358,13 +358,13 @@ For Node.js projects, the [Mocha](#node-js) test framework is available.
 
 The plugin also provides useful testing features, for example:
 
-* Source maps generation
-* Test reports generation
+* Source map generation
+* Test report generation
 * Test run results in the console
 
 ### Karma
 
-> The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
+> The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features or bug fixes are
 > expected. As an alternative for browser testing, try out the new [DSL for browser testing](#dsl-for-browser-testing).
 > 
 {style="warning"}
@@ -404,15 +404,15 @@ kotlin.js.browser.karma.browsers=firefox,safari
 This allows you to define a list of browsers for all modules and then add specific browsers in the build files of
 particular modules. 
 
-The Kotlin Multiplatform Gradle plugin automatically generates a Karma configuration file at build time to the
-`build/js/packages/projectName-test/karma.conf.js` directory. The file includes settings you set in the `useKarma {}`
+The Kotlin Multiplatform Gradle plugin automatically generates a Karma configuration file at
+`build/js/packages/projectName-test/karma.conf.js` at build time. The file includes settings you set in the `useKarma {}`
 block in your build file.
 
 You can also place additional configuration files inside the `karma.config.d` directory at the root of your project.
 All `.js` configuration files in this directory are picked up and automatically merged into the generated `karma.conf.js`
 at build time.
 
-For more information on the Karma configuration, see the [Karma's documentation](https://karma-runner.github.io/6.4/config/configuration-file.html).
+For more information on the Karma configuration, see [Karma's documentation](https://karma-runner.github.io/6.4/config/configuration-file.html).
 
 ### DSL for browser testing
 <primary-label ref="experimental-opt-in"/>

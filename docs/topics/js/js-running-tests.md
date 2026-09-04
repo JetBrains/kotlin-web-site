@@ -11,7 +11,7 @@ For browser testing, you can choose between:
 * The [Karma](https://karma-runner.github.io/) test runner.
 * The new DSL for browser testing.
 
-> The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features and bug fixes are
+> The Karma project has been [deprecated](https://github.com/karma-runner/karma#karma). No new features or bug fixes are
 > expected. As an alternative, try out the new Kotlin DSL for browser testing.
 >
 > The new DSL for browser testing is currently [Experimental](components-stability.md#stability-levels-explained).
@@ -91,7 +91,7 @@ kotlin {
 }
 ```
 
-With Karma, you need to install all necessary browsers on your target system (locally or on the CI).
+With Karma, you need to install all necessary browsers on your target system (locally or in CI).
 
 For more information on Karma functionality, see [Set up a Kotlin/JS project](js-project-setup.md#karma).
 
@@ -126,7 +126,7 @@ For additional settings available in the new DSL for browser testing, see [Advan
 
 ## Add a test
 
-To check that tests are executed properly, add a file `src/jsTest/kotlin/AppTest.kt` and fill it with this content:
+To check that tests are executed properly, create a file `src/jsTest/kotlin/AppTest.kt` with the following content:
 
 ```kotlin
 import kotlin.test.Test
@@ -157,7 +157,7 @@ Alternatively, if you want to run the tests in the command line, use the Gradle 
 ```
 
 After running tests in IntelliJ IDEA, the **Run** tool window shows the test results. You can click failed tests
-to see their stack trace and navigate to the corresponding test implementation via a double click.
+to see their stack trace and navigate to the corresponding test implementation by double-clicking it.
 
 ![Test results in IntelliJ IDEA](test-stacktrace-ide.png){width=700}
 
@@ -185,7 +185,7 @@ The new DSL for browser testing is designed to be minimalistic and tool-agnostic
 * [Mocha](https://mochajs.org/) acts as a test runner.
 * [webpack](https://webpack.js.org/) acts as a bundler (will be replaced with [Vite](https://vite.dev/) in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
 
-DSL exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can
+The DSL exposes timeouts, headless mode, and per-runner options as Gradle properties, so you can
 share defaults between runners, override them for a specific browser, and compute values lazily with providers:
 
 ```kotlin
@@ -285,7 +285,7 @@ Keep the following limitations in mind when you build plugins using these APIs:
 * Configuring `subtarget.test` enables the new test pipeline and disables Karma. There is currently no reliable way to detect
   which pipeline the user has chosen.
 * There is no reliable way to configure a specific browser runner lazily, so the configuration has to happen in
-  `afterEvaluate`. Consider asking your users to set the test location explicitly or expose decorating functions such as
+  `afterEvaluate`. Consider asking your users to set the test location explicitly or exposing decorating functions such as
   `myPluginChromium()` instead.
 
 ## Leave feedback
