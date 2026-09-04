@@ -36,7 +36,7 @@ object BuildParams {
   const val KOTLIN_RELEASE_TAG = "2.4.0"
   const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
 
-  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_240_LibraryReferenceLatestDocs"
+  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2420_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
