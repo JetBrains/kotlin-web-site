@@ -25,10 +25,6 @@
 }
 
 
-.wrapper [id] {
-    scroll-margin-top: 80px;
-}
-
 @media (--ktl-ts-down) {
     .wrapper [id] {
         scroll-margin-top: 0;

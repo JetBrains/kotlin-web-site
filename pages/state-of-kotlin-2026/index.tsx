@@ -1,6 +1,8 @@
 import React from 'react';
 import { LandingLayout } from '@/components/landing-layout/landing-layout';
 import { Hero } from '@/blocks/state-of-kotlin-2026/hero/hero';
+import { SectionNav } from '@/blocks/state-of-kotlin-2026/section-nav/section-nav';
+
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -21,6 +23,7 @@ function Index() {
             dataTestId={'state-of-kotlin-2026-page'}
         >
             <div className={styles.wrapper}>
+                <SectionNav />
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
                     <Hero />
                 </div>
