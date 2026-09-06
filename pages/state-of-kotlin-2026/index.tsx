@@ -6,6 +6,7 @@ import { Questions } from '@/blocks/state-of-kotlin-2026/questions/questions';
 import { Numbers } from '@/blocks/state-of-kotlin-2026/numbers/numbers';
 import { Growth } from '@/blocks/state-of-kotlin-2026/growth/growth';
 import { Organizations } from '@/blocks/state-of-kotlin-2026/organizations/organizations';
+import { Backend } from '@/blocks/state-of-kotlin-2026/backend/backend';
 
 import cn from 'classnames';
 
@@ -34,6 +35,7 @@ function Index() {
                     <Numbers />
                     <Growth />
                     <Organizations />
+                    <Backend />
                 </div>
             </div>
         </LandingLayout>
