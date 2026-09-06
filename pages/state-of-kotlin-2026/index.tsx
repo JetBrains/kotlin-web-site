@@ -10,6 +10,7 @@ import { Backend } from '@/blocks/state-of-kotlin-2026/backend/backend';
 import { Multiplatform } from '@/blocks/state-of-kotlin-2026/multiplatform/multiplatform';
 import { Ai } from '@/blocks/state-of-kotlin-2026/ai/ai';
 import { DownloadCta } from '@/blocks/state-of-kotlin-2026/download-cta/download-cta';
+import { Faq } from '@/blocks/state-of-kotlin-2026/faq/faq';
 
 import cn from 'classnames';
 
@@ -42,6 +43,7 @@ function Index() {
                     <Multiplatform />
                     <Ai />
                     <DownloadCta />
+                    <Faq />
                 </div>
             </div>
         </LandingLayout>
