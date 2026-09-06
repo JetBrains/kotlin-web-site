@@ -11,6 +11,7 @@ import { Multiplatform } from '@/blocks/state-of-kotlin-2026/multiplatform/multi
 import { Ai } from '@/blocks/state-of-kotlin-2026/ai/ai';
 import { DownloadCta } from '@/blocks/state-of-kotlin-2026/download-cta/download-cta';
 import { Faq } from '@/blocks/state-of-kotlin-2026/faq/faq';
+import { Methodology } from '@/blocks/state-of-kotlin-2026/methodology/methodology';
 
 import cn from 'classnames';
 
@@ -44,6 +45,7 @@ function Index() {
                     <Ai />
                     <DownloadCta />
                     <Faq />
+                    <Methodology />
                 </div>
             </div>
         </LandingLayout>
