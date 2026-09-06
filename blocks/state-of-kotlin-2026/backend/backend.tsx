@@ -6,6 +6,9 @@ import { SectionHeading } from '@/blocks/state-of-kotlin-2026/shared/section-hea
 import { StatCard } from '@/blocks/state-of-kotlin-2026/shared/stat-card/stat-card';
 import { GoDeeperBanner } from '@/blocks/state-of-kotlin-2026/shared/go-deeper-banner/go-deeper-banner';
 import { REPORT_SECTION_URLS } from '@/blocks/state-of-kotlin-2026/constants';
+import { FloatingShape } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/floating-shape';
+import { SHAPES } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/shapes';
+
 import styles from './backend.module.css';
 
 type Stat = { figure: string; caption: ReactNode };
@@ -109,6 +112,8 @@ export const Backend: FC = () => {
 
     return (
         <section id="backend" className={styles.wrapper} data-testid="sok-backend">
+            <FloatingShape shape={SHAPES.cylinder} className={styles.cylinder} depth={90} drift="b" />
+            <FloatingShape shape={SHAPES.pentagon} className={styles.pentagon} depth={130} drift="c" />
 
             <SectionHeading
                 title="Backend: production-proven on the JVM"

@@ -9,6 +9,8 @@ import { QuoteCard } from '@/blocks/state-of-kotlin-2026/shared/quote-card/quote
 import { GoDeeperBanner } from '@/blocks/state-of-kotlin-2026/shared/go-deeper-banner/go-deeper-banner';
 import { REPORT_SECTION_URLS } from '@/blocks/state-of-kotlin-2026/constants';
 import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
+import { FloatingShape } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/floating-shape';
+import { SHAPES } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/shapes';
 import { BenchmarkLeaderboard } from './leaderboard/leaderboard';
 
 import styles from './ai.module.css';
@@ -124,6 +126,9 @@ export const Ai: FC = () => {
 
     return (
         <section id="ai" className={styles.wrapper} data-testid="sok-ai">
+            <FloatingShape shape={SHAPES.hollowCylinder} className={styles.hollowCylinder} depth={120} drift="a" />
+            <FloatingShape shape={SHAPES.triangle} className={styles.triangle} depth={95} drift="c" />
+
             <SectionHeading
                 title="Kotlin and AI: tested in real workflows"
                 description="The qualities that make Kotlin strong in production – static typing, null safety, coroutines – pay off twice in the AI era: they make AI services easier to build, and AI-generated code easier to trust. The data below covers both directions."

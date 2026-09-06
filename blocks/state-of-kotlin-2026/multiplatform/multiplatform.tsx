@@ -6,6 +6,8 @@ import { StatCard } from '@/blocks/state-of-kotlin-2026/shared/stat-card/stat-ca
 import { QuoteCard } from '@/blocks/state-of-kotlin-2026/shared/quote-card/quote-card';
 import { GoDeeperBanner } from '@/blocks/state-of-kotlin-2026/shared/go-deeper-banner/go-deeper-banner';
 import { MULTIPLATFORM_URL, REPORT_SECTION_URLS } from '@/blocks/state-of-kotlin-2026/constants';
+import { FloatingShape } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/floating-shape';
+import { SHAPES } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/shapes';
 
 import styles from './multiplatform.module.css';
 
@@ -94,6 +96,8 @@ export const Multiplatform: FC = () => {
 
     return (
         <section id="multiplatform" className={styles.wrapper} data-testid="sok-multiplatform">
+            <FloatingShape shape={SHAPES.cube} className={styles.cube} depth={100} drift="d" />
+
             <SectionHeading
                 title="Kotlin Multiplatform: From experiment to strategic platform"
                 description="Kotlin Multiplatform has evolved from an experimental technology into a production-ready platform for cross-platform development. Organizations use it to share business logic, and increasingly user interfaces, across Android, iOS, desktop, web, and server, while preserving native flexibility."

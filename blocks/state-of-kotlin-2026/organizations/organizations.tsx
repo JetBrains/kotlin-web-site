@@ -7,6 +7,8 @@ import { SectionHeading } from '@/blocks/state-of-kotlin-2026/shared/section-hea
 import { StatCard } from '@/blocks/state-of-kotlin-2026/shared/stat-card/stat-card';
 import { GoDeeperBanner } from '@/blocks/state-of-kotlin-2026/shared/go-deeper-banner/go-deeper-banner';
 import { REPORT_SECTION_URLS } from '@/blocks/state-of-kotlin-2026/constants';
+import { FloatingShape } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/floating-shape';
+import { SHAPES } from '@/blocks/state-of-kotlin-2026/shared/floating-shape/shapes';
 
 import styles from './organizations.module.css';
 
@@ -143,6 +145,8 @@ export const Organizations: FC = () => {
 
     return (
         <section id="organizations" className={styles.wrapper} data-testid="sok-organizations">
+            <FloatingShape shape={SHAPES.sphere} className={styles.sphere} depth={110} drift="a" />
+
             <SectionHeading
                 title="Kotlin across organizations of every size"
                 description="Kotlin is used by organizations of every size – from independent developers to large enterprises – and across a broad range of software-intensive industries. Its widespread use in production further reflects growing organizational confidence in the language."
