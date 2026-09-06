@@ -19,7 +19,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      // ships types only via the "exports" field, which moduleResolution "node" cannot read
+      "@webteam/horizontal-barchart": ["./node_modules/@webteam/horizontal-barchart/lib/index.d.ts"]
     },
   },
   "include": [
