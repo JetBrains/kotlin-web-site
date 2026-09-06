@@ -1,0 +1,52 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    overflow-x: clip;
+    position: relative;
+    --sok-shape-scale: 1;
+}
+
+@media (--ktl-ds-down) {
+    .wrapper {
+        --sok-shape-scale: 0.83;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .wrapper {
+        --sok-shape-scale: 0.66;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .wrapper {
+        --sok-shape-scale: 0.5;
+    }
+}
+
+
+.wrapper [id] {
+    scroll-margin-top: 80px;
+}
+
+@media (--ktl-ts-down) {
+    .wrapper [id] {
+        scroll-margin-top: 0;
+    }
+}
+
+.wrapper :global([data-test='horizontal-barchart-single']) p {
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+@media (--ktl-ms-down) {
+    .content {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+    }
+}
