@@ -3,6 +3,7 @@ import { LandingLayout } from '@/components/landing-layout/landing-layout';
 import { Hero } from '@/blocks/state-of-kotlin-2026/hero/hero';
 import { SectionNav } from '@/blocks/state-of-kotlin-2026/section-nav/section-nav';
 import { Questions } from '@/blocks/state-of-kotlin-2026/questions/questions';
+import { Numbers } from '@/blocks/state-of-kotlin-2026/numbers/numbers';
 
 import cn from 'classnames';
 
@@ -28,6 +29,7 @@ function Index() {
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
                     <Hero />
                     <Questions />
+                    <Numbers />
                 </div>
             </div>
         </LandingLayout>
