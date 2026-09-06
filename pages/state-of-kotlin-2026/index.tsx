@@ -12,6 +12,7 @@ import { Ai } from '@/blocks/state-of-kotlin-2026/ai/ai';
 import { DownloadCta } from '@/blocks/state-of-kotlin-2026/download-cta/download-cta';
 import { Faq } from '@/blocks/state-of-kotlin-2026/faq/faq';
 import { Methodology } from '@/blocks/state-of-kotlin-2026/methodology/methodology';
+import { HeroDecoration } from '@/blocks/state-of-kotlin-2026/hero-decoration/hero-decoration';
 
 import cn from 'classnames';
 
@@ -33,6 +34,7 @@ function Index() {
             dataTestId={'state-of-kotlin-2026-page'}
         >
             <div className={styles.wrapper}>
+                <HeroDecoration />
                 <SectionNav />
                 <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
                     <Hero />
