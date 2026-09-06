@@ -4,6 +4,7 @@ import { Hero } from '@/blocks/state-of-kotlin-2026/hero/hero';
 import { SectionNav } from '@/blocks/state-of-kotlin-2026/section-nav/section-nav';
 import { Questions } from '@/blocks/state-of-kotlin-2026/questions/questions';
 import { Numbers } from '@/blocks/state-of-kotlin-2026/numbers/numbers';
+import { Growth } from '@/blocks/state-of-kotlin-2026/growth/growth';
 
 import cn from 'classnames';
 
@@ -30,6 +31,7 @@ function Index() {
                     <Hero />
                     <Questions />
                     <Numbers />
+                    <Growth />
                 </div>
             </div>
         </LandingLayout>
