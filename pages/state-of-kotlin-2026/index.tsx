@@ -7,6 +7,7 @@ import { Numbers } from '@/blocks/state-of-kotlin-2026/numbers/numbers';
 import { Growth } from '@/blocks/state-of-kotlin-2026/growth/growth';
 import { Organizations } from '@/blocks/state-of-kotlin-2026/organizations/organizations';
 import { Backend } from '@/blocks/state-of-kotlin-2026/backend/backend';
+import { Multiplatform } from '@/blocks/state-of-kotlin-2026/multiplatform/multiplatform';
 
 import cn from 'classnames';
 
@@ -36,6 +37,7 @@ function Index() {
                     <Growth />
                     <Organizations />
                     <Backend />
+                    <Multiplatform />
                 </div>
             </div>
         </LandingLayout>
