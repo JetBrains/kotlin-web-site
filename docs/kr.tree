@@ -221,7 +221,7 @@
             <toc-element toc-title="Swift export" topic="native-swift-export.md"/>
             <toc-element toc-title="C interop">
                 <toc-element topic="native-c-interop.md"/>
-                    <toc-element toc-title="Mapping Kotlin and C" progress-tracking="true">
+                <toc-element toc-title="Mapping Kotlin and C" progress-tracking="true">
                     <toc-element toc-title="Primitive data types" topic="mapping-primitive-data-types-from-c.md"/>
                     <toc-element toc-title="Struct and union types" topic="mapping-struct-union-types-from-c.md"/>
                     <toc-element toc-title="Function pointers" topic="mapping-function-pointers-from-c.md"/>
