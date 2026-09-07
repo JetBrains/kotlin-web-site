@@ -69,4 +69,4 @@ For an overview of the available AI tools and when to use them, see [](ai-for-de
 ## What's next?
 
 * [Create a console application in IntelliJ IDEA](jvm-get-started.md)
-* [Create your first cross-platform mobile app using Android Studio](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
+* [Create your first cross-platform mobile app using IntelliJ IDEA or Android Studio](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)

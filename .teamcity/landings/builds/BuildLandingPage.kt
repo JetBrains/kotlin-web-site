@@ -12,7 +12,9 @@ import landings.createVcsRootForLanding
  * Build type for building a Vite landing page.
  * This build:
  * 1. Checks out the landing page repository
- * 2. Patches the Vite config to set the correct base path
+ * 2. Prepares the landing for kotlinlang publishing:
+ *    runs the landing's own prepare_to_kotlinlang_publishing.mjs if present,
+ *    otherwise falls back to the generic patch-vite-base.mjs
  * 3. Installs npm dependencies
  * 4. Builds the static page
  * 5. Publishes the dist folder as an artifact
@@ -49,13 +51,21 @@ class BuildLandingPage(val config: LandingConfiguration) : BuildType({
 
   steps {
     script {
-      name = "Patch Vite config and build"
+      name = "Prepare Vite config and build"
       scriptContent = """
         #!/bin/sh
         set -e -x -u
 
-        # Patch Vite config
-        node kotlin-web-site-scripts/patch-vite-base.mjs ${config.name}
+        # Prepare the landing for kotlinlang publishing.
+        # If the landing repo ships its own prepare script, run it; otherwise
+        # fall back to the generic Vite base patcher from kotlin-web-site.
+        if [ -f "prepare_to_kotlinlang_publishing.mjs" ]; then
+          echo "Using landing-provided prepare_to_kotlinlang_publishing.mjs"
+          node prepare_to_kotlinlang_publishing.mjs ${config.name}
+        else
+          echo "No prepare_to_kotlinlang_publishing.mjs found, falling back to patch-vite-base.mjs"
+          node kotlin-web-site-scripts/patch-vite-base.mjs ${config.name}
+        fi
 
         # Install dependencies
         npm ci

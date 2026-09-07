@@ -48,11 +48,17 @@ You must separate parameters using commas and give each parameter a type explici
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-Inside the body of a function, received arguments are read-only (implicitly declared as `val`):
+When you pass an object to a function, the compiler passes a copy of the reference to that object.
+The copied reference points to the same object, so the function can modify the object's mutable state.
+
+Function parameters are read-only inside the function body (implicitly declared as `val`), so you can't reassign them:
 
 ```kotlin
-fun powerOf(number: Int, exponent: Int): Int {
-    number = 2 // Error: 'val' cannot be reassigned.
+class Counter(var value: Int)
+
+fun reset(counter: Counter) {
+    counter.value = 0    // Allowed: modifies the object
+    counter = Counter(0) // Error: 'val' cannot be reassigned
 }
 ```
 
@@ -319,6 +325,13 @@ make sure to check the actual result because the compiler may infer a type that 
 In the example above, if you want the `double()` function to return `Number` instead of `Int`, 
 you have to declare this explicitly.
 
+If you use a `return` statement inside an expression body, you must specify the return type explicitly:
+
+```kotlin
+fun getDisplayNameOrDefault(userId: String?): String =
+    getDisplayName(userId ?: return "default")
+```
+
 ### Unit-returning functions
 
 If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
@@ -385,13 +398,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
-
-You can use a `return` statement inside an expression body if the function's return type is specified explicitly:
-
-```kotlin
-fun getDisplayNameOrDefault(userId: String?): String =
-    getDisplayName(userId ?: return "default")
-```
 
 ### Variable number of arguments (varargs)
 

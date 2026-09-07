@@ -103,8 +103,6 @@ Other known issues:
 * Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
 * Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
-* Cross-language inheritance is not supported, so Swift classes cannot directly subclass from Kotlin-exported classes or
-  interfaces.
 * No IDE migration tips or automation are available.
 * When using declarations that require opt-in, you must add an explicit `optIn` compiler option at the _module
   level_ to your Gradle build file. For example, for the `kotlinx.datetime` library:
@@ -129,33 +127,34 @@ Other known issues:
 
 The table below shows how Kotlin concepts are mapped to Swift.
 
-| Kotlin                                 | Swift                          |
-|----------------------------------------|--------------------------------|
-| [`class`](#classes)                    | `class`                        |
-| [`object`](#objects)                   | `class` with `shared` property |
-| [`enum class`](#enums)                 | `enum`                         |
-| [`typealias`](#type-aliases)           | `typealias`                    |
-| [Function](#functions)                 | Function                       |
-| [`suspend fun`](#suspending-functions) | `async`                        |
-| [`kotlinx.coroutines` flows](#flows)   | `AsyncSequence`                |
-| [Property](#properties)                | Property                       |
-| [Constructor](#constructors)           | Initializer                    |
-| [Package](#packages)                   | Nested enum                    |
-| `Boolean`                              | `Bool`                         |
-| `Char`                                 | `Unicode.UTF16.CodeUnit`       |
-| `Byte`                                 | `Int8`                         |
-| `Short`                                | `Int16`                        |
-| `Int`                                  | `Int32`                        |
-| `Long`                                 | `Int64`                        |
-| `UByte`                                | `UInt8`                        |
-| `UShort`                               | `UInt16`                       |
-| `UInt`                                 | `UInt32`                       |
-| `ULong`                                | `UInt64`                       |
-| `Float`                                | `Float`                        |
-| `Double`                               | `Double`                       |
-| `Any`                                  | `KotlinBase` class             |
-| `Unit`                                 | `Void`                         |
-| [`Nothing`](#kotlin-nothing)           | `Never`                        |
+| Kotlin                                                            | Swift                          |
+|-------------------------------------------------------------------|--------------------------------|
+| [`class`](#classes)                                               | `class`                        |
+| [`object`](#objects)                                              | `class` with `shared` property |
+| [`enum class`](#enums)                                            | `enum`                         |
+| [`sealed` classes and interfaces](#sealed-classes-and-interfaces) | `enum`                         |
+| [`typealias`](#type-aliases)                                      | `typealias`                    |
+| [Function](#functions)                                            | Function                       |
+| [`suspend fun`](#suspending-functions)                            | `async`                        |
+| [`kotlinx.coroutines` flows](#flows)                              | `AsyncSequence`                |
+| [Property](#properties)                                           | Property                       |
+| [Constructor](#constructors)                                      | Initializer                    |
+| [Package](#packages)                                              | Nested enum                    |
+| `Boolean`                                                         | `Bool`                         |
+| `Char`                                                            | `Unicode.UTF16.CodeUnit`       |
+| `Byte`                                                            | `Int8`                         |
+| `Short`                                                           | `Int16`                        |
+| `Int`                                                             | `Int32`                        |
+| `Long`                                                            | `Int64`                        |
+| `UByte`                                                           | `UInt8`                        |
+| `UShort`                                                          | `UInt16`                       |
+| `UInt`                                                            | `UInt32`                       |
+| `ULong`                                                           | `UInt64`                       |
+| `Float`                                                           | `Float`                        |
+| `Double`                                                          | `Double`                       |
+| `Any`                                                             | `KotlinBase` class             |
+| `Unit`                                                            | `Void`                         |
+| [`Nothing`](#kotlin-nothing)                                      | `Never`                        |
 
 ### Declarations
 
@@ -250,6 +249,46 @@ public enum Color: Swift.CaseIterable, Swift.LosslessStringConvertible, Swift.Ra
     public var rgb: Swift.Int32 { get }
 }
 ```
+
+#### Sealed classes and interfaces
+
+Sealed hierarchies defined in Kotlin are mapped to Swift enums, enabling exhaustive `switch` statements.
+
+Swift export generates a `.sealedType()` method on each sealed type. This method returns a Swift enum whose cases match
+the direct subclasses of the sealed hierarchy. You can nest these calls to match deeper levels of the hierarchy.
+
+For example, declare a sealed interface with a class hierarchy in Kotlin:
+
+```kotlin
+// Kotlin
+sealed interface Shape
+
+class Circle : Shape {
+    override fun toString(): String = "Circle"
+}
+
+class Rectangle : Shape {
+    override fun toString(): String = "Rectangle"
+}
+
+fun createCircle(): Shape = Circle()
+```
+
+On the Swift side, you can use an exhaustive `switch` without a `default` case:
+
+```swift
+// Swift
+let shape = createCircle()
+
+let name = switch shape.sealedType() {
+    case let .circle(type): "It's a \(type.value)"
+    case let .rectangle(type): "It's a \(type.value)"
+}
+// name == "It's a Circle"
+```
+
+Because the `switch` is exhaustive, the compiler warns you if a new subclass is added to the sealed hierarchy, so you
+can handle it immediately instead of relying on a `default` case for `switch`.
 
 #### Functions
 
@@ -474,6 +513,52 @@ suspend fun runOnMain(): Int = withContext(Dispatchers.Main) {
     42
 }
 ```
+
+## Cross-language inheritance
+
+Swift export supports cross-language inheritance. A common use case for this feature is the [reverse import](native-lib-import-stability.md#swift-library-import)
+pattern, where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
+This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
+
+To implement the pattern, you need to declare a Kotlin interface and a Kotlin superclass that the Swift implementation
+can inherit from. You then implement the interface in Swift and pass the Swift object to Kotlin
+functions that accept that interface. For example, for the CryptoKit library:
+
+1. On the Kotlin side, declare an interface, a function that accepts it, and an `open` base class:
+
+    ```kotlin
+    // Kotlin
+    interface CryptoProvider {
+        fun hashMD5(input: String): String
+    }
+
+    fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
+
+    open class SwiftBase
+    ```
+
+2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using a pure Swift library,
+   and pass the object back to Kotlin:
+
+    ```swift
+    // Swift
+    import CryptoKit
+
+    final class IosCryptoProvider: SwiftBase, CryptoProvider {
+        func hashMD5(input: String) -> String {
+            guard let data = input.data(using: .utf8) else { return "failed" }
+            return Insecure.MD5.hash(data: data).description
+        }
+    }
+
+    let provider = IosCryptoProvider()
+    
+    // Calls the Kotlin function, which calls hashMD5() back in Swift
+    print(processHash(provider: provider, input: "Hello, world!"))
+    ```
+
+When Kotlin receives the Swift object, it treats it like an implementation of a regular Kotlin interface, calling
+the Swift code directly.
 
 ## Evolution of Swift export
 

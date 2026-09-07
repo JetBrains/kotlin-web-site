@@ -10,10 +10,8 @@ import Button from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
-import styles from './community-layout.module.css';
 import releasesDataRaw from '../../../data/releases.yml';
 import searchConfig from '../../../search-config.json';
-import { CommunityAddEvent } from '../event-list/event-list';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -103,24 +101,15 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
             />
 
             <StickyHeader>
-                <div className={styles.sticky}>
+                <div>
                     <TopMenu
-                        className={styles.topMenu}
                         homeUrl={COMMUNITY_URL}
                         title={COMMUNITY_TITLE}
                         activeIndex={activeIndex}
                         items={items}
                         linkHandler={linkHandler}
                         mobileOverview={false}
-                    >
-                        {pathname === '/community/events/' && (
-                            <CommunityAddEvent
-                                className={styles.add}
-                                size="s"
-                                href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
-                            />
-                        )}
-                    </TopMenu>
+                    />
                 </div>
             </StickyHeader>
 

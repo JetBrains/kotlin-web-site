@@ -1,4 +1,4 @@
-name: Validate Community Events Data
+name: Validate anniversary meetups data
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  validate_community_events_data:
+  validate_anniversary_meetups_data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,5 +15,5 @@ jobs:
         with:
           yq-version: 'v4.9.5'
       - run: |
-         jsonschema -i <(yq eval --tojson -j data/events.yml) data/schemas/events.json
-         echo "community events data is valid!"
+         jsonschema -i <(yq eval --tojson -j data/kotlin-effect/anniversary-meetups.yml) data/schemas/anniversary-meetups.json
+         echo "Anniversary meetups data is valid!"
