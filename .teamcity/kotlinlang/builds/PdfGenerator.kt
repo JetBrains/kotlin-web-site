@@ -41,7 +41,7 @@ object PdfGenerator : BuildType({
         onDependencyCancel = FailureAction.CANCEL
       }
       artifacts {
-        artifactRules = "+:pages.zip!** => ./"
+        artifactRules = "+:pages.zip!** => ./dist"
       }
     }
   }
