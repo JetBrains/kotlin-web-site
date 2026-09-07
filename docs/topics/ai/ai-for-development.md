@@ -167,10 +167,9 @@ You can run tasks in your local workspace, isolated Git worktree or Docker conta
 
 You can work with JetBrains Air through:
 
-* **Air Desktop** – Run local and cloud tasks from a desktop application.
-* **Air Web** – Run, monitor, and manage cloud tasks and automations from a web browser.
-* **AI Assistant in IntelliJ-based IDEs** – Start and monitor cloud tasks without leaving your IDE. Work with the same tasks in Air Desktop or
-Air Web.
+* **Air desktop app** – Run local and cloud tasks from a desktop application.
+* **Air on the web** – Run, monitor, and manage cloud tasks and automations from a web browser.
+* **AI Assistant in IntelliJ-based IDEs** – Start cloud tasks and review results without leaving your IDE. Work with the same tasks in the Air desktop app or in the web version.
 
 Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
 
