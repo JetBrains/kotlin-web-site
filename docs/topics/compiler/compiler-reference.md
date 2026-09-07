@@ -525,6 +525,12 @@ exported with the `@JsExport` annotation from JavaScript/TypeScript.
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
+### -Xsuspend-lambda-exporting
+<primary-label ref="experimental-general"/>
+
+Allow [exporting suspending lambda expressions](js-to-kotlin-interop.md#export-suspending-lambdas) declared in
+`@JsExport` declarations as JavaScript `async` functions.
+
 ## Kotlin/Native compiler options
 
 Kotlin/Native compiler compiles Kotlin source files into native binaries for the [supported platforms](native-overview.md#target-platforms). 

@@ -293,7 +293,7 @@ The following values and their combinations are available for the output:
 | `single_file` | Saves build reports in a format of an object to a specified local file.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                |
 | `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports) |
-| `json`        | Saves build reports in JSON format to a local file. Set the location for your build reports in `kotlin.build.report.json.directory` (see below). By default, it's name is `${project_name}-build-<date-time>-<index>.json`.                                                                                                                                                                                                                                                                               |
+| `json`        | Saves build reports in JSON format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-build-<date-time>-<index>.json`.                                                                                                                                                                                                                                                                                                                                       |
 
 Here's a list of available options for `kotlin.build.report`:
 
@@ -305,10 +305,7 @@ kotlin.build.report.output=file,single_file,http,build_scan,json
 # Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
 kotlin.build.report.single_file=my/directory/path/some_filename
 
-# Mandatory if json output is used. Where to put reports 
-kotlin.build.report.json.directory=my/directory/path
-
-# Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
+# Optional. Output directory for file-based or JSON reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
 
 # Optional. Label for marking your build report (for example, debug parameters)

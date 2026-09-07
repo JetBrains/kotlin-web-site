@@ -5,7 +5,7 @@
 This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/) 
 in various WebAssembly virtual machines.
 
-You can find examples of an application running on [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
+You can find examples of an application running on [Node.js](https://nodejs.org/en), [Wasmtime](https://docs.wasmtime.dev) [Deno](https://deno.com/),
 and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that uses the standard WASI API.
 
 Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1. Support for WASI 0.2 is planned for future releases.
@@ -14,7 +14,7 @@ Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1. Support for W
 The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target 
 [uses the new exception handling proposal by default](wasm-configuration.md#exception-handling-proposal), ensuring better compatibility with modern WebAssembly runtimes.
 
-> The Kotlin/Wasm toolchain provides Node.js tasks (`wasmWasiNode*`) out of the box.
+> The Kotlin/Wasm toolchain provides Node.js tasks (`wasmWasiNode*`) and Wasmtime (`wasmWasiWasmtime*`) out of the box.
 > Other task variants in the project, such as those utilizing Deno or WasmEdge, are included as custom tasks.
 >
 {style="tip"}
@@ -44,9 +44,10 @@ The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target
 
 2. From **kotlin-wasm-wasi-example** | **Tasks** | **kotlin node**, select and run one of the following Gradle tasks:
 
-   * **wasmWasiNodeRun** to run the application in Node.js.
-   * **wasmWasiDenoRun** to run the application in Deno.
-   * **wasmWasiWasmEdgeRun** to run the application in WasmEdge.
+   * **wasmWasiNodeDevelopmentRun** to run the application in Node.js.
+   * **wasmWasiWasmtimeDevelopmentRun** to run the application in Wasmtime.
+   * **wasmWasiDenoDevelopmentRun** to run the application in Deno.
+   * **wasmWasiWasmEdgeDevelopmentRun** to run the application in WasmEdge.
 
      > When using Deno on a Windows platform, ensure `deno.exe` is installed. For more information,
      > see [Deno's installation documentation](https://docs.deno.com/runtime/manual/getting_started/installation).
@@ -61,19 +62,25 @@ in the terminal from the ` kotlin-wasm-wasi-template` root directory:
 * To run the application in Node.js:
 
   ```bash
-  ./gradlew wasmWasiNodeRun
+  ./gradlew wasmWasiNodeDevelopmentRun
+  ```
+
+* To run the application in Wasmtime:
+
+  ```bash
+  ./gradlew wasmWasiWasmtimeDevelopmentRun
   ```
 
 * To run the application in Deno:
 
   ```bash
-  ./gradlew wasmWasiDenoRun
+  ./gradlew wasmWasiDenoDevelopmentRun
   ```
 
 * To run the application in WasmEdge:
 
   ```bash
-  ./gradlew wasmWasiWasmEdgeRun
+  ./gradlew wasmWasiWasmEdgeDevelopmentRun
   ```
 
 The terminal displays a message when your application is built successfully:
@@ -87,18 +94,25 @@ You can also test that the Kotlin/Wasm application works correctly across variou
 In the Gradle tool window, run one of the following Gradle tasks from **kotlin-wasm-wasi-example** | **Tasks** | **verification**:
 
 * **wasmWasiNodeTest** to test the application in Node.js.
+* **wasmWasiWasmtimeTest** to test the application in Wasmtime.
 * **wasmWasiDenoTest** to test the application in Deno.
 * **wasmWasiWasmEdgeTest** to test the application in WasmEdge.
 
 ![Kotlin/Wasm and WASI test tasks](wasm-wasi-testing-task.png){width=600}
 
 Alternatively, run one of the following commands
-in the terminal from the ` kotlin-wasm-wasi-template` root directory:
+in the terminal from the `kotlin-wasm-wasi-template` root directory:
     
 * To test the application in Node.js:
 
   ```bash
   ./gradlew wasmWasiNodeTest
+  ```
+
+* To test the application in Wasmtime:
+
+  ```bash
+  ./gradlew wasmWasiWasmtimeTest
   ```
    
 * To test the application in Deno:
@@ -112,10 +126,6 @@ in the terminal from the ` kotlin-wasm-wasi-template` root directory:
   ```bash
   ./gradlew wasmWasiWasmEdgeTest
   ```
-
-The terminal displays the test results:
-
-![Kotlin/Wasm and WASI test](wasm-wasi-tests-results.png){width=600}
 
 ## What's next?
 
