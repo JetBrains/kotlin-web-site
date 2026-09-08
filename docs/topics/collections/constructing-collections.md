@@ -1,4 +1,4 @@
-[//]: # (title: Constructing collections)
+[//]: # (title: Create collections)
 
 ## Construct from elements
 
@@ -24,7 +24,7 @@ val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
 
 Note that the `to` notation creates a short-living `Pair` object, so it's recommended that you use it only if performance
 isn't critical. To avoid excessive memory usage, use alternative ways. For example, you can create a mutable map and
-populate it using the write operations. The [`apply()`](scope-functions.md#apply) function can help to keep the
+populate it using the write operations. The [`apply()`](../scope-functions.md#apply) function can help to keep the
 initialization fluent here.
 
 ```kotlin

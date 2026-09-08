@@ -6,8 +6,8 @@ transformations, and so on.
 
 ## Extension and member functions
 
-Collection operations are declared in the standard library in two ways: [member functions](classes.md) of
-collection interfaces and [extension functions](extensions.md#extension-functions). 
+Collection operations are declared in the standard library in two ways: [member functions](../classes.md) of
+collection interfaces and [extension functions](../extensions.md#extension-functions). 
 
 Member functions define operations that are essential for a collection type. For example, [`Collection`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html)
 contains the function [`isEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/is-empty.html)
@@ -105,7 +105,7 @@ complete list of destination operations see the [Kotlin collections reference](h
 
 For mutable collections, there are also _write operations_ that change the collection state. Such operations include
 adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.md) and
-corresponding sections of [List-specific operations](list-operations.md#list-write-operations) and [Map specific operations](map-operations.md#map-write-operations).
+corresponding sections of [List-specific operations](list-operations.md#list-write-operations) and [Map specific operations](../map-operations.md#map-write-operations).
 
 For certain operations, there are pairs of functions for performing the same operation: one applies the operation in-place
 and the other returns the result as a separate collection. For example, [`sort()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sort.html)

@@ -1,4 +1,4 @@
-[//]: # (title: Filtering collections)
+[//]: # (title: Filter collections)
 
 Filtering is one of the most popular tasks in collection processing.
 In Kotlin, filtering conditions are defined by _predicates_ – lambda functions that take a collection element and return

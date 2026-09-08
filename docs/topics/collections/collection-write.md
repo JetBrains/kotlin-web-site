@@ -1,8 +1,8 @@
-[//]: # (title: Collection write operations)
+[//]: # (title: Change collections)
 
 [Mutable collections](collections-overview.md#collection-types) support operations for changing the collection contents, for example, adding or removing elements.
 On this page, we'll describe write operations available for all implementations of `MutableCollection`.
-For more specific operations available for `List` and `Map`, see [List-specific Operations](list-operations.md) and [Map Specific Operations](map-operations.md) respectively.
+For more specific operations available for `List` and `Map`, see [List-specific Operations](list-operations.md) and [Map Specific Operations](../map-operations.md) respectively.
 
 ## Adding elements
 
@@ -130,6 +130,6 @@ fun main() {
 ## Updating elements
 
 Lists and maps also provide operations for updating elements.
-They are described in [List-specific Operations](list-operations.md) and [Map Specific Operations](map-operations.md).
+They are described in [List-specific Operations](list-operations.md) and [Map Specific Operations](../map-operations.md).
 For sets, updating doesn't make sense since it's actually removing an element and adding another one.
 
