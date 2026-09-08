@@ -30,7 +30,7 @@ collections of any type.
 The collection interfaces and related functions are located in the `kotlin.collections` package. Let's get an overview 
 of its contents.
 
-> Arrays are not a type of collection. For more information, see [Arrays](../arrays.md).
+> Arrays are not a type of collection. For more information, see [Arrays](arrays.md).
 >
 {style="note"}
 
@@ -43,7 +43,7 @@ A pair of interfaces represent each collection type:
 * A _mutable_ interface that extends the corresponding read-only interface with write operations: adding, removing, and 
 updating its elements.
 
-Note that a mutable collection doesn't have to be assigned to a [`var`](../basic-syntax.md#variables). Write operations with
+Note that a mutable collection doesn't have to be assigned to a [`var`](basic-syntax.md#variables). Write operations with
 a mutable collection are still possible even if it is assigned to a `val`. The benefit of assigning mutable collections to
 `val` is that you protect the reference to the mutable collection from modification. Over time, as your code grows and becomes
 more complex, it becomes even more important to prevent unintentional modification to references. Use `val` as much as possible
@@ -62,7 +62,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The read-only collection types are [covariant](../generics.md#variance).
+The read-only collection types are [covariant](generics.md#variance).
 This means that if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
 is required.
 In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on 
@@ -149,7 +149,7 @@ fun main() {
 
 List elements (including nulls) can duplicate: a list can contain any number of equal objects or occurrences of a 
 single object.
-Two lists are considered equal if they have the same sizes and [structurally equal](../equality.md#structural-equality) 
+Two lists are considered equal if they have the same sizes and [structurally equal](equality.md#structural-equality) 
 elements at the same positions. 
 
 ```kotlin

@@ -191,7 +191,7 @@ When you call these functions on a sequence, the operation is terminal.
 It consumes the sequence to produce a `Boolean` value instead of returning another sequence.
 
 > These sorted-order functions are also available for arrays, primitive arrays, and unsigned arrays.
-> Unsigned arrays and operations on them are [Experimental](../components-stability.md#stability-levels-explained) and require opt-in with the `@ExperimentalUnsignedTypes` annotation.
+> Unsigned arrays and operations on them are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the `@ExperimentalUnsignedTypes` annotation.
 > 
 {style="note"}
 

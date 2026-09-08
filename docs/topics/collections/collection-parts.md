@@ -7,7 +7,7 @@ specifying the result size, and others.
 ## Slice
 
 [`slice()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/slice.html) returns a list of the collection
-elements with given indices. The indices may be passed either as a [range](../ranges.md) or as a collection of integer values. 
+elements with given indices. The indices may be passed either as a [range](ranges.md) or as a collection of integer values. 
 
 ```kotlin
 
