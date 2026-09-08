@@ -124,7 +124,7 @@ fun main() {
 
 ### Pass enum constants to functions
 
-Because enum constants are values, you can pass them to functions. This way a function accepts only the fixed set of
+Because enum constants are values, you can pass them to functions. This way, a function accepts only the fixed set of
 options defined in the enum class, ensuring type-safe code:
 
 ```kotlin
@@ -256,15 +256,12 @@ fun main() {
 
 Enum positions start from `0`. In this example, `RED` has the position `0`, `GREEN` is at `1`, and `BLUE` is at `2`.
 
-This is useful when you have an integer, for example read from a file or user input, and need the matching enum constant.
+This is useful when you have an integer, for example from a file or user input, that represents an enum constant position.
 Unlike some other languages, Kotlin doesn't let you cast an `Int` directly to an enum constant. Instead, use the integer
-as a position index and look up the constant with `entries.getOrNull(index)` or define a stable numeric property and
-search for the constant with the matching value.
+as an index and look up the constant with `entries.getOrNull(index)`.
 
-> Avoid relying on positions for values that need to stay stable. If you reorder the enum constants, their positions
-> change. For stable values, define an explicit property, for example, `rgb` or `code`.
->
-{style="note"}
+If the integer represents a value that should remain stable even if you reorder the enum constants, define an explicit
+numeric property, for example, `rgb` or `code` and search for the constant with the matching value.
 
 Since `entries` is a specialized `List`, you can use standard collection APIs with it. For example, to find an enum
 constant by an associated value, search through entries using [`first()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/first.html):
@@ -348,9 +345,8 @@ yourself. This is why every enum class can list its constants with the `entries`
 the `valueOf()` function without the need to write extra code.
 
 You can access the constants in an enum class using generic helper functions such as [`enumEntries<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/enum-entries.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/enum-value-of.html).
-These functions use [reified type parameters](https://kotlinlang.org/docs/inline-functions.html#reified-type-parameters).
-Such parameters keep the actual enum type available inside a generic inline function, so the helper functions can work
-with the enum type `T` directly:
+These functions use [reified type parameters](inline-functions.md#reified-type-parameters). Such parameters keep the actual
+enum type available inside a generic inline function, so the helper functions can work with the enum type `T` directly:
 
 | Function                                                                                           | Description                                                                                                    |
 |----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -575,7 +571,7 @@ fun main() {
 Here, each constant implements the abstract `signal()` function differently, so calling `signal()` returns a different
 next state depending on the constant.
 
-Although enum constants behave like singleton objects, the type of enum constant is the enum class itself,
+Although enum constants behave like singleton objects, the type of an enum constant is the enum class itself,
 not its own anonymous class. That's why you can't access members declared inside the body of an anonymous class:
 
 ```kotlin
