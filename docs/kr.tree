@@ -273,7 +273,7 @@
                     <toc-element toc-title="Transform" topic="collection-transformations.md"/>
                     <toc-element toc-title="Group" topic="collection-grouping.md"/>
                     <toc-element toc-title="Aggregate" topic="collection-aggregate.md"/>
-                    <toc-element toc-title="Combine" topic="collection-plus-minus.md"/>
+                    <toc-element toc-title="Combine" topic="collection-combine.md"/>
                     <toc-element topic="collection-elements.md"/>
                     <toc-element topic="collection-parts.md"/>
                 </toc-element>

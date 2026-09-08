@@ -5,7 +5,7 @@ In Kotlin, filtering conditions are defined by _predicates_ – lambda functions
 a boolean value: `true` means that the given element matches the predicate, `false` means the opposite.
 
 The standard library contains a group of extension functions that let you filter collections in a single call.
-These functions leave the original collection unchanged, so they are available for both [mutable and read-only](collections-overview.md#collection-types)
+These functions leave the original collection unchanged, so they are available for both [mutable and read-only](collections-overview.md#read-only-and-mutable-collections)
 collections. To operate the filtering result, you should assign it to a variable or chain the functions after filtering.
 
 ## Filter by predicate

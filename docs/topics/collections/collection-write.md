@@ -1,6 +1,6 @@
 [//]: # (title: Change collections)
 
-[Mutable collections](collections-overview.md#collection-types) support operations for changing the collection contents, for example, adding or removing elements.
+[Mutable collections](collections-overview.md#read-only-and-mutable-collections) support operations for changing the collection contents, for example, adding or removing elements.
 On this page, we'll describe write operations available for all implementations of `MutableCollection`.
 For more specific operations available for `List` and `Map`, see [List-specific Operations](list-operations.md) and [Map Specific Operations](map-operations.md) respectively.
 
@@ -42,7 +42,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can also add elements using the in-place version of the [`plus` operator](collection-plus-minus.md) - [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`)
+You can also add elements using the in-place version of the [`plus` operator](collection-combine.md) - [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`)
  When applied to a mutable collection, `+=` appends the second operand (an element or another collection) to the end of the collection.
 
 ```kotlin
@@ -105,7 +105,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Another way to remove elements from a collection is with the [`minusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operator – the in-place version of [`minus`](collection-plus-minus.md). 
+Another way to remove elements from a collection is with the [`minusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operator – the in-place version of [`minus`](collection-combine.md). 
 The second argument can be a single instance of the element type or another collection.
 With a single element on the right-hand side, `-=` removes the _first_ occurrence of it.
 In turn, if it's a collection, _all_ occurrences of its elements are removed.
