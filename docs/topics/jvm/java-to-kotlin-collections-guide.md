@@ -26,7 +26,7 @@ In Kotlin, there are many operations on collections that look exactly the same a
 
 | Description                                                | Common operations             | More Kotlin alternatives                                                                                                                                   |
 |------------------------------------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Add an element or elements                                 | `add()`, `addAll()`           | Use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `collection += element`, `collection += anotherCollection`.                               |
+| Add an element or elements                                 | `add()`, `addAll()`           | Use the [`plusAssign`(`+=`) operator](collection-combine.md#add-and-remove-elements): `collection += element`, `collection += anotherCollection`.          |
 | Check whether a collection contains an element or elements | `contains()`, `containsAll()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in collection`.                 |
 | Check whether a collection is empty                        | `isEmpty()`                   | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a collection is not empty.        |
 | Remove under a certain condition                           | `removeIf()`                  |                                                                                                                                                            |
@@ -39,12 +39,12 @@ In Kotlin, there are many operations on collections that look exactly the same a
 
 | Description                                         | Common operations                      | More Kotlin alternatives                                                                                                                                                                                             |
 |-----------------------------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Add an element or elements                          | `put()`, `putAll()`, `putIfAbsent()`   | In Kotlin, the assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `map += Pair(key, value)` or `map += anotherMap`. |
+| Add an element or elements                          | `put()`, `putAll()`, `putIfAbsent()`   | In Kotlin, the assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plusAssign`(`+=`) operator](collection-combine.md#add-and-remove-elements): `map += Pair(key, value)` or `map += anotherMap`. |
 | Replace an element or elements                      | `put()`, `replace()`, `replaceAll()`   | Use the indexing operator `map[key] = value` instead of `put()` and `replace()`.                                                                                                                                     |
 | Get an element                                      | `get()`                                | Use the indexing operator to get an element: `map[index]`.                                                                                                                                                           |
 | Check whether a map contains an element or elements | `containsKey()`, `containsValue()`     | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in map`.                                                                                  |
 | Check whether a map is empty                        | `isEmpty()`                            | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check whether a map is not empty.                                                                         |
-| Remove an element                                   | `remove(key)`, `remove(key, value)`    | Use the [`minusAssign`(`-=`) operator](collection-plus-minus.md): `map -= key`.                                                                                                                                      |
+| Remove an element                                   | `remove(key)`, `remove(key, value)`    | Use the [`minusAssign`(`-=`) operator](collection-combine.md#add-and-remove-elements): `map -= key`.                                                                                                                                         |
 | Remove all elements from a map                      | `clear()`                              |                                                                                                                                                                                                                      |
 | Get a stream from a map                             | `stream()` on entries, keys, or values |                                                                                                                                                                                                                      |
 
@@ -86,7 +86,7 @@ To perform all of the operations listed above on maps, you first need to get an 
 |--------------------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------|
 | Sort a list into natural order                   | `sort(null)`                       | `sort()`                                                                                      |
 | Sort a list into descending order                | `sort(comparator)`                 | `sortDescending()`                                                                            |
-| Remove an element from a list                    | `remove(index)`, `remove(element)` | `removeAt(index)`, `remove(element)` or [`collection -= element`](collection-plus-minus.md)   |
+| Remove an element from a list                    | `remove(index)`, `remove(element)` | `removeAt(index)`, `remove(element)` or [`collection -= element`](collection-combine.md#add-and-remove-elements)   |
 | Fill all elements of a list with a certain value | `Collections.fill()`               | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html)         |
 | Get unique elements from a list                  | `stream().distinct().toList()`     | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
 
@@ -96,7 +96,7 @@ To perform all of the operations listed above on maps, you first need to get an 
 * [`aggregate()`](collection-grouping.md) – group by a condition.
 * [`takeLast()`, `takeLastWhile()`, `dropLast()`, `dropLastWhile()`](collection-parts.md#take-and-drop) – take or drop elements by a predicate.
 * [`slice()`, `chunked()`, `windowed()`](collection-parts.md) – retrieve collection parts.
-* [Plus (`+`) and minus (`-`) operators](collection-plus-minus.md) – add or remove elements.
+* [Plus (`+`) and minus (`-`) operators](collection-combine.md#add-and-remove-elements) – add or remove elements.
 
 If you want to take a deep dive into `zip()`, `chunked()`, `windowed()`, and some other operations, watch this video by Sebastian Aigner 
 about advanced collection operations in Kotlin:
@@ -198,7 +198,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="covariance-kotlin"}
 
-Read more about [collection types](collections-overview.md#collection-types) here.
+Read more about [collection types](collection-types.md) here.
 
 ## Ranges and progressions
 

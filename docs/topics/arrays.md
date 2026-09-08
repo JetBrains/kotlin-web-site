@@ -336,7 +336,7 @@ you need to create a new array. For that, you can use one of the following optio
   {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 > If you need to frequently add or remove elements,
-> use [mutable collections](collections-overview.md#collection-types) instead.
+> use [mutable collections](collections-overview.md#read-only-and-mutable-collections) instead.
 >
 {style="tip"}
 
