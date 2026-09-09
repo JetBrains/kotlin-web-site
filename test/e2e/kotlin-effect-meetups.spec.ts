@@ -29,6 +29,17 @@ test.describe('Kotlin Effect anniversary meetups block', () => {
         }
     });
 
+    test('Should point every meetup link at the URL from the data file', async ({ page }) => {
+        const block = page.locator(testSelector('meetups-block'));
+
+        for (const meetup of getMeetups().filter((meetup) => meetup.url)) {
+            await expect(block.getByRole('link', { name: meetup.name, exact: true })).toHaveAttribute(
+                'href',
+                meetup.url
+            );
+        }
+    });
+
     test('Should not render meetups without a URL as links', async ({ page }) => {
         // an empty url in anniversary-meetups.yml must not produce <a href=""
         // target="_blank">, which reopens the landing page in a new tab
