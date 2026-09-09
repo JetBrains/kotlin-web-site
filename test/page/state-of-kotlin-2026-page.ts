@@ -93,6 +93,17 @@ export class StateOfKotlin2026Page implements BasePage {
         return this.page.getByTestId(`sok-${section}-cta`);
     }
 
+    /** Position of the highlighted nav option, or -1 when nothing is highlighted. */
+    async selectedSectionNavIndex(): Promise<number> {
+        return this.sectionNavOptions.evaluateAll((options) =>
+            options.findIndex((option) => option.className.includes('_selected_'))
+        );
+    }
+
+    async scrollToSection(anchor: string) {
+        await this.page.locator(`#${anchor}`).evaluate((section) => section.scrollIntoView());
+    }
+
     /** Leaderboard cells of the given column, in row order. */
     leaderboardCells(column: string): Locator {
         return this.aiLeaderboardRows.locator(`td[data-col="${column}"]`);

@@ -18,7 +18,8 @@ const SECTION_ORDER = [
 ];
 
 const NAV_ANCHORS = Object.keys(REPORT_SECTION_URLS);
-const SECTION_NAV_MIN_WIDTH = 809;
+// The nav bar is hidden up to the TL breakpoint (width <= 1000px).
+const SECTION_NAV_MIN_WIDTH = 1001;
 const LEADERBOARD_ROWS = 5;
 const LEADERBOARD_COLUMNS = 8;
 
@@ -100,6 +101,33 @@ test.describe('State of Kotlin 2026 page', () => {
 
         await expect(sok.selectedSectionNavOption).toHaveCount(1);
         await expect(sok.sectionNavOptions.nth(index).locator(':scope[class*=_selected_]')).toBeVisible();
+    });
+
+    test('section nav follows the section the user scrolls through', async ({ page, viewport }) => {
+        if (viewport && viewport.width < SECTION_NAV_MIN_WIDTH) {
+            await expect(sok.sectionNav).toBeHidden();
+            return;
+        }
+
+        expect(await sok.selectedSectionNavIndex()).toBe(0);
+
+        for (const [index, anchor] of NAV_ANCHORS.entries()) {
+            await sok.scrollToSection(anchor);
+
+            await expect.poll(() => sok.selectedSectionNavIndex()).toBe(index);
+        }
+
+        // Scrolling backwards has to hand the highlight back, without any click.
+        for (const [index, anchor] of [...NAV_ANCHORS.entries()].reverse()) {
+            await sok.scrollToSection(anchor);
+
+            await expect.poll(() => sok.selectedSectionNavIndex()).toBe(index);
+        }
+
+        await page.evaluate(() => window.scrollTo({ top: 0 }));
+
+        await expect.poll(() => sok.selectedSectionNavIndex()).toBe(0);
+        await expect(sok.selectedSectionNavOption).toHaveCount(1);
     });
 
     test('question cards scroll to the sections they promise', async ({ page }) => {
