@@ -2,7 +2,8 @@
 
 The `no-arg` compiler plugin generates a zero-argument constructor for classes with a specific annotation.
 
-The generated constructor is synthetic, so you can't call it directly from Java or Kotlin, but frameworks can call it through [reflection](reflection.md).
+The generated constructor is annotated with `@Deprecated` at the `HIDDEN` level, so you can call it from Java but not from Kotlin.
+Frameworks can call it through reflection.
 
 This lets the Java Persistence API (JPA) instantiate a class that doesn't declare a zero-argument constructor in Kotlin or Java.
 
@@ -60,7 +61,7 @@ noArg {
 ```
 
 Enable the `invokeInitializers` option if you want the plugin to run the class initialization logic
-from the synthetic constructor. This option is disabled by default:
+from the generated constructor. This option is disabled by default:
 
 ```groovy
 noArg {
@@ -73,6 +74,10 @@ noArg {
 Add the plugin to your `pom.xml` file:
 
 ```xml
+<properties>
+    <kotlin.version>%kotlinVersion%</kotlin.version>
+</properties>
+
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -85,7 +90,7 @@ Add the plugin to your `pom.xml` file:
 
         <pluginOptions>
             <option>no-arg:annotation=com.example.NoArgAnnotation</option>
-            <!-- Call instance initializers in the synthetic constructor -->
+            <!-- Call instance initializers in the generated constructor -->
             <!-- <option>no-arg:invokeInitializers=true</option> -->
         </pluginOptions>
     </configuration>
@@ -102,13 +107,13 @@ Add the plugin to your `pom.xml` file:
 
 ## Use the no-arg plugin
 
-When the plugin is applied, classes annotated with a registered annotation get a synthetic zero-argument constructor
+When the plugin is applied, classes annotated with a registered annotation get a zero-argument constructor
 at compile time. You don't need to declare the constructor manually:
 
 ```kotlin
 package com.example
 
-// The no-arg plugin generates a synthetic zero-argument constructor for this class
+// The no-arg plugin generates a zero-argument constructor for this class
 @NoArgAnnotation
 class MyEntity(val id: Int)
 ```

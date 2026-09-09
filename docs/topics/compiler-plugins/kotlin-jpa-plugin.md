@@ -11,10 +11,11 @@ JPA has two requirements that conflict with Kotlin's defaults:
 
 The `kotlin-jpa` plugin addresses both. It's a preconfigured wrapper that applies:
 
-* The [`no-arg` plugin](no-arg-plugin.md) to generate a synthetic zero-argument constructor for JPA-annotated classes.
+* The [`no-arg` plugin](no-arg-plugin.md) to generate a zero-argument constructor for JPA-annotated classes.
 * The [`all-open` plugin](all-open-plugin.md) to make JPA-annotated classes and their members `open`.
 
-The generated constructor is synthetic, so you can't call it directly from Java or Kotlin, but JPA can call it through reflection.
+The generated constructor is annotated with `@Deprecated` at the `HIDDEN` level, so you can call it from Java but not from Kotlin.
+JPA can call it through reflection.
 
 > If you generate a project template using [start.spring.io](https://start.spring.io/#!language=kotlin) with the JPA dependency,
 > the `kotlin-jpa` plugin is enabled by default.
@@ -69,9 +70,14 @@ In Maven, support for the `kotlin-jpa` plugin is provided by the `kotlin-maven-n
 Add it to your `pom.xml` file:
 
 ```xml
+<properties>
+    <kotlin.version>%kotlinVersion%</kotlin.version>
+</properties>
+
 <plugin>
     <groupId>org.jetbrains.kotlin</groupId>
     <artifactId>kotlin-maven-plugin</artifactId>
+    <version>${kotlin.version}</version>
     <configuration>
         <compilerPlugins>
             <plugin>jpa</plugin>
@@ -89,12 +95,12 @@ Add it to your `pom.xml` file:
 
 > Since Kotlin 2.3.20, `kotlin-maven-noarg` implicitly includes `kotlin-maven-allopen`,
 > so you no longer need to add the `all-open` dependency explicitly.
-> 
+>
 {style="note"}
 
 ## Use the kotlin-jpa plugin
 
-When the plugin is applied, classes annotated with common JPA annotations become `open` and get a synthetic
+When the plugin is applied, classes annotated with common JPA annotations become `open` and get a
 zero-argument constructor at compile time. You can write entities as regular classes without adding the `open`
 keyword or declaring a zero-argument constructor manually.
 
@@ -110,7 +116,7 @@ import jakarta.persistence.Id
 class Message(
     var text: String,
 ) {
-    // The kotlin-jpa plugin makes this class open and generates a synthetic
+    // The kotlin-jpa plugin makes this class open and generates a
     // zero-argument constructor that JPA uses to instantiate it
     @Id
     @GeneratedValue
@@ -123,7 +129,7 @@ class Message(
 Applying the plugin makes entities `open` and gives them a zero-argument constructor, but a few Kotlin idioms still
 conflict with how JPA providers manage entities. Follow these guidelines to avoid common issues:
 
-* **Use a regular class, not a `data class`.** Data classes are `final`, favor immutable `val` properties, and derive
+* **Use a regular class, not a `data class`.** Data classes favor immutable `val` properties, and derive
   `equals()`, `hashCode()`, and `toString()` from all properties. For entities, this breaks proxies, and `toString()`
   or `equals()` can trigger extra queries on lazy associations. Model entities as regular classes (the plugin makes
   them `open`) and reserve data classes for DTOs and query results.
