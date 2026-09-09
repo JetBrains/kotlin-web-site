@@ -141,7 +141,7 @@ The following table lists all Kotlin releases and their support windows:
         <th>Kotlin release line</th>
         <th>Release date</th>
         <th>End of support</th>
-        <th>Latest bug fix release</th>
+        <th>Latest release</th>
     </tr>
     <tr>
         <td><strong>2.4</strong>
@@ -153,7 +153,7 @@ The following table lists all Kotlin releases and their support windows:
             <p>December 3, 2027</p>
         </td>
         <td>
-            <p>2.4.10</p>
+            <p>2.4.20</p>
         </td>
     </tr>
 </table>
