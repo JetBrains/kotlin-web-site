@@ -188,6 +188,22 @@
   position:
     lat: 34.3416
     lng: 108.9398
+- name: KUG HangZhou
+  city: Hangzhou
+  country: China Mainland
+  date: '2026-09-13'
+  url: https://kotlin-15-kug-hangzhou.grok.me
+  position:
+    lat: 30.274085
+    lng: 120.15507
+- name: Detroit Kotlin User Group
+  city: Detroit
+  country: USA
+  date: '2026-09-19'
+  url: https://heylo.com/invite/9ZLOGH3J
+  position:
+    lat: 42.331427
+    lng: -83.0457538
 - name: BordeauxKt
   city: Bordeaux
   country: France
@@ -200,10 +216,18 @@
   city: Bucharest
   country: Romania
   date: '2026-09-23'
-  url: https://meetup.com/kobudei
+  url: https://luma.com/iud6vztv
   position:
     lat: 44.4326937
     lng: 26.1040444
+- name: Community.kt (Cozy Kotlin MeetUp)
+  city: Prague
+  country: Czech Republic
+  date: '2026-09-24'
+  url: https://luma.com/2ddefzrr
+  position:
+    lat: 50.0755381
+    lng: 14.4378005
 - name: Kotlin Cairo User Group
   city: Cairo
   country: Egypt
@@ -228,6 +252,14 @@
   position:
     lat: 45.4408474
     lng: 12.3155151
+- name: Kotlin Swiss User Group
+  city: Zurich
+  country: Switzerland
+  date: '2026-09-28'
+  url: https://www.meetup.com/kotlin-swiss-user-group/events/316365930/?eventOrigin=group_upcoming_events
+  position:
+    lat: 47.3768866
+    lng: 8.541694
 - name: 'BcnKode: Mobile & Kotlin'
   city: Barcelona
   country: Spain
@@ -244,6 +276,14 @@
   position:
     lat: 44.9374831
     lng: -93.2009998
+- name: Kotlin User Group Serbia
+  city: Belgrade
+  country: Serbia
+  date: '2026-09-29'
+  url: https://www.meetup.com/serbia-kotlin-user-group/events/316468786
+  position:
+    lat: 44.786568
+    lng: 20.4489216
 - name: Kotlin User Group Chhattisgarh
   city: Raipur
   country: India
@@ -252,3 +292,11 @@
   position:
     lat: 21.27866
     lng: 81.86614
+- name: Chicago KUG x Chicago GDG
+  city: Chicago
+  country: USA
+  date: '2026-09-30'
+  url: https://www.meetup.com/chicago-kotlin/events/316342870/?slug=chicago-kotlin&eventId=316342870
+  position:
+    lat: 41.8781136
+    lng: -87.6297982
