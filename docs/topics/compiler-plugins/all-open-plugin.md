@@ -96,6 +96,10 @@ allOpen {
 Add the plugin in your `pom.xml` file:
 
 ```xml
+<properties>
+    <kotlin.version>%kotlinVersion%</kotlin.version>
+</properties>
+
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -107,7 +111,7 @@ Add the plugin in your `pom.xml` file:
         </compilerPlugins>
 
         <pluginOptions>
-            <!-- Add multiple lines for multiple annotations  -->
+            <!-- Add multiple lines for multiple annotations -->
             <option>all-open:annotation=com.example.AllOpenMarker</option>
             <option>all-open:annotation=com.anotherPackage.OtherAnnotation</option>
         </pluginOptions>
