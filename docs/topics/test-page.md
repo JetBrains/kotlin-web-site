@@ -397,3 +397,31 @@ Tip:
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
 {style="tip"}
+
+## Panels
+
+<p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements -->
+<panels columns="2" id="test-page-panels">
+    <panel>
+        <title>First panel</title>
+        <p>Panel description text.</p>
+        <a href="roadmap.md" as="button" icon="arrow-right" icon-position="right" id="test-page-panel-button">Start</a>
+    </panel>
+    <panel>
+        <title>Second panel</title>
+        <p>Another panel description.</p>
+        <a href="roadmap.md" as="button">Plain</a>
+    </panel>
+</panels>
+
+## Buttons
+
+<p id="test-page-buttons">
+    <a href="roadmap.md" as="button">Plain button</a>
+    <a href="roadmap.md" as="button" icon="arrow-right" icon-position="right" id="test-page-button-with-icon">Button with icon</a>
+</p>
+
+## New features {id=new-experimental-features}
+<primary-label ref="experimental-exp"/>
+
+A section with a primary label attached to its heading.
