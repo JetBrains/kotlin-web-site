@@ -21,6 +21,7 @@ fun main() {
     val derived = Derived(base) 
     
     derived.print()
+    // 10
 }
 ```
 {kotlin-runnable="true"}
@@ -46,7 +47,7 @@ class BaseImpl(val x: Int) : Base {
 }
 
 class Derived(b: Base) : Base by b {
-    override fun printMessage() { print("abc") }
+    override fun printMessage() { println("abc") }
 }
 
 fun main() {
@@ -54,7 +55,9 @@ fun main() {
     val derived = Derived(base)
 
     derived.printMessage()
+    // abc
     derived.printMessageLine()
+    // 10
 }
 ```
 {kotlin-runnable="true"}
@@ -84,7 +87,9 @@ fun main() {
     val derived = Derived(base)
     
     derived.print()
+    // BaseImpl: x = 10
     println(derived.message)
+    // Message of Derived
 }
 ```
 {kotlin-runnable="true"}
