@@ -510,7 +510,7 @@ Add variable and function names that you declared in Kotlin code into the source
 
 Add the specified prefix to paths in the source map.
 
-### -target {es5|es2015}
+### -target {es5|es2015|es2020}
 
 Generate JS files for the specified ECMA version.
 
@@ -521,9 +521,9 @@ Allow [implementing Kotlin interfaces](whatsnew2320.md#implementing-kotlin-inter
 exported with the `@JsExport` annotation from JavaScript/TypeScript.
 
 ### -Xes-long-as-bigint
-<primary-label ref="experimental-general"/>
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
+This option is required for the `es5` and `es2015` targets only.
 
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>

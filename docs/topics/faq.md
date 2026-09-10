@@ -97,8 +97,8 @@ There are also some build tools available that target client-side JavaScript.
 
 When targeting the JVM, Kotlin produces Java-compatible bytecode.
 
-When targeting JavaScript, Kotlin transpiles to ES5.1 and generates
-code which is compatible with module systems including AMD and CommonJS. 
+When targeting JavaScript, Kotlin can generate ES5, ES2015, or ES2020 code depending on the configured target.
+The code is compatible with module systems including AMD and CommonJS. 
 
 When targeting native, Kotlin will produce platform-specific code (via LLVM). 
 
