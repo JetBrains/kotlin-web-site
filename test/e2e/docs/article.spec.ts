@@ -214,14 +214,14 @@ test.describe('Docs: Test Page appearance', async () => {
         test(`Should render expanded playground properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
             const element = page.locator('.kotlin-playground__wrapper').first();
-            await page.locator('.fold-button').click();
+            await element.locator('.fold-button').click();
             await checkScreenshot(element, { clip: ELEMENT_PADDING_OFFSET });
         });
 
         test(`Should render playground after run properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
             const element = page.locator('.kotlin-playground__wrapper').first();
-            await page.locator('.run-button').click();
+            await element.locator('.run-button').click();
 
             await element.locator('.code-output').waitFor({ state: 'visible' });
 

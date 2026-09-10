@@ -420,12 +420,12 @@ that you can use in your programs.
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Count the total number of items in two lists">
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there
 are in total.
 
-|---|---|
 ```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
@@ -435,7 +435,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-1"}
 
-|---|---|
 ```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
@@ -446,12 +445,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Check whether a requested protocol is supported">
 
 You have a set of protocols supported by your server. A user requests to use a particular protocol. Complete the program
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
 
-|---|---|
 ```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
@@ -469,7 +468,6 @@ function to help you with this.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
@@ -480,12 +478,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Spell out a number using a map">
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.
 
-|---|---|
 ```kotlin
 fun main() {
     val number2word = // Write your code here
@@ -495,7 +493,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-3"}
 
-|---|---|
 ```kotlin
 fun main() {
     val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
@@ -504,6 +501,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

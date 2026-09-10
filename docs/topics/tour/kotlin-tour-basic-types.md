@@ -92,11 +92,11 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 
 ## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true">
+<def title="Declare explicit types for variables">
 
 Explicitly declare the correct type for each variable:
 
-|---|---|
 ```kotlin
 fun main() {
     val a: Int = 1000 
@@ -109,7 +109,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-exercise"}
 
-|---|---|
 ```kotlin
 fun main() {
     val a: Int = 1000
@@ -121,6 +120,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 
