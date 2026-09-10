@@ -1,4 +1,5 @@
 [//]: # (title: Create a Kotlin app that answers questions with Spring AI — tutorial)
+[//]: # (description: Learn how to build a document question-answering application with Kotlin, Spring AI, Spring Boot, OpenAI, Qdrant, and RAG.)
 
 <web-summary>Learn how to create a Kotlin app that answers questions with Spring AI.</web-summary>
 
