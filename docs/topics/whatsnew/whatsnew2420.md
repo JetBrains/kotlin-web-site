@@ -145,12 +145,12 @@ inefficient code patterns.
 
 Kotlin 2.4.20 introduces experimental functions to fill this gap:
 
-| Function          | Checks                                                     |
-|-------------------|------------------------------------------------------------|
-| `allDistinct()`   | Every value in the collection is unique.                   |
-| `allDistinctBy()` | Every object has a unique value for the selected property. |
-| `allEqual()`      | Every value in the collection is the same.                 |
-| `allEqualBy()`    | Every object has the same value for the selected property. |
+| Function                                                                                                   | Checks                                                     |
+|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| [`allDistinct()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/all-distinct.html)      | Every value in the collection is unique.                   |
+| [`allDistinctBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/all-distinct-by.html) | Every object has a unique value for the selected property. |
+| [`allEqual()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/all-equal.html)            | Every value in the collection is the same.                 |
+| [`allEqualBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/all-equal-by.html)       | Every object has the same value for the selected property. |
 
 You can use these functions on collections, sequences, and arrays. They compare elements using structural equality just
 like other collection operations.
@@ -216,15 +216,15 @@ generates detailed error messages for assertions.
 
 The new overloads are available for the following assertion functions:
 
-| Function                               | Description                                                                                                                    |
-|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `assertTrue()` / `assertFalse()`       | Checks whether the value is `true` or `false`.                                                                                 |
-| `assertEquals()` / `assertNotEquals()` | Checks whether the values are equal or not.                                                                                    |
-| `assertSame()` / `assertNotSame()`     | Checks whether the values refer to the same instance.                                                                          |
-| `assertIs()` / `assertIsNot()`         | Checks whether the value is of the specified type. For `assertIs()`, the function smart-casts it to that type.                 |
-| `assertNull()`                         | Checks whether the value is `null`.                                                                                            |
-| `assertContains()`                     | Checks whether the element (key, character, substring, or regex) is present in the collection, array, sequence, range, or map. |
-| `assertContentEquals()`                | Checks whether the collections, sequences, or arrays contain equal elements in the same order.                                 |
+| Function                                                                                                                                                                                               | Description                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| [`assertTrue()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-true.html) / [`assertFalse()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-false.html)              | Checks whether the value is `true` or `false`.                                                                                 |
+| [`assertEquals()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-equals.html) / [`assertNotEquals()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-not-equals.html) | Checks whether the values are equal or not.                                                                                    |
+| [`assertSame()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-same.html) / [`assertNotSame()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-not-same.html)         | Checks whether the values refer to the same instance.                                                                          |
+| [`assertIs()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-is.html) / [`assertIsNot()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-is-not.html)                 | Checks whether the value is of the specified type. For `assertIs()`, the function smart-casts it to that type.                 |
+| [`assertNull()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-null.html)                                                                                                             | Checks whether the value is `null`.                                                                                            |
+| [`assertContains()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-contains.html)                                                                                                     | Checks whether the element (key, character, substring, or regex) is present in the collection, array, sequence, range, or map. |
+| [`assertContentEquals()`](https://kotlinlang.org/api/core/kotlin-test/kotlin.test/assert-content-equals.html)                                                                                          | Checks whether the collections, sequences, or arrays contain equal elements in the same order.                                 |
 
 To use the new API, explicitly opt in with the `@OptIn(ExperimentalKotlinTestApi::class)` annotation:
 
@@ -384,7 +384,7 @@ modes, and adds support for Wasmtime as a runtime for the `wasmWasi` target in t
 ### Changes to top-level `require()` calls in `@JsFun` declarations
 <secondary-label ref="wasm"/>
 
-Kotlin/Wasm now reports an error when a `@JsFun` declaration uses the top-level `require()` function.
+Kotlin/Wasm now reports an error when a [`@JsFun`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-js-fun/) declaration uses the top-level `require()` function.
 
 Previously, the compiler generated a `require` variable in the `import-object.mjs` file, allowing `@JsFun` declarations
 to call `require()`.
@@ -398,7 +398,7 @@ removes this generated `require` declaration, and the compiler now reports error
 external fun loadModule(mod: String): JsAny
 ```
 
-To prepare for this change, replace top-level `require()` calls in `@JsFun` declarations with the `@JsModule` annotation:
+To prepare for this change, replace top-level `require()` calls in `@JsFun` declarations with the [`@JsModule`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-js-module/) annotation:
 
 ```kotlin
 @JsModule("module")
