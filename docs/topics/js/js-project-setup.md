@@ -98,7 +98,8 @@ version supported by your target environment:
     * Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
     * Generators for compiling [suspend functions](https://kotlinlang.org/docs/composing-suspending-functions.html) that improve the final bundle size and help with debugging.
     * [JavaScript code inlining](js-interop.md#inline-javascript).
-* `es2020` includes all supported ES2015 features and enables newer JavaScript features like `BigInt`.
+* `es2020` includes all supported ES2015 features and allows the compiler to use ECMAScript 2020 features in the generated
+  JavaScript code. For example, it compiles Kotlin `Long` values to JavaScript `BigInt` values.
 
 To set the ECMAScript target, configure the `target` property in the `build.gradle(.kts)` file. For example, to target ES2020:
 
