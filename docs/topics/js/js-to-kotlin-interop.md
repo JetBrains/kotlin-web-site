@@ -382,31 +382,31 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 
 See how Kotlin types are mapped to JavaScript ones:
 
-| Kotlin                                                           | JavaScript                | Comments                                                                                                |
-|------------------------------------------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------|
-| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                                         |
-| `Char`                                                           | `Number`                  | The number represents the character's code.                                                             |
-| `Long`                                                           | `BigInt`                  | Needs the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint) configured. |
-| `Boolean`                                                        | `Boolean`                 |                                                                                                         |
-| `String`                                                         | `String`                  |                                                                                                         |
-| `Array`                                                          | `Array`                   |                                                                                                         |
-| `ByteArray`                                                      | `Int8Array`               |                                                                                                         |
-| `ShortArray`                                                     | `Int16Array`              |                                                                                                         |
-| `IntArray`                                                       | `Int32Array`              |                                                                                                         |
-| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                                           |
-| `FloatArray`                                                     | `Float32Array`            |                                                                                                         |
-| `DoubleArray`                                                    | `Float64Array`            |                                                                                                         |
-| `LongArray`                                                      | `BigInt64Array`           |                                                                                                         |
-| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                                        |
-| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.                 |
-| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.                  |
-| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.                  |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                               |
-| `Any`                                                            | `Object`                  |                                                                                                         |
-| `Throwable`                                                      | `Error`                   |                                                                                                         |
-| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                                     |
-| Nullable `Type?`                                                 | `Type                     | null                                                                                                    | undefined` |                                                                                            |
-| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                                  |
+| Kotlin                                                           | JavaScript                | Comments                                                                                                       |
+|------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
+| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                                                |
+| `Char`                                                           | `Number`                  | The number represents the character's code.                                                                    |
+| `Long`                                                           | `BigInt`                  | Set [`target = "es2020"`](js-project-setup.md#set-an-ecmascript-target) or configure the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint). |
+| `Boolean`                                                        | `Boolean`                 |                                                                                                                |
+| `String`                                                         | `String`                  |                                                                                                                |
+| `Array`                                                          | `Array`                   |                                                                                                                |
+| `ByteArray`                                                      | `Int8Array`               |                                                                                                                |
+| `ShortArray`                                                     | `Int16Array`              |                                                                                                                |
+| `IntArray`                                                       | `Int32Array`              |                                                                                                                |
+| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                                                  |
+| `FloatArray`                                                     | `Float32Array`            |                                                                                                                |
+| `DoubleArray`                                                    | `Float64Array`            |                                                                                                                |
+| `LongArray`                                                      | `BigInt64Array`           | Set [`target = "es2020"`](js-project-setup.md#set-an-ecmascript-target) or configure the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint). |                                                                                                                |
+| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                                               |
+| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.                        |
+| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.                         |
+| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.                         |
+| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                                      |
+| `Any`                                                            | `Object`                  |                                                                                                                |
+| `Throwable`                                                      | `Error`                   |                                                                                                                |
+| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                                            |
+| Nullable `Type?`                                                 | `Type | null | undefined` |                                                                                                                |
+| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                                                              |
 
 Additionally, it is important to know that:
 

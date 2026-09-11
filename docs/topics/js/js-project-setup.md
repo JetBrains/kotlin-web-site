@@ -43,7 +43,7 @@ kotlin {
 Inside the `kotlin {}` block, you can manage the following aspects:
 
 * [Target execution environment](#execution-environments): browser or Node.js 
-* [Support for ES2015 features](#support-for-es2015-features): classes, modules, and generators
+* [](#set-an-ecmascript-target): ES5, ES2015, or ES2020
 * [Configure output granularity](#configure-output-granularity)
 * [Generation of TypeScript declaration files](#generation-of-typescript-declaration-files-d-ts)
 * [Project dependencies](#dependencies): Maven and npm
@@ -87,28 +87,31 @@ This includes downloading and installing the required environment and dependenci
 This allows developers to build, run, and test simple projects without additional configuration. There is also an option
 to use an existing installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
 
-## Support for ES2015 features
+## Set an ECMAScript target
 
-Kotlin provides support for ES2015 features, including:
+Kotlin/JS can generate JavaScript for the ES5, ES2015, and ES2020 versions of the ECMAScript standard. Choose the newest
+version supported by your target environment:
 
-* Modules that simplify your codebase and improve maintainability.
-* Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
-* Generators for compiling [suspend functions](https://kotlinlang.org/docs/composing-suspending-functions.html) that improve the final bundle size
-  and help with debugging.
-* [JavaScript code inlining](js-interop.md#inline-javascript).
+* `es5` provides compatibility with older JavaScript environments and is the default target.
+* `es2015` enables support for ES2015 features, including:
+    * Modules that simplify your codebase and improve maintainability.
+    * Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
+    * Generators for compiling [suspend functions](https://kotlinlang.org/docs/composing-suspending-functions.html) that improve the final bundle size and help with debugging.
+    * [JavaScript code inlining](js-interop.md#inline-javascript).
+* `es2020` includes all supported ES2015 features and allows the compiler to use ECMAScript 2020 features in the generated
+  JavaScript code. For example, it compiles Kotlin `Long` values to JavaScript `BigInt` values.
 
-You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
-`build.gradle(.kts)` file:
+To set the ECMAScript target, configure the `target` property in the `build.gradle(.kts)` file. For example, to target ES2020:
 
 ```kotlin
 tasks.withType<KotlinJsCompile>().configureEach {
     compilerOptions {
-        target = "es2015"
+        target = "es2020"
     }
 }
 ```
 
-[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
+Learn more about [ES5](https://262.ecma-international.org/5.1/), [ES2015](https://262.ecma-international.org/6.0/), and [ES2020](https://262.ecma-international.org/11.0/) standards.
 
 ## Configure output granularity
 
@@ -125,7 +128,7 @@ You can choose how the compiler outputs `.js` files in your project:
 
 * **One per file**. You can set up a more granular output that generates one (or two, if the file contains exported
   declarations) JavaScript file per each Kotlin file. To enable the per-file compilation mode:
-  1. Set `es2015` as the [compilation target](#support-for-es2015-features)
+  1. Set `es2015` or `es2020` as the [compilation target](#set-an-ecmascript-target)
      to support ES2015 features in your project.
   2. Add the following line to the `gradle.properties` file:
      ```none
