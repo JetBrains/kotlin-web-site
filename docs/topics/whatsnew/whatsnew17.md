@@ -230,7 +230,7 @@ on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-29974/Add-a-co
 
 ### Stable callable references to functional interface constructors
 
-[Callable references](reflection.md#callable-references) to functional interface constructors are
+[Callable references](fun-interfaces.md#pass-callable-references-to-sam-parameters) to functional interface constructors are
 now [Stable](components-stability.md). Learn how
 to [migrate](fun-interfaces.md#migration-from-an-interface-with-constructor-function-to-a-functional-interface)
 from an interface with a constructor function to a functional interface using callable references.
