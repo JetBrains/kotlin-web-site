@@ -61,7 +61,7 @@ fun main() {
     val contact = Contact(1, "mary@gmail.com")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-class-create-instance"}
+{kotlin-runnable="true" id="kotlin-tour-class-create-instance"}
 
 In the example:
 
@@ -95,7 +95,7 @@ fun main() {
     // jane@gmail.com
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-access-property"}
+{kotlin-runnable="true" id="kotlin-tour-access-property"}
 
 > To concatenate the value of a property as part of a string, you can use string templates (`$`).
 > For example:
@@ -127,7 +127,7 @@ fun main() {
     // 1
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-member-function"}
+{kotlin-runnable="true" id="kotlin-tour-member-function"}
 
 ## Data classes
 
@@ -178,7 +178,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-print-string"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-print-string"}
 
 This is particularly useful when debugging or creating logs.
 
@@ -205,7 +205,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-compare-instances"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-compare-instances"}
 
 ### Copy instance
 
@@ -237,7 +237,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-copy-instance"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-copy-instance"}
 
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
@@ -265,7 +265,7 @@ fun main() {
     println(emp)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
 
 |---|---|
 ```kotlin
@@ -278,7 +278,7 @@ fun main() {
     println(emp)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -296,9 +296,10 @@ fun main() {
         Address("123 Fake Street", City("Springfield", "US")),
         ownsAPet = false
     )
+    println(person)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
 
 |---|---|
 ```kotlin
@@ -313,9 +314,10 @@ fun main() {
         Address("123 Fake Street", City("Springfield", "US")),
         ownsAPet = false
     )
+    println(person)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -360,7 +362,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -385,7 +387,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
 <seealso></seealso>
 
