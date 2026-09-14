@@ -30,17 +30,17 @@ class HelloWorldTest {
 
         "name" in output && "age" in output -> hint(
             "Add a dollar sign before both variable names: \$name and \$age. " +
-                    "Right now 'name' and 'age' are printed as plain text, not as values."
+                    "Right now the program prints 'name' and 'age' as plain text, not as values."
         )
 
         "name" in output -> hint(
             "Add a dollar sign before name to print its value: \$name. " +
-                    "Right now 'name' is printed as plain text instead of Mary."
+                    "Right now the program prints 'name' as plain text instead of Mary."
         )
 
         "age" in output -> hint(
             "Add a dollar sign before age to print its value: \$age. " +
-                    "Right now 'age' is printed as plain text instead of 20."
+                    "Right now the program prints 'age' as plain text instead of 20."
         )
 
         !(output.contains("Mary", ignoreCase = true) && "20" in output) ->
