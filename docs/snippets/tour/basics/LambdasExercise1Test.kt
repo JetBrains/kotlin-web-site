@@ -65,7 +65,7 @@ class LambdasExercise1Test {
 
             reference != EXPECTED -> hint(
                 "Check how each URL is built. buildUrls returns $reference, " +
-                        "but $EXPECTED is expected.",
+                        "but it should be $EXPECTED.",
                 ""
             )
 
