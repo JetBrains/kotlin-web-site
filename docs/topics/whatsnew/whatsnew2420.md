@@ -17,6 +17,10 @@ Kotlin 2.4.20 is out! Here are the release highlights:
 * **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
 * **Kotlin compiler:** [`kotlinr` runner command and a separate native image](#kotlin-compiler)
 
+You can also find an overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/UhRfN7fx5rs" title="What's New in Kotlin 2.4.20"/>
+
 > For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
 >
 {style="tip"}
