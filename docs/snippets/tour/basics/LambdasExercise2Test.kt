@@ -50,7 +50,7 @@ class LambdasExercise2Test {
 
             lines.all { it == "Hello" } && lines.size != 5 -> hint(
                 "Repeat the action 5 times. " +  
-                "\"Hello\" is printed ${lines.size} times."
+                "The program prints \"Hello\" ${lines.size} times."
             )
 
             lines.map { it.lowercase() } == List(5) { "hello" } -> hint(
