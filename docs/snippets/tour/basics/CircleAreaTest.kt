@@ -41,7 +41,7 @@ class CircleAreaTest {
 
         areaOf(2).isAbout(4 * PI) -> hint(
             "Use the radius parameter in the calculation. " +
-                    "circleArea(2) returns the expected value, but circleArea(5) returns ${areaOf(5)}.",
+                    "circleArea(2) returns the correct value, but circleArea(5) returns ${areaOf(5)}.",
             ""
         )
 
@@ -50,7 +50,7 @@ class CircleAreaTest {
 
         else -> hint(
             "Check the formula: use PI * radius * radius. " +
-                    "For a radius of 5, circleArea() returns ${areaOf(5)}, but ${25 * PI} is expected.",
+                    "For a radius of 5, circleArea() returns ${areaOf(5)}, but it should be ${25 * PI}.",
             ""
         )
     }

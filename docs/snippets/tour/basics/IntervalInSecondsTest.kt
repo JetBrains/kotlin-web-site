@@ -39,14 +39,14 @@ class IntervalInSecondsTest {
             firstWrong != null && firstWrong.omitsArguments -> hint(
                 "Set the default value of hours, minutes, and seconds to 0. " +
                         "${firstWrong.call} returns ${firstWrong.actual}, " +
-                        "but ${firstWrong.expected} is expected.",
+                        "but it should be ${firstWrong.expected}.",
                 ""
             )
 
             firstWrong != null -> hint(
                 "Keep the original formula – only the parameters change. " +
                         "${firstWrong.call} returns ${firstWrong.actual}, " +
-                        "but ${firstWrong.expected} is expected.",
+                        "but it should be ${firstWrong.expected}.",
                 ""
             )
 
