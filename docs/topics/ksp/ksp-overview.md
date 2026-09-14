@@ -1,8 +1,8 @@
 [//]: # (title: Kotlin Symbol Processing API)
 
 Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create 
-processors that inspect static information about your source code and generate new code from it. A common use case is 
-generating code based on [annotations](annotations.md).
+processors that inspect static information about your source code and generate new code from it. The most common use case 
+is generating code based on [annotations](annotations.md).
 
 KSP aims to simplify the creation of lightweight compiler plugins. A compiler plugin built with KSP is called a symbol 
 processor, or processor for short. KSP's well-defined API hides compiler changes, so you don't need to spend much effort 
@@ -18,10 +18,10 @@ To learn how to create your first KSP-based processor, see the [KSP quickstart](
 
 ## Overview
 
-KSP represents Kotlin source code as a hierarchy of symbols based on the Kotlin grammar. Processors use these symbols to 
-inspect declarations such as classes, functions, properties, and types.
+KSP represents Kotlin source code as a hierarchy of symbols based on the [Kotlin grammar](https://kotlinlang.org/grammar/). 
+Processors use these symbols to inspect declarations such as classes, functions, properties, and types.
 
-> KSP models declarations and type information, but doesn't provide access to expressions or
+> KSP models declarations and type information, but doesn't give processors access to expressions or
 > function bodies.
 {style="note"}
 
@@ -89,7 +89,7 @@ This view lists common things that are declared in the file: classes, functions,
 
 ## How KSP runs a processor
 
-KSP uses a `SymbolProcessorProvider` as the entry point for creating a `SymbolProcessor`:
+KSP uses an implementation of `SymbolProcessorProvider` as the entry point for creating a `SymbolProcessor` instance:
 
 ```kotlin
 interface SymbolProcessorProvider {
@@ -97,8 +97,8 @@ interface SymbolProcessorProvider {
 }
 ```
 
-The `SymbolProcessor` contains the processing logic. KSP calls its `process()` function and provides a `Resolver`, which 
-the processor uses to access symbols in the source code:
+The `SymbolProcessor` interface contains the processing logic. KSP calls the `process()` function and provides a 
+`Resolver`, which the processor uses to access symbols in the source code:
 
 ```kotlin
 interface SymbolProcessor {
@@ -108,19 +108,18 @@ interface SymbolProcessor {
 }
 ```
 
-For a step-by-step example of implementing and registering a processor, see the [KSP quickstart guide](ksp-quickstart.md).
+For a step-by-step guide on how to implement and register a processor, see [Getting started with KSP](ksp-quickstart.md).
 
 ## Requirements
 
 To use KSP 2.3.x, make sure your project meets the following requirements:
 
-* **Kotlin Gradle plugin** (KGP): 2.2.10–2.3.x
-
-* **Android Gradle Plugin** (AGP): 8.12.0 or later
-
-* **Gradle**: 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.
-
-* **JDK**: 17 or later
+| Dependency                      | Version requirement                                 |
+| ------------------------------  | --------------------------------------------------- |
+| **Kotlin Gradle plugin** (KGP)  | 2.2.10–2.3.x                                        |
+| **Android Gradle Plugin** (AGP) | 8.12.0 or later                                     |
+| **Gradle**                      | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x |
+| **JDK**                         | 17 or later                                         |
 
 ## Supported libraries
 
@@ -154,11 +153,11 @@ The table includes a list of popular libraries on Android and their various stag
 
 ## Resources
 
-* [Quickstart](ksp-quickstart.md)
+* [Getting started with KSP](ksp-quickstart.md)
 * [Examples](ksp-examples.md)
 * [How KSP models Kotlin code](ksp-additional-details.md)
 * [Reference for Java annotation processor authors](ksp-reference.md)
 * [Incremental processing notes](ksp-incremental.md)
 * [Multiple round processing notes](ksp-multi-round.md)
 * [KSP on multiplatform projects](ksp-multiplatform.md)
-* [Running KSP from command line](ksp-command-line.md)
+* [Running KSP from the command line](ksp-command-line.md)
