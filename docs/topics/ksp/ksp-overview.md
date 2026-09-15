@@ -14,9 +14,20 @@ Typical use cases for KSP-based plugins include:
 * Serialization ([Moshi](https://github.com/square/moshi))
 * Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
 
-To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).
+To learn how to create your first KSP-based processor, see [Getting started with KSP](ksp-quickstart.md).
 
-## Overview
+## Requirements
+
+To use KSP 2.3.x, make sure your project meets the following requirements:
+
+| Dependency                      |  Min and max versions                                  |
+| ------------------------------  | ------------------------------------------------------ |
+| Kotlin Gradle plugin (KGP)      | 2.2.10–2.3.x                                           |
+| Android Gradle Plugin (AGP)     | 8.12.0 or later                                        |
+| Gradle                          | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.   |
+| JDK                             | 17 or later                                            |
+
+## How KSP works during compilation
 
 KSP represents Kotlin source code as a hierarchy of symbols based on the [Kotlin grammar](https://kotlinlang.org/grammar/). 
 Processors use these symbols to inspect declarations such as classes, functions, properties, and types.
@@ -110,16 +121,6 @@ interface SymbolProcessor {
 
 For a step-by-step guide on how to implement and register a processor, see [Getting started with KSP](ksp-quickstart.md).
 
-## Requirements
-
-To use KSP 2.3.x, make sure your project meets the following requirements:
-
-| Dependency                      | Version requirement                                 |
-| ------------------------------  | --------------------------------------------------- |
-| **Kotlin Gradle plugin** (KGP)  | 2.2.10–2.3.x                                        |
-| **Android Gradle Plugin** (AGP) | 8.12.0 or later                                     |
-| **Gradle**                      | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x |
-| **JDK**                         | 17 or later                                         |
 
 ## Supported libraries
 
@@ -151,7 +152,7 @@ The table includes a list of popular libraries on Android and their various stag
 | Hilt             | [In progress](https://dagger.dev/dev-guide/ksp)                                                   |
 | Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                    |
 
-## Resources
+## Other resources
 
 * [Getting started with KSP](ksp-quickstart.md)
 * [Examples](ksp-examples.md)
