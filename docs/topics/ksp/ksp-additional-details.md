@@ -1,8 +1,59 @@
-[//]: # (title: How KSP models Kotlin code)
+[//]: # (title: KSP Kotlin model)
 
-You can find the API definition in the [KSP GitHub repository](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp).
-The diagram shows an overview of how Kotlin is [modeled](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/)
-in KSP:
+KSP represents source code as a hierarchy of symbols. Processors navigate this hierarchy to inspect declarations, types,
+annotations, and other elements of the source code.
+
+At the top level, a source file is represented by `KSFile`. A `KSFile` contains declarations such as classes, functions,
+and properties, which can contain additional declarations. The following simplified hierarchy shows some of the most
+common symbols and properties available through the KSP API:
+
+```none
+KSFile
+  packageName: KSName
+  fileName: String
+  annotations: List<KSAnnotation>  (File annotations)
+  declarations: List<KSDeclaration>
+    KSClassDeclaration // class, interface, object
+      simpleName: KSName
+      qualifiedName: KSName
+      containingFile: String
+      typeParameters: KSTypeParameter
+      parentDeclaration: KSDeclaration
+      classKind: ClassKind
+      primaryConstructor: KSFunctionDeclaration
+      superTypes: List<KSTypeReference>
+      // contains inner classes, member functions, properties, etc.
+      declarations: List<KSDeclaration>
+    KSFunctionDeclaration // top level function
+      simpleName: KSName
+      qualifiedName: KSName
+      containingFile: String
+      typeParameters: KSTypeParameter
+      parentDeclaration: KSDeclaration
+      functionKind: FunctionKind
+      extensionReceiver: KSTypeReference?
+      returnType: KSTypeReference
+      parameters: List<KSValueParameter>
+      // contains local classes, local functions, local variables, etc.
+      declarations: List<KSDeclaration>
+    KSPropertyDeclaration // global variable
+      simpleName: KSName
+      qualifiedName: KSName
+      containingFile: String
+      typeParameters: KSTypeParameter
+      parentDeclaration: KSDeclaration
+      extensionReceiver: KSTypeReference?
+      type: KSTypeReference
+      getter: KSPropertyGetter
+        returnType: KSTypeReference
+      setter: KSPropertySetter
+        parameter: KSValueParameter
+```
+
+This hierarchy shows some of the common declarations in a source file. The KSP API provides additional symbols and
+properties that aren't shown here.
+
+The following diagram illustrates the relationships between the main KSP API types:
 
 ![class diagram](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
 
@@ -10,47 +61,55 @@ in KSP:
 >
 {style="note"}
 
-## Type and resolution
+You can find the complete API definition in the [KSP GitHub repository](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp).
 
-The resolution takes most of the cost of the underlying API implementation. So type references are designed to be
-resolved by processors explicitly (with a few exceptions). When a _type_ (such as `KSFunctionDeclaration.returnType`
-or `KSAnnotation.annotationType`) is referenced, it is always a `KSTypeReference`, which is a `KSReferenceElement` with
-annotations and modifiers.
+## Type references and resolution
+
+Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary work, processors resolve 
+most type references explicitly. Properties that refer to types, such as `KSFunctionDeclaration.returnType` and 
+`KSAnnotation.annotationType`, return a `KSTypeReference`.
 
 ```kotlin
 interface KSFunctionDeclaration : ... {
-  val returnType: KSTypeReference?
-  // ...
+    val returnType: KSTypeReference?
+    // ...
 }
 
 interface KSTypeReference : KSAnnotated, KSModifierListOwner {
-  val type: KSReferenceElement
+    val element: KSReferenceElement?
+    fun resolve(): KSType
 }
 ```
 
-A `KSTypeReference` can be resolved to a `KSType`, which refers to a type in Kotlin's type system.
+A `KSTypeReference` represents an unresolved type. It preserves the syntactic representation of the type as it appears 
+in the source code. Its `KSReferenceElement` models the corresponding type element in Kotlin's grammar, including its 
+annotations and modifiers.
 
-A `KSTypeReference` has a `KSReferenceElement`, which models Kotlin's program structure: namely, how the reference is
-written. It corresponds to the [`type`](https://kotlinlang.org/grammar/#type) element in Kotlin's grammar.
+A `KSReferenceElement` can be one of the following:
 
-A `KSReferenceElement` can be a `KSClassifierReference` or `KSCallableReference`, which contains a lot of useful
-information without the need for resolution. For example, `KSClassifierReference` has `referencedName`, while
-`KSCallableReference` has `receiverType`, `functionArguments`, and `returnType`.
+* `KSClassifierReference`, which provides information such as `referencedName`.
 
-If the original declaration referenced by a `KSTypeReference` is needed, it can usually be found by resolving to
-`KSType` and accessing through `KSType.declaration`. Moving from where a type is mentioned to where its class is defined
-looks like this:
+* `KSCallableReference`, which provides information such as `receiverType`, `functionArguments`, and `returnType`.
+
+You can inspect this information without resolving the reference.
+
+If a processor generates code that references the same types as the source code, it doesn't need to resolve those types. 
+Instead, it can use the type names available from `KSTypeReference` to generate the same syntactic type reference. KSP 
+adds the generated source files to the compilation, and the Kotlin compiler later resolves and type-checks the type 
+references together with the rest of the source code.
+
+To access the type in Kotlin's type system, call `KSTypeReference.resolve()`. The returned `KSType` provides access to 
+the declaration that defines the type:
 
 ```kotlin
 val ksType: KSType = ksTypeReference.resolve()
 val ksDeclaration: KSDeclaration = ksType.declaration
 ```
 
-Type resolution is costly and therefore has explicit form. Some of the information obtained from resolution is already
-available in `KSReferenceElement`. For example, `KSClassifierReference.referencedName` can filter out a lot of elements
-that are not interesting. You should resolve type only if you need specific information from `KSDeclaration` or `KSType`.
+Resolve a type reference only when you need information available from `KSType` or `KSDeclaration`. When possible, 
+inspect the `KSReferenceElement` first. For example, you can use `KSClassifierReference.referencedName` to filter 
+irrelevant references before resolving them.
 
-`KSTypeReference` pointing to a function type has most of its information in its element.
-Although it can be resolved to the family of `Function0`, `Function1`, and so on, these resolutions don't bring any
-more information than `KSCallableReference`. One use case for resolving function type references is dealing with the
-identity of the function's prototype.
+For function type references, most information is already available from `KSCallableReference`. Resolving a function 
+type produces a type from the `Function0`, `Function1`, and related families, but usually provides no additional information. 
+Resolve a function type when you need information such as the identity of its function prototype.
