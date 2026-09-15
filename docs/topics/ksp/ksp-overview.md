@@ -124,7 +124,7 @@ For a step-by-step guide on how to implement and register a processor, see [Gett
 
 ## Supported libraries
 
-The table includes a list of popular libraries on Android and their various stages of support for KSP:
+This table lists popular libraries on Android and their various stages of support for KSP:
 
 | Library          | Status                                                                                            |
 |------------------|---------------------------------------------------------------------------------------------------|
