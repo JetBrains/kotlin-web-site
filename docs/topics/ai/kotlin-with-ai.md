@@ -7,7 +7,6 @@ You can use AI with Kotlin in two ways:
 * [Use AI to assist with Kotlin development](#develop-with-ai-tools)
 
 You can use one approach or both together in the same project.
-This page provides an overview of the approaches.
 
 ## Build AI-powered apps with Kotlin
 

@@ -33,18 +33,18 @@ graph LR
     class DefineTask,Guide,Connect,Implement,Review,Automate largeNode;
 ```
 
-Different tools are useful at different stages of the workflow. The following sections describe each tool and when to use it.
+This page explains the differences between the tools and how they can benefit you at different stages of the workflow.
 
 ## Develop in the IDE
 
-IDEs can offer AI-powered features directly in your development environment. You can write, understand, modify, and review
+IDEs can offer AI-powered features directly in your development environment. You can write, modify, and review
 Kotlin code without leaving the IDE.
 
 ### AI Assistant
 
 [AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) provides AI-powered assistance 
-directly in JetBrains IDEs, such as in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), and in [Android Studio](https://developer.android.com/studio).
-It's useful for interactive development tasks where you want to stay in control of each change.
+directly in JetBrains IDEs, such as in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), as well as in [Android Studio](https://developer.android.com/studio).
+You can use it for interactive development tasks where you want to stay in control of each change.
 
 The AI assistant provides:
 
@@ -58,12 +58,11 @@ Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetb
 ### Agent Client Protocol
 
 The Agent Client Protocol (ACP) is an open protocol for connecting AI agents to IDEs and code editors.
-Instead of requiring a separate integration for every agent and editor combination, ACP defines a common protocol for
-communication between AI agents and development tools.
+ACP defines a common protocol for AI agents and development tools to communicate without separate integrations for each
+agent and editor combination.
 
-JetBrains IDEs support ACP, allowing you to use compatible AI agents within your IDE. This is useful when you want flexibility
-in choosing AI agents while working with Kotlin-aware IDE features such as navigation, inspections, refactoring, debugging,
-and project analysis.
+JetBrains IDEs support ACP, allowing you to use compatible AI agents within your IDE. You can choose between different AI
+agents while working with Kotlin-aware IDE features such as navigation, inspections, refactoring, debugging, and project analysis.
 
 The ACP registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
 See the full list of supported agents in the [ACP registry](https://agentclientprotocol.com/get-started/registry).
@@ -81,9 +80,8 @@ can explore a project, plan implementation steps, modify multiple files, or run 
 ### Junie
 
 [Junie](https://junie.jetbrains.com/) is a JetBrains AI agent. You can use Junie [in JetBrains IDEs and Android Studio](https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains),
-[from your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [in headless mode](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD scripts.
+[from your terminal](https://junie.jetbrains.com/docs/junie-cli.html), or [in headless mode](https://junie.jetbrains.com/docs/junie-headless.html) in CI/CD pipelines.
 You can also integrate Junie into your [GitHub workflows](https://junie.jetbrains.com/docs/junie-on-github.html).
-
 
 Junie is designed for tasks that require more than a single code suggestion or chat response. Use Junie for development
 tasks that involve multiple files or require planning and execution. You can ask it to implement a feature, update code
@@ -117,15 +115,17 @@ JetBrains maintains several MCP servers that can make your Kotlin experience mor
 * The [JetBrains IDE MCP server](https://plugins.jetbrains.com/plugin/26071-mcp-server) exposes IDE capabilities.
   Using the server, an AI agent can use IDE features such as project indexing, code navigation, refactoring, inspections, and build execution.
   This gives the agent a better understanding of your Kotlin project as well as more efficient means of generating and evaluating code.
+* The [MCP Kotlin SDK](kotlin-ai-apps-development-overview.md#model-context-protocol-mcp-kotlin-sdk) is a Kotlin Multiplatform implementation. It helps you build AI-powered applications in Kotlin
+  and integrate with LLM surfaces across the JVM, WebAssembly, and iOS.
 * For Kotlin Multiplatform projects, the [klibs.io MCP server](https://github.com/JetBrains/klibs-io/blob/master/integrations/mcp/README.md)
   helps agents access the catalog of available multiplatform libraries to more efficiently look for existing solutions.
 * For Compose Multiplatform projects, the [Compose Hot Reload MCP server](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html#mcp-server-for-ai-agents)
-  allows agents to directly interact with the reloadable app (trigger reloads, take screenshots, read semantic trees, and so on).
+  allows agents to directly interact with the reloadable app: trigger reloads, take screenshots, read semantic trees, and so on.
 
 ### Kotlin AI skills
 
-Kotlin AI skills are reusable instructions that you provide to an AI agent. They aren't IDE features or agents themselves.
-Instead, they help an agent perform Kotlin development tasks more consistently.
+Kotlin AI skills are reusable instructions that guide an AI agent through Kotlin development tasks. They help agents perform
+these tasks more consistently.
 
 Use Kotlin AI skills when you want to guide an agent toward idiomatic Kotlin patterns, Kotlin coding conventions,
 and project-specific expectations. Skills help AI agents perform tasks such as writing Kotlin code, explaining language
@@ -147,13 +147,12 @@ or task-specific success criteria:
 * Run target-specific tests after introducing changes whenever such tests are available. 
 * Verify that all configured KMP targets successfully build before considering a task complete. 
 * Review the implementation for platform-specific APIs leaking into common code
-  to avoid agents (or humans) accidentally using these APIs in common code later on.
+  to avoid agents (or developers) accidentally using these APIs in common code later on.
 
 ## Manage AI agents
 
-Development teams need more than one AI agent to work effectively. They may need to coordinate multiple agents, automate
-recurring tasks, monitor agent activity, or evaluate different tools before deciding to adopt them.
-The following tools support AI-assisted development beyond individual coding sessions.
+Development teams may need multiple AI agents to automate recurring tasks, monitor agent activity, or evaluate different
+tools before deciding to adopt them. The following tools support AI-assisted development beyond individual coding sessions.
 
 ### JetBrains Air
 
