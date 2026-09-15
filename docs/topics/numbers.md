@@ -121,7 +121,6 @@ val pi = 3.14
 val avogadro = 6.02214076e23
 ```
 
-
 By default, Kotlin infers floating-point literals as `Double`. 
 To declare a `Float`, add the `f` or `F` suffix:
 
@@ -283,6 +282,74 @@ val longNumber: Long = 1000
 val result: Int = intNumber + longNumber 
 // Error: Initializer type mismatch
 ```
+
+### Integer literal types
+
+During type inference, Kotlin treats unsuffixed integer literals as a special [Integer Literal Type (ILT)](https://kotlinlang.org/spec/type-system.html#integer-literal-types)
+until the surrounding context determines a specific type:
+
+```kotlin
+//sampleStart
+fun List<Any>.log() {
+    println(joinToString(" | ") { it::class.simpleName ?: "Unknown" })
+}
+
+fun main() {
+    listOf(1, 2).log()
+    // Int | Int
+    
+    listOf(1L, 2L).log()
+    // Long | Long
+    
+    // Compiler interprets 1 as an ILT and resolves it to Long
+    listOf(1, 2L).log()
+    // Long | Long
+    
+    // .toInt() converts the literal to Int
+    listOf(1.toInt(), 2L).log()
+    // Int | Long
+}
+//sampleEnd
+```
+{kotlin-runnable="true"}
+
+It's especially easy to miss with the `Int` and `Long` values because they have the same string representation
+at runtime. To avoid this, specify the expected type or convert values explicitly:
+
+```kotlin
+//sampleStart
+fun List<Any>.log() {
+    println(joinToString(" | ") { it::class.simpleName ?: "Unknown" })
+}
+
+fun main() {
+    val longValues: List<Long> = listOf(1, 2L)
+    longValues.log()
+    // Long | Long
+
+    val numberValues: List<Number> = listOf(1.toInt(), 2L)
+    numberValues.log()
+    // Int | Long
+}
+//sampleEnd
+```
+{kotlin-runnable="true"}
+
+You can also use an explicit type to catch unintended type inference:
+
+```kotlin
+fun main() {
+//sampleStart
+    val intValues: List<Int> = listOf(1, 2L)
+    // Error: initializer type mismatch
+//sampleEnd
+}
+```
+{kotlin-runnable="true" validate="false"}
+
+> Learn more about [Integer literal types](https://kotlinlang.org/spec/type-system.html#integer-literal-types).
+> 
+{style="tip"}
 
 ## Data overflow
 

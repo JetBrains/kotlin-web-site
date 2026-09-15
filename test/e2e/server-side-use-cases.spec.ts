@@ -55,7 +55,7 @@ test.describe('Server-Side landing page', async () => {
         await expect(serverSidePage.heroCaseStudiesLink).toBeVisible();
         await serverSidePage.heroCaseStudiesLink.click();
 
-        expect(page.url()).toContain('/case-studies/?type=server-side');
+        expect(page.url()).toContain('/case-studies/?type=backend');
     });
 
     test('Server-side: check Ktor get started link', async ({ page }) => {

@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .foundationPreview {
     border-radius: 8px;
@@ -129,19 +129,19 @@
     }
 }
 
-@media (--ktl-tm) {
+@media (--ktl-ts) {
     .foundationPreview {
         margin-top: 48px;
     }
 }
 
-@media (--ktl-ts) {
+@media (--ktl-ml) {
     .foundationPreview {
         margin-top: 72px;
     }
 }
 
-@media (--ktl-mm) {
+@media (--ktl-ms) {
     .foundationPreview {
         margin-left: -24px;
         margin-right: -24px;

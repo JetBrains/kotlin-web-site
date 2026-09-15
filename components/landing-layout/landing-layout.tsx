@@ -35,6 +35,7 @@ export type LandingLayoutProps = {
     canonical?: string;
     theme?: Theme;
     forceDarkTopMenu?: boolean;
+    hideTopMenu?: boolean;
 } & NavigationProps;
 
 export const LandingLayout: FC<LandingLayoutProps> = ({
@@ -46,6 +47,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
     canonical,
     theme = 'dark',
     forceDarkTopMenu = false,
+    hideTopMenu = false,
     mobileOverview = true,
     ...navigationProps
 }) => {
@@ -120,23 +122,25 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
                     hasBorder={false}
                 />
 
-                <StickyHeader>
-                    <div className={styles.sticky} data-testid="top-menu">
-                        <ThemeProvider theme={forceDarkTopMenu ? 'dark' : theme}>
-                            <TopMenu
-                                className={styles.topMenu}
-                                homeUrl={navigationProps.topMenuHomeUrl}
-                                title={navigationProps.topMenuTitle}
-                                activeIndex={activeIndex}
-                                items={items}
-                                linkHandler={linkHandler}
-                                mobileOverview={mobileOverview}
-                            >
-                                {navigationProps.topMenuButton}
-                            </TopMenu>
-                        </ThemeProvider>
-                    </div>
-                </StickyHeader>
+                {!hideTopMenu && (
+                    <StickyHeader>
+                        <div className={styles.sticky} data-testid="top-menu">
+                            <ThemeProvider theme={forceDarkTopMenu ? 'dark' : theme}>
+                                <TopMenu
+                                    className={styles.topMenu}
+                                    homeUrl={navigationProps.topMenuHomeUrl}
+                                    title={navigationProps.topMenuTitle}
+                                    activeIndex={activeIndex}
+                                    items={items}
+                                    linkHandler={linkHandler}
+                                    mobileOverview={mobileOverview}
+                                >
+                                    {navigationProps.topMenuButton}
+                                </TopMenu>
+                            </ThemeProvider>
+                        </div>
+                    </StickyHeader>
+                )}
 
                 <div className={cn(styles.contentWrapper, { [styles.contentWrapperLight]: theme === 'light' })}
                      data-testid={dataTestId}>

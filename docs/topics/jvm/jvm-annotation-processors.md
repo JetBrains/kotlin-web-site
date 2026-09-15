@@ -85,7 +85,7 @@ mapper implementations between Java beans at compile time.
    ```
    
    * Add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
-   * Configure the [level of annotation processing](kapt.md#use-in-maven) using the `aptMode` option.
+   * Configure the [mode of annotation processing](kapt.md#set-up-in-maven) using the `aptMode` option.
 
    </tab>
    <tab title="Gradle Kotlin" group-key="kotlin">
@@ -255,7 +255,7 @@ A new processor requires three modules:
 * An `annotation` module that declares the custom annotation.
 * A `processor` module that implements the `SymbolProcessor` and `SymbolProcessorProvider` factories. `SymbolProcessor`
   contains the main logic, while `SymbolProcessorProvider` creates the processor and registers the provider in the `META-INF/services/` path.
-* An `app` module that applies the KSP plugin, depends on the processor, and uses the annotation.
+* An `app` module that applies the KSP plugin depends on the processor, and uses the annotation.
 
 For complete step-by-step instructions, see the [KSP quickstart](ksp-quickstart.md#create-your-own-processor).
 

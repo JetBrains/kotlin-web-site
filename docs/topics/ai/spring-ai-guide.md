@@ -51,7 +51,7 @@ Create a new Spring Boot project in IntelliJ IDEA with an Ultimate subscription:
       >
       {style="tip"}
 
-    * **Package name**: com.example.springaidemo
+    * **Package name**: org.example.springaidemo
     * **JDK**: Java JDK
 
       > This tutorial uses **Oracle OpenJDK version 21.0.1**.
@@ -106,10 +106,10 @@ The generated Gradle project corresponds to the Maven's standard directory layou
     }
    ```
 
-2. Set `springAiVersion` to `1.0.0`:
+2. Set `springAiVersion` to `2.0.0`:
 
    ```kotlin
-   extra["springAiVersion"] = "1.0.0"
+   extra["springAiVersion"] = "2.0.0"
    ```
 
 3. Click the **Sync Gradle Changes** button to synchronize the Gradle files.
@@ -118,8 +118,8 @@ The generated Gradle project corresponds to the Maven's standard directory layou
    ```text
    # OpenAI
    spring.ai.openai.api-key=YOUR_OPENAI_API_KEY
-   spring.ai.openai.chat.options.model=gpt-4o-mini
-   spring.ai.openai.embedding.options.model=text-embedding-ada-002
+   spring.ai.openai.chat.model=gpt-4o-mini
+   spring.ai.openai.embedding.model=text-embedding-ada-002
    # Qdrant
    spring.ai.vectorstore.qdrant.host=localhost
    spring.ai.vectorstore.qdrant.port=6334
@@ -280,7 +280,9 @@ Once the documents are loaded, the final step is to add an endpoint that answers
 
    ```kotlin
    class KotlinSTDController(
+       // Provides the builder for creating the ChatClient
        private val chatClientBuilder: ChatClient.Builder,
+   
        private val restTemplate: RestTemplate,
        private val vectorStore: VectorStore,
    )

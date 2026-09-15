@@ -39,7 +39,7 @@ choose the repository you are interested in and clone it.
 
 Follow the contribution process described for each library and tool, such as
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md),
-[ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md) and others.
+[ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md), and others.
 
 If you have a library that could be useful to other Kotlin developers, let us know via <feedback@kotlinlang.org>.
 

@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .news {
     --ktl-news-grid-rows: min-content min-content min-content minmax(min-content, auto);
@@ -17,7 +17,7 @@
     display: none;
 }
 
-@media (--ktl-ts-min) {
+@media (--ktl-ml-min) {
     .news {
         min-height: 360px;
     }
@@ -41,7 +41,7 @@
     }
 }
 
-@media (--ktl-ds) and (--ktl-tl-min) {
+@media (--ktl-ds-only) {
     .news {
         min-height: 384px;
     }
@@ -50,7 +50,7 @@
     }
 }
 
-@media (--ktl-tm) and (--ktl-ts-min) {
+@media (--ktl-ts-only) {
     .news {
         grid-template-rows: var(--ktl-news-grid-rows) var(--ktl-box-block-m);
     }
@@ -76,7 +76,7 @@
 .title { grid-row: calc(var(--ktl-news-grid-row) + 2); }
 .text { grid-row: calc(var(--ktl-news-grid-row) + 3); }
 
-@media (--ktl-ds) and (--ktl-tm-min) {
+@media (--ktl-ts-min) and (--ktl-ds) {
     .news {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -85,13 +85,13 @@
     }
 }
 
-@media (--ktl-tm) {
+@media (--ktl-ts) {
     .news {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (--ktl-ts) {
+@media (--ktl-ml) {
     .news {
         display: flex;
         flex-direction: column;

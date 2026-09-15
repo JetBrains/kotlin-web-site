@@ -12,7 +12,7 @@ import { parseCompose, parsePlatforms, parseType, serializeCompose, serializePla
 const caseTypeOptions: Array<{ value: CaseTypeSwitch, label: string }> = [
     { value: 'all', label: 'All' },
     { value: 'multiplatform', label: 'Kotlin Multiplatform' },
-    { value: 'server-side', label: 'Server-side' },
+    { value: 'backend', label: 'Backend' },
     { value: 'ai', label: 'AI'},
 ];
 

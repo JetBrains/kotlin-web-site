@@ -234,6 +234,31 @@ fun count(): Int {
 ```
 {kotlin-runnable="true"}
 
+You can handle an exception without using the exception instance.
+For example, you can provide a fallback value or a generic error message in the `catch` block.
+
+Use an underscore (`_`) instead of the exception parameter name to indicate that the exception instance is intentionally ignored:
+
+```kotlin
+import java.io.File
+import java.io.IOException
+
+//sampleStart
+fun main() {
+    val userSettings = try {
+        File("user-settings.json").readText()
+    
+    // Catches IOException without using the exception instance
+    } catch (_: IOException) {
+        // Uses a fallback value if loading the file fails
+        "{}"
+    }
+
+    println(userSettings)
+}
+//sampleEnd
+```
+{kotlin-runnable="true"}
 
 You can use multiple `catch` handlers for the same `try` block.
 You can add as many `catch` blocks as needed to handle different exceptions distinctively.
@@ -283,7 +308,7 @@ unless they are caught earlier by a more specific catch block.
 
 The `finally` block contains code that always executes, regardless of whether the `try` block completes successfully or
 throws an exception.
-With the `finally` block you can clean up code after the execution of `try` and `catch` blocks.
+With the `finally` block, you can clean up code after the execution of `try` and `catch` blocks.
 This is especially important when working with resources like files or network connections, as `finally` guarantees they are properly closed or released.
 
 Here is how you would typically use the `try-catch-finally` blocks together:
@@ -457,7 +482,7 @@ fun main() {
 {kotlin-runnable="true"}
 
 In applications with diverse error scenarios,
-creating a hierarchy of exceptions can help making the code clearer and more specific.
+creating a hierarchy of exceptions can help make the code clearer and more specific.
 You can achieve this by using an [abstract class](classes.md#abstract-classes) or a
 [sealed class](sealed-classes.md#constructors) as a base for common exception features and creating specific 
 subclasses for detailed exception types.
@@ -572,7 +597,7 @@ Let's explore some common exception types found in Kotlin, which are all subclas
     val example = 2 / 0 // throws ArithmeticException
     ```
 
-* [`IndexOutOfBoundsException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/): This exception is thrown to indicate that an index of some sort, such as an array or string is out of range.
+* [`IndexOutOfBoundsException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/): This exception is thrown to indicate that an index of some sort, such as an array or string, is out of range.
 
     ```kotlin
     val myList = mutableListOf(1, 2, 3)

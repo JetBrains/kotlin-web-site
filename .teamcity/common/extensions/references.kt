@@ -22,7 +22,7 @@ fun ReferenceProject.referenceVcs(version: String, vcsUrl: String, tagOrBranch: 
     branchSpec = ""
 
     authMethod = uploadedKey {
-        uploadedKey = "teamcity"
+        uploadedKey = "default teamcity key"
     }
 }.also {
     this.project.vcsRoot(it)

@@ -1,0 +1,43 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.meetupsSection {
+    margin-top: 144px;
+
+    @media (--ktl-ds-down) {
+        margin-top: 96px;
+    }
+}
+
+.sectionTitle {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    span {
+        color: #6B57FF;
+    }
+}
+
+.sectionSubtitle {
+    margin: 0;
+}
+
+.mapContainer {
+    margin-top: 48px;
+}
+
+.cta {
+    margin-top: 64px;
+    text-align: center;
+}
+
+.ctaTitle {
+    margin: 0 0 8px;
+}
+
+.ctaText {
+    margin: 0 0 32px;
+}
+
+.ctaButton {
+    display: inline-flex;
+}

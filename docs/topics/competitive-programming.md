@@ -266,7 +266,7 @@ Competitive programming problems often have input like this:
 
 The first line of the input contains two integers `n` and `k`
 
-In Kotlin this line can be concisely parsed with the following statement using
+In Kotlin, this line can be concisely parsed with the following statement using
 [destructuring declaration](destructuring-declarations.md) 
 from a list of integers:
 
@@ -277,7 +277,7 @@ val (n, k) = readInts()
 It might be temping to use JVM's `java.util.Scanner` class to parse less structured 
 input formats. Kotlin is designed to interoperate well with JVM libraries, so that their use feels quite
 natural in Kotlin. However, beware that `java.util.Scanner` is extremely slow. So slow, in fact, that parsing
-10<sup>5</sup> or more integers with it might not fit into a typical 2 second time-limit, which a simple Kotlin's 
+10<sup>5</sup> or more integers with it might not fit into a typical 2-second time-limit, which a simple Kotlin's 
 `split(" ").map { it.toInt() }` would handle. 
 
 Writing output in Kotlin is usually straightforward with 
@@ -300,7 +300,7 @@ Kotlin is easy to learn, especially for those who already know Java.
 A short introduction to the basic syntax of Kotlin for software developers can be found directly in the
 reference section of the website starting from [basic syntax](basic-syntax.md). 
 
-IDEA has built-in 
+IDEA has a built-in 
 [Java-to-Kotlin converter](https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html). 
 It can be used by people familiar with Java to learn the corresponding Kotlin syntactic constructions, but it
 is not perfect, and it is still worth familiarizing yourself with Kotlin and learning the 

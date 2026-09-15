@@ -15,7 +15,7 @@ In particular, the Kotlin/Native compiler produces binaries that can include thi
 This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the third-party licenses.
 
 In practice, if you distribute a Kotlin/Native-compiled [final binary](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html),
-you should always include necessary license files in your binary distribution. The files should be accessible
+you should always include the necessary license files in your binary distribution. The files should be accessible
 to users of your distribution in a readable form.
 
 Always include the following license files for the corresponding projects:
@@ -29,7 +29,7 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://kotlinlang.org/">Kotlin</a></td>
         <td rowspan="4">
          <list>
-            <li><a href="https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt">Apache license 2.0</a></li>
+            <li><a href="https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt">Apache License 2.0</a></li>
             <li><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/harmony_NOTICE.txt">Apache Harmony copyright notice</a></li>
          </list>
         </td>

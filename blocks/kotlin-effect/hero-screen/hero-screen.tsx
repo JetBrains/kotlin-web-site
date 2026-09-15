@@ -26,7 +26,7 @@ export const HeroScreen: FC = () => {
                 duration: 1.5,
                 ease: 'power3.out',
                 stagger: 0.16,
-                delay: 0.35
+                delay: 0.35,
             });
         }, textContainerRef);
 
@@ -37,7 +37,7 @@ export const HeroScreen: FC = () => {
 
     return (
         <section className={styles.section}>
-            <div className="ktl-layout-v2 ktl-layout--center">
+            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
                 <div className={styles.wrapper}>
                     <div ref={textContainerRef} className={styles.textContainer}>
                         <NeonHoverTitle text={'The Kotlin Effect'} className={styles.neonTitle} introAnimation />
@@ -53,7 +53,13 @@ export const HeroScreen: FC = () => {
                         </p>
 
                         <div className={styles.buttons} ref={buttonRef}>
-                            <Button size="l" mode={'rock'} href={'https://play.kotlinlang.org/'} target={'_blank'} rel={'noopener noreferrer'}>
+                            <Button
+                                size="l"
+                                mode={'rock'}
+                                href={'https://play.kotlinlang.org/'}
+                                target={'_blank'}
+                                rel={'noopener noreferrer'}
+                            >
                                 Try Kotlin
                             </Button>
                             <Button size="l" mode={'outline'} href={'/'}>

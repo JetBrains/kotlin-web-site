@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
-import { SERVER_SIDE_TITLE, SERVER_SIDE_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import { BACKEND_TITLE, BACKEND_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 import { CaseStudyPageContent } from '../../blocks/case-studies/page-content/case-study-page-content';
@@ -14,7 +14,7 @@ import { CaseStudyPageHero } from '../../blocks/case-studies/page-hero/case-stud
 import {  CaseType } from '../../blocks/case-studies/case-studies';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
-import '../server-side/styles.css';
+import '../backend/styles.css';
 import { GetStartedServerSide } from '../../blocks/server-side/get-started/get-started';
 
 const MULTIPLATFORM_TITLE = 'Kotlin Multiplatform';
@@ -37,7 +37,7 @@ const MULTIPLATFORM_TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
 
 const SERVER_SIDE_TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
-        url: '/case-studies/?type=server-side',
+        url: '/case-studies/?type=backend',
         title: 'Success stories'
     }
 ];
@@ -84,13 +84,13 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
 
     return (
         <LandingLayout
-            title={`${frontmatter.title} Case Study | Kotlin for Server-side`}
+            title={`${frontmatter.title} Case Study | Kotlin for Backend`}
             ogImageName={'case-studies.png'}
-            description={'Kotlin for Server-side development'}
-            currentTitle={SERVER_SIDE_TITLE}
-            currentUrl={SERVER_SIDE_URL}
-            topMenuTitle={SERVER_SIDE_TITLE}
-            topMenuHomeUrl={SERVER_SIDE_URL}
+            description={'Kotlin for Backend development'}
+            currentTitle={BACKEND_TITLE}
+            currentUrl={BACKEND_URL}
+            topMenuTitle={BACKEND_TITLE}
+            topMenuHomeUrl={BACKEND_URL}
             topMenuItems={SERVER_SIDE_TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}/`}
@@ -107,50 +107,45 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
     );
 }
 
-function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType } | null {
-    const caseTypes: CaseType[] = ['multiplatform', 'server-side'];
+const CASE_STUDY_TYPES: CaseType[] = ['multiplatform', 'backend'];
 
-    for (const caseType of caseTypes) {
+interface CaseStudyFile {
+    slug: string;
+    filePath: string;
+    caseType: CaseType;
+}
+
+function getAllCaseStudyFiles(): CaseStudyFile[] {
+    const files: CaseStudyFile[] = [];
+
+    for (const caseType of CASE_STUDY_TYPES) {
         const contentDir = path.join(process.cwd(), `data/case-studies/${caseType}`);
-        if (!fs.existsSync(contentDir)) continue;
+        if (!fs.existsSync(contentDir)) {
+            throw new Error(
+                `Case study content directory not found: "${contentDir}". ` +
+                `If "${caseType}" was renamed, update CASE_STUDY_TYPES in pages/case-studies/[id].tsx ` +
+                `and move the matching folder under data/case-studies/.`
+            );
+        }
 
-        const files = fs.readdirSync(contentDir);
-        const filename = files.find(file => {
-            if (!file.endsWith('.md')) return false;
-            const filePath = path.join(contentDir, file);
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            const { data } = matter(fileContent);
-            return data.slug === slug;
-        });
-
-        if (filename) {
-            return {
-                filePath: path.join(contentDir, filename),
-                caseType
-            };
+        for (const filename of fs.readdirSync(contentDir)) {
+            if (!filename.endsWith('.md')) continue;
+            const filePath = path.join(contentDir, filename);
+            const { data } = matter(fs.readFileSync(filePath, 'utf-8'));
+            files.push({ slug: data.slug, filePath, caseType });
         }
     }
 
-    return null;
+    return files;
+}
+
+function findCaseStudyFile(slug: string): { filePath: string; caseType: CaseType } | null {
+    const file = getAllCaseStudyFiles().find(f => f.slug === slug);
+    return file ? { filePath: file.filePath, caseType: file.caseType } : null;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const caseTypes: CaseType[] = ['multiplatform', 'server-side'];
-    const paths: { params: { id: string } }[] = [];
-
-    for (const caseType of caseTypes) {
-        const contentDir = path.join(process.cwd(), `data/case-studies/${caseType}`);
-        if (!fs.existsSync(contentDir)) continue;
-
-        const files = fs.readdirSync(contentDir);
-        for (const filename of files) {
-            if (!filename.endsWith('.md')) continue;
-            const filePath = path.join(contentDir, filename);
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            const { data } = matter(fileContent);
-            paths.push({ params: { id: data.slug } });
-        }
-    }
+    const paths = getAllCaseStudyFiles().map(file => ({ params: { id: file.slug } }));
 
     return {
         paths,

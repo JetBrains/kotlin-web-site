@@ -17,7 +17,7 @@ The Kotlin Website project (kotlinlang.org) is the official website for the Kotl
 
 ## Technology Stack
 
-The Kotlin Website is built using a hybrid architecture combining two different approaches for page generation:
+The Kotlin Website is built using Next.js for page generation:
 
 1. **Next.js-based Pages**:
    - Next.js (React framework) for modern, interactive pages
@@ -26,22 +26,16 @@ The Kotlin Website is built using a hybrid architecture combining two different 
    - CSS Modules for component-specific styling
    - Static site generation for performance
 
-2. **Legacy Python/Flask Infrastructure**:
-   - The project contains Python/Flask code that is obsolete and will be removed soon
-   - This legacy infrastructure does not affect the way the website works
-   - New development should focus on Next.js-based approaches
-
-3. **Shared Frontend Technologies**:
-   - Webpack for bundling traditional assets
+2. **Shared Frontend Technologies**:
+   - Webpack for bundling the `dokka-template` API reference assets
    - SCSS/Sass and PostCSS for styling
    - Kotlin Playground for interactive code examples
 
-4. **Build and Testing**:
+3. **Build and Testing**:
    - Yarn/NPM for package management
    - Playwright for end-to-end testing
-   - Docker for containerization
 
-5. **Documentation Tools**:
+4. **Documentation Tools**:
    - Markdown for content
    - JetBrains Writerside for documentation
    - Dokka for API documentation generation
@@ -69,22 +63,13 @@ The Kotlin Website project includes various scripts defined in `package.json` fo
 
 These scripts start development servers that continue running until manually stopped. They are not "builds" in the traditional sense and should not be expected to complete on their own.
 
-- **`yarn start`**: Starts the webpack development server on port 9000.
-  - **Purpose**: Main development server that integrates Next.js components.
+- **`yarn start`**: Starts the Next.js development server on port 3000.
+  - **Purpose**: Main development server for the website.
   - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
   - **Details**:
-    - Serves the website on http://localhost:9000
-    - Proxies requests to the Next.js server (port 3000) for `/community/**` and `/_next/**` routes
-    - Enables hot module replacement for frontend assets
-  - **When to use**: For general website development when working on Next.js components.
-
-- **`yarn next-dev`**: Starts the Next.js development server on port 3000.
-  - **Purpose**: Development server for Next.js components only.
-  - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
-  - **Details**: 
-    - Serves Next.js pages on http://localhost:3000
+    - Serves the website on http://localhost:3000
     - Provides fast refresh for React components
-  - **When to use**: When focusing solely on Next.js components (e.g., home page, community section).
+  - **When to use**: For general website development.
 
 #### Build Scripts (One-time Commands)
 
@@ -123,13 +108,13 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test`**: Runs all Playwright tests.
   - **Purpose**: Executes all automated tests.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For comprehensive testing before submitting changes.
 
 - **`yarn test:production`**: Runs production tests.
   - **Purpose**: Tests production-specific functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: To verify production-specific features.
 
 - **`yarn test:production:ci`**: Runs production tests in CI environment.
@@ -141,19 +126,19 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test:production:headed`**: Runs production tests with visible browser.
   - **Purpose**: Tests production-specific functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For debugging production tests visually.
 
 - **`yarn test:production:debug`**: Runs production tests in debug mode.
   - **Purpose**: Debugs production tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For detailed debugging of production tests.
 
 - **`yarn test:e2e`**: Runs end-to-end tests.
   - **Purpose**: Tests end-to-end functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: To verify end-to-end functionality.
 
 - **`yarn test:e2e:ci`**: Runs end-to-end tests in CI environment.
@@ -165,25 +150,25 @@ These scripts run tests using Playwright. Some are one-time commands that comple
 - **`yarn test:e2e:headed`**: Runs end-to-end tests with visible browser.
   - **Purpose**: Tests end-to-end functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For debugging end-to-end tests visually.
 
 - **`yarn test:e2e:debug`**: Runs end-to-end tests in debug mode.
   - **Purpose**: Debugs end-to-end tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: For detailed debugging of end-to-end tests.
 
 - **`yarn test:e2e:update`**: Updates test snapshots.
   - **Purpose**: Updates visual regression test snapshots.
   - **Behavior**: One-time command that completes when snapshots are updated.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: When intentional UI changes cause snapshot tests to fail.
 
 - **`yarn test:e2e:new`**: Generates new Playwright tests.
   - **Purpose**: Creates new test scripts using Playwright's codegen tool.
   - **Behavior**: Interactive process that opens Playwright's codegen interface.
-  - **Prerequisite**: Development server should be running on http://localhost:9000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
   - **When to use**: When creating new automated tests.
 
 #### Utility Scripts
@@ -218,14 +203,6 @@ The production build outputs to:
 - `dist/` - Webpack output
 - `out/` - Next.js static export
 
-### Docker Build
-
-The project includes Docker configuration for containerized development and deployment:
-
-```bash
-docker-compose up
-```
-
 ## Testing Information
 
 ### Testing Framework
@@ -241,21 +218,13 @@ The project uses Playwright for end-to-end testing. Tests are written in TypeScr
 
 ### Running Tests
 
-Before running tests, ensure the development server is running on http://localhost:9000:
+Before running tests, ensure the development server is running on http://localhost:3000:
 
 ```bash
 yarn start
 ```
 
-This is the most common approach as the webpack development server proxies requests to the Next.js server. Tests are configured to use port 9000 by default.
-
-#### For Testing Next.js Pages
-
-If you're specifically testing or developing Next.js-based pages (like the home page or `/community/`), you should also run the Next.js development server:
-
-```bash
-yarn next-dev
-```
+Tests are configured to use port 3000 by default.
 
 To run all tests:
 
@@ -517,12 +486,6 @@ The Kotlin Website employs a modern architecture based on Next.js and React:
    - Client-side rendered with static generation for production
    - Components are imported directly in Next.js pages
 
-2. **Legacy Infrastructure**:
-   - The project contains legacy Python/Flask code and Jinja2 templates
-   - This infrastructure is obsolete and will be removed soon
-   - Located in `templates/` directory and `kotlin-website.py`
-   - Does not affect current website functionality
-
 #### Next.js Component Organization: Blocks vs Components
 
 The Next.js part of the Kotlin Website follows a specific organizational pattern for React components, dividing them into two main directories:
@@ -592,7 +555,7 @@ The TeamCity configuration is defined in the `.teamcity/` directory using Kotlin
 ### Common Issues and Solutions
 
 1. **Missing dependencies**: Ensure Node.js dependencies are installed.
-2. **Port conflicts**: The development server uses port 9000. Ensure it's available.
+2. **Port conflicts**: The development server uses port 3000. Ensure it's available.
 3. **Test failures**: Visual regression tests may fail due to minor UI changes. Update snapshots if needed.
 4. **Build errors**: Check webpack and Next.js configurations if build fails.
 
@@ -685,9 +648,7 @@ The repository is organized with the following top-level directories:
 - `pdf/` - PDF generation assets and templates
 - `public/` - Public assets served directly by Next.js
 - `scripts/` - Utility scripts for development and deployment
-- `src/` - Legacy source code (obsolete, will be removed)
-- `static/` - Static assets for the website
-- `templates/` - Legacy templates (obsolete, will be removed)
+- `static/` - Static assets for the website (the `dokka-template` webpack bundle)
 - `test/` - Test files for automated testing
 
 ### Integration Points
@@ -702,7 +663,7 @@ The project integrates several systems and services:
 
 2. **External Services**:
    - GitHub for source code management and issue tracking
-   - Google Maps API for displaying community events and Kotlin User Groups
+   - Google Maps API for displaying Kotlin User Groups
    - Algolia for search functionality
    - Google Analytics for usage tracking
    - YouTube for embedded video content
@@ -712,16 +673,9 @@ The project integrates several systems and services:
 
 The project includes a specialized system for generating PDF documentation:
 
-- Core implementation in `src/pdf.py`
-- PDF-related assets and templates in `pdf/` directory
-- Workflow:
-  1. HTML content is generated from Markdown documentation
-  2. PDF generation is triggered via command-line argument (`reference-pdf`)
-  3. Cover page is prepared with the current Kotlin version
-  4. HTML content is processed to fix image links and remove unnecessary sections
-  5. `wkhtmltopdf` tool converts the processed HTML to PDF
-  6. The resulting PDF is saved as `kotlin-docs.pdf`
-- The PDF is accessible on the website at `/docs/kotlin-docs.pdf`
+- Core implementation in `scripts/pdf/generate-pdf.js`, using `@vivliostyle/cli` to render HTML documentation to PDF
+- Triggered via `yarn generate-pdf` (`generate-pdf:html` + `generate-pdf:convert`)
+- Integrated into the TeamCity `PdfGenerator` build configuration (manual build that uses artifacts from `BuildSitePages`)
 
 ### TeamCity DSL Pipelines
 
@@ -746,7 +700,6 @@ The project uses GitHub Actions for continuous integration and automation:
   - `autoupdate.yml` - Automatically updating dependencies or content
   - `close-stale-pr.yml` - Automatically closing stale pull requests
   - `qodana-code-quality-check.yml` - Running Qodana code quality checks
-  - `validate-events-data.yml` - Validating events data
   - `validate-user-groups-data.yml` - Validating user groups data
   - `verify-samples.yml` - Verifying code samples
 
@@ -821,7 +774,7 @@ The project includes a specialized system for generating and updating the Algoli
 1. **Search Index**: Uploaded to Algolia for powering the website's search functionality
 2. **Sitemap.xml**: Generated in the `dist/` directory, containing:
    - URLs for all pages on the website
-   - Priority values based on page type (home page and documentation have highest priority)
+   - Priority values based on page type (home page and documentation have the highest priority)
    - Last modified dates when available
 3. **Statistics Reports**: Generated in the `reports/` directory, including:
    - `files-list.json5` - A list of all files processed
@@ -944,7 +897,6 @@ The data files are stored in the `data/` directory at the project root. These fi
    - `release-banner.yml` - Configuration for release announcement banners
 
 2. **Content Files**:
-   - `events.yml` - List of Kotlin community events with details like dates, locations, and speakers
    - `universities.yml` - List of universities teaching Kotlin, with courses and geographical information
    - `user-groups.yml` - List of Kotlin User Groups worldwide with contact information
 
@@ -983,7 +935,7 @@ To add or update data in the website:
 4. **Test your changes** locally to ensure they appear correctly on the website
 5. **Submit a pull request** with your changes
 
-For some data files, there are specific instructions in the README.md file for adding or updating content, such as the process for adding a Kotlin User Group or a community event.
+For some data files, there are specific instructions in the README.md file for adding or updating content, such as the process for adding a Kotlin User Group.
 
 #### Data Files in CI/CD
 
@@ -992,7 +944,6 @@ The data files are an integral part of the CI/CD pipeline:
 1. **Validation Workflows**:
    - GitHub Actions workflows validate data files against their schemas
    - For example, the `validate-user-groups-data.yml` workflow validates the user-groups.yml file
-   - The `validate-events-data.yml` workflow validates the events.yml file
 
 2. **Build Process**:
    - The data files are included in the build process and deployed with the website

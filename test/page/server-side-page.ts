@@ -40,7 +40,7 @@ export class ServerSidePage implements PageWithGlobalSearch {
     }
 
     async init() {
-        await this.page.goto('/server-side/');
+        await this.page.goto('/backend/');
         await this.layout.waitFor();
     }
 }

@@ -5,6 +5,7 @@
        id="api-references" title="API references">
 
     <p>Welcome to the Kotlin API References page. Here you'll find links to the API documentation for the official Kotlin libraries and tools.</p>
+    <tip>If you're looking for Kotlin Multiplatform libraries, browse them on <a href="https://klibs.io"><b>klibs.io</b></a>.</tip>
 
     <list columns="2">
         <li>
@@ -47,6 +48,13 @@
             <br/>
             <p>A multiplatform library for calendar-based computations. It provides representations of date values and supports timezone-specific operations.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx.collections.immutable/"><b>Immutable collections (kotlinx.collections.immutable)</b></a>
+            <br/>
+            <p>A multiplatform library providing immutable and persistent collection interfaces and implementations. It offers efficient copy-on-write operations that share structure between versions, so updating a collection doesn't copy the whole thing.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.collections.immutable">kotlinx.collections.immutable</a>
             <br/>
         </li>
         <li>

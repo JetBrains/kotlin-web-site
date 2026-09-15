@@ -84,9 +84,9 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Kotlin statics and static extensions**
+**Kotlin companion blocks and extensions (statics)**
 
-* KEEP proposal: [statics.md](https://github.com/Kotlin/KEEP/blob/static-scope/proposals/static-member-type-extension.md)
+* KEEP proposal: [companion-blocks.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0449-companions-block-extension.md)
 * YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
 
 </td>

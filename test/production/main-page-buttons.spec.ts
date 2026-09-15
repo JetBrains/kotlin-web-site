@@ -6,9 +6,8 @@ test.describe('Main page buttons', () => {
         await page.goto('/');
     });
 
-    // Skip test until finish KTL-4255
-    test.skip('Hero section Get started button', async ({ page, baseURL }) => {
-        const getStartedButton = page.getByTestId('hero-block').getByRole('link', { name: 'Get started' });
+    test('Hero section Get started button', async ({ page, baseURL }) => {
+        const getStartedButton = page.getByTestId('hero-get-started-button');
         await expect(getStartedButton).toBeVisible();
         await getStartedButton.click();
         expect(page.url()).toContain(`${baseURL}/docs/getting-started.html`);
@@ -16,15 +15,53 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Get started with Kotlin');
     });
 
-    // Skip test until finish KTL-4255
-    test.skip('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
-        const jetBrainsLink = page.getByTestId('hero-block').getByRole('link', { name: 'JetBrains' });
+    test('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
+        const jetBrainsLink = page.getByTestId('hero-jetbrains-link');
         await expect(jetBrainsLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await jetBrainsLink.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
         expect(newPage.url()).toContain('https://www.jetbrains.com/');
+    });
+
+    test('Hero Multiplatform nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/multiplatform/"]');
+        await expect(link).toBeVisible();
+        await link.click();
+        await page.waitForURL('**/multiplatform/');
+        const pageTitle = page.locator('h1').first();
+        await expect(pageTitle).toContainText('Kotlin Multiplatform');
+    });
+
+    test('Hero Backend nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/backend/"]');
+        await expect(link).toBeVisible();
+        await link.click();
+        await page.waitForURL('**/backend/');
+        const pageTitle = page.locator('h1').first();
+        await expect(pageTitle).toContainText('Modern backend development with Kotlin');
+    });
+
+    test('Hero AI nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-ai-apps-development-overview.html"]');
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);
+    });
+
+    test('Hero Android nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/android-overview.html"]');
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/android-overview.html`);
+    });
+
+    test('Hero Kotlin tour nav link', async ({ page, baseURL }) => {
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-tour-welcome.html"]');
+        await expect(link).toBeVisible();
+        await link.click();
+        expect(page.url()).toContain(`${baseURL}/docs/kotlin-tour-welcome.html`);
     });
 
     test('Kotlin blog button', async ({ page }) => {
@@ -36,8 +73,8 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Kotlin');
     });
 
-    // Skip test until finish KTL-4255
-    test.skip('Why Kotlin Get started button', async ({ page, baseURL }) => {
+
+    test('Why Kotlin Get started button', async ({ page, baseURL }) => {
         const whyKotlinButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Get started' });
         await expect(whyKotlinButton).toBeVisible();
         await whyKotlinButton.click();
@@ -55,30 +92,25 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Kotlin Multiplatform');
     });
 
-    test('Learn about JetBrains AI button', async ({ page }) => {
-        const jetbrainsAIButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about JetBrains AI' });
-        await expect(jetbrainsAIButton).toBeVisible();
-        await jetbrainsAIButton.click();
-        expect(page.url()).toContain('https://www.jetbrains.com/ai/');
-        const pageTitle = page.locator('h1').first();
-        await expect(pageTitle).toContainText('JetBrains AI');
+    test('Explore the Kotlin Benchmark button in Kotlin+AI banner', async ({ page, baseURL }) => {
+        const benchmarkButton = page
+            .getByTestId('kotlin-ai-banner-block')
+            .getByRole('link', { name: 'Explore the Kotlin Benchmark' });
+        await expect(benchmarkButton).toBeVisible();
+        await benchmarkButton.click();
+        expect(page.url()).toContain(`${baseURL}/benchmark/`);
+        await expect(page.getByTestId('benchmark-landing')).toBeVisible();
     });
 
-    test('Build AI apps with Kotlin button', async ({ page, baseURL }) => {
-        const buildAIAppsButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Build AI apps with Kotlin' });
+    test('Build AI apps with Kotlin button in Kotlin+AI banner', async ({ page, baseURL }) => {
+        const buildAIAppsButton = page
+            .getByTestId('kotlin-ai-banner-block')
+            .getByRole('link', { name: 'Build AI apps with Kotlin' });
         await expect(buildAIAppsButton).toBeVisible();
         await buildAIAppsButton.click();
         expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);
         const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('Kotlin for AI-powered app development');
-    });
-
-    test('Get started in AI section', async ({ page }) => {
-        const getStartedKoogButton = page.getByTestId('highlighted-cases-section').getByTestId('kotlin-plus-ai-block').getByRole('link', { name: 'Get started' });
-        await expect(getStartedKoogButton).toBeVisible();
-        await getStartedKoogButton.click();
-        expect(page.url()).toContain('/docs.koog.ai/');
-        await expect(page.getByText('Koog on GitHub').first()).toBeVisible();
     });
 
     test('Join the community button', async ({ page, baseURL }) => {

@@ -1,7 +1,7 @@
 [//]: # (title: Stability of Kotlin components)
 
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
-the Standard Library, various accompanying tools and so on.
+the Standard Library, various accompanying tools, and so on.
 Many of these components were officially released as **Stable**, which means that they were evolved
 in a backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
 
@@ -96,21 +96,22 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin libraries
 
-| **Component**         | **Status** | **Status since version** | **Comments** |
-|-----------------------|------------|--------------------------|--------------|
-| kotlin-stdlib (JVM)   | Stable     | 1.0.0                    |              |
-| kotlinx-coroutines    | Stable     | 1.3.0                    |              |
-| kotlinx-serialization | Stable     | 1.0.0                    |              |
-| kotlin-metadata-jvm   | Stable     | 2.0.0                    |              |
-| kotlin-reflect (JVM)  | Beta       | 1.0.0                    |              |
-| kotlinx-datetime      | Alpha      | 0.2.0                    |              |
-| kotlinx-io            | Alpha      | 0.2.0                    |              |
+| **Component**                 | **Status** | **Status since version** | **Comments** |
+|-------------------------------|------------|--------------------------|--------------|
+| kotlin-stdlib (JVM)           | Stable     | 1.0.0                    |              |
+| kotlinx-coroutines            | Stable     | 1.3.0                    |              |
+| kotlinx-serialization         | Stable     | 1.0.0                    |              |
+| kotlin-metadata-jvm           | Stable     | 2.0.0                    |              |
+| kotlin-reflect (JVM)          | Beta       | 1.0.0                    |              |
+| kotlinx-datetime              | Alpha      | 0.2.0                    |              |
+| kotlinx-io                    | Alpha      | 0.2.0                    |              |
+| kotlinx-collections-immutable | Alpha      | 0.3.5                    |              |
 
 ### Kotlin Multiplatform
 
-| **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                                         |
-|------------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Kotlin Multiplatform                           | Stable     | 1.9.20                   |                                                                                                                                      |
+| **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                           |
+|------------------------------------------------|------------|--------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Kotlin Multiplatform                           | Stable     | 1.9.20                   |                                                                                                                        |
 | Kotlin Multiplatform plugin for Android Studio | Beta       | 0.8.0                    | [Versioned separately from the language](https://kotlinlang.org/docs/multiplatform/multiplatform-plugin-releases.html) |
 
 ### Kotlin/Native
@@ -124,6 +125,25 @@ to avoid the accidental use of features that have not been released as stable.
 | CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                                                               |
 
 For more information about the level of support for different targets, see [](native-target-support.md).
+
+### Build tools
+
+| **Component**                                       | **Status** | **Status since version** | **Comments**                                                                                                                                                      |
+|-----------------------------------------------------|------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Kotlin Gradle plugin](gradle-configure-project.md) | Stable     | 1.1.1                    | The [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#id-and-version) is stable from Kotlin 1.9.20. |
+| [Kotlin Maven plugin](maven-configure-project.md)   | Stable     | 1.0.0                    |                                                                                                                                                                   |
+
+### Build tools API (BTA)
+
+| **Component** | **Status** | **Status since version** | **Comments** |
+|---------------|------------|--------------------------|--------------|
+| BTA for JVM   | Beta       | 2.4.20                   |              |
+| BTA for JS    | Alpha      | 2.4.20                   |              |
+| BTA for Wasm  | Alpha      | 2.4.20                   |              |
+
+> The Build tools API currently doesn't support Kotlin/Native.
+> 
+{style="note"}
 
 ### Language tools
 

@@ -180,7 +180,7 @@
       lng: -0.1277583
   - name: Munich KUG
     country: Germany
-    url: https://www.meetup.com/Kotlin-User-Group-Munich/
+    url: https://www.meetup.com/kotlin-munich/
     position:
       lat: 48.1351253
       lng: 11.5819806
@@ -541,6 +541,12 @@
     position:
       lat: 40.1872023
       lng: 44.515209
+  - name: Kotlin User Group Chhattisgarh (KUG-CG)
+    country: India
+    url: https://www.linkedin.com/company/kotlin-user-group-chhattisgarh
+    position:
+      lat: 21.27866
+      lng: 81.86614
 - section: North & South America
   anchorId: north-south-america
   groups:
@@ -588,7 +594,7 @@
       lng: -77.0368707
   - name: Lima KUG
     country: Peru
-    url: https://www.facebook.com/groups/limakotlin/
+    url: https://limakotlin.github.io/
     position:
       lat: -12.0463731
       lng: -77.042754

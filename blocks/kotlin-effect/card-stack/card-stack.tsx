@@ -11,6 +11,7 @@ import { RocketIcon, PresentIcon, WinIcon } from '@rescui/icons';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 
 import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { SectionWithGrid } from '@/blocks/kotlin-effect/section-with-grid/section-with-grid';
 
 import { trackEvent } from '@/utils/event-logger';
 
@@ -42,9 +43,9 @@ export const CardStack: FC = () => {
 
     return (
         <section className={cn(styles.section)}>
-            <div className="ktl-layout-v2 ktl-layout--center">
+            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.layout)}>
 
-                <div
+                <SectionWithGrid
                     className={styles.card}
                     data-test="card-stack-card"
                     id={'kotlin-effect-in-real-life'}
@@ -64,7 +65,7 @@ export const CardStack: FC = () => {
                         <YoutubePlayer id={VIDEO_ID} />
                     </div>
 
-                    <div className={styles.cardContent}>
+                    <div className={styles.cardContent} id={'kotlin-effect-action'}>
                         <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>The Kotlin Effect in <span>Action</span>
                         </h2>
                         <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle)}>
@@ -102,7 +103,7 @@ export const CardStack: FC = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className={styles.buttonWrapper}>
                         <Button
                             href={'https://game.kotlinlang.org/'}
                             mode={'rock'}
@@ -112,9 +113,12 @@ export const CardStack: FC = () => {
                         >
                             Play the Game
                         </Button>
+                        <span className={cn(textCn('rs-text-3'), styles.buttonHint)}>
+                            For the best experience, play on desktop
+                        </span>
                     </div>
 
-                </div>
+                </SectionWithGrid>
 
 
             </div>

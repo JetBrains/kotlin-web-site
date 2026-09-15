@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Objects)
+[//]: # (title: Objects)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br /> 
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br /> 
-        <img src="icon-5.svg" width="20" alt="Fourth step" /> <strong>Objects</strong><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In this chapter, you'll expand your understanding of classes by exploring object declarations. This knowledge will help 
 you efficiently manage behavior across your projects.
@@ -162,7 +151,7 @@ at this point. The `getBongs()` function is called with parameter `12`.
 
 For more information, see [](object-declarations.md#companion-objects).
 
-## Practice
+## Practice {completion-point="true"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-1"}
 
@@ -304,52 +293,85 @@ fun main() {
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
-You have an app where you want to record temperatures. The class itself stores the information in Celsius, but 
-you want to provide an easy way to create an instance in Fahrenheit as well. Complete the data class so that
-the following code in the `main()` function runs successfully:
+You are building a user registration module for an app. You want to keep email validation associated with the `User`
+class but don't want to create an unnecessary `User` instance if the email address is invalid.
+
+For this exercise, consider an email address valid if it contains both `@` and `.`. Complete the data class so that the
+following code in the `main()` function runs successfully:
 
 <deflist collapsible="true">
     <def title="Hint">
-        Use a companion object.
+        Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
     </def>
 </deflist>
 
 |---|---|
 ```kotlin
-data class Temperature(val celsius: Double) {
-    val fahrenheit: Double = celsius * 9 / 5 + 32
-
+data class User(val name: String, val email: String) {
     // Write your code here
 }
 
 fun main() {
-    val fahrenheit = 90.0
-    val temp = Temperature.fromFahrenheit(fahrenheit)
-    println("${temp.celsius}°C is $fahrenheit °F")
-    // 32.22222222222222°C is 90.0 °F
+    val candidates = listOf(
+        Pair("Alice", "alice@example.com"),
+        Pair("Bob", "bob2example-com")
+    )
+
+    for ((name, email) in candidates) {
+        if (User.isValidEmail(email)) {
+            val user = User(name, email)
+            println("Registered: ${user.name}, ${user.email}")
+            // Registered: Alice, alice@example.com
+        } else {
+            println("Error: '${email}' is not valid. The email should contain '@' and '.'")
+            // Error: 'bob2example-com' is not valid. The email should contain '@' and '.'
+        }
+    }
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
 
 |---|---|
 ```kotlin
-data class Temperature(val celsius: Double) {
-    val fahrenheit: Double = celsius * 9 / 5 + 32
-
+data class User(val name: String, val email: String) {
     companion object {
-        fun fromFahrenheit(fahrenheit: Double): Temperature = Temperature((fahrenheit - 32) * 5 / 9)
+        fun isValidEmail(email: String): Boolean =
+            email.contains('@') && email.contains('.')
     }
 }
 
 fun main() {
-    val fahrenheit = 90.0
-    val temp = Temperature.fromFahrenheit(fahrenheit)
-    println("${temp.celsius}°C is $fahrenheit °F")
-    // 32.22222222222222°C is 90.0 °F
+    val candidates = listOf(
+        Pair("Alice", "alice@example.com"),
+        Pair("Bob", "bob2example-com")
+    )
+
+    for ((name, email) in candidates) {
+        if (User.isValidEmail(email)) {
+            val user = User(name, email)
+            println("Registered: ${user.name}, ${user.email}")
+            // Registered: Alice, alice@example.com
+        } else {
+            println("Error: '${email}' is not valid. The email should contain '@' and '.'")
+            // Error: 'bob2example-com' is not valid. The email should contain '@' and '.'
+        }
+    }
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
 
-## Next step
+> As an extension of this exercise, try using functions in companion objects as factory methods to construct
+> instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).
+>
+{style="tip"}
 
-[Intermediate: Open and special classes](kotlin-tour-intermediate-open-special-classes.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-classes-interfaces.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-open-special-classes.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

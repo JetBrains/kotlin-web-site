@@ -14,8 +14,8 @@ Depending on the target platform, some platform-specific extra setup might be re
 
 ## Run the Node.js target
 
-When targeting Node.js with Kotlin/JS, you can simply execute the `jsNodeDevelopmentRun` Gradle task. This can be done for example via the
-command line, using the Gradle wrapper:
+When targeting Node.js with Kotlin/JS, you can simply execute the `jsNodeDevelopmentRun` Gradle task. 
+This can be done, for example, via the command line, using the Gradle wrapper:
 
 ```bash
 ./gradlew jsNodeDevelopmentRun
@@ -64,7 +64,7 @@ When working from IntelliJ IDEA, you can find the `jsBrowserDevelopmentRun` acti
 
 After the project has been built, the embedded `webpack-dev-server` will start running, and will open a (seemingly empty)
 browser window pointing to the HTML file you specified previously. To validate that your program is running correctly,
-open the developer tools of your browser (for example by right-clicking and choosing the _Inspect_ action).
+open the developer tools of your browser (for example, by right-clicking and choosing the _Inspect_ action).
 Inside the developer tools, navigate to the console, where you can see the results of the executed JavaScript code:
 
 ![Console output in browser developer tools](browser-console-output.png){width=700}

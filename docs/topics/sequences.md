@@ -3,10 +3,10 @@
 Along with collections, the Kotlin standard library contains another type – _sequences_ ([`Sequence<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
 Unlike collections, sequences don't contain elements, they produce them while iterating. 
 Sequences offer the same functions as [`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)
-but implement another approach to multi-step collection processing.
+but implement another approach to multistep collection processing.
 
 When the processing of an `Iterable` includes multiple steps, they are executed eagerly: each processing step completes
-and returns its result – an intermediate collection. The following step executes on this collection. In turn, multi-step
+and returns its result – an intermediate collection. The following step executes on this collection. In turn, multistep
 processing of sequences is executed lazily when possible: actual computing happens only when the result of the whole
 processing chain is requested. 
 
@@ -110,7 +110,7 @@ If a sequence operation returns another sequence, which is produced lazily, it's
 Otherwise, the operation is _terminal_. Examples of terminal operations are [`toList()`](constructing-collections.md#copy)
 or [`sum()`](collection-aggregate.md). Sequence elements can be retrieved only with terminal operations.
 
-Sequences can be iterated multiple times; however some sequence implementations might constrain themselves to be iterated
+Sequences can be iterated multiple times; however, some sequence implementations might constrain themselves to be iterated
 only once. That is mentioned specifically in their documentation.
 
 ## Sequence processing example

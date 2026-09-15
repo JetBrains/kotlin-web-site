@@ -36,8 +36,8 @@ allow us to avoid the UI from blocking. This is a very common technique, but has
 
 * Threads aren't cheap. Threads require context switches which are costly.
 * Threads aren't infinite. The number of threads that can be launched is limited by the underlying operating system. In backend applications, this could cause a major bottleneck.
-* Threads aren't always available. Some platforms, such as JavaScript do not even support threads.
-* Threads aren't easy. Debugging threads and avoiding race conditions are common problems we suffer in multi-threaded programming. 
+* Threads aren't always available. Some platforms, such as JavaScript, do not even support threads.
+* Threads aren't easy. Debugging threads and avoiding race conditions are common problems we suffer in multithreaded programming. 
 
 ## Callbacks
 
@@ -99,7 +99,7 @@ such as loops, exception handling, etc. usually are no longer valid in this mode
 
 ## Reactive extensions
 
-Reactive Extensions (Rx) were introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform
+Reactive Extensions (Rx) were introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform,
 it really didn't reach mainstream adoption until Netflix ported it over to Java, naming it RxJava. From then on, numerous ports have been provided for a variety of platforms including JavaScript (RxJS).
 
 The idea behind Rx is to move towards what's called `observable streams` whereby we now think of data as streams (infinite amounts of data) and these streams can be observed. In practical terms, Rx is simply 
@@ -119,8 +119,9 @@ In addition, Rx does introduce a somewhat nicer approach to error handling.
 
 Kotlin's approach to working with asynchronous code is using coroutines, which is the idea of suspendable computations, i.e. the idea that a function can suspend its execution at some point and resume later on. 
 
-One of the benefits however of coroutines is that when it comes to the developer, writing non-blocking code is essentially the same as writing blocking code. The programming model
-in itself doesn't really change. 
+However, one of the benefits of coroutines is that when it comes to the developer,
+writing non-blocking code is essentially the same as writing blocking code.
+The programming model itself doesn't really change.
 
 Take for instance the following code:
 
@@ -143,12 +144,12 @@ This code will launch a long-running operation without blocking the main thread.
 `suspendable function`, thus the keyword `suspend` prefixing it. What this means as stated above, is that the function will 
 execute, pause execution and resume at some point in time. 
 
-* The function signature remains exactly the same. The only difference is `suspend` being added to it. The return type however is the type we want to be
+* The function signature remains exactly the same. The only difference is `suspend` being added to it. The return type, however, is the type we want to be
 returned.
 * The code is still written as if we were writing synchronous code, top-down, without the need of any special syntax, beyond the use of a function called `launch` which essentially kicks off
 the coroutine (covered in other tutorials).
 * The programming model and APIs remain the same. We can continue to use loops, exception handling, etc. and there's no need to learn a complete set of new APIs.
-* It is platform independent. Whether we're targeting JVM, JavaScript or any other platform, the code we write is the same. Under the covers the compiler takes care of adapting it to each platform.
+* It is platform independent. Whether we're targeting JVM, JavaScript or any other platform, the code we write is the same. Under the covers, the compiler takes care of adapting it to each platform.
 
 Coroutines are not a new concept, let alone invented by Kotlin. They've been around for decades and are popular in some other programming languages such as Go. What is important to note though
 is that the way they're implemented in Kotlin, most of the functionality is delegated to libraries. In fact, beyond the `suspend` keyword, no other keywords are added to the language. This is somewhat different from

@@ -35,10 +35,11 @@
     {% ktl_component "header" searchAlgoliaIndexName="${process.env.ALGOLIA_INDEX_NAME}" %}
     <@header.display/>
     <div id="container" data-test="content">
-        <div class="sidebar" id="leftColumn">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
             <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
                 <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                    data-role="dropdown-listbox">
+                    data-role="dropdown-listbox" aria-label="Table of contents">
                     <div class="dropdown--header">
                             <span>
                                 <@template_cmd name="projectName">
@@ -53,8 +54,9 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
-        <div id="main">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
             <@content/>
             <#if "${process.env.DOKKA_FEEDBACK}" == "true">
             <div class="feedback-wrapper">

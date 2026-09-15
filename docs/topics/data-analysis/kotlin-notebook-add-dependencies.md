@@ -1,12 +1,11 @@
 [//]: # (title: Add dependencies to your Kotlin Notebook)
 
-<tldr>
-   <p>This is the third part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
-   <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
-      <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies to a Kotlin Notebook</strong><br/>
-  </p>
-</tldr>
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 You've already created your first [Kotlin Notebook](kotlin-notebook-overview.md)! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
@@ -66,12 +65,12 @@ To add these libraries:
 
 3. Run the code cell.
 
-    When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
+   When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
 
-    > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
-    > library.
-    >
-    {style="note"}
+   > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the
+   > library.
+   >
+   {style="note"}
 
 4. To import data from a CSV file using the Kotlin DataFrame library, use the `.read()` function in a new code cell:
 
@@ -83,12 +82,12 @@ To add these libraries:
     rawDf
     ```
 
-    > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
-    > Add it to your project directory.
-    > 
-    {style="tip"}
+   > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
+   > Add it to your project directory.
+   >
+   {style="tip"}
 
-    ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
+   ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
 
 5. In a new code cell, use the `.plot` method to visually represent the distribution of TV shows and Movies in your DataFrame:
 
@@ -120,6 +119,12 @@ The resulting chart:
 
 Congratulations on adding and utilizing these libraries in your Kotlin Notebook!
 This is just a glimpse into what you can achieve with Kotlin Notebook and its [supported libraries](data-analysis-libraries.md).
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-notebook-create.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+</list>
 
 ## What's next
 

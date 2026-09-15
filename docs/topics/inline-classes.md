@@ -31,7 +31,7 @@ val securePassword = Password("Don't try this in production")
 ```
 
 This is the main feature of inline classes, which inspired the name *inline*: data of the class is *inlined* into its 
-usages (similar to how content of [inline functions](inline-functions.md) is inlined to call sites).
+usages (similar to how the content of [inline functions](inline-functions.md) is inlined to call sites).
 
 ## Members
 
@@ -148,7 +148,7 @@ fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s
 
 ### Mangling
 
-Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:
+Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example, unexpected platform signature clashes:
 
 ```kotlin
 @JvmInline

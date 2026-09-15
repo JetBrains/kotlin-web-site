@@ -1,7 +1,7 @@
 [//]: # (title: Use Kotlin code from JavaScript)
 
 Depending on the selected [JavaScript Module](js-modules.md) system, the Kotlin/JS compiler generates different output.
-But in general, the Kotlin compiler generates normal JavaScript classes, functions and properties, which you can freely
+But in general, the Kotlin compiler generates normal JavaScript classes, functions, and properties, which you can freely
 use from JavaScript code. There are some subtle things you should remember, though.
 
 ## Isolating declarations in a separate JavaScript object in plain mode 
@@ -102,7 +102,7 @@ Note that there are some cases in which the Kotlin compiler does not apply mangl
 - Any overridden functions in non-`external` classes inheriting from `external` classes are not mangled.
 
 The parameter of `@JsName` is required to be a constant string literal which is a valid identifier.
-The compiler will report an error on any attempt to pass non-identifier string to `@JsName`.
+The compiler will report an error on any attempt to pass a non-identifier string to `@JsName`.
 The following example produces a compile-time error:
 
 ```kotlin
@@ -140,7 +140,7 @@ The `@JsExport` annotation is also available:
   This helps to resolve ambiguities in exports (like overloads for functions with the same name).
 * At the file level using `@file:JsExport`.
 
-#### Support for value class export
+#### Export value classes
 
 You can export Kotlin's [inline value classes](inline-classes.md) as regular TypeScript classes.
 
@@ -160,7 +160,7 @@ class AuthService {
 }
 ```
 
-From the TypeScript side, it looks like a regular class:
+On the TypeScript side, it looks like a regular class:
 
 ```typescript
 // TypeScript
@@ -173,12 +173,56 @@ console.log(await auth.login(new Email("not-an-email")));
 // "Invalid email"
 ```
 
+#### Export suspending lambdas
+
+You can export Kotlin's [suspending lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions) as
+JavaScript [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
+
+1. To enable this feature, add the following compiler option to your `build.gradle.kts` file:
+
+    ```kotlin
+    kotlin {
+        js {
+            compilations.all {
+                compileTaskProvider.configure {
+                    compilerOptions {
+                        freeCompilerArgs.add("-Xsuspend-lambda-exporting")
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+2. Mark the relevant Kotlin declarations with the `@JsExport` annotation:
+
+    ```kotlin
+    // Kotlin
+    @JsExport
+    class TaskRunner {
+        suspend fun runTask(task: suspend () -> String): String {
+            return task()
+        }
+    }
+    ```
+
+3. On the TypeScript side, the `suspend` lambda will be mapped to a regular `async` function:
+
+    ```typescript
+    // TypeScript
+    import { TaskRunner } from "..."
+    
+    const runner = new TaskRunner();
+    const result = await runner.runTask(async () => "done");
+    console.log(result); // "done"
+    ```
+
 ### `@JsNoRuntime` annotation
 
 You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
 It allows for direct mapping to regular TypeScript interfaces.
 
-To export a Kotlin interface, for example from a Kotlin Multiplatform project:
+To export a Kotlin interface, for example, from a Kotlin Multiplatform project:
 
 1. Annotate the Kotlin interface with `@JsNoRuntime` in common code:
 
@@ -296,17 +340,17 @@ To enable this feature:
 1. Allow exporting `Long` in Kotlin/JS. Add the following compiler option to the `freeCompilerArgs` attribute
    in your `build.gradle(.kts)` file:
 
- ```kotlin
-// build.gradle.kts
-kotlin {
-    js {
-        ...
-        compilerOptions { 
-            freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+     ```kotlin
+    // build.gradle.kts
+    kotlin {
+        js {
+            ...
+            compilerOptions { 
+                freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+            }
         }
     }
-}
-```
+    ```
 
 2. Enable the `BigInt` type. See how to enable it in [Use `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
 

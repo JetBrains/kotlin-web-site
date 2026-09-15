@@ -91,10 +91,10 @@ Kotlin/Wasm with [Compose Multiplatform](https://kotlinlang.org/compose-multipla
 
 The table below summarizes the recommended target based on your use case:
 
-| Use case                                        | Recommended target | Description                                                                                                                                                                                                              |
-|-------------------------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sharing business logic, but using web-native UI | Kotlin/JS          | Offers straightforward interop with JS and minimal overhead.                                                                                                                                                             |
-| Sharing both UI and business logic              | Kotlin/Wasm        | Provides better performance for rendering with [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/).                                                                                                 |
+| Use case                                        | Recommended target | Description                                                                                                                                                                                                               |
+|-------------------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sharing business logic, but using web-native UI | Kotlin/JS          | Offers straightforward interop with JS and minimal overhead.                                                                                                                                                              |
+| Sharing both UI and business logic              | Kotlin/Wasm        | Provides better performance for rendering with [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/).                                                                                                    |
 | Non-shareable UI                                | Kotlin/JS          | Allows building UIs with HTML-based frameworks like [Kobweb](https://kobweb.varabyte.com/), [Kilua](https://kilua.dev/), or [React](https://kotlinlang.org/docs/js-react.html), using existing JS ecosystems and tooling. |
 
 > If you need guidance on selecting the appropriate target, 

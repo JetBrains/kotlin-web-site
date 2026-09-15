@@ -63,12 +63,23 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
 >
 {style="note"}
 
-<table column-width="fixed">
+<table sticky-header="true">
     <tr>
-        <td width="240">Option</td>
-        <td width="170">Values</td>
-        <td>Description</td>
-        <td width="110">Status</td>
+        <td width="100">Option</td>
+        <td width="50">Values</td>
+        <td width="150">Description</td>
+        <td width="80">Status</td>
+    </tr>
+    <tr>
+        <td><a href="native-improving-compilation-time.md#enable-caches-for-release-binaries"><code>enableReleaseBinaryCache</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Enables the compiler to use caches in release mode, making builds faster at the expense of some compiler optimizations.</td>
+        <td>Experimental since 2.4.20</td>
     </tr>
     <tr>
         <td><a href="native-objc-interop.md#explicit-parameter-names-in-objective-c-block-types"><code>objcExportBlockExplicitParameterNames</code></a></td>

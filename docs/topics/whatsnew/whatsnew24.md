@@ -4,6 +4,12 @@
 
 <web-summary>Read the Kotlin 2.4.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
 
+_[Released: July 14, 2026](releases.md#release-history)_
+
+<tldr>
+    <p> For details about bug fix release 2.4.10, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10">changelog</a></p>
+</tldr>
+
 The Kotlin 2.4.0 release is out! Here are the main highlights:
 
 * **Language:** [Stable context parameters, explicit backing fields, and multiple features for annotation use-site targets](#stable-features)
@@ -15,6 +21,10 @@ The Kotlin 2.4.0 release is out! Here are the main highlights:
 * **Gradle:** [Compatibility with Gradle 9.5.0](#gradle)
 * **Maven:** [Automatic alignment between Java and JVM target versions](#maven)
 * **Kotlin compiler:** [More consistent inline function behavior during `.klib` compilation](#consistent-intra-module-function-inlining-during-klib-compilation)
+
+You can also find an overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/RI4J0C2_FR8" title="What's New in Kotlin 2.4"/>
 
 > For information about the Kotlin release cycle, see the [Kotlin release process](releases.md).
 >
@@ -45,10 +55,6 @@ The following features have now graduated to [Stable](components-stability.md#st
 * [Support for ES2015 features when inlining JS code](#support-for-es2015-features-when-inlining-js-code)
 * [Maven: Automatic alignment between Java and JVM target versions](#automatic-alignment-between-java-and-jvm-target-versions)
 * [Support for Maven Toolchains](#support-for-maven-toolchains)
-
-> Support for using explicit backing fields in IntelliJ IDEA without the `-Xexplicit-backing-fields` compiler option will be available in 2026.1.4.
->
-{style = "note"}
 
 ## New features {id=new-experimental-features}
 <primary-label ref="experimental-exp"/>
@@ -96,10 +102,6 @@ For more information, see [KT-30155](https://youtrack.jetbrains.com/issue/KT-301
 <primary-label ref="experimental-opt-in"/>
 
 <secondary-label ref="language"/>
-
-> Support for using explicit context arguments for context parameters in IntelliJ IDEA will be available in 2026.2.
-> 
-{style="note"}
 
 Kotlin 2.4.0 introduces explicit context arguments for [context parameters](context-parameters.md).
 
@@ -1185,6 +1187,7 @@ Compared to using `maven-toolchains-plugin`, this parameter only affects Kotlin 
 For more information on configuring Kotlin Maven projects, see our [documentation](maven-configure-project.md).
 
 ## Build tools API
+<secondary-label ref="bta"/>
 
 Kotlin 2.4.0 brings a number of improvements to the build tools API (BTA). The BTA:
 

@@ -129,6 +129,27 @@ export const TeachLaunchCourse: FC = () => {
             </div>
 
             <div className={cn(styles.linksBlock, styles.linksBlockSecond)}>
+
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>NEW: Backend Development with Kotlin</div>
+
+                <ul className={cn(styles.list, textCn('rs-text-2'))}>
+                    <li>
+                        <a
+                            className={textCn('rs-link', { external: true })}
+                            href="https://docs.google.com/presentation/d/1LdJ8HJXkCEq74YSbtMKktJQNr0BiKaKQUPgIZU4W1no/edit?usp=sharing"
+                        >
+                            Slides
+                        </a>
+                    </li>
+                    <li>
+                        <a className={textCn('rs-link', { external: true })} href="https://github.com/nbirillo/duck_shop_server_side">
+                            Demo project
+                        </a>
+                    </li>
+                </ul>
+
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-s', 'ktl-offset-top-s')}>Coming soon: Test-Driven and Spec-Driven Development with Kotlin</div>
+
                 <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>
                     <a
                         className={textCn('rs-link', { external: true })}

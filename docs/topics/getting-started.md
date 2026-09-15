@@ -1,14 +1,14 @@
 [//]: # (title: Get started with Kotlin)
 
 <tldr>
-<p>Latest Kotlin release:<b> <a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
+<p>Latest Kotlin release: <b><a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
 </tldr>
 
 Kotlin is a modern language that's concise, multiplatform, and interoperable with Java and other languages.
 
 New to Kotlin? Take our tour to learn the fundamentals directly in your browser.
 
-<a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
+<a href="kotlin-tour-welcome.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start the Kotlin tour</a>
 
 ## Install Kotlin
 
@@ -73,16 +73,12 @@ To start using Kotlin for Android development, read [Google's recommendation for
 
 From building data pipelines to productionizing machine learning models, Kotlin is a great choice for working with data and getting the most out of it.
 
-1. **Create and edit notebooks seamlessly within the IDE:**
-
-   * [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md)
-
-2. **Explore and experiment with your data:**
+1. **Explore and experiment with your data:**
 
    * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
    * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
 
-3. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
+2. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
 
 </tab>
 

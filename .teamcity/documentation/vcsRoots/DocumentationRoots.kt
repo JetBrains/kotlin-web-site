@@ -70,3 +70,14 @@ object APIGuidelinesRoot: GitVcsRoot ({
         uploadedKey = "default teamcity key"
     }
 })
+
+object KotlinxSerializationRoot: GitVcsRoot({
+    name = "Kotlinx Serialization"
+    url = "git@github.com:Kotlin/kotlinx.serialization.git"
+    branch = "refs/heads/doc-restructuring-master"
+    branchSpec = "+:refs/heads/*"
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
+    authMethod = uploadedKey {
+        uploadedKey = "default teamcity key"
+    }
+})

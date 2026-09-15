@@ -1,12 +1,11 @@
 [//]: # (title: Create your first Kotlin Notebook)
 
-<tldr>
-   <p>This is the second part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
-   <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create a Kotlin Notebook</strong><br/>
-      <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>
-  </p>
-</tldr>
+> Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
+> The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
+>
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
+>
+{style="note"}
 
 You can start working with your [Kotlin Notebook](kotlin-notebook-overview.md) in three main ways:
 
@@ -109,4 +108,11 @@ Congratulations! You have just created and tried out your first Kotlin Notebook.
 
 In the next part of the tutorial, you will learn how to add dependencies to a Kotlin Notebook.
 
-**[Proceed to the next chapter](kotlin-notebook-add-dependencies.md)**
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-notebook-set-up-env.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-notebook-add-dependencies.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

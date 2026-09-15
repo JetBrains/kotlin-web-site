@@ -1,0 +1,79 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.banner {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #130071;
+    background-image: url("/images/main/kotlin-ai-banner/background.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 1144px 464px;
+    margin-top: 48px;
+
+    @media (--ktl-ml-min) {
+        padding: 32px;
+        margin-top: 64px;
+    }
+
+    @media (--ktl-ds-min) {
+        margin-top: 96px;
+    }
+}
+
+.banner .title {
+    margin: 0;
+
+    @media (--ktl-ml-down) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}
+
+.banner .text {
+    margin: 16px 0 0;
+
+    @media (--ktl-ml) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    @media (--ktl-ml-min) {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+.sentenceBreak {
+    display: none;
+
+    @media (--ktl-tl-min) {
+        display: inline;
+    }
+}
+
+.titleBreak {
+    @media (--ktl-ml-min) {
+        display: none;
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 72px;
+
+    @media (--ktl-ml-min) {
+        width: fit-content;
+        margin-top: 96px;
+    }
+
+    @media (--ktl-tl-min) {
+        width: auto;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

@@ -61,6 +61,31 @@ see an example in [Compile Kotlin and Java sources](#compile-kotlin-and-java-sou
 >
 {style="note"}
 
+<anchor name="maven-compiler-extensions-version"/>
+
+Currently, the default version of the Maven compiler plugin used with `<extensions>` is **%mavenExtensionsVersion%**.
+You can set a different version separately:
+
+```xml
+<build>
+    <plugins>
+        <!-- Kotlin compiler plugin configuration -->
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <extensions>true</extensions>
+        </plugin>
+        <!-- Maven compiler plugin configuration for Java classes -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>%mavenPluginVersion%</version>
+        </plugin>
+    </plugins>
+</build>
+```
+
 ### JVM target version
 
 The `<extensions>` option ensures that the Kotlin and Maven compilers target the same bytecode version.
@@ -111,36 +136,10 @@ Keep in mind that `target` and `release` options of the Maven compiler behave di
 | `maven.compiler.target`  | Yes                       | No                         | No − the build's JDK classpath stays visible |
 | `maven.compiler.release` | Yes                       | Yes                        | Yes − to the specific API version only       |
 
-
 > The `<extensions>` option only checks project-level properties and the global `maven-compiler-plugin` configuration.
 > It doesn't check the configurations defined in the plugin's `<executions>` section.
 >
 {style="note"}
-
-### Maven compiler version
-
-Currently, the default version of the Maven compiler plugin used with `<extensions>` is **%mavenExtensionsVersion%**.
-You can set a different version separately:
-
-```xml
-<build>
-    <plugins>
-        <!-- Kotlin compiler plugin configuration -->
-        <plugin>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-maven-plugin</artifactId>
-            <version>${kotlin.version}</version>
-            <extensions>true</extensions>
-        </plugin>
-        <!-- Maven compiler plugin configuration for Java classes -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>%mavenPluginVersion%</version>
-        </plugin>
-    </plugins>
-</build>
-```
 
 ## Manual configuration
 
@@ -192,9 +191,9 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>src/main/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
                             <!-- Ensure Kotlin code can reference Java code -->
-                            <sourceDir>src/main/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -206,8 +205,8 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>src/test/kotlin</sourceDir>
-                            <sourceDir>src/test/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -361,14 +360,39 @@ and has no impact on other plugins in the build.
 >
 {style="note"}
 
-#### Use JDK 17
+## Configure Java modules (JPMS)
 
-To use JDK 17, in your `.mvn/jvm.config` file, add:
+The Kotlin Maven plugin supports the [Java Platform Module System (JPMS)](https://dev.java/learn/modules/), so you can
+compile Kotlin code alongside a `module-info.java` descriptor and consume the resulting module like other Java modules.
 
-```none
---add-opens=java.base/java.lang=ALL-UNNAMED
---add-opens=java.base/java.io=ALL-UNNAMED
+You don't need any extra JPMS-specific options in the build file. 
+Just configure the Kotlin compiler before Maven.
+
+When a `module-info.java` descriptor is present, the Kotlin compiler uses it as a source file and compiles against
+its module path instead of the classpath. The Kotlin compiler reads the descriptor to resolve the module graph, and
+the Maven compiler then compiles it into a `module-info.class` file.
+
+To configure a Java module, create the `module-info.java` file in the `${project.basedir}/src/main/java` directory.
+In the module descriptor, declare all the dependencies that your module requires and the packages it exports. For example:
+
+```java
+module org.example.myapp {
+    requires transitive kotlin.stdlib;
+    requires java.net.http;
+    
+    exports org.example.myapp;
+}
 ```
+
+Keep in mind that:
+
+* Your Java module can only use what you declare. Since compilation uses the module path instead of the classpath,
+  the descriptor should include all dependencies that your Kotlin code uses: the standard library, JDK modules (except for `java.base`),
+  and other libraries. Otherwise, you may get `Unresolved reference` errors.
+* For a module, the package name in Kotlin files must match the package name from `module-info.java` to avoid the
+  `Package is empty or does not exist` build failures.
+* The `pom.xml` build file should be configured so that [Kotlin is compiled before Java](#compile-kotlin-and-java-sources).
+  If you use [automatic project configuration](#automatic-configuration), the `<extensions>` option already ensures this. 
 
 ## What's next?
 

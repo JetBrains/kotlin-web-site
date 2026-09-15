@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2.svg" width="20" alt="Second step" /> <strong>Basic types</strong><br />
-        <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 Every variable and data structure in Kotlin has a type. Types are important because they tell the compiler what you are allowed to 
 do with that variable or data structure. In other words, what functions and properties it has.
@@ -46,14 +37,14 @@ fun main() {
 
 In total, Kotlin has the following basic types:
 
-| **Category**           | **Basic types**                    | **Example code**                                              |
-|------------------------|------------------------------------|---------------------------------------------------------------|
-| Integers               | `Byte`, `Short`, `Int`, `Long`     | `val year: Int = 2020`                                        |
-| Unsigned integers      | `UByte`, `UShort`, `UInt`, `ULong` | `val score: UInt = 100u`                                      |
-| Floating-point numbers | `Float`, `Double`                  | `val currentTemp: Float = 24.5f`, `val price: Double = 19.99` |
-| Booleans               | `Boolean`                          | `val isEnabled: Boolean = true`                               |
-| Characters             | `Char`                             | `val separator: Char = ','`                                   |
-| Strings                | `String`                           | `val message: String = "Hello, world!"`                       |
+| **Category**                                              | **Basic types**                    | **Example code**                                                  |
+|-----------------------------------------------------------|------------------------------------|-------------------------------------------------------------------|
+| [Integers](numbers.md#integer-types)                      | `Byte`, `Short`, `Int`, `Long`     | `val year: Int = 2020`<br/> `val amount: Long = 350_000_000`      |
+| [Unsigned integers](unsigned-integer-types.md)            | `UByte`, `UShort`, `UInt`, `ULong` | `val score: UInt = 100u`                                          |
+| [Floating-point numbers](numbers.md#floating-point-types) | `Float`, `Double`                  | `val currentTemp: Float = 24.5f`<br/> `val price: Double = 19.99` |
+| [Booleans](booleans.md)                                   | `Boolean`                          | `val isEnabled: Boolean = true`                                   |
+| [Characters](characters.md)                               | `Char`                             | `val separator: Char = ','`                                       |
+| [Strings](strings.md)                                     | `String`                           | `val message: String = "Hello, world!"`                           |
 
 For more information on basic types and their properties, see [Types overview](types-overview.md).
 
@@ -99,7 +90,7 @@ fun main() {
 
 Now that you know how to declare basic types, it's time to learn about [collections](kotlin-tour-collections.md).
 
-## Practice
+## Practice {completion-point="true"}
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -131,7 +122,14 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
 
-## Next step
+<seealso></seealso>
 
-[Collections](kotlin-tour-collections.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-hello-world.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-collections.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
 

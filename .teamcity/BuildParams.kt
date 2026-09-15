@@ -14,7 +14,7 @@ object BuildParams {
   const val KOTLINX_COROUTINES_TITLE = KOTLINX_COROUTINES_ID
 
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "master"
-  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.11.0"
+  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.12.0-RC"
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
@@ -28,10 +28,15 @@ object BuildParams {
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG = "v0.5.2"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL = "0.5.2"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_ID = "kotlinx.collections.immutable"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_TITLE = KOTLINX_COLLECTIONS_IMMUTABLE_ID
+
   const val KOTLIN_RELEASE_TAG = "2.4.0"
   const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
 
-  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_240_LibraryReferenceLatestDocs"
+  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2420_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
@@ -39,10 +44,10 @@ object BuildParams {
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
   val KGP_REFERENCE = KotlinGradleAPI {
-    addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
-    addVersion("2.2.0", VCS.branch("2.2.0"))
-    addVersion("2.3.0", VCS.branch("2.3.0"))
-    addVersion("2.4.0", VCS.branch("2.4.0"))
+    addV1Version("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
+    addV1Version("2.2.0", VCS.branch("2.2.0"))
+    addV1Version("2.3.0", VCS.branch("2.3.0"))
+    addVersion("2.4.0", VCS.branch("chernenko/ktl-4571-kotlin-inheretence-240"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
@@ -63,6 +68,7 @@ object BuildParams {
     "api/$KOTLINX_DATETIME_ID",
     "api/$KOTLINX_IO_ID",
     "api/$KOTLINX_METADATA_ID",
+    "api/$KOTLINX_COLLECTIONS_IMMUTABLE_ID",
     "api/${KGP_REFERENCE.urlPart}",
     "api/${API_COMPOSE.urlPart}",
   )

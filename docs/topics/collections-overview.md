@@ -63,7 +63,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 The read-only collection types are [covariant](generics.md#variance).
-This means that, if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
+This means that if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
 is required.
 In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on 
 the value type, but not on the key type.

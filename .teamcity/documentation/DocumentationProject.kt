@@ -24,4 +24,5 @@ object DocumentationProject: Project({
     vcsRoot(KotlinxLincheckRoot)
     vcsRoot(DokkaRoot)
     vcsRoot(APIGuidelinesRoot)
+    vcsRoot(KotlinxSerializationRoot)
 })

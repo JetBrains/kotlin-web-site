@@ -91,6 +91,20 @@ function fixImageLinks(content) {
     /data-dark-src="images\/(https?:\/\/[^"]+)"/g,
     (match, url) => `data-dark-src="${url}"`
   );
+
+  // Decode "@" that Writerside percent-encodes as "%40" in local image paths
+  content = content.replace(
+    /(src|data-dark-src)="(images\/[^"]*)"/g,
+    (match, attr, value) => {
+      if (!value.includes('%40')) {
+        return match;
+      }
+      const fixed = value.replace(/%40/g, '@');
+      console.log(`Fix image link "${value}" -> "${fixed}"`);
+      return `${attr}="${fixed}"`;
+    }
+  );
+
   return content;
 }
 

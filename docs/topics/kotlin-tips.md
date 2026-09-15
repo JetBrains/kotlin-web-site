@@ -18,13 +18,15 @@ Got a Kotlin collection that contains duplicates? Need a collection with only un
 
 ## The suspend and inline mystery
 
-How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren't coroutines-aware? In this episode of Kotlin Tips Sebastian Aigner solves the riddle: it has something to do with the inline modifier:
+How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren't coroutines-aware? In this episode of Kotlin Tips,
+Sebastian Aigner solves the riddle: it has something to do with the inline modifier:
 
 <video width="560" height="315" src="https://www.youtube.com/v/R2395u7SdcI" title="Kotlin Tips: The Suspend and Inline Mystery"/>
 
 ## Unshadowing declarations with their fully qualified name
 
-Shadowing means having two declarations in a scope have the same name. So, how do you pick? In this episode of Kotlin Tips Sebastian Aigner shows you a simple Kotlin trick to call exactly the function that you need, using the power of fully qualified names:
+Shadowing means having two declarations in a scope have the same name. So, how do you pick? In this episode of Kotlin Tips,
+Sebastian Aigner shows you a simple Kotlin trick to call exactly the function that you need, using the power of fully qualified names:
 
 <video width="560" height="315" src="https://www.youtube.com/v/mJRzF9WtCpU" title="Kotlin Tips: Unshadowing Declarations"/>
 
@@ -36,7 +38,8 @@ Shadowing means having two declarations in a scope have the same name. So, how d
 
 ## Destructuring declarations
 
-With [destructuring declarations](destructuring-declarations.md) in Kotlin, you can create multiple variables from a single object, all at once. In this video Sebastian Aigner shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin's component functions provide an answer for those as well:
+With [destructuring declarations](destructuring-declarations.md) in Kotlin, you can create multiple variables from a single object, all at once. In this video,
+Sebastian Aigner shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin's component functions provide an answer for those as well:
 
 <video width="560" height="315" src="https://www.youtube.com/v/zu1PUAvk_Lw" title="Kotlin Tips: Destructuring Declarations"/>
 

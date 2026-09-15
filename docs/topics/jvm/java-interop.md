@@ -46,7 +46,7 @@ fun calendarDemo() {
 
 `calendar.firstDayOfWeek` above is an example of a synthetic property.
 
-Note that, if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
+Note that if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
 
 ## Java synthetic property references
@@ -137,7 +137,7 @@ since the value itself is known in advance (being `Unit`).
 
 ## Escaping for Java identifiers that are keywords in Kotlin
 
-Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and other.
+Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and others.
 If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character:
 
@@ -148,9 +148,14 @@ foo.`is`(bar)
 ## Null-safety and platform types
 
 Any reference in Java may be `null`, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
-Types of Java declarations are treated in Kotlin in a specific manner and called *platform types*. Null-checks are relaxed
-for such types, so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
+Types of Java declarations are treated in Kotlin as non-denotable and called [*platform types*](https://kotlinlang.org/spec/type-system.html#platform-types).
+You can't write the non-denotable types in the code explicitly. Therefore, when a platform value is assigned to a Kotlin
+variable, you can: 
 
+* Rely on the type inference. In this case, the variable has an inferred platform type.
+* Choose the type you expect. Kotlin allows both nullable and non-nullable types.
+
+Null-checks are relaxed for such types, so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
 Consider the following examples:
 
 ```kotlin
@@ -168,9 +173,9 @@ prevent nulls from propagating:
 item.substring(1) // allowed, throws an exception if item == null
 ```
 
-Platform types are *non-denotable*, meaning that you can't write them down explicitly in the language.
-When a platform value is assigned to a Kotlin variable, you can rely on the type inference (the variable will have an inferred
-platform type then, as `item` has in the example above), or you can choose the type you expect (both nullable and non-nullable types are allowed):
+You can assign a value of a platform type to a variable of both nullable and non-nullable Kotlin types. However,
+if you assign such a value to a variable of a non-nullable type and the value is actually `null` at runtime, Kotlin
+throws a `NullPointerException`. To avoid this, add explicit nullability to your Kotlin code:
 
 ```kotlin
 val nullable: String? = item // allowed, always works
@@ -179,18 +184,21 @@ val notNull: String = item // allowed, may fail at runtime
 
 If you choose a non-nullable type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-nullable variables from holding
 nulls. Assertions are also emitted when you pass platform values to Kotlin functions expecting non-null values and in other cases.
-Overall, the compiler does its best to prevent nulls from propagating far through the program although sometimes this is
+Overall, the compiler does its best to prevent nulls from propagating far through the program, although sometimes this is
 impossible to eliminate entirely, because of generics.
 
 ### Notation for platform types
 
-As mentioned above, platform types can't be mentioned explicitly in the program, so there's no syntax for them in the language.
-Nevertheless, the compiler and IDE need to display them sometimes (for example, in error messages or parameter info), 
-so there is a mnemonic notation for them:
+As mentioned in the previous section, platform types can't be mentioned explicitly in the program, so there's no syntax
+for them in the language. Nevertheless, the compiler and IDE need to display them sometimes (for example, in error messages
+or parameter info), so there is a mnemonic notation for them:
 
-* `T!` means "`T` or `T?`",
-* `(Mutable)Collection<T>!` means "Java collection of `T` may be mutable or not, may be nullable or not",
+* `T!` means "`T` or `T?`"
+* `(Mutable)Collection<T>!` means "Java collection of `T` may be mutable or not, may be nullable or not"
 * `Array<(out) T>!` means "Java array of `T` (or a subtype of `T`), nullable or not"
+
+When you see this notation in an error message or IDE tooltip, add an explicit type annotation to your Kotlin variable
+to restore null-safety checks, or eliminate platform types at the source using nullability annotations.
 
 ### Nullability annotations
 
@@ -592,30 +600,30 @@ The mapping only matters at compile time, the runtime representation remains unc
 
 Some non-primitive built-in classes are also mapped:
 
-| **Java type** | **Kotlin type**  |
-|---------------|------------------|
-| `java.lang.Object`       | `kotlin.Any!`    |
-| `java.lang.Cloneable`    | `kotlin.Cloneable!`    |
-| `java.lang.Comparable`   | `kotlin.Comparable!`    |
-| `java.lang.Enum`         | `kotlin.Enum!`    |
-| `java.lang.annotation.Annotation`   | `kotlin.Annotation!`    |
-| `java.lang.CharSequence` | `kotlin.CharSequence!`   |
-| `java.lang.String`       | `kotlin.String!`   |
-| `java.lang.Number`       | `kotlin.Number!`     |
-| `java.lang.Throwable`    | `kotlin.Throwable!`    |
+| **Java type**                     | **Kotlin type**        |
+|-----------------------------------|------------------------|
+| `java.lang.Object`                | `kotlin.Any!`          |
+| `java.lang.Cloneable`             | `kotlin.Cloneable!`    |
+| `java.lang.Comparable`            | `kotlin.Comparable!`   |
+| `java.lang.Enum`                  | `kotlin.Enum!`         |
+| `java.lang.annotation.Annotation` | `kotlin.Annotation!`   |
+| `java.lang.CharSequence`          | `kotlin.CharSequence!` |
+| `java.lang.String`                | `kotlin.String!`       |
+| `java.lang.Number`                | `kotlin.Number!`       |
+| `java.lang.Throwable`             | `kotlin.Throwable!`    |
 
 Java's boxed primitive types are mapped to nullable Kotlin types:
 
-| **Java type**           | **Kotlin type**  |
-|-------------------------|------------------|
-| `java.lang.Byte`        | `kotlin.Byte?`   |
-| `java.lang.Short`       | `kotlin.Short?`  |
-| `java.lang.Integer`     | `kotlin.Int?`    |
-| `java.lang.Long`        | `kotlin.Long?`   |
-| `java.lang.Character`   | `kotlin.Char?`   |
-| `java.lang.Float`       | `kotlin.Float?`  |
-| `java.lang.Double`      | `kotlin.Double?`  |
-| `java.lang.Boolean`     | `kotlin.Boolean?` |
+| **Java type**         | **Kotlin type**   |
+|-----------------------|-------------------|
+| `java.lang.Byte`      | `kotlin.Byte?`    |
+| `java.lang.Short`     | `kotlin.Short?`   |
+| `java.lang.Integer`   | `kotlin.Int?`     |
+| `java.lang.Long`      | `kotlin.Long?`    |
+| `java.lang.Character` | `kotlin.Char?`    |
+| `java.lang.Float`     | `kotlin.Float?`   |
+| `java.lang.Double`    | `kotlin.Double?`  |
+| `java.lang.Boolean`   | `kotlin.Boolean?` |
 
 Note that a boxed primitive type used as a type parameter is mapped to a platform type:
 for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
@@ -623,16 +631,16 @@ for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
 Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
 (all Kotlin types in this table reside in the package `kotlin.collections`):
 
-| **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** | **Loaded platform type** |
-|---------------|----------------------------|-------------------------|--------------------------|
-| `Iterator<T>`        | `Iterator<T>`        | `MutableIterator<T>`            | `(Mutable)Iterator<T>!`            |
-| `Iterable<T>`        | `Iterable<T>`        | `MutableIterable<T>`            | `(Mutable)Iterable<T>!`            |
-| `Collection<T>`      | `Collection<T>`      | `MutableCollection<T>`          | `(Mutable)Collection<T>!`          |
-| `Set<T>`             | `Set<T>`             | `MutableSet<T>`                 | `(Mutable)Set<T>!`                 |
-| `List<T>`            | `List<T>`            | `MutableList<T>`                | `(Mutable)List<T>!`                |
-| `ListIterator<T>`    | `ListIterator<T>`    | `MutableListIterator<T>`        | `(Mutable)ListIterator<T>!`        |
-| `Map<K, V>`          | `Map<K, V>`          | `MutableMap<K, V>`              | `(Mutable)Map<K, V>!`              |
-| `Map.Entry<K, V>`    | `Map.Entry<K, V>`    | `MutableMap.MutableEntry<K,V>` | `(Mutable)Map.(Mutable)Entry<K, V>!` |
+| **Java type**     | **Kotlin read-only type** | **Kotlin mutable type**        | **Loaded platform type**             |
+|-------------------|---------------------------|--------------------------------|--------------------------------------|
+| `Iterator<T>`     | `Iterator<T>`             | `MutableIterator<T>`           | `(Mutable)Iterator<T>!`              |
+| `Iterable<T>`     | `Iterable<T>`             | `MutableIterable<T>`           | `(Mutable)Iterable<T>!`              |
+| `Collection<T>`   | `Collection<T>`           | `MutableCollection<T>`         | `(Mutable)Collection<T>!`            |
+| `Set<T>`          | `Set<T>`                  | `MutableSet<T>`                | `(Mutable)Set<T>!`                   |
+| `List<T>`         | `List<T>`                 | `MutableList<T>`               | `(Mutable)List<T>!`                  |
+| `ListIterator<T>` | `ListIterator<T>`         | `MutableListIterator<T>`       | `(Mutable)ListIterator<T>!`          |
+| `Map<K, V>`       | `Map<K, V>`               | `MutableMap<K, V>`             | `(Mutable)Map<K, V>!`                |
+| `Map.Entry<K, V>` | `Map.Entry<K, V>`         | `MutableMap.MutableEntry<K,V>` | `(Mutable)Map.(Mutable)Entry<K, V>!` |
 
 Java's arrays are mapped as mentioned [below](#java-arrays):
 
@@ -737,7 +745,7 @@ public class JavaArrayExample {
 }
 ```
 
-In that case you need to use the spread operator `*` to pass the `IntArray`:
+In that case, you need to use the spread operator `*` to pass the `IntArray`:
 
 ```kotlin
 val javaObj = JavaArrayExample()

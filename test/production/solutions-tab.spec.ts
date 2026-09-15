@@ -17,20 +17,11 @@ test.describe('Solutions tab', () => {
         expect(page.url()).toContain(`${baseURL}/multiplatform/`);
     });
 
-    test('Click on "Server-side" button should open the related page', async ({ page, baseURL }) => {
-        const serverSideButton = page.locator(testSelector("header")).getByText('Server-side').first();
-        await expect(serverSideButton).toBeVisible();
-        await serverSideButton.click();
-        expect(page.url()).toContain(`${baseURL}/server-side/`);
-    });
-
-    test('Click on "Data science" button should open the related page', async ({ page, baseURL }) => {
-        const dataScienceButton = page.locator(testSelector("header")).getByText('Data science');
-        await expect(dataScienceButton).toBeVisible();
-        await dataScienceButton.click();
-        // We need a timeout here because of redirect to another URL.
-        await page.waitForTimeout(2000);
-        expect(page.url()).toContain(`${baseURL}/docs/data-analysis-overview.html`);
+    test('Click on "Backend" button should open the related page', async ({ page, baseURL }) => {
+        const backendButton = page.locator(testSelector("header")).getByText('Backend').first();
+        await expect(backendButton).toBeVisible();
+        await backendButton.click();
+        expect(page.url()).toContain(`${baseURL}/backend/`);
     });
 
     test('Click on "Android" button should open the related page', async ({ page, baseURL }) => {

@@ -16,7 +16,7 @@ which includes tools for launching coroutines, handling concurrency, working wit
 If you're new to coroutines in Kotlin, start with the [Coroutine basics](coroutines-basics.md) guide before diving into more complex topics.
 This guide introduces the key concepts of suspending functions, coroutine builders, and structured concurrency through simple examples:
 
-<a href="coroutines-basics.md"><img src="get-started-coroutines.svg" width="700" alt="Get started with coroutines" style="block"/></a>
+<a href="coroutines-basics.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with coroutines</a>
 
 > Check out the [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) for a sample project to see how coroutines are used in practice.
 > 
@@ -47,7 +47,7 @@ Builder functions like `.launch()` and `.async()` automatically create a set of 
 * [`CoroutineExceptionHandler`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) handles uncaught exceptions.
 
 These, along with other possible elements, make up the [_coroutine context_](coroutine-context-and-dispatchers.md), which is inherited by default from the coroutine's parent.
-This context forms a hierarchy that enables structured concurrency, where related coroutines can be [canceled](cancellation-and-timeouts.md) together or [handle exceptions](exception-handling.md) as a group.
+This context forms a hierarchy that enables structured concurrency, where related coroutines can be [canceled](coroutines-cancellation.md) together or [handle exceptions](exception-handling.md) as a group.
 
 ### Asynchronous flow and shared mutable state
 

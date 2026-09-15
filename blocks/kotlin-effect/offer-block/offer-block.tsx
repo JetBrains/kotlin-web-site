@@ -55,7 +55,7 @@ export const OfferBlock = () => {
                     </div>
 
                     <div className={styles.buttonContainer}>
-                        <Button mode={'rock'} size={'l'} href="https://hyperskill.org/categories/37"
+                        <Button mode={'rock'} size={'l'} href="https://hyperskill.org/categories/37?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15"
                                 className={styles.button} target="_blank" rel="noopener noreferrer">
                             Start learning
                         </Button>
@@ -70,7 +70,7 @@ export const OfferBlock = () => {
                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                         <li className={styles.linksLi}>
                             <a
-                                href="https://hyperskill.org/courses/69-introduction-to-kotlin"
+                                href="https://hyperskill.org/courses/69-introduction-to-kotlin?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15&utm_content=introduction_to_kotlin"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
                                 target="_blank" rel="noopener noreferrer"
                             >
@@ -113,7 +113,7 @@ export const OfferBlock = () => {
                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                         <li className={styles.linksLi}>
                             <a
-                                href="https://hyperskill.org/courses/18-kotlin-core"
+                                href="https://hyperskill.org/courses/18-kotlin-core?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15&utm_content=kotlin_core"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
                                 target="_blank" rel="noopener noreferrer"
                             >
@@ -122,7 +122,7 @@ export const OfferBlock = () => {
                         </li>
                         <li className={styles.linksLi}>
                             <a
-                                href="https://hyperskill.org/courses/3-kotlin-developer"
+                                href="https://hyperskill.org/courses/3-kotlin-developer?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15&utm_content=kotlin_developer"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
                                 target="_blank" rel="noopener noreferrer"
                             >
@@ -147,7 +147,7 @@ export const OfferBlock = () => {
                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                         <li className={styles.linksLi}>
                             <a
-                                href="https://hyperskill.org/courses/45-introduction-to-ktor"
+                                href="https://hyperskill.org/courses/45-introduction-to-ktor?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15&utm_content=introduction_to_ktor"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
                                 target="_blank" rel="noopener noreferrer"
                             >
@@ -165,7 +165,7 @@ export const OfferBlock = () => {
                         </li>
                         <li className={styles.linksLi}>
                             <a
-                                href="https://hyperskill.org/courses/107"
+                                href="https://hyperskill.org/courses/107?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15&utm_content=libraries"
                                 className={darkTextCn('rs-link', { mode: 'clear' })}
                                 target="_blank" rel="noopener noreferrer"
                             >

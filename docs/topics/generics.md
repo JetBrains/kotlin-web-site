@@ -14,8 +14,7 @@ To create an instance of such a class, simply provide the type arguments:
 val box: Box<Int> = Box<Int>(1)
 ```
 
-But if the parameters can be inferred, for example, from the constructor arguments,
-you can omit the type arguments:
+If the compiler can infer the type arguments, for example, from the constructor arguments, you don’t need to specify them explicitly:
 
 ```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
@@ -251,7 +250,7 @@ type will be a subtype of that projection.
 Kotlin provides so-called _star-projection_ syntax for this:
 
 - For `Foo<out T : TUpper>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is
-  equivalent to `Foo<out TUpper>`. This means that when the `T` is unknown you can safely _read_ values of `TUpper` from `Foo<*>`.
+  equivalent to `Foo<out TUpper>`. This means that when the `T` is unknown, you can safely _read_ values of `TUpper` from `Foo<*>`.
 - For `Foo<in T>`, where `T` is a contravariant type parameter, `Foo<*>` is equivalent to `Foo<in Nothing>`. This means
   there is nothing you can _write_ to `Foo<*>` in a safe way when `T` is unknown.
 - For `Foo<T : TUpper>`, where `T` is an invariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent
@@ -267,6 +266,48 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 > Star-projections are very much like Java's raw types, but safe.
 >
 {style="note"}
+
+### Captured types
+
+When you use a type projection, such as `out T` or `in T`, the compiler internally represents the unknown concrete type
+as a [*captured type*](https://kotlinlang.org/spec/type-system.html#type-capturing). A captured type is an unknown type
+with known upper and lower bounds.
+
+Captured types are non-denotable, so you can't write them directly in Kotlin code. Instead, you can most frequently see
+captured types in compiler diagnostics, such as `CapturedType(out X)`. For example, the following type mismatch diagnostic
+contains a captured type:
+
+```kotlin
+val array: Array<out CharSequence> = arrayOf("str")
+val item: Int = array.get(0)
+// Initializer type mismatch: expected 'Int', actual 'CapturedType(out CharSequence)'
+```
+
+The compiler uses the captured type's upper bound for read operations and its lower bound to determine which values are
+type-safe for write operations:
+
+```kotlin
+// The projected type is Array<out CharSequence>
+val array: Array<out CharSequence> = arrayOf("Kotlin")
+
+// The get() read operation uses the captured type's upper bound, CharSequence
+val item = array.get(0)
+
+// The set() write operation uses the captured type's lower bound, Nothing,
+// which results in an error
+array.set(0, "New value")
+// Receiver type 'Array<out CharSequence>' contains out projection
+// which prohibits the use of 'fun set(index: Int, value: T): Unit'
+```
+
+In this example:
+
+* The variable `array` has the projected type `Array<out CharSequence>`. The compiler represents the projected type
+argument `out CharSequence` as a captured type with `CharSequence` as its upper bound and `Nothing` as its lower bound.
+* For the `get()` operation, the compiler approximates the captured type to its upper bound, `CharSequence`, and infers
+`CharSequence` as the type of `item`.
+* For the `set()` operation, the captured type has `Nothing` as its lower bound. Since `Nothing` has no instances, writing
+a value to the projected type isn't type-safe and results in an error.
 
 ## Generic functions
 

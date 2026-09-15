@@ -18,21 +18,21 @@ Kotlin is designed to be a pragmatic tool for programmers. When it comes to lang
 
 As this is key to understanding how Kotlin is moving forward, let's expand on these principles.
 
-**Keeping the Language Modern**. We recognize that systems accumulate legacy over time. What was once been cutting-edge
+**Keeping the Language Modern**. We recognize that systems accumulate legacy over time. What was once cutting-edge
 technology can become hopelessly outdated today. We have to evolve the language to keep it relevant to the needs of our users
 and up-to-date with their expectations. This includes not only adding new features, but also phasing out old ones that are
 no longer recommended for production use and have become legacy.
 
 **Comfortable Updates**. Incompatible changes, such as removing things from a language, may lead to painful migration from
 one version to the next if carried out without proper care. We will always announce such changes well in advance, mark things
-as deprecated and provide automated migration tools _before the change happens_. By the time the language changes we
+as deprecated and provide automated migration tools _before the change happens_. By the time the language changes, we
 want most of the code in the world to be already updated and thus have no issues migrating to the new version.
 
 **Feedback Loop**. Going through deprecation cycles requires significant effort, so we want to minimize the number of
 incompatible changes we'll be making in the future. Apart from using our best judgement, we believe that trying things out
-in real life is the best way to validate a design. Before casting things in stone we want them battle-tested. This is why
+in real life is the best way to validate a design. Before casting things in stone, we want them battle-tested. This is why
 we use every opportunity to make early versions of our designs available in production versions of the language, but in one
-of the _pre-stable_ statuses: [Experimental, Alpha, or Beta](components-stability.md). Such features are not stable,
+of the _pre-stable_ statuses: [Experimental, Alpha, or Beta](components-stability.md). Such features are not stable;
 they can be changed at any time, and the users that opt into using them do so explicitly to indicate that they are ready
 to deal with the future migration issues. These users provide invaluable feedback that we gather to iterate on the design
 and make it rock-solid.
@@ -49,7 +49,7 @@ There can be debates as to what "doesn't work anymore" means precisely in some c
 
 The less obvious cases that belong to the "gray area" include handling corner cases differently, throwing an exception of a different type than before,
 changing behavior observable only through reflection, modifying undocumented or undefined behavior, renaming binary artifacts, and others.
-Sometimes such changes are crucial and affect migration experience dramatically, sometimes they are insignificant.
+Sometimes such changes are crucial and affect migration experience dramatically; sometimes they are insignificant.
 
 Some examples of what definitely isn't an incompatible change include:
 
@@ -132,11 +132,11 @@ A Kotlin language feature can have one of the following statuses:
   This involves discussing how it would integrate with existing features, gathering use cases,
   and assessing its potential impact.
   We need feedback from users on the problems this feature would solve and the use cases it addresses.
-  Whenever possible, we try to estimate how often these use cases and problems occur would also be beneficial.
+  Whenever possible, we also try to estimate how often these use cases and problems occur.
   Typically, ideas are documented as YouTrack issues, where the discussion continues.
 
 * **KEEP discussion**. We are fairly certain that the feature should be added to the language.
-  We aim to provide a motivation, use-cases, design, and other important details in a document called a _KEEP_.
+  We aim to provide motivation, use cases, design, and other important details in a document called a _Kotlin Evolution and Enhancement Process_ (KEEP).
   We expect feedback from users to focus on discussing all the information provided in the KEEP.
 
 * **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
@@ -179,7 +179,7 @@ Here are some assumptions that we make when considering language changes from th
     thus never relying on type inference for public API. Subtle changes in type inference may cause return types to change inadvertently,
     leading to binary compatibility issues.
 * Overloaded functions and properties provided by the same library should do essentially the same thing. 
-    Changes in type inference may result in more precise static types to be known at call sites,
+    Changes in type inference may result in more precise static types being known at call sites,
     causing changes in overload resolution.
 
 Library authors can use the `@Deprecated` and [`@RequiresOptIn`](opt-in-requirements.md) annotations
@@ -206,20 +206,28 @@ and even when it's over and the change ships in a stable version, there's still 
 
 ### Compatibility options
 
-We provide compatiblity options that make a new Kotlin version emulate the behavior of an old one for compatibility purposes:
+We provide compatibility options that make a new Kotlin version emulate the behavior of an older one:
 
-* `-language-version X.Y` - compatibility mode for Kotlin language version X.Y, reports errors for all language features
-  that came out later.
-* `-api-version X.Y` - compatibility mode for Kotlin API version X.Y, reports errors for all code using newer APIs from
-  the Kotlin Standard Library (including the code generated by the compiler).
+* `-language-version X.Y` – compatibility mode for Kotlin language version X.Y. The compiler reports errors when your code uses language
+  features introduced in later versions.
+* `-api-version X.Y` – compatibility mode for Kotlin API version X.Y. The compiler ignores declarations that use Kotlin standard
+  library APIs introduced in later versions, including APIs referenced by compiler-generated code.
 
-To give you more time for migration, we support the development for at least three previous language and API versions
-in addition to the latest stable one.
+To give you more time to migrate, on the JVM we support at least three previous language and API versions in addition to the 
+latest stable version. This lets library authors adopt newer compiler releases while remaining compatible with consumers
+using older compiler versions. On other platforms, you can also configure older language and API versions, but unlike 
+on the JVM, consumers still need to use the latest compiler version.
+
+In most projects, set both options to the same version. A lower API version is mainly useful when you
+need to remain compatible with an older version of the Kotlin standard library.
 
 Actively maintained code bases can benefit from getting bug fixes as soon as possible, without waiting for a full deprecation cycle to complete.
-Currently, such projects can enable the `-progressive` option and get such fixes enabled even in tooling releases.
+These projects can enable the [`-progressive` option](compiler-reference.md#progressive) to adopt these changes in tooling releases
+before they become the default.
 
-All options are available in the IDE, command line, as well as in [Gradle](gradle-compiler-options.md) and in [Maven](maven-kotlin-compiler.md#specify-compiler-options).
+You can configure these options on the [command line](compiler-reference.md#common-options) or with the
+[Gradle](gradle-compiler-options.md#attributes-common-to-jvm-and-javascript) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
+build tools.
 
 ### Evolving the binary format
 

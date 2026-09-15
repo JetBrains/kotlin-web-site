@@ -31,7 +31,6 @@ These assets follow the same visual principles as the Kotlin logo and help ensur
 The package contains logos for:
 
 * [Kotlin Foundation](https://kotlinfoundation.org)
-* [Kotlin Notebook](kotlin-notebook-overview.md)
 * [Kotlin Multiplatform (KMP)](https://kotlinlang.org/multiplatform/)
 * [Talking Kotlin](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
 * [Compose Multiplatform (CMP)](https://kotlinlang.org/compose-multiplatform/)
@@ -88,7 +87,7 @@ There are two main reasons why we are doing it:
 ### Create the logo of your user group
 
 To create a logo of your users group:
-1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google drive (you have to be signed in to your Google account).
+1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google Drive (you have to be signed in to your Google account).
 2. Replace the **Your City** text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 

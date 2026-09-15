@@ -43,7 +43,7 @@ see [Adding dependencies on multiplatform libraries](https://kotlinlang.org/docs
 
 Would you like to try it yourself?
 
-<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="600" alt="Get started with Kotlin/Wasm" style="block"/></a>
+<a href="wasm-get-started.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Kotlin/Wasm</a>
 
 ## Kotlin/Wasm and WASI
 
