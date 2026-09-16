@@ -64,6 +64,7 @@ as identifiers in other contexts:
      - [delegates the implementation of the accessors for a property to another object](delegated-properties.md).
  * `catch` begins a block that [handles a specific exception type](exceptions.md).
  * `constructor` declares a [primary or secondary constructor](classes.md#constructors-and-initializer-blocks).
+ * `context` declares [context parameters](context-parameters.md) for functions and properties.
  * `delegate` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `dynamic` references a [dynamic type](dynamic-type.md) in Kotlin/JS code.
  * `field`
