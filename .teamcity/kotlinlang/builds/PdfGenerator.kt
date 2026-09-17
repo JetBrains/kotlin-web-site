@@ -4,6 +4,7 @@ import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object PdfGenerator : BuildType({
@@ -22,9 +23,10 @@ object PdfGenerator : BuildType({
   }
 
   triggers {
-    vcs {
-      enabled = !isProjectPlayground()
+    finishBuildTrigger {
+      buildType = BuildSitePages.id?.value ?: error("Invalid BuildSitePages ID")
       branchFilter = "+:<default>"
+      successfulOnly = true
     }
   }
 
