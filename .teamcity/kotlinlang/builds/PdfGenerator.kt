@@ -1,8 +1,10 @@
 package kotlinlang.builds
 
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object PdfGenerator : BuildType({
   name = "PDF Generator"
@@ -17,6 +19,13 @@ object PdfGenerator : BuildType({
   requirements {
     equals("node.js.nvm", "yes")
     contains("teamcity.agent.name", "-macos-")
+  }
+
+  triggers {
+    vcs {
+      enabled = !isProjectPlayground()
+      branchFilter = "+:<default>"
+    }
   }
 
   steps {
