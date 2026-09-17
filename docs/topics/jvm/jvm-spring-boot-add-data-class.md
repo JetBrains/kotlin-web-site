@@ -71,13 +71,13 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
     <deflist collapsible="true">
        <def title="Collections – listOf()">
-          <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
+          <p>The Kotlin standard library provides implementations for basic collection types: sets, lists, and maps.<br/>
           Each collection type can be <i>read-only</i> or <i>mutable</i>:</p>
           <list>
               <li>A <i>read-only</i> collection comes with operations for accessing collection elements.</li>
               <li>A <i>mutable</i> collection comes also with write operations for adding, removing, and updating its elements.</li>
           </list>
-          <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
+          <p>The corresponding factory functions are also provided by the Kotlin standard library to create instances of such collections.
           </p>
           <p>In this tutorial, you use the <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
           This is the factory function to create a <i>read-only</i> list of objects: you can't add or remove elements from the list.<br/>
