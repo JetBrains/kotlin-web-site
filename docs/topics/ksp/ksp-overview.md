@@ -18,7 +18,7 @@ To learn how to create your first KSP-based processor, see [Getting started with
 
 ## Requirements
 
-To use KSP 2.3.x, make sure your project meets the following requirements:
+The latest KSP version, %kspVersion%, supports the following dependency versions:
 
 | Dependency                      |  Min and max versions                                  |
 | ------------------------------  | ------------------------------------------------------ |
