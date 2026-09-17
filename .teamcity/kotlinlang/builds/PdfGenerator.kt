@@ -26,7 +26,7 @@ object PdfGenerator : BuildType({
     finishBuildTrigger {
       buildType = BuildSitePages.id?.value ?: error("Invalid BuildSitePages ID")
       branchFilter = "+:<default>"
-      successfulOnly = true
+      successfulOnly = false
     }
   }
 
