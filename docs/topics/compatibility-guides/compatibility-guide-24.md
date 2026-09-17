@@ -621,3 +621,20 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.0: report an error for the deprecated Kotlin/Native Gradle task APIs, remove the `KotlinNativeLink.compilation` property
+
+### Report warnings for case mismatches in compiler argument values
+
+> **Issue**: [KT-86059](https://youtrack.jetbrains.com/issue/KT-86059)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Compiler arguments that accept a fixed set of values previously handled letter case inconsistently:
+> some accepted any letter case, while others required an exact match.
+> The [Build tools API](build-tools-api.md) now accepts any letter case for these values but reports a warning, for example `Case mismatch for -module-kind: expected 'commonjs', got 'CommonJS'`.
+> To migrate, use the letter case listed for the argument in the [compiler reference](compiler-reference.md).
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning when the letter case of a compiler argument value doesn't match the expected value

@@ -663,7 +663,7 @@ The project integrates several systems and services:
 
 2. **External Services**:
    - GitHub for source code management and issue tracking
-   - Google Maps API for displaying community events and Kotlin User Groups
+   - Google Maps API for displaying Kotlin User Groups
    - Algolia for search functionality
    - Google Analytics for usage tracking
    - YouTube for embedded video content
@@ -700,7 +700,6 @@ The project uses GitHub Actions for continuous integration and automation:
   - `autoupdate.yml` - Automatically updating dependencies or content
   - `close-stale-pr.yml` - Automatically closing stale pull requests
   - `qodana-code-quality-check.yml` - Running Qodana code quality checks
-  - `validate-events-data.yml` - Validating events data
   - `validate-user-groups-data.yml` - Validating user groups data
   - `verify-samples.yml` - Verifying code samples
 
@@ -898,7 +897,6 @@ The data files are stored in the `data/` directory at the project root. These fi
    - `release-banner.yml` - Configuration for release announcement banners
 
 2. **Content Files**:
-   - `events.yml` - List of Kotlin community events with details like dates, locations, and speakers
    - `universities.yml` - List of universities teaching Kotlin, with courses and geographical information
    - `user-groups.yml` - List of Kotlin User Groups worldwide with contact information
 
@@ -937,7 +935,7 @@ To add or update data in the website:
 4. **Test your changes** locally to ensure they appear correctly on the website
 5. **Submit a pull request** with your changes
 
-For some data files, there are specific instructions in the README.md file for adding or updating content, such as the process for adding a Kotlin User Group or a community event.
+For some data files, there are specific instructions in the README.md file for adding or updating content, such as the process for adding a Kotlin User Group.
 
 #### Data Files in CI/CD
 
@@ -946,7 +944,6 @@ The data files are an integral part of the CI/CD pipeline:
 1. **Validation Workflows**:
    - GitHub Actions workflows validate data files against their schemas
    - For example, the `validate-user-groups-data.yml` workflow validates the user-groups.yml file
-   - The `validate-events-data.yml` workflow validates the events.yml file
 
 2. **Build Process**:
    - The data files are included in the build process and deployed with the website

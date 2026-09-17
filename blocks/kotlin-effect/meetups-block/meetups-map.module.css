@@ -1,0 +1,8 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.map {
+    width: 100%;
+    height: 468px;
+    border-radius: 32px;
+    overflow: hidden;
+}

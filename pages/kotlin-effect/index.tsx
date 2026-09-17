@@ -7,6 +7,7 @@ import { ReportBlock } from '@/blocks/kotlin-effect/report-block/report-block';
 import { NoteBlock } from '@/blocks/kotlin-effect/note-block/note-block';
 import { OfferBlock } from '@/blocks/kotlin-effect/offer-block/offer-block';
 import { PostcardBlock } from '@/blocks/kotlin-effect/postcard-block/postcard-block';
+import { MeetupsBlock } from '@/blocks/kotlin-effect/meetups-block/meetups-block';
 
 import styles from './index.module.css';
 import cn from 'classnames';
@@ -39,10 +40,9 @@ function Index() {
                     {/*<ReportBlock />*/}
                     {/*<NoteBlock />*/}
                     <PostcardBlock />
+                    <MeetupsBlock />
                 </div>
             </div>
-
-
         </LandingLayout>
     );
 }

@@ -492,7 +492,10 @@ fun test() {
 
 Learn how types, functions, and strings are mapped between Kotlin and C by completing the following tutorials:
 
-* [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
-* [Mapping struct and union types from C](mapping-struct-union-types-from-c.md)
-* [Mapping function pointers from C](mapping-function-pointers-from-c.md)
-* [Mapping strings from C](mapping-strings-from-c.md)
+<p><img src="icon-1.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
+   <img src="icon-2.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
+   <img src="icon-3.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers from C</a><br/>
+   <img src="icon-4.svg" width="20" alt="Fourth step"/> <a href="mapping-strings-from-c.md">Mapping strings from C</a><br/>
+</p>
+
+<a href="mapping-primitive-data-types-from-c.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>

@@ -24,14 +24,8 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
       JDK home directory.
     * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-6. Select the **Kotlin** DSL for Gradle.
+6. Select **Kotlin** for the Gradle DSL.
 7. Select the **Add sample code** checkbox to create a file with a sample `"Hello World!"` application.
-
-   > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
-   > sample code.
-   >
-   {style="tip"}
-
 8. Click **Create**.
 
 You have successfully created a project with Gradle!
@@ -60,8 +54,8 @@ plugins {
     kotlin("jvm") version "%kotlinVersion%" // Kotlin version to use
 }
 
-group = "org.example" // A company name, for example, `org.jetbrains`
-version = "1.0-SNAPSHOT" // Version to assign to the built artifact
+group = "org.example" // A company name, for example, `org.jetbrains.kotlin`
+version = "1.0-SNAPSHOT" // Version to assign to the build artifact
 
 repositories { // Sources of dependencies. See 1️⃣
     mavenCentral() // Maven Central Repository. See 2️⃣
@@ -72,18 +66,23 @@ dependencies { // All the libraries you want to use. See 3️⃣
     testImplementation(kotlin("test")) // The Kotlin test library
 }
 
-tasks.test { // See 4️⃣
-    useJUnitPlatform() // JUnitPlatform for tests. See 5️⃣
+kotlin { // Generated JVM toolchain configuration. See 4️⃣
+    jvmToolchain(25) // The JDK for compiling the project.
+}
+
+tasks.test { // Test task configuration. See 5️⃣ 
+    useJUnitPlatform() // JUnitPlatform for tests. See 6️⃣
 }
 ```
 
 * 1️⃣ Lean more about [sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html).
 * 2️⃣ The [Maven Central Repository](https://central.sonatype.com/). It can also be [Google's Maven repository](https://maven.google.com/) or your company's private repository.
-* 3️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html). 
-* 4️⃣ Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
-* 5️⃣ [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
+* 3️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
+* 4️⃣ Learn more about [Java toolchain support](gradle-configure-project.md#gradle-java-toolchains-support).
+* 5️⃣ Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
+* 6️⃣ [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
 
-As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
+There are a few Kotlin-specific artifacts in the Gradle build file:
 
 1. In the `plugins {}` block, there is the `kotlin("jvm")` artifact. This plugin defines the version of Kotlin to be used in the project.
 
@@ -94,9 +93,9 @@ As you can see, there are a few Kotlin-specific artifacts added to the Gradle bu
 
 1. Open the Gradle window by selecting **View** | **Tool Windows** | **Gradle**:
 
-   ![Main.kt with main fun](jvm-gradle-view-build.png){width=700}
+   ![Main.kt with main fun](jvm-gradle-view-build.png){width=450}
 
-2. Execute the **build** Gradle task in `Tasks\build\`. In the **Build** window, `BUILD SUCCESSFUL` appears.
+2. Execute the **build** Gradle task in `Tasks/build`. In the **Build** window, `BUILD SUCCESSFUL` appears.
    It means that Gradle built the application successfully.
 
 3. In `src/main/kotlin`, open the `Main.kt` file:
@@ -109,7 +108,7 @@ As you can see, there are a few Kotlin-specific artifacts added to the Gradle bu
 
 You can see the result in the **Run** tool window:
 
-![Kotlin run output](jvm-output-gradle.png){width=600}
+![Kotlin run output](jvm-output-gradle.png){width=700}
 
 Congratulations! You have just run your first Kotlin application.
 

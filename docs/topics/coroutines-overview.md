@@ -16,7 +16,7 @@ which includes tools for launching coroutines, handling concurrency, working wit
 If you're new to coroutines in Kotlin, start with the [Coroutine basics](coroutines-basics.md) guide before diving into more complex topics.
 This guide introduces the key concepts of suspending functions, coroutine builders, and structured concurrency through simple examples:
 
-<a href="coroutines-basics.md"><img src="get-started-coroutines.svg" width="700" alt="Get started with coroutines" style="block"/></a>
+<a href="coroutines-basics.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with coroutines</a>
 
 > Check out the [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) for a sample project to see how coroutines are used in practice.
 > 

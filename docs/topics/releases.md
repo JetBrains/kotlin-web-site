@@ -35,8 +35,8 @@ new features before they are released. For more information, see [Participate in
 
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
-* **2.4.20**: Planned for September 2026
 * **2.5.0**: Planned for December 2026
+* **2.5.20**: Planned for March 2027
 
 ## Update to a new Kotlin version
 
@@ -141,7 +141,7 @@ The following table lists all Kotlin releases and their support windows:
         <th>Kotlin release line</th>
         <th>Release date</th>
         <th>End of support</th>
-        <th>Latest bug fix release</th>
+        <th>Latest release</th>
     </tr>
     <tr>
         <td><strong>2.4</strong>
@@ -153,7 +153,7 @@ The following table lists all Kotlin releases and their support windows:
             <p>December 3, 2027</p>
         </td>
         <td>
-            <p>2.4.10</p>
+            <p>2.4.20</p>
         </td>
     </tr>
 </table>
@@ -175,6 +175,16 @@ The following table lists details of previous Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.4.20</strong>
+            <p>Released: <strong>September 7, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A tooling release with new experimental and stable features, performance improvements, bug fixes, and tooling updates.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.20">changelog</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.4.10</strong>

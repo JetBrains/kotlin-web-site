@@ -7,14 +7,6 @@
 >
 {style="note"}
 
-<tldr>
-   <p>This is the third part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
-   <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
-      <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies to a Kotlin Notebook</strong><br/>
-  </p>
-</tldr>
-
 You've already created your first [Kotlin Notebook](kotlin-notebook-overview.md)! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
 
@@ -127,6 +119,12 @@ The resulting chart:
 
 Congratulations on adding and utilizing these libraries in your Kotlin Notebook!
 This is just a glimpse into what you can achieve with Kotlin Notebook and its [supported libraries](data-analysis-libraries.md).
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-notebook-create.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+</list>
 
 ## What's next
 

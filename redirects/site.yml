@@ -24,10 +24,11 @@
   to: /community/user-groups/
 
 - from:
+   - /community/events/
    - /docs/events.html
    - /community/talks.html
    - /community/events.html
-  to: /community/events/
+  to: /community/
 
 - from:
    - /community/kotlin-nights/guidelines.html

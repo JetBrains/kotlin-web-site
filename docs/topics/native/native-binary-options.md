@@ -71,6 +71,17 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td width="80">Status</td>
     </tr>
     <tr>
+        <td><a href="native-improving-compilation-time.md#enable-caches-for-release-binaries"><code>enableReleaseBinaryCache</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Enables the compiler to use caches in release mode, making builds faster at the expense of some compiler optimizations.</td>
+        <td>Experimental since 2.4.20</td>
+    </tr>
+    <tr>
         <td><a href="native-objc-interop.md#explicit-parameter-names-in-objective-c-block-types"><code>objcExportBlockExplicitParameterNames</code></a></td>
         <td>
             <list>

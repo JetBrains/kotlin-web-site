@@ -31,8 +31,8 @@ Tier tables have the following columns:
 | Gradle target name      | Target triple                 | Running tests | Description                                                   |
 |-------------------------|-------------------------------|---------------|---------------------------------------------------------------|
 | Apple macOS hosts only: |                               |               |                                                               |
-| `macosArm64`            | `aarch64-apple-macos`         | ✅             | Apple macOS 12.0 and later on Apple Silicon platforms         |
-| `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator 15.0 and later on Apple Silicon platforms |
+| `macosArm64`            | `aarch64-apple-macos`         | ✅            | Apple macOS 12.0 and later on Apple Silicon platforms         |
+| `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅            | Apple iOS simulator 15.0 and later on Apple Silicon platforms |
 | `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS 15.0 and later on ARM64 platforms        |
 
 ### Tier 2
@@ -42,13 +42,12 @@ Tier tables have the following columns:
 
 | Gradle target name      | Target triple                     | Running tests | Description                                                      |
 |-------------------------|-----------------------------------|---------------|------------------------------------------------------------------|
-| `linuxX64`              | `x86_64-unknown-linux-gnu`        | ✅             | Linux on x86_64 platforms                                        |
+| `linuxX64`              | `x86_64-unknown-linux-gnu`        | ✅            | Linux on x86_64 platforms                                        |
 | `linuxArm64`            | `aarch64-unknown-linux-gnu`       |               | Linux on ARM64 platforms                                         |
 | Apple macOS hosts only: |                                   |               |                                                                  |
-| `watchosSimulatorArm64` | `aarch64-apple-watchos-simulator` | ✅             | Apple watchOS simulator 8.0 and later on Apple Silicon platforms |
-| `watchosArm32`          | `armv7k-apple-watchos`            |               | Apple watchOS 8.0 and later on ARM32 platforms                   |
+| `watchosSimulatorArm64` | `aarch64-apple-watchos-simulator` | ✅            | Apple watchOS simulator 8.0 and later on Apple Silicon platforms |
 | `watchosArm64`          | `arm64_32-apple-watchos`          |               | Apple watchOS 8.0 and later on ARM64 platforms with ILP32        |
-| `tvosSimulatorArm64`    | `aarch64-apple-tvos-simulator`    | ✅             | Apple tvOS simulator 15.0 and later on Apple Silicon platforms   |
+| `tvosSimulatorArm64`    | `aarch64-apple-tvos-simulator`    | ✅            | Apple tvOS simulator 15.0 and later on Apple Silicon platforms   |
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS 15.0 and later on ARM64 platforms                     |
 
 ### Tier 3
@@ -68,22 +67,22 @@ Tier tables have the following columns:
 | `androidNativeArm64`    | `aarch64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms                      |
 | `androidNativeX86`      | `i686-unknown-linux-android`     |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms                        |
 | `androidNativeX64`      | `x86_64-unknown-linux-android`   |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
-| `mingwX64`              | `x86_64-pc-windows-gnu`          | ✅             | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
+| `mingwX64`              | `x86_64-pc-windows-gnu`          | ✅            | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
 | Apple macOS hosts only: |                                  |               |                                                                                          |
 | `watchosDeviceArm64`    | `aarch64-apple-watchos`          |               | Apple watchOS 8.0 and later on ARM64 platforms                                           |
-| `iosX64`                | `x86_64-apple-ios-simulator`     | ✅             | Apple iOS simulator 15.0 and later on x86-64 platforms                                   |
-
-> The `linuxArm32Hfp` target is deprecated and will be removed in future releases.
-> 
-{style="note"}
+| `iosX64`                | `x86_64-apple-ios-simulator`     |               | Apple iOS simulator 15.0 and later on x86-64 platforms                                   |
 
 ### Deprecated targets
 
-Starting with Kotlin 2.3.20, the following targets are deprecated:
+The following targets are deprecated and scheduled for removal:
 
-* `macosX64` (Apple macOS on x86_64 platforms)
-* `watchosX64` (Apple watchOS 64-bit simulator on x86_64 platforms)
-* `tvosX64` (Apple tvOS simulator on x86_64 platforms)
+| Target          | Deprecation start | Description                                        |
+|-----------------|-------------------|----------------------------------------------------|
+| `watchosArm32`  | Kotlin 2.4.20     | Apple watchOS devices on ARM32 platforms           |
+| `macosX64`      | Kotlin 2.3.20     | Apple macOS on x86_64 platforms                    |
+| `watchosX64`    | Kotlin 2.3.20     | Apple watchOS 64-bit simulator on x86_64 platforms | 
+| `tvosX64`       | Kotlin 2.3.20     | Apple tvOS simulator on x86_64 platforms           | 
+| `linuxArm32Hfp` | Kotlin 1.8.20     | Linux on ARM32 platforms                           |
 
 ### Supporting lower Apple target versions
 

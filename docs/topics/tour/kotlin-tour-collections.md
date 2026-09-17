@@ -500,7 +500,7 @@ fun main() {
 fun main() {
     val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
     val n = 2
-    println("$n is spelt as '${number2word[n]}'")
+    println("$n is spelled as '${number2word[n]}'")
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
