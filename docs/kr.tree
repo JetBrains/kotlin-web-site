@@ -359,7 +359,7 @@
             <toc-element toc-title="Compiler options" topic="compose-compiler-options.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
-            <toc-element accepts-web-file-names="ksp-why-ksp.html" toc-title="KSP overview" topic="ksp-overview.md"/>
+            <toc-element accepts-web-file-names="ksp-why-ksp.html, ksp-faq.html" toc-title="KSP overview" topic="ksp-overview.md"/>
             <toc-element toc-title="Getting started" topic="ksp-quickstart.md"/>
             <toc-element topic="ksp-kapt-migration.md"/>
             <toc-element toc-title="Examples" topic="ksp-examples.md"/>
@@ -369,7 +369,6 @@
             <toc-element topic="ksp-multi-round.md"/>
             <toc-element topic="ksp-multiplatform.md"/>
             <toc-element toc-title="KSP from the command line" topic="ksp-command-line.md"/>
-            <toc-element toc-title="FAQ" topic="ksp-faq.md"/>
         </toc-element>
     </toc-element>
     <toc-element toc-title="Kotlin evolution and roadmap">
