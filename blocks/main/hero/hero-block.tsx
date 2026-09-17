@@ -54,7 +54,7 @@ export const HeroBlock: FC<Props> = ({}) => {
                         <p className={darkTextCn('rs-text-2')}>Backend</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </Link>
-                    <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
+                    <a className={styles.navItem} href={'/docs/kotlin-with-ai.html'}>
                         <img src={AIIcon.src} className={styles.navIcon} alt={`AI icon`} />
                         <p className={darkTextCn('rs-text-2')}>AI</p>
                         <ArrowRightIcon className={styles.navArrow} />

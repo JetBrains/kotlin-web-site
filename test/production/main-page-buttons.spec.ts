@@ -44,10 +44,10 @@ test.describe('Main page buttons', () => {
     });
 
     test('Hero AI nav link', async ({ page, baseURL }) => {
-        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-ai-apps-development-overview.html"]');
+        const link = page.getByTestId('hero-block-main-page').locator('a[href="/docs/kotlin-with-ai.html"]');
         await expect(link).toBeVisible();
         await link.click();
-        expect(page.url()).toContain(`${baseURL}/docs/kotlin-ai-apps-development-overview.html`);
+        expect(page.url()).toContain(`${baseURL}/docs/kotlin-with-ai.html`);
     });
 
     test('Hero Android nav link', async ({ page, baseURL }) => {
