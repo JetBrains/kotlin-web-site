@@ -36,9 +36,9 @@ object PdfGenerator : BuildType({
         YARN_HOME=""
 
         cleanup() {
-          if [ -n "${'$'}{'$'}YARN_HOME" ] && [ -d "${'$'}{'$'}YARN_HOME" ]; then
-            echo "Removing temporary yarn installation: ${'$'}{'$'}YARN_HOME"
-            rm -rf "${'$'}{'$'}YARN_HOME"
+          if [ -n "${'$'}YARN_HOME" ] && [ -d "${'$'}YARN_HOME" ]; then
+            echo "Removing temporary yarn installation: ${'$'}YARN_HOME"
+            rm -rf "${'$'}YARN_HOME"
           fi
         }
 
