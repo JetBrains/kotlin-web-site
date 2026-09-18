@@ -235,6 +235,7 @@ fun main() {
     // Get the direct subclasses known to the sealed hierarchy
     val subclasses = Status::class.sealedSubclasses
     println(subclasses.mapNotNull { it.simpleName })
+    // [Send, Start, Stop]
 
     val singletonStatus = subclasses.mapNotNull { subclass ->
         // Return null for Send because it is a regular class

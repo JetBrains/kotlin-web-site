@@ -205,7 +205,7 @@ To create a callable reference, use the `::` operator:
 fun isOdd(number: Int) = number % 2 != 0
 
 fun main() {
-val numbers = listOf(1, 2, 3, 4, 5)
+    val numbers = listOf(1, 2, 3, 4, 5)
 
     // Pass a reference to isOdd()
     println(numbers.filter(::isOdd))
@@ -225,7 +225,7 @@ To refer to a top-level or local named function, use `::functionName`:
 fun calculateLength(text: String) = text.length
 
 fun main() {
-val length: (String) -> Int = ::calculateLength
+    val length: (String) -> Int = ::calculateLength
 
     println(length("Kotlin"))
     // 6
@@ -245,8 +245,8 @@ fun parse(value: String) = "String: $value"
 fun parse(value: Int) = "Int: $value"
 
 fun main() {
-val parseString: (String) -> String = ::parse
-val parseInt: (Int) -> String = ::parse
+    val parseString: (String) -> String = ::parse
+    val parseInt: (Int) -> String = ::parse
 
     println(parseString("Kotlin"))
     // String: Kotlin
@@ -328,8 +328,6 @@ fun main() {
 {kotlin-runnable="true"}
 
 Callable references to constructors are typed as one of the [`KFunction<out R>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-function/) subtypes depending on the parameter count.
-However, the compiler resolves and checks the constructor references at compile time and doesn't require the
-[kotlin-reflect](reflection.md) library.
 
 ### Bound and unbound references
 
@@ -342,7 +340,7 @@ A reference to a member can be _bound_ and _unbound_:
 
 ```kotlin
 class User(val name: String) {
-fun hasName(prefix: String) = name.startsWith(prefix)
+    fun hasName(prefix: String) = name.startsWith(prefix)
 }
 
 fun main() {

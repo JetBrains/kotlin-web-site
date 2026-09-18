@@ -105,7 +105,7 @@ The obtained reference is a [`KClass`](https://kotlinlang.org/api/core/kotlin-st
 ### Inspect types
 
 Even though [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) represents a class, it doesn't preserve type arguments.
-For example, `List<Int>` has the same `List::class` representaion as `List<String>`.
+For example, `List<Int>` has the same `List::class` representation as `List<String>`.
 To return a [`KType`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-type/) that includes type arguments and nullability, use the [`typeOf()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/type-of.html) function:
 
 ```kotlin
@@ -142,8 +142,8 @@ import kotlin.reflect.full.cast
 import kotlin.reflect.full.safeCast
 
 fun main() {
-val expectedClass = String::class
-val value: Any = "Kotlin"
+    val expectedClass = String::class
+    val value: Any = "Kotlin"
     
     val text = expectedClass.cast(value)
     println(text)
@@ -194,8 +194,8 @@ import kotlin.reflect.full.memberProperties
 data class User(val name: String, val age: Int)
 
 fun readProperty(instance: Any, propertyName: String): Any? {
-// Inspect the runtime class
-val runtimeClass = instance::class
+    // Inspect the runtime class
+    val runtimeClass = instance::class
 
     // Find the property declaration
     val property = runtimeClass.memberProperties
