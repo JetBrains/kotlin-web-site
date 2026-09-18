@@ -20,7 +20,7 @@ Similarly, for Maven, add a Maven build step and specify the **Step name** and *
 ## IntelliJ IDEA build system
 
 If you build your project using IntelliJ IDEA project files, the Kotlin version in TeamCity must match the version configured in your IDE project. 
-You can automate downloading and configuring the Kotlin compiler by using a TeamCity recipe or meta-runner. Recipes are the evolution of meta-runners: 
+You can automate downloading and configuring the Kotlin compiler by using a TeamCity recipe. Recipes are the evolution of meta-runners: 
 they serve the same purpose but offer additional benefits like YAML support and easy sharing on [JetBrains Marketplace](https://plugins.jetbrains.com/teamcity_recipe).
 
 1. Download and import the recipe.
