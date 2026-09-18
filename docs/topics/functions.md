@@ -418,14 +418,17 @@ fun getDisplayNameOrDefault(userId: String?): String =
 
 ### Unit-returning functions
 
-If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
-the compiler assumes its return type  is `Unit`.
-`Unit` is a type that has only one value, also called `Unit`.
+If a function has a block body, doesn't produce a meaningful value, and has no explicit return type, the compiler infers
+its return type as `Unit`.
 
-You don't have to specify `Unit` as a return type, except for functional type parameters.
-You never have to return `Unit` explicitly.
+`Unit` is a type that has only one value, also called `Unit`. Unlike `void` in other programming languages, `Unit` is
+an actual type, and you can use its value if your code requires one. This gives functions that produce results and functions
+that only perform actions the same type model: both return a value and can be represented by function types or used with
+generic APIs.
 
-For example, you can declare a `printHello()` function without returning `Unit`:
+You don't need to specify `Unit` in function declarations or return its value explicitly. However, you must specify
+`Unit` when it is part of a function type, such as `() -> Unit`. For example, let's declare a `printHello()` function
+without returning `Unit`:
 
 ```kotlin
 // The declaration of the functional type parameter ('action') still 
@@ -442,19 +445,20 @@ fun printHello(name: String?, action: () -> Unit) {
 fun main() {
     printHello("Kodee") {
         println("This runs after the greeting.")
+        // Hello Kodee
+        // This runs after the greeting.
     }
-    // Hello Kodee
-    // This runs after the greeting.
 
     printHello(null) {
         println("No name provided, but action still runs.")
+        // Hi there!
+        // No name provided, but action still runs.
     }
-    // No name provided, but action still runs
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
 
-Which is equivalent to this verbose declaration:
+This is equivalent to the following more verbose declaration, which specifies the return type and value explicitly:
 
 ```kotlin
 //sampleStart
@@ -471,14 +475,14 @@ fun printHello(name: String?, action: () -> Unit): Unit {
 fun main() {
     printHello("Kodee") {
         println("This runs after the greeting.")
+        // Hello Kodee
+        // This runs after the greeting.
     }
-    // Hello Kodee
-    // This runs after the greeting.
-
     printHello(null) {
         println("No name provided, but action still runs.")
+        // Hi there!
+        // No name provided, but action still runs.
     }
-    // No name provided, but action still runs
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
