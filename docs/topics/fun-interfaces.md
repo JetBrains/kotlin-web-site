@@ -64,9 +64,50 @@ fun main() {
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
+### Pass callable references to SAM parameters
+
+If the required behavior already exists as a named function, you can pass a [callable reference](lambdas.md#callable-reference).
+Kotlin adapts a compatible callable reference to the expected functional interface:
+
+```kotlin
+fun interface Action {
+    fun run()
+}
+
+fun execute(action: Action) {
+    action.run()
+}
+
+fun start() {
+    println("Run from a callable reference")
+}
+
+fun main() {
+    // Kotlin converts the lambda to an Action instance
+    execute { start() }
+    // Run from a callable reference
+
+    // Kotlin adapts the reference to an Action instance
+    execute(::start)
+    // Run from a callable reference
+}
+```
+{kotlin-runnable="true"}
+
+The lambda in `execute { start ()}` and the callable reference in `execute(::start)` produce compatible `Action` instances,
+but they begin as different expressions. The first is a function literal and uses SAM conversion.
+The second refers to an existing declaration and uses SAM adaptation.
+
+SAM adaptation happens at compile time and doesn't perform runtime [reflection](reflection.md) or require the `kotlin-reflect` library.
+The compiler checks that the referenced function is compatible with the interface's single abstract method.
+
+Don't confuse a callable reference adapted to a SAM parameter with a callable reference to a functional interface constructor.
+In `execute(::start)`, `::start` supplies the implementation of `Action.run()`. A reference, such as `::Action`, refers
+to the implicit constructor that creates an `Action` from compatible behavior.
+
 ## Migration from an interface with constructor function to a functional interface
 
-Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callable-references) to functional interface constructors, which
+Starting from 1.6.20, Kotlin supports callable references to functional interface constructors, which
 adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider the following code:
 

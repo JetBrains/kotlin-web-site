@@ -202,7 +202,7 @@ If your project consists of lots of small modules and has a build parallelized b
 >
 {style="warning"}
 
-Support for [callable references](reflection.md#callable-references) to functional interface constructors adds a source-compatible way to migrate from an interface with a constructor function to a [functional interface](fun-interfaces.md).
+Support for [callable references](fun-interfaces.md#migration-from-an-interface-with-constructor-function-to-a-functional-interface) to functional interface constructors adds a source-compatible way to migrate from an interface with a constructor function to a [functional interface](fun-interfaces.md).
 
 Consider the following code:
 
