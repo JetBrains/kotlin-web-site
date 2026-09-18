@@ -24,7 +24,6 @@ Welcome to the Kotlin API References page. Here you'll find links to the API doc
     <panel>
         <title>Coroutines (kotlinx.coroutines)</title>
         <p>A powerful library for asynchronous programming using Kotlin coroutines. It offers tools to support structured concurrency, asynchronous streams, synchronization primitives like mutexes and semaphores, testing, and more.</p>
-        <p></p>
         <p><img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.coroutines">View on GitHub</a></p>
         <a href="https://kotlinlang.org/api/kotlinx.coroutines/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
     </panel>
@@ -43,7 +42,6 @@ Welcome to the Kotlin API References page. Here you'll find links to the API doc
     <panel>
         <title>Date and time (kotlinx-datetime)</title>
         <p>A multiplatform library for calendar-based computations. It provides representations of date values and supports timezone-specific operations.</p>
-        <p></p>
         <p><img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-datetime">View on GitHub</a></p>
         <a href="https://kotlinlang.org/api/kotlinx-datetime/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
     </panel>
@@ -57,6 +55,7 @@ Welcome to the Kotlin API References page. Here you'll find links to the API doc
         <title>Kotlin Gradle plugins (kotlin-gradle-plugin)</title>
         <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
         <p></p>
+        <p></p>
         <p><img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin">View on GitHub</a></p>
         <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
     </panel>
@@ -69,7 +68,6 @@ Welcome to the Kotlin API References page. Here you'll find links to the API doc
     <panel>
         <title>JVM Metadata (kotlin-metadata-jvm)</title>
         <p>A library for reading and writing Kotlin metadata stored in JVM class files. It is primarily used by tools such as annotation processors, static analyzers, and compiler plugins.</p>
-        <p></p>
         <p><img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata">View on GitHub</a></p>
         <a href="https://kotlinlang.org/api/kotlinx-metadata-jvm/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
     </panel>
