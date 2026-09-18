@@ -211,7 +211,7 @@ fun readProperty(instance: Any, propertyName: String): Any? {
 }
 
 fun main() {
-val user = User("Jane Doe", 22)
+    val user = User("Jane Doe", 22)
 
     println(readProperty(user, "name"))
     // Jane Doe
