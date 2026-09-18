@@ -1,0 +1,50 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    margin-top: 48px;
+}
+
+.month:not(:last-child) {
+    margin-bottom: 48px;
+}
+
+.monthTitle {
+    margin: 0 0 24px;
+}
+
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    column-count: 3;
+    column-gap: 32px;
+
+    @media (--ktl-ts) {
+        column-count: 2;
+    }
+
+    @media (--ktl-ms) {
+        column-count: 1;
+    }
+}
+
+.item {
+    break-inside: avoid;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    margin-bottom: 20px;
+}
+
+.date {
+    grid-row: span 2;
+}
+
+.name {
+    align-self: center;
+    justify-self: start;
+}
+
+.place {
+    grid-column: 2;
+    margin-top: 2px;
+}

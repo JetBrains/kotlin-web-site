@@ -2,11 +2,6 @@
 
 <web-summary>Add a Kotlin data class to Spring Boot project.</web-summary>
 
-<tldr>
-    <p>This is the second part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Add a data class to the Spring Boot project</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
-</tldr>
-
 In this part of the tutorial, you'll add some more functionality to the application and discover more Kotlin language features, such as data classes.
 It requires changing the `MessageController` class to respond with a JSON document containing a collection of serialized objects.
 
@@ -76,13 +71,13 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
     <deflist collapsible="true">
        <def title="Collections – listOf()">
-          <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
+          <p>The Kotlin standard library provides implementations for basic collection types: sets, lists, and maps.<br/>
           Each collection type can be <i>read-only</i> or <i>mutable</i>:</p>
           <list>
               <li>A <i>read-only</i> collection comes with operations for accessing collection elements.</li>
               <li>A <i>mutable</i> collection comes also with write operations for adding, removing, and updating its elements.</li>
           </list>
-          <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
+          <p>The corresponding factory functions are also provided by the Kotlin standard library to create instances of such collections.
           </p>
           <p>In this tutorial, you use the <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
           This is the factory function to create a <i>read-only</i> list of objects: you can't add or remove elements from the list.<br/>
@@ -175,4 +170,11 @@ The Spring application is ready to run:
 
 In the next part of the tutorial, you'll add and configure a database to your project and make HTTP requests.
 
-**[Proceed to the next chapter](jvm-spring-boot-add-db-support.md)**
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="jvm-create-project-with-spring-boot.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="jvm-spring-boot-add-db-support.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

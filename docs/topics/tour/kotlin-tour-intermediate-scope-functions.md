@@ -322,7 +322,7 @@ Now the example:
 * Passes a lambda expression to the `also` scope function that calls the `println()` function using the `medals` variable as a function parameter via the `it` keyword.
 
 Since the `also` function returns the object, it is useful for not only logging but debugging, chaining
-multiple operations, and performing other side-effect operations that don't affect the main flow of your code.
+multiple operations, and performing other side effect operations that don't affect the main flow of your code.
 
 ### With
 

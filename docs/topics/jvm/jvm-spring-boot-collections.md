@@ -8,8 +8,8 @@
 In this part, you will learn how to perform various operations on collections in Kotlin.
 While in many cases SQL can help with data operations such as filtering and sorting, in real-life applications, we often have to work with collections to manipulate data.
 
-Below you will find some useful receipts for working with collections based on the data objects that is already present in our demo application.
-In all the examples we assume to start with retrieving all the messages stored in the database by calling `service.findMessages()` function, and then perform various operations to filter, sort, group, or transform the list of messages.
+Below you will find some useful receipts for working with collections based on the data objects that are already present in our demo application.
+In all the examples, we assume to start with retrieving all the messages stored in the database by calling `service.findMessages()` function, and then perform various operations to filter, sort, group, or transform the list of messages.
 
 ## Retrieving elements
 

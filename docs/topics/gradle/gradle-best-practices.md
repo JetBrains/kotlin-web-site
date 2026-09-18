@@ -97,9 +97,7 @@ If you're using a library that relies on the [kapt](kapt.md) compiler plugin, ch
 instead. The KSP API improves build performance by reducing annotation processing time. KSP is faster and more efficient
 than kapt, as it processes source code directly without generating intermediary Java stubs.
 
-For guidance on the migration steps, see Google's [migration guide](https://developer.android.com/build/migrate-to-ksp).
-
-To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
+For guidance on the migration steps, see the [migration guide](ksp-kapt-migration.md).
 
 ### Use modularization
 

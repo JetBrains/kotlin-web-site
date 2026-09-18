@@ -1,6 +1,6 @@
 [//]: # (title: Collections overview)
 
-The Kotlin Standard Library provides a comprehensive set of tools for managing _collections_ – groups of a variable number 
+The Kotlin standard library provides a comprehensive set of tools for managing _collections_ – groups of a variable number 
 of items (possibly zero) that are significant to the problem being solved and are commonly operated on.
 
 Collections are a common concept for most programming languages, so if you're familiar with, for example, Java or Python 
@@ -24,7 +24,7 @@ set: they are unique, and their order is not important.
 
 Kotlin lets you manipulate collections independently of the exact type of objects stored in them. In other words, you add 
 a `String` to a list of `String`s the same way as you would do with `Int`s or a user-defined class.
-So, the Kotlin Standard Library offers generic interfaces, classes, and functions for creating, populating, and managing 
+So, the Kotlin standard library offers generic interfaces, classes, and functions for creating, populating, and managing 
 collections of any type.
 
 The collection interfaces and related functions are located in the `kotlin.collections` package. Let's get an overview 
@@ -36,7 +36,7 @@ of its contents.
 
 ## Collection types
 
-The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.
+The Kotlin standard library provides implementations for basic collection types: sets, lists, and maps.
 A pair of interfaces represent each collection type: 
 
 * A _read-only_ interface that provides operations for accessing collection elements.
@@ -63,7 +63,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 The read-only collection types are [covariant](generics.md#variance).
-This means that, if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
+This means that if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
 is required.
 In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on 
 the value type, but not on the key type.

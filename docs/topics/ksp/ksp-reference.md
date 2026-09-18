@@ -2,62 +2,62 @@
 
 ## Program elements
 
-| **Java** | **Closest facility in KSP** | **Notes** |
-| -------- | --------------------------- | --------- |
-| `AnnotationMirror` | `KSAnnotation` | |
-| `AnnotationValue` | `KSValueArguments` | |
-| `Element` | `KSDeclaration` / `KSDeclarationContainer` | |
-| `ExecutableElement` | `KSFunctionDeclaration` | |
-| `PackageElement` | `KSFile` | KSP doesn't model packages as program elements |
-| `Parameterizable` | `KSDeclaration` | |
-| `QualifiedNameable` | `KSDeclaration` | |
-| `TypeElement` | `KSClassDeclaration` | |
-| `TypeParameterElement` | `KSTypeParameter` | |
-| `VariableElement` | `KSValueParameter` / `KSPropertyDeclaration` | |
+| **Java**               | **Closest facility in KSP**                  | **Notes**                                      |
+|------------------------|----------------------------------------------|------------------------------------------------|
+| `AnnotationMirror`     | `KSAnnotation`                               |                                                |
+| `AnnotationValue`      | `KSValueArguments`                           |                                                |
+| `Element`              | `KSDeclaration` / `KSDeclarationContainer`   |                                                |
+| `ExecutableElement`    | `KSFunctionDeclaration`                      |                                                |
+| `PackageElement`       | `KSFile`                                     | KSP doesn't model packages as program elements |
+| `Parameterizable`      | `KSDeclaration`                              |                                                |
+| `QualifiedNameable`    | `KSDeclaration`                              |                                                |
+| `TypeElement`          | `KSClassDeclaration`                         |                                                |
+| `TypeParameterElement` | `KSTypeParameter`                            |                                                |
+| `VariableElement`      | `KSValueParameter` / `KSPropertyDeclaration` |                                                |
 
 ## Types
 
 KSP requires explicit type resolution, so some functionalities in Java can only be carried out by `KSType` and
 the corresponding elements before resolution.
 
-| **Java** | **Closest facility in KSP** | **Notes** |
-| -------- | --------------------------- | --------- |
-| `ArrayType` | `KSBuiltIns.arrayType` | |
-| `DeclaredType` | `KSType` / `KSClassifierReference` | |
-| `ErrorType` | `KSType.isError` | |
-| `ExecutableType` | `KSType` / `KSCallableReference` | |
-| `IntersectionType` | `KSType` / `KSTypeParameter` | |
-| `NoType` | `KSType.isError` | N/A in KSP |
-| `NullType` | | N/A in KSP |
-| `PrimitiveType` | `KSBuiltIns` | Not exactly same as primitive type in Java |
-| `ReferenceType` | `KSTypeReference` | |
-| `TypeMirror` | `KSType` | |
-| `TypeVariable` | `KSTypeParameter` | |
-| `UnionType` | N/A | Kotlin has only one type per catch block. `UnionType` is also not observable by even Java annotation processors |
-| `WildcardType` | `KSType` / `KSTypeArgument` | |
+| **Java**           | **Closest facility in KSP**        | **Notes**                                                                                                       |
+|--------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `ArrayType`        | `KSBuiltIns.arrayType`             |                                                                                                                 |
+| `DeclaredType`     | `KSType` / `KSClassifierReference` |                                                                                                                 |
+| `ErrorType`        | `KSType.isError`                   |                                                                                                                 |
+| `ExecutableType`   | `KSType` / `KSCallableReference`   |                                                                                                                 |
+| `IntersectionType` | `KSType` / `KSTypeParameter`       |                                                                                                                 |
+| `NoType`           | `KSType.isError`                   | N/A in KSP                                                                                                      |
+| `NullType`         |                                    | N/A in KSP                                                                                                      |
+| `PrimitiveType`    | `KSBuiltIns`                       | Not exactly same as primitive type in Java                                                                      |
+| `ReferenceType`    | `KSTypeReference`                  |                                                                                                                 |
+| `TypeMirror`       | `KSType`                           |                                                                                                                 |
+| `TypeVariable`     | `KSTypeParameter`                  |                                                                                                                 |
+| `UnionType`        | N/A                                | Kotlin has only one type per catch block. `UnionType` is also not observable by even Java annotation processors |
+| `WildcardType`     | `KSType` / `KSTypeArgument`        |                                                                                                                 |
 
 ## Misc
 
-| **Java** | **Closest facility in KSP** | **Notes** |
-| -------- | --------------------------- | --------- |
-| `Name` | `KSName` | |
-| `ElementKind` | `ClassKind` / `FunctionKind` | |
-| `Modifier` | `Modifier` | |
-| `NestingKind` | `ClassKind` / `FunctionKind` | |
-| `AnnotationValueVisitor` |  | |
-| `ElementVisitor` | `KSVisitor` | |
-| `AnnotatedConstruct` | `KSAnnotated` | |
-| `TypeVisitor` |  | |
-| `TypeKind` | `KSBuiltIns` | Some can be found in builtins, otherwise check `KSClassDeclaration` for `DeclaredType` |
-| `ElementFilter` | `Collection.filterIsInstance` | |
-| `ElementKindVisitor` | `KSVisitor` | |
-| `ElementScanner` | `KSTopDownVisitor` | |
-| `SimpleAnnotationValueVisitor` |  | Not needed in KSP |
-| `SimpleElementVisitor` | `KSVisitor` | |
-| `SimpleTypeVisitor` |  | |
-| `TypeKindVisitor` |  | |
-| `Types` | `Resolver` / `utils` | Some of the `utils` are also integrated into symbol interfaces |
-| `Elements` | `Resolver` / `utils` | |
+| **Java**                       | **Closest facility in KSP**   | **Notes**                                                                              |
+|--------------------------------|-------------------------------|----------------------------------------------------------------------------------------|
+| `Name`                         | `KSName`                      |                                                                                        |
+| `ElementKind`                  | `ClassKind` / `FunctionKind`  |                                                                                        |
+| `Modifier`                     | `Modifier`                    |                                                                                        |
+| `NestingKind`                  | `ClassKind` / `FunctionKind`  |                                                                                        |
+| `AnnotationValueVisitor`       |                               |                                                                                        |
+| `ElementVisitor`               | `KSVisitor`                   |                                                                                        |
+| `AnnotatedConstruct`           | `KSAnnotated`                 |                                                                                        |
+| `TypeVisitor`                  |                               |                                                                                        |
+| `TypeKind`                     | `KSBuiltIns`                  | Some can be found in builtins, otherwise check `KSClassDeclaration` for `DeclaredType` |
+| `ElementFilter`                | `Collection.filterIsInstance` |                                                                                        |
+| `ElementKindVisitor`           | `KSVisitor`                   |                                                                                        |
+| `ElementScanner`               | `KSTopDownVisitor`            |                                                                                        |
+| `SimpleAnnotationValueVisitor` |                               | Not needed in KSP                                                                      |
+| `SimpleElementVisitor`         | `KSVisitor`                   |                                                                                        |
+| `SimpleTypeVisitor`            |                               |                                                                                        |
+| `TypeKindVisitor`              |                               |                                                                                        |
+| `Types`                        | `Resolver` / `utils`          | Some of the `utils` are also integrated into symbol interfaces                         |
+| `Elements`                     | `Resolver` / `utils`          |                                                                                        |
 
 ## Details
 
@@ -65,54 +65,54 @@ See how functionalities of Java annotation processing API can be carried out by 
 
 ### AnnotationMirror
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**            | **KSP equivalent**            |
+|---------------------|-------------------------------|
 | `getAnnotationType` | `ksAnnotation.annotationType` |
-| `getElementValues` | `ksAnnotation.arguments` |
+| `getElementValues`  | `ksAnnotation.arguments`      |
 
 ### AnnotationValue
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**   | **KSP equivalent**      |
+|------------|-------------------------|
 | `getValue` | `ksValueArgument.value` |
 
 ### Element
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `asType` | `ksClassDeclaration.asType(...)` is available for `KSClassDeclaration` only. Type arguments need to be supplied. |
-| `getAnnotation` | To be implemented |
-| `getAnnotationMirrors` | `ksDeclaration.annotations` |
-| `getEnclosedElements` | `ksDeclarationContainer.declarations` |
-| `getEnclosingElements` | `ksDeclaration.parentDeclaration` |
-| `getKind` | Type check and cast following `ClassKind` or `FunctionKind` |
-| `getModifiers` | `ksDeclaration.modifiers` |
-| `getSimpleName` | `ksDeclaration.simpleName` |
+| **Java**               | **KSP equivalent**                                                                                               |
+|------------------------|------------------------------------------------------------------------------------------------------------------|
+| `asType`               | `ksClassDeclaration.asType(...)` is available for `KSClassDeclaration` only. Type arguments need to be supplied. |
+| `getAnnotation`        | To be implemented                                                                                                |
+| `getAnnotationMirrors` | `ksDeclaration.annotations`                                                                                      |
+| `getEnclosedElements`  | `ksDeclarationContainer.declarations`                                                                            |
+| `getEnclosingElements` | `ksDeclaration.parentDeclaration`                                                                                |
+| `getKind`              | Type check and cast following `ClassKind` or `FunctionKind`                                                      |
+| `getModifiers`         | `ksDeclaration.modifiers`                                                                                        |
+| `getSimpleName`        | `ksDeclaration.simpleName`                                                                                       |
 
 ### ExecutableElement
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `getDefaultValue` | To be implemented |
-| `getParameters` | `ksFunctionDeclaration.parameters` |
-| `getReceiverType` | `ksFunctionDeclaration.parentDeclaration` |
-| `getReturnType` | `ksFunctionDeclaration.returnType` |
-| `getSimpleName` | `ksFunctionDeclaration.simpleName` |
-| `getThrownTypes` | Not needed in Kotlin |
-| `getTypeParameters` | `ksFunctionDeclaration.typeParameters` |
-| `isDefault` | Check whether parent declaration is an interface or not |
-| `isVarArgs` | `ksFunctionDeclaration.parameters.any { it.isVarArg }` |
+| **Java**            | **KSP equivalent**                                      |
+|---------------------|---------------------------------------------------------|
+| `getDefaultValue`   | To be implemented                                       |
+| `getParameters`     | `ksFunctionDeclaration.parameters`                      |
+| `getReceiverType`   | `ksFunctionDeclaration.parentDeclaration`               |
+| `getReturnType`     | `ksFunctionDeclaration.returnType`                      |
+| `getSimpleName`     | `ksFunctionDeclaration.simpleName`                      |
+| `getThrownTypes`    | Not needed in Kotlin                                    |
+| `getTypeParameters` | `ksFunctionDeclaration.typeParameters`                  |
+| `isDefault`         | Check whether parent declaration is an interface or not |
+| `isVarArgs`         | `ksFunctionDeclaration.parameters.any { it.isVarArg }`  |
 
 ### Parameterizable
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**            | **KSP equivalent**                     |
+|---------------------|----------------------------------------|
 | `getTypeParameters` | `ksFunctionDeclaration.typeParameters` |
 
 ### QualifiedNameable
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**           | **KSP equivalent**            |
+|--------------------|-------------------------------|
 | `getQualifiedName` | `ksDeclaration.qualifiedName` |
 
 ### TypeElement
@@ -176,33 +176,33 @@ ksClassDeclaration.superTypes
 
 ### TypeParameterElement
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `getBounds` | `ksTypeParameter.bounds` |
+| **Java**              | **KSP equivalent**                  |
+|-----------------------|-------------------------------------|
+| `getBounds`           | `ksTypeParameter.bounds`            |
 | `getEnclosingElement` | `ksTypeParameter.parentDeclaration` |
-| `getGenericElement` | `ksTypeParameter.parentDeclaration` |
+| `getGenericElement`   | `ksTypeParameter.parentDeclaration` |
 
 ### VariableElement
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `getConstantValue` | To be implemented |
+| **Java**              | **KSP equivalent**                   |
+|-----------------------|--------------------------------------|
+| `getConstantValue`    | To be implemented                    |
 | `getEnclosingElement` | `ksValueParameter.parentDeclaration` |
-| `getSimpleName` | `ksValueParameter.simpleName` |
+| `getSimpleName`       | `ksValueParameter.simpleName`        |
 
 ### ArrayType
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**           | **KSP equivalent**         |
+|--------------------|----------------------------|
 | `getComponentType` | `ksType.arguments.first()` |
 
 ### DeclaredType
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `asElement` | `ksType.declaration` |
+| **Java**           | **KSP equivalent**                     |
+|--------------------|----------------------------------------|
+| `asElement`        | `ksType.declaration`                   |
 | `getEnclosingType` | `ksType.declaration.parentDeclaration` |
-| `getTypeArguments` | `ksType.arguments` |
+| `getTypeArguments` | `ksType.arguments`                     |
 
 ### ExecutableType
 
@@ -210,33 +210,33 @@ ksClassDeclaration.superTypes
 >
 {style="note"}
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**            | **KSP equivalent**                                                                      |
+|---------------------|-----------------------------------------------------------------------------------------|
 | `getParameterTypes` | `ksType.declaration.typeParameters`, `ksFunctionDeclaration.parameters.map { it.type }` |
-| `getReceiverType` | `ksFunctionDeclaration.parentDeclaration.asType(...)` |
-| `getReturnType` | `ksType.declaration.typeParameters.last()` |
-| `getThrownTypes` | Not needed in Kotlin |
-| `getTypeVariables` | `ksFunctionDeclaration.typeParameters` |
+| `getReceiverType`   | `ksFunctionDeclaration.parentDeclaration.asType(...)`                                   |
+| `getReturnType`     | `ksType.declaration.typeParameters.last()`                                              |
+| `getThrownTypes`    | Not needed in Kotlin                                                                    |
+| `getTypeVariables`  | `ksFunctionDeclaration.typeParameters`                                                  |
 
 ### IntersectionType
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**    | **KSP equivalent**       |
+|-------------|--------------------------|
 | `getBounds` | `ksTypeParameter.bounds` |
 
 ### TypeMirror
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
+| **Java**  | **KSP equivalent**                                                                            |
+|-----------|-----------------------------------------------------------------------------------------------|
 | `getKind` | Compare with types in `KSBuiltIns` for primitive types, `Unit` type, otherwise declared types |
 
 ### TypeVariable
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `asElement` | `ksType.declaration` |
+| **Java**        | **KSP equivalent**                                                                       |
+|-----------------|------------------------------------------------------------------------------------------|
+| `asElement`     | `ksType.declaration`                                                                     |
 | `getLowerBound` | To be decided. Only needed if capture is provided and explicit bound checking is needed. |
-| `getUpperBound` | `ksTypeParameter.bounds` |
+| `getUpperBound` | `ksTypeParameter.bounds`                                                                 |
 
 ### WildcardType
 
@@ -343,23 +343,23 @@ KsDeclaration.annotations.any {
 ### Types
 {id="type-operations"}
 
-| **Java** | **KSP equivalent** |
-| -------- | ------------------ |
-| `asElement` | `ksType.declaration` |
-| `asMemberOf` | `resolver.asMemberOf` |
-| `boxedClass` | Not needed |
-| `capture` | To be decided |
-| `contains` | `KSType.isAssignableFrom` |
-| `directSuperTypes` | `(ksType.declaration as KSClassDeclaration).superTypes` |
-| `erasure` | `ksType.starProjection()` |
-| `getArrayType` | `ksBuiltIns.arrayType.replace(...)` |
-| `getDeclaredType` | `ksClassDeclaration.asType` |
-| `getNoType` | `ksBuiltIns.nothingType` / `null` |
-| `getNullType` | Depending on the context, `KSType.markNullable` could be useful |
-| `getPrimitiveType` | Not needed, check for `KSBuiltins` |
-| `getWildcardType` | Use `Variance` in places expecting `KSTypeArgument` |
-| `isAssignable` | `ksType.isAssignableFrom` |
-| `isSameType` | `ksType.equals` |
-| `isSubsignature` | `functionTypeA == functionTypeB` / `functionTypeA == functionTypeB.starProjection()` |
-| `isSubtype` | `ksType.isAssignableFrom` |
-| `unboxedType` | Not needed |
+| **Java**           | **KSP equivalent**                                                                   |
+|--------------------|--------------------------------------------------------------------------------------|
+| `asElement`        | `ksType.declaration`                                                                 |
+| `asMemberOf`       | `resolver.asMemberOf`                                                                |
+| `boxedClass`       | Not needed                                                                           |
+| `capture`          | To be decided                                                                        |
+| `contains`         | `KSType.isAssignableFrom`                                                            |
+| `directSuperTypes` | `(ksType.declaration as KSClassDeclaration).superTypes`                              |
+| `erasure`          | `ksType.starProjection()`                                                            |
+| `getArrayType`     | `ksBuiltIns.arrayType.replace(...)`                                                  |
+| `getDeclaredType`  | `ksClassDeclaration.asType`                                                          |
+| `getNoType`        | `ksBuiltIns.nothingType` / `null`                                                    |
+| `getNullType`      | Depending on the context, `KSType.markNullable` could be useful                      |
+| `getPrimitiveType` | Not needed, check for `KSBuiltins`                                                   |
+| `getWildcardType`  | Use `Variance` in places expecting `KSTypeArgument`                                  |
+| `isAssignable`     | `ksType.isAssignableFrom`                                                            |
+| `isSameType`       | `ksType.equals`                                                                      |
+| `isSubsignature`   | `functionTypeA == functionTypeB` / `functionTypeA == functionTypeB.starProjection()` |
+| `isSubtype`        | `ksType.isAssignableFrom`                                                            |
+| `unboxedType`      | Not needed                                                                           |

@@ -46,7 +46,7 @@ fun calendarDemo() {
 
 `calendar.firstDayOfWeek` above is an example of a synthetic property.
 
-Note that, if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
+Note that if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
 
 ## Java synthetic property references
@@ -137,7 +137,7 @@ since the value itself is known in advance (being `Unit`).
 
 ## Escaping for Java identifiers that are keywords in Kotlin
 
-Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and other.
+Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and others.
 If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character:
 
@@ -184,7 +184,7 @@ val notNull: String = item // allowed, may fail at runtime
 
 If you choose a non-nullable type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-nullable variables from holding
 nulls. Assertions are also emitted when you pass platform values to Kotlin functions expecting non-null values and in other cases.
-Overall, the compiler does its best to prevent nulls from propagating far through the program although sometimes this is
+Overall, the compiler does its best to prevent nulls from propagating far through the program, although sometimes this is
 impossible to eliminate entirely, because of generics.
 
 ### Notation for platform types
@@ -600,30 +600,30 @@ The mapping only matters at compile time, the runtime representation remains unc
 
 Some non-primitive built-in classes are also mapped:
 
-| **Java type** | **Kotlin type**  |
-|---------------|------------------|
-| `java.lang.Object`       | `kotlin.Any!`    |
-| `java.lang.Cloneable`    | `kotlin.Cloneable!`    |
-| `java.lang.Comparable`   | `kotlin.Comparable!`    |
-| `java.lang.Enum`         | `kotlin.Enum!`    |
-| `java.lang.annotation.Annotation`   | `kotlin.Annotation!`    |
-| `java.lang.CharSequence` | `kotlin.CharSequence!`   |
-| `java.lang.String`       | `kotlin.String!`   |
-| `java.lang.Number`       | `kotlin.Number!`     |
-| `java.lang.Throwable`    | `kotlin.Throwable!`    |
+| **Java type**                     | **Kotlin type**        |
+|-----------------------------------|------------------------|
+| `java.lang.Object`                | `kotlin.Any!`          |
+| `java.lang.Cloneable`             | `kotlin.Cloneable!`    |
+| `java.lang.Comparable`            | `kotlin.Comparable!`   |
+| `java.lang.Enum`                  | `kotlin.Enum!`         |
+| `java.lang.annotation.Annotation` | `kotlin.Annotation!`   |
+| `java.lang.CharSequence`          | `kotlin.CharSequence!` |
+| `java.lang.String`                | `kotlin.String!`       |
+| `java.lang.Number`                | `kotlin.Number!`       |
+| `java.lang.Throwable`             | `kotlin.Throwable!`    |
 
 Java's boxed primitive types are mapped to nullable Kotlin types:
 
-| **Java type**           | **Kotlin type**  |
-|-------------------------|------------------|
-| `java.lang.Byte`        | `kotlin.Byte?`   |
-| `java.lang.Short`       | `kotlin.Short?`  |
-| `java.lang.Integer`     | `kotlin.Int?`    |
-| `java.lang.Long`        | `kotlin.Long?`   |
-| `java.lang.Character`   | `kotlin.Char?`   |
-| `java.lang.Float`       | `kotlin.Float?`  |
-| `java.lang.Double`      | `kotlin.Double?`  |
-| `java.lang.Boolean`     | `kotlin.Boolean?` |
+| **Java type**         | **Kotlin type**   |
+|-----------------------|-------------------|
+| `java.lang.Byte`      | `kotlin.Byte?`    |
+| `java.lang.Short`     | `kotlin.Short?`   |
+| `java.lang.Integer`   | `kotlin.Int?`     |
+| `java.lang.Long`      | `kotlin.Long?`    |
+| `java.lang.Character` | `kotlin.Char?`    |
+| `java.lang.Float`     | `kotlin.Float?`   |
+| `java.lang.Double`    | `kotlin.Double?`  |
+| `java.lang.Boolean`   | `kotlin.Boolean?` |
 
 Note that a boxed primitive type used as a type parameter is mapped to a platform type:
 for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
@@ -631,16 +631,16 @@ for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
 Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
 (all Kotlin types in this table reside in the package `kotlin.collections`):
 
-| **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** | **Loaded platform type** |
-|---------------|----------------------------|-------------------------|--------------------------|
-| `Iterator<T>`        | `Iterator<T>`        | `MutableIterator<T>`            | `(Mutable)Iterator<T>!`            |
-| `Iterable<T>`        | `Iterable<T>`        | `MutableIterable<T>`            | `(Mutable)Iterable<T>!`            |
-| `Collection<T>`      | `Collection<T>`      | `MutableCollection<T>`          | `(Mutable)Collection<T>!`          |
-| `Set<T>`             | `Set<T>`             | `MutableSet<T>`                 | `(Mutable)Set<T>!`                 |
-| `List<T>`            | `List<T>`            | `MutableList<T>`                | `(Mutable)List<T>!`                |
-| `ListIterator<T>`    | `ListIterator<T>`    | `MutableListIterator<T>`        | `(Mutable)ListIterator<T>!`        |
-| `Map<K, V>`          | `Map<K, V>`          | `MutableMap<K, V>`              | `(Mutable)Map<K, V>!`              |
-| `Map.Entry<K, V>`    | `Map.Entry<K, V>`    | `MutableMap.MutableEntry<K,V>` | `(Mutable)Map.(Mutable)Entry<K, V>!` |
+| **Java type**     | **Kotlin read-only type** | **Kotlin mutable type**        | **Loaded platform type**             |
+|-------------------|---------------------------|--------------------------------|--------------------------------------|
+| `Iterator<T>`     | `Iterator<T>`             | `MutableIterator<T>`           | `(Mutable)Iterator<T>!`              |
+| `Iterable<T>`     | `Iterable<T>`             | `MutableIterable<T>`           | `(Mutable)Iterable<T>!`              |
+| `Collection<T>`   | `Collection<T>`           | `MutableCollection<T>`         | `(Mutable)Collection<T>!`            |
+| `Set<T>`          | `Set<T>`                  | `MutableSet<T>`                | `(Mutable)Set<T>!`                   |
+| `List<T>`         | `List<T>`                 | `MutableList<T>`               | `(Mutable)List<T>!`                  |
+| `ListIterator<T>` | `ListIterator<T>`         | `MutableListIterator<T>`       | `(Mutable)ListIterator<T>!`          |
+| `Map<K, V>`       | `Map<K, V>`               | `MutableMap<K, V>`             | `(Mutable)Map<K, V>!`                |
+| `Map.Entry<K, V>` | `Map.Entry<K, V>`         | `MutableMap.MutableEntry<K,V>` | `(Mutable)Map.(Mutable)Entry<K, V>!` |
 
 Java's arrays are mapped as mentioned [below](#java-arrays):
 
@@ -745,7 +745,7 @@ public class JavaArrayExample {
 }
 ```
 
-In that case you need to use the spread operator `*` to pass the `IntArray`:
+In that case, you need to use the spread operator `*` to pass the `IntArray`:
 
 ```kotlin
 val javaObj = JavaArrayExample()

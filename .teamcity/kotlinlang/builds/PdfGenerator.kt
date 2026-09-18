@@ -1,69 +1,87 @@
 package kotlinlang.builds
 
-import BuildParams.KLANG_NODE_CONTAINER
-import documentation.builds.KotlinWithCoroutines
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import templates.DockerImageBuilder
-import templates.SCRIPT_PATH
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object PdfGenerator : BuildType({
   name = "PDF Generator"
   description = "Build PDF reference https://kotlinlang.org/docs/"
 
-  templates(DockerImageBuilder)
+  artifactRules = "assets/kotlin-reference.pdf"
 
-  artifactRules = """
-    dist/** => dist.zip!
-    docs/kr.tree => dist.zip
-    pdf/kotlin-docs.pdf
-  """.trimIndent()
-
-  requirements {
-    doesNotContain("docker.server.osType", "windows")
+  vcs {
+    root(vcsRoots.KotlinLangOrg)
   }
 
-  params {
-    select("with-pdf", "false", options = listOf("true", "false"))
+  requirements {
+    equals("node.js.nvm", "yes")
+    contains("teamcity.agent.name", "-macos-")
+  }
+
+  triggers {
+    finishBuildTrigger {
+      buildType = BuildSitePages.id?.value ?: error("Invalid BuildSitePages ID")
+      branchFilter = "+:<default>"
+      successfulOnly = false
+    }
   }
 
   steps {
-    script {
-      id = "script-dist-pdf-html"
-      name = "Generate pdf.html"
-        //language=bash
-        scriptContent = """
-        #!/bin/sh
-        set -e
-        npm install
-        npm run generate-pdf
-      """.trimIndent()
-      dockerImage = KLANG_NODE_CONTAINER
-      workingDir = SCRIPT_PATH
+    step {
+      id = "jonnyzzz_nvm"
+      type = "jonnyzzz.nvm"
+      param("version", "20")
     }
     script {
-      conditions {
-        equals("with-pdf", "true")
-      }
+      id = "script-generate-pdf"
       name = "Generate PDF"
-      //language=sh
-      scriptContent = "./scripts/pdf.sh"
-      dockerImage = "python:3.9"
+      //language=bash
+      scriptContent = """
+        #!/bin/sh
+        set -e
+        
+        YARN_HOME=""
+
+        cleanup() {
+          if [ -n "${'$'}YARN_HOME" ] && [ -d "${'$'}YARN_HOME" ]; then
+            echo "Removing temporary yarn installation: ${'$'}YARN_HOME"
+            rm -rf "${'$'}YARN_HOME"
+          fi
+        }
+
+        trap cleanup EXIT INT TERM
+        
+        if [ -s "${'$'}NVM_DIR/nvm.sh" ]; then
+          \. "${'$'}NVM_DIR/nvm.sh"
+          nvm install
+          nvm use
+        fi
+        
+        if ! command -v yarn >/dev/null 2>&1; then
+          YARN_HOME="$(mktemp -d)"
+          npm install --no-save --prefix "${'$'}YARN_HOME" yarn
+          export PATH="${'$'}YARN_HOME/node_modules/.bin:${'$'}PATH"
+        fi
+        
+        yarn install --frozen-lockfile
+        cd scripts/dist && yarn install --frozen-lockfile && cd ../..
+        yarn run generate-pdf
+      """.trimIndent()
     }
   }
 
   dependencies {
-    dependency(KotlinWithCoroutines) {
+    dependency(BuildSitePages) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
         onDependencyCancel = FailureAction.CANCEL
       }
       artifacts {
-        artifactRules = """
-          +:webHelpImages.zip!** => dist/docs/images/
-          +:webHelpKR2.zip!** => dist/docs/
-        """.trimIndent()
+        artifactRules = "+:pages.zip!** => ./dist/"
       }
     }
   }

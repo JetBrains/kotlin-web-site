@@ -94,7 +94,7 @@ When you set [the `-Xreturn-value-checker` compiler option](#configure-the-unuse
 the checker reports ignored results only from expressions that are marked, like most functions in the Kotlin standard library.
 
 To mark your own code, 
-use the [`@MustUseReturnValues`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-must-use-return-value/) annotation.
+use the [`@MustUseReturnValues`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-must-use-return-values/) annotation.
 You can apply it to a file, class, or function depending on the scope you want the checker to cover.
 
 For example, you can mark an entire file:

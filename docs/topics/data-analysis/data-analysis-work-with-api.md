@@ -1,6 +1,6 @@
 [//]: # (title: Retrieve data from web sources and APIs)
 
-With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) you can access and manipulate
+With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), you can access and manipulate
 data from various web sources and APIs. It also assists in reshaping this data for comprehensive analysis and visualization.
 
 Explore [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/tree/master/examples/projects).
@@ -167,14 +167,14 @@ and `maxBy` to find the latest or most viewed video in each group:
    val channels = joined.groupBy { channel }.sortByCount()
    ```
 
-In the resulting table, you can interactively explore the data. Clicking on the `group` field 
-of a row corresponding to a channel expands that row to reveal more details about that channel's videos.
-
-![Expanding a row to reveal more details](results-of-expanding-group-data-analysis.png){width=700}
-
-You can click the table icon in the bottom left to return to the grouped dataset.
-
-![Click on the table icon in the bottom left to return](return-to-grouped-dataset.png){width=700}
+    In the resulting table, you can interactively explore the data. Clicking on the `group` field 
+    of a row corresponding to a channel expands that row to reveal more details about that channel's videos.
+    
+    ![Expanding a row to reveal more details](results-of-expanding-group-data-analysis.png){width=700}
+    
+    You can click the table icon in the bottom left to return to the grouped dataset.
+    
+    ![Click on the table icon in the bottom left to return](return-to-grouped-dataset.png){width=700}
 
 3. Use `aggregate`, `sum`, `maxBy`, and `flatten` to create a DataFrame summarizing each 
 channel's total views and details of its latest or most viewed video:

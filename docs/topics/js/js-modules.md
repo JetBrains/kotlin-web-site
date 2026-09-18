@@ -106,7 +106,7 @@ external fun sayHello(name: String)
 ### Apply @JsModule to packages
 
 Some JavaScript libraries export packages (namespaces) instead of functions and classes.
-In terms of JavaScript, it's an *object* that has *members* that are classes, functions and properties.
+In terms of JavaScript, it's an *object* that has *members* that are classes, functions, and properties.
 Importing these packages as Kotlin objects often looks unnatural.
 The compiler can map imported JavaScript packages to Kotlin packages, using the following notation:
 
@@ -144,7 +144,7 @@ fun bar() = "!" + foo() + "!" // error here
 
 ### Import deeper package hierarchies
 
-In the previous example the JavaScript module exports a single package.
+In the previous example, the JavaScript module exports a single package.
 However, some JavaScript libraries export multiple packages from within a module.
 This case is also supported by Kotlin, though you have to declare a new `.kt` file for each package you import.
 
@@ -213,7 +213,7 @@ You could describe it from Kotlin as follows:
 external fun sayHello(name: String)
 ```
 
-### Module system used by the Kotlin Standard Library
+### Module system used by the Kotlin standard library
 
 Kotlin is distributed with the Kotlin/JS standard library as a single file, which is itself compiled as an UMD module,
 so you can use it with any module system described above. For most use cases of Kotlin/JS, it is recommended to use

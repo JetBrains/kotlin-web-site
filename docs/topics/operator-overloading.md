@@ -24,11 +24,11 @@ class OrdersList: IndexedContainer {
 
 ### Unary prefix operators
 
-| Expression | Translated to |
-|------------|---------------|
-| `+a` | `a.unaryPlus()` |
-| `-a` | `a.unaryMinus()` |
-| `!a` | `a.not()` |
+| Expression | Translated to    |
+|------------|------------------|
+| `+a`       | `a.unaryPlus()`  |
+| `-a`       | `a.unaryMinus()` |
+| `!a`       | `a.not()`        |
 
 This table says that when the compiler processes, for example, an expression `+a`, it performs the following steps:
 
@@ -60,10 +60,10 @@ fun main() {
 
 ### Increments and decrements
 
-| Expression | Translated to |
-|------------|---------------|
-| `a++` | `a.inc()` + see below |
-| `a--` | `a.dec()` + see below |
+| Expression | Translated to         |
+|------------|-----------------------|
+| `a++`      | `a.inc()` + see below |
+| `a--`      | `a.dec()` + see below |
 
 The `inc()` and `dec()` functions must return a value, which will be assigned to the variable on which the
 `++` or `--` operation was used. They shouldn't mutate the object on which the `inc` or `dec` was invoked.
@@ -91,15 +91,15 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 
 ### Arithmetic operators 
 
-| Expression | Translated to |
-| -----------|-------------- |
-| `a + b` | `a.plus(b)` |
-| `a - b` | `a.minus(b)` |
-| `a * b` | `a.times(b)` |
-| `a / b` | `a.div(b)` |
-| `a % b` | `a.rem(b)` |
-| `a..b` | `a.rangeTo(b)` |
-| `a..<b` | `a.rangeUntil(b)` |
+| Expression | Translated to     |
+|------------|-------------------|
+| `a + b`    | `a.plus(b)`       |
+| `a - b`    | `a.minus(b)`      |
+| `a * b`    | `a.times(b)`      |
+| `a / b`    | `a.div(b)`        |
+| `a % b`    | `a.rem(b)`        |
+| `a..b`     | `a.rangeTo(b)`    |
+| `a..<b`    | `a.rangeUntil(b)` |
 
 For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
 
@@ -115,46 +115,46 @@ data class Counter(val dayIndex: Int) {
 
 ### in operator
 
-| Expression | Translated to |
-| -----------|-------------- |
-| `a in b` | `b.contains(a)` |
-| `a !in b` | `!b.contains(a)` |
+| Expression | Translated to    |
+|------------|------------------|
+| `a in b`   | `b.contains(a)`  |
+| `a !in b`  | `!b.contains(a)` |
 
 For `in` and `!in` the procedure is the same, but the order of arguments is reversed.
 
 ### Indexed access operator
 
-| Expression | Translated to |
-| -------|-------------- |
-| `a[i]`  | `a.get(i)` |
-| `a[i, j]`  | `a.get(i, j)` |
-| `a[i_1, ...,  i_n]`  | `a.get(i_1, ...,  i_n)` |
-| `a[i] = b` | `a.set(i, b)` |
-| `a[i, j] = b` | `a.set(i, j, b)` |
+| Expression              | Translated to             |
+|-------------------------|---------------------------|
+| `a[i]`                  | `a.get(i)`                |
+| `a[i, j]`               | `a.get(i, j)`             |
+| `a[i_1, ...,  i_n]`     | `a.get(i_1, ...,  i_n)`   |
+| `a[i] = b`              | `a.set(i, b)`             |
+| `a[i, j] = b`           | `a.set(i, j, b)`          |
 | `a[i_1, ...,  i_n] = b` | `a.set(i_1, ..., i_n, b)` |
 
 Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
 ### invoke operator
 
-| Expression | Translated to |
-|--------|---------------|
-| `a()`  | `a.invoke()` |
-| `a(i)`  | `a.invoke(i)` |
-| `a(i, j)`  | `a.invoke(i, j)` |
-| `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
+| Expression          | Translated to              |
+|---------------------|----------------------------|
+| `a()`               | `a.invoke()`               |
+| `a(i)`              | `a.invoke(i)`              |
+| `a(i, j)`           | `a.invoke(i, j)`           |
+| `a(i_1, ...,  i_n)` | `a.invoke(i_1, ...,  i_n)` |
 
 Parentheses are translated to calls to `invoke` with appropriate number of arguments.
 
 ### Augmented assignments
 
-| Expression | Translated to |
-|------------|---------------|
-| `a += b` | `a.plusAssign(b)` |
-| `a -= b` | `a.minusAssign(b)` |
-| `a *= b` | `a.timesAssign(b)` |
-| `a /= b` | `a.divAssign(b)` |
-| `a %= b` | `a.remAssign(b)` |
+| Expression | Translated to      |
+|------------|--------------------|
+| `a += b`   | `a.plusAssign(b)`  |
+| `a -= b`   | `a.minusAssign(b)` |
+| `a *= b`   | `a.timesAssign(b)` |
+| `a /= b`   | `a.divAssign(b)`   |
+| `a %= b`   | `a.remAssign(b)`   |
 
 For the assignment operations, for example `a += b`, the compiler performs the following steps:
 
@@ -170,10 +170,10 @@ For the assignment operations, for example `a += b`, the compiler performs the f
 
 ### Equality and inequality operators
 
-| Expression | Translated to |
-|------------|---------------|
-| `a == b` | `a?.equals(b) ?: (b === null)` |
-| `a != b` | `!(a?.equals(b) ?: (b === null))` |
+| Expression | Translated to                     |
+|------------|-----------------------------------|
+| `a == b`   | `a?.equals(b) ?: (b === null)`    |
+| `a != b`   | `!(a?.equals(b) ?: (b === null))` |
 
 These operators only work with the function [`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html), 
 which you can override to provide a custom equality check implementation.
@@ -188,12 +188,12 @@ Otherwise, Kotlin uses `===` for direct `null` comparisons and compares non-null
 
 ### Comparison operators
 
-| Expression | Translated to |
-|--------|---------------|
-| `a > b`  | `a.compareTo(b) > 0` |
-| `a < b`  | `a.compareTo(b) < 0` |
-| `a >= b` | `a.compareTo(b) >= 0` |
-| `a <= b` | `a.compareTo(b) <= 0` |
+| Expression | Translated to         |
+|------------|-----------------------|
+| `a > b`    | `a.compareTo(b) > 0`  |
+| `a < b`    | `a.compareTo(b) < 0`  |
+| `a >= b`   | `a.compareTo(b) >= 0` |
+| `a <= b`   | `a.compareTo(b) <= 0` |
 
 All comparisons are translated into calls to `compareTo`, that is required to return `Int`.
 

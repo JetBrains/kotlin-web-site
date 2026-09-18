@@ -14,7 +14,7 @@ object BuildParams {
   const val KOTLINX_COROUTINES_TITLE = KOTLINX_COROUTINES_ID
 
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "master"
-  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.11.0"
+  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.12.0-RC"
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
@@ -28,15 +28,15 @@ object BuildParams {
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
-  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG = "v0.5.1"
-  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL = "0.5.1"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_TAG = "v0.5.2"
+  const val KOTLINX_COLLECTIONS_IMMUTABLE_RELEASE_LABEL = "0.5.2"
   const val KOTLINX_COLLECTIONS_IMMUTABLE_ID = "kotlinx.collections.immutable"
   const val KOTLINX_COLLECTIONS_IMMUTABLE_TITLE = KOTLINX_COLLECTIONS_IMMUTABLE_ID
 
   const val KOTLIN_RELEASE_TAG = "2.4.0"
   const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
 
-  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_240_LibraryReferenceLatestDocs"
+  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2420_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"

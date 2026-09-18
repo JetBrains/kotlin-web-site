@@ -135,7 +135,7 @@ Here:
 
 ### Access from a lambda
 
-Unlike a regular lambda, a [lambda with receiver](lambdas.md#function-literals-with-receiver)￼introduces a receiver into its scope.
+Unlike a regular lambda, a [lambda with receiver](lambdas.md#function-literals-with-receiver) introduces a receiver into its scope.
 As a result, `this` inside the lambda refers to the lambda's receiver, not to one from an enclosing scope.
 If a lambda with receiver is nested inside another receiver scope, add a label to the lambda and use a qualified `this`
 to refer explicitly to the lambda's receiver or to a receiver from an enclosing scope:

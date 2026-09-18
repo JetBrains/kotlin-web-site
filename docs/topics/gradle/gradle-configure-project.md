@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions           | AGP min and max versions                            |
 |---------------|---------------------------------------|-----------------------------------------------------|
-| 2.4.0-2.4.10  | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.4.20        | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.4.0-2.4.10  | 7.6.3–9.5.0                           | 8.5.2–9.1.0                                         |
 | 2.3.20–2.3.21 | 7.6.3–9.3.0                           | 8.2.2–9.0.0                                         |
 | 2.3.10        | 7.6.3–9.0.0                           | 8.2.2–9.0.0                                         |
 | 2.3.0         | 7.6.3–9.0.0                           | 8.2.2–8.13.0                                        |
@@ -311,7 +312,7 @@ A Java toolchain:
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
-* Sets the toolchain to be used by any Java compile, test and javadoc tasks.
+* Sets the toolchain to be used by any Java compile, test, and javadoc tasks.
 * Affects which JDK [`kapt` workers](kapt.md#run-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
@@ -500,7 +501,7 @@ objects from functional tests.
 
 ### Configure with Java Modules (JPMS) enabled
 
-To make the Kotlin Gradle plugin work with [Java Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
+To make the Kotlin Gradle plugin work with [Java Modules](https://dev.java/learn/modules/), 
 add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your JPMS module, for example, 
 `org.company.module`:
 
@@ -736,12 +737,12 @@ kotlin {
 }
 ```
 
-For WASI environments, configure the `wasmWasi` target:
+For WASI environments, configure the `wasmWasi` target with Node.js or Wasmtime:
 
 ```kotlin
 kotlin {
     wasmWasi {
-        nodejs {
+        nodejs { // or wasmtime
             /* ... */
         }
     }

@@ -4,6 +4,8 @@
 
 <web-summary>Read the Kotlin 2.4.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
 
+_[Released: July 14, 2026](releases.md#release-history)_
+
 <tldr>
     <p> For details about bug fix release 2.4.10, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.10">changelog</a></p>
 </tldr>
@@ -19,6 +21,10 @@ The Kotlin 2.4.0 release is out! Here are the main highlights:
 * **Gradle:** [Compatibility with Gradle 9.5.0](#gradle)
 * **Maven:** [Automatic alignment between Java and JVM target versions](#maven)
 * **Kotlin compiler:** [More consistent inline function behavior during `.klib` compilation](#consistent-intra-module-function-inlining-during-klib-compilation)
+
+You can also find an overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/RI4J0C2_FR8" title="What's New in Kotlin 2.4"/>
 
 > For information about the Kotlin release cycle, see the [Kotlin release process](releases.md).
 >

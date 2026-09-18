@@ -2,15 +2,6 @@
 
 .wrapper {
     display: block;
-    margin-top: 48px;
-
-    @media (--ktl-ts-min) {
-        margin-top: 64px;
-    }
-
-    @media (--ktl-ds-min) {
-        margin-top: 96px;
-    }
 }
 
 .link {

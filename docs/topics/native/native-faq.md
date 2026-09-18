@@ -86,7 +86,7 @@ kotlin {
 
 ## How do I rename the iOS framework?
 
-The default name is for an iOS framework is `<project name>.framework`.
+The default name for an iOS framework is `<project name>.framework`.
 To set a custom name, use the `baseName` option. This will also set the module name.
 
 ```kotlin

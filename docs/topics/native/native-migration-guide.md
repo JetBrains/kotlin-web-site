@@ -19,7 +19,7 @@ need to freeze objects to share them between threads, specifically:
 
 Apart from easy object sharing, the new memory manager also brings other major changes:
 
-* Global properties are initialized lazily when the file they are defined in is accessed first. Previously global
+* Global properties are initialized lazily when the file they are defined in is accessed first. Previously, global
   properties were initialized at the program startup. As a workaround, you can mark
   properties that must be initialized at the program start with the `@EagerInitialization` annotation. Before using, check
   its [documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-eager-initialization/).
@@ -38,7 +38,7 @@ to the latest one](releases.md#update-to-a-new-kotlin-version) if necessary.
 
 ## Update dependencies
 
-<deflist style="medium">
+<deflist type="medium">
     <def title="kotlinx.coroutines">
         <p>Update to version 1.6.0 or later. Do not use versions with the <code>native-mt</code> suffix.</p>
         <p>There are also some specifics with the new memory manager you should keep in mind:</p>

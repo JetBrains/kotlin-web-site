@@ -28,7 +28,7 @@ On the other hand, because these plugins can potentially depend on anything in t
 compiler changes and need to be maintained frequently. These plugins also require a deep understanding of `kotlinc`'s
 implementation, so the learning curve can be steep.
 
-KSP aims to hide most compiler changes through a well-defined API, though major changes in compiler or even the Kotlin
+KSP aims to hide most compiler changes through a well-defined API, though major changes in the compiler or even the Kotlin
 language might still require to be exposed to API users.
 
 KSP tries to fulfill common use cases by providing an API that trades power for simplicity. Its capability is a strict
@@ -45,7 +45,7 @@ resolved explicitly. This is one of the reasons why the interfaces are not share
 
 ## Comparison to kapt
 
-[kapt](kapt.md) is a remarkable solution which makes a large amount of Java annotation processors work for Kotlin
+[kapt](kapt.md) is a remarkable solution which makes a large number of Java annotation processors work for Kotlin
 programs out-of-box. The major advantages of KSP over kapt are improved build performance, not tied to JVM, a more
 idiomatic Kotlin API, and the ability to understand Kotlin-only symbols.
 

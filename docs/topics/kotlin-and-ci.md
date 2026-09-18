@@ -1,63 +1,56 @@
 [//]: # (title: Kotlin and continuous integration with TeamCity)
 
-On this page, you'll learn how to set up [TeamCity](https://www.jetbrains.com/teamcity/) to build your Kotlin project.
-For more information and basics of TeamCity please check the [Documentation page](https://www.jetbrains.com/teamcity/documentation/)
-which contains information about installation, basic configuration, etc.
+On this page, you'll learn how to configure [TeamCity](https://www.jetbrains.com/teamcity/) to build Kotlin applications.
+For TeamCity installation and basic setup, refer to the [TeamCity documentation](https://www.jetbrains.com/teamcity/documentation/).
 
-Kotlin works with different build tools, so if you're using a standard tool such as Maven or Gradle,
-the process for setting up a Kotlin project is no different to any other language or library that integrates with these tools.
-Where there are some minor requirements and differences is when using the internal build system of IntelliJ IDEA,
-which is also supported on TeamCity.
+Kotlin integrates directly with standard build tools like Gradle and Maven, so configuring a Kotlin build in TeamCity 
+requires the same workflow as any project. If you compile your project using the IntelliJ IDEA build system instead, 
+TeamCity provides a dedicated runner.
 
 ## Gradle and Maven
 
-If using Maven or Gradle, the setup process is straightforward. All that is needed is to define the Build Step.
-For example, if using Gradle, simply define the required parameters such as the Step Name and Gradle tasks that need
-executing for the Runner Type.
+When you build with Gradle or Maven, the build configuration file (`build.gradle.kts` or `pom.xml`) already 
+declares the Kotlin dependencies and compiler plugins. TeamCity does not require any additional Kotlin-specific settings.
 
-<img src="teamcity-gradle.png" alt="Gradle Build Step" width="700"/>
+For Gradle, add a Gradle build step to your build configuration and specify the **Step name** and **Gradle tasks** you want to run.
+<img src="teamcity-gradle.png" alt="Gradle Build Step" width="700" border-effect="line"/>
 
-Since all the dependencies required for Kotlin are defined in the Gradle file, nothing else needs to be configured
-specifically for Kotlin to run correctly.
+Similarly, for Maven, add a Maven build step and specify the **Step name** and **Goals** you want to execute.
 
-If using Maven, the same configuration applies. The only difference being that the Runner Type would be Maven.
+## IntelliJ IDEA build system
 
-## IntelliJ IDEA Build System
+If you build your project using IntelliJ IDEA project files, the Kotlin version in TeamCity must match the version configured in your IDE project. 
+You can automate downloading and configuring the Kotlin compiler by using a TeamCity recipe. Recipes are the evolution of meta-runners: 
+they serve the same purpose but offer additional benefits like YAML support and easy sharing on [JetBrains Marketplace](https://plugins.jetbrains.com/teamcity_recipe).
 
-If using IntelliJ IDEA build system with TeamCity, make sure that the version of Kotlin being used by IntelliJ IDEA
-is the same as the one that TeamCity runs. You may need to download the specific version of the Kotlin plugin
-and install it on TeamCity.
+1. Download and import the recipe.
+   * Download the Kotlin meta-runner file from [GitHub](https://github.com/JetBrains/Kotlin.TeamCity).
+   * Import it into TeamCity as a new recipe. For details, see [Working with recipes](https://www.jetbrains.com/help/teamcity/working-with-meta-runner.html).
+  <img src="teamcity-add-recipe.png" alt="TeamCity recipe" width="700" border-effect="line"/>
 
-Fortunately, there is a meta-runner already available that takes care of most of the manual work. If not familiar with
-the concept of TeamCity meta-runners, check the [documentation](https://www.jetbrains.com/help/teamcity/working-with-meta-runner.html).
-They are very easy and powerful way to introduce custom Runners without the need to write plugins.
+2. Add the Kotlin compiler fetching step.
+   * Add a build step using the imported runner.
+   * Specify the **Step name** and the required **Kotlin Version**.
+  <img src="teamcity-step-name.png" alt="Setup Kotlin Compiler" width="700" border-effect="line"/>
 
-### Download and install the meta-runner
+  >Before running the build, add `system.path.macro.KOTLIN.BUNDLED` as a system parameter in your build configuration. 
+  >You can assign any placeholder value, and the runner will overwrite it with the resolved compiler path at build time.
+  >
+  > {style="note"}
 
-The meta-runner for Kotlin is available on [GitHub](https://github.com/jonnyzzz/Kotlin.TeamCity).
-Download that meta-runner and import it from the TeamCity user interface
-
-<img src="teamcity-metarunner.png" alt="Meta-runner" width="700"/>
-
-### Setup Kotlin compiler fetching step
-
-Basically this step is limited to defining the Step Name and the version of Kotlin you need. Tags can be used.
-
-<img src="teamcity-setupkotlin.png" alt="Setup Kotlin Compiler" width="700"/>
-
-The runner will set the value for the property `system.path.macro.KOTLIN.BUNDLED` to the correct one based on the path settings
-from the IntelliJ IDEA project. However, this value needs to be defined in TeamCity (and can be set to any value).
-Therefore, you need to define it as a system variable.
-
-### Setup Kotlin compilation step
-
-The final step is to define the actual compilation of the project, which uses the standard IntelliJ IDEA Runner Type.
-
-<img src="teamcity-idearunner.png" alt="IntelliJ IDEA Runner" width="700"/>
-
-With that, our project should now build and produce the corresponding artifacts.
+3. Add the compilation step.
+   Add an IntelliJ IDEA Project runner step after the compiler-fetching step to compile the project and produce the build artifacts.
+  <img src="teamcity-intellij-step.png" alt="IntelliJ IDEA Project runner" width="500" border-effect="line"/>
 
 ## Other CI servers
 
-If using a continuous integration tool different to TeamCity, as long as it supports any of the build tools,
-or calling command line tools, compiling Kotlin and automating things as part of a CI process should be possible.
+If you use a CI system other than TeamCity, invoke the standard Gradle or Maven commands directly in your pipeline scripts.
+
+## What's next
+
+* Learn how to [configure TeamCity for a Kotlin Multiplatform application](https://kotlinlang.org/docs/multiplatform/configure-teamcity-for-kmp.html)  
+   to build, test, and deploy Kotlin Multiplatform applications.
+* Follow the tutorial to [configure an iOS delivery pipeline for your Kotlin Multiplatform project](https://kotlinlang.org/docs/multiplatform/ios-ci-cd-teamcity.html) 
+   on hosted macOS agents and automate deployments to TestFlight.
+* Learn how to [store project settings in version control](https://www.jetbrains.com/help/teamcity/storing-project-settings-in-version-control.html) 
+   and manage your pipelines as code using the Kotlin DSL.

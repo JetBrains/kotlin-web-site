@@ -51,6 +51,13 @@
             <br/>
         </li>
         <li>
+            <a href="https://kotlinlang.org/api/kotlinx.collections.immutable/"><b>Immutable collections (kotlinx.collections.immutable)</b></a>
+            <br/>
+            <p>A multiplatform library providing immutable and persistent collection interfaces and implementations. It offers efficient copy-on-write operations that share structure between versions, so updating a collection doesn't copy the whole thing.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.collections.immutable">kotlinx.collections.immutable</a>
+            <br/>
+        </li>
+        <li>
             <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
             <br/>
             <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>

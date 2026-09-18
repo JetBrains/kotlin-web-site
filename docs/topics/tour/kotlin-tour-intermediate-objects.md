@@ -293,51 +293,77 @@ fun main() {
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
 
-You have an app where you want to record temperatures. The class itself stores the information in Celsius, but 
-you want to provide an easy way to create an instance in Fahrenheit as well. Complete the data class so that
-the following code in the `main()` function runs successfully:
+You are building a user registration module for an app. You want to keep email validation associated with the `User`
+class but don't want to create an unnecessary `User` instance if the email address is invalid.
+
+For this exercise, consider an email address valid if it contains both `@` and `.`. Complete the data class so that the
+following code in the `main()` function runs successfully:
 
 <deflist collapsible="true">
     <def title="Hint">
-        Use a companion object.
+        Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
     </def>
 </deflist>
 
 |---|---|
 ```kotlin
-data class Temperature(val celsius: Double) {
-    val fahrenheit: Double = celsius * 9 / 5 + 32
-
+data class User(val name: String, val email: String) {
     // Write your code here
 }
 
 fun main() {
-    val fahrenheit = 90.0
-    val temp = Temperature.fromFahrenheit(fahrenheit)
-    println("${temp.celsius}°C is $fahrenheit °F")
-    // 32.22222222222222°C is 90.0 °F
+    val candidates = listOf(
+        Pair("Alice", "alice@example.com"),
+        Pair("Bob", "bob2example-com")
+    )
+
+    for ((name, email) in candidates) {
+        if (User.isValidEmail(email)) {
+            val user = User(name, email)
+            println("Registered: ${user.name}, ${user.email}")
+            // Registered: Alice, alice@example.com
+        } else {
+            println("Error: '${email}' is not valid. The email should contain '@' and '.'")
+            // Error: 'bob2example-com' is not valid. The email should contain '@' and '.'
+        }
+    }
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
 
 |---|---|
 ```kotlin
-data class Temperature(val celsius: Double) {
-    val fahrenheit: Double = celsius * 9 / 5 + 32
-
+data class User(val name: String, val email: String) {
     companion object {
-        fun fromFahrenheit(fahrenheit: Double): Temperature = Temperature((fahrenheit - 32) * 5 / 9)
+        fun isValidEmail(email: String): Boolean =
+            email.contains('@') && email.contains('.')
     }
 }
 
 fun main() {
-    val fahrenheit = 90.0
-    val temp = Temperature.fromFahrenheit(fahrenheit)
-    println("${temp.celsius}°C is $fahrenheit °F")
-    // 32.22222222222222°C is 90.0 °F
+    val candidates = listOf(
+        Pair("Alice", "alice@example.com"),
+        Pair("Bob", "bob2example-com")
+    )
+
+    for ((name, email) in candidates) {
+        if (User.isValidEmail(email)) {
+            val user = User(name, email)
+            println("Registered: ${user.name}, ${user.email}")
+            // Registered: Alice, alice@example.com
+        } else {
+            println("Error: '${email}' is not valid. The email should contain '@' and '.'")
+            // Error: 'bob2example-com' is not valid. The email should contain '@' and '.'
+        }
+    }
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
+
+> As an extension of this exercise, try using functions in companion objects as factory methods to construct
+> instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).
+>
+{style="tip"}
 
 <seealso></seealso>
 

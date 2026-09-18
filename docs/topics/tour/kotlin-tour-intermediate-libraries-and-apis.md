@@ -293,10 +293,19 @@ Congratulations! You've completed the intermediate tour! Would you like to [shar
 
 As a next step, check out our tutorials for popular Kotlin applications:
 
-* [Create a backend application with Spring Boot and Kotlin](jvm-create-project-with-spring-boot.md)
-* Create a cross-platform application for Android and iOS from scratch and:
-    * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
-    * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
+<p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements -->
+<panels columns="2" id="kotlin-tour-whats-next">
+    <panel>
+        <title>Kotlin for backend</title>
+        <p>Create a backend application with Spring Boot and Kotlin.</p>
+        <a href="jvm-create-project-with-spring-boot.md" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-backend-tutorial">Start</a>
+    </panel>
+    <panel>
+        <title>Kotlin Multiplatform</title>
+        <p>Create a cross-platform application from scratch and share business logic and UI.</p>
+        <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-cmp-tutorial">Start</a>
+    </panel>
+</panels>
 
 <seealso></seealso>
 

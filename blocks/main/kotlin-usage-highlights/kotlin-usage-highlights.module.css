@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .kotlinUsageHighlights {
     margin-top: var(--ktl-box-page-l);
@@ -59,7 +59,7 @@
 }
 
 
-@media (--ktl-tm) {
+@media (--ktl-ts) {
 
     .card {
         height: 336px;
@@ -67,7 +67,7 @@
 
 }
 
-@media (--ktl-ts) {
+@media (--ktl-ml) {
 
     .card {
         height: 264px;
@@ -82,7 +82,7 @@
     }
 }
 
-@media (--ktl-mm) {
+@media (--ktl-ms) {
     .card {
         height: 312px;
     }

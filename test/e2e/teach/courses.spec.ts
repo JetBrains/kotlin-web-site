@@ -100,5 +100,14 @@ test.describe('Courses page appearance and functionality', async () => {
         await checkTeachMap(page, map);
     });
 
+    test('Should not render courses without a URL as links', async ({ page }) => {
+        // an empty url in data/universities.yml used to produce <a href=""
+        // target="_blank">, which reopens the courses page in a new tab
+        const emptyLinks = await page.locator('a[target="_blank"]').evaluateAll(
+            (anchors) => anchors.filter((anchor) => !anchor.getAttribute('href')).length
+        );
+        expect(emptyLinks).toBe(0);
+    });
+
     test('Should have action buttons for educators', checkTeachCta);
 });

@@ -61,7 +61,7 @@ section:
 </project>
 ```
 
-> This property disables not only automatic addition of the standard library, but also the registration of source root paths.
+> This property disables not only the automatic addition of the standard library, but also the registration of source root paths.
 > Other `<extensions>` features are not affected.
 >
 {style="note"}
@@ -137,10 +137,17 @@ To add a dependency on the [`kotlinx-datetime`](https://kotlinlang.org/api/kotli
 </dependencies>
 ```
 
-### Use BOM dependency mechanism
+## Manage dependencies with a BOM
 
-To use a Kotlin [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms),
-add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
+A [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms)
+is a special POM file that manages dependency versions in your project. This keeps related artifacts aligned and avoids version conflicts.
+
+Kotlin publishes the [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom) artifact, which
+specifies the versions of Kotlin libraries, such as `kotlin-stdlib`, `kotlin-reflect`, and `kotlin-test`, that correspond
+to the same Kotlin release. This is useful when other libraries in your project have transitive dependencies on Kotlin
+artifacts because it ensures that all dependencies resolve to the same Kotlin version.
+
+To use the Kotlin BOM, import it in the `<dependencyManagement>` section of your `pom.xml` file as follows:
 
 ```xml
 <dependencyManagement>
@@ -155,6 +162,17 @@ add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbra
     </dependencies>
 </dependencyManagement>
 ```
+
+After importing the BOM, you can declare Kotlin dependencies in the `<dependencies>` section without specifying their versions;
+they come from the BOM file automatically.
+
+* Importing a BOM doesn't add any dependencies to your project on its own. It only controls the versions of explicitly
+  declared and transitive dependencies.
+* If you still specify a `<version>` for a dependency, that value overrides the version from the BOM.
+
+If your project publishes several libraries that are released together, you can provide your own BOM so that users
+can align the versions of those libraries in the same way. To learn how to author your own BOM, see the
+[Maven documentation](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms).
 
 ## What's next?
 
