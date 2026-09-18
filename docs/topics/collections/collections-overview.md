@@ -1,6 +1,6 @@
 [//]: # (title: Collections overview)
 
-The Kotlin Standard Library provides a comprehensive set of tools for working with collections: groups of items that
+The Kotlin standard library provides a comprehensive set of tools for working with collections: groups of items that
 are significant to the problem being solved and are commonly processed together. Collections usually contain elements of
 the same type or its subtypes. Objects in a collection are called _elements_ or _items_.
 
