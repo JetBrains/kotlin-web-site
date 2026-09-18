@@ -1,3 +1,7 @@
+---
+switcher-label: Filter the content
+---
+
 [//]: # (title: What's new in Kotlin 2.4.20)
 
 <show-structure depth="1"/>
@@ -29,7 +33,7 @@ and [Android Studio](https://developer.android.com/studio).
 To update to the new Kotlin version, make sure your IDE is updated to the latest version and [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
 to 2.4.20 in your build scripts.
 
-## New features {id=new-stable-features}
+## New features {id=new-stable-features switcher-key="New features"}
 <primary-label ref="stable"/>
 
 Kotlin 2.2.20 introduced experimental support for compiling `when` expressions with `invokedynamic` on JVM 21 and later.
@@ -39,7 +43,7 @@ enabled by default.
 
 For more information, see the [documentation](control-flow.md#bytecode-generation-on-the-jvm).
 
-## New features {id=new-experimental-features}
+## New features {id=new-experimental-features switcher-key="New experimental features"}
 <primary-label ref="experimental-exp"/>
 
 The following pre-stable features are available in this release,
@@ -55,7 +59,7 @@ including those with [Beta](components-stability.md#stability-levels-explained),
 * [Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#support-for-kotlin-js-kotlin-wasm-and-kotlin-metadata)
 * [Kotlin compiler: Separate native image](#native-image)
 
-## Standard library
+## Standard library {switcher-key="Standard library"}
 
 Kotlin 2.4.20 adds support for coroutine stack trace recovery and introduces new functions to check collection elements
 for equality and uniqueness, as well as new overloads for `kotlin.test` assertion functions.
@@ -245,7 +249,7 @@ fun testValues(actual: Int, expected: Int, items: List<String>) {
 
 For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/stdlib/KEEP-0465-kotlin.test-lazy-assertion-messages.md).
 
-## Kotlin/Native
+## Kotlin/Native {switcher-key="Kotlin/Native"}
 
 Kotlin 2.4.20 brings automatic generation of `Package.swift` files for SwiftPM dependencies in Kotlin Multiplatform projects,
 new Swift export features, including support for sealed classes and cross-language inheritance, and improved incremental
@@ -375,7 +379,7 @@ kotlin.incremental.native=true
 We're actively collecting feedback and planning to enable incremental compilation by default for all projects in the next
 Kotlin releases. If you encounter any issues, please report them to our [issue tracker](https://kotl.in/issue).
 
-## Kotlin/Wasm
+## Kotlin/Wasm {switcher-key="Kotlin/Wasm"}
 
 Kotlin 2.4.20 changes how Kotlin/Wasm handles top-level `require()` calls in `@JsFun` declarations, aligns companion
 object initialization order with JVM behavior, reduces binary size for functional interfaces, introduces new compilation
@@ -524,7 +528,7 @@ binary size by approximately 5–10%.
 Because the change introduces more dynamic calls, it may affect runtime performance.
 If you experience any issues, report them in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-83159).
 
-## Kotlin/JS
+## Kotlin/JS {switcher-key="Kotlin/JS"}
 
 Kotlin 2.4.20 improves exportability of data classes, introduces a new experimental DSL for browser testing, and adds
 support for exporting suspending lambdas as JavaScript async functions.
@@ -672,7 +676,7 @@ console.log(result); // "done"
 
 For more information on the `@JsExport` annotation, see [our documentation](js-to-kotlin-interop.md#jsexport-annotation).
 
-## Gradle
+## Gradle {switcher-key="Gradle"}
 
 Kotlin 2.4.20 is fully compatible with Gradle 7.6.3 through 9.7.0. You can also use Gradle versions up to the latest Gradle
 release. However, be aware that doing so may result in deprecation warnings, and some new Gradle features might not work.
@@ -691,7 +695,7 @@ It also groups diagnostics by these IDs, making it easier to identify the source
 Starting with Gradle 8.6, the KGP enables this integration by default. As the API is still evolving, use the most recent
 Gradle version to benefit from the latest improvements.
 
-## Build tools API
+## Build tools API {switcher-key="Build tools API"}
 
 Kotlin 2.4.20 adds experimental support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata to the build tools API.
 
@@ -722,7 +726,7 @@ Starting with Kotlin 2.5.0, we plan to enable BTA in Kotlin/JS, Kotlin/Wasm, and
 
 If you're curious about the BTA proposal or want to share your feedback, see this [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).
 
-## Kotlin compiler
+## Kotlin compiler {switcher-key="Kotlin compiler"}
 
 Kotlin 2.4.20 includes an update about the changed Kotlin runner command, `kotlinr`, and introduces an experimental
 Kotlin compiler native image.
@@ -757,7 +761,7 @@ The native image also bundles the following compiler plugins you can use with th
 
 For more information on the Kotlin compiler native image, see its [README](https://github.com/JetBrains/kotlin/blob/master/prepare/compiler-native-image/README.md).
 
-## Breaking changes and deprecations
+## Breaking changes and deprecations {switcher-key="Breaking changes and deprecations"}
 
 This section highlights important breaking changes and deprecations. For a complete overview, see our [Compatibility guide](compatibility-guide-24.md).
 
@@ -780,7 +784,7 @@ This section highlights important breaking changes and deprecations. For a compl
   access to all exports except `wasmExports.memory`, which remains temporarily available with a warning. Use the
   `kotlin.wasm.unsafe.wasmMemory` property to access the module's `WebAssembly.Memory` object.
 
-## Documentation updates
+## Documentation updates {switcher-key="Documentation updates"}
 
 Since the last release, we've created new pages and tutorials for the Kotlin ecosystem documentation and revamped existing ones:
 
