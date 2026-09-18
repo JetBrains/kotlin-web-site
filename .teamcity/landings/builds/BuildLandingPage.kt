@@ -11,13 +11,11 @@ import landings.createVcsRootForLanding
 /**
  * Build type for building a Vite landing page.
  * This build:
- * 1. Checks out the landing page repository
- * 2. Prepares the landing for kotlinlang publishing:
- *    runs the landing's own prepare_to_kotlinlang_publishing.mjs if present,
- *    otherwise falls back to the generic patch-vite-base.mjs
- * 3. Installs npm dependencies
- * 4. Builds the static page
- * 5. Publishes the dist folder as an artifact
+ * - Checks out the landing page repository
+ * - Exposes the publishing base path as the VITE_BASE_PATH env variable
+ * - Installs npm dependencies
+ * - Builds the static page
+ * - Publishes the dist folder as an artifact
  */
 class BuildLandingPage(val config: LandingConfiguration) : BuildType({
   id(idFor(config))
@@ -25,19 +23,20 @@ class BuildLandingPage(val config: LandingConfiguration) : BuildType({
 
   params {
     param("LANDING_NAME", config.name)
+    param("LANDING_BASE_PATH", config.basePath)
     param("AUTO_DEPLOY_TO_PRODUCTION", config.autoDeployToProduction.toString())
+    param("env.VITE_BASE_PATH", "%LANDING_BASE_PATH%")
   }
 
   vcs {
     root(createVcsRootForLanding(config))
-    root(vcsRoots.KotlinLangOrg, "+:scripts => kotlin-web-site-scripts")
     cleanCheckout = true
   }
 
   triggers {
     vcs {
       enabled = !isProjectPlayground()
-      branchFilter = "+:${config.branch}"
+      branchFilter = "+:<default>"
     }
   }
 
@@ -51,21 +50,13 @@ class BuildLandingPage(val config: LandingConfiguration) : BuildType({
 
   steps {
     script {
-      name = "Prepare Vite config and build"
+      name = "Build landing page"
       scriptContent = """
         #!/bin/sh
         set -e -x -u
 
-        # Prepare the landing for kotlinlang publishing.
-        # If the landing repo ships its own prepare script, run it; otherwise
-        # fall back to the generic Vite base patcher from kotlin-web-site.
-        if [ -f "prepare_to_kotlinlang_publishing.mjs" ]; then
-          echo "Using landing-provided prepare_to_kotlinlang_publishing.mjs"
-          node prepare_to_kotlinlang_publishing.mjs ${config.name}
-        else
-          echo "No prepare_to_kotlinlang_publishing.mjs found, falling back to patch-vite-base.mjs"
-          node kotlin-web-site-scripts/patch-vite-base.mjs ${config.name}
-        fi
+        # vite.config.ts expects VITE_BASE_PATH.
+        echo "VITE_BASE_PATH=${'$'}VITE_BASE_PATH"
 
         # Install dependencies
         npm ci
