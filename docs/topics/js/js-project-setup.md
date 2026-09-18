@@ -101,7 +101,7 @@ version supported by your target environment:
 * `es2020` includes all supported ES2015 features and allows the compiler to use ECMAScript 2020 features in the generated
   JavaScript code. For example, it compiles Kotlin `Long` values to JavaScript `BigInt` values.
 
-To set the ECMAScript target, configure the `target` property in the `build.gradle(.kts)` file. For example, to target ES2020:
+To configure an ECMAScript target, set the `target` property in the `build.gradle(.kts)` file. For example, to target ES2020:
 
 ```kotlin
 tasks.withType<KotlinJsCompile>().configureEach {

@@ -523,7 +523,7 @@ exported with the `@JsExport` annotation from JavaScript/TypeScript.
 ### -Xes-long-as-bigint
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
-This option is required for the `es5` and `es2015` targets only.
+This option is required for the `es5` and `es2015` targets only. The `es2020` target enables this option by default.
 
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>

@@ -405,7 +405,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | `Any`                                                            | `Object`                  |                                                                                                                |
 | `Throwable`                                                      | `Error`                   |                                                                                                                |
 | `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                                            |
-| Nullable `Type?`                                                 | `Type | null | undefined` |                                                                                                                |
+| Nullable `Type?`                                                 | `Type`, ` null`, or `undefined` |                                                                                                                |
 | All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                                                              |
 
 Additionally, it is important to know that:
