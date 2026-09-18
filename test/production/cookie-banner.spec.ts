@@ -1,13 +1,11 @@
 import { expect, test as base } from '@playwright/test';
-import { skipNonProduction } from '../utils';
+import { createCookieBannerContext, getUserAgent, removeHeadlessUserAgent, skipNonProduction } from '../utils';
 
 skipNonProduction('Cookie banner only on production');
 
 const test = base.extend({
     page: async ({ browser }, use) => {
-        const context = await browser.newContext({
-            storageState: undefined
-        });
+        const context = await createCookieBannerContext(browser);
         const page = await context.newPage();
 
         await use(page);

@@ -1,5 +1,5 @@
 import { expect, test as base } from '@playwright/test';
-import { skipNonProduction } from '../utils';
+import { createCookieBannerContext, skipNonProduction } from '../utils';
 
 // The CookieHub banner and the "reject all on background click" behaviour are
 // provided in production via Google Tag Manager, so these tests are skipped
@@ -9,7 +9,7 @@ skipNonProduction('CookieHub cookie banner is only present on production');
 const test = base.extend({
     page: async ({ browser }, use) => {
         // Fresh context with no stored consent so the banner is shown.
-        const context = await browser.newContext({ storageState: undefined });
+        const context = await createCookieBannerContext(browser);
         const page = await context.newPage();
 
         await use(page);
@@ -29,7 +29,9 @@ test.describe('Cookie banner: clicking the background rejects all', () => {
         // The dimmed background is the .ch2-container element. Click its
         // top-left corner, away from the dialog box, so the click lands on the
         // background and not on a button.
-        await page.locator('.ch2-container').click({ position: { x: 10, y: 10 } });
+        const box = await page.locator('#ch2-dialog').boundingBox();
+        await page.mouse.click(box.x - 10, box.y - 10);
+
         await expect(acceptButton).toBeHidden({ timeout: 5000 });
 
         // It was a reject-all (not an accept-all): a non-essential category
