@@ -417,7 +417,8 @@ For more information about scope functions, see [Scope functions](scope-function
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Rewrite a function using safe calls and let" id="scope-functions-exercise-1">
 
 Rewrite the `.getPriceInEuros()` function as a single-expression function that uses safe call operators `?.` and the `let` scope function.
 
@@ -428,7 +429,6 @@ Rewrite the `.getPriceInEuros()` function as a single-expression function that u
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
 
@@ -465,7 +465,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-1"}
 
-|---|---|
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
 
@@ -495,12 +494,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-2"}
+</def>
+<def title="Chain apply and also" id="scope-functions-exercise-2">
 
 You have an `updateEmail()` function that updates the email address of a user. Use the `apply` scope function
 to update the email address and then the `also` scope function to print a log message: `Updating email for user with ID: ${it.id}`.
 
-|---|---|
 ```kotlin
 data class User(val id: Int, var email: String)
 
@@ -517,7 +516,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-2"}
 
-|---|---|
 ```kotlin
 data class User(val id: Int, var email: String)
 
@@ -535,6 +533,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

@@ -167,7 +167,8 @@ This is the easiest way to opt in, but there are other ways. To learn more, see 
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Calculate compound interest" id="libraries-exercise-1">
 
 You are developing a financial application that helps users calculate the future value of their investments. The formula
 to calculate compound interest is:
@@ -186,8 +187,6 @@ Update the code to:
 
 1. Import the necessary functions from the [`kotlin.math` package](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/).
 2. Add a body to the `calculateCompoundInterest()` function that calculates the final amount after applying compound interest.
-
-|--|--|
 
 ```kotlin
 // Write your code here
@@ -209,7 +208,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-1"}
 
-|---|---|
 ```kotlin
 import kotlin.math.*
 
@@ -229,12 +227,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-2"}
+</def>
+<def title="Measure the time taken by data processing" id="libraries-exercise-2">
 
 You want to measure the time it takes to perform multiple data processing tasks in your program. Update the code
 to add the correct import statements and functions from the [`kotlin.time`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/) package:
-
-|---|---|
 
 ```kotlin
 // Write your code here
@@ -255,7 +252,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-2"}
 
-|---|---|
 ```kotlin
 import kotlin.time.measureTime
 
@@ -275,17 +271,20 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
+</def>
+<def title="Opt in to an experimental API" id="libraries-exercise-3">
 
 There's a new feature in the standard library available in the latest Kotlin release. You want to try it out, but it 
 requires opt-in. The feature falls under [`@ExperimentalStdlibApi`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-experimental-stdlib-api/).
 What should the opt-in look like in your code?
 
-|---|---|
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
+
+</def>
+</deflist>
 
 ## What's next?
 

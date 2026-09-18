@@ -442,7 +442,8 @@ For more information, see [Delegation](delegation.md).
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Implement smart devices with an abstract class" id="classes-interfaces-exercise-1">
 
 Imagine you're working on a smart home system. A smart home typically has different types of devices that all have some
 basic features but also unique behaviors. In the code sample below, complete the `abstract` class called `SmartDevice` 
@@ -459,8 +460,6 @@ Finally, add another function called `adjustTemperature()` that accepts a temper
         you can override their behavior later in the <code>SmartThermostat</code> class.
     </def>
 </deflist>
-
-|--|--|
 
 ```kotlin
 abstract class // Write your code here
@@ -502,7 +501,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-1"}
 
-|---|---|
 ```kotlin
 abstract class SmartDevice(val name: String) {
     abstract fun turnOn()
@@ -559,7 +557,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-2"}
+</def>
+<def title="Implement a media interface" id="classes-interfaces-exercise-2">
 
 Create an interface called `Media` that you can use to implement specific media classes like `Audio`, `Video`, or 
 `Podcast`. Your interface must include:
@@ -577,7 +576,6 @@ the `play()` function to print the following: `"Playing audio: $title, composed 
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 interface // Write your code here
 
@@ -591,7 +589,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-2"}
 
-|---|---|
 ```kotlin
 interface Media {
     val title: String
@@ -612,7 +609,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-3"}
+</def>
+<def title="Combine an interface and an abstract class" id="classes-interfaces-exercise-3">
 
 You're building a payment processing system for an e-commerce application. Each payment method needs to be able to 
 authorize a payment and process a transaction. Some payments also need to be able to process refunds.
@@ -629,7 +627,6 @@ statements:
    * `"Refunding $amount to the credit card."`
    * `"Processing credit card payment of $amount."`
 
-|---|---|
 ```kotlin
 interface Refundable {
     // Write your code here
@@ -654,7 +651,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-3"}
 
-|---|---|
 ```kotlin
 interface Refundable {
     fun refund(amount: Double)
@@ -691,7 +687,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
 
-### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="classes-interfaces-exercise-4"}
+</def>
+<def title="Customize behavior with interface delegation" id="classes-interfaces-exercise-4">
 
 You have a simple messaging app that has some basic functionality, but you want to add some functionality for 
 _smart_ messages without significantly duplicating your code.
@@ -706,8 +703,6 @@ a `message` as an input and return a printed statement: `"Sending a smart messag
 > You don't need to rewrite the `receiveMessage()` function in the `SmartMessenger` class.
 > 
 {style="note"}
-
-|--|--|
 
 ```kotlin
 interface Messenger {
@@ -742,7 +737,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-4"}
 
-|---|---|
 ```kotlin
 interface Messenger {
     fun sendMessage(message: String)
@@ -780,6 +774,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 
