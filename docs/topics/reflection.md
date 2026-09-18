@@ -65,9 +65,6 @@ In other supported cases (IntelliJ IDEA projects that use the command-line compi
 it is added by default. In the command-line compiler, you can use the `-no-reflect` compiler option to exclude
 `kotlin-reflect.jar` from the classpath.
 
-To convert the class representations themselves, use `.java` on a `KClass` and `.kotlin` on a Java Class.
-The conversion changes the API used to describe the class, not the underlying class itself.
-
 ## Obtain a runtime class
 
 To obtain a runtime class, choose processing based on the concrete object it received:
@@ -131,9 +128,10 @@ its type arguments. Therefore, the code can inspect `String?` separately from `L
 
 ### Check values
 
-The `as` and `as?` operators work when you write the target type directly in the code. However, if you store the target in
+The `is`, `as`, and `as?` operators work when you write the target type directly in the code. However, if you store the target in
 a `KClass`, use:
 
+* The [`isInstance()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/is-instance.html) function to check if a value is an instance of the class.
 * The [`cast()`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/cast.html) function if a mismatch should stop the operation.
 * The [`safeCast()`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/safe-cast.html) function if mismatch is an expected possibility.
 
@@ -144,6 +142,11 @@ import kotlin.reflect.full.safeCast
 fun main() {
     val expectedClass = String::class
     val value: Any = "Kotlin"
+    
+    println(expectedClass.isInstance(value))
+    // true
+    println(expectedClass.isInstance(22))
+    // false
     
     val text = expectedClass.cast(value)
     println(text)
@@ -160,6 +163,7 @@ fun main() {
 After obtaining a `KClass`, you can inspect its members. This way, your program learns which declarations exist before
 deciding whether to use any of them. For example, you can use:
 
+* The [`members`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/members.html) property to return all functions and properties accessible in this class, including inherited declarations.
 * The [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html) and [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html) properties to return the declarations from the class itself.
 * The [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html) and [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html) properties to return the declarations from the class and all of its superclasses.
 

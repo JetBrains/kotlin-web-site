@@ -360,7 +360,7 @@ fun main() {
 {kotlin-runnable="true"}
 
 Extension functions follow the same rule. For example, `String::isBlank` is unbound and needs a `String` receiver.
-`"Kotlin"::isBlank` is bound to one string.
+`"Kotlin"::isBlank` is bound and takes no parameters.
 
 ## Lambda expressions and anonymous functions
 
