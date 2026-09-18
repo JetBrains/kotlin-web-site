@@ -401,7 +401,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.                        |
 | `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.                         |
 | `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.                         |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                                      |
+| `Unit`                                                           | `undefined`                 | Exportable when used as return type, but not when used as parameter type.                                      |
 | `Any`                                                            | `Object`                  |                                                                                                                |
 | `Throwable`                                                      | `Error`                   |                                                                                                                |
 | `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                                            |
