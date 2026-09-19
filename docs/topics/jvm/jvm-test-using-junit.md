@@ -312,5 +312,5 @@ Run both Java and Kotlin tests to verify your project works as expected:
 
 ## What's next
 
-Learn more about [testing Kotlin projects with Maven](jvm-test-maven.md).
-
+* Learn more about [testing Kotlin projects with Maven](jvm-test-maven.md).
+* Find answers to common questions in the [FAQ for Kotlin backend development](jvm-backend-faq.md).
