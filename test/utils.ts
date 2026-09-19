@@ -108,9 +108,7 @@ export function skipNonProduction(message?: string) {
 export async function getUserAgent(browser: Browser): Promise<string> {
     const tmpPage = await browser.newPage();
     try {
-        const originalUA = await tmpPage.evaluate(() => navigator.userAgent);
-        await tmpPage.close();
-        return originalUA;
+        return await tmpPage.evaluate(() => navigator.userAgent);
     } finally {
         await tmpPage.close();
     }
