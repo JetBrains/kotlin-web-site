@@ -56,6 +56,14 @@
     gap: 12px;
 }
 
+.size_l .icons {
+    gap: 16px;
+}
+
+.size_l .iconLink {
+    padding: 12px;
+}
+
 .size_xs .iconLink {
     transform: scale(0.8);
 }

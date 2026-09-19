@@ -1,0 +1,25 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.bar {
+    display: flex;
+    justify-content: center;
+    padding: 36px 0 12px;
+    position: relative;
+    transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.barStuck {
+    padding-top: 12px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+.switcher {
+    flex-wrap: wrap;
+}
+
+@media (--ktl-tl-down) {
+    .bar {
+        display: none;
+    }
+}
