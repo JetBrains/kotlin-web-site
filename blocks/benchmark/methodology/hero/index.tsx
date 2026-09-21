@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import styles from './hero.module.css';
+import { repositoryCountWord, totalTasks } from '../content/dataset-data';
 
 export function MethodologyHero() {
     const textCn = useTextStyles();
@@ -12,7 +13,8 @@ export function MethodologyHero() {
                 The Kotlin Benchmark&nbsp;— Methodology and&nbsp;Outlook
             </h1>
             <p className={textCn('rs-text-1', {hardness: 'hard'})}>
-                See how the Kotlin Benchmark is&nbsp;built: 105&nbsp;tasks from eight open-source Kotlin repositories,
+                See how the Kotlin Benchmark is&nbsp;built: {totalTasks}&nbsp;tasks from {repositoryCountWord} open-source Kotlin
+                repositories,
                 SWE-bench-based methodology, and&nbsp;future plans.
             </p>
         </section>

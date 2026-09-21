@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
 import styles from './content.module.css';
-import { repositories } from './dataset-data';
+import { repositories, repositoryCountWord, totalTasks } from './dataset-data';
 import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
 
 const MULTI_SWE_BENCH_URL = 'https://github.com/multi-swe-bench' as const;
@@ -74,7 +74,7 @@ export function MethodologyContent() {
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
                         The Kotlin Benchmark{' '}
                         <span className={cn(styles.span, textCn('rs-text-2', { hardness: 'hard' }))}>
-                            contains 105&nbsp;tasks across eight&nbsp;repositories
+                            contains {totalTasks}&nbsp;tasks across {repositoryCountWord}&nbsp;repositories
                         </span>
                         , drawn from open production Kotlin codebases. We selected repositories based on popularity
                         (number of stars) and contributor activity. Each task is a real, merged GitHub pull request that

@@ -1,0 +1,15 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.archiveLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 24px;
+}
+
+.date {
+    margin: 0 0 16px;
+    color: rgba(255, 255, 255, 0.7);
+}

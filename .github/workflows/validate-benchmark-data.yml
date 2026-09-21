@@ -1,0 +1,19 @@
+name: Validate Benchmark Data
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_benchmark_data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chrisdickinson/setup-yq@latest
+        with:
+          yq-version: 'v4.9.5'
+      - run: |
+         jsonschema -i <(yq eval --tojson -j data/benchmark/leaderboard.yml) data/schemas/benchmark-leaderboard.json
+         echo "benchmark leaderboard data is valid!"

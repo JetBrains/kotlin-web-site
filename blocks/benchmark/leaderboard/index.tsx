@@ -4,13 +4,19 @@ import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 import styles from './leaderboard.module.css';
-import { columns, notice, rows, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
+import { BenchRow, columns, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
 
 function RateCell({ value, textCn }: { value: number; textCn: ReturnType<typeof useTextStyles> }) {
     return <span className={cn(styles.rateValue, textCn('rs-text-2'))}>{twoDecimals(value)}</span>;
 }
 
-export function Leaderboard() {
+export interface LeaderboardProps {
+    rows: BenchRow[];
+    /** In-progress banner. Archived editions never carry one. */
+    notice?: string;
+}
+
+export function Leaderboard({ rows, notice }: LeaderboardProps) {
     const textCn = useTextStyles();
 
     return (
