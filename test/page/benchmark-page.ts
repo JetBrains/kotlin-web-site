@@ -14,6 +14,8 @@ export class KotlinBenchmarkPage implements BasePage {
     readonly colHeaders: Locator;
     readonly methodologyCta: Locator;
     readonly githubCta: Locator;
+    readonly updatedDate: Locator;
+    readonly archiveCta: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -27,6 +29,8 @@ export class KotlinBenchmarkPage implements BasePage {
         this.colHeaders = page.getByTestId('bench-col-header');
         this.methodologyCta = page.getByTestId('bench-cta-methodology');
         this.githubCta = page.getByTestId('bench-cta-github');
+        this.updatedDate = page.getByTestId('bench-updated');
+        this.archiveCta = page.getByTestId('bench-archive-cta');
     }
 
     /** Resolution-rate cells, in row order. */
