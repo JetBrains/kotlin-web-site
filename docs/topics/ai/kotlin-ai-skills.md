@@ -40,12 +40,12 @@ The following examples show some of the tasks that AI skills can help you with.
     <panel>
         <title>Migrate multiplatform projects with Android apps to use AGP 9</title>
         <p>Take your understanding of Kotlin to&nbsp;the next level.</p>
-        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tour-start-intermediate">Start</a>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tooling-cocoapods-spm-migration">Start</a>
     </panel>
     <panel>
         <title>Migrate multiplatform projects with Android apps to use AGP 9</title>
         <p>Take your understanding of Kotlin to&nbsp;the next level.</p>
-        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tour-start-intermediate">Start</a>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tooling-agp9-migration">Start</a>
     </panel>
 </panels>
 
