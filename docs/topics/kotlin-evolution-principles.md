@@ -189,7 +189,7 @@ can be used to preserve binary compatibility even for declarations removed from 
 Also, by convention, packages named "internal" are not considered public API. 
 All API residing in packages named "experimental" is considered pre-stable and can change at any moment.
 
-We evolve the Kotlin Standard Library (`kotlin-stdlib`) for stable platforms according to the principles stated above.
+We evolve the Kotlin standard library (`kotlin-stdlib`) for stable platforms according to the principles stated above.
 Changes to the contracts for its API undergo the same procedures as changes in the language itself.
 
 ## Compiler options
