@@ -363,7 +363,7 @@
             <toc-element toc-title="Getting started" topic="ksp-quickstart.md"/>
             <toc-element topic="ksp-kapt-migration.md"/>
             <toc-element toc-title="Examples" topic="ksp-examples.md"/>
-            <toc-element topic="ksp-additional-details.md"/>
+            <toc-element topic="ksp-kotlin-model.md"/>
             <toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
