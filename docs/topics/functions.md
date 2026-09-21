@@ -421,10 +421,10 @@ fun getDisplayNameOrDefault(userId: String?): String =
 If a function has a block body, doesn't produce a meaningful value, and has no explicit return type, the compiler infers
 its return type as `Unit`.
 
-`Unit` is a type that has only one value, also called `Unit`. Unlike `void` in other programming languages, `Unit` is
-an actual type, and you can use its value if your code requires one. This gives functions that produce results and functions
-that only perform actions the same type model: both return a value and can be represented by function types or used with
-generic APIs.
+`Unit` is a type that has only one value, also called `Unit`. This value is an [object](object-declarations.md), so only a single `Unit` instance exists.
+Unlike `void` in other programming languages, `Unit` is an actual type, and you can use its value if your code requires one.
+This gives functions that produce results and functions that only perform actions the same type model: both return a value
+and can be represented by function types or used with generic APIs.
 
 You don't need to specify `Unit` in function declarations or return its value explicitly. However, you must specify
 `Unit` when it is part of a function type, such as `() -> Unit`. For example, let's declare a `printHello()` function
