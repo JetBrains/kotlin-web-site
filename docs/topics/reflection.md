@@ -161,28 +161,40 @@ fun main() {
 ## Inspect a class
 
 After obtaining a `KClass`, you can inspect its members. This way, your program learns which declarations exist before
-deciding whether to use any of them. For example, you can use:
+deciding whether to use any of them. Use the [`members`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/members.html) to inspect functions and properties. It returns a collection
+of `KCallable` objects with all declarations accessible in the class, including inherited declarations. 
 
-* The [`members`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/members.html) property to return all functions and properties accessible in this class, including inherited declarations.
-* The [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html) and [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html) properties to return the declarations from the class itself.
-* The [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html) and [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html) properties to return the declarations from the class and all of its superclasses.
-
-For example, the following code lists the properties declared directly in a class. `declaredMemberProperties` returns `KProperty`
-objects that describe the declarations. Reading `property.name` or `property.returnType` doesn't access a `User` value.
-It inspects the declaration itself. You need a `User` instance only if you want to read the property's value:
+For example, the following code lists the functions and properties accessible in a data class:
 
 ```kotlin
-import kotlin.reflect.full.declaredMemberProperties
-
 data class User(val name: String, val age: Int)
 
 fun main() {
-    // Return properties declared in User, but not inherited properties
-    User::class.declaredMemberProperties.forEach { property ->
-        println("${property.name}: ${property.returnType}")
-    }
+    println(User::class.members.map { it.name }.sorted())
 }
 ```
+
+The `kotlin.reflect.full` package provides more specific properties for selecting declarations by kind, scope, and receiver:
+
+| Property                                                                                                                                            | Returns                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [`declaredMembers`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-members.html)                                       | Functions and properties declared directly in the class, excluding inherited declarations                                                    |
+| [`functions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/functions.html)                                                    | All functions available from the class: non-static functions from the class and its superclasses, and static functions declared in the class |
+| [`declaredFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-functions.html)                                   | All functions declared in the class                                                                                                          |
+| [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html)                                       | Non-extension, non-static functions declared in the class and its superclasses                                                               |
+| [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html)                      | Non-extension, non-static functions declared in the class                                                                                    |
+| [`memberExtensionFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-extension-functions.html)                    | Extension functions declared as members of the class or its superclasses                                                                     |
+| [`declaredMemberExtensionFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-extension-functions.html)   | Extension functions declared in the class                                                                                                    |
+| [`staticFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/static-functions.html)                                       | Static functions declared in the class                                                                                                       |
+| [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html)                                     | Non-extension properties declared in the class and its superclasses                                                                          |
+| [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html)                    | Non-extension properties declared in the class                                                                                               |
+| [`memberExtensionProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-extension-properties.html)                  | Extension properties declared as members of the class or its superclasses                                                                    |
+| [`declaredMemberExtensionProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-extension-properties.html) | Extension properties declared as members in the                                                                                              |
+| [`staticProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/static-properties.html)                                     | Properties representing static fields declared in Java classes                                                                               |
+
+Choose the narrowest property that matches the declarations your code needs. For example, a serializer might use
+`declaredMemberProperties` to process only properties introduced by a specific class, while a framework that searches
+for a callable API might need inherited `memberFunctions` as well.
 
 You can also [inspect sealed subclasses](sealed-classes.md#inspect-sealed-subclasses-with-reflection) with reflection.
 
