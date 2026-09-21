@@ -1,8 +1,11 @@
 package kotlinlang.builds
 
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object PdfGenerator : BuildType({
   name = "PDF Generator"
@@ -17,6 +20,14 @@ object PdfGenerator : BuildType({
   requirements {
     equals("node.js.nvm", "yes")
     contains("teamcity.agent.name", "-macos-")
+  }
+
+  triggers {
+    finishBuildTrigger {
+      buildType = BuildSitePages.id?.value ?: error("Invalid BuildSitePages ID")
+      branchFilter = "+:<default>"
+      successfulOnly = false
+    }
   }
 
   steps {
@@ -36,9 +47,9 @@ object PdfGenerator : BuildType({
         YARN_HOME=""
 
         cleanup() {
-          if [ -n "${'$'}{'$'}YARN_HOME" ] && [ -d "${'$'}{'$'}YARN_HOME" ]; then
-            echo "Removing temporary yarn installation: ${'$'}{'$'}YARN_HOME"
-            rm -rf "${'$'}{'$'}YARN_HOME"
+          if [ -n "${'$'}YARN_HOME" ] && [ -d "${'$'}YARN_HOME" ]; then
+            echo "Removing temporary yarn installation: ${'$'}YARN_HOME"
+            rm -rf "${'$'}YARN_HOME"
           fi
         }
 
