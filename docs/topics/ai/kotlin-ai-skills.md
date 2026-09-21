@@ -40,7 +40,7 @@ The following examples show some of the tasks that AI skills can help you with.
     <panel>
         <title>Migrate multiplatform projects to AGP 9</title>
         <p>Migrate your Kotlin Multiplatform project to AGP 9 and enable an AI agent to apply the required project and Gradle configuration changes.<br/>
-        Learn more about this scenario in <a href="https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html">this scenario</a>.</p>
+        Learn more about <a href="https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html">this scenario</a>.</p>
         <a href="https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration" as="button" icon="arrow-right" icon-position="right" id="kotlin-tooling-agp9-migration">AI skill</a>
     </panel>
     <panel>
