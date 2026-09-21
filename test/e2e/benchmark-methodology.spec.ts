@@ -25,10 +25,10 @@ test.describe('Kotlin Benchmark methodology page', () => {
 
     test('the dataset table lists every repository with its task count', async () => {
         await expect(methodology.datasetTable).toBeVisible();
-        await expect(methodology.datasetRows).toBeVisible();
+        await expect(methodology.datasetRows.first()).toBeVisible();
 
         // Repository names link out to GitHub.
-        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'pinterest/ktlint' });
+        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'ktlint/ktlint' });
         await expect(ktlint).toHaveAttribute('href', 'https://github.com/ktlint/ktlint');
     });
 
