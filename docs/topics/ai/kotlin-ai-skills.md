@@ -17,10 +17,37 @@ Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home)
 with compatible AI agents, for example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
 and GitHub Copilot.
 
+## Set up AI skills in IDEs
+
+Learn how to set up and use AI skills in:
+
+* [IntelliJ IDEA](https://www.jetbrains.com/help/ai-assistant/agent-skills.html)
+* [Android Studio](https://developer.android.com/tools/agents/android-skills)
+
 ## Supported workflows
 
 You can use Kotlin AI skills for different Kotlin-specific scenarios. 
 The following examples show some of the tasks that AI skills can help you with.
+
+<p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements -->
+<panels columns="3" id="kotlin-ai-skills">
+    <panel>
+        <title>Convert Java source files to Kotlin</title>
+        <p>Convert your Java source files to idiomatic Kotlin while preserving behavior and applying Kotlin-specific conventions.
+        Learn more about this scenario in <a href="mixing-java-kotlin-intellij.md">Convert Java files to Kotlin</a>.</p>
+        <a href="https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-java-to-kotlin" as="button" icon="arrow-right" icon-position="right" id="kotlin-tooling-java-to-kotlin">kotlin-tooling-java-to-kotlin</a>
+    </panel>
+    <panel>
+        <title>Migrate multiplatform projects with Android apps to use AGP 9</title>
+        <p>Take your understanding of Kotlin to&nbsp;the next level.</p>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tour-start-intermediate">Start</a>
+    </panel>
+    <panel>
+        <title>Migrate multiplatform projects with Android apps to use AGP 9</title>
+        <p>Take your understanding of Kotlin to&nbsp;the next level.</p>
+        <a href="kotlin-tour-intermediate-extension-functions.md" as="button" icon="arrow-right" icon-position="right" progress-aware="true" id="kotlin-tour-start-intermediate">Start</a>
+    </panel>
+</panels>
 
 ### Convert Java source files to Kotlin
 

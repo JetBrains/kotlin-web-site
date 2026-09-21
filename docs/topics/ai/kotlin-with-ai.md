@@ -29,6 +29,11 @@ and third-party AI tools like Claude Code, OpenAI Codex, and more.
 
 See [AI-powered Kotlin development](ai-for-development.md) for an overview of these tools and how to use them.
 
+> If you're not sure which AI agent to use, check the [Kotlin Benchmark](https://kotlinlang.org/benchmark/) to compare how different agents perform on Kotlin
+> development tasks.
+>
+{style="tip"}
+
 ### Kotlin AI skills
 
 Kotlin AI skills are reusable, task-specific instructions that help AI agents complete Kotlin development tasks consistently.
