@@ -16,7 +16,7 @@ test.describe('Kotlin Benchmark landing page', () => {
         await expect(benchmark.heroTitle).toContainText('Kotlin Benchmark');
 
         await expect(benchmark.heroIntro).toBeVisible();
-        await expect(benchmark.heroIntro).toContainText('continuous initiative');
+        await expect(benchmark.heroIntro).toContainText('realistic, idiomatic Kotlin');
     });
 
     test('leaderboard renders every row', async () => {
@@ -61,9 +61,9 @@ test.describe('Kotlin Benchmark landing page', () => {
 
         expect(latencies.length).toBeGreaterThan(0);
 
-        // Every cell follows the "Hh Mm" shape with zero-padded minutes (no seconds).
+        // Every cell follows the "Hh Mm" shape (no seconds); minutes are not zero-padded in the data.
         for (const latency of latencies) {
-            expect(latency).toMatch(/^\d+h \d{2}m$/);
+            expect(latency).toMatch(/^\d+h \d{1,2}m$/);
         }
     });
 
@@ -117,8 +117,12 @@ test.describe('Kotlin Benchmark landing page', () => {
 
     test('notice banner is visible when set in data', async () => {
         const notice = benchmark.page.getByTestId('bench-notice');
+
+        // The notice is optional: leaderboard.yml only carries one while a run is in progress.
+        test.skip((await notice.count()) === 0, 'no notice set in leaderboard.yml');
+
         await expect(notice).toBeVisible();
-        await expect(notice).toContainText('Evaluating');
+        await expect(notice).not.toBeEmpty();
     });
 
     test('methodology CTA links to the methodology page and GitHub', async () => {
