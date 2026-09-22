@@ -1,5 +1,7 @@
 [//]: # (title: API references)
 
+<web-summary>Explore API documentation for official Kotlin libraries and tools, including the standard library, coroutines, serialization, and more.</web-summary>
+
 Welcome to the Kotlin API References page. Here you'll find links to the API documentation for the official Kotlin libraries and tools.
 
 > If you're looking for Kotlin Multiplatform libraries, browse them on [**klibs.io**](https://klibs.io).
