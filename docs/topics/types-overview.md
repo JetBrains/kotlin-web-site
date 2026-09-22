@@ -19,8 +19,10 @@ This section describes the basic types used in Kotlin:
 | [Arrays](arrays.md)                                       | `Array<T>`, primitive-type arrays  | A fixed-size sequence of values    |
 
 
-By default, every type is non-nullable. To allow `null` values, declare a variable with a `?` sign right after the variable type.
-For example, `String?`. Learn more in [Null safety](null-safety.md#nullable-types-and-non-nullable-types).
+> By default, every type is non-nullable. To allow `null` values, declare a variable with a `?` sign right after the variable
+> type. For example, `String?`. Learn more in [Null safety](null-safety.md#nullable-types-and-non-nullable-types).
+> 
+{style="note"}
 
 To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look through the Kotlin API reference:
 
