@@ -86,6 +86,12 @@ The following examples show some of the tasks that AI skills can help you with.
     </panel>
 </panels>
 
+## Contribute and share feedback
+
+Kotlin AI skills are open-source. We encourage you to test the available skills and share your feedback by [reporting issues](https://github.com/Kotlin/kotlin-agent-skills/issues/new).
+
+You can also contribute a new skill or improve an existing one. For more information, see the [contribution guidelines](https://github.com/Kotlin/kotlin-agent-skills/blob/main/CONTRIBUTING.md).
+
 ## Get support
 
 If you have questions or encounter problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) 
