@@ -67,14 +67,10 @@ it is added by default. In the command-line compiler, you can use the `-no-refle
 
 ## Obtain a runtime class
 
-To obtain a runtime class, choose processing based on the concrete object it received:
+Most reflection operations begin with a `KClass`. How you obtain it depends on whether the class is known at compile time:
 
-* If you know the class from the source code, use `ClassName::class`.
-* If you need the actual class of a runtime value, use `value::class`.
-
-The approach depends on the way an API accepts values: through a common superclass or through `Any`. The declared type tells
-the compiler which operations are safe in the source code, while `value::class` reveals the class that produced the value
-at runtime:
+* Use `ClassName::class` to reference a class known at compile time.
+* Use `value::class` to obtain the actual class of a runtime value, which may be more specific than its declared type.
 
 ```kotlin
 class User(val name: String)

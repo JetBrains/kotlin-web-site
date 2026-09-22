@@ -218,8 +218,8 @@ Callable-reference objects implement [reflection](reflection.md) interfaces, suc
 
 ### Function references
 
-Use a function reference when an API expects behavior as a value, and you already have a function that implements it.
-To refer to a top-level or local named function, use `::functionName`:
+Use a function reference to pass or store an existing function as a value. To refer to a top-level or local named function,
+use `::functionName`:
 
 ```kotlin
 fun calculateLength(text: String) = text.length
