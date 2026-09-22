@@ -89,7 +89,7 @@ A `KSReferenceElement` can be one of the following:
 
 * `KSClassifierReference`, which provides information such as `referencedName()`.
 
-* `KSCallableReference`, which provides information such as `receiverType`, `functionArguments`, and `returnType`.
+* `KSCallableReference`, which provides information such as `receiverType`, `functionParameters`, and `returnType`.
 
 You can inspect this information without resolving the reference.
 
