@@ -24,7 +24,7 @@ KSFile
       superTypes: List<KSTypeReference>
       // contains inner classes, member functions, properties, etc.
       declarations: List<KSDeclaration>
-    KSFunctionDeclaration // top level function
+    KSFunctionDeclaration // top-level function
       simpleName: KSName
       qualifiedName: KSName
       containingFile: String
