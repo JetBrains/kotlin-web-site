@@ -131,6 +131,7 @@ We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/i
 ## Standard library: New functions for simplifying common patterns with `if` expressions
 
 <primary-label ref="experimental-opt-in"/>
+<secondary-label ref="standard-library"/>
 
 Kotlin %kotlinEapVersion% introduces new standard library functions that let you inspect a `Boolean` value before returning
 it or return a nullable result depending on that value.
@@ -181,6 +182,7 @@ fun main() {
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-6938).
 
 ## Kotlin/JS: Support for the `es2020` target
+<secondary-label ref="js"/>
 
 Kotlin %kotlinEapVersion% adds the `es2020` target to the Kotlin/JS compiler and Gradle plugin. Previously, only the `es5` and
 `es2015` targets were available, and support for newer JavaScript features, such as `BigInt`, had to be enabled separately
@@ -202,7 +204,7 @@ kotlin {
 ## Kotlin compiler
 
 Kotlin %kotlinEapVersion% brings more improvements to function inlining during `.klib` compilation and experimental features
-such as improved type inference performance and a new compilation scheme for Kotlin Multiplatform.
+such as improved type inference performance<!-- and a new compilation scheme for Kotlin Multiplatform -->.
 
 ### Consistent cross-module function inlining during klib compilation
 
@@ -256,10 +258,10 @@ incremental compilation for common source sets. Learn more about KMP separate co
 ## Breaking changes and deprecations
 
 Kotlin %kotlinEapVersion% introduces a warning as the first step to raising the minimum JDK version required to run the
-Kotlin compiler from JDK 8 to JDK 17. We’re raising the minimum required JDK to speed up development and give the compiler
+Kotlin compiler from JDK 8 to JDK 17. We're raising the minimum required JDK to speed up development and give the compiler
 access to new libraries that require newer Java versions. JDK 17 has a long support window and helps us maintain compatibility
 with newer versions of Gradle and Maven. Opt out of the warning with the `-Xallow-pre-17-runtime-jdk` compiler option. 
-This option will be removed in Kotlin 2.5.20 or 2.6.0, when JDK 17 will become mandatory.
+This option will be removed in Kotlin 2.5.20 or 2.6.0 when JDK 17 becomes mandatory.
 
 If you have difficulty upgrading your project, share your experience on [YouTrack](https://kotl.in/issue) or reach out 
 directly to developers on Kotlin Slack. [Get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
