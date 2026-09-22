@@ -55,7 +55,7 @@ properties that aren't shown here.
 
 The following diagram illustrates the relationships between the main KSP API types:
 
-![class diagram](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
+![The full class diagram of the KSP 2 model](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
 
 > [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
 >
