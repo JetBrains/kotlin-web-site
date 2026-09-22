@@ -87,7 +87,7 @@ annotations and modifiers.
 
 A `KSReferenceElement` can be one of the following:
 
-* `KSClassifierReference`, which provides information such as `referencedName`.
+* `KSClassifierReference`, which provides information such as `referencedName()`.
 
 * `KSCallableReference`, which provides information such as `receiverType`, `functionArguments`, and `returnType`.
 
