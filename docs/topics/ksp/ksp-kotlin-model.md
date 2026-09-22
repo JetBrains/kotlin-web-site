@@ -107,7 +107,7 @@ val ksDeclaration: KSDeclaration = ksType.declaration
 ```
 
 Resolve a type reference only when you need information available from `KSType` or `KSDeclaration`. When possible, 
-inspect the `KSReferenceElement` first. For example, you can use `KSClassifierReference.referencedName` to filter 
+inspect the `KSReferenceElement` first. For example, you can use the `KSClassifierReference.referencedName()` function to filter 
 irrelevant references before resolving them.
 
 For function type references, most information is already available from `KSCallableReference`. Resolving a function 
