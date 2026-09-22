@@ -37,7 +37,11 @@ Watch a video by Sebastian Aigner, Kotlin Developer Advocate:
 Each main collection type has a read-only interface, such as `List`, and a corresponding mutable interface, such as
 `MutableList`. Read-only interfaces provide operations for accessing elements, while mutable interfaces add operations
 for adding, removing, and updating them. Prefer read-only interfaces when callers don't need to modify a collection.
-However, read-only doesn't mean immutable. The same collection can be referenced as a mutable type elsewhere.
+
+Read-only collection interfaces don't guarantee immutability. They only prevent you from modifying a collection through
+that interface. The same collection can still be mutable through another reference. However, you can implement a read-only
+interface through an immutable collection that can't change after creation. For immutable and persistent
+implementations, use the [`kotlinx.collections.immutable`](https://kotlinlang.org/api/kotlinx.collections.immutable/) library.
 
 The interfaces form the following hierarchy:
 
