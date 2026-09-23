@@ -14,7 +14,8 @@ KSFile
   fileName: String
   annotations: List<KSAnnotation>  (File annotations)
   declarations: List<KSDeclaration>
-    KSClassDeclaration // class, interface, object
+    KSClassDeclaration
+    // Class, interface, object
       simpleName: KSName
       qualifiedName: KSName
       containingFile: String
@@ -23,9 +24,10 @@ KSFile
       classKind: ClassKind
       primaryConstructor: KSFunctionDeclaration
       superTypes: List<KSTypeReference>
-      // contains inner classes, member functions, properties, etc.
+      // Contains inner classes, member functions, properties, etc.
       declarations: List<KSDeclaration>
-    KSFunctionDeclaration // top-level function
+    KSFunctionDeclaration
+    // Top-level function
       simpleName: KSName
       qualifiedName: KSName
       containingFile: String
@@ -35,9 +37,10 @@ KSFile
       extensionReceiver: KSTypeReference?
       returnType: KSTypeReference
       parameters: List<KSValueParameter>
-      // contains local classes, local functions, local variables, etc.
+      // Contains local classes, local functions, local variables, etc.
       declarations: List<KSDeclaration>
-    KSPropertyDeclaration // global variable
+    KSPropertyDeclaration
+    // Top-level property
       simpleName: KSName
       qualifiedName: KSName
       containingFile: String
@@ -82,7 +85,7 @@ interface KSTypeReference : KSAnnotated, KSModifierListOwner {
 }
 ```
 
-A `KSTypeReference` represents an unresolved type. It preserves the syntactic representation of the type as it appears 
+A `KSTypeReference` represents an unresolved type and preserves the syntactic representation of the type as it appears 
 in the source code. Its `KSReferenceElement` models the corresponding type element in Kotlin's grammar, including its 
 annotations and modifiers.
 
