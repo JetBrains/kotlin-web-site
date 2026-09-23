@@ -12,7 +12,7 @@ common symbols and properties available through the KSP API:
 KSFile
   packageName: KSName
   fileName: String
-  annotations: List<KSAnnotation>  (File annotations)
+  annotations: List<KSAnnotation>
   declarations: List<KSDeclaration>
     KSClassDeclaration
     // Class, interface, object
