@@ -11,21 +11,21 @@ and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges
 A range represents an ordered set of values with a defined start and end. By default, it increments by 1 at each step.
 For example, `1..4` represents the numbers 1, 2, 3, and 4.
 
-To create:
+To create a range with an:
 
-* a closed-ended range, call the `.rangeTo()` function with the `..` operator. This includes both the start and end values.
-* an open-ended range, call the `.rangeUntil()` function with the `..<` operator. This includes the start value but excludes the end value.
+* inclusive upper bound, call the `.rangeTo()` function with the `..` operator. This includes both the start and end values.
+* exclusive upper bound, call the `.rangeUntil()` function with the `..<` operator. This includes the start value but excludes the end value.
 
 For example:
 
 ```kotlin
 fun main() {
 //sampleStart
-    // Closed-ended range: includes both 1 and 4
+    // Includes both 1 and 4
     println(4 in 1..4)
     // true
     
-    // Open-ended range: includes 1, excludes 4
+    // Includes 1, excludes 4
     println(4 in 1..<4)
     // false
 //sampleEnd

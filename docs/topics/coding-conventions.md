@@ -1056,7 +1056,7 @@ of the operations being performed in each case and keep performance consideratio
 
 ### Loops on ranges
 
-Use the `..<` operator to loop over an open-ended range:
+Use the `..<` operator to loop over a range with an exclusive upper bound:
 
 ```kotlin
 for (i in 0..n - 1) { /*...*/ }  // bad
