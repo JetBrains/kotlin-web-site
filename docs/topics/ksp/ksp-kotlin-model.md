@@ -89,13 +89,11 @@ A `KSTypeReference` represents an unresolved type and preserves the syntactic re
 in the source code. Its `KSReferenceElement` models the corresponding type element in Kotlin's grammar, including its 
 annotations and modifiers.
 
-A `KSReferenceElement` can be one of the following:
+You can inspect a `KSReferenceElement` without resolving it. It can be one of the following:
 
 * `KSClassifierReference`, which provides information such as `referencedName()`.
 
 * `KSCallableReference`, which provides information such as `receiverType`, `functionParameters`, and `returnType`.
-
-You can inspect this information without resolving the reference.
 
 If a processor generates code that references the same types as the source code, it doesn't need to resolve those types. 
 Instead, it can use the type names available from `KSTypeReference` to generate the same syntactic type reference. KSP 
