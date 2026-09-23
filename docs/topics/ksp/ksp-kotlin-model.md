@@ -1,4 +1,5 @@
-[//]: # (title: KSP Kotlin model)
+[//]: # (title: How KSP models Kotlin code)
+[//]: # (description: Learn how the KSP API models Kotlin source code through a hierarchy of symbols.)
 
 KSP represents source code as a hierarchy of symbols. Processors navigate this hierarchy to inspect declarations, types,
 annotations, and other elements of the source code.
