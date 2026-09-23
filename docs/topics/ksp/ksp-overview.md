@@ -48,56 +48,6 @@ To learn more about KSP, watch this video:
 
 <video src="https://www.youtube.com/v/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
 
-## How KSP looks at source files
-
-Most processors navigate through the various program structures of the input source code.
-Before diving into usage of the API, let's see at how a file might look from KSP's point of view:
-
-```text
-KSFile
-  packageName: KSName
-  fileName: String
-  annotations: List<KSAnnotation>  (File annotations)
-  declarations: List<KSDeclaration>
-    KSClassDeclaration // class, interface, object
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      classKind: ClassKind
-      primaryConstructor: KSFunctionDeclaration
-      superTypes: List<KSTypeReference>
-      // contains inner classes, member functions, properties, etc.
-      declarations: List<KSDeclaration>
-    KSFunctionDeclaration // top level function
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      functionKind: FunctionKind
-      extensionReceiver: KSTypeReference?
-      returnType: KSTypeReference
-      parameters: List<KSValueParameter>
-      // contains local classes, local functions, local variables, etc.
-      declarations: List<KSDeclaration>
-    KSPropertyDeclaration // global variable
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      extensionReceiver: KSTypeReference?
-      type: KSTypeReference
-      getter: KSPropertyGetter
-        returnType: KSTypeReference
-      setter: KSPropertySetter
-        parameter: KSValueParameter
-```
-
-This view lists common things that are declared in the file: classes, functions, properties, and so on.
-
 ## How KSP runs a processor
 
 KSP uses an implementation of `SymbolProcessorProvider` as the entry point for creating a `SymbolProcessor` instance:
