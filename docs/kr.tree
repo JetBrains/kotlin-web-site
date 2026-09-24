@@ -366,7 +366,7 @@
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
             <toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
-            <toc-element topic="ksp-additional-details.md"/>
+            <toc-element topic="ksp-kotlin-model.md"/>
             <toc-element toc-title="KSP from the command line" topic="ksp-command-line.md"/>
             <toc-element toc-title="Examples" topic="ksp-examples.md"/>
         </toc-element>
