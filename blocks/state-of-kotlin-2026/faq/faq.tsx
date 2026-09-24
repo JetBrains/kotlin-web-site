@@ -41,7 +41,7 @@ const LEFT_COLUMN: FaqItem[] = [
 
 const RIGHT_COLUMN: FaqItem[] = [
     {
-        question: 'How many companies use Kotlin Multiplatform?',
+        question: 'How widely is Kotlin Multiplatform adopted?',
         answer: "KMP's share among cross-platform developers more than doubled in one year, from 7% in 2024 to 18% in 2025.",
     },
     {
