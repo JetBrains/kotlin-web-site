@@ -30,3 +30,5 @@ To get started, you can also follow our step-by-step tutorials:
 * **Generate documentation** with the [Dokka documentation engine](dokka-maven.md).
   It supports mixed-language projects and can generate output in multiple formats, including standard Javadoc.
 * **Enable OSGi support** by adding the [`kotlin-osgi-bundle`](kotlin-osgi.md#maven).
+* **Find answers to common questions** about multi-module builds, testing, packaging, and publishing in the
+  [FAQ for Kotlin backend development](jvm-backend-faq.md).
