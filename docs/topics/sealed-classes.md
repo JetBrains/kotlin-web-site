@@ -222,7 +222,7 @@ For more information, see [Guard conditions in when expressions](control-flow.md
 You can use [Reflection](reflection.md) functionality to inspect sealed subclasses. 
 
 If you need to inspect a known direct subclass, use [sealedSubclasses](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/sealed-subclasses.html).
-The complier returns a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) that can represent a regular class or an object declaration. For an object declaration,
+The method returns a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) that can represent a regular class or an object declaration. For an object declaration,
 [`objectInstance`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/object-instance.html) returns its singleton instance:
 
 ```kotlin

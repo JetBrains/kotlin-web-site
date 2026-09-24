@@ -101,10 +101,6 @@ The second refers to an existing declaration and uses SAM adaptation.
 SAM adaptation happens at compile time and doesn't perform runtime [reflection](reflection.md) or require the `kotlin-reflect` library.
 The compiler checks that the referenced function is compatible with the interface's single abstract method.
 
-Don't confuse a callable reference adapted to a SAM parameter with a callable reference to a functional interface constructor.
-In `execute(::start)`, `::start` supplies the implementation of `Action.run()`. A reference, such as `::Action`, refers
-to the implicit constructor that creates an `Action` from compatible behavior.
-
 ## Migration from an interface with constructor function to a functional interface
 
 Starting from 1.6.20, Kotlin supports callable references to functional interface constructors, which

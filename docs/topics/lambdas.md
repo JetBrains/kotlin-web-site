@@ -279,16 +279,28 @@ fun main() {
     println(greeting)
     // Hi
 
-    // An unbound member property
-    // a User receiver is needed
-    val name = User::name
     val user = User("Jane")
 
-    println(name.get(user))
+    // An unbound member property reference
+    // Pass a User receiver explicitly
+    val unboundName = User::name
+    println(unboundName.get(user))
     // Jane
-    name.set(user, "Jane Doe")
+
+    unboundName.set(user, "Jane Doe")
     println(user.name)
     // Jane Doe
+
+    // A bound member property reference
+    // Captures the user receiver
+    val boundName = user::name
+
+    println(boundName.get())
+    // Jane Doe
+
+    boundName.set("Jane Smith")
+    println(user.name)
+    // Jane Smith
 }
 ```
 {kotlin-runnable="true"}

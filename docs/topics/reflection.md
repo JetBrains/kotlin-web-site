@@ -97,9 +97,13 @@ The obtained reference is a [`KClass`](https://kotlinlang.org/api/core/kotlin-st
 
 ### Inspect types
 
-Even though [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) represents a class, it doesn't preserve type arguments.
-For example, `List<Int>` has the same `List::class` representation as `List<String>`.
-To return a [`KType`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-type/) that includes type arguments and nullability, use the [`typeOf()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/type-of.html) function:
+`KClass` and `KType` represent different information. A `KClass` represents a class without preserving type arguments or
+nullability. For example, `List<String>` and `List<Int>` share the same `List::class` representation, while `String` and
+`String?` share `String::class`. Therefore, use the [`typeOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/type-of.html) function to obtain a `KType` for the statically
+known type `T`, including its type arguments and nullability.
+
+In the following example, the `classifier` connects the type to its class or type parameter. The `arguments` collection contains
+its type arguments. Therefore, the code can inspect `String?` separately from `List`:
 
 ```kotlin
 import kotlin.reflect.typeOf
@@ -113,9 +117,6 @@ fun main() {
     // kotlin.String?
 }
 ```
-
-In this example, the `classifier` connects the type to its class or type parameter. The `arguments` collection contains
-its type arguments. Therefore, the code can inspect `String?` separately from `List`.
 
 > On the JVM, the created type has no annotations, even when you annotate the type in the source code. Support for type
 > annotations might be added in a future version.
