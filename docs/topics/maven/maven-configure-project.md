@@ -5,6 +5,11 @@ to add the Kotlin Maven plugin that compiles Kotlin sources and modules.
 
 Currently, only Maven v3 is supported.
 
+> If you plan to move your project to Maven 4, use the [`mvnup`](https://maven.apache.org/tools/mvnup.html) Maven upgrade tool
+> to migrate your build automatically. For more details on the migration, see the [Starting with Maven 4](https://maven.apache.org/guides/mini/guide-migration-to-mvn4.html) guide.
+>
+{style="note"}
+
 ## Automatic configuration
 
 You can simplify Maven configuration in both mixed Java-Kotlin projects and in pure Kotlin projects using the `<extensions>` option.
