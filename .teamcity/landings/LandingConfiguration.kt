@@ -18,6 +18,7 @@ data class LandingConfiguration(
   val autoDeployToProduction: Boolean = false
 ) {
   val id: String get() = sanitizeId(name)
+  val basePath: String get() = "/lp/$name/"
 }
 
 /**

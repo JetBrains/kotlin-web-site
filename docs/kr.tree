@@ -28,9 +28,9 @@
     </toc-element>
     <toc-element toc-title="What's new in Kotlin">
         <toc-element toc-title="Kotlin 2.4.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2420.md"/>
-        <toc-element toc-title="Kotlin 2.4.20-RC3" topic="whatsnew-eap.md" hidden="true"/>
+        <toc-element toc-title="Kotlin 2.5.0-Beta1" topic="whatsnew-eap.md"/>
         <toc-element toc-title="Kotlin 2.4.0" topic="whatsnew24.md"/>
-        <toc-element toc-title="Compatibility guide" topic="compatibility-guide-24.md"/>
+        <toc-element toc-title="Compatibility guide" accepts-web-file-names="compatibility-guide.html" topic="compatibility-guide-24.md"/>
     </toc-element>
     <toc-element toc-title="Language guide">
         <toc-element toc-title="Basic syntax">
@@ -301,7 +301,7 @@
         <toc-element toc-title="Ktor" href="https://ktor.io/docs/welcome.html"/>
     </toc-element>
     <toc-element toc-title="API reference">
-        <toc-element toc-title="Overview" topic="api-references.topic"/>
+        <toc-element toc-title="Overview" topic="api-references.md"/>
         <toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
         <toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
         <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
@@ -359,17 +359,16 @@
             <toc-element toc-title="Compiler options" topic="compose-compiler-options.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
-            <toc-element accepts-web-file-names="ksp-why-ksp.html" toc-title="KSP overview" topic="ksp-overview.md"/>
+            <toc-element accepts-web-file-names="ksp-why-ksp.html, ksp-faq.html" toc-title="KSP overview" topic="ksp-overview.md"/>
             <toc-element toc-title="Getting started" topic="ksp-quickstart.md"/>
+            <toc-element topic="ksp-multiplatform.md"/>
             <toc-element topic="ksp-kapt-migration.md"/>
-            <toc-element toc-title="Examples" topic="ksp-examples.md"/>
-            <toc-element topic="ksp-additional-details.md"/>
-            <toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
-            <toc-element topic="ksp-multiplatform.md"/>
+            <toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
+            <toc-element topic="ksp-additional-details.md"/>
             <toc-element toc-title="KSP from the command line" topic="ksp-command-line.md"/>
-            <toc-element toc-title="FAQ" topic="ksp-faq.md"/>
+            <toc-element toc-title="Examples" topic="ksp-examples.md"/>
         </toc-element>
     </toc-element>
     <toc-element toc-title="Kotlin evolution and roadmap">

@@ -1,5 +1,6 @@
 import { expect, Locator, Page, test } from '@playwright/test';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
+import { Browser } from 'playwright';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
 
@@ -102,4 +103,25 @@ export function skipProduction(message?: string) {
 
 export function skipNonProduction(message?: string) {
     test.skip(({ baseURL }) => !isProduction(baseURL), message || 'Skip tests on non-production environment');
+}
+
+export async function getUserAgent(browser: Browser): Promise<string> {
+    const tmpPage = await browser.newPage();
+    try {
+        return await tmpPage.evaluate(() => navigator.userAgent);
+    } finally {
+        await tmpPage.close();
+    }
+}
+
+export function removeHeadlessUserAgent(userAgent: string): string {
+    return userAgent.replace(/headless/gi, '');
+}
+export async function createCookieBannerContext(browser: Browser) {
+    const originUserAgent = await getUserAgent(browser);
+
+    return await browser.newContext({
+        userAgent: removeHeadlessUserAgent(originUserAgent),
+        storageState: undefined,
+    });
 }
