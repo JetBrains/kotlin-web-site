@@ -27,7 +27,7 @@ export const DownloadCta: FC = () => {
                         15 years of&nbsp;data. One&nbsp;report.
                     </p>
                     <p className={cn(styles.lead, textCn('rs-subtitle-2'))}>
-                        Six sections on adoption, organizations, talent, multiplatform, backend, and AI with the data
+                        Six sections on adoption, organizations, talent, multiplatform, backend, and AI, with the data
                         and sources behind every number on this page.
                     </p>
                     <Button

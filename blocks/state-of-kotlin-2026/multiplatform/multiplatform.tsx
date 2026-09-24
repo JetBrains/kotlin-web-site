@@ -48,8 +48,8 @@ const circleDiameter = (value: number) => CIRCLE_TRACK_DIAMETER * Math.sqrt(valu
 const LABEL_FITS_FROM = 56;
 
 const GROWTH_CARDS = [
-    'Its footprint in the App Store top 10,000 nearly tripled since early 2024, and over the past year KMP added more top-10,000 apps than Flutter',
-    'Across KMP case studies overall, hundreds of millions of users interact with KMP-powered apps daily',
+    'KMP’s footprint in the App Store top 10,000 nearly tripled since early 2024, and over the past year KMP added more top-10,000 apps than Flutter did.',
+    'According to our KMP case studies, hundreds of millions of users interact with KMP-powered apps daily',
 ];
 
 const PRODUCTION_QUOTES: Quote[] = [
@@ -73,7 +73,7 @@ const PRODUCTION_QUOTES: Quote[] = [
         logoWidth: 173,
         quote: 'The more that we use Kotlin Multiplatform internally, the more we find ourselves speeding up in terms of shipping.',
         author: 'John Rodriguez',
-        role: 'The client platform team',
+        role: 'The Client Platform team',
         linkText: 'Watch video',
         linkHref: 'https://youtu.be/RJtiFt5pbfs',
     },
@@ -100,7 +100,7 @@ export const Multiplatform: FC = () => {
 
             <SectionHeading
                 title="Kotlin Multiplatform: From experiment to strategic platform"
-                description="Kotlin Multiplatform has evolved from an experimental technology into a production-ready platform for cross-platform development. Organizations use it to share business logic, and increasingly user interfaces, across Android, iOS, desktop, web, and server, while preserving native flexibility."
+                description="Kotlin Multiplatform has evolved from an experimental technology into a production-ready platform for cross-platform development. Organizations use it to share business logic and user interfaces across Android, iOS, desktop, web, and server, while preserving native flexibility."
                 titleMaxWidth={TITLE_MAX_WIDTH}
             />
 
@@ -196,7 +196,7 @@ export const Multiplatform: FC = () => {
                         />
                         <StatCard
                             figure="72%"
-                            caption="of teams report faster development, 70% higher app quality, and 55% better collaboration"
+                            caption="of teams report faster development, 70% higher app quality, and 55% better collaboration between Android and iOS teams."
                             className={styles.impactCard}
                         />
                         <StatCard

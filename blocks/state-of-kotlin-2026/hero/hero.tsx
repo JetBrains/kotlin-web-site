@@ -31,7 +31,7 @@ export const Hero: FC = () => {
                     The State of Kotlin in&nbsp;2026
                 </h1>
                 <p className={cn(styles.lead, textCn('rs-subtitle-1'))}>
-                    15&nbsp;years of growth, trust, and&nbsp;ecosystem maturity — spanning 8.1M&nbsp;developers
+                    15&nbsp;years of growth, trust, and&nbsp;ecosystem maturity — spanning 8.1 million&nbsp;developers
                     worldwide.
                 </p>
             </div>
