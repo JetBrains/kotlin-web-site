@@ -418,12 +418,11 @@ fun getDisplayNameOrDefault(userId: String?): String =
 
 ### Unit-returning functions
 
-If a function has a block body, doesn't produce a meaningful value, and has no explicit return type, the compiler infers
-its return type as `Unit`.
+If a function has a block body and no explicit return type, the compiler infers its return type as `Unit`.
 
 `Unit` is a type that has only one value, also called `Unit`. This value is an [object](object-declarations.md), so only a single `Unit` instance exists.
 Unlike `void` in other programming languages, `Unit` is an actual type, and you can use its value if your code requires one.
-This gives functions that produce results and functions that only perform actions the same type model: both return a value
+This way functions that produce results and functions that only perform actions fit the same type model: both return a value
 and can be represented by function types or used with generic APIs.
 
 You don't need to specify `Unit` in function declarations or return its value explicitly. However, you must specify
@@ -462,6 +461,8 @@ This is equivalent to the following more verbose declaration, which specifies th
 
 ```kotlin
 //sampleStart
+// `Unit` is required in the `() -> Unit` function type,
+// but declaring `: Unit` as the return type of `printHello()` is optional
 fun printHello(name: String?, action: () -> Unit): Unit {
     if (name != null)
         println("Hello $name")
@@ -469,19 +470,20 @@ fun printHello(name: String?, action: () -> Unit): Unit {
         println("Hi there!")
 
     action()
+    // Returning the `Unit` value explicitly is optional
     return Unit
 }
 //sampleEnd
 fun main() {
     printHello("Kodee") {
-        println("This runs after the greeting.")
+        println("This action runs when a name is given.")
         // Hello Kodee
-        // This runs after the greeting.
+        // This action runs when a name is given.
     }
     printHello(null) {
-        println("No name provided, but action still runs.")
+        println("This action runs when no name is provided.")
         // Hi there!
-        // No name provided, but action still runs.
+        // This action runs when no name is provided.
     }
 }
 ```
