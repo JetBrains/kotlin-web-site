@@ -66,7 +66,7 @@ const COMMITMENTS: Commitment[] = [
 ];
 
 const FRAMEWORK_STATS: Stat[] = [
-    { figure: '61%', caption: 'of Kotlin developers use Spring / Spring Boot' },
+    { figure: '61%', caption: 'of Kotlin backend developers use Spring / Spring Boot' },
     { figure: '51%', caption: 'of Kotlin backend developers use Ktor' },
 ];
 
