@@ -248,13 +248,13 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Declare a data class">
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
 for salary is mutable, otherwise you won't get a salary boost at the end of the year! The main function demonstrates how
 you can use this data class.
 
-|---|---|
 ```kotlin
 // Write your code here
 
@@ -267,7 +267,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
 
-|---|---|
 ```kotlin
 data class Employee(val name: String, var salary: Int)
 
@@ -280,11 +279,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Declare nested data classes">
 
 Declare the additional data classes that are needed for this code to compile.
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 // Write your code here
@@ -300,7 +299,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 data class Name(val first: String, val last: String)
@@ -317,7 +315,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Generate random employees with a class">
 
 To test your code, you need a generator that can create random employees. Define a `RandomEmployeeGenerator` class with 
 a fixed list of potential names (inside the class body). Configure the class with a minimum and maximum salary (inside 
@@ -342,7 +341,6 @@ how you can use this class.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -362,7 +360,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -386,6 +383,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

@@ -149,13 +149,13 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 
 ## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true">
+<def title="Calculate an employee's salary">
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
 returns the salary of an employee when their `id` is provided, or `0` if the employee is missing from the database.
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -175,7 +175,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise"}
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -194,6 +193,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+
+</def>
+</deflist>
 
 ## What's next?
 
