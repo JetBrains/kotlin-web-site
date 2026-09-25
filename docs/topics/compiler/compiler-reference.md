@@ -417,6 +417,18 @@ into the classpath.
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
 
+### -Xadd-modules=module[,]
+<primary-label ref="experimental-general"/>
+
+Specify the root modules to resolve in addition to the initial modules. Set the `ALL-MODULE-PATH` value to resolve all
+modules on the module path. Separate multiple modules with commas (**,**).
+
+For example, to resolve the incubator module:
+
+```bash
+kotlinc -Xadd-modules=jdk.incubator.vector
+```
+
 ### -Xdump-directory
 <primary-label ref="experimental-general"/>
 
