@@ -1,0 +1,308 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+.cylinder {
+    top: 264px;
+    left: calc(-161px * var(--sok-shape-scale, 1));
+}
+
+.pentagon {
+    top: 51.5%;
+    right: calc(-197px * var(--sok-shape-scale, 1));
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.topRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+.gradientCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+.cardTitle,
+.panelTitle {
+    margin: 0;
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+}
+
+.cardTitle {
+    min-height: calc(2 * 34px);
+}
+
+.whiteCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.statCardInner {
+    justify-content: space-between;
+}
+
+.chartCaption {
+    margin: 0;
+}
+
+.chart {
+    max-width: 383px;
+    margin-top: 32px;
+}
+
+.figure {
+    margin: 0;
+}
+
+.figureFooter {
+    width: 100%;
+}
+
+.caption {
+    margin: 0;
+    color: #19191c;
+}
+
+.smallFootnote {
+    margin: 32px 0 0;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+.panelHeading {
+    max-width: 706px;
+}
+
+.panelLead {
+    margin: 24px 0 0;
+}
+
+.statRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.statRow .flexCard {
+    flex: 1 0 0;
+    height: auto;
+    justify-content: space-between;
+}
+
+.commitmentRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.commitmentList {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.commitmentCard {
+    display: flex;
+    flex: 1 0 0;
+    align-items: flex-start;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/*
+ * copy of rs-link to add multiline hover decoration
+ */
+.commitmentLink {
+    color: #19191c;
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 25, 28, 0.4);
+
+    &:hover {
+        text-decoration-color: rgba(25, 25, 28, 0.8);
+    }
+}
+
+.frameworksColumn {
+    flex: 1 0 0;
+}
+
+.frameworksTitle {
+    margin: 0;
+}
+
+.frameworksRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.frameworkStat {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.frameworkFigure {
+    margin: 0;
+}
+
+.frameworkCaption {
+    margin: 24px 0 0;
+}
+
+.caseRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.caseCard {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.caseBody {
+    width: 100%;
+}
+
+.caseLogoBox {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+.caseLogo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: var(--sok-logo-height, 48px);
+    object-fit: contain;
+    object-position: left center;
+}
+
+.caseTextGroup {
+    margin-top: 24px;
+}
+
+.caseCompany {
+    margin: 0;
+}
+
+.caseText {
+    margin: 12px 0 0;
+}
+
+.caseLink {
+    margin-top: 24px;
+    align-self: flex-start;
+}
+
+@media (--ktl-tl-down) {
+    .topRow,
+    .statRow,
+    .caseRow {
+        flex-direction: column;
+    }
+
+    .cardTitle {
+        min-height: 0;
+    }
+
+    .statRow .flexCard {
+        justify-content: flex-start;
+    }
+
+    .commitmentRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .gradientCard,
+    .panel {
+        padding: 24px;
+    }
+
+    .cardTitle,
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+
+    .frameworksRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cylinder {
+        top: 380px;
+    }
+}

@@ -1,0 +1,141 @@
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.tableArea {
+    width: 100%;
+    border-radius: 8px;
+
+    &:has(:focus-visible) {
+        outline: 2px solid #6b57ff;
+        outline-offset: 2px;
+    }
+}
+
+.scroll {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (--ktl-tl-down) {
+    .scroll {
+        mask-image: linear-gradient(to right, #000 calc(100% - 33px), transparent 100%);
+    }
+}
+
+.table {
+    --sok-lb-col-rate: 120px;
+    --sok-lb-col-tokens: 130px;
+
+    width: 100%;
+    min-width: 1080px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+}
+
+@media (--ktl-ds-down) {
+    .table {
+        --sok-lb-col-rate: 100px;
+        --sok-lb-col-tokens: 100px;
+
+        min-width: 888px;
+    }
+}
+
+.colRank {
+    width: 40px;
+}
+
+/* the only flexible column: it absorbs whatever the fixed ones leave over */
+.colSetup {
+    width: auto;
+}
+
+.table col[data-col='submitted'],
+.table col[data-col='resolved'],
+.table col[data-col='date'] {
+    width: 100px;
+}
+
+.table col[data-col='resolutionRate'] {
+    width: var(--sok-lb-col-rate);
+}
+
+.table col[data-col='tokens'] {
+    width: var(--sok-lb-col-tokens);
+}
+
+.table col[data-col='latency'] {
+    width: 110px;
+}
+
+.th {
+    padding: 12px 8px;
+    font-weight: 400;
+    color: #19191c;
+    vertical-align: middle;
+    background: #f4f4f4;
+}
+
+.td {
+    padding: 12px;
+    color: #19191c;
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+}
+
+.thSetup,
+.tdSetup {
+    text-align: left;
+}
+
+.thSetup {
+    padding-inline: 12px;
+}
+
+.setupName {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rank {
+    color: #19191c;
+}
+
+.rowTop {
+    background: #f4f2ff;
+}
+
+.rowTop .rank {
+    color: #6b57ff;
+    font-weight: 600;
+}
+
+.rowTop .setupName {
+    font-weight: 700;
+}
+
+.rate {
+    color: #4dbb5f;
+    font-weight: 700;
+}
+
+.caption {
+    margin: 0;
+    color: #19191c;
+}
+
+.captionDate {
+    font-weight: 700;
+}
