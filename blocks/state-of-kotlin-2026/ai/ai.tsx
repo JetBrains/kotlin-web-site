@@ -33,7 +33,7 @@ type AgentCase = {
 
 const ASSISTED_STATS: Stat[] = [
     { figure: '93%', caption: 'use at least one AI coding tool' },
-    { figure: '81%', caption: 'already use or are likely to try AI coding agents' },
+    { figure: '81%', caption: 'say AI-generated Kotlin is usually correct or needs only minor fixes' },
 ];
 
 const VERIFIED_LEAD =
@@ -80,7 +80,7 @@ const BUILD_AI_CAPABILITIES: Capability[] = [
     {
         title: 'Call a model',
         description: 'A Kotlin service calls an LLM API and streams the response',
-        tags: ['Official model SDKs', 'Ktor HTTP client', 'Typed request/response'],
+        tags: ['Official model SDKs', 'Ktor HTTP client'],
     },
     {
         title: 'Build AI features into the application',
@@ -130,8 +130,8 @@ export const Ai: FC = () => {
             <FloatingShape shape={SHAPES.triangle} className={styles.triangle} depth={95} drift="c" />
 
             <SectionHeading
-                title="Kotlin and AI: tested in real workflows"
-                description="The qualities that make Kotlin strong in production – static typing, null safety, coroutines – pay off twice in the AI era: they make AI services easier to build, and AI-generated code easier to trust. The data below covers both directions."
+                title="Kotlin and AI: Tested in real workflows."
+                description="The qualities that make Kotlin strong in production – static typing, null safety, and coroutines – pay off twice in the AI era. They make AI services easier to build and AI-generated code easier to trust. The data below covers both directions."
             />
 
             <div className={styles.panels}>
@@ -139,7 +139,7 @@ export const Ai: FC = () => {
                     <div className={styles.assistedHeading}>
                         <h3 className={cn(styles.panelTitle, textCn('rs-h3'))}>AI-assisted Kotlin development</h3>
                         <p className={cn(styles.panelLead, textCn('rs-text-1', { hardness: 'hard' }))}>
-                            AI tools are already common in the surveyed group
+                            AI tools are already common in the surveyed group, and the output holds up.
                         </p>
                     </div>
                     <div className={styles.statGrid}>
@@ -224,7 +224,7 @@ export const Ai: FC = () => {
                         <p className={cn(styles.panelLead, textCn('rs-text-1', { hardness: 'hard' }))}>
                             Production AI needs to be reliable, observable, and easy to operate. Kotlin lets teams build
                             AI services using the same language, frameworks, and deployment pipeline they already use
-                            without standing up a separate Python stack.
+                            without setting up a separate Python stack.
                         </p>
                     </div>
 
@@ -259,7 +259,6 @@ export const Ai: FC = () => {
                 </div>
 
                 <div className={styles.panel} data-testid="sok-ai-agents">
-                    <h3 className={cn(styles.panelTitle, styles.agentsTitle, textCn('rs-h3'))}>Agents in Production</h3>
                     <div className={styles.caseRow}>
                         {AGENT_CASES.map((agentCase, index) => (
                             <QuoteCard

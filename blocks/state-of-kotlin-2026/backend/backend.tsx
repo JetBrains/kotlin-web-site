@@ -44,14 +44,13 @@ const PRODUCTIVITY_FOOTNOTE =
 
 const MODERNIZATION_STATS: Stat[] = [
     {
-        figure: '8×higher',
+        figure: '8× higher',
         caption: 'Kotlin adoption among projects that migrated Spring Boot 2→3, compared with teams that stayed put',
     },
     { figure: '70%', caption: 'of new Kotlin backend adopters already had Spring in their project' },
     {
         figure: 'Now',
-        caption:
-            'is the moment: Spring Boot 3 reached open-source end-of-life in June 2026, and the Spring Boot 4 migration is exactly when teams add Kotlin',
+        caption: 'the ecosystem is moving to Spring Boot 4, and a major migration is exactly when teams add Kotlin',
     },
 ];
 
@@ -61,13 +60,13 @@ const COMMITMENTS: Commitment[] = [
         href: 'https://blog.jetbrains.com/kotlin/2025/05/strategic-partnership-with-spring/',
     },
     {
-        text: 'Security & support policy for the Kotlin stdlib since 2026',
+        text: 'Security and support policy for the Kotlin stdlib since 2026',
         href: 'https://blog.jetbrains.com/kotlin/2026/05/security-support-policy-for-the-kotlin-standard-library/',
     },
 ];
 
 const FRAMEWORK_STATS: Stat[] = [
-    { figure: '61%', caption: 'of Kotlin developers use Spring / Spring Boot' },
+    { figure: '61%', caption: 'of Kotlin backend developers use Spring / Spring Boot' },
     { figure: '51%', caption: 'of Kotlin backend developers use Ktor' },
 ];
 
@@ -116,8 +115,8 @@ export const Backend: FC = () => {
             <FloatingShape shape={SHAPES.pentagon} className={styles.pentagon} depth={130} drift="c" />
 
             <SectionHeading
-                title="Backend: production-proven on the JVM"
-                description="Backend is one of Kotlin's largest domains: over half of Kotlin developers work on backend projects. Kotlin compiles to the same bytecode as Java and calls existing Java code directly, so it enters organizations service by service, without big rewrites."
+                title="Backend: Production-proven on the JVM"
+                description="Backend is one of Kotlin's largest domains – over half of Kotlin developers work on backend projects. Kotlin compiles to the same bytecode as Java and calls existing Java code directly, so it enters organizations service by service, without big rewrites."
             />
 
             <div className={styles.panels}>

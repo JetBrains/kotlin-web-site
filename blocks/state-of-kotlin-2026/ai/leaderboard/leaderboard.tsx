@@ -8,7 +8,6 @@ import {
     formatBenchDate,
     notice,
     rows,
-    snapshotDate,
     TOP_SCORE_COUNT,
     twoDecimals,
 } from '@/utils/benchmark-leaderboard';
@@ -116,7 +115,7 @@ export const BenchmarkLeaderboard: FC = () => {
                 </div>
             </div>
             <p className={cn(styles.caption, textCn('rs-text-3'))} data-testid="sok-ai-leaderboard-caption">
-                Leaderboard snapshot as of <span className={styles.captionDate}>{snapshotDate}</span>. For the latest
+                Leaderboard snapshot as of <span className={styles.captionDate}>July 8</span>. For the latest
                 results, see{' '}
                 <a className={textCn('rs-link')} href={KOTLIN_BENCHMARK_URL}>
                     {BENCHMARK_LINK_LABEL}
