@@ -213,8 +213,8 @@ fun main() {
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-2"}
 
-Using a `when` expression, update the following program so that it prints the corresponding actions when you input the 
-names of game console buttons.
+Using a `when` expression, update the following program so that it prints the corresponding action for any game console
+button in the table. The initial value of `button` is `"A"`; you can change it to try other buttons.
 
 | **Button** | **Action**              |
 |------------|-------------------------|
@@ -226,9 +226,9 @@ names of game console buttons.
 
 |---|---|
 ```kotlin
-fun main() {
-    val button = "A"
+var button = "A"
 
+fun main() {
     println(
         // Write your code here
     )
@@ -238,9 +238,9 @@ fun main() {
 
 |---|---|
 ```kotlin
+var button = "A"
+
 fun main() {
-    val button = "A"
-    
     println(
         when (button) {
             "A" -> "Yes"
