@@ -26,13 +26,13 @@ class ControlFlowLoopsExercise1Test {
             actualOutput.isEmpty() ->
                 hint(
                     "Refactor the repeated code into a loop that counts the slices, " +
-                            "then run again. Nothing is printed yet."
+                            "Your program doesn't print anything yet."
                 )
 
             output.isEmpty() ->
                 hint(
                     "Print how many slices of pizza there are. " +
-                            "println() is called, but the message is empty."
+                            "Your program calls println(), but doesn't pass it a value."
                 )
 
             lines.size == 1 ->
@@ -44,19 +44,19 @@ class ControlFlowLoopsExercise1Test {
             lines.first().startsWith("There's only 0") ->
                 hint(
                     "Increment pizzaSlices before printing it, so the first line " +
-                            "says 1. Right now the story starts at 0 slices."
+                            "says 1. Right now the code starts at 0 slices."
                 )
 
             lines.size < 8 ->
                 hint(
                     "Check the loop condition. Only ${lines.size} lines are printed, " +
-                            "but 8 are expected, so the loop stops too early."
+                            "but it should print 8, so the loop stops too early."
                 )
 
             lines.size > 8 ->
                 hint(
                     "Check the loop condition. ${lines.size} lines are printed, " +
-                            "but only 8 are expected, so the loop runs too many times."
+                            "but it should print only 8, so the loop runs too many times."
                 )
 
             else -> {}
@@ -67,7 +67,7 @@ class ControlFlowLoopsExercise1Test {
         val expected = EXPECTED_LINES[mismatch]
         val actual = lines[mismatch]
         val details = "Line ${mismatch + 1}: the output is \"${escapeHtml(actual)}\", " +
-                "but \"${escapeHtml(expected)}\" is expected."
+                "but it should be \"${escapeHtml(expected)}\"."
         when {
             mismatch == 7 && "There's only" in actual ->
                 hint(

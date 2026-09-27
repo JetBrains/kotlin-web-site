@@ -8,26 +8,26 @@ private const val EXPECTED = "2 is spelled as 'two'"
 class CollectionsExercise3Test {
 
     @Test
-    fun `look up a word in the map`() = when {
+    fun `print the word for n from the map`() = when {
         output.isNotEmpty() && "null" !in output -> passed()
 
         actualOutput.isEmpty() ->
             hint(
                 "Define the number2word map, then print the spelling of n with " +
-                        "println(). Nothing is printed yet."
+                        "println(). Your program doesn't print anything yet."
             )
 
         output.isEmpty() ->
             hint(
                 "Print the spelling message, for example: 1 is spelled as 'one'. " +
-                        "println() is called, but the message is empty."
+                        ""Your program calls println(), but doesn't pass it a value."
             )
 
         else ->
             hint(
                 "Add all three numbers 1, 2, and 3 as keys to your map, each " +
                         "with its spelling as the value. The lookup prints null, " +
-                        "so the map has no value for n yet."
+                        "so the map doesn't contain a value for n yet."
             )
     }
 
@@ -35,7 +35,7 @@ class CollectionsExercise3Test {
     fun `print the spelling of 2 as 'two'`() = when {
         output == EXPECTED -> passed(
             "Checked: the program prints \"2 is spelled as 'two'\". " +
-                    "The test doesn't check that the word comes from a map. " +
+                    "The test doesn't check where the word comes from. " +
                     "The example solution looks it up with number2word[n]."
         )
 
@@ -57,7 +57,7 @@ class CollectionsExercise3Test {
         else ->
             hint(
                 "Print the word for n from your map, in single quotes. " +
-                        "The line should read \"2 is spelled as 'two'\"."
+                        "Your program should print \"2 is spelled as 'two'\"."
             )
     }
 }
