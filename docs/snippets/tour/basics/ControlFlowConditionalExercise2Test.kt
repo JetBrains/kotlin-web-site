@@ -26,7 +26,7 @@ class ControlFlowConditionalExercise2Test {
             actualOutput.isEmpty() ->
                 hint(
                     "Write a when expression inside println() that turns the button " +
-                            "name into its action. Nothing is printed yet."
+                            "name into its action. Your program doesn't print anything yet."
                 )
 
             output.isEmpty() ->
@@ -45,7 +45,7 @@ class ControlFlowConditionalExercise2Test {
                 hint(
                     "Check which branch of your when expression matches \"A\". " +
                             "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
-                            "but the pressed button is \"A\"."
+                            "but the button value is \"A\"."
                 )
 
             lines.size > 1 && (EXPECTED in lines || lines.any { it in OTHER_ACTIONS }) ->
