@@ -5,7 +5,7 @@ class SalaryByIdTest {
         expect("salaryById($id)", expected) { salaryById(id) }
 
     @Test
-    fun `return each salary, and 0 for a missing employee`() {
+    fun `return each salary and 0 for a missing employee`() {
         val checks = listOf(
             salaryOf(1, expected = 20),
             salaryOf(2, expected = 0),
@@ -17,10 +17,10 @@ class SalaryByIdTest {
         when (val failed = checks.firstMismatch()) {
             null ->
                 if ("64" in output.lines()) passed(
-                    "Checked: salaryById returns each employee's salary, and 0 when there is " +
+                    "Checked: salaryById returns each employee's salary and 0 when there are " +
                             "no employee with that id, so main() prints the total of 64."
                 ) else hint(
-                    "Keep the println(...) call in main() as it is. It prints the " +
+                    "Keep the println() call in main() as it is. It prints the " +
                             "total of all five salaries, 64."
                 )
 
@@ -28,18 +28,18 @@ class SalaryByIdTest {
                 failed.isTodo -> hint(
                     "Replace the TODO() with your expression. " +
                             "Return the salary of the employee that employeeById(id) " +
-                            "finds, or 0 when there is no employee."
+                            "finds, or 0 when there is no such employee."
                 )
 
                 failed.thrown != null -> hint(
-                    "Use the safe call operator (?.) to read the salary, so that a missing " +
-                            "employee does not stop the program.",
+                    "Use the safe call operator (?.) to read the salary so that a missing " +
+                            "employee doesn't stop the program.",
                     failed
                 )
 
                 failed.expected == 0 -> hint(
-                    "Return 0 when there is no employee with the given id. The Elvis " +
-                            "operator (?:) returns a default value when a null is detected.",
+                    "Return 0 when there are no employees with the given id. The Elvis " +
+                            "operator (?:) returns a default value when it detects a null value.",
                     failed
                 )
 

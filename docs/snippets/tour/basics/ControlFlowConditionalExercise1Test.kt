@@ -25,22 +25,22 @@ class ControlFlowConditionalExercise1Test {
             rawRuns.all { it.isEmpty() } ->
                 hint(
                     "Add an if/else that compares the dice and prints the result, " +
-                            "then run again. Nothing is printed yet.",
+                            "then run again. Your program doesn't print anything yet.",
                     shownOutput = ""
                 )
 
             runs.all { it.isEmpty() } ->
                 hint(
                     "Print \"You win :)\" or \"You lose :(\". " +
-                            "println() is called, but the message is empty.",
+                            "Your program calls println(), but doesn't pass it a value.",
                     shownOutput = ""
                 )
 
             sample != null && sampleLines.any { it.equals(WIN, ignoreCase = true) } &&
                     sampleLines.any { it.equals(LOSE, ignoreCase = true) } ->
                 hint(
-                    "Use if/else so that only one branch runs. Both results are " +
-                            "printed, but the dice can't win and lose at the same time.",
+                    "Use if/else so that only one branch runs. Your program prints both " +
+                            "results, but the dice can't win and lose at the same time.",
                     shownOutput = sample
                 )
 
@@ -62,7 +62,7 @@ class ControlFlowConditionalExercise1Test {
             sample != null && (sample.startsWith("You win", ignoreCase = true) ||
                     sample.startsWith("You lose", ignoreCase = true)) ->
                 hint(
-                    "Add the smiley to the message. " +
+                    "Add a smiley to the message. " +
                             "Print \"You win :)\" or \"You lose :(\".",
                     shownOutput = sample
                 )
@@ -100,7 +100,7 @@ class ControlFlowConditionalExercise1Test {
             else ->
                 hint(
                     "Check that you print \"You win :)\" when firstResult == " +
-                            "secondResult, and \"You lose :(\" otherwise. Winning is " +
+                            "secondResult and \"You lose :(\" otherwise. Winning is " +
                             "the rare result: the dice match only one time in six.",
                     shownOutput = ""
                 )
