@@ -14,11 +14,11 @@ class CollectionsExercise1Test {
             )
 
         actualOutput.isEmpty() ->
-            hint("Add a println() call inside main() and run again. Nothing is printed yet.")
+            hint("Add a println() call inside main() and run again. Your program doesn't print anything yet.")
 
         output.isEmpty() -> hint(
-            "Print the total number of numbers in both lists. " +
-                    "println() is called, but the message is empty."
+            "Print the total count of items in both lists. " +
+                    "Your program calls println(), but doesn't pass it a value."
         )
 
         '\n' in output -> hint(
@@ -29,13 +29,13 @@ class CollectionsExercise1Test {
         '[' in output ->
             hint(
                 "Print how many numbers the lists contain instead of the lists themselves. " +
-                        "The .count() function returns that number."
+                        "Use the .count() function."
             )
 
         output.toIntOrNull() == null ->
             hint(
                 "Print a single number: the total count of numbers in both lists. " +
-                        "The output is not a number."
+                        "Your program doesn't print a number."
             )
 
         output.toIntOrNull() == greenNumbers.count() ->
@@ -47,13 +47,13 @@ class CollectionsExercise1Test {
         output.toIntOrNull() == redNumbers.count() ->
             hint(
                 "Add the count of the green numbers to the total. " +
-                        "The printed number counts only the red ones."
+                        "The number you print counts only the red ones."
             )
 
         else ->
             hint(
                 "Count the items in both lists and add the two counts together. " +
-                        "The printed total is not the number of items in greenNumbers " +
+                        "The total you print doesn't match the number of items in greenNumbers " +
                         "plus redNumbers."
             )
     }

@@ -4,7 +4,7 @@ class PersonTest {
     private val hashed = Regex("([A-Za-z_]\\w*)@[0-9a-fA-F]+")
 
     @Test
-    fun `print a person with all its nested properties`() {
+    fun `print a person with all nested property values`() {
         val values = listOf("John", "Smith", "123 Fake Street", "Springfield", "US")
 
         when {
@@ -12,12 +12,12 @@ class PersonTest {
                     "ownsAPet=false" in output && !hashed.containsMatchIn(output) ->
                 passed(
                     "Checked: Name, Address, and City are data classes. " +
-                            "The person prints with all its nested properties."
+                            "The program prints the person with all its nested property values."
                 )
 
             actualOutput.isBlank() -> hint(
-                "Keep the println(person) call in main(). It shows the whole person " +
-                        "once your classes compile.",
+                "Keep the println(person) call in main(). It prints the person with all" +
+                        "its nested property values once your classes compile",
                 ""
             )
 
