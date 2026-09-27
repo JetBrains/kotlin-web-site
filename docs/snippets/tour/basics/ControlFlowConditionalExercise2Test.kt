@@ -2,12 +2,14 @@ import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
 import kotlin.test.Test
 
-private const val EXPECTED = "Yes"
-private val OTHER_ACTIONS = mapOf(
-    "No" to "B",
-    "Menu" to "X",
-    "Nothing" to "Y",
-    "There is no such button" to "some other button"
+private val EXPECTED_ACTIONS = listOf(
+    "A" to "Yes",
+    "B" to "No",
+    "X" to "Menu",
+    "Y" to "Nothing",
+    "C" to "There is no such button",
+    "a" to "There is no such button",
+    "" to "There is no such button"
 )
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -15,62 +17,70 @@ class ControlFlowConditionalExercise2Test {
 
     @Test
     fun `print Yes for button A`() {
-        val lines = output.lines().map { it.trim() }.filter { it.isNotEmpty() }
-        when {
-            output == EXPECTED -> passed(
-                "Checked: the action for button \"A\" only. The test can't press the " +
-                        "other buttons. Check the rest of your when branches against " +
-                        "the table yourself, or change the button value and rerun."
+        val originalButton = button
+        val runs = try {
+            EXPECTED_ACTIONS.map { (pressed, expected) ->
+                button = pressed
+                Triple(pressed, expected, runMain(echo = false))
+            }
+        } finally {
+            button = originalButton
+        }
+
+        val (pressed, expected, rawOutput) = runs.firstOrNull { (_, action, raw) -> raw.trim() != action }
+            ?: return passed(
+                "Checked: buttons A, B, X, Y, C, a, and the empty string print their expected actions."
             )
-
-            actualOutput.isEmpty() ->
+        val actual = rawOutput.trim()
+        val lines = actual.lines().map { it.trim() }.filter { it.isNotEmpty() }
+        val details = "Button \"$pressed\" should print \"$expected\"."
+        when {
+            rawOutput.isEmpty() ->
                 hint(
-                    "Write a when expression inside println() that turns the button " +
-                            "name into its action. Your program doesn't print anything yet."
+                    "$details Write a when expression inside println() that turns the button " +
+                            "name into its action. Your program doesn't print anything yet.",
+                    shownOutput = ""
                 )
 
-            output.isEmpty() ->
+            actual.isEmpty() ->
                 hint(
-                    "Pass println() a when expression that turns the button name " +
-                            "into its action. It prints an empty line so far."
-                )
-
-            output == "A" ->
-                hint(
-                    "Return the action from your when expression, not the button " +
-                            "name. The when expression turns \"A\" into \"Yes\"."
-                )
-
-            output in OTHER_ACTIONS ->
-                hint(
-                    "Check which branch of your when expression matches \"A\". " +
-                            "\"$output\" is the action for ${OTHER_ACTIONS[output]}, " +
-                            "but the button value is \"A\"."
-                )
-
-            lines.size > 1 && (EXPECTED in lines || lines.any { it in OTHER_ACTIONS }) ->
-                hint(
-                    "Remove the extra output. A when expression returns a single " +
-                            "value, so print only the action for the pressed button."
+                    "$details Pass println() a when expression that turns the button " +
+                            "name into its action. It prints an empty line so far.",
+                    shownOutput = ""
                 )
 
             lines.size > 1 ->
                 hint(
-                    "Print only the action for the pressed button. " +
-                            "The output has more than one line."
+                    "$details Remove the extra output. A when expression returns a " +
+                            "single value, so print only the action for the pressed button.",
+                    shownOutput = actual
                 )
 
-            output.equals(EXPECTED, ignoreCase = true) ||
-                    OTHER_ACTIONS.keys.any { it.equals(output, ignoreCase = true) } ->
+            actual.equals(expected, ignoreCase = true) ->
                 hint(
-                    "Match the capitalization of the actions in the table. " +
-                            "Button \"A\" prints \"Yes\"."
+                    "$details Match the capitalization of the actions in the table.",
+                    shownOutput = actual
+                )
+
+            actual == pressed ->
+                hint(
+                    "$details Return the action from your when expression, not the " +
+                            "button name.",
+                    shownOutput = actual
+                )
+
+            EXPECTED_ACTIONS.any { (_, action) -> actual == action } ->
+                hint(
+                    "$details Check which branch of your when expression matches " +
+                            "\"$pressed\". \"${escapeHtml(actual)}\" is the action for another button.",
+                    shownOutput = actual
                 )
 
             else ->
                 hint(
-                    "Check the value each branch of your when expression returns. " +
-                            "\"$output\" isn't one of the actions from the table."
+                    "$details Check the value each branch of your when expression " +
+                            "returns. \"${escapeHtml(actual)}\" isn't the expected action.",
+                    shownOutput = actual
                 )
         }
     }
