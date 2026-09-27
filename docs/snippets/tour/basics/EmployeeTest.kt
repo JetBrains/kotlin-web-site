@@ -11,7 +11,7 @@ class EmployeeTest {
         when {
             lines.size == 2 && looksLikeEmployee(lines[0], 20) && looksLikeEmployee(lines[1], 30) ->
                 passed(
-                    "Checked: Employee is a data class, and its mutable salary " +
+                    "Checked: Employee is a data class and its mutable salary " +
                             "goes up from 20 to 30."
                 )
 
@@ -24,7 +24,7 @@ class EmployeeTest {
             "@" in output -> hint(
                 "Add the data keyword in front of your class declaration. " +
                         "A data class prints its properties, but a regular class prints " +
-                        "only its name and a code, as below."
+                        "only its name and a code."
             )
 
             lines.size != 2 -> hint(
@@ -39,7 +39,7 @@ class EmployeeTest {
 
             else -> hint(
                 "Declare a data class with two properties: a name and a mutable salary. " +
-                        "The two lines then read Employee(name=Mary, salary=20) and " +
+                        "The two lines should read Employee(name=Mary, salary=20) and " +
                         "Employee(name=Mary, salary=30)."
             )
         }

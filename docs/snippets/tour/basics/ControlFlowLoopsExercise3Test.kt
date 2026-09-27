@@ -25,13 +25,13 @@ class ControlFlowLoopsExercise3Test {
         when {
             lines == EXPECTED_WORDS -> passed(
                 "Checked: the printed words only. The test doesn't check how you pick " +
-                        "them. A for loop with an if condition inside is the intended way."
+                        "them. The intended solution uses a for loop with an if condition inside."
             )
 
             actualOutput.isEmpty() ->
                 hint(
                     "Loop over the list with for and print the words that start " +
-                            "with \"l\". Nothing is printed yet. If you already have a " +
+                            "with \"l\". Your program doesn't print anything yet. If you already have a " +
                             "condition but nothing matches, make sure it checks for a " +
                             "lowercase \"l\"."
                 )
@@ -39,38 +39,38 @@ class ControlFlowLoopsExercise3Test {
             output.isEmpty() ->
                 hint(
                     "Print the words that start with \"l\". " +
-                            "println() is called, but the message is empty."
+                            "pYour program calls println(), but doesn't pass it a value."
                 )
 
             lines.size == 1 && lines[0].equals("limousinelanguage", ignoreCase = true) ->
                 hint(
                     "Use println() instead of print() to put each word on its own " +
-                            "line. \"limousine\" and \"language\" are printed, but on one line."
+                            "line. Your program prints \"limousine\" and \"language\" on one line."
                 )
 
             lines.containsAll(ALL_WORDS) ->
                 hint(
                     "Add an if condition with startsWith(\"l\") inside the loop. " +
-                            "Every word is printed now, but only \"limousine\" and " +
+                            "Your program prints every word now, but only \"limousine\" and " +
                             "\"language\" start with \"l\"."
                 )
 
             lines.map { it.lowercase() } == EXPECTED_WORDS ->
                 hint(
                     "Print the words in lowercase, as they appear in the list. " +
-                            "Only the capitalization is off."
+                            "Only the capitalization is wrong."
                 )
 
             wrongWord != null ->
                 hint(
-                    "Check the condition of your if. \"$wrongWord\" doesn't start " +
+                    "Check the if condition. \"$wrongWord\" doesn't start " +
                             "with \"l\", so it shouldn't appear in the output."
                 )
 
             missingWord != null && lines.all { it in EXPECTED_WORDS } ->
                 hint(
-                    "Check the condition of your if. \"$missingWord\" starts with " +
-                            "\"l\", but it isn't printed."
+                    "Check the if condition. \"$missingWord\" starts with " +
+                            "\"l\", but your program doesn't print it."
                 )
 
             lines.size == EXPECTED_WORDS.size && lines.toSet() == EXPECTED_WORDS.toSet() ->
@@ -80,7 +80,7 @@ class ControlFlowLoopsExercise3Test {
                 )
 
             else ->
-                hint("Print \"limousine\" and \"language\", each on its own line.")
+                hint("Print \"limousine\" and \"language\" each on its own line.")
         }
     }
 }

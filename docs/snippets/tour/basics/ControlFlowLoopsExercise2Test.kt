@@ -30,25 +30,25 @@ class ControlFlowLoopsExercise2Test {
             actualOutput.isEmpty() ->
                 hint(
                     "Use a for loop over 1..100 and println() to print a number or " +
-                            "word on each step. Nothing is printed yet."
+                            "word on each step. Your program doesn't print anything yet."
                 )
 
             output.isEmpty() ->
                 hint(
                     "Print the number, \"fizz\", \"buzz\", or \"fizzbuzz\". " +
-                            "println() is called, but the message is empty."
+                            "Your program calls println(), but doesn't pass it a value."
                 )
 
             lines.size == 1 ->
                 hint(
                     "Use println() instead of print() to put each answer on its " +
-                            "own line. Everything is printed on a single line so far."
+                            "own line. Your program prints everything on a single line so far."
                 )
 
             lines.size != 100 ->
                 hint(
-                    "Check the range of your for loop. ${lines.size} lines are " +
-                            "printed, but 100 are expected, one for every number " +
+                    "Check the range of your for loop. Your program prints ${lines.size}" +
+                            "lines, but it should print 100. One for every number " +
                             "from 1 to 100.",
                     // Show only the edges of the output to keep the message readable.
                     shownOutput = lines.take(3).joinToString("\n") + "\n...\n" +
@@ -64,7 +64,7 @@ class ControlFlowLoopsExercise2Test {
         val expected = expectedFor(number)
         val actual = lines[mismatch]
         val details = "Line $number: the output is \"${escapeHtml(actual)}\", " +
-                "but \"$expected\" is expected."
+                "but it should print \"$expected\"."
         // Show a small window of the output around the first wrong line.
         val window = (maxOf(0, mismatch - 2)..minOf(99, mismatch + 2))
             .joinToString("\n") { "${it + 1}: ${lines[it]}" }
@@ -72,7 +72,7 @@ class ControlFlowLoopsExercise2Test {
             actual.equals(expected, ignoreCase = true) ->
                 hint(
                     "Use lowercase \"$expected\". Only the capitalization " +
-                            "is off. " + details,
+                            "is wrong. " + details,
                     window
                 )
 
@@ -87,28 +87,28 @@ class ControlFlowLoopsExercise2Test {
             expected == "fizz" && actual == "$number" ->
                 hint(
                     "Check your number % 3 == 0 condition. $number is divisible " +
-                            "by 3, so it should be replaced with \"fizz\". " + details,
+                            "by 3, so print \"fizz\" instead of the number. " + details,
                     window
                 )
 
             expected == "buzz" && actual == "$number" ->
                 hint(
                     "Check your number % 5 == 0 condition. $number is divisible " +
-                            "by 5, so it should be replaced with \"buzz\". " + details,
+                            "by 5, so print \"buzz\" instead of the number." + details,
                     window
                 )
 
             expected == "fizzbuzz" && actual == "$number" ->
                 hint(
-                    "Add a check for numbers divisible by both 3 and 5. Those " +
-                            "numbers are replaced with \"fizzbuzz\". " + details,
+                    "Add a check for numbers divisible by both 3 and 5. Print " +
+                            "\"fizzbuzz\" for those numbers. " + details,
                     window
                 )
 
             expected == "$number" ->
                 hint(
                     "Check your conditions: $number is not divisible by 3 or 5, " +
-                            "so the number itself should be printed. " + details,
+                            "so print the number itself." + details,
                     window
                 )
 
