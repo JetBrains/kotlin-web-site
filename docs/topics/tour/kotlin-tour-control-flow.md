@@ -213,8 +213,8 @@ fun main() {
 </def>
 <def title="Print the action for a game console button" id="conditional-expressions-exercise-2">
 
-Using a `when` expression, update the following program so that it prints the corresponding actions when you input the 
-names of game console buttons.
+Using a `when` expression, update the following program so that it prints the corresponding action for any game console
+button in the table. The initial value of `button` is `"A"`; you can change it to try other buttons.
 
 | **Button** | **Action**              |
 |------------|-------------------------|
@@ -225,9 +225,9 @@ names of game console buttons.
 | Other      | There is no such button |
 
 ```kotlin
-fun main() {
-    val button = "A"
+var button = "A"
 
+fun main() {
     println(
         // Write your code here
     )
@@ -236,9 +236,9 @@ fun main() {
 {kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
 ```kotlin
+var button = "A"
+
 fun main() {
-    val button = "A"
-    
     println(
         when (button) {
             "A" -> "Yes"
