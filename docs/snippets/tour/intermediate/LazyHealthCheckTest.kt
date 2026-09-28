@@ -2,16 +2,15 @@ import kotlin.test.Test
 
 class LazyHealthCheckTest {
     @Test
-    fun `run only the health check that the program uses`() {
+    fun `main prints only the application-server health check`() {
         val expectedLines = listOf(
             "Performing application server health check...",
             "Application server is online and healthy",
         )
         when {
             output.lines() == expectedLines -> passed(
-                "Checked: main() prints both lines and the database check " +
-                        "never runs. Lazy initialization skips it because its " +
-                        "value is never needed."
+                "main() prints both application-server health-check lines, and " +
+                        "the database check does not run because its value is not needed."
             )
 
             "Performing database health check..." in output.lines() -> hint(

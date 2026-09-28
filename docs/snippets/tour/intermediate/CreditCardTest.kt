@@ -19,13 +19,13 @@ class CreditCardTest {
     }
 
     @Test
-    fun `authorize, process and refund a credit card payment`() {
+    fun `CreditCard authorizes, processes, and refunds a payment`() {
         val (card, report) = try {
             cardReport(250.0, 75.0)
         } catch (e: Throwable) {
             hint(
-                "Make CreditCard usable the way main() uses it. Creating one " +
-                        "and calling its functions throws ${e::class.simpleName}.",
+                "Make CreditCard constructible and its functions callable without " +
+                        "throwing ${e::class.simpleName}.",
                 ""
             )
         }
@@ -91,16 +91,15 @@ class CreditCardTest {
                 "Processing credit card payment of \$100.0.",
                 "Refunding \$50.0 to the credit card.",
             ) -> hint(
-                "Keep the code in main() as it is. It prints the three " +
-                        "lines shown in its comments."
+                "Keep the code in main() as it is. It prints \"Authorizing payment " +
+                        "of \\$100.0.\", \"Processing credit card payment of \\$100.0.\", " +
+                        "and \"Refunding \\$50.0 to the credit card.\"."
             )
 
             else -> passed(
-                "Checked: CreditCard implements Refundable and PaymentMethod, and " +
-                        "authorize(), processPayment() and refund() each print their " +
-                        "own message with the amount. Whether authorize() is declared in " +
-                        "PaymentMethod and processPayment() is abstract is not " +
-                        "checked. Compare with the example solution."
+                "CreditCard implements PaymentMethod and Refundable. authorize(), " +
+                        "processPayment(), and refund() each print their message with " +
+                        "the supplied amount."
             )
         }
     }

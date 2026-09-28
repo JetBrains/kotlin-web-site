@@ -5,7 +5,7 @@ class ToLowercaseStringTest {
         expect("\"$s\".toLowercaseString()", expected) { s.toLowercaseString() }
 
     @Test
-    fun `lowercase any string`() {
+    fun `toLowercaseString returns a lowercase string`() {
         val checks = listOf(
             check("Hello World!", expected = "hello world!"),
             check("KOTLIN", expected = "kotlin"),
@@ -13,7 +13,7 @@ class ToLowercaseStringTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: toLowercaseString() returns the lowercase version of " +
+                "toLowercaseString() returns the lowercase version of " +
                         "any string."
             )
 
@@ -25,9 +25,8 @@ class ToLowercaseStringTest {
                 )
 
                 failed.actual == "Hello World!" || failed.actual == "KOTLIN" -> hint(
-                    "Open the Hint above the exercise. It names the standard " +
-                            "function that lowercases a String. Call it on the " +
-                            "receiver, this, and return the result.",
+                    "Call the standard lowercase() function on the receiver, this, " +
+                            "and return the lowercase result.",
                     failed
                 )
 

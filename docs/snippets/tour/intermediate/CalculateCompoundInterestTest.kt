@@ -9,7 +9,7 @@ class CalculateCompoundInterestTest {
         actual is Number && abs(actual.toDouble() - value) < 0.5
 
     @Test
-    fun `apply the compound interest formula`() {
+    fun `calculateCompoundInterest calculates compound interest`() {
         val checks = listOf(
             expect(
                 "calculateCompoundInterest(2000.0, 0.04, 2, 3)",
@@ -22,7 +22,7 @@ class CalculateCompoundInterestTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: calculateCompoundInterest() computes P times " +
+                "calculateCompoundInterest() computes P times " +
                         "(1 + r / n) raised to the power of n * t for any inputs."
             )
 
