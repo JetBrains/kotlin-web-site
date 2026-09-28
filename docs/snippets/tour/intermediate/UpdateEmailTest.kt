@@ -6,7 +6,7 @@ class UpdateEmailTest {
     private fun update(user: User): User = updateEmail(user, "fresh@mail.com")
 
     @Test
-    fun `updateEmail updates the user email and logs the change`() {
+    fun `update the user email and log the change`() {
         val user = User(7, "old@mail.com")
         val captured = ByteArrayOutputStream()
         val originalOut = System.out
@@ -62,7 +62,8 @@ class UpdateEmailTest {
 
             else -> passed(
                 "updateEmail() sets the new email on the user it receives and " +
-                        "logs the update with the user's own ID."
+                        "logs the update with the user's own ID. " +
+                        "The test doesn't check whether you use apply and also."
             )
         }
     }

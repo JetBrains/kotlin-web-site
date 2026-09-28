@@ -19,7 +19,7 @@ class CreditCardTest {
     }
 
     @Test
-    fun `CreditCard authorizes, processes, and refunds a payment`() {
+    fun `authorize, process, and refund a payment with CreditCard`() {
         val (card, report) = try {
             cardReport(250.0, 75.0)
         } catch (e: Throwable) {
@@ -99,7 +99,9 @@ class CreditCardTest {
             else -> passed(
                 "CreditCard implements PaymentMethod and Refundable. authorize(), " +
                         "processPayment(), and refund() each print their message with " +
-                        "the supplied amount."
+                        "the supplied amount. The test doesn't check whether you " +
+                        "declare authorize() and an abstract processPayment() " +
+                        "in PaymentMethod."
             )
         }
     }

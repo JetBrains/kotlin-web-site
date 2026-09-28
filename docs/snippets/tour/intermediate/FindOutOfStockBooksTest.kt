@@ -10,7 +10,7 @@ class FindOutOfStockBooksTest {
         }
 
     @Test
-    fun `findOutOfStockBooks returns out-of-stock indices`() {
+    fun `return out-of-stock indices`() {
         val checks = listOf(
             check(listOf(9, 0, 0, 4), expected = listOf(1, 2)),
             check(listOf(6, 2, 9), expected = emptyList()),

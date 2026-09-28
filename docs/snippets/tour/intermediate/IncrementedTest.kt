@@ -7,7 +7,7 @@ class IncrementedTest {
         }
 
     @Test
-    fun `incremented returns a list with each element increased by 1`() {
+    fun `return a list with each element increased by 1`() {
         val checks = listOf(
             incrementedOf(listOf(1, 2, 3), expected = listOf(2, 3, 4)),
             incrementedOf(listOf(4, 7), expected = listOf(5, 8)),
@@ -17,7 +17,9 @@ class IncrementedTest {
             null ->
                 if ("[2, 3, 4]" in output.lines()) passed(
                     "incremented() returns a new list with every element " +
-                            "increased by 1, and main() prints [2, 3, 4]."
+                            "increased by 1, and main() prints [2, 3, 4]. " +
+                            "The test doesn't check whether you use the provided " +
+                            "buildList skeleton."
                 ) else hint(
                     "Keep the println(newList) call in main() as it is. It " +
                             "prints [2, 3, 4]."

@@ -19,7 +19,7 @@ class SmartDeviceTest {
     }
 
     @Test
-    fun `SmartThermostat turns on, adjusts, and turns off`() {
+    fun `turn on SmartThermostat, adjust its temperature, and turn it off`() {
         val (thermostat, report) = try {
             thermostatReport("Hallway Thermostat", 23)
         } catch (e: Throwable) {
@@ -97,7 +97,9 @@ class SmartDeviceTest {
             else -> passed(
                 "SmartThermostat inherits from SmartDevice. turnOn(), " +
                         "adjustTemperature(), and turnOff() print messages using its " +
-                        "name and the supplied temperature."
+                        "name and the supplied temperature. The test doesn't check " +
+                        "whether you declare turnOn() and turnOff() as abstract " +
+                        "functions in SmartDevice."
             )
         }
     }
