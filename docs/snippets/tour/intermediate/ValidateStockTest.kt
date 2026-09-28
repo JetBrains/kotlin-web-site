@@ -8,7 +8,7 @@ class ValidateStockTest {
         expect("validateStock($requested, $available)", expected) { stock(requested, available) }
 
     @Test
-    fun `validateStock returns the requested quantity or -1`() {
+    fun `return the requested quantity or -1`() {
         val checks = listOf(
             check(3, 8, expected = 3),
             check(null, 8, expected = -1),

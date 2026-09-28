@@ -5,7 +5,7 @@ class MeasureTimeTest {
         Regex("""\d+(\.\d+)?(ns|us|ms|s|m|h|d)( \d+(\.\d+)?(ns|us|ms|s|m|h|d))*""")
 
     @Test
-    fun `main prints processed data and its duration`() {
+    fun `print processed data and its duration`() {
         val lines = output.lines()
         val timeLine = lines.lastOrNull() ?: ""
         val timeValue = timeLine.removePrefix("Time taken: ").trim()
@@ -14,7 +14,9 @@ class MeasureTimeTest {
                     timeLine.startsWith("Time taken: ") &&
                     durationLike.matches(timeValue) -> passed(
                 "main() prints \"Processed data\" and a measured duration. " +
-                        "The duration changes from run to run and includes a time unit."
+                        "The duration changes from run to run and includes a time unit. " +
+                        "The test checks only the duration's format, not whether " +
+                        "you use measureTime()."
             )
 
             output.isEmpty() -> hint(

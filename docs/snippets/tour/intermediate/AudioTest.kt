@@ -9,7 +9,7 @@ class AudioTest {
         Media::class.java.methods.firstOrNull { it.name == name }
 
     @Test
-    fun `Audio plays using its own title and composer`() {
+    fun `play audio using its own title and composer`() {
         val titleGetter = mediaMember("getTitle") ?: hint(
             if (mediaMember("play") == null)
                 "Declare the title property and the play() function in the " +
@@ -88,7 +88,8 @@ class AudioTest {
             else -> passed(
                 "Audio implements Media. Its title property returns the audio's " +
                         "title, and play() prints a message using the audio's title " +
-                        "and composer."
+                        "and composer. The test doesn't check whether you override " +
+                        "title in Audio's constructor."
             )
         }
     }

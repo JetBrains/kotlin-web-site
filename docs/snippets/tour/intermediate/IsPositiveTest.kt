@@ -7,7 +7,7 @@ class IsPositiveTest {
     }
 
     @Test
-    fun `isPositive returns true only for numbers greater than zero`() {
+    fun `return true only for numbers greater than zero`() {
         val checks = listOf(
             check(1, expected = true),
             check(42, expected = true),

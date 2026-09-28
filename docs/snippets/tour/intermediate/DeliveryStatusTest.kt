@@ -9,7 +9,7 @@ class DeliveryStatusTest {
     )
 
     @Test
-    fun `main prints every delivery status`() {
+    fun `print every delivery status`() {
         val nonData = statuses().firstOrNull {
             it.toString().startsWith(it.javaClass.name + "@")
         }

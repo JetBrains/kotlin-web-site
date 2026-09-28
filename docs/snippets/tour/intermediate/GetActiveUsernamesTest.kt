@@ -4,7 +4,7 @@ class GetActiveUsernamesTest {
     private fun usernames(users: List<User>): Any? = getActiveUsernames(users)
 
     @Test
-    fun `getActiveUsernames returns active usernames`() {
+    fun `return active usernames`() {
         val mixed = listOf(
             User("dana", true),
             User("eli", false),
@@ -24,7 +24,8 @@ class GetActiveUsernamesTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "getActiveUsernames() returns the usernames of active users and " +
-                        "excludes inactive users."
+                        "excludes inactive users. The test doesn't check whether " +
+                        "you use a single mapNotNull() lambda."
             )
 
             else -> when {
