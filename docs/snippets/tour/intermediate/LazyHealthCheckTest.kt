@@ -2,7 +2,7 @@ import kotlin.test.Test
 
 class LazyHealthCheckTest {
     @Test
-    fun `main prints only the application-server health check`() {
+    fun `print only the application-server health check`() {
         val expectedLines = listOf(
             "Performing application server health check...",
             "Application server is online and healthy",

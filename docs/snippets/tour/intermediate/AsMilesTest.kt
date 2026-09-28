@@ -11,7 +11,7 @@ class AsMilesTest {
         actual is Number && abs(actual.toDouble() - value) < 0.005
 
     @Test
-    fun `asMiles converts kilometer values to miles`() {
+    fun `convert kilometer values to miles`() {
         val checks = listOf(
             check(10.0, expected = 6.21371),
             check(3.5, expected = 2.1747985),

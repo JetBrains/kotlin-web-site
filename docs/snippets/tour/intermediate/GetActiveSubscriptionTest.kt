@@ -5,7 +5,7 @@ class GetActiveSubscriptionTest {
         getActiveSubscription(subscriptions)
 
     @Test
-    fun `getActiveSubscription returns the single active subscription`() {
+    fun `return the single active subscription`() {
         val oneActive = listOf(
             Subscription("Free Plan", false),
             Subscription("Family Plan", true),

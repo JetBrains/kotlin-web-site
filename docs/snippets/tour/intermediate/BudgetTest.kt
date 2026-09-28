@@ -19,7 +19,7 @@ class BudgetTest {
     }
 
     @Test
-    fun `remainingBudget warns below 20% and reports increases`() {
+    fun `warn when the remaining budget is below 20% and report increases`() {
         val lines = try {
             scenario()
         } catch (e: Throwable) {

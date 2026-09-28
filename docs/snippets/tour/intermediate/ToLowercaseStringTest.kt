@@ -5,7 +5,7 @@ class ToLowercaseStringTest {
         expect("\"$s\".toLowercaseString()", expected) { s.toLowercaseString() }
 
     @Test
-    fun `toLowercaseString returns a lowercase string`() {
+    fun `return a lowercase string`() {
         val checks = listOf(
             check("Hello World!", expected = "hello world!"),
             check("KOTLIN", expected = "kotlin"),

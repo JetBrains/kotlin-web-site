@@ -2,11 +2,12 @@ import kotlin.test.Test
 
 class ButtonEventTest {
     @Test
-    fun `the handler prints Double click! for a double-click event`() {
+    fun `print Double click! for a double-click event`() {
         when {
             "Double click!" in output.lines() -> passed(
                 "The handler prints \"Double click!\" for the simulated " +
-                        "double-click event."
+                        "double-click event. The test doesn't check whether " +
+                        "your handler checks isRightClick and amount."
             )
 
             output.isEmpty() -> hint(

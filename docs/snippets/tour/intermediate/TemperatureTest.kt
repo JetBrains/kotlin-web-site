@@ -14,7 +14,7 @@ class TemperatureTest {
         actual is Number && abs(actual.toDouble() - value) < 0.01
 
     @Test
-    fun `fromFahrenheit converts Fahrenheit values to Celsius`() {
+    fun `convert Fahrenheit values to Celsius`() {
         val checks = listOf(
             celsiusOf(212.0, expected = 100.0),
             celsiusOf(32.0, expected = 0.0),

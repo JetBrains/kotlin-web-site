@@ -6,7 +6,7 @@ class SmartMessengerTest {
     private fun smartMessengerOf(): Any = SmartMessenger(BasicMessenger())
 
     @Test
-    fun `SmartMessenger sends a message through BasicMessenger`() {
+    fun `send a message through BasicMessenger`() {
         val created = try {
             smartMessengerOf()
         } catch (e: Throwable) {
@@ -100,7 +100,8 @@ class SmartMessengerTest {
             else -> passed(
                 "SmartMessenger.sendMessage() prints the smart message and the " +
                         "[smart]-prefixed BasicMessenger message, and receiveMessage() " +
-                        "returns \"You've got a new message!\"."
+                        "returns \"You've got a new message!\". The test doesn't check " +
+                        "whether you delegate to BasicMessenger with the by keyword."
             )
         }
     }

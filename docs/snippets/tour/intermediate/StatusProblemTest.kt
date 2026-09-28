@@ -4,7 +4,7 @@ class StatusProblemTest {
     private fun sampleProblem(): Any = Status.Error.Problem.NETWORK
 
     @Test
-    fun `main prints the network issue and received data`() {
+    fun `print the network issue and received data`() {
         val expectedLines = listOf(
             "Network issue",
             "Data received: [Data1, Data2]",

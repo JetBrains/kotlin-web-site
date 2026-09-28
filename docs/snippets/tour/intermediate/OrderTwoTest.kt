@@ -4,7 +4,7 @@ class OrderTwoTest {
     private fun orderTwo(): Any = OrderTwo
 
     @Test
-    fun `OrderTwo prints its name and remains unique`() {
+    fun `print the name of OrderTwo and keep the order unique`() {
         val two = orderTwo() as? Order ?: hint(
             "Make OrderTwo implement the Order interface, like OrderOne does. " +
                     "Declare it as data object OrderTwo : Order and override the " +

@@ -9,7 +9,7 @@ class CalculateCompoundInterestTest {
         actual is Number && abs(actual.toDouble() - value) < 0.5
 
     @Test
-    fun `calculateCompoundInterest calculates compound interest`() {
+    fun `calculate compound interest`() {
         val checks = listOf(
             expect(
                 "calculateCompoundInterest(2000.0, 0.04, 2, 3)",

@@ -4,7 +4,7 @@ class FlyingSkateboardTest {
     private fun skateboard(): Any = FlyingSkateboard
 
     @Test
-    fun `FlyingSkateboard moves and flies`() {
+    fun `make FlyingSkateboard move and fly`() {
         val vehicle = skateboard() as? Vehicle ?: hint(
             "Make FlyingSkateboard inherit from the Vehicle interface. Add " +
                     ": Vehicle after its name and override the name property and " +
