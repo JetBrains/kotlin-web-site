@@ -488,17 +488,20 @@ Define a map that relates integer numbers from 1 to 3 to their corresponding spe
 number.
 
 ```kotlin
+// Replace the empty map, keeping the name number2word
+val number2word: Map<Int, String> = emptyMap()
+
 fun main() {
-    // Define the number2word map here
     val n = 2
-    // Use the map to print the spelling of n, for example: 1 is spelled as 'one'
+    println("$n is spelled as '${number2word[n]}'")
 }
 ```
 {kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
 
 ```kotlin
+val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
+
 fun main() {
-    val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
     val n = 2
     println("$n is spelled as '${number2word[n]}'")
 }
