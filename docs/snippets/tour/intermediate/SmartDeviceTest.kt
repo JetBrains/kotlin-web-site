@@ -19,13 +19,13 @@ class SmartDeviceTest {
     }
 
     @Test
-    fun `turn a thermostat on, adjust it and turn it off`() {
+    fun `SmartThermostat turns on, adjusts, and turns off`() {
         val (thermostat, report) = try {
             thermostatReport("Hallway Thermostat", 23)
         } catch (e: Throwable) {
             hint(
-                "Make SmartThermostat usable the way main() uses it. Creating " +
-                        "one and calling its functions throws ${e::class.simpleName}.",
+                "Make SmartThermostat constructible and its functions callable " +
+                        "without throwing ${e::class.simpleName}.",
                 ""
             )
         }
@@ -45,7 +45,7 @@ class SmartDeviceTest {
 
             "Bedroom Thermostat" in report -> hint(
                 "Build the messages from the name property instead of fixed text. " +
-                        "This thermostat is called Hallway Thermostat, not Bedroom " +
+                        "This thermostat's name is Hallway Thermostat, not Bedroom " +
                         "Thermostat.",
                 report
             )
@@ -87,16 +87,17 @@ class SmartDeviceTest {
                 "Bedroom Thermostat thermostat is now off.",
             ) -> hint(
                 "Keep the code in main() and the SmartLight class as they are. " +
-                        "Together with your SmartThermostat they print the six " +
-                        "lines shown in main()'s comments."
+                        "They print \"Living Room Light is now ON.\", \"Adjusting Living " +
+                        "Room Light brightness to 10%.\", \"Living Room Light is now " +
+                        "OFF.\", \"Bedroom Thermostat thermostat is now heating.\", " +
+                        "\"Bedroom Thermostat thermostat set to 5°C.\", and \"Bedroom " +
+                        "Thermostat thermostat is now off.\"."
             )
 
             else -> passed(
-                "Checked: SmartThermostat inherits from SmartDevice, and its " +
-                        "turnOn(), adjustTemperature() and turnOff() build their " +
-                        "messages from the name and temperature. Whether turnOn() and " +
-                        "turnOff() are abstract in SmartDevice is not checked. " +
-                        "Compare with the example solution."
+                "SmartThermostat inherits from SmartDevice. turnOn(), " +
+                        "adjustTemperature(), and turnOff() print messages using its " +
+                        "name and the supplied temperature."
             )
         }
     }

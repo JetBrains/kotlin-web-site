@@ -14,7 +14,7 @@ class TemperatureTest {
         actual is Number && abs(actual.toDouble() - value) < 0.01
 
     @Test
-    fun `convert any Fahrenheit value to degrees Celsius`() {
+    fun `fromFahrenheit converts Fahrenheit values to Celsius`() {
         val checks = listOf(
             celsiusOf(212.0, expected = 100.0),
             celsiusOf(32.0, expected = 0.0),
@@ -22,10 +22,9 @@ class TemperatureTest {
         when (val failed = checks.firstMismatch()) {
             null ->
                 if ("32.22222222222222°C is 90.0 °F" in output.lines()) passed(
-                    "Checked: Temperature.fromFahrenheit() creates a Temperature " +
+                    "Temperature.fromFahrenheit() creates a Temperature " +
                             "whose celsius is (fahrenheit - 32) * 5 / 9 for any input. " +
-                            "Calling it on the class name works because it lives in a " +
-                            "companion object. Compare with the example solution."
+                            "main() prints \"32.22222222222222°C is 90.0 °F\"."
                 ) else hint(
                     "Keep the code in main() as it is. It prints " +
                             "\"32.22222222222222°C is 90.0 °F\"."

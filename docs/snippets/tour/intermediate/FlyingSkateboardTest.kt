@@ -4,7 +4,7 @@ class FlyingSkateboardTest {
     private fun skateboard(): Any = FlyingSkateboard
 
     @Test
-    fun `move and fly the skateboard`() {
+    fun `FlyingSkateboard moves and flies`() {
         val vehicle = skateboard() as? Vehicle ?: hint(
             "Make FlyingSkateboard inherit from the Vehicle interface. Add " +
                     ": Vehicle after its name and override the name property and " +
@@ -42,15 +42,15 @@ class FlyingSkateboardTest {
                 "Flying Skateboard: Glides through the air with a hover engine",
                 "Flying Skateboard: Woooooooo",
             ) -> hint(
-                "Keep the code in main() as it is. It prints the two " +
-                        "lines shown in its comments."
+                "Keep the code in main() as it is. It prints \"Flying Skateboard: " +
+                        "Glides through the air with a hover engine\" and \"Flying " +
+                        "Skateboard: Woooooooo\"."
             )
 
             else -> passed(
-                "Checked: FlyingSkateboard is an object implementing Vehicle " +
-                        "whose name is \"Flying Skateboard\" and whose move() " +
-                        "returns \"Glides through the air with a hover engine\", " +
-                        "and its own fly() function returns \"Woooooooo\"."
+                "FlyingSkateboard implements Vehicle. Its name is \"Flying " +
+                        "Skateboard\", move() returns \"Glides through the air with " +
+                        "a hover engine\", and fly() returns \"Woooooooo\"."
             )
         }
     }

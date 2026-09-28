@@ -9,7 +9,7 @@ class DeliveryStatusTest {
     )
 
     @Test
-    fun `print a line for every delivery status`() {
+    fun `main prints every delivery status`() {
         val nonData = statuses().firstOrNull {
             it.toString().startsWith(it.javaClass.name + "@")
         }
@@ -35,15 +35,15 @@ class DeliveryStatusTest {
 
             output.lines() != expectedLines -> hint(
                 "Keep the given printDeliveryStatus() and main() code as it is. " +
-                        "main() prints the four status lines shown in its " +
-                        "comments."
+                        "main() prints \"The package is pending pickup from Alice.\", " +
+                        "\"The package is in transit and expected to arrive by 2024-11-20.\", " +
+                        "\"The package was delivered to Bob on 2024-11-18.\", and " +
+                        "\"The delivery was canceled due to: Address not found.\"."
             )
 
             else -> passed(
-                "Checked: DeliveryStatus contains the four data classes and " +
-                        "main() prints every status line. Because the class is " +
-                        "sealed, the compiler guarantees the given when covers " +
-                        "every subclass."
+                "DeliveryStatus contains the four data classes, and main() prints " +
+                        "the expected line for every status."
             )
         }
     }

@@ -2,13 +2,10 @@ import kotlin.test.Test
 
 class PrintBuildInfoTest {
     @Test
-    fun `print the build info`() {
+    fun `printBuildInfo prints experimental build info`() {
         when (output) {
             "experimental build info" -> passed(
-                "Checked: printBuildInfo() runs and prints the build info. The " +
-                        "@OptIn annotation itself works at compile time only, so it " +
-                        "cannot be verified here. Compare your annotation with the " +
-                        "example solution."
+                "printBuildInfo() prints \"experimental build info\"."
             )
 
             "" -> hint(

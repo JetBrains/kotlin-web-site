@@ -5,13 +5,12 @@ class GetPriceInEurosTest {
         expect("product.getPriceInEuros()", 85.0) { Product().getPriceInEuros() }
 
     @Test
-    fun `convert the product price to euros`() {
+    fun `getPriceInEuros returns the price in euros`() {
         when (val failed = listOf(euros()).firstMismatch()) {
             null ->
                 if ("Price in Euros: \u20AC85.0" in output.lines()) passed(
-                    "Checked: getPriceInEuros() returns the price converted to euros. " +
-                            "Whether it is a single expression with safe calls (?.) and " +
-                            "let is not checked. Compare with the example solution."
+                    "getPriceInEuros() returns 85.0, and main() prints \"Price " +
+                            "in Euros: \u20AC85.0\"."
                 ) else hint(
                     "Keep main() as it is. It prints \"Price in Euros: " +
                             "\u20AC85.0\" for the value the function returns."

@@ -2,13 +2,11 @@ import kotlin.test.Test
 
 class FetchDataTest {
     @Test
-    fun `append to the builder and print the result`() {
+    fun `fetchData prints processed data`() {
         val expected = "Data received - Processed"
         when {
             expected in output.lines() -> passed(
-                "Checked: the lambda prints \"$expected\". Whether the text " +
-                        "is added with the append() function is not checked. " +
-                        "Compare with the example solution."
+                "The lambda prints \"$expected\"."
             )
 
             output.isEmpty() -> hint(

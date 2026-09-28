@@ -8,7 +8,7 @@ class ValidateStockTest {
         expect("validateStock($requested, $available)", expected) { stock(requested, available) }
 
     @Test
-    fun `validate the requested quantity`() {
+    fun `validateStock returns the requested quantity or -1`() {
         val checks = listOf(
             check(3, 8, expected = 3),
             check(null, 8, expected = -1),
@@ -19,7 +19,7 @@ class ValidateStockTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: validateStock() returns the requested amount when it " +
+                "validateStock() returns the requested amount when it " +
                         "is valid and -1 for every invalid case."
             )
 

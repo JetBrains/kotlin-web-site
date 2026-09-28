@@ -4,7 +4,7 @@ class StatusProblemTest {
     private fun sampleProblem(): Any = Status.Error.Problem.NETWORK
 
     @Test
-    fun `print the network issue and the received data`() {
+    fun `main prints the network issue and received data`() {
         val expectedLines = listOf(
             "Network issue",
             "Data received: [Data1, Data2]",
@@ -24,10 +24,8 @@ class StatusProblemTest {
             )
 
             else -> passed(
-                "Checked: Problem is an enum class and main() prints both " +
-                        "status lines. The given when already requires all three " +
-                        "constants NETWORK, TIMEOUT, and UNKNOWN to exist. The " +
-                        "code would not compile without them."
+                "Problem is an enum class, and main() prints \"Network issue\" " +
+                        "and \"Data received: [Data1, Data2]\"."
             )
         }
     }

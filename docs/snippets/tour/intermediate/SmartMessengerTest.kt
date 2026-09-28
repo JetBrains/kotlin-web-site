@@ -6,7 +6,7 @@ class SmartMessengerTest {
     private fun smartMessengerOf(): Any = SmartMessenger(BasicMessenger())
 
     @Test
-    fun `send a smart message and pass it on to the basic messenger`() {
+    fun `SmartMessenger sends a message through BasicMessenger`() {
         val created = try {
             smartMessengerOf()
         } catch (e: Throwable) {
@@ -38,11 +38,11 @@ class SmartMessengerTest {
             // self-call can also surface as OutOfMemoryError.
             if (e is StackOverflowError || e is OutOfMemoryError) hint(
                 "Call sendMessage() on the BasicMessenger instance inside your " +
-                        "override, not on the SmartMessenger itself. Calling it on " +
-                        "itself loops forever.",
+                        "override, not on the SmartMessenger itself. SmartMessenger." +
+                        "sendMessage() invokes itself recursively.",
                 ""
             ) else hint(
-                "Make sendMessage() print the messages. Calling it throws " +
+                "Make sendMessage() print both messages without throwing " +
                         "${e::class.simpleName}.",
                 ""
             )
@@ -90,16 +90,17 @@ class SmartMessengerTest {
                 "Sending a smart message: Hello from SmartMessenger!",
                 "Sending message: [smart] Hello from SmartMessenger!",
             ) -> hint(
-                "Keep the code in main() as it is. It prints the four " +
-                        "lines shown in its comments."
+                "Keep the code in main() as it is. It prints the BasicMessenger " +
+                        "message \"Sending message: Hello!\", the response \"You've got " +
+                        "a new message!\", the smart message \"Sending a smart message: " +
+                        "Hello from SmartMessenger!\", and \"Sending message: [smart] " +
+                        "Hello from SmartMessenger!\"."
             )
 
             else -> passed(
-                "Checked: SmartMessenger's sendMessage() prints the smart message " +
-                        "and the [smart]-prefixed basic message for any input, and " +
-                        "receiveMessage() answers like BasicMessenger. Whether it is " +
-                        "wired with the by keyword rather than written by hand is " +
-                        "not checked. Compare with the example solution."
+                "SmartMessenger.sendMessage() prints the smart message and the " +
+                        "[smart]-prefixed BasicMessenger message, and receiveMessage() " +
+                        "returns \"You've got a new message!\"."
             )
         }
     }

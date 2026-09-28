@@ -8,7 +8,7 @@ class GetNotificationPreferencesTest {
         expect(call, expected) { prefs(user, email, sms) }
 
     @Test
-    fun `build the list of enabled notifications`() {
+    fun `getNotificationPreferences returns enabled notifications`() {
         val checks = listOf(
             check(
                 "getNotificationPreferences(User(\"Maya\"), emailEnabled = true, smsEnabled = true)",
@@ -28,10 +28,9 @@ class GetNotificationPreferencesTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: getNotificationPreferences() handles a valid user, a " +
-                        "null name, and a value that is not a User. Whether you use " +
-                        "as?, ?:, and takeIf() as steps 1 to 3 describe is not checked. " +
-                        "Compare with the example solution."
+                "getNotificationPreferences() returns the enabled notifications " +
+                        "for a valid user, uses \"Guest\" for a null name, and " +
+                        "returns an empty list for a value that is not a User."
             )
 
             else -> when {

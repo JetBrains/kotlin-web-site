@@ -5,7 +5,7 @@ class GetActiveSubscriptionTest {
         getActiveSubscription(subscriptions)
 
     @Test
-    fun `find the single active subscription`() {
+    fun `getActiveSubscription returns the single active subscription`() {
         val oneActive = listOf(
             Subscription("Free Plan", false),
             Subscription("Family Plan", true),
@@ -33,7 +33,7 @@ class GetActiveSubscriptionTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: getActiveSubscription() returns the single active " +
+                "getActiveSubscription() returns the single active " +
                         "subscription, and null when none or more than one is active."
             )
 

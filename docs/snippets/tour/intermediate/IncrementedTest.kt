@@ -7,7 +7,7 @@ class IncrementedTest {
         }
 
     @Test
-    fun `increment every element of a list by 1`() {
+    fun `incremented returns a list with each element increased by 1`() {
         val checks = listOf(
             incrementedOf(listOf(1, 2, 3), expected = listOf(2, 3, 4)),
             incrementedOf(listOf(4, 7), expected = listOf(5, 8)),
@@ -16,10 +16,8 @@ class IncrementedTest {
         when (val failed = checks.firstMismatch()) {
             null ->
                 if ("[2, 3, 4]" in output.lines()) passed(
-                    "Checked: incremented() returns a new list where every " +
-                            "element is 1 bigger than in the original list. " +
-                            "Whether it is built with the buildList skeleton is " +
-                            "not checked. Compare with the example solution."
+                    "incremented() returns a new list with every element " +
+                            "increased by 1, and main() prints [2, 3, 4]."
                 ) else hint(
                     "Keep the println(newList) call in main() as it is. It " +
                             "prints [2, 3, 4]."
