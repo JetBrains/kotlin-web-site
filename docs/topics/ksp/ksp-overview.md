@@ -155,7 +155,6 @@ This table lists popular libraries on Android and their various stages of suppor
 ## Other resources
 
 * [Getting started with KSP](ksp-quickstart.md)
-* [Examples](ksp-examples.md)
 * [How KSP models Kotlin code](ksp-additional-details.md)
 * [Reference for Java annotation processor authors](ksp-reference.md)
 * [Incremental processing notes](ksp-incremental.md)
