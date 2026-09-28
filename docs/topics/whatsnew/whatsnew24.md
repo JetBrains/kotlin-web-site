@@ -896,7 +896,7 @@ For more information, see [`@JsExport` annotation](js-to-kotlin-interop.md#jsexp
 ### Support for ES2015 features when inlining JS code
 <secondary-label ref="js"/>
 
-Starting with Kotlin 2.4.0, JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#support-for-es2015-features).
+Starting with Kotlin 2.4.0, JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#set-an-ecmascript-target).
 
 It's useful for interoperability with third-party libraries, as well as for direct control over automatic application code generation.
 

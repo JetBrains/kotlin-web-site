@@ -1,0 +1,54 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    height: calc(1560px * var(--sok-shape-scale, 1));
+    overflow: clip;
+    pointer-events: none;
+}
+
+@media (--ktl-ts-down) {
+    .decoration {
+        opacity: 0.8;
+    }
+}
+
+.gradient {
+    --sok-shape-paint: radial-gradient(
+        50% 51% at 39% 40%,
+        rgba(23, 5, 249, 0.3) 0%,
+        rgba(23, 5, 249, 0.245) 32%,
+        rgba(58, 45, 250, 0.195) 49%,
+        rgba(96, 96, 245, 0.14) 67%,
+        rgba(140, 140, 240, 0.06) 84%,
+        rgba(160, 160, 240, 0) 100%
+    );
+
+    top: calc(-448px * var(--sok-shape-scale, 1));
+    left: calc(50% - 958px * var(--sok-shape-scale, 1));
+}
+
+.triangle {
+    top: calc(-102px * var(--sok-shape-scale, 1));
+    left: calc(50% - 1270px * var(--sok-shape-scale, 1));
+}
+
+.hollowCylinder {
+    top: calc(-250px * var(--sok-shape-scale, 1));
+    left: calc(50% + 153px * var(--sok-shape-scale, 1));
+}
+
+.cylinder {
+    top: calc(289px * var(--sok-shape-scale, 1));
+    left: calc(50% - 135px * var(--sok-shape-scale, 1));
+}
+
+@media (--ktl-ts-down) {
+    .triangle {
+        left: calc(50% - 1000px * var(--sok-shape-scale, 1));
+    }
+}

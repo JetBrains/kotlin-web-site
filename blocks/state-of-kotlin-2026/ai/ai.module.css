@@ -1,0 +1,318 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    position: relative;
+    padding: 72px 0;
+}
+
+
+.hollowCylinder {
+    top: 151px;
+    right: calc(-122px * var(--sok-shape-scale, 1));
+}
+
+.triangle {
+    top: 45%;
+    left: calc(-188px * var(--sok-shape-scale, 1));
+}
+
+.panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-image: radial-gradient(
+        130.09% 130.13% at 94.72% 87.29%,
+        #fafafa 0%,
+        #bcb9fb 0%,
+        #b0aafd 0%,
+        #fafafa 100%
+    );
+}
+
+.panelTitle {
+    margin: 0;
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+}
+
+.panelLead {
+    margin: 24px 0 0;
+}
+
+.statGrid .statCard,
+.benchmarkRow .statCard {
+    min-height: 240px;
+    height: auto;
+    justify-content: space-between;
+}
+
+.assistedHeading {
+    max-width: 706px;
+}
+
+.statGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.verifiedRow {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.verifiedText {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-right: 32px;
+}
+
+.chartCard {
+    display: flex;
+    flex: 0 0 536px;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 393px;
+    padding: 0 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.chartTitle {
+    margin: 0;
+}
+
+.chartCardInner {
+    max-width: 380px;
+    margin-top: 32px;
+}
+
+.chartFootnote {
+    margin: 32px 0 0;
+}
+
+.quoteGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.quoteGrid > :first-child {
+    grid-row: span 2;
+}
+
+.quoteBox {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.quoteText {
+    margin: 0;
+}
+
+.quoteAuthor {
+    margin: 24px 0 0;
+}
+
+.benchmarkRow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 8px;
+    width: 100%;
+}
+
+.benchmarkText {
+    padding-right: 24px;
+}
+
+.leaderboardGroup {
+    width: 100%;
+    margin-top: 48px;
+}
+
+.leaderboard {
+    margin-top: 24px;
+}
+
+.benchmarkLink {
+    margin-top: 48px;
+}
+
+.buildAiHeading {
+    max-width: 720px;
+}
+
+.capabilityGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.capabilityColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.capabilityColumn:nth-child(1) {
+    padding-top: 128px;
+}
+
+.capabilityColumn:nth-child(2) {
+    padding-top: 64px;
+}
+
+.capabilityCard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.capabilityTitle {
+    margin: 0;
+}
+
+.capabilityTags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.capabilityText {
+    margin: 12px 0 0;
+}
+
+.agentsTitle {
+    max-width: 720px;
+}
+
+.caseRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.caseRow .caseCard {
+    flex: 1 0 0;
+}
+
+@media (--ktl-ds-down) {
+    .chartCard {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .hollowCylinder {
+        right: -190px;
+        top: 300px;
+    }
+
+    .verifiedRow {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .verifiedText,
+    .benchmarkText {
+        padding-right: 0;
+    }
+
+    .chartCard {
+        flex: 0 0 auto;
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .benchmarkRow {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .benchmarkRow .statCard {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    .capabilityGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .capabilityColumn:nth-child(1),
+    .capabilityColumn:nth-child(2) {
+        padding-top: 0;
+    }
+
+    .caseRow {
+        flex-direction: column;
+    }
+
+    .capabilityTags {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .statGrid,
+    .quoteGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .statGrid .statCard {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    .quoteGrid > :first-child {
+        grid-row: auto;
+    }
+
+    .hollowCylinder {
+        display: none;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .panel {
+        padding: 24px;
+    }
+
+    .panelTitle {
+        --rs-h3-font-size: 20px;
+        --rs-h3-line-height: 28px;
+    }
+}
