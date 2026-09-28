@@ -7,7 +7,7 @@ class IsPositiveTest {
     }
 
     @Test
-    fun `report that only numbers above zero are positive`() {
+    fun `isPositive returns true only for numbers greater than zero`() {
         val checks = listOf(
             check(1, expected = true),
             check(42, expected = true),
@@ -16,15 +16,14 @@ class IsPositiveTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: isPositive() returns true for positive numbers and " +
+                "isPositive() returns true for positive numbers and " +
                         "false for zero and negative numbers."
             )
 
             else -> when {
                 failed.expected == true -> hint(
                     "Return true when the number is greater than 0. Inside an " +
-                            "extension function, this is the number the function " +
-                            "is called on.",
+                            "extension function, this refers to the receiver number.",
                     failed
                 )
 

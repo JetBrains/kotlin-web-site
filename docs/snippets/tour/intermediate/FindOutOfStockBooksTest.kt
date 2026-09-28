@@ -10,7 +10,7 @@ class FindOutOfStockBooksTest {
         }
 
     @Test
-    fun `find the index of every out-of-stock book`() {
+    fun `findOutOfStockBooks returns out-of-stock indices`() {
         val checks = listOf(
             check(listOf(9, 0, 0, 4), expected = listOf(1, 2)),
             check(listOf(6, 2, 9), expected = emptyList()),
@@ -18,7 +18,7 @@ class FindOutOfStockBooksTest {
         )
         when (val failed = checks.firstMismatch()) {
             null -> passed(
-                "Checked: findOutOfStockBooks() returns the indices of every " +
+                "findOutOfStockBooks() returns the indices of every " +
                         "book with quantity 0 for any inventory, and an empty " +
                         "list when everything is in stock."
             )

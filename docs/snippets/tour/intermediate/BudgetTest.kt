@@ -19,7 +19,7 @@ class BudgetTest {
     }
 
     @Test
-    fun `warn below 20% of the budget and report every increase`() {
+    fun `remainingBudget warns below 20% and reports increases`() {
         val lines = try {
             scenario()
         } catch (e: Throwable) {
@@ -38,10 +38,8 @@ class BudgetTest {
         val shown = lines.joinToString("\n")
         when {
             lines == listOf(warning, goodNews) -> passed(
-                "Checked: for a budget of any size, remainingBudget warns " +
-                        "below 20% of the total, reports increases, and stays " +
-                        "silent otherwise. Compare your delegate with the " +
-                        "example solution."
+                "remainingBudget prints a warning below 20% of totalBudget, " +
+                        "reports an increase, and prints nothing for other changes."
             )
 
             lines.isEmpty() -> hint(
@@ -74,14 +72,14 @@ class BudgetTest {
             )
 
             warning !in lines && warningLike -> hint(
-                "Match the warning wording shown in main()'s comments exactly. " +
-                        "It keeps the parentheses around the value.",
+                "Print \"$warning\" exactly. The warning keeps parentheses " +
+                        "around the remaining value.",
                 shown
             )
 
             goodNews !in lines && goodNewsLike -> hint(
-                "Match the good-news wording shown in main()'s comments " +
-                        "exactly. It ends with the new value and a period.",
+                "Print \"$goodNews\" exactly. The message ends with the new " +
+                        "remaining value and a period.",
                 shown
             )
 

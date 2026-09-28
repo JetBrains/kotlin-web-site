@@ -4,7 +4,7 @@ class OrderTwoTest {
     private fun orderTwo(): Any = OrderTwo
 
     @Test
-    fun `print a second order that stays unique`() {
+    fun `OrderTwo prints its name and remains unique`() {
         val two = orderTwo() as? Order ?: hint(
             "Make OrderTwo implement the Order interface, like OrderOne does. " +
                     "Declare it as data object OrderTwo : Order and override the " +
@@ -46,15 +46,15 @@ class OrderTwoTest {
                 "The orders are unique.",
                 "Do the orders have the same customer name? false",
             ) -> hint(
-                "Keep the code in main() as it is. It prints the five " +
-                        "lines shown in its comments."
+                "Keep the code in main() as it is. It prints \"Order name: " +
+                        "OrderOne\", \"Order name: OrderTwo\", \"Are the two orders " +
+                        "identical? false\", \"The orders are unique.\", and \"Do the " +
+                        "orders have the same customer name? false\"."
             )
 
             else -> passed(
-                "Checked: OrderTwo is a data object implementing Order, with its " +
-                        "own customer name, and printing it shows its name. The " +
-                        "orderId and orderTotal values are your choice. The example " +
-                        "solution uses \"002\", Bob and 12.75."
+                "OrderTwo is a data object that implements Order, has a customer " +
+                        "name different from OrderOne's, and prints \"OrderTwo\"."
             )
         }
     }

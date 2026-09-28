@@ -5,7 +5,7 @@ class MeasureTimeTest {
         Regex("""\d+(\.\d+)?(ns|us|ms|s|m|h|d)( \d+(\.\d+)?(ns|us|ms|s|m|h|d))*""")
 
     @Test
-    fun `print the processed data and how long it takes`() {
+    fun `main prints processed data and its duration`() {
         val lines = output.lines()
         val timeLine = lines.lastOrNull() ?: ""
         val timeValue = timeLine.removePrefix("Time taken: ").trim()
@@ -13,9 +13,8 @@ class MeasureTimeTest {
             lines.size == 2 && lines[0] == "Processed data" &&
                     timeLine.startsWith("Time taken: ") &&
                     durationLike.matches(timeValue) -> passed(
-                "Checked: main() prints \"Processed data\" and the measured time. " +
-                        "The exact duration changes from run to run, so only its " +
-                        "format is checked."
+                "main() prints \"Processed data\" and a measured duration. " +
+                        "The duration changes from run to run and includes a time unit."
             )
 
             output.isEmpty() -> hint(

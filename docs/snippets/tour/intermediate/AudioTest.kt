@@ -9,7 +9,7 @@ class AudioTest {
         Media::class.java.methods.firstOrNull { it.name == name }
 
     @Test
-    fun `play an audio with its own title and composer`() {
+    fun `Audio plays using its own title and composer`() {
         val titleGetter = mediaMember("getTitle") ?: hint(
             if (mediaMember("play") == null)
                 "Declare the title property and the play() function in the " +
@@ -47,8 +47,8 @@ class AudioTest {
             captured.toString().trim()
         } catch (e: Throwable) {
             hint(
-                "Make play() print the playing message. Calling it throws " +
-                        "${(e.cause ?: e)::class.simpleName}.",
+                "Make play() print \"Playing audio: Nocturne, composed by Chopin\" " +
+                        "without throwing ${(e.cause ?: e)::class.simpleName}.",
                 ""
             )
         } finally {
@@ -56,13 +56,14 @@ class AudioTest {
         }
         when {
             !titleCheck.isCorrect -> hint(
-                "Override the Media interface's title property in Audio's " +
-                        "constructor. The exercise hint shows how.",
+                "Define Audio's title property so Audio(\"Nocturne\", \"Chopin\").title " +
+                        "returns \"Nocturne\".",
                 titleCheck
             )
 
             played.isEmpty() -> hint(
-                "Print the playing message from play() with println().",
+                "Print \"Playing audio: Nocturne, composed by Chopin\" from play() " +
+                        "with println().",
                 ""
             )
 
@@ -85,10 +86,9 @@ class AudioTest {
             )
 
             else -> passed(
-                "Checked: Audio implements Media, and its title and play() " +
-                        "message use the audio's own title and composer. Whether " +
-                        "title is overridden in the constructor is not checked. " +
-                        "Compare with the example solution."
+                "Audio implements Media. Its title property returns the audio's " +
+                        "title, and play() prints a message using the audio's title " +
+                        "and composer."
             )
         }
     }
