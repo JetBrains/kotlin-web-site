@@ -1,79 +1,54 @@
 [//]: # (title: How KSP models Kotlin code)
 [//]: # (description: Learn how the KSP API models Kotlin source code through a hierarchy of symbols.)
 
-KSP represents source code as a hierarchy of symbols. Processors navigate this hierarchy to inspect declarations, types,
-annotations, and other elements of the source code.
+KSP represents source code as a hierarchy of symbols. Processors can navigate this hierarchy to inspect declarations, 
+types, annotations, and other elements of the source code.
+Consider the following top-level function:
 
-At the top level, a source file is represented by `KSFile`. A `KSFile` contains declarations such as classes, functions,
-and properties, which can contain additional declarations. The following simplified hierarchy shows some of the most
-common symbols and properties available through the KSP API:
+```Kotlin
+import com.example.annotations.HelloWorldAnnotation
 
-```none
-KSFile
-  packageName: KSName
-  fileName: String
-  annotations: List<KSAnnotation>
-  declarations: List<KSDeclaration>
-    KSClassDeclaration
-    // Class, interface, object
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      classKind: ClassKind
-      primaryConstructor: KSFunctionDeclaration
-      superTypes: List<KSTypeReference>
-      // Contains inner classes, member functions, properties, etc.
-      declarations: List<KSDeclaration>
-    KSFunctionDeclaration
-    // Top-level function
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      functionKind: FunctionKind
-      extensionReceiver: KSTypeReference?
-      returnType: KSTypeReference
-      parameters: List<KSValueParameter>
-      // Contains local classes, local functions, local variables, etc.
-      declarations: List<KSDeclaration>
-    KSPropertyDeclaration
-    // Top-level property
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      extensionReceiver: KSTypeReference?
-      type: KSTypeReference
-      getter: KSPropertyGetter
-        returnType: KSTypeReference
-      setter: KSPropertySetter
-        parameter: KSValueParameter
+@HelloWorldAnnotation
+fun main() {
+    helloWorld()
+}
 ```
 
-This hierarchy shows some of the common declarations in a source file. The KSP API provides additional symbols and
-properties that aren't shown here.
+KSP represents this function with the following symbol hierarchy:
 
-The following diagram illustrates the relationships between the main KSP API types:
+```None
+KSFile: packageName = "" (root package)
+└── declarations
+└── KSFunctionDeclaration: main
+├── simpleName = "main"
+├── qualifiedName = "main"
+├── parentDeclaration = null
+├── functionKind = TOP_LEVEL
+├── annotations
+│   └── KSAnnotation: @HelloWorldAnnotation
+│       ├── shortName = "HelloWorldAnnotation"
+│       └── annotationType: KSTypeReference
+│           └── resolve().declaration.qualifiedName
+│               → com.example.annotations.HelloWorldAnnotation
+├── parameters = []
+├── typeParameters = []
+├── extensionReceiver = null
+└── returnType: KSTypeReference
+└── resolve() → kotlin.Unit, NOT_NULL
+```
 
-![The full class diagram of the KSP 2 model](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
+The `resolve()` calls in the hierarchy represent full type resolution. The following section explains how type 
+resolution works and when to use it.
 
-> [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
->
-{style="note"}
+## Type resolution
 
-You can find the complete API definition in the [KSP GitHub repository](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp).
+Some properties in the symbol hierarchy, such as `annotationType` and `returnType`, are represented as `KSTypeReference`. 
+Processors can inspect these references directly or resolve them to access more information about the underlying type.
 
-## Type references and resolution
+Properties that refer to types, such as `KSFunctionDeclaration.returnType` and `KSAnnotation.annotationType`, return a 
+`KSTypeReference`.
 
-Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary work, processors resolve 
-most type references explicitly. Properties that refer to types, such as `KSFunctionDeclaration.returnType` and 
-`KSAnnotation.annotationType`, return a `KSTypeReference`.
-
-```kotlin
+```Kotlin
 interface KSFunctionDeclaration : ... {
     val returnType: KSTypeReference?
     // ...
@@ -91,27 +66,122 @@ annotations and modifiers.
 
 You can inspect a `KSReferenceElement` without resolving it. It can be one of the following:
 
-* `KSClassifierReference`, which provides information such as `referencedName()`.
+* `KSClassifierReference`, which provides information such as `referencedName`.
 
 * `KSCallableReference`, which provides information such as `receiverType`, `functionParameters`, and `returnType`.
 
-If a processor generates code that references the same types as the source code, it doesn't need to resolve those types. 
-Instead, it can use the type names available from `KSTypeReference` to generate the same syntactic type reference. KSP 
-adds the generated source files to the compilation, and the Kotlin compiler later resolves and type-checks the type 
+If a processor generates code that references the same types as the source code, it doesn't need to resolve those 
+types. Instead, it can use the type names available from `KSTypeReference` to generate the same syntactic type reference. 
+KSP adds the generated source files to the compilation, and the Kotlin compiler later resolves and type-checks the type 
 references together with the rest of the source code.
 
-To access the type in Kotlin's type system, call `KSTypeReference.resolve()`. The returned `KSType` provides access to 
-the declaration that defines the type:
+`KSTypeReference.resolve()` resolves the reference to a `KSType`, which provides access to the declaration that defines 
+the type:
 
-```kotlin
+```Kotlin
+val ksTypeReference = functionDeclaration.returnType ?: return
 val ksType: KSType = ksTypeReference.resolve()
 val ksDeclaration: KSDeclaration = ksType.declaration
 ```
 
-Resolve a type reference only when you need information available from `KSType` or `KSDeclaration`. When possible, 
-inspect the `KSReferenceElement` first. For example, you can use the `KSClassifierReference.referencedName()` function to filter 
-irrelevant references before resolving them.
-
 For function type references, most information is already available from `KSCallableReference`. Resolving a function 
-type produces a type from the `Function0`, `Function1`, and related families, but usually provides no additional information. 
-Resolve a function type when you need information such as the identity of its function prototype.
+type produces a type from the `Function0`, `Function1`, and related families, but usually provides no additional 
+information. Resolving a  function type provides information such as the identity of its function prototype.
+
+Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary resolutions, KSP generally 
+doesn't resolve type references implicitly. Instead, call `KSTypeReference.resolve()` explicitly when your processor 
+needs the resolved type.
+
+When possible, inspect the `KSReferenceElement` before resolving the type. For example, use 
+`KSClassifierReference.referencedName()` to filter references that aren't relevant to your processor.
+
+Whether a processor needs to resolve a type depends on the information it needs. The following example compares both 
+approaches by inspecting the same property types with and without resolution. The processor provider uses the 
+`resolveTypes` option to select which approach to use.
+
+```Kotlin
+import java.sql.Date as SqlDate
+
+val birthday: SqlDate? = null
+val names: List<String> = emptyList()
+```
+
+```Kotlin
+import com.google.devtools.ksp.processing.*
+import com.google.devtools.ksp.symbol.*
+
+class TypeInventoryProcessor(
+private val logger: KSPLogger,
+private val resolveTypes: Boolean,
+) : SymbolProcessor {
+
+    override fun process(resolver: Resolver): List<KSAnnotated> {
+        val deferred = mutableListOf<KSAnnotated>()
+
+        // This example inspects only top-level properties.
+        val properties = resolver.getAllFiles()
+            .flatMap { it.declarations }
+            .filterIsInstance<KSPropertyDeclaration>()
+
+        for (property in properties) {
+            val name = property.simpleName.asString()
+            val reference = property.type
+
+            if (!resolveTypes) {
+                // Inspect the reference without explicitly resolving it.
+                val element =
+                    reference.element as? KSClassifierReference ?: continue
+
+                logger.info(
+                    "$name: writtenName=${element.referencedName()}, " +
+                        "arguments=${element.typeArguments.size}",
+                    property,
+                )
+            } else {
+                // Resolve once, then reuse the resulting type.
+                val type = reference.resolve()
+
+                if (type.isError) {
+                    deferred += property
+                    continue
+                }
+
+                logger.info(
+                    "$name: declaration=" +
+                        "${type.declaration.qualifiedName?.asString()}, " +
+                        "nullability=${type.nullability}",
+                    property,
+                )
+            }
+        }
+        return deferred
+    }
+}
+```
+
+With `resolveTypes = false`, the relevant output is:
+
+```Kotlin
+birthday: writtenName=SqlDate, arguments=0
+names: writtenName=List, arguments=1
+```
+
+With `resolveTypes = true`, the output is:
+
+```Kotlin
+birthday: declaration=java.sql.Date, nullability=NULLABLE
+names: declaration=kotlin.collections.List, nullability=NOT_NULL
+```
+
+Without resolution, the processor can inspect syntactic information such as the type name and type arguments. For 
+example, it sees the imported alias `SqlDate` as written in the source code. After resolution, the processor can access 
+semantic information about the type, such as the fully qualified declaration name and nullability.
+
+## KSP model reference
+The following diagram illustrates the relationships between the main KSP API types:
+
+![The full class diagram of the KSP 2 model](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
+
+> [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
+>
+{style="note"}
