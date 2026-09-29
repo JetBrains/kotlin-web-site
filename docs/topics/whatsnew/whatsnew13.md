@@ -118,7 +118,7 @@ fun main() {
     bar("42")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Custom contracts
 
@@ -216,7 +216,7 @@ fun main() {
     println("Hello, world!")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Functions with big arity
 
@@ -282,7 +282,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 See [reference](inline-classes.md) for inline classes for details.
 
@@ -326,7 +326,7 @@ println("ubyte: $ubyte, byte: $byte, ulong2: $ulong2")
 println("x: $x, y: $y, z: $z, range: $range")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 See [reference](unsigned-integer-types.md) for details.
 
@@ -373,7 +373,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### isNullOrEmpty and orEmpty extensions
 
@@ -398,7 +398,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### associateWith
 
@@ -436,7 +436,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Char sequences and strings in addition have an `ifBlank` extension that does the same thing as `ifEmpty` but checks for
 a string being all whitespace instead of empty.
@@ -450,7 +450,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Sealed classes in reflection
 

@@ -469,7 +469,7 @@ fun main() {
     //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Unchecked casts
 

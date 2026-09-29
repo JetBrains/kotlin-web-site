@@ -38,7 +38,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If you want to group elements and then apply an operation to all groups at one time, use the function [`groupingBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html).
 It returns an instance of the [`Grouping`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-grouping/index.html)
@@ -79,4 +79,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

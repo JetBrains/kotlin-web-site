@@ -21,7 +21,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To find an intersection between two collections (elements present in both of them), use the [`intersect()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/intersect.html) function.
 To find collection elements not present in another collection, use the [`subtract()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/subtract.html) function. 
@@ -42,7 +42,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To find the elements present in either one of the two collections but not in their intersection, you can also use the `union()` function. 
 For this operation (known as symmetric difference), calculate the differences between the two collections and merge the 
@@ -60,7 +60,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also apply `union()`, `intersect()`, and `subtract()` functions to lists.
 However, their result is _always_ a `Set`. In this result, all the duplicate elements are merged into one and the index access is not available:
@@ -81,4 +81,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

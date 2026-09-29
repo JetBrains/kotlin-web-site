@@ -112,7 +112,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Here `::isOdd` is a value of function type `(Int) -> Boolean`.
 
@@ -133,7 +133,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
 
@@ -182,7 +182,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Property references
 
@@ -212,7 +212,7 @@ fun main() {
     println(y)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 A property reference can be used where a function with a single generic parameter is expected:
 
@@ -224,7 +224,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To access a property that is a member of a class, qualify it as follows:
 
@@ -237,7 +237,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For an extension property:
 
@@ -249,7 +249,7 @@ fun main() {
     println(String::lastChar.get("abc"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Interoperability with Java reflection
 
@@ -314,7 +314,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Instead of calling the method `matches` directly, the example uses a reference to it.
 Such a reference is bound to its receiver.
@@ -329,7 +329,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Compare the types of the bound and the unbound references.
 The bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
@@ -350,7 +350,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You don't need to specify `this` as the receiver: `this::foo` and `::foo` are equivalent.
 

@@ -57,7 +57,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For certain collection operations, there is an option to specify the _destination_ object.
 Destination is a mutable collection to which the function appends its resulting items instead of returning them in a new object.
@@ -79,7 +79,7 @@ fun main() {
 }
 
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For convenience, these functions return the destination collection back, so you can create it right in the corresponding
 argument of the function call:
@@ -96,7 +96,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Functions with destination are available for filtering, association, grouping, flattening, and other operations. For the
 complete list of destination operations see the [Kotlin collections reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html).
@@ -124,4 +124,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

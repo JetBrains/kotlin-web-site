@@ -596,7 +596,7 @@ fun computeAck(m: Int, n: Int) {
     println("duration: ${t.inWholeNanoseconds / 1e6} ms")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-1-9-0-kotlin-wasm-playground"}
+{kotlin-runnable="true" id="kotlin-whats-new-1-9-0-kotlin-wasm-playground"}
 
 ## Kotlin/JS
 
@@ -982,7 +982,7 @@ fun main() {
     println(mark2 > mark1) // This is true, as mark2 was captured later than mark1.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-time-elapsed"}
+{kotlin-runnable="true" id="kotlin-whats-new-time-elapsed"}
 
 To check if a deadline has passed or a timeout has been reached, use the [`hasPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-passed-now.html)
 and [`hasNotPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-not-passed-now.html) 
@@ -1008,7 +1008,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-time-passednow"}
+{kotlin-runnable="true" id="kotlin-whats-new-time-passednow"}
 
 ### The Kotlin/Native standard library's journey towards stabilization
 

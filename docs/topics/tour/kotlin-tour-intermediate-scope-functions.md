@@ -463,7 +463,7 @@ fun main() {
     }
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-1"}
 
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
@@ -492,7 +492,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
 
 </def>
 <def title="Chain apply and also" id="scope-functions-exercise-2">
@@ -503,7 +503,7 @@ to update the email address and then the `also` scope function to print a log me
 ```kotlin
 data class User(val id: Int, var email: String)
 
-fun updateEmail(user: User, newEmail: String): User = // Write your code here
+fun updateEmail(user: User, newEmail: String): User = TODO("Write your code here")
 
 fun main() {
     val user = User(1, "old_email@example.com")
@@ -514,7 +514,7 @@ fun main() {
     // Updated User: User(id=1, email=new_email@example.com)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-2"}
 
 ```kotlin
 data class User(val id: Int, var email: String)
@@ -532,7 +532,7 @@ fun main() {
     // Updated User: User(id=1, email=new_email@example.com)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
 
 </def>
 </deflist>

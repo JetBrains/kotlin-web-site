@@ -103,7 +103,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-access-properties"}
+{kotlin-runnable="true" id="kotlin-access-properties"}
 
 In Kotlin, we recommend initializing properties when you declare them to keep your code safe and easy to read. However, 
 you can [initialize them later](#late-initialized-properties-and-variables) in special cases.
@@ -135,7 +135,7 @@ fun main() {
     println("Width=${rectangle.width}, height=${rectangle.height}, area=${rectangle.area}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-custom-getter"}
+{kotlin-runnable="true" id="kotlin-custom-getter"}
 
 You can omit the type if the compiler can infer it from the getter:
 
@@ -167,7 +167,7 @@ fun main() {
     // 10, 20
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-custom-setter"}
+{kotlin-runnable="true" id="kotlin-custom-setter"}
 
 ### Changing visibility or adding annotations
 
@@ -208,7 +208,7 @@ fun main() {
     // Error: cannot assign because setter is private
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-private-setter"}
+{kotlin-runnable="true" id="kotlin-private-setter"}
 
 To annotate an accessor, use the annotation before the `get` or `set` keyword:
 
@@ -271,7 +271,7 @@ fun main() {
     // Score updated to 20
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-field"}
+{kotlin-runnable="true" id="kotlin-backing-field"}
 
 Backing fields aren't created by default for all properties because they might not need them. For example, the `isEmpty`
 property doesn't have a backing field because the value is calculated from the `size` property each time you access it:
@@ -379,7 +379,7 @@ fun main() {
     // [alex, emma, mike, sarah]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-property-custom-getter"}
+{kotlin-runnable="true" id="kotlin-backing-property-custom-getter"}
 
 > Use a leading underscore when naming backing properties to follow Kotlin [coding conventions](coding-conventions.md#names-for-backing-properties).
 >
@@ -476,7 +476,7 @@ fun main() {
     // Exception in thread "main" kotlin.UninitializedPropertyAccessException: lateinit property report has not been initialized
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-lateinit-property" validate="false"}
+{kotlin-runnable="true" id="kotlin-lateinit-property" validate="false"}
 
 To check whether a `lateinit var` has already been initialized, use the [`isInitialized`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/is-initialized.html)
 property on the [reference to that property](reflection.md#property-references):
@@ -505,7 +505,7 @@ fun main() {
     // Latest reading: 22°C, sunny
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-lateinit-property-check-initialization"}
+{kotlin-runnable="true" id="kotlin-lateinit-property-check-initialization"}
 
 You can only use `isInitialized` on a property if you can already access that property in your code. The property must be declared
 in the same class, in an outer class, or as a top-level property in the same file.
