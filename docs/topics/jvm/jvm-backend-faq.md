@@ -71,8 +71,8 @@ all plugins in the build. For more information, see [Set JDK version](maven-conf
 
 You may encounter the "Tests run: 0" error when trying to run the `mvn test` command. The most common causes are:
 
-* **Test discovery**: Surefire runs tests that follow the `*Test` naming pattern. Integration tests named with the `*IT`
-  suffix are run by the Failsafe plugin with the `mvn verify` command instead. For more information, see [Run tests](jvm-test-maven.md#run-tests).
+* **Test discovery**: Surefire runs tests that follow the `*Test` naming pattern. The Failsafe plugin runs integration
+  tests named with the `*IT` suffix with the `mvn verify` command. For more information, see [Run tests](jvm-test-maven.md#run-tests).
 * **Missing engine on the classpath**: add a JUnit test dependency so that JUnit can discover and run your tests.
   The easiest option is to use [`kotlin-test-junit5`](jvm-test-maven.md#junit-5-and-later), which pulls in the necessary JUnit
   artifacts. For more information, see [Dependencies on test libraries](maven-set-dependencies.md#dependencies-on-test-libraries).
@@ -117,9 +117,20 @@ For more information, see [Test Kotlin projects with Maven](jvm-test-maven.md).
 
 ## Annotation processing: kapt and KSP
 
-### When should I use kapt versus KSP in a Maven-based Kotlin backend?
+### Can I use KSP with Maven?
 
-Since KSP currently has official support only for Gradle, use [kapt](kapt.md) for all Maven projects.
+Since KSP currently has official support only for Gradle, we recommend using [kapt](kapt.md) for all Maven projects.
+You can try community Maven plugins for KSP, but they come with their own support and maintenance processes.
+
+Another option for Maven is to run KSP through its [command-line](ksp-command-line.md) entry point in a
+build phase. This means wiring KSP code generation into the Maven lifecycle: run KSP during an early phase, such as
+`generate-sources`, and output the generated code into a stable directory. Then add that directory to the compile source
+roots and ensure generation runs **before** Kotlin compilation, so the generated sources exist by the time your code is
+compiled.
+
+For more information, see [Use annotation processors in Kotlin projects](jvm-annotation-processors.md).
+
+### When should I use kapt versus KSP in a Gradle-based Kotlin backend?
 
 If you'd like to use existing Java annotation processors in Kotlin Gradle projects, first check if [KSP already supports them](ksp-overview.md#supported-libraries).
 For unsupported processors, use [kapt](kapt.md).
@@ -143,7 +154,20 @@ projects with kapt integration. This can be caused by strong encapsulation of in
 access for annotation processing.
 
 You can fix this by updating Kotlin to the latest version and adding the required `--add-opens` arguments to the JVM that
-runs Maven. For example, through a repository-level `.mvn/jvm.config` file, so every developer and CI runner uses the same settings.
+runs Maven.
+
+The `--add-opens` argument tells the JVM to open an internal JDK package for deep reflective access, which strong
+encapsulation blocks by default. It uses the format `--add-opens <module>/<package>=<target-module>`, where
+`<target-module>` is usually `ALL-UNNAMED` for code that runs from the classpath (such as the build tools). For example,
+to grant kapt access to the compiler internals it needs:
+
+```bash
+--add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+```
+
+The simplest way to apply these arguments is to add them to a repository-level `.mvn/jvm.config` file, with one JVM
+argument per line, in the root of your project. Maven automatically passes every option from this file to the JVM that
+runs the build, so every developer and CI runner uses the same settings.
 
 For more information on kapt configuration, see [kapt compiler plugin](kapt.md).
 
@@ -156,24 +180,6 @@ If you see "red" imports in your IDE, reimport your Kotlin Maven project so that
 pick up directories for the generated sources.
 
 For more information on kapt configuration, see [kapt compiler plugin](kapt.md).
-
-### Can I use KSP with Maven?
-
-KSP has no official support for Maven. You can try community Maven plugins for KSP, but they come with their own support
-and maintenance processes.
-
-Another option for Maven is to run KSP through its [command-line](ksp-command-line.md) entry point in a
-build phase.
-
-For more information on Kotlin annotation processors, see [Use annotation processors in Kotlin projects](jvm-annotation-processors.md).
-
-### How do I wire KSP code generation into the Maven lifecycle?
-
-To wire KSP code generation into the Maven lifecycle, run KSP during an early phase, such as `generate-sources`, and
-output the generated code into a stable directory. Then add that directory to the compile source roots and ensure
-generation runs **before** Kotlin compilation.
-
-For more information, see [Running KSP from the command line](ksp-command-line.md).
 
 ## Quality gates: formatting and coverage
 
@@ -189,8 +195,10 @@ You can also add static analysis with [detekt](jvm-code-analysis.md#code-analysi
 
 You may encounter module access errors when using Kotlin linters or formatters with Java 17 and later versions.
 
-These tools run inside the Maven JVM, so on newer JDKs they may need extra `--add-opens` arguments. Put those arguments in
-a repository-level `.mvn/jvm.config` file so the same settings are checked into the repo and used both locally and in CI.
+These tools run inside the Maven JVM, so on newer JDKs they may need extra `--add-opens` arguments. Each argument uses the
+`--add-opens <module>/<package>=ALL-UNNAMED` format that opens an internal JDK package for reflective access. Put those
+arguments in a repository-level `.mvn/jvm.config` file, one per line, so the same settings are checked into the repo and
+used both locally and in CI. For more details, see [Why does kapt fail on newer JDKs?](#why-does-kapt-fail-on-newer-jdks).
 
 ### Which code coverage tools are recommended?
 
@@ -264,9 +272,15 @@ To publish a Kotlin library to [Maven Central](https://central.sonatype.com/), a
 * [GPG signatures for every artifact](#how-do-i-sign-artifacts-for-maven-central-in-a-ci-friendly-way)
 * Complete POM metadata, including name, description, license, developers, and SCM information.
 
+You deploy these artifacts through the Maven Central, for example with the
+[`central-publishing-maven-plugin`](https://central.sonatype.org/publish/publish-portal-maven/). Running `mvn deploy`
+generates a deployment bundle and uploads it to the Maven Central for validation. The plugin doesn't generate the source
+JAR, Javadoc JAR, or GPG signatures for you, so you configure those prerequisites separately.
+
 Remember that Maven Central releases are immutable: once a version is published, it can't be replaced.
 
 For more information on generating the documentation JAR, see the [Dokka documentation engine](dokka-maven.md).
+For the full publishing process and requirements, see the official [Sonatype documentation](https://central.sonatype.org/publish/publish-portal-maven/).
 
 ### How do I attach and deploy a source JAR?
 
@@ -291,9 +305,12 @@ To configure Maven Central artifacts in a CI-friendly way, we recommend to:
 You may encounter the Kotlin Maven plugin failures on JDK 17 with a recommendation to add `--add-opens` arguments to
 the JVM that runs Maven.
 
-To fix this on the project level, put the required JVM arguments in a repository-level `.mvn/jvm.config` file so that
-every developer and CI runner uses the same settings and keep your [Kotlin version](maven-kotlin-compiler.md) up to date.
-This keeps local and CI behavior consistent.
+To fix this on the project level, put the required JVM arguments in a repository-level `.mvn/jvm.config` file, with one
+argument per line, so that every developer and CI runner uses the same settings, and keep your
+[Kotlin version](maven-kotlin-compiler.md) up to date. This keeps local and CI behavior consistent.
+
+Each `--add-opens` argument follows the `--add-opens <module>/<package>=ALL-UNNAMED` format that opens an internal JDK
+package for reflective access. For more details, see [Why does kapt fail on newer JDKs?](#why-does-kapt-fail-on-newer-jdks).
 
 ### Why do I get mismatch errors for Kotlin or API versions?
 
