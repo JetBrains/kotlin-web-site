@@ -88,7 +88,7 @@ For function type references, most information is already available from `KSCall
 type produces a type from the `Function0`, `Function1`, and related families, and is usually unnecessary. However, 
 resolution can provide additional information, such as the identity of the function's prototype.
 
-## When to resolve types
+### When to resolve types
 
 Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary resolutions, KSP generally 
 doesn't resolve type references implicitly. Instead, call `KSTypeReference.resolve()` explicitly when your processor 
