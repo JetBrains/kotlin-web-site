@@ -85,8 +85,10 @@ val ksDeclaration: KSDeclaration = ksType.declaration
 ```
 
 For function type references, most information is already available from `KSCallableReference`. Resolving a function 
-type produces a type from the `Function0`, `Function1`, and related families, but usually provides no additional 
-information. Resolving a  function type provides information such as the identity of its function prototype.
+type produces a type from the `Function0`, `Function1`, and related families, and is usually unnecessary. However, 
+resolution can provide additional information, such as the identity of the function's prototype.
+
+## When to resolve types
 
 Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary resolutions, KSP generally 
 doesn't resolve type references implicitly. Instead, call `KSTypeReference.resolve()` explicitly when your processor 
@@ -178,10 +180,14 @@ example, it sees the imported alias `SqlDate` as written in the source code. Aft
 semantic information about the type, such as the fully qualified declaration name and nullability.
 
 ## KSP model reference
-The following diagram illustrates the relationships between the main KSP API types:
+The following diagram illustrates the relationships between the main KSP API types. It was generated from the KSP API 
+source using IntelliJ IDEA's class diagram feature.
 
 ![The full class diagram of the KSP 2 model](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
 
 > [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
 >
 {style="note"}
+
+For the complete API definition, see the [KSP API source](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/) 
+in the KSP GitHub repository.
