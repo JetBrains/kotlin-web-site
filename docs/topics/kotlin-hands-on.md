@@ -39,11 +39,11 @@ Learn how to serve files, use templating engines such as Freemarker and the kotl
 
 <a href="https://ktor.io/docs/creating-interactive-website.html" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
 
-## Introduction to Kotlin coroutines and channels
+## Introduction to Kotlin coroutines and flows
 
-Learn about coroutines in Kotlin and how you can communicate between them using channels.
+Learn how to use Kotlin coroutines and flows to keep an application responsive while loading data concurrently.
 
-<a href="coroutines-and-channels.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
+<a href="coroutines-and-flows-tutorial.md" as="button" mode="classic" icon="arrow-right" icon-position="right">Start</a>
 
 ## Introduction to Kotlin/Native
 

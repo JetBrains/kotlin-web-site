@@ -35,7 +35,7 @@ To launch new coroutines, use coroutine builders like [`.launch()`](https://kotl
 These builders are extension functions on [`CoroutineScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/),
 which defines the coroutine's lifecycle and provides the coroutine context.
 
-You can learn more about these builders in [Coroutine basics](coroutines-basics.md) and [Composing suspend functions](coroutines-and-channels.md).
+You can learn more about these builders in [Coroutine basics](coroutines-basics.md) and [Composing suspend functions](composing-suspending-functions.md).
 
 ### Coroutine context and behavior
 
@@ -64,7 +64,7 @@ To safely manage shared mutable state, use [`StateFlow`](https://kotlinlang.org/
 Then, you can update it from one coroutine and collect its latest value from others.
 <!-- Learn more in [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md). -->
 
-For more information, see [Flows](coroutines-flow.md), [Channels](channels.md), and the [Coroutines and channels tutorial](coroutines-and-channels.md).
+For more information, see [Flows](coroutines-flow.md), [Channels](channels.md), and the [Coroutines and flows tutorial](coroutines-and-flows-tutorial.md).
 
 ## What's next
 

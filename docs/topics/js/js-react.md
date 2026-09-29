@@ -1179,7 +1179,7 @@ When you load the page:
   a re-render.
 * The code of the `App` component will be invoked again, but the `useEffectOnce` block _will not_ run for a second time.
 
-If you want to get an in-depth understanding of how coroutines work, check out this [tutorial on coroutines](coroutines-and-channels.md).
+If you want to get an in-depth understanding of how coroutines work, check out this [tutorial on coroutines](coroutines-and-flows-tutorial.md).
 
 ## Deploy to production and the cloud
 
@@ -1288,7 +1288,7 @@ There are channels for `#javascript` and `#react`.
 
 ### Learn more about coroutines {initial-collapse-state="collapsed" collapsible="true"}
 
-If you're interested in finding out more about how you can write concurrent code, check out the tutorial on [coroutines](coroutines-and-channels.md).
+If you're interested in finding out more about how you can write concurrent code, check out the tutorial on [coroutines](coroutines-and-flows-tutorial.md).
 
 ### Learn more about React {initial-collapse-state="collapsed" collapsible="true"}
 
