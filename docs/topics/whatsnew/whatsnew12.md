@@ -100,7 +100,7 @@ fun main(args: Array<String>) {
     println("Values in the cycle: ${nodes.take(7).joinToString { it.value.toString() }}, ...")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Check whether a lateinit var is initialized
 
@@ -123,7 +123,7 @@ fun main(args: Array<String>) {
 	Foo().initializationLogic()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Inline functions with default functional parameters
 
@@ -143,7 +143,7 @@ fun main(args: Array<String>) {
     println("customStrings = $customStrings")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Information from explicit casts is used for type inference
 
@@ -187,7 +187,7 @@ fun main(args: Array<String>) {
   println("called on $list: $countInList")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Also, smart casts in a lambda are now allowed for local variables that are only modified before the lambda:
 
@@ -206,7 +206,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Support for  ::foo as a shorthand for this::foo
 
@@ -303,7 +303,7 @@ fun main(args: Array<String>) {
     println("pairwise differences: $pairwiseDifferences")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### fill, replaceAll, shuffle/shuffled
 
@@ -326,7 +326,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Math operations in kotlin-stdlib
 

@@ -154,7 +154,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 > Learn more about available functions in the 
 > [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/).
@@ -177,7 +177,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 > These operations follow Unicode values, not language-specific alphabet rules.
 >
@@ -204,7 +204,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Character conversion
 
@@ -220,7 +220,7 @@ To convert `Char` to a numeric type, use explicit conversion:
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true"}
 
 * If a character represents a decimal digit, use `digitToInt()`:
   ```kotlin
@@ -231,7 +231,7 @@ To convert `Char` to a numeric type, use explicit conversion:
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true"}
 
   > If the character may not be a valid digit, use `digitToIntOrNull()`.
   >

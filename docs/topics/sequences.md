@@ -57,7 +57,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To create a finite sequence with `generateSequence()`, provide a function that returns `null` after the last element you need.
 
@@ -70,7 +70,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### From chunks
 
@@ -96,7 +96,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Sequence operations
 
@@ -136,7 +136,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 When you run this code, you'll see that the `filter()` and `map()` functions are executed in the same order as they appear
 in the code. First, you see `filter:` for all elements, then `length:` for the elements left after filtering, and then
@@ -168,7 +168,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The output of this code shows that the `filter()` and `map()` functions are called only when building the result list.
 So, you first see the line of text `"Lengths of.."` and then the sequence processing starts.
