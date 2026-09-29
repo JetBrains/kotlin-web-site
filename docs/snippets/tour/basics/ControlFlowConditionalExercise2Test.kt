@@ -16,7 +16,7 @@ private val EXPECTED_ACTIONS = listOf(
 class ControlFlowConditionalExercise2Test {
 
     @Test
-    fun `print Yes for button A`() {
+    fun `print Yes for button press`() {
         val originalButton = button
         val runs = try {
             EXPECTED_ACTIONS.map { (pressed, expected) ->
@@ -29,7 +29,7 @@ class ControlFlowConditionalExercise2Test {
 
         val (pressed, expected, rawOutput) = runs.firstOrNull { (_, action, raw) -> raw.trim() != action }
             ?: return passed(
-                "Checked: buttons A, B, X, Y, C, a, and the empty string print their expected actions."
+                "Checked: buttons A, B, X, Y, C, a, and an empty string print their expected actions."
             )
         val actual = rawOutput.trim()
         val lines = actual.lines().map { it.trim() }.filter { it.isNotEmpty() }

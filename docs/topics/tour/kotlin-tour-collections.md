@@ -490,7 +490,7 @@ number.
 
 |---|---|
 ```kotlin
-// Replace the empty map, keeping the name number2word
+// Replace the empty map. Keep the variable name as number2word.
 val number2word: Map<Int, String> = emptyMap()
 
 fun main() {

@@ -24,7 +24,7 @@ class EmployeeTest {
             "@" in output -> hint(
                 "Add the data keyword in front of your class declaration. " +
                         "A data class prints its properties, but a regular class prints " +
-                        "only its name and a code."
+                        "only its name and some code."
             )
 
             lines.size != 2 -> hint(
