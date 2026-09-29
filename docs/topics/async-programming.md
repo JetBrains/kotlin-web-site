@@ -1,19 +1,17 @@
 [//]: # (title: Asynchronous control flow and suspending functions)
 
-An application can become unresponsive when it has to wait for an operation to finish before it can handle other work.
+An application can become unresponsive when it waits for an operation to finish before handling other work.
 
 On the JVM, code runs on threads.
 If the thread responsible for handling events has to wait for an operation to finish, it can't do other work in the meantime.
-An operation that causes the thread to wait in this way is known as a _blocking operation_.
+An operation that causes the thread to wait is known as a _blocking operation_.
 
 To remain responsive, an application needs to let independent work continue while an operation is in progress.
-_Asynchronous control flow_ determines which work can continue while an operation is in progress and which work must wait for it to finish.
+_Asynchronous control flow_ determines which work can continue and which work must wait for the operation to finish.
 
-The following sections use examples from a small reminder application to demonstrate different ways to manage asynchronous control flow and show how suspending functions make this control flow easy to express.
-
-> You can find the complete project for the reminder application, including the source files for all examples, in the [PLACEHOLDER GitHub repository](<repository-url>).
+> The following sections use examples from a small [reminder application](<repository-url>) to demosntrate different ways to manage asynchronous control flow and how suspending functions make it easier to express.
 >
-> These resources are intended for teaching purposes rather than as production-ready implementations.
+> The example implementations are intended for teaching purposes and aren't production-ready.
 > To get started with writing production-ready asynchronous code in Kotlin, see [Coroutine basics](coroutines-basics.md).
 >
 {style="note"}
@@ -103,9 +101,9 @@ As a result, the reminder text can appear in the middle of the animation:
 This interleaving shows a problem with concurrent access to shared resources:
 although the operations can run independently, they can interfere with each other.
 
-In real applications, similar interference can occur when concurrent operations update shared state. 
-For example, one operation might recalculate a UI layout while another changes the displayed content.
-Without coordination, the result can depend on which operation finishes first and leave the UI in an inconsistent state.
+In real applications, similar interference can occur when concurrent operations update shared state.
+For example, one operation might recalculate a UI layout, while another might change the displayed content.
+Without coordination, the result can depend on which operation finishes first, leaving the UI in an inconsistent state.
 This type of unpredictable interference is known as a _race condition_.
 
 Here's the complete implementation for this version of the reminder application:
@@ -509,7 +507,7 @@ When some work has to start after an asynchronous operation finishes, an applica
 You can define the subsequent work in a _callback_.
 A callback is a function that you pass to another function to invoke later when a specified condition is met, such as after an operation finishes. 
 
-In [src/Example3.kt](repository-url./blob/main/src/Example3.kt), the reminder application uses callbacks to resume processing user input only after the animation finishes.
+In [`src/Example3.kt`](repository-url./blob/main/src/Example3.kt), the reminder application uses callbacks to resume processing user input only after the animation finishes.
 To achieve this, the example adds a second `SimpleActor` for processing user input:
 
 ```kotlin
@@ -540,7 +538,7 @@ fun main() {
 ```
 
 The `userInputActor` calls the `processUserInput()` function on its dedicated thread.
-Unlike the `while` loop in the [actor-based shared resource coordination example](#actor-based-shared-resource-coordination), each call to the `processUserInput()` function reads and processes only one command.
+Unlike the `while` loop in the [actor-based example](#actor-based-shared-resource-coordination), each call to the `processUserInput()` function reads and processes only one command.
 
 After processing a `remind` command, a `help` command, or an unknown command, the function sends another request to `userInputActor`:
 
@@ -610,10 +608,10 @@ Here's the complete implementation for this version of the reminder application:
 ```kotlin
 @file:OptIn(kotlin.concurrent.atomics.ExperimentalAtomicApi::class)
 import kotlin.concurrent.atomics.AtomicBoolean
-        import kotlin.time.Clock
-        import kotlin.time.ComparableTimeMark
-        import kotlin.time.Duration
-        import kotlin.time.TimeSource
+import kotlin.time.Clock
+import kotlin.time.ComparableTimeMark
+import kotlin.time.Duration
+import kotlin.time.TimeSource
 
         @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
         class SimpleActor {
@@ -830,11 +828,11 @@ private val funAnimationFrames = (
 ```
 {collapsible="true" collapsed-title="Complete Example3.kt file"}
 
-### Control-flow abstractions
+## Control-flow abstractions
 
 To make callback-based control flow easier to follow, you can move repeated scheduling logic into helper functions that represent familiar control-flow structures, such as loops.
 
-In [src/Example4.kt](repository-url./blob/main/src/Example4.kt), the reminder application uses a `runInfiniteLoop()` function to process user input asynchronously.
+In [`src/Example4.kt`](repository-url./blob/main/src/Example4.kt), the reminder application uses a `runInfiniteLoop()` function to process user input asynchronously.
 Each loop iteration returns a `LoopIterationResult` enum value that determines whether the loop continues, exits, or resumes later after an asynchronous operation finishes:
 
 ```kotlin
@@ -924,10 +922,10 @@ Here's the complete implementation for this version of the reminder application:
 ```kotlin
 @file:OptIn(kotlin.concurrent.atomics.ExperimentalAtomicApi::class)
 import kotlin.concurrent.atomics.AtomicBoolean
-        import kotlin.time.Clock
-        import kotlin.time.ComparableTimeMark
-        import kotlin.time.Duration
-        import kotlin.time.TimeSource
+import kotlin.time.Clock
+import kotlin.time.ComparableTimeMark
+import kotlin.time.Duration
+import kotlin.time.TimeSource
 
 typealias RequestType = () -> Unit
 
@@ -1181,7 +1179,6 @@ private val funAnimationFrames = (
 ## Suspending functions
 
 [Callback-based control flow](#callbacks) can become difficult to maintain as the number of dependent operations grows.
-
 Kotlin provides _suspending functions_, which let you express asynchronous control flow in a clear, sequential style.
 
 With callbacks, you define the work that follows an asynchronous operation separately and schedule it as a callback.
@@ -1190,7 +1187,7 @@ This preserves familiar control-flow structures without requiring you to express
 
 To declare a suspending function, use the `suspend` keyword.
 
-In [src/Example5.kt](repository-url./blob/main/src/Example5.kt), the reminder application uses suspending functions to process user input in the `suspendMain()` function:
+In [`src/Example5.kt`](repository-url./blob/main/src/Example5.kt), the reminder application uses suspending functions to process user input in the `suspendMain()` function:
 
 ```kotlin
 // Processes user input in a suspending function
@@ -1226,7 +1223,10 @@ suspend fun suspendMain(
 
 The `suspendMain()` function can use a `while` loop, `continue`, and `break` directly instead of manually coordinating each execution path with callbacks.
 Suspending functions can also use familiar constructs such as `return`, `try`, `catch`, and `finally`, and call other suspending functions.
-Recreating this behavior with helper functions such as `runInfiniteLoop()` in the [Control-flow abstractions example](#control-flow-abstractions) would be difficult and require increasingly complex scheduling logic.
+
+> Recreating this behavior with helper functions such as `runInfiniteLoop()` from the example in [Control-flow abstractions](#control-flow-abstractions) would be difficult and require increasingly complex scheduling logic.
+> 
+{style="note"}
 
 For the `fun_animation` command, the `suspendCoroutine()` function creates a suspension point, suspends while the animation runs, and resumes after it finishes:
 
@@ -1250,7 +1250,7 @@ For the `fun_animation` command, the `suspendCoroutine()` function creates a sus
 ```
 
 Here, the [`suspendCoroutine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) function suspends execution and provides an implementation of the [`Continuation`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/) interface that represents the execution that follows the suspension point.
-This is similar to the [control-flow abstractions example](#control-flow-abstractions), where the `helper()` function in the `runInfiniteLoop()` function represented the next loop iteration to schedule.
+This is similar to the example in [Control-flow abstractions](#control-flow-abstractions), where the `helper()` function in the `runInfiniteLoop()` function represented the next loop iteration to schedule.
 
 Compared to using callbacks, suspending functions don't require you to define the subsequent work separately.
 The compiler creates a continuation that represents the execution following a suspension point.
@@ -1284,13 +1284,13 @@ Here's the complete implementation for this version of the reminder application:
 
 ```kotlin
 @file:OptIn(kotlin.concurrent.atomics.ExperimentalAtomicApi::class)
-import kotlin.concurrent.atomics.AtomicBoolean
-        import kotlin.time.Clock
-        import kotlin.time.ComparableTimeMark
-        import kotlin.time.Duration
-        import kotlin.time.TimeSource
-        import kotlin.coroutines.*
-        import kotlin.coroutines.intrinsics.startCoroutineUninterceptedOrReturn
+import kotlin.concurrent.atomics.AtomicBoolean 
+import kotlin.time.Clock
+import kotlin.time.ComparableTimeMark
+import kotlin.time.Duration
+import kotlin.time.TimeSource
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.startCoroutineUninterceptedOrReturn
 
 typealias RequestType = () -> Unit
 
@@ -1499,4 +1499,4 @@ private val funAnimationFrames = (
 
 ## What's next
 
-* Learn more about coroutines and how they support asynchronous and concurrent programming in [Coroutines](coroutines-overview.md).
+Learn more about coroutines and how they support asynchronous and concurrent programming in [Coroutines](coroutines-overview.md).
