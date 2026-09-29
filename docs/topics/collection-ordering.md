@@ -54,7 +54,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Having the `lengthComparator`, you are able to arrange strings by their length instead of the default lexicographical order.
 
@@ -71,7 +71,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also define an order based on multiple criteria.
 For example, to sort strings by their length and alphabetically when the lengths are equal, you can write:
@@ -92,7 +92,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Since sorting by multiple criteria is a common scenario, the Kotlin standard library provides the [`.thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function that you can use to add a secondary sorting rule.
 
@@ -109,7 +109,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
 On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#collection-types) collections.
@@ -132,7 +132,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Custom orders
  
@@ -151,7 +151,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To define a custom order for the collection sorting, you can provide your own `Comparator`.
 To do this, call the [`.sortedWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-with.html) extension function passing in your `Comparator`.
@@ -165,7 +165,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Check sorted order
 
@@ -235,7 +235,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The `.reversed()` extension function returns a new collection with the copies of the elements.
 So, if you change the original collection later, this won't affect the previously obtained results of `.reversed()`.
@@ -253,7 +253,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If the original list is mutable, all its changes reflect in its reversed views and vice versa.
 
@@ -268,7 +268,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 However, if the mutability of the list is unknown or the source is not a list at all, `.reversed()` is more preferable
 since its result is a copy that won't change in the future.
@@ -286,5 +286,5 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
