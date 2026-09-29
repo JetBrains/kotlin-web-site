@@ -37,7 +37,7 @@ KSFile: packageName = "" (root package)
 └── resolve() → kotlin.Unit, NOT_NULL
 ```
 
-The `resolve()` calls in the hierarchy represent full type resolution. The following section explains how type 
+The `resolve()` calls in the hierarchy represent full type resolution. Type resolution is the most expensive KSP operation — read on to learn how it
 resolution works and when to use it.
 
 ## Type resolution
