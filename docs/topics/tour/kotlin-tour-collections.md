@@ -488,7 +488,7 @@ Define a map that relates integer numbers from 1 to 3 to their corresponding spe
 number.
 
 ```kotlin
-// Replace the empty map, keeping the name number2word
+// Replace the empty map. Keep the variable name as number2word.
 val number2word: Map<Int, String> = emptyMap()
 
 fun main() {
