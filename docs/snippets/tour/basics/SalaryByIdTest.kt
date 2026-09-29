@@ -18,7 +18,7 @@ class SalaryByIdTest {
             null ->
                 if ("64" in output.lines()) passed(
                     "Checked: salaryById returns each employee's salary and 0 when there are " +
-                            "no employee with that id, so main() prints the total of 64."
+                            "no employees with that id, so main() prints the total of 64."
                 ) else hint(
                     "Keep the println() call in main() as it is. It prints the " +
                             "total of all five salaries, 64."
