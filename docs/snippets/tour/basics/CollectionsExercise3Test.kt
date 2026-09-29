@@ -27,7 +27,7 @@ class CollectionsExercise3Test {
                 hint("The number2word map is empty. Add entries for 1, 2, and 3.", check)
 
             else ->
-                hint("Check that number2word maps 1, 2, and 3 to their spelling.", check)
+                hint("Check that number2word maps 1, 2, and 3 to their correct spelling.", check)
         }
     }
 

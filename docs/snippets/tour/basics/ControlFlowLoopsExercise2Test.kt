@@ -48,7 +48,7 @@ class ControlFlowLoopsExercise2Test {
             lines.size != 100 ->
                 hint(
                     "Check the range of your for loop. Your program prints ${lines.size}" +
-                            "lines, but it should print 100. One for every number " +
+                            " lines, but it should print 100. One for every number " +
                             "from 1 to 100.",
                     // Show only the edges of the output to keep the message readable.
                     shownOutput = lines.take(3).joinToString("\n") + "\n...\n" +

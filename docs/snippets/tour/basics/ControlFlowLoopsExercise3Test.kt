@@ -39,7 +39,7 @@ class ControlFlowLoopsExercise3Test {
             output.isEmpty() ->
                 hint(
                     "Print the words that start with \"l\". " +
-                            "pYour program calls println(), but doesn't pass it a value."
+                            "Your program calls println(), but doesn't pass it a value."
                 )
 
             lines.size == 1 && lines[0].equals("limousinelanguage", ignoreCase = true) ->
