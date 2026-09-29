@@ -53,7 +53,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-simple-array-kotlin"}
+{kotlin-runnable="true" id="arrays-simple-array-kotlin"}
 
 ### Empty array
 
@@ -81,7 +81,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-null-array-kotlin"}
+{kotlin-runnable="true" id="arrays-null-array-kotlin"}
 
 ### Array constructor
 
@@ -100,7 +100,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-array-constructor-kotlin"}
+{kotlin-runnable="true" id="arrays-array-constructor-kotlin"}
 
 ### Nested arrays
 
@@ -122,7 +122,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-multidimensional-array-kotlin"}
+{kotlin-runnable="true" id="arrays-multidimensional-array-kotlin"}
 
 ### Primitive-type arrays
 
@@ -165,7 +165,7 @@ To create a primitive-type array, use one of the following options:
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-primitive-type-array-kotlin"}
+  {kotlin-runnable="true" id="arrays-primitive-type-array-kotlin"}
 
 * Factory functions:
 
@@ -189,7 +189,7 @@ To create a primitive-type array, use one of the following options:
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true"}
 
 > To convert primitive-type arrays to object-type arrays, use the [`.toTypedArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-typed-array.html)
 > function.
@@ -246,7 +246,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-access-array-kotlin"}
+{kotlin-runnable="true" id="arrays-access-array-kotlin"}
 
 > If you try to access an index outside the bounds of an array, Kotlin throws `ArrayIndexOutOfBoundsException` at runtime.
 >
@@ -272,7 +272,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 In Kotlin, arrays are _invariant_. This means that `Array<String>` is not a subtype
 of `Array<Any>`. This prevents possible runtime type failures. To express covariance, use the `Array<out Any>`
@@ -290,7 +290,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Add and remove elements
 
@@ -314,7 +314,7 @@ you need to create a new array. For that, you can use one of the following optio
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true"}
 
 * Use the `+` or `+=` operators:
 
@@ -333,7 +333,7 @@ you need to create a new array. For that, you can use one of the following optio
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true"}
 
 > If you need to frequently add or remove elements,
 > use [mutable collections](collections-overview.md#collection-types) instead.
@@ -364,7 +364,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-compare-array-kotlin"}
+{kotlin-runnable="true" id="arrays-compare-array-kotlin"}
 
 > Don't use equality (`==`) and inequality (`!=`) [operators](equality.md#structural-equality) to compare the contents
 > of arrays. These operators check whether the assigned variables point to the same object.
@@ -392,7 +392,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-sum-array-kotlin"}
+{kotlin-runnable="true" id="arrays-sum-array-kotlin"}
 
 > The `.sum()` function can only be used with arrays of [numeric data types](numbers.md), such as `Int`.
 >
@@ -420,7 +420,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-shuffle-array-kotlin"}
+{kotlin-runnable="true" id="arrays-shuffle-array-kotlin"}
 
 To get a new sorted array without modifying the original, use the
 [`.sortedArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/sorted-array.html) function instead.
@@ -447,7 +447,7 @@ fun printAllStrings(vararg strings: String) {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-vararg-array-kotlin"}
+{kotlin-runnable="true" id="arrays-vararg-array-kotlin"}
 
 For more information, see [Variable number of arguments (varargs)](functions.md#variable-number-of-arguments-varargs).
 
@@ -478,7 +478,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-convert-list-set-kotlin"}
+{kotlin-runnable="true" id="arrays-convert-list-set-kotlin"}
 
 Unless you are completely sure that the original array isn't changed or shared elsewhere,
 don't use [`.asList()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/as-list.html)
@@ -497,7 +497,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Convert to Map
 
@@ -524,7 +524,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-convert-map-kotlin"}
+{kotlin-runnable="true" id="arrays-convert-map-kotlin"}
 
 ## What's next?
 

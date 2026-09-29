@@ -73,7 +73,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Concrete type constructors
 
@@ -112,7 +112,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 These functions can also be used for converting collections to other types, for example, build a set from a list or vice versa.
 
@@ -127,7 +127,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Alternatively, you can create new references to the same collection instance. New references are created when you initialize a collection variable with an existing collection.
 So, when the collection instance is altered through a reference, the changes are reflected in all its references.
@@ -142,7 +142,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Collection initialization can be used for restricting mutability. For example, if you create a `List` reference to a `MutableList`, the compiler will produce errors if you try to modify the collection through this reference.
 
@@ -157,7 +157,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Invoke functions on other collections
 
@@ -173,7 +173,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 [Mapping](collection-transformations.md#map) produces a list from a transformation's results:
 
@@ -186,7 +186,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 [Association](collection-transformations.md#associate) produces maps:
 
@@ -198,6 +198,6 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For more information about operations on collections in Kotlin, see [Collection operations overview](collection-operations.md).

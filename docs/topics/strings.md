@@ -73,7 +73,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To control indentation removal more explicitly, use
 the [`trimMargin()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim-margin.html) function. It
@@ -91,7 +91,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 By default, the `trimMargin()` function uses a pipe symbol (`|`) as the margin prefix, but you can pass another character
 as a parameter. For example: `trimMargin(">")`.
@@ -119,7 +119,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To insert an expression into a string or to place a variable directly next to other text, use `${}`:
 
@@ -136,7 +136,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 > You can also combine strings with the `+` operator. However, string templates are usually easier
 > to read and more idiomatic.
@@ -174,7 +174,7 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Multi-dollar string interpolation
 
@@ -230,7 +230,7 @@ fun main (){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Access characters
 
@@ -249,7 +249,7 @@ fun main (){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 > A string index starts at zero.
 > If you try to access an index outside the valid range, Kotlin throws an exception.
@@ -267,7 +267,7 @@ fun main(){
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Extract parts of a string
 
@@ -293,7 +293,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Since the `String` type is immutable, these functions don't modify the original string.
 
@@ -312,7 +312,7 @@ fun main(){
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also compare strings lexicographically (character by character) with the [`compareTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/compare-to.html)
 function. It scans both strings until it finds the first differing pair of characters and returns:
@@ -336,7 +336,7 @@ fun main() {
 //sampleEnd  
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Work with string content
 
@@ -363,7 +363,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also inspect the string content with the
 [`contains()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/contains.html), [`startsWith()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/starts-with.html),
@@ -388,7 +388,7 @@ fun main() {
 //sampleEnd
 }
  ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Split strings
 
@@ -404,7 +404,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If you want to split a string into individual lines, use
 the [`lines()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lines.html) function:
@@ -418,7 +418,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Build and format strings
 
@@ -469,7 +469,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Use [`StringBuilder`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/) when you need the buffer as an explicit value.
 For example, to change the existing text:
@@ -486,7 +486,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 On the JVM, you can also format a string with the [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html) function:
 
