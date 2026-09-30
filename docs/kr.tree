@@ -299,6 +299,7 @@
             <include from="kl.tree" origin="lincheck" element-id="lincheck"/>
         </toc-element>
         <toc-element toc-title="Ktor" href="https://ktor.io/docs/welcome.html"/>
+        <toc-element toc-title="Exposed" href="https://www.jetbrains.com/help/exposed/get-started-with-exposed.html"/>
     </toc-element>
     <toc-element toc-title="API reference">
         <toc-element toc-title="Overview" topic="api-references.md"/>
