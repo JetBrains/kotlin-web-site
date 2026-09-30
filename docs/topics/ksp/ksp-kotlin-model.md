@@ -180,6 +180,7 @@ example, it sees the imported alias `SqlDate` as written in the source code. Aft
 semantic information about the type, such as the fully qualified declaration name and nullability.
 
 ## KSP model reference
+
 The following diagram illustrates the relationships between the main KSP API types. It was generated from the KSP API 
 source using IntelliJ IDEA's class diagram feature.
 
