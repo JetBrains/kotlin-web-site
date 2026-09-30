@@ -9,7 +9,7 @@ An operation that causes the thread to wait is known as a _blocking operation_.
 To remain responsive, an application needs to let independent work continue while an operation is in progress.
 _Asynchronous control flow_ determines which work can continue and which work must wait for the operation to finish.
 
-> The following sections use examples from a small [reminder application](<repository-url>) to demosntrate different ways to manage asynchronous control flow and how suspending functions make it easier to express.
+> The following sections use examples from a small [reminder application](<repository-url>) to demonstrate different ways to manage asynchronous control flow and how suspending functions make it easier to express.
 >
 > The example implementations are intended for teaching purposes and aren't production-ready.
 > To get started with writing production-ready asynchronous code in Kotlin, see [Coroutine basics](coroutines-basics.md).
@@ -523,7 +523,6 @@ fun main() {
             // Runs after input processing stops
             doLast = {
                 printlnActor.sendRequest {
-
                     println("All done! The program will exit once all pending reminders fire.")
                 }
             }
@@ -538,7 +537,7 @@ fun main() {
 ```
 
 The `userInputActor` calls the `processUserInput()` function on its dedicated thread.
-Unlike the `while` loop in the [actor-based example](#actor-based-shared-resource-coordination), each call to the `processUserInput()` function reads and processes only one command.
+Unlike the `while` loop in the [actor-based shared resource coordination](#actor-based-shared-resource-coordination) implementation, each call to the `processUserInput()` function reads and processes only one command.
 
 After processing a `remind` command, a `help` command, or an unknown command, the function sends another request to `userInputActor`:
 
@@ -613,44 +612,44 @@ import kotlin.time.ComparableTimeMark
 import kotlin.time.Duration
 import kotlin.time.TimeSource
 
-        @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
-        class SimpleActor {
-            private val requests = mutableListOf<() -> Unit>()
+@Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
+class SimpleActor {
+    private val requests = mutableListOf<() -> Unit>()
 
-            init {
-                Thread {
-                    while (true) {
-                        val request = synchronized(requests) {
-                            val request = requests.removeFirstOrNull()
-                            if (request == null) {
-                                (requests as Object).wait()
-                                continue
-                            }
-                            request
-                        }
-                        request()
+    init {
+        Thread {
+            while (true) {
+                val request = synchronized(requests) {
+                    val request = requests.removeFirstOrNull()
+                    if (request == null) {
+                        (requests as Object).wait()
+                        continue
                     }
-                }.apply {
-                    isDaemon = true
-                    start()
+                    request
                 }
+                request()
             }
-
-            /**
-             * Sends a request that will execute on the thread of this actor.
-             *
-             * Requests to any given actor execute one-by-one,
-             * never in parallel.
-             */
-            fun sendRequest(
-                request: () -> Unit,
-            ) {
-                synchronized(requests) {
-                    requests.add(request)
-                    (requests as Object).notify()
-                }
-            }
+        }.apply {
+            isDaemon = true
+            start()
         }
+    }
+
+    /**
+     * Sends a request that will execute on the thread of this actor.
+     *
+     * Requests to any given actor execute one-by-one,
+     * never in parallel.
+     */
+    fun sendRequest(
+        request: () -> Unit,
+    ) {
+        synchronized(requests) {
+            requests.add(request)
+            (requests as Object).notify()
+        }
+    }
+}
 
 fun scheduleReminder(
     printlnActor: SimpleActor,
@@ -808,21 +807,21 @@ private fun printQuitSyntax() {
 }
 
 private val funAnimationFrames = (
-        "#       _---_#     / o o o \\#    <=========>####       o#    " +
-                "  /|\\#      / \\#~@##       _---_#     / o o o \\#    <=======" +
-                "==>###       o#      /|\\#      / \\#~@###       _---_#     / " +
-                "o o o \\#    <=========>##       o#      /|\\#      / \\#~@## " +
-                "      _---_#     / o o o \\#    <=========>#     /       \\# " +
-                "   /         \\#   /    o      \\#       /|\\#       / \\#~@## " +
-                "      _---_#     / o o o \\#    <=========>#     /       \\# " +
-                "   /   o     \\#   /   /|\\     \\#       / \\##~@##       _---" +
-                "_#     / o o o \\#    <=========>#     /  o    \\#    /  /|\\" +
-                "    \\#   /   / \\     \\###~@##       _---_#     / o o o \\#  " +
-                "  <=========>#     /       \\#    /         \\#   /          " +
-                " \\###~@##       _---_#     / - - - \\#    <=========>######~" +
-                "@#       _---_#     / - - - \\#    <=========>#       * * *#" +
-                "#####~@       * * *#         *#########~"
-        ).replace("~", "==============================")
+    "#       _---_#     / o o o \\#    <=========>####       o#    " +
+    "  /|\\#      / \\#~@##       _---_#     / o o o \\#    <=======" +
+    "==>###       o#      /|\\#      / \\#~@###       _---_#     / " +
+    "o o o \\#    <=========>##       o#      /|\\#      / \\#~@## " +
+    "      _---_#     / o o o \\#    <=========>#     /       \\# " +
+    "   /         \\#   /    o      \\#       /|\\#       / \\#~@## " +
+    "      _---_#     / o o o \\#    <=========>#     /       \\# " +
+    "   /   o     \\#   /   /|\\     \\#       / \\##~@##       _---" +
+    "_#     / o o o \\#    <=========>#     /  o    \\#    /  /|\\" +
+    "    \\#   /   / \\     \\###~@##       _---_#     / o o o \\#  " +
+    "  <=========>#     /       \\#    /         \\#   /          " +
+    " \\###~@##       _---_#     / - - - \\#    <=========>######~" +
+    "@#       _---_#     / - - - \\#    <=========>#       * * *#" +
+    "#####~@       * * *#         *#########~"
+).replace("~", "==============================")
     .replace("#", "\n")
     .split("@")
 ```
@@ -1224,8 +1223,8 @@ suspend fun suspendMain(
 The `suspendMain()` function can use a `while` loop, `continue`, and `break` directly instead of manually coordinating each execution path with callbacks.
 Suspending functions can also use familiar constructs such as `return`, `try`, `catch`, and `finally`, and call other suspending functions.
 
-> Recreating this behavior with helper functions such as `runInfiniteLoop()` from the example in [Control-flow abstractions](#control-flow-abstractions) would be difficult and require increasingly complex scheduling logic.
-> 
+> Recreating this behavior with [control-flow abstractions](#control-flow-abstractions) such as the `runInfiniteLoop()` helper function would require increasingly complex scheduling logic.
+>
 {style="note"}
 
 For the `fun_animation` command, the `suspendCoroutine()` function creates a suspension point, suspends while the animation runs, and resumes after it finishes:
@@ -1250,7 +1249,7 @@ For the `fun_animation` command, the `suspendCoroutine()` function creates a sus
 ```
 
 Here, the [`suspendCoroutine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) function suspends execution and provides an implementation of the [`Continuation`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/) interface that represents the execution that follows the suspension point.
-This is similar to the example in [Control-flow abstractions](#control-flow-abstractions), where the `helper()` function in the `runInfiniteLoop()` function represented the next loop iteration to schedule.
+This is similar to how the `runInfiniteLoop()` function in [control-flow abstractions](#control-flow-abstractions) uses the `helper()` function to represent the next loop iteration to schedule.
 
 Compared to using callbacks, suspending functions don't require you to define the subsequent work separately.
 The compiler creates a continuation that represents the execution following a suspension point.
@@ -1284,7 +1283,7 @@ Here's the complete implementation for this version of the reminder application:
 
 ```kotlin
 @file:OptIn(kotlin.concurrent.atomics.ExperimentalAtomicApi::class)
-import kotlin.concurrent.atomics.AtomicBoolean 
+import kotlin.concurrent.atomics.AtomicBoolean
 import kotlin.time.Clock
 import kotlin.time.ComparableTimeMark
 import kotlin.time.Duration
