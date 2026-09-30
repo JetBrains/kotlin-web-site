@@ -99,7 +99,7 @@ When possible, inspect the `KSReferenceElement` before resolving the type. For e
 
 Whether a processor needs to resolve a type depends on the information it needs. The following example compares both 
 approaches by inspecting the same property types with and without resolution. The processor provider uses the 
-`resolveTypes` option to select which approach to use.
+`resolveTypes` option to select which approach to use:
 
 ```Kotlin
 import java.sql.Date as SqlDate
