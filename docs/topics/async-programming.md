@@ -9,7 +9,7 @@ An operation that causes the thread to wait is known as a _blocking operation_.
 To remain responsive, an application needs to let independent work continue while an operation is in progress.
 _Asynchronous control flow_ determines which work can continue and which work must wait for the operation to finish.
 
-> The following sections use examples from a small [reminder application](<repository-url>) to demonstrate different ways to manage asynchronous control flow and how suspending functions make it easier to express.
+> The following sections use examples from a small [reminder application](https://github.com/kotlin-hands-on/suspending-functions-intro) to demonstrate different ways to manage asynchronous control flow and how suspending functions make it easier to express.
 >
 > The example implementations are intended for teaching purposes and aren't production-ready.
 > To get started with writing production-ready asynchronous code in Kotlin, see [Coroutine basics](coroutines-basics.md).
@@ -24,7 +24,7 @@ Two operations run concurrently when one can start before the other has finished
 When a JVM application starts, the JVM invokes its `main()` function on the _main thread_.
 You can start another operation on a separate thread with the [`Thread`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html) class while the main thread continues running other code.
 
-In [`src/Example1.kt`](repository-url./blob/main/src/Example1.kt) of the reminder application, each reminder starts on a new thread while the main thread continues processing user input:
+In [`src/Example1.kt`](https://github.com/kotlin-hands-on/suspending-functions-intro/blob/main/src/Example1.kt) of the reminder application, each reminder starts on a new thread while the main thread continues processing user input:
 
 ```kotlin
 // Starts a new thread that waits for the specified duration before printing the reminder
@@ -242,7 +242,7 @@ If the component is already processing a request, new requests wait in a queue.
 >
 {style="tip"}
 
-In [`src/Example2.kt`](repository-url./blob/main/src/Example2.kt), the reminder application uses a `SimpleActor` class to coordinate access to the console.
+In [`src/Example2.kt`](https://github.com/kotlin-hands-on/suspending-functions-intro/blob/main/src/Example2.kt), the reminder application uses a `SimpleActor` class to coordinate access to the console.
 An actor runs requests on a dedicated thread in the order it receives them:
 
 ```kotlin
@@ -507,7 +507,7 @@ When some work has to start after an asynchronous operation finishes, an applica
 You can define the subsequent work in a _callback_.
 A callback is a function that you pass to another function to invoke later when a specified condition is met, such as after an operation finishes. 
 
-In [`src/Example3.kt`](repository-url./blob/main/src/Example3.kt), the reminder application uses callbacks to resume processing user input only after the animation finishes.
+In [`src/Example3.kt`](https://github.com/kotlin-hands-on/suspending-functions-intro/blob/main/src/Example3.kt), the reminder application uses callbacks to resume processing user input only after the animation finishes.
 To achieve this, the example adds a second `SimpleActor` for processing user input:
 
 ```kotlin
@@ -831,7 +831,7 @@ private val funAnimationFrames = (
 
 To make callback-based control flow easier to follow, you can move repeated scheduling logic into helper functions that represent familiar control-flow structures, such as loops.
 
-In [`src/Example4.kt`](repository-url./blob/main/src/Example4.kt), the reminder application uses a `runInfiniteLoop()` function to process user input asynchronously.
+In [`src/Example4.kt`](https://github.com/kotlin-hands-on/suspending-functions-intro/blob/main/src/Example4.kt), the reminder application uses a `runInfiniteLoop()` function to process user input asynchronously.
 Each loop iteration returns a `LoopIterationResult` enum value that determines whether the loop continues, exits, or resumes later after an asynchronous operation finishes:
 
 ```kotlin
@@ -1186,7 +1186,7 @@ This preserves familiar control-flow structures without requiring you to express
 
 To declare a suspending function, use the `suspend` keyword.
 
-In [`src/Example5.kt`](repository-url./blob/main/src/Example5.kt), the reminder application uses suspending functions to process user input in the `suspendMain()` function:
+In [`src/Example5.kt`](https://github.com/kotlin-hands-on/suspending-functions-intro/blob/main/src/Example5.kt), the reminder application uses suspending functions to process user input in the `suspendMain()` function:
 
 ```kotlin
 // Processes user input in a suspending function
