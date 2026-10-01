@@ -28,7 +28,8 @@ To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look th
 
 * [`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/) – The root of the Kotlin class hierarchy.
 * [`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html) – A type that has no values.
-* [`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/) – A type with only one value (`Unit`).
+* [`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/) – A type with only one value (`Unit`). The compiler infers it as the return type of functions with a block
+  body and no explicit return type ([Unit-returning functions](functions.md#unit-returning-functions)).
 
 ## Non-denotable types
 
