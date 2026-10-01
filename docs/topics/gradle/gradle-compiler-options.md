@@ -587,13 +587,14 @@ Here is a complete list of options for the Gradle compiler:
 
 ### Attributes specific to JVM
 
-| Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                        | Default value               |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|-----------------------------|
-| `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                        | false                       |
-| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ...,  "25", 26". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                        | false                       |
-| `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `IGNORE`                                                                           | `ERROR`                     |
-| `jvmDefault`              | Control how functions declared in interfaces are compiled to default methods on the JVM                                                                                                                                                       | `ENABLE`, `NO_COMPATIBILITY`, `DISABLE`                                                                | `ENABLE`                    |
+| Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                                                                    | Default value               |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                                                                    | false                       |
+| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ...,  "25", 26". Also, see [Types for compiler options](#types-for-compiler-options)                                             | "%defaultJvmTargetVersion%" |
+| `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                                                                    | false                       |
+| `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `IGNORE`                                                                                                                       | `ERROR`                     |
+| `jvmDefault`              | Control how functions declared in interfaces are compiled to default methods on the JVM                                                                                                                                                       | `ENABLE`, `NO_COMPATIBILITY`, `DISABLE`                                                                                                            | `ENABLE`                    |
+| `-Xadd-modules`           | (Experimental) Resolve the specified root modules in addition to the initial modules. Set the `ALL-MODULE-PATH` value to resolve all modules on the module path.                                                                              | Comma-separated module names or `ALL-MODULE-PATH` passed through [`freeCompilerArgs`](#example-of-additional-arguments-usage-via-freecompilerargs) |                             |
 
 ### Attributes common to JVM and JavaScript
 
@@ -635,6 +636,9 @@ kotlin {
         // Single additional argument
         freeCompilerArgs.add("-Xno-param-assertions")
 
+        // Resolves an additional root module on the module path
+        freeCompilerArgs.add("-Xadd-modules=jdk.incubator.vector")
+
         // List of arguments
         freeCompilerArgs.addAll(
             listOf(
@@ -664,6 +668,9 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
         
         // Single additional argument, can be a key-value pair
         freeCompilerArgs.add("-Xno-param-assertions")
+        
+        // Resolves an additional root module on the module path
+        freeCompilerArgs.add("-Xadd-modules=jdk.incubator.vector")
         
         // List of arguments
         freeCompilerArgs.addAll(["-Xno-receiver-assertions", "-Xno-call-assertions"])
