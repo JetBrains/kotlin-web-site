@@ -432,7 +432,7 @@ kotlinc -Xadd-modules=jdk.incubator.vector
 ### -Xdump-directory
 <primary-label ref="experimental-general"/>
 
-Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
+Configure the dump file directory for the [`-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
 ### -Xjvm-expose-boxed
 <primary-label ref="experimental-general"/>
