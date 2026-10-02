@@ -94,12 +94,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-The lambda in `execute { start ()}` and the callable reference in `execute(::start)` produce compatible `Action` instances,
-but they begin as different expressions. The first is a function literal and uses SAM conversion.
-The second refers to an existing declaration and uses SAM adaptation.
-
-SAM adaptation happens at compile time and doesn't perform runtime [reflection](reflection.md) or require the `kotlin-reflect` library.
-The compiler checks that the referenced function is compatible with the interface's single abstract method.
+The lambda in `execute { start() }` is a function literal, so Kotlin uses SAM conversion to create an `Action` instance. In `execute(::start)`, the compiler adapts the callable reference to the existing `start()` function to the expected `Action` type and uses that function as the implementation of `Action.run()`. This process is called _SAM adaptation_.
 
 ## Migration from an interface with constructor function to a functional interface
 
