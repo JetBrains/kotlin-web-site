@@ -22,7 +22,7 @@ const RANKINGS: Ranking[] = [
     {
         title: 'GitHub Octoverse 2024',
         linkText: 'Top-5 fastest-growing languages',
-        href: 'https://github.blog/news-insights/octoverse/octoverse-2024/',
+        href: 'https://github.blog/news-insights/octoverse/octoverse-2024/#the-most-popular-programming-languages',
     },
     {
         title: 'Stack Overflow 2024',
