@@ -1,4 +1,4 @@
-[//]: # (title: Aggregate operations)
+[//]: # (title: Aggregate collections)
 
 Kotlin collections contain functions for commonly used _aggregate operations_ – operations that return a single value based
 on the collection content. Most of them are well known and work the same way as they do in other languages:

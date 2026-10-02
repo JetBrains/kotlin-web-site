@@ -1,6 +1,6 @@
 [//]: # (title: Map-specific operations)
 
-In [maps](collections-overview.md#map), types of both keys and values are user-defined.
+In [maps](collection-types.md#map), types of both keys and values are user-defined.
 Key-based access to map entries enables various map-specific processing capabilities from getting a value by key to separate
 filtering of keys and values.
 On this page, we provide descriptions of the map processing functions from the standard library.
@@ -149,7 +149,7 @@ For details on using [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib
 
 ## Map write operations
 
-[Mutable](collections-overview.md#collection-types) maps offer map-specific write operations.
+[Mutable](collections-overview.md#read-only-and-mutable-collections) maps offer map-specific write operations.
 These operations let you change the map content using the key-based access to the values.
 
 There are certain rules that define write operations on maps:
