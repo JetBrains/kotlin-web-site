@@ -127,7 +127,7 @@ See the [type aliases documentation](type-aliases.md) and [KEEP](https://github.
 
 ### Bound callable references
 
-You can now use the `::` operator to get a [member reference](reflection.md#function-references) pointing to a method or
+You can now use the `::` operator to get a [member reference](lambdas.md#function-references) pointing to a method or
 property of a specific object instance. Previously this could only be expressed with a lambda.
 Here's an example:
 

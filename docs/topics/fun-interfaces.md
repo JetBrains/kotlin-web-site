@@ -64,9 +64,41 @@ fun main() {
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
+### Pass callable references to SAM parameters
+
+If the required behavior already exists as a named function, you can pass a [callable reference](lambdas.md#callable-reference).
+Kotlin adapts a compatible callable reference to the expected functional interface:
+
+```kotlin
+fun interface Action {
+    fun run()
+}
+
+fun execute(action: Action) {
+    action.run()
+}
+
+fun start() {
+    println("Run from a callable reference")
+}
+
+fun main() {
+    // Kotlin converts the lambda to an Action instance
+    execute { start() }
+    // Run from a callable reference
+
+    // Kotlin adapts the reference to an Action instance
+    execute(::start)
+    // Run from a callable reference
+}
+```
+{kotlin-runnable="true"}
+
+The lambda in `execute { start() }` is a function literal, so Kotlin uses SAM conversion to create an `Action` instance. In `execute(::start)`, the compiler adapts the callable reference to the existing `start()` function to the expected `Action` type and uses that function as the implementation of `Action.run()`. This process is called _SAM adaptation_.
+
 ## Migration from an interface with constructor function to a functional interface
 
-Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callable-references) to functional interface constructors, which
+Starting from 1.6.20, Kotlin supports callable references to functional interface constructors, which
 adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider the following code:
 
