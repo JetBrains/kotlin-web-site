@@ -1,5 +1,5 @@
 [//]: # (title: Reflection)
-[//]: # (description: Learn how to use Kotlin reflection to inspect classes, types, properties, and functions at runtime.)
+[//]: # (description: Learn about Kotlin built-in reflection support and how to use the separate kotlin-reflect library for full runtime introspection.)
 
 _Reflection_ is a set of language and library features that allows you to introspect the structure of your program at runtime.
 For example, you can read or update a property, call a function, or invoke a class constructor to create an instance. This
@@ -15,7 +15,7 @@ The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) represents
 A reflection object represents the declaration itself, not the result of using it. For example, you can use a `KProperty`
 to get a property's name and return its type without reading that property from an object.
 
-Kotlin provides some basic features, such as class literals or callable references, as part of the language and standard
+Kotlin provides some basic features, such as class literals or [callable references](lambdas.md#callable-reference), as part of the language and standard
 library. To access more extensive runtime introspection, import the [`kotlin-reflect`](https://kotlinlang.org/api/core/kotlin-reflect/) library.
 
 The reflection APIs consist of the following packages:
