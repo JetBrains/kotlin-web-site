@@ -70,14 +70,4 @@ In this channel, you can also get notifications about new EAP builds.
             <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.5.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.5.0-Beta1</a>.</p>
         </td>
     </tr>
-    <tr>
-        <td><strong>2.4.21-RC</strong>
-            <p>Released: <strong>September 30, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.21-RC" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A bug fix release for Kotlin 2.4.20.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.21-RC">changelog</a>.</p>
-        </td>
-    </tr>
 </table>
