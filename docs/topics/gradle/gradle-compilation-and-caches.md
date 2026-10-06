@@ -233,12 +233,14 @@ The Kotlin daemon has the following default JVM arguments:
 
 From Kotlin 2.0.0, the K2 compiler is used by default.
 
-To use the previous compiler from Kotlin 2.0.0 onwards, either:
+To use the previous compiler in Kotlin 2.0.0–2.3.21, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-languageversion) to `1.9`.
 
   OR
 * Use the following compiler option: `-language-version 1.9`.
+
+From Kotlin 2.4.0 onward, you can't roll back to the previous compiler.
 
 To learn more about the benefits of the K2 compiler, see the [K2 compiler migration guide](k2-compiler-migration-guide.md).
 
