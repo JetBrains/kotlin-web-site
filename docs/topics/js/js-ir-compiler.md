@@ -4,6 +4,74 @@ Kotlin/JS includes compiler features to optimize code for performance, size, and
 This works through the compilation process, which transforms Kotlin code into an intermediate representation (IR) before
 generating the JavaScript code.
 
+## Configure output JavaScript versions
+
+The Kotlin/JS compiler can generate JavaScript for the ES5, ES2015, and ES2020 versions of the ECMAScript standard.
+Choose the newest version supported by your target environment by setting the `target` property in your `build.gradle(.kts)` file:
+
+```kotlin
+tasks.withType<KotlinJsCompile>().configureEach {
+    compilerOptions {
+        target = "es2020"
+    }
+}
+```
+
+For the list of supported versions and the features, see [Set an ECMAScript target](js-project-setup.md#set-an-ecmascript-target).
+
+## Configure the module system
+
+The Kotlin/JS compiler can produce code for several popular module systems, such as UMD, CommonJS, AMD, and ES modules.
+To select the target module system, set the `moduleKind` compiler option in your build script:
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.targets.js.ir.KotlinJsIrLink> {
+    compilerOptions.moduleKind.set(org.jetbrains.kotlin.gradle.dsl.JsModuleKind.MODULE_COMMONJS)
+}
+```
+
+For the available values and more details, see [JavaScript modules](js-modules.md).
+
+## Generate TypeScript declaration files (`d.ts`)
+<primary-label ref="experimental-opt-in"/>
+
+The Kotlin/JS compiler can generate TypeScript definitions from your Kotlin code. JavaScript tools and IDEs can use these
+definitions to provide autocompletion, support static analyzers, and make it easier to include Kotlin code in JavaScript
+and TypeScript projects.
+
+The compiler collects any top-level declarations marked with the [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation)
+annotation and generates TypeScript definitions in a `.d.ts` file. To enable this, add the `generateTypeScriptDefinitions()`
+function to the `js {}` block in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+    js {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
+}
+```
+
+For more details, see [Generation of TypeScript declaration files (`d.ts`)](js-project-setup.md#generation-of-typescript-declaration-files-d-ts).
+
+## Configure output granularity
+
+You can choose how the compiler outputs `.js` files in your project:
+
+* **Per module** (default). The compiler outputs a separate `.js` file for each project module.
+* **Whole program**. The compiler compiles the whole project into a single `.js` file.
+* **Per file**. The compiler generates one (or two, if the file contains exported declarations) `.js` file per each Kotlin file.
+
+To change the granularity, set the `kotlin.js.ir.output.granularity` property in your `gradle.properties` file:
+
+```none
+kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+```
+
+For more details, including the requirements for the per-file mode, see [Configure output granularity](js-project-setup.md#configure-output-granularity).
+
 ## Lazy initialization of top-level properties
 
 For better application startup performance, the Kotlin/JS compiler initializes top-level properties lazily. This way,
@@ -43,7 +111,7 @@ kotlin.incremental.js.ir=false // true by default
 
 The Kotlin/JS compiler uses its internal information about the relationships of your Kotlin classes and functions to apply more efficient minification, shortening the names of functions, properties, and classes. This reduces the size of resulting bundled applications.
 
-This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode, and enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
+This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode and is enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
 
 ```kotlin
 kotlin {
