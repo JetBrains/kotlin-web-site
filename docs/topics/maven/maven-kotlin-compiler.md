@@ -88,7 +88,17 @@ In your IDE, you can navigate from the Kotlin Maven plugin declaration in your `
 plugin descriptor, which contains information about the available goals and their parameters.
 
 You can also use the standard Maven Help plugin from the command line to get this information.
-For example, to get the description of the `compile` goal, run:
+From the directory that contains your project's `pom.xml` file, run:
+
+```bash
+mvn help:describe \
+  -Dplugin=org.jetbrains.kotlin:kotlin-maven-plugin \
+  -Ddetail=true
+```
+
+The output lists every available goal along with detailed information about its parameters.
+
+To get the description of a specific goal, add the `-Dgoal` option. For example, for the `compile` goal, run:
 
 ```bash
 mvn help:describe \
