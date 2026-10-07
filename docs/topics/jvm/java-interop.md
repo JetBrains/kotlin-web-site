@@ -1,10 +1,10 @@
 [//]: # (title: Calling Java from Kotlin)
+[//]: # (description: Learn how to call Java code from Kotlin, including getters and setters, null-safety and platform types, nullability annotations, mapped types, and SAM conversions.)
 
 Kotlin is designed with Java interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
-and Kotlin code can be used from Java rather smoothly as well.
-In this section, we describe some details about calling Java code from Kotlin.
+and Kotlin code can be used from Java as well. This page describes some details about calling Java code from Kotlin.
 
-Pretty much all Java code can be used without any issues:
+Most Java code can be used without additional configuration:
 
 ```kotlin
 import java.util.*
@@ -16,7 +16,7 @@ fun demo(source: List<Int>) {
         list.add(item)
     }
     // Operator conventions work as well:
-    for (i in 0..source.size - 1) {
+    for (i in 0..<source.size) {
         list[i] = source[i] // get and set are called
     }
 }
@@ -49,91 +49,40 @@ fun calendarDemo() {
 Note that if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
 
-## Java synthetic property references
-
-> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> We recommend that you use it only for evaluation purposes.
->
-{style="warning"}
-
-Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. Consider the following Java code:
+Only no-argument getters are represented as synthetic properties. If a getter is overloaded with a version that takes
+arguments, that overload isn't exposed as a property and you have to call it using its full method name. Consider the
+following Java class:
 
 ```java
-public class Person {
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+public class Greeting {
+    public String getMessage() {
+        return "Hello!";
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
+    public String getMessage(String name) {
+        return "Hello, " + name + "!";
     }
 }
 ```
 
-Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
-create references to `Person::age` and `person::age`. The same applies for `name`, as well.
+The no-argument `getMessage()` method is available through the synthetic `message` property, but the overloaded
+`getMessage(String)` method must be called directly:
 
 ```kotlin
-val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
-    persons
-         // Call a reference to Java synthetic property:
-        .sortedBy(Person::age)
-         // Call Java getter via the Kotlin property syntax:
-        .forEach { person -> println(person.name) }
-```
-
-### How to enable Java synthetic property references {initial-collapse-state="collapsed" collapsible="true"}
-
-To enable this feature, set the `-language-version 2.1` compiler option. In a Gradle project, you can do so 
-by adding the following to your `build.gradle(.kts)`:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks
-    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
-    .configureEach {
-        compilerOptions
-            .languageVersion
-            .set(
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
-            )
-    }
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-tasks
-    .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
-    .configureEach {
-        compilerOptions.languageVersion
-            = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+fun main() {
+    val greeting = Greeting()
+    println(greeting.message)              // Accesses getMessage() via the synthetic property
+    println(greeting.getMessage("Kotlin")) // Calls the overloaded getMessage(String) method directly
 }
 ```
 
-</tab>
-</tabs>
-
-> Prior to Kotlin 1.9.0, to enable this feature you had to set the `-language-version 1.9` compiler option.
-> 
-{style="note"}
+Calling `greeting.message("Kotlin")` doesn't compile and fails with an `UNRESOLVED_REFERENCE` (receiver type mismatch) error because the `message` property doesn't accept arguments.
 
 ## Methods returning void
 
-If a Java method returns `void`, it will return `Unit` when called from Kotlin.
-If by any chance someone uses that return value, it will be assigned at the call site by the Kotlin compiler
-since the value itself is known in advance (being `Unit`).
+If a Java method returns `void`, the method returns `Unit` when called from Kotlin.
+If you use the return value, the Kotlin compiler assigns it at the call site, since the value (`Unit`) is known in
+advance.
 
 ## Escaping for Java identifiers that are keywords in Kotlin
 
@@ -142,7 +91,7 @@ If a Java library uses a Kotlin keyword for a method, you can still call the met
 escaping it with the backtick (`) character:
 
 ```kotlin
-foo.`is`(bar)
+matcher.`is`(expected)
 ```
 
 ## Null-safety and platform types
@@ -155,7 +104,7 @@ variable, you can:
 * Rely on the type inference. In this case, the variable has an inferred platform type.
 * Choose the type you expect. Kotlin allows both nullable and non-nullable types.
 
-Null-checks are relaxed for such types, so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
+Null-checks are relaxed for such types so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
 Consider the following examples:
 
 ```kotlin
@@ -198,7 +147,7 @@ or parameter info), so there is a mnemonic notation for them:
 * `Array<(out) T>!` means "Java array of `T` (or a subtype of `T`), nullable or not"
 
 When you see this notation in an error message or IDE tooltip, add an explicit type annotation to your Kotlin variable
-to restore null-safety checks, or eliminate platform types at the source using nullability annotations.
+to restore null-safety checks or eliminate platform types at the source using nullability annotations.
 
 ### Nullability annotations
 
@@ -414,7 +363,7 @@ in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nul
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-nullable; `When.MAYBE` and
 `When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
-A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations artifact (e.g. `jsr305.jar`)
+A library can be compiled against the JSR-305 annotations, but there's no need to make the annotation artifact (e.g. `jsr305.jar`)
 a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library
 without the annotations present on the classpath.
 
@@ -483,7 +432,7 @@ public @interface NullableApi {
 interface A {
     String foo(String x); // fun foo(x: String?): String?
 
-    @NotNullApi // overriding default from the interface
+    @NonNullApi // overriding default from the interface
     String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String
 
     // The List<String> type argument is seen as nullable because of `@NullableApi`
@@ -492,7 +441,7 @@ interface A {
 
     // The type of `x` parameter remains platform because there's an explicit
     // UNKNOWN-marked nullability annotation:
-    String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
+    String qux(@Nonnull(when = When.UNKNOWN) String x); // fun qux(x: String!): String?
 }
 ```
 
@@ -650,7 +599,7 @@ Java's arrays are mapped as mentioned [below](#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String!>!` |
 
 >The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
->of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
+>of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(255)`.
 >
 {style="note"}
 
@@ -759,6 +708,31 @@ Since Java has no way of marking methods for which it makes sense to use the ope
 Java methods with the right name and signature as operator overloads and other conventions (`invoke()` etc.)
 Calling Java methods using the infix call syntax is not allowed.
 
+For example, a Java class that declares `get(int)` and `set(int, T)` methods can be used with the indexed access
+operator in Kotlin:
+
+```java
+public class IntContainer {
+    private final int[] values = new int[10];
+
+    public int get(int index) {
+        return values[index];
+    }
+
+    public void set(int index, int value) {
+        values[index] = value;
+    }
+}
+```
+
+```kotlin
+fun main() {
+    val container = IntContainer()
+    container[0] = 42       // Calls set(0, 42)
+    println(container[0])   // Calls get(0)
+}
+```
+
 ## Checked exceptions
 
 In Kotlin, all [exceptions are unchecked](exceptions.md), meaning that the compiler does not force you to catch any of them.
@@ -767,7 +741,7 @@ So, when you call a Java method that declares a checked exception, Kotlin does n
 ```kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
-        to.append(item.toString()) // Java would require us to catch IOException here
+        to.append(item.toString()) // Java would require catching IOException here because Appendable.append throws IOException
     }
 }
 ```
@@ -827,7 +801,7 @@ Or explicitly cast to `java.lang.Object` and suppress the `PLATFORM_CLASS_MAPPED
 
 ```kotlin
 @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
-(foo as java.lang.Object).wait()
+(instance as java.lang.Object).wait()
 ```
 
 ### `getClass()`
@@ -835,13 +809,13 @@ Or explicitly cast to `java.lang.Object` and suppress the `PLATFORM_CLASS_MAPPED
 To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.md#class-references):
 
 ```kotlin
-val fooClass = foo::class.java
+val instanceClass = instance::class.java
 ```
 
 The code above uses a [bound class reference](reflection.md#bound-class-references). You can also use the `javaClass` extension property:
 
 ```kotlin
-val fooClass = foo.javaClass
+val instanceClass = instance.javaClass
 ```
 
 ### `clone()`
@@ -859,7 +833,7 @@ Item 13: *Override clone judiciously*.
 
 ### `finalize()`
 
-To override `finalize()`, all you need to do is simply declare it, without using the `override` keyword:
+To override `finalize()`, declare it without using the `override` keyword:
 
 ```kotlin
 class C {
@@ -870,6 +844,11 @@ class C {
 ```
 
 According to Java's rules, `finalize()` must not be `private`.
+
+> `finalize()` is deprecated in modern Java versions. Consider alternatives such as [`java.lang.ref.Cleaner`](https://docs.oracle.com/javase/9/docs/api/java/lang/ref/Cleaner.html)
+> or [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) instead.
+>
+{style="note"}
 
 ## Inheritance from Java classes
 
@@ -884,14 +863,37 @@ around as a value but can access the members explicitly, for example:
 if (Character.isLetter(a)) { ... }
 ```
 
-To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the full qualified name of
-the Java type: `java.lang.Integer.bitCount(foo)`.
+To call a static method of an imported Java class, use the class name directly, just like in Java. Consider the
+following Java class:
+
+```java
+package org.example;
+
+public class MathUtils {
+    public static int triple(int value) {
+        return value * 3;
+    }
+}
+```
+
+Import the class and call its static method through the class name:
+
+```kotlin
+import org.example.MathUtils
+
+fun main() {
+    println(MathUtils.triple(5)) // Calls the static triple() method
+}
+```
+
+To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the fully qualified name of
+the Java type: `java.lang.Integer.bitCount(5)`.
 
 ## Java reflection
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
-Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s companion object class,
+Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s [companion object](object-declarations.md#companion-objects) class,
 which is the same as `ClassName.Companion::class.java` and not `ClassName::class.java`.
 
 For each primitive type, there are two different Java classes, and Kotlin provides ways to get both. For
@@ -918,7 +920,7 @@ val runnable = Runnable { println("This runs in a runnable") }
 ...and in method calls:
 
 ```kotlin
-val executor = ThreadPoolExecutor()
+val executor = Executors.newSingleThreadExecutor()
 // Java signature: void execute(Runnable command)
 executor.execute { println("This runs in a thread pool") }
 ```
@@ -941,7 +943,7 @@ abstract method.
 To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
 
 ```kotlin
-external fun foo(x: Int): Double
+external fun calculateSum(x: Int): Double
 ```
 
 The rest of the procedure works in exactly the same way as in Java.
