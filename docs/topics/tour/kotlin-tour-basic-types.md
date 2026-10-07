@@ -56,7 +56,7 @@ To declare a variable without initializing it, specify its type with `:`. For ex
 ```kotlin
 fun main() {
 //sampleStart
-    // Variable declared without initialization
+    // Variable declared without initialization needs an explicit type
     val d: Int
     // Variable initialized
     d = 3
@@ -102,6 +102,7 @@ fun main() {
     val a: Int = 1000 
     val b = "log message"
     val c = 3.14
+    // You can use the '_' character as a digit separator
     val d = 100_000_000_000_000
     val e = false
     val f = '\n'

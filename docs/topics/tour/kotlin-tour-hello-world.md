@@ -6,32 +6,33 @@
 Here is a simple program that prints "Hello, world!":
 
 ```kotlin
+// 'fun' is used to declare a function
+// The 'main()' function is where your program starts
 fun main() {
+    // println() prints a line in the terminal
     println("Hello, world!")
     // Hello, world!
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="hello-world-kotlin"}
 
-In Kotlin:
+A function is a set of instructions that performs a specific task.
+In Kotlin the body of a function is written within curly braces `{}`.
 
-* `fun` is used to declare a function
-* The `main()` function is where your program starts from
-* The body of a function is written within curly braces `{}`
-* [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) and [`print()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/print.html) functions print their arguments to standard output
-
-A function is a set of instructions that performs a specific task. Once you create a function, you can use it whenever 
-you need to perform that task, without having to write the instructions all over again. Functions are discussed in more
-detail in a couple of chapters. Until then, all examples use the `main()` function.
+Once you create a function, you can use it whenever you need to perform that task,
+without having to write the instructions all over again.
+Functions are discussed in more detail in a couple of chapters.
+Until then, all examples use the `main()` function.
 
 ## Variables
 
-All programs need to be able to store data, and variables help you to do just that. In Kotlin, you can declare:
+All programs need to be able to store data, and variables help you to do just that.
+In Kotlin, you can declare:
 
 * Read-only variables with `val`
 * Mutable variables with `var`
 
-> You can't change a read-only variable once you have given it a value.
+> You can't reassign a read-only variable once you have given it a value.
 >
 {style="note"}
 
@@ -69,8 +70,9 @@ As `customers` is a mutable variable, its value can be reassigned after declarat
 
 ## String templates
 
-It's useful to know how to print the contents of variables to standard output. You can do this with **string templates**. 
-You can use template expressions to access data stored in variables and other objects, and convert them into strings.
+It's useful to know how to print the contents of variables to standard output. You can do this with _string templates_. 
+
+Use string template expressions to access data stored in variables and other objects and immediately convert them into strings.
 A string value is a sequence of characters in double quotes `"`. Template expressions always start with a dollar sign `$`.
 
 To evaluate a piece of code in a template expression, place the code within curly braces `{}` after the dollar sign `$`.
@@ -93,15 +95,16 @@ fun main() {
 
 For more information, see [String templates](strings.md#string-templates).
 
-You will notice that there aren't any types declared for variables. Kotlin has inferred the type itself: `Int`. This tour
-explains the different Kotlin basic types and how to declare them in the [next chapter](kotlin-tour-basic-types.md).
+You might notice that there aren't any types declared for variables.
+For the `customers` variable, Kotlin has inferred the type automatically: `Int`.
+This tour explains the different Kotlin basic types and how to declare them in the [next chapter](kotlin-tour-basic-types.md).
 
 ## Practice {completion-point="true"}
 
 <deflist appearance="clear" collapsible="true">
 <def title="Print a statement using string templates">
 
-Complete the code to make the program print `"Mary is 20 years old"` to standard output:
+Complete the code to make the program print "Mary is 20 years old" to standard output:
 
 ```kotlin
 fun main() {
