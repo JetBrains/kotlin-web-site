@@ -219,6 +219,7 @@
                 <toc-element topic="apple-framework.md"/>
             </toc-element>
             <toc-element toc-title="Swift export" topic="native-swift-export.md"/>
+            <toc-element topic="native-swift-export-dsl-migration-guide.md"/>
             <toc-element toc-title="C interop">
                 <toc-element topic="native-c-interop.md"/>
                 <toc-element toc-title="Mapping Kotlin and C" progress-tracking="true">
