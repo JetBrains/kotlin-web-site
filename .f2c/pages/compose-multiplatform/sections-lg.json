@@ -1,0 +1,115 @@
+{
+  "page": "compose-multiplatform",
+  "breakpoint": "lg",
+  "matchedFrom": "sections.json",
+  "chrome": [
+    {
+      "nodeId": "3:34883",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1152,
+        "height": 128
+      }
+    },
+    {
+      "nodeId": "3:35104",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 5003,
+        "width": 1152,
+        "height": 384
+      }
+    }
+  ],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "3:34918",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "matched": true,
+      "bbox": {
+        "x": 100,
+        "y": 128,
+        "width": 952,
+        "height": 870
+      }
+    },
+    {
+      "index": 2,
+      "nodeId": "3:34942",
+      "figmaName": "Frame 429487",
+      "role": "format-cards",
+      "matched": true,
+      "bbox": {
+        "x": 100,
+        "y": 998,
+        "width": 952,
+        "height": 1015
+      }
+    },
+    {
+      "index": 3,
+      "nodeId": "3:34972",
+      "figmaName": "Frame 6391",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 100,
+        "y": 2013,
+        "width": 1144,
+        "height": 1544
+      }
+    },
+    {
+      "index": 4,
+      "nodeId": "21:1611",
+      "nodeIds": [
+        "21:1611"
+      ],
+      "figmaName": "Frame 429491",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 100,
+        "y": 3629,
+        "width": 952,
+        "height": 344
+      }
+    },
+    {
+      "index": 5,
+      "nodeId": "21:1627",
+      "nodeIds": [
+        "21:1627"
+      ],
+      "figmaName": "Frame 429492",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 100,
+        "y": 4005,
+        "width": 952,
+        "height": 504
+      }
+    },
+    {
+      "index": 6,
+      "nodeId": "3:35097",
+      "figmaName": "Frame 1195",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 100,
+        "y": 4581,
+        "width": 952,
+        "height": 422
+      }
+    }
+  ]
+}

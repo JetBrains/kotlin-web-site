@@ -1,0 +1,8 @@
+# .f2c/ — the Figma-to-code project layer (toolkit decision 25, 3 Oct 2026).
+# Everything re-derivable from Figma or from this repository stays out of git;
+# the assets a page actually uses already live in its route's img/.
+pages/*/assets/
+pages/*/crops/
+pages/*/renders/
+pages/*/context/
+artifacts/

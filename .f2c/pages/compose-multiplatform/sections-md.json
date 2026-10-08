@@ -1,0 +1,117 @@
+{
+  "page": "compose-multiplatform",
+  "breakpoint": "md",
+  "matchedFrom": "sections.json",
+  "chrome": [
+    {
+      "nodeId": "6:19802",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 808,
+        "height": 128
+      }
+    },
+    {
+      "nodeId": "6:19856",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 7581.52587890625,
+        "width": 808,
+        "height": 420
+      }
+    }
+  ],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "3:44987",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 128,
+        "width": 568,
+        "height": 1390.5260009765625
+      }
+    },
+    {
+      "index": 2,
+      "nodeId": "3:45011",
+      "figmaName": "Frame 429487",
+      "role": "format-cards",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 1518.5260009765625,
+        "width": 568,
+        "height": 1184
+      }
+    },
+    {
+      "index": 3,
+      "nodeId": "3:45041",
+      "figmaName": "Frame 6391",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 2702.52587890625,
+        "width": 568,
+        "height": 2754
+      }
+    },
+    {
+      "index": 4,
+      "nodeId": "21:1710",
+      "nodeIds": [
+        "21:1710",
+        "21:1717"
+      ],
+      "figmaName": "Frame 6393 + Frame 6394",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 120,
+        "y": 5528.52587890625,
+        "width": 568,
+        "height": 696
+      }
+    },
+    {
+      "index": 5,
+      "nodeId": "21:1725",
+      "nodeIds": [
+        "21:1725",
+        "21:1732"
+      ],
+      "figmaName": "Frame 6393 + Frame 6394",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 120,
+        "y": 6256.52587890625,
+        "width": 568,
+        "height": 880
+      }
+    },
+    {
+      "index": 6,
+      "nodeId": "3:45165",
+      "figmaName": "Frame 1195",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 7208.52587890625,
+        "width": 568,
+        "height": 373
+      }
+    }
+  ]
+}

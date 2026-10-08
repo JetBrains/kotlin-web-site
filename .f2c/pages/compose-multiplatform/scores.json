@@ -1,0 +1,56 @@
+{
+  "metricVersion": 2,
+  "runs": 1,
+  "sections": {
+    "01-hero": {
+      "best": 0.8789,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.8789,
+          "coverage": 0.998
+        }
+      ]
+    },
+    "02-format-cards": {
+      "best": 0.9247,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9247,
+          "coverage": 0.8499
+        }
+      ]
+    },
+    "03-content": {
+      "best": 0.6768,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.6768,
+          "coverage": 1
+        }
+      ]
+    },
+    "04-content": {
+      "best": 0.8175,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.8175,
+          "coverage": 0.3963
+        }
+      ]
+    },
+    "06-content": {
+      "best": 0.7379,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.7379,
+          "coverage": 0.9442
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,396 @@
+<frame id="1:6131" name="Desktop L" x="584" y="1465" width="1540" height="5440">
+  <frame id="3:34879" name="Frame 429489" x="0" y="0" width="1540" height="5440">
+    <frame id="3:34041" name="Header" x="0" y="0" width="1540" height="128">
+      <frame id="3:34042" name="Source/header/desktop" x="0" y="0" width="1540" height="128">
+        <frame id="3:34043" name="menu/dark/1st_lv" x="0" y="0" width="1540" height="64">
+          <frame id="3:34044" name="logo+title" x="32" y="21.83829116821289" width="152.32025146484375" height="20.32341766357422">
+            <instance id="3:34045" name="Logos" x="0" y="0" width="92.32025146484375" height="20.32341766357422" />
+            <text id="3:34046" name="version" x="96.32025146484375" y="0" width="56" height="16" />
+          </frame>
+          <instance id="3:34047" name="divider/dark" x="0" y="63" width="1680" height="1" hidden="true" />
+          <frame id="3:34048" name="menu" x="1001" y="0" width="507" height="64">
+            <frame id="3:34049" name="links" x="0" y="0" width="388" height="64">
+              <instance id="3:34050" name="Header-link" x="0" y="24" width="71" height="40" />
+              <instance id="3:34051" name="Header-link" x="103" y="24" width="39" height="40" />
+              <instance id="3:34052" name="Header-link" x="174" y="24" width="25" height="40" />
+              <instance id="3:34053" name="Header-link" x="231" y="24" width="88" height="40" />
+              <instance id="3:34054" name="Header-link" x="351" y="24" width="37" height="40" />
+            </frame>
+            <instance id="3:34055" name="Header-link" x="412" y="0" width="31" height="64" />
+            <instance id="3:34056" name="Header-link" x="434" y="12" width="85" height="40" hidden="true" />
+            <instance id="3:34057" name="Icon" x="434" y="20" width="24" height="24" hidden="true" />
+            <instance id="3:34058" name="Button" x="467" y="12" width="40" height="40" />
+            <instance id="3:34059" name="Icon" x="562" y="20" width="24" height="24" hidden="true" />
+            <instance id="3:34060" name="Button" x="562" y="12" width="123" height="40" hidden="true" />
+          </frame>
+        </frame>
+        <frame id="3:34061" name="menu/2nd_lv" x="0" y="64" width="1540" height="64">
+          <frame id="3:34062" name="submenu title" x="32" y="16" width="191" height="32">
+            <instance id="3:34063" name="Logos" x="0" y="1.7849998474121094" width="28.43000030517578" height="28.43000030517578" hidden="true" />
+            <instance id="3:34064" name="Icon" x="44.4296875" y="4" width="24" height="24" hidden="true" />
+            <text id="3:34065" name="Title" x="0" y="0" width="191" height="32" />
+          </frame>
+          <frame id="3:34066" name="menu" x="957" y="12" width="551" height="40">
+            <instance id="3:34067" name="Header-link" x="0" y="8" width="182" height="24" />
+            <instance id="3:34068" name="Header-link" x="214" y="8" width="100" height="24" />
+            <instance id="3:34069" name="Header-link" x="346" y="8" width="39" height="24" />
+            <instance id="3:34070" name="Header-link" x="345" y="8" width="86" height="24" hidden="true" />
+            <instance id="3:34071" name="Header-link" x="461" y="8" width="84" height="24" hidden="true" />
+            <instance id="3:34072" name="Header-link" x="578" y="8" width="84" height="24" hidden="true" />
+            <instance id="3:34073" name="Header-link" x="695" y="8" width="84" height="24" hidden="true" />
+            <instance id="3:34074" name="Button" x="417" y="0" width="134" height="40" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="3:34457" name="Frame 429488" x="198" y="128" width="1144" height="4460">
+      <frame id="1:6133" name="Frame 1883" x="0" y="0" width="1144" height="974">
+        <rounded-rectangle id="1:6134" name="Compose Multiplatform Graphic Render 1.1" x="527.4891967773438" y="-774" width="1753.0277198553085" height="1753.0277198553085" />
+        <frame id="1:6146" name="Group 6615" x="1231.1728515625" y="0" width="111" height="111" />
+        <frame id="3:31760" name="Frame 429486" x="0" y="72" width="1144" height="830">
+          <frame id="1:6136" name="Frame 4324" x="0" y="0" width="458" height="830">
+            <frame id="1:6137" name="Frame 6681" x="0" y="72" width="458" height="653">
+              <frame id="1:6138" name="Frame 4700" x="0" y="0" width="458" height="453">
+                <instance id="1:6139" name="Compose Multiplatform/" x="0" y="0" width="128" height="143" />
+                <frame id="1:6140" name="Frame 6683" x="0" y="175" width="458" height="278">
+                  <text id="1:6141" name="Compose Multiplatform" x="0" y="0" width="465" height="98" />
+                  <text id="1:6142" name="Build beautiful shared UIs for Android, iOS, desktop, and web that feel natural on every platform." x="0" y="122" width="458" height="156" />
+                </frame>
+              </frame>
+              <instance id="1:6144" name="Button" x="0" y="501" width="171" height="52" />
+              <instance id="1:6145" name="Button" x="0" y="601" width="139" height="52" />
+            </frame>
+          </frame>
+          <frame id="1:6149" name="Frame 6686" x="490" y="0" width="654" height="830">
+            <frame id="1:6150" name="Frame 6689" x="0" y="0" width="654" height="830">
+              <instance id="1:6152" name="gallery-img-merged" x="0" y="0" width="654.0000610351562" height="710.0000610351562" />
+              <frame id="1:6153" name="Frame 6685" x="0" y="710" width="654" height="120">
+                <text id="1:6154" name="Markaz, Pakistan’s e-commerce platform with 5M+ downloads, has 100+ screens built entirely with Compose Multiplatform." x="24" y="24" width="454" height="72" />
+                <frame id="1:6155" name="Frame 6688" x="502" y="34" width="128" height="52">
+                  <instance id="1:6156" name="Button" x="0" y="0" width="52" height="52" />
+                  <instance id="1:6157" name="Button" x="76" y="0" width="52" height="52" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="3:34275" name="Frame 429487" x="0" y="974" width="1144" height="966">
+        <frame id="1:6159" name="Frame 6403" x="0" y="72" width="1144" height="822">
+          <frame id="1:6160" name="Frame 4594" x="0" y="0" width="1144" height="349">
+            <frame id="1:6161" name="Frame 6384" x="64" y="64" width="1016" height="153">
+              <text id="1:6162" name="An open-source, declarative framework for sharing stunning UIs across multiple platforms." x="0" y="0" width="1016" height="98" />
+              <text id="1:6163" name="Production-ready for mobile and desktop." x="0" y="114" width="1016" height="39" />
+            </frame>
+            <text id="1:6164" name="Powered by Kotlin Multiplatform and Jetpack Compose↗. Developed by JetBrains." x="64" y="257" width="1016" height="28" />
+          </frame>
+          <frame id="1:6165" name="Frame 4329" x="0" y="349" width="1144" height="473">
+            <text id="1:6166" name="Supported platforms" x="360" y="64" width="424" height="49" />
+            <frame id="1:6167" name="Frame 4643" x="24" y="145" width="1096" height="264">
+              <frame id="1:6168" name="Frame 4325" x="0" y="0" width="274" height="264">
+                <instance id="1:6169" name="apple" x="89" y="40" width="96" height="96" />
+                <frame id="1:6170" name="Frame 6385" x="109" y="160" width="56" height="64">
+                  <instance id="1:6171" name="Link" x="4" y="0" width="48" height="28" />
+                  <instance id="1:6172" name="Tag" x="0" y="40" width="56" height="24" />
+                </frame>
+              </frame>
+              <frame id="1:6173" name="Frame 4329" x="274" y="0" width="274" height="264">
+                <instance id="1:6174" name="android" x="89" y="40" width="96" height="96" />
+                <frame id="1:6175" name="Frame 6386" x="0" y="160" width="274" height="64">
+                  <instance id="1:6176" name="Link" x="92" y="0" width="90" height="28" />
+                  <text id="1:6177" name="via Jetpack Compose" x="0" y="40" width="274" height="24" />
+                </frame>
+              </frame>
+              <frame id="1:6178" name="Frame 4328" x="548" y="0" width="274" height="264">
+                <instance id="1:6179" name="computer" x="89" y="40" width="96" height="96" />
+                <frame id="1:6180" name="Frame 6387" x="0" y="160" width="274" height="64">
+                  <instance id="1:6181" name="Link" x="89.5" y="0" width="95" height="28" />
+                  <text id="1:6182" name="Windows, MacOS, Linux" x="0" y="40" width="274" height="24" />
+                </frame>
+              </frame>
+              <frame id="1:6183" name="Frame 4330" x="822" y="0" width="274" height="264">
+                <instance id="1:6184" name="globus" x="89" y="40" width="96" height="96" />
+                <frame id="1:6185" name="Frame 6388" x="0" y="160" width="274" height="64">
+                  <instance id="3:34450" name="Link" x="107" y="0" width="60" height="28" />
+                  <instance id="1:6187" name="Tag" x="114.5" y="40" width="45" height="24" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="1:6188" name="Frame 6391" x="0" y="1940" width="1144" height="1544">
+        <frame id="1:6189" name="Frame 6390" x="0" y="72" width="1144" height="1400">
+          <frame id="1:6190" name="Frame 4633" x="0" y="0" width="564" height="1400">
+            <instance id="1:6191" name="benefits segment" x="0" y="0" width="564" height="170" />
+            <instance id="1:6192" name="benefits segment" x="0" y="234" width="564" height="188" />
+            <instance id="1:6193" name="benefits segment" x="0" y="486" width="564" height="170" />
+            <instance id="1:6195" name="benefits segment" x="0" y="720" width="564" height="98" />
+            <instance id="1:6196" name="benefits segment" x="0" y="882" width="564" height="122" />
+            <instance id="1:6197" name="benefits segment" x="0" y="1068" width="564" height="146" />
+            <instance id="1:6198" name="benefits segment" x="0" y="1278" width="564" height="122" />
+          </frame>
+          <frame id="1:6199" name="Frame 6389" x="596" y="0" width="548" height="1400">
+            <frame id="1:6200" name="Frame 4672" x="0" y="0" width="548" height="490">
+              <frame id="1:6201" name="Group 1920" x="0" y="0" width="548" height="224">
+                <frame id="1:6202" name="Frame 1917" x="0" y="0" width="548" height="108">
+                  <frame id="1:6203" name="Group 1915" x="0" y="0" width="164" height="341.92449951171875">
+                    <vector id="1:6204" name="Rectangle 3023 (Stroke)" x="0" y="0" width="164" height="341.92449951171875" />
+                    <frame id="1:6205" name="Frame 4648" x="41.5" y="60" width="81" height="32">
+                      <text id="1:6206" name="Hello iOS" x="12" y="6" width="57" height="20" />
+                    </frame>
+                    <rounded-rectangle id="1:6207" name="Rectangle 3021" x="57.99993896484375" y="11" width="48" height="14" />
+                  </frame>
+                  <frame id="1:6208" name="Group 1914" x="176" y="0" width="372" height="252">
+                    <frame id="1:6209" name="Group 1912" x="176" y="0" width="372" height="252">
+                      <rounded-rectangle id="1:6210" name="Rectangle 3047" x="176" y="0" width="372" height="252" />
+                      <frame id="1:6211" name="Frame 4668" x="184" y="8" width="52" height="12">
+                        <frame id="1:6212" name="Dot" x="0" y="0" width="12" height="12" />
+                        <frame id="1:6213" name="Dot" x="20" y="0" width="12" height="12" />
+                        <frame id="1:6214" name="Dot" x="40" y="0" width="12" height="12" />
+                      </frame>
+                      <rounded-rectangle id="1:6215" name="Rectangle 3046" x="176" y="34" width="372" height="32" />
+                      <rounded-rectangle id="1:6216" name="Rectangle 3046" x="248" y="6" width="120" height="29" />
+                      <frame id="1:6217" name="Group 1910" x="396" y="18" width="8" height="8" hidden="true" />
+                      <vector id="1:6220" name="Vector 2128" x="224" y="42" width="12" height="12" hidden="true" />
+                      <vector id="1:6221" name="Vector 2129" x="204" y="42" width="12" height="12" hidden="true" />
+                    </frame>
+                    <frame id="1:6222" name="Frame 4650" x="200" y="60" width="88" height="32">
+                      <text id="1:6223" name="Hello Web" x="12" y="6" width="64" height="20" />
+                    </frame>
+                  </frame>
+                </frame>
+                <frame id="1:6224" name="Frame 4670" x="0" y="116" width="548" height="108">
+                  <frame id="1:6225" name="Group 1916" x="0" y="0" width="164" height="348.08160400390625">
+                    <frame id="1:6226" name="iPhone 14 Pro" x="0" y="0" width="164" height="348.08160400390625">
+                      <vector id="1:6227" name="Rectangle 3026 (Stroke)" x="0" y="0" width="164" height="348.1224365234375" />
+                      <ellipse id="1:6228" name="Ellipse 4" x="78" y="9" width="8" height="8" />
+                    </frame>
+                    <frame id="1:6229" name="Frame 4649" x="28" y="60" width="108" height="32">
+                      <text id="1:6230" name="Hello Android" x="12" y="6" width="84" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="1:6231" name="Group 1913" x="176" y="0" width="372" height="348">
+                    <frame id="1:6232" name="MacOS" x="176" y="0" width="372" height="348">
+                      <frame id="1:6233" name="Frame 4669" x="8" y="8" width="52" height="12">
+                        <ellipse id="1:6234" name="Red" x="0" y="0" width="12" height="12" />
+                        <ellipse id="1:6235" name="Yellow" x="20" y="0" width="12" height="12" />
+                        <ellipse id="1:6236" name="Green" x="40" y="0" width="12" height="12" />
+                      </frame>
+                    </frame>
+                    <frame id="1:6237" name="Frame 4650" x="200" y="60" width="112" height="32">
+                      <text id="1:6238" name="Hello Desktop" x="12" y="6" width="88" height="20" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="1:6239" name=".Source/Code/Block" x="0" y="232" width="548" height="258">
+                <text id="1:6240" name="Code" x="24" y="24" width="500" height="210" />
+              </frame>
+            </frame>
+            <frame id="1:6241" name="Frame 4675" x="0" y="586" width="548" height="640">
+              <frame id="1:6242" name="Frame 4674" x="0" y="0" width="548" height="164">
+                <frame id="1:6243" name="Group 1918" x="0" y="0" width="164" height="348.08160400390625">
+                  <frame id="1:6244" name="iPhone 14 Pro" x="0" y="0" width="164" height="348.08160400390625">
+                    <vector id="1:6245" name="Rectangle 3026 (Stroke)" x="0" y="0" width="164" height="348.1224365234375" />
+                    <ellipse id="1:6246" name="Ellipse 4" x="78" y="9" width="8" height="8" />
+                  </frame>
+                  <frame id="1:6247" name="Frame 4653" x="0" y="44" width="164" height="256">
+                    <instance id="1:6248" name="Group 1902" x="16" y="0" width="132" height="80" />
+                    <instance id="1:6249" name="Group 1903" x="16" y="88" width="132" height="80" />
+                    <instance id="1:6250" name="Group 1904" x="16" y="176" width="132" height="80" />
+                  </frame>
+                </frame>
+                <frame id="1:6251" name="Group 1917" x="176" y="0" width="372" height="240">
+                  <frame id="1:6252" name="MacOS" x="176" y="0" width="372" height="240">
+                    <ellipse id="1:6253" name="Red" x="8" y="8" width="12" height="12" />
+                    <ellipse id="1:6254" name="Yellow" x="28" y="8" width="12" height="12" />
+                    <ellipse id="1:6255" name="Green" x="48" y="8" width="12" height="12" />
+                  </frame>
+                  <frame id="1:6256" name="Frame 4673" x="220" y="44" width="283" height="168">
+                    <frame id="1:6257" name="Frame 4653" x="0" y="0" width="283" height="80">
+                      <frame id="1:6258" name="Group 1902" x="0" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6259" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6260" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6261" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6262" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6263" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                      <frame id="1:6264" name="Group 1903" x="97" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6265" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6266" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6267" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6268" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6269" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                      <frame id="1:6270" name="Group 1904" x="194" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6271" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6272" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6273" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6274" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6275" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                    </frame>
+                    <frame id="1:6276" name="Frame 4672" x="0" y="88" width="283" height="80">
+                      <frame id="1:6277" name="Group 1902" x="0" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6278" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6279" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6280" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6281" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6282" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                      <frame id="1:6283" name="Group 1903" x="97" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6284" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6285" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6286" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6287" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6288" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                      <frame id="1:6289" name="Group 1904" x="194" y="0" width="89" height="80">
+                        <rounded-rectangle id="1:6290" name="Rectangle 3030" x="0" y="0" width="89" height="80" />
+                        <text id="1:6291" name="Placeholder Name" x="8" y="53.033203125" width="53" height="19.775279998779297" hidden="true" />
+                        <frame id="1:6292" name="Frame 4654" x="8" y="52" width="48" height="20">
+                          <rounded-rectangle id="1:6293" name="Rectangle 3031" x="0" y="0" width="48" height="8" />
+                          <rounded-rectangle id="1:6294" name="Rectangle 3032" x="0" y="12" width="40" height="8" />
+                        </frame>
+                      </frame>
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="1:6295" name=".Source/Code/Block" x="0" y="172" width="548" height="468">
+                <text id="1:6296" name="Code" x="24" y="24" width="500" height="420" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="1:6297" name="Frame 6395" x="0" y="3484" width="1144" height="976">
+        <frame id="19:1445" name="Frame 429491" x="0" y="72" width="1144" height="344">
+          <frame id="1:6298" name="Frame 6393" x="0" y="0" width="556" height="344">
+            <frame id="1:6299" name="Frame 6675" x="32" y="32" width="394" height="64">
+              <rounded-rectangle id="1:6300" name="image 2" x="0" y="0" width="64" height="64" />
+              <frame id="1:6301" name="Frame 6392" x="88" y="8" width="306" height="48">
+                <text id="1:6302" name="Alex Askerov" x="0" y="0" width="306" height="28" />
+                <text id="1:6303" name="Mobile Development Unit Lead at Wrike" x="0" y="28" width="306" height="20" />
+              </frame>
+            </frame>
+            <text id="1:6304" name="Building on our success with Kotlin Multiplatform integration, we’ve decided to go ahead with Compose Multiplatform for building Calendar View. In less than three months, it was live on the App Store and Google Play. Most of the client logic was implemented by a single Android developer. From the iOS side, only integration was required. Compose Multiplatform was even smoother [than KMP] to integrate, requiring minimal work from iOS developers." x="32" y="120" width="492" height="192" />
+          </frame>
+          <frame id="1:6305" name="Frame 6394" x="588" y="0" width="556" height="344">
+            <frame id="1:6306" name="Frame 6676" x="32" y="32" width="394" height="64">
+              <rounded-rectangle id="1:6307" name="image" x="0" y="0" width="64" height="64" />
+              <frame id="1:6308" name="Frame 6392" x="88" y="8" width="306" height="48">
+                <text id="1:6309" name="Johannes Svensson" x="0" y="0" width="306" height="28" />
+                <text id="1:6310" name="Android Developer at Instabee" x="0" y="28" width="306" height="20" />
+              </frame>
+            </frame>
+            <text id="1:6311" name="Compose Multiplatform really simplified adding support for iOS. The level of shared code, without adding complexity, is staggering. It really streamlines app development and enables us to innovate and iterate at an insane speed." x="32" y="120" width="492" height="96" />
+            <text id="1:6312" name="Learn more about Instabee’s experience with Compose Multiplatform over the course of a year in this video🡥." x="32" y="240" width="492" height="48" />
+          </frame>
+        </frame>
+        <frame id="19:1446" name="Frame 429492" x="0" y="448" width="1144" height="456">
+          <frame id="19:1447" name="Frame 6393" x="0" y="0" width="556" height="456">
+            <frame id="19:1448" name="Frame 6675" x="32" y="32" width="394" height="64">
+              <rounded-rectangle id="19:1449" name="image 2" x="0" y="0" width="64" height="64" />
+              <frame id="19:1450" name="Frame 6392" x="88" y="8" width="306" height="48">
+                <text id="19:1451" name="Kashif Mehmood" x="0" y="0" width="306" height="28" />
+                <text id="19:1452" name="Mobile Engineering Lead at Markaz" x="0" y="28" width="306" height="20" />
+              </frame>
+            </frame>
+            <text id="19:1453" name="Markaz is Pakistan’s second-largest e-commerce platform, with over 5 million downloads and 1,000,000+ active users. It has consistently ranked in the top 10 on Google Play and top 15 on the Apple App Store. The app includes 100+ screens and is fully built with Compose Multiplatform, combining a shared UI with native integrations like camera, QR scanning, payments, native navigation, and analytics. The app is fully optimized to run on low-end devices and slow networks, making it accessible to people living in remote areas with olders devices. The app size remains under 10MB on Android and 137MB on iOS." x="32" y="120" width="492" height="240" />
+          </frame>
+          <frame id="19:1454" name="Frame 6394" x="588" y="0" width="556" height="456">
+            <frame id="19:1455" name="Frame 6676" x="32" y="32" width="394" height="64">
+              <rounded-rectangle id="19:1456" name="image" x="0" y="0" width="64" height="64" />
+              <frame id="19:1457" name="Frame 6392" x="88" y="8" width="306" height="48">
+                <text id="19:1458" name="Suresh Maidaragi" x="0" y="0" width="306" height="28" />
+                <text id="19:1459" name="Mobile Platform Lead Engineer at Physics Wallah" x="0" y="28" width="306" height="20" />
+              </frame>
+            </frame>
+            <text id="19:1460" name="Around 20% of our Physics Wallah App, which has more than 10M downloads on Google Play – including one of our largest features, Pitara – is built using Kotlin Multiplatform and Compose Multiplatform, sharing both UI and business logic across Android and iOS platforms. The rest of the app uses a combination of Jetpack Compose and XML. This shift has streamlined our development process and allowed us to unify Android and iOS engineers into a single Mobile team. We’ve also built our new Acadfly and Parent apps from the ground up using Compose Multiplatform. It is now our core mobile technology for building all new features and products from scratch." x="32" y="120" width="492" height="304" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:6313" name="Frame 6677" x="0" y="4588" width="1540" height="852">
+      <frame id="1:6314" name="Frame 1195" x="198" y="0" width="1144" height="468">
+        <instance id="3:34874" name="footer-img" x="128" y="-172.900390625" width="1485.800048828125" height="640.9000244140625" />
+        <rounded-rectangle id="1:6324" name="Compose Multiplatform Graphic Render 3.1" x="1661.74853515625" y="1189.51171875" width="1391.5110787497906" height="1391.5110787497906" hidden="true" />
+        <frame id="1:6325" name="Frame 4602" x="0" y="72" width="494" height="224">
+          <text id="1:6326" name="Try Compose Multiplatform" x="0" y="0" width="731" height="144" />
+          <text id="1:6327" name="Develop stunning shared UIs for Android, iOS, desktop, and web." x="0" y="168" width="494" height="56" />
+        </frame>
+        <instance id="1:6328" name="Button" x="0" y="344" width="171" height="52" />
+      </frame>
+      <frame id="3:34722" name="kt--footer" x="0" y="468" width="1540" height="384">
+        <frame id="3:34723" name="Frame 4435" x="198" y="72" width="1144" height="240">
+          <frame id="3:34724" name="Frame 4494" x="0" y="0" width="1144" height="88">
+            <frame id="3:34725" name="Frame 9" x="0" y="0" width="424" height="52">
+              <text id="3:34726" name="text" x="0" y="14" width="104" height="24" />
+              <frame id="3:34727" name="Frame 4369" x="112" y="0" width="312" height="52">
+                <instance id="3:34728" name="Button" x="0" y="0" width="52" height="52" />
+                <instance id="3:34729" name="Button" x="52" y="0" width="52" height="52" />
+                <instance id="3:34730" name="Button" x="104" y="0" width="52" height="52" />
+                <instance id="3:34731" name="Button" x="156" y="0" width="52" height="52" />
+                <instance id="3:34732" name="Button" x="208" y="0" width="52" height="52" />
+                <instance id="3:34733" name="Button" x="260" y="0" width="52" height="52" />
+              </frame>
+              <frame id="3:34734" name="row" x="0" y="101" width="548" height="20" hidden="true">
+                <text id="3:34735" name="Kotlin™ is protected under the" x="0" y="0" width="186" height="20" />
+                <instance id="3:34736" name="Link" x="187" y="0" width="109" height="20" />
+                <text id="3:34737" name="and licensed under the" x="298" y="0" width="141" height="20" />
+                <instance id="3:34738" name="Link" x="443" y="0" width="105" height="20" />
+              </frame>
+            </frame>
+            <frame id="3:34739" name="Frame 4368" x="0" y="64" width="828" height="24">
+              <instance id="3:34740" name="Link" x="0" y="0" width="165" height="24" />
+              <instance id="3:34741" name="Divider" x="177" y="24" width="1" height="24" />
+              <instance id="3:34742" name="Link" x="190" y="0" width="68" height="24" />
+              <instance id="3:34743" name="Divider" x="270" y="24" width="1" height="24" />
+              <instance id="3:34744" name="Link" x="283" y="0" width="67" height="24" />
+              <instance id="3:34745" name="Divider" x="362" y="24" width="1" height="24" />
+              <instance id="3:34746" name="Link" x="375" y="0" width="62" height="24" />
+              <instance id="3:34747" name="Divider" x="449" y="24" width="1" height="24" />
+              <text id="3:34748" name="Type something" x="462" y="0" width="35" height="24" />
+              <instance id="3:34749" name="Divider" x="509" y="24" width="1" height="24" />
+              <text id="3:34750" name="Type something" x="522" y="0" width="99" height="24" />
+              <instance id="3:34751" name="Divider" x="633" y="24" width="1" height="24" />
+              <text id="3:34752" name="Type something" x="646" y="0" width="97" height="24" />
+              <instance id="3:34753" name="Divider" x="755" y="24" width="1" height="24" />
+              <text id="3:34754" name="Type something" x="768" y="0" width="60" height="24" />
+            </frame>
+          </frame>
+          <frame id="3:34755" name="kt--jb-label" x="0" y="160" width="560" height="80">
+            <frame id="3:34756" name="Frame 4501" x="0" y="0" width="560" height="80">
+              <instance id="3:34757" name=" JetBrains" x="0" y="0" width="149" height="32" />
+              <frame id="3:34758" name="Frame 4502" x="0" y="40" width="560" height="40">
+                <frame id="3:34759" name="row" x="0" y="0" width="244" height="20">
+                  <text id="3:34760" name="Supported and developed by" x="0" y="0" width="182" height="20" />
+                  <instance id="3:34761" name="Link" x="182" y="0" width="58" height="20" />
+                  <text id="3:34762" name="." x="240" y="0" width="4" height="20" />
+                </frame>
+                <frame id="3:34763" name="Frame 4493" x="0" y="20" width="560" height="20">
+                  <frame id="3:34764" name="row" x="0" y="0" width="300" height="20">
+                    <text id="3:34765" name="Kotlin™ is protected under the" x="0" y="0" width="186" height="20" />
+                    <instance id="3:34766" name="Link" x="190" y="0" width="110" height="20" />
+                  </frame>
+                  <frame id="3:34767" name="row" x="304" y="0" width="256" height="20">
+                    <text id="3:34768" name="and licensed under the" x="0" y="0" width="145" height="20" />
+                    <instance id="3:34769" name="Link" x="145" y="0" width="107" height="20" />
+                    <text id="3:34770" name="." x="252" y="0" width="4" height="20" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</frame>

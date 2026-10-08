@@ -1,0 +1,139 @@
+{
+  "page": "compose-multiplatform",
+  "breakpoint": "base",
+  "source": "raw/metadata.xml",
+  "chrome": [
+    {
+      "nodeId": "3:34041",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1540,
+        "height": 128
+      }
+    },
+    {
+      "nodeId": "3:34722",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 5056,
+        "width": 1540,
+        "height": 384
+      }
+    }
+  ],
+  "decoration": [],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "1:6133",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "firstText": "Compose Multiplatform",
+      "bbox": {
+        "x": 198,
+        "y": 128,
+        "width": 1144,
+        "height": 974
+      },
+      "components": [
+        "Button",
+        "Compose Multiplatform/",
+        "gallery-img-merged"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 2,
+      "nodeId": "3:34275",
+      "figmaName": "Frame 429487",
+      "role": "format-cards",
+      "firstText": "An open-source, declarative framework for sharing stunning UIs across multiple platforms.",
+      "bbox": {
+        "x": 198,
+        "y": 1102,
+        "width": 1144,
+        "height": 966
+      },
+      "components": [
+        "Link",
+        "Tag",
+        "android",
+        "apple",
+        "computer",
+        "globus"
+      ],
+      "customArt": false
+    },
+    {
+      "index": 3,
+      "nodeId": "1:6188",
+      "figmaName": "Frame 6391",
+      "role": "content",
+      "firstText": "Hello iOS",
+      "bbox": {
+        "x": 198,
+        "y": 2068,
+        "width": 1144,
+        "height": 1544
+      },
+      "components": [
+        "Group 1902",
+        "Group 1903",
+        "Group 1904",
+        "benefits segment"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 4,
+      "nodeId": "19:1445",
+      "figmaName": "Frame 429491",
+      "role": "content",
+      "firstText": "Alex Askerov",
+      "bbox": {
+        "x": 198,
+        "y": 3684,
+        "width": 1144,
+        "height": 344
+      },
+      "components": [],
+      "customArt": true
+    },
+    {
+      "index": 5,
+      "nodeId": "19:1446",
+      "figmaName": "Frame 429492",
+      "role": "content",
+      "firstText": "Kashif Mehmood",
+      "bbox": {
+        "x": 198,
+        "y": 4060,
+        "width": 1144,
+        "height": 456
+      },
+      "components": [],
+      "customArt": true
+    },
+    {
+      "index": 6,
+      "nodeId": "1:6314",
+      "figmaName": "Frame 1195",
+      "role": "content",
+      "firstText": "Try Compose Multiplatform",
+      "bbox": {
+        "x": 198,
+        "y": 4588,
+        "width": 1144,
+        "height": 468
+      },
+      "components": [
+        "Button",
+        "footer-img"
+      ],
+      "customArt": false
+    }
+  ]
+}

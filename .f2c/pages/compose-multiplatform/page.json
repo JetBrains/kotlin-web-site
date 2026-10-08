@@ -1,0 +1,144 @@
+{
+  "name": "compose-multiplatform",
+  "title": "Compose Multiplatform | Kotlinlang | DSGN-24703",
+  "figma": {
+    "fileKey": "0GtKD7idOxWPoqXfZpnite",
+    "rootNode": "1:6131",
+    "viewport": {
+      "width": 1540,
+      "height": 5440
+    }
+  },
+  "contentRoot": "3:34879",
+  "chrome": [
+    "3:34041",
+    "3:34722"
+  ],
+  "minSectionHeight": 120,
+  "theme": "dark",
+  "container": {
+    "base": {
+      "max": 1188,
+      "pad": 22
+    },
+    "lg": {
+      "max": 996,
+      "pad": 22
+    },
+    "md": {
+      "max": 612,
+      "pad": 22
+    },
+    "sm": {
+      "max": 640,
+      "pad": 24
+    }
+  },
+  "containerNote": "сетка kotlinlang, НЕ стандартные токены: контент base 1144 (поля 198 на 1540), lg 952 (совпал со стандартом), md 568 (поля 120 на 808), sm 312 (поля 24 на 360). Брейкпоинты — наши (1276/1000/640), меняются только токены. | Copied from the toolkit corpus design/compose-multiplatform/ on 8 Oct 2026 as the kotlin-web-site calibration record; the corpus page itself is frozen and untouched. assets/ not copied (38 MB, gitignored cache; the shipped page carries its own images).",
+  "breakpoints": {
+    "base": {
+      "frame": "1:6131",
+      "width": 1540,
+      "height": 5440,
+      "contentRoot": "3:34879",
+      "chrome": [
+        "3:34041",
+        "3:34722"
+      ],
+      "raw": "raw/metadata.xml",
+      "media": null
+    },
+    "lg": {
+      "frame": "3:34881",
+      "width": 1152,
+      "height": 5387,
+      "contentRoot": "3:34882",
+      "chrome": [
+        "3:34883",
+        "3:35104"
+      ],
+      "raw": "raw/metadata-lg.xml",
+      "media": 1276
+    },
+    "md": {
+      "frame": "3:44950",
+      "width": 808,
+      "height": 8002,
+      "contentRoot": "3:44951",
+      "chrome": [
+        "6:19802",
+        "6:19856"
+      ],
+      "decoration": [
+        "3:45171"
+      ],
+      "raw": "raw/metadata-md.xml",
+      "media": 1000
+    },
+    "sm": {
+      "frame": "7:20593",
+      "width": 360,
+      "height": 9144,
+      "contentRoot": "7:20594",
+      "chrome": [
+        "7:20595",
+        "7:20814"
+      ],
+      "raw": "raw/metadata-sm.xml",
+      "media": 640
+    }
+  },
+  "matchOverrides": {
+    "note": "Секции 4/5 — ряды тестимониалов: на lg обёртка контейнера переименована (двойники-ряды ищутся напрямую), на md/sm ряды разобраны в стек карточек — двойник = пара карточек, union-bbox. Секция 6 (CTA) на sm переименована в Frame 429490.",
+    "lg": {
+      "4": "21:1611",
+      "5": "21:1627"
+    },
+    "md": {
+      "4": [
+        "21:1710",
+        "21:1717"
+      ],
+      "5": [
+        "21:1725",
+        "21:1732"
+      ]
+    },
+    "sm": {
+      "4": [
+        "21:1772",
+        "21:1779"
+      ],
+      "5": [
+        "21:1787",
+        "21:1794"
+      ],
+      "6": "7:20806"
+    }
+  },
+  "rawNote": "raw/metadata*.xml — снапшоты get_metadata от 2026-08-19, файл 0GtKD7idOxWPoqXfZpnite (Compose Landing Page | Kotlinlang). Фреймы выбраны пользователем: Desktop L 1540 / Desktop S 1152 / Tablet S 808 / Mobile S 360. Сетка kotlinlang: вьюпорты фреймов НЕ совпадают с rescui-порогами, но каждый попадает ровно в один диапазон (>1276 / ≤1276 / ≤1000 / ≤640) — валидируем на вьюпортах фреймов, media остаются rescui. Header двухуровневый 128 (112 на sm), footer kt--footer 384 (420 на md/sm).",
+  "metric": {
+    "note": "metric v2 (PLAN §10). base ids only — bp art inventories are a backfill task (bp pixel diff is informational after decision 15). hero/footer graphic render blobs; waves + gallery glow underlays not id-resolvable from dump names — under-masked on purpose (conservative direction), backfill with the art inventory",
+    "artNodes": {
+      "base": [
+        "1:6134",
+        "1:6324"
+      ]
+    }
+  },
+  "textRoleDeviations": [
+    "14/30"
+  ],
+  "project": "../..",
+  "live": {
+    "path": "/compose-multiplatform/",
+    "sections": {
+      "01-hero": "[data-testid=\"hero-block\"]",
+      "02-format-cards": "section.ktl-layout:has([data-testid=\"platforms-block-content\"])",
+      "03-content": "[data-testid=\"features-block\"]",
+      "04-content": "[data-testid=\"quote-section\"]",
+      "06-content": "[data-testid=\"cta-block\"]"
+    },
+    "note": "calibration pair (8 Oct 2026): the SHIPPED compose-multiplatform page measured against the corpus mock DSGN-24703 with no generation — a check of the live instrument on a Next.js dev server, with a revision ceiling: the shipped page has 5 blocks, the mock 6 sections (04 and 05 are two testimonials the shipped quote-section renders as one; 05 is deliberately unmapped and skipped by name), last touched 12 Mar 2026. Selectors are the shipped blocks data-testid (the platforms block carries none on its root)."
+  }
+}

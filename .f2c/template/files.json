@@ -1,0 +1,16 @@
+{
+  "$comment": "kotlin-web-site's emitted set (toolkit projects/F2C-LAYOUT.md → template/files.json), the shape of pages/state-of-kotlin-2026 (the newest shipped landing, 8 Oct 2026): the route module under pages/<route>/ lists the blocks; every block lives in blocks/<page>/<slug>/ as <slug>.tsx + <slug>.module.css + <slug>-data.tsx; one preview route per block under pages/<route>/preview/<slug>/; the live gate selects a block by its data-testid.",
+  "files": [
+    { "template": "page/index.tsx", "out": "<pagesRoot>/<route>/index.tsx", "scope": "page" },
+    { "template": "page/index.module.css", "out": "<pagesRoot>/<route>/index.module.css", "scope": "page" },
+    { "template": "block/block.tsx", "out": "<sectionsRoot>/<slug>/<slug>.tsx", "scope": "section" },
+    { "template": "block/block.module.css", "out": "<sectionsRoot>/<slug>/<slug>.module.css", "scope": "section" },
+    { "template": "block/block-data.tsx", "out": "<sectionsRoot>/<slug>/<slug>-data.tsx", "scope": "section" },
+    { "template": "preview/index.tsx", "out": "<pagesRoot>/<route>/preview/<slug>/index.tsx", "scope": "preview" }
+  ],
+  "sectionImport": "<importAlias><sectionsRoot>/<slug>/<slug>",
+  "previewPath": "/<route>/preview/<slug>/",
+  "sectionSelector": "[data-testid=\"<testId>\"]",
+  "indent": 4,
+  "sectionJsxIndent": 20
+}

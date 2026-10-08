@@ -1,0 +1,121 @@
+{
+  "page": "compose-multiplatform",
+  "breakpoint": "sm",
+  "matchedFrom": "sections.json",
+  "chrome": [
+    {
+      "nodeId": "7:20595",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 112
+      }
+    },
+    {
+      "nodeId": "7:20814",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 8724.238464355469,
+        "width": 360,
+        "height": 420
+      }
+    }
+  ],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "7:20630",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "matched": true,
+      "bbox": {
+        "x": 24,
+        "y": 112,
+        "width": 312,
+        "height": 1121.3555908203125
+      }
+    },
+    {
+      "index": 2,
+      "nodeId": "7:20652",
+      "figmaName": "Frame 429487",
+      "role": "format-cards",
+      "matched": true,
+      "bbox": {
+        "x": 24,
+        "y": 1233.3555908203125,
+        "width": 312,
+        "height": 1164
+      }
+    },
+    {
+      "index": 3,
+      "nodeId": "7:20682",
+      "figmaName": "Frame 6391",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 24,
+        "y": 2397.35546875,
+        "width": 312,
+        "height": 3107.294921875
+      }
+    },
+    {
+      "index": 4,
+      "nodeId": "21:1772",
+      "nodeIds": [
+        "21:1772",
+        "21:1779"
+      ],
+      "figmaName": "Frame 6393 + Frame 6394",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 24,
+        "y": 5576.650390625,
+        "width": 312,
+        "height": 1032
+      }
+    },
+    {
+      "index": 5,
+      "nodeId": "21:1787",
+      "nodeIds": [
+        "21:1787",
+        "21:1794"
+      ],
+      "figmaName": "Frame 6393 + Frame 6394",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 24,
+        "y": 6640.650390625,
+        "width": 312,
+        "height": 1452
+      }
+    },
+    {
+      "index": 6,
+      "nodeId": "7:20806",
+      "nodeIds": [
+        "7:20806"
+      ],
+      "figmaName": "Frame 429490",
+      "role": "content",
+      "matched": true,
+      "override": true,
+      "bbox": {
+        "x": 24,
+        "y": 8164.650390625,
+        "width": 312,
+        "height": 559.5880737304688
+      }
+    }
+  ]
+}

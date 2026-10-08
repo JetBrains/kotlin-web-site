@@ -1,0 +1,228 @@
+{
+  "$comment": "kotlin-web-site (kotlinlang.org), the toolkit's second consumer. Drafted by project-setup.mjs on 2026-10-08 at 38512ffcb9 and completed by hand the same day from .f2c/profile.md (the fact sheet of 8 Oct 2026). Schema: projects/PROJECT-CONFIG.md in the toolkit; layout: projects/F2C-LAYOUT.md. Shape keys that differ from the first consumer: output.pageEntry index.tsx, output.sectionsRoot blocks/<page>, output.importAlias @/, output.testId <page>-<slug>, output.copy.kind plain, layout.rhythm.kind section-padding, index.shared components, annotations.hosts kotlinlang.org, contracts.scopes + @jetbrains/kotlin-web-site-ui; the grid is the ktl one (not @webteam/layout, which is installed but used by one legacy block).",
+  "name": "kotlin-web-site",
+  "readAt": {
+    "date": "2026-10-08",
+    "commit": "38512ffcb9",
+    "branch": "figma-to-code"
+  },
+  "instructions": [
+    "CLAUDE.md",
+    ".ai/guidelines.md",
+    "README.md"
+  ],
+  "install": {
+    "node": "v22.9.0 (.nvmrc; 22.18.0 used on 8 Oct 2026, owner's call)",
+    "packageManager": "yarn@1.22.22",
+    "env": [
+      "WEBTEAM_UI_NPM_TOKEN"
+    ],
+    "commands": [
+      "nvm use 22",
+      "corepack enable",
+      "yarn install --frozen-lockfile"
+    ]
+  },
+  "dev": {
+    "command": "yarn start",
+    "baseUrl": "http://localhost:3000",
+    "pagePath": "/<page>/",
+    "readiness": {
+      "fonts": "document.fonts.ready",
+      "hydrated": "html.hydrated (components/hydration-event.tsx) / window event react:hydrated"
+    }
+  },
+  "checks": {
+    "lint": "yarn lint --dir pages/<page> --dir <sections>",
+    "types": "yarn exec tsc -- --noEmit -p tsconfig.json",
+    "e2e": "see process.e2e — needs the dev server, not run by project-check"
+  },
+  "output": {
+    "pagesRoot": "pages",
+    "pageEntry": "index.tsx",
+    "sectionsRoot": "blocks/<page>",
+    "importAlias": "@/",
+    "testId": "<page>-<slug>",
+    "composition": "pages/<page>/index.tsx (the route module lists the blocks in order)",
+    "sectionDir": "blocks/<page>/<name>",
+    "sectionFiles": [
+      "<name>.tsx",
+      "<name>.module.css",
+      "<name>-data.tsx",
+      "images/"
+    ],
+    "css": {
+      "kind": "css-modules",
+      "naming": "camelCase classes, styles.<name>",
+      "breakpointsImport": "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss",
+      "mediaOrder": "wide-to-narrow (base = widest, then --ktl-*-down)"
+    },
+    "copy": {
+      "kind": "plain",
+      "jsx": "JSX text / string literals in <name>-data.tsx; &nbsp; for non-breaking spaces"
+    },
+    "images": {
+      "raster": "<img> with a co-located import (./images/x.webp) or a /images/<page>/... path under public/",
+      "vector": "import x from \"./x.svg\" is Next's static import (an object; render x.src) — next.config.js has no svg rule; inline <svg> for small marks",
+      "dir": "blocks/<page>/<name>/images/ or public/images/<page>/"
+    },
+    "links": {
+      "internal": "<a href> or next/link; Button href for CTAs",
+      "className": "textCn('rs-link')",
+      "external": "target=\"_blank\" rel=\"noopener noreferrer\""
+    },
+    "template": ".f2c/template"
+  },
+  "layout": {
+    "package": "@jetbrains/kotlin-web-site-ui/out/components/layout-v2",
+    "version": "4.14.9",
+    "column": "ktl-layout-v2 ktl-layout--center (one per page, around the section stack)",
+    "legacyColumn": "ktl-layout-to-2 > .ktl-layout.ktl-layout--center (compose-multiplatform, multiplatform)",
+    "sectionIdIsAnchor": true,
+    "rhythm": {
+      "kind": "section-padding",
+      "source": "each block's .wrapper { padding: <top> 0 <bottom> } (blocks/state-of-kotlin-2026/questions/questions.module.css)"
+    },
+    "roleSwitch": {
+      "kind": "media-in-module",
+      "source": "@media (--ktl-*-down) overrides inside the block's module css, or --rs-text-1-font-size overrides on the page wrapper"
+    }
+  },
+  "grid": {
+    "$comment": "ktl-layout-v2 widths read off node_modules/@jetbrains/kotlin-web-site-ui/out/components/layout-v2/index.css on 8 Oct 2026: 1144 (>1190), 952 (<=1190), 760 (<=1000), 568 (<=808), 424 (<=640), 312 (<=472). The toolkit's four ranges map to {max, pad}: content = max - 2*pad. The corpus page cmp recorded the same table (design/compose-multiplatform/page.json).",
+    "breakpoints": {
+      "xlg": 1540,
+      "lg": 1276,
+      "md": 1000,
+      "sm": 640
+    },
+    "customMedia": {
+      "ds": "--ktl-ds-down (<=1190)",
+      "tl": "--ktl-tl-down (<=1000)",
+      "ts": "--ktl-ts-down (<=808)",
+      "ml": "--ktl-ml-down (<=640)",
+      "ms": "--ktl-ms-down (<=472)"
+    },
+    "container": {
+      "base": {
+        "max": 1188,
+        "pad": 22
+      },
+      "lg": {
+        "max": 996,
+        "pad": 22
+      },
+      "md": {
+        "max": 612,
+        "pad": 22
+      },
+      "sm": {
+        "max": 640,
+        "pad": 24
+      }
+    },
+    "containerCssFromToolkit": false
+  },
+  "theme": {
+    "provider": "@rescui/ui-contexts#ThemeProvider (LandingLayout theme prop: 'dark' default | 'light')",
+    "tokensCss": "@jetbrains/kotlin-web-site-ui/out/components/common/index.css (+ pages/global.css :root --rs-color-primary-* = --ktl-color-primary-*)",
+    "fonts": {
+      "family": "JetBrains Sans",
+      "source": "@rescui/typography/lib/font-jb-sans-auto.css (pages/global.css), inter-ui for Inter"
+    },
+    "pagePalettes": [],
+    "switchable": null,
+    "canon": {
+      "reference": "the mock's theme (page.json.theme) — one theme per landing, no switcher",
+      "dark": "LandingLayout default; compose/multiplatform add an inner ThemeProvider theme='dark'",
+      "light": "LandingLayout theme='light' (state-of-kotlin-2026)"
+    }
+  },
+  "versions": {
+    "@rescui/typography": "0.24.2",
+    "@rescui/button": "0.18.0",
+    "@rescui/card": "0.8.3",
+    "@rescui/tag": "0.11.3",
+    "@rescui/collapse": "0.7.1",
+    "@rescui/tab-list": "0.11.12",
+    "@rescui/ui-contexts": "0.5.8",
+    "@rescui/icons": "1.7.1",
+    "@webteam/layout": "3.1.1 (installed, used by one legacy block only)",
+    "@jetbrains/kotlin-web-site-ui": "4.14.9",
+    "react": "18.3.1",
+    "next": "14.2.35",
+    "typescript": "4.9.5"
+  },
+  "textRoles": {
+    "extra": [],
+    "source": "artifacts/contracts.json (typography 0.24.2); @jetbrains/kotlin-web-site-ui ships no .d.ts — its components are read from node_modules/@jetbrains/kotlin-web-site-ui/out/components/<name>/ directly (components.md)"
+  },
+  "shot": {
+    "viewports": [
+      1540,
+      1276,
+      768,
+      360
+    ],
+    "blockRoutes": [
+      "**/googletagmanager.com/**",
+      "**/cdn.optimizely.com/**"
+    ],
+    "hideSelectors": [
+      "#optly-banner",
+      ".optly-banner"
+    ],
+    "hideForSections": [],
+    "cookies": {},
+    "reducedMotion": true,
+    "warmupScroll": true,
+    "$comment": "JetBrains Sans comes over the network from resources.jetbrains.com/storage/jetbrains-sans/ (@rescui/typography/lib/font-jb-sans-auto.css via pages/global.css) — never block that host: measure aborts on a page whose declared font did not load (8 Oct 2026, the first calibration run)."
+  },
+  "process": {
+    "branch": "figma-to-code (experiment; the project's own: ktl-<ticket>-<slug>)",
+    "commit": "feat: <description> | chore: … | fix: … (optional ktl-NNNN)",
+    "codeowners": "* @JetBrains/kotlinlang-code-reviewer",
+    "e2e": "test/e2e/<page>.spec.ts is part of the deliverable (.ai/guidelines.md): sections in order by data-testid, one h1, anchors; run with the dev server up: yarn test:e2e test/e2e/<page>.spec.ts",
+    "neverCommit": [],
+    "codeowned": [
+      "docs/",
+      "data/releases.yml",
+      "redirects/"
+    ]
+  },
+  "calibration": {
+    "$comment": "Toolkit mocks with a shipped human implementation in this project — measurable with no generation. The shipped page may be a later revision than the mock (compose-multiplatform: 5 blocks shipped, 6 sections in the mock DSGN-24703; last touched 12 Mar 2026) — a check of the instrument, not an acceptance number.",
+    "pairs": [
+      {
+        "toolkit": "design/compose-multiplatform",
+        "project": "pages/compose-multiplatform + blocks/compose-multiplatform"
+      }
+    ]
+  },
+  "annotations": {
+    "source": "Figma Dev Mode annotations left by designers on animated/interactive nodes",
+    "mcpShape": "get_design_context: attribute data-interaction-annotations=\"…\" on the annotated element (not the section root); absent from get_metadata",
+    "fallback": "designer question, logged as an intervention",
+    "hosts": [
+      "kotlinlang.org",
+      "www.kotlinlang.org"
+    ]
+  },
+  "index": {
+    "roots": [
+      "pages",
+      "blocks",
+      "components"
+    ],
+    "shared": [
+      "components"
+    ]
+  },
+  "contracts": {
+    "scopes": [
+      "@rescui",
+      "@webteam",
+      "@jetbrains/kotlin-web-site-ui"
+    ]
+  }
+}

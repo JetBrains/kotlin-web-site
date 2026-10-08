@@ -1,0 +1,220 @@
+{
+  "page": "compose-multiplatform",
+  "viewportWidth": 1540,
+  "mockupHeight": 5440,
+  "container": {
+    "base": {
+      "max": 1188,
+      "pad": 22
+    },
+    "lg": {
+      "max": 996,
+      "pad": 22
+    },
+    "md": {
+      "max": 612,
+      "pad": 22
+    },
+    "sm": {
+      "max": 640,
+      "pad": 24
+    }
+  },
+  "header": {
+    "height": 128
+  },
+  "footerGap": 0,
+  "footer": {
+    "height": 384
+  },
+  "sections": [
+    {
+      "name": "01-hero",
+      "width": 1144,
+      "gap": 0,
+      "sizing": "container"
+    },
+    {
+      "name": "02-format-cards",
+      "width": 1144,
+      "gap": 0,
+      "sizing": "container"
+    },
+    {
+      "name": "03-content",
+      "width": 1144,
+      "gap": 0,
+      "sizing": "container"
+    },
+    {
+      "name": "04-content",
+      "width": 1144,
+      "gap": 72,
+      "sizing": "container"
+    },
+    {
+      "name": "05-content",
+      "width": 1144,
+      "gap": 32,
+      "sizing": "container"
+    },
+    {
+      "name": "06-content",
+      "width": 1144,
+      "gap": 72,
+      "sizing": "container"
+    }
+  ],
+  "breakpoints": {
+    "lg": {
+      "media": 1276,
+      "viewportWidth": 1152,
+      "mockupHeight": 5387,
+      "header": {
+        "height": 128
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 952,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "02-format-cards",
+          "width": 952,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "03-content",
+          "width": 1144,
+          "gap": 0,
+          "sizing": "fixed"
+        },
+        {
+          "name": "04-content",
+          "width": 952,
+          "gap": 72,
+          "sizing": "container"
+        },
+        {
+          "name": "05-content",
+          "width": 952,
+          "gap": 32,
+          "sizing": "container"
+        },
+        {
+          "name": "06-content",
+          "width": 952,
+          "gap": 72,
+          "sizing": "container"
+        }
+      ]
+    },
+    "md": {
+      "media": 1000,
+      "viewportWidth": 808,
+      "mockupHeight": 8002,
+      "header": {
+        "height": 128
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 420
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 568,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "02-format-cards",
+          "width": 568,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "03-content",
+          "width": 568,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "04-content",
+          "width": 568,
+          "gap": 72,
+          "sizing": "container"
+        },
+        {
+          "name": "05-content",
+          "width": 568,
+          "gap": 32,
+          "sizing": "container"
+        },
+        {
+          "name": "06-content",
+          "width": 568,
+          "gap": 72,
+          "sizing": "container"
+        }
+      ]
+    },
+    "sm": {
+      "media": 640,
+      "viewportWidth": 360,
+      "mockupHeight": 9144,
+      "header": {
+        "height": 112
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 420
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 312,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "02-format-cards",
+          "width": 312,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "03-content",
+          "width": 312,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "04-content",
+          "width": 312,
+          "gap": 72,
+          "sizing": "container"
+        },
+        {
+          "name": "05-content",
+          "width": 312,
+          "gap": 32,
+          "sizing": "container"
+        },
+        {
+          "name": "06-content",
+          "width": 312,
+          "gap": 72,
+          "sizing": "container"
+        }
+      ]
+    }
+  }
+}
