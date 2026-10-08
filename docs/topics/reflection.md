@@ -1,369 +1,328 @@
 [//]: # (title: Reflection)
+[//]: # (description: Learn about Kotlin built-in reflection support and how to use the separate kotlin-reflect library for full runtime introspection.)
 
 _Reflection_ is a set of language and library features that allows you to introspect the structure of your program at runtime.
-Functions and properties are first-class citizens in Kotlin, and the ability to introspect them (for example, learning the name or
-the type of a property or function at runtime) is essential when using a functional or reactive style.
+For example, you can read or update a property, call a function, or invoke a class constructor to create an instance. This
+is helpful when you don't know the declarations at compile time.
 
-> Kotlin/JS provides limited support for reflection features. [Learn more about reflection in Kotlin/JS](js-reflection.md).
->
+Reflection provides runtime objects that describe compiled declarations. For example, a class is represented by [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/),
+a type by [`KType`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-type/), and a property or function by a subtype of [`KCallable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-callable/).
+You can inspect these objects and use them to access a value or invoke a function.
+
+## How reflection works
+
+The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) represents compiled declarations through Kotlin types such as `KClass` or `KFunction`.
+A reflection object represents the declaration itself, not the result of using it. For example, you can use a `KProperty`
+to get a property's name and return its type without reading that property from an object.
+
+Kotlin provides some basic features, such as class literals or [callable references](lambdas.md#callable-reference), as part of the language and standard
+library. To access more extensive runtime introspection, import the [`kotlin-reflect`](https://kotlinlang.org/api/core/kotlin-reflect/) library.
+
+The reflection APIs consist of the following packages:
+
+* [`kotlin.reflect`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/) is part of the standard library and contains core reflection types and functions.
+* [`kotlin.reflect.full`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/) with extensions for inspecting Kotlin declarations.
+* [`kotlin.reflect.jvm`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.jvm/) with JVM-specific extensions that connect Kotlin and Java reflections.
+
+> Reflection support may differ between platforms. This page aligns with Kotlin/JVM reflection API. Learn more about [reflection
+> in Kotlin/JS](js-reflection.md).
+> 
 {style="note"}
 
-## JVM dependency
+## Obtain a runtime class
 
-On the JVM platform, the Kotlin compiler distribution includes the runtime component required for using the reflection features as a separate
-artifact, `kotlin-reflect.jar`. This is done to reduce the required size of the runtime
-library for applications that do not use reflection features.
+Most reflection operations begin with a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/). How you obtain it depends on whether the class is known at compile time:
+
+* Use `ClassName::class` to reference a class known at compile time.
+* Use `value::class` to obtain the actual class of a runtime value, which may be more specific than its declared type.
+
+```kotlin
+import kotlin.reflect.KClass
+
+class User(val name: String)
+
+open class Language
+class Kotlin : Language()
+
+fun main() {
+    // Returns a KClass that represents User.
+    val userClass: KClass<User> = User::class
+    println(userClass.simpleName)
+    // User
+    
+    val language: Language = Kotlin()
+
+    // Returns a KClass that represents
+    // the concrete class of the value at runtime
+    val runtimeClass: KClass<out Language> = language::class
+    println(runtimeClass.simpleName)
+    // Kotlin
+}
+```
+{kotlin-runnable="true"}
+
+> The Kotlin standard library provides basic tools for inspecting classes. For more extensive runtime introspection, add 
+> the `kotlin-reflect` dependency and use its APIs.
+> 
+{style="note"}
+
+## Add the JVM dependency
+
+On the JVM platform, the Kotlin compiler distribution includes the runtime component required for using the reflection
+features as a separate artifact, `kotlin-reflect.jar`. This allows applications without reflection features to exclude this
+artifact and reduce the size of the runtime classpath.
 
 To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
 
-* In Gradle:
-
-    <tabs group="build-script">
-    <tab title="Kotlin" group-key="kotlin">
-
-    ```kotlin
-    dependencies {
-        implementation(kotlin("reflect"))
-    }
-    ```
-
-    </tab>
-    <tab title="Groovy" group-key="groovy">
-    
-    ```groovy
-    dependencies {
-        implementation "org.jetbrains.kotlin:kotlin-reflect:%kotlinVersion%"
-    }
-    ```
-
-    </tab>
-    </tabs>
-
-* In Maven:
-    
-    ```xml
-    <dependencies>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-reflect</artifactId>
-        </dependency>
-    </dependencies>
-    ```
-
-If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
-In other supported cases (IntelliJ IDEA projects that use the command-line compiler),
-it is added by default. In the command-line compiler, you can use the `-no-reflect` compiler option to exclude
-`kotlin-reflect.jar` from the classpath.
-
-## Class references
-
-The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
-statically known Kotlin class, you can use the _class literal_ syntax:
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
 
 ```kotlin
-val c = MyClass::class
+dependencies {
+    implementation(kotlin("reflect"))
+}
 ```
 
-The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html) type value.
+</tab>
+<tab title="Maven" group-key="maven">
 
->On JVM: a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
->use the `.java` property on a `KClass` instance.
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-reflect</artifactId>
+        <version>${kotlin.version}</version>
+    </dependency>
+</dependencies>
+```
+
+</tab>
+</tabs>
+
+If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project. The command-line
+compiler adds the library by default. To exclude it from the classpath, use the `-no-reflect` [compiler option](compiler-reference.md#compiler-options).
+
+## Inspect types
+
+`KClass` and `KType` represent different information. A `KClass` represents a class without preserving type arguments or
+nullability. For example, `List<String>` and `List<Int>` share the same `List::class` representation, and `String` and
+`String?` share `String::class`. Therefore, use the [`typeOf<T>()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/type-of.html) function to obtain a `KType` for the statically
+known type `T`, including its type arguments and nullability.
+
+In the following example, the `classifier` property connects the type to its class or type parameter. The `arguments`
+collection contains its type arguments. Therefore, the code can inspect `String?` separately from `List`:
+
+```kotlin
+import kotlin.reflect.typeOf
+
+fun main() {
+    val type = typeOf<List<String?>>()
+
+    println(type.classifier)
+    // class kotlin.collections.List
+    println(type.arguments.single().type)
+    // kotlin.String?
+}
+```
+
+> On the JVM, the created type has no annotations, even when you annotate the type in the source code. Support for type
+> annotations might be added in a future version of the `kotlin-reflect` library.
 >
 {style="note"}
 
-### Bound class references
+## Check values
 
-You can get the reference to the class of a specific object with the same `::class` syntax by using the object as a receiver:
+The [`is`, `as`, and `as?` operators](typecasts.md) work when you write the target type directly in the code. However, if you store the target class in a `KClass`, use:
 
-```kotlin
-val widget: Widget = ...
-assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
-```
-
-You will obtain the reference to the exact class of an object, for example, `GoodWidget` or `BadWidget`,
-regardless of the type of the receiver expression (`Widget`).
-
-## Callable references
-
-References to functions, properties, and constructors can
-also be called or used as instances of [function types](lambdas.md#function-types).
-
-The common supertype for all callable references is [`KCallable<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-callable/index.html),
-where `R` is the return value type. It is the property type for properties, and the constructed type for constructors.
-
-### Function references
-
-When you have a named function declared as below, you can call it directly (`isOdd(5)`):
+* The [`isInstance()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/is-instance.html) function, to check if a value is an instance of the class. It returns `true` or `false`.
+* The [`cast()`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/cast.html) function, to return the value with the target type. It throws an exception if the value is `null` or has an incompatible type.
+* The [`safeCast()`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/safe-cast.html) function, to return the value with the target type, or `null` if the value is `null` or has an incompatible type.
 
 ```kotlin
-fun isOdd(x: Int) = x % 2 != 0
-```
-
-Alternatively, you can use the function as a function type value, that is, pass it
-to another function. To do so, use the `::` operator:
-
-```kotlin
-fun isOdd(x: Int) = x % 2 != 0
+import kotlin.reflect.cast
+import kotlin.reflect.safeCast
 
 fun main() {
-//sampleStart
-    val numbers = listOf(1, 2, 3)
-    println(numbers.filter(::isOdd))
-//sampleEnd
+    val expectedClass = String::class
+    val value: Any = "Kotlin"
+
+    // Checks the value without casting it
+    println(expectedClass.isInstance(value))
+    // true
+
+    // Return the value as a String
+    val text = expectedClass.cast(value)
+    println(text.length)
+    // 6
+
+    // An incompatible cast throws an exception
+    val failedCast = runCatching {
+        Int::class.cast(value)
+    }
+    println(failedCast.isFailure)
+    // true
+
+    // A safe cast represents the same mismatch with null
+    val number = Int::class.safeCast(value)
+    println(number)
+    // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
-Here `::isOdd` is a value of function type `(Int) -> Boolean`.
+## Inspect a class
 
-Function references belong to one of the [`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/index.html)
-subtypes, depending on the parameter count. For instance, `KFunction3<T1, T2, T3, R>`.
+After obtaining a `KClass`, you can inspect its members. This way, you learn which declarations exist before using them.
+Use the [`members`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/members.html) property to inspect functions and properties of a class. It contains a collection of `KCallable` objects with all declarations accessible in the class, including inherited declarations. 
 
-`::` can be used with overloaded functions when the expected type is known from the context.
-For example:
-
-```kotlin
-fun main() {
-//sampleStart
-    fun isOdd(x: Int) = x % 2 != 0
-    fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
-    
-    val numbers = listOf(1, 2, 3)
-    println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
+For example, the following code lists the functions and properties accessible in a data class:
 
 ```kotlin
-val predicate: (String) -> Boolean = ::isOdd   // refers to isOdd(x: String)
-```
-
-If you need to use a member of a class or an extension function, it needs to be qualified: `String::toCharArray`.
-
-Even if you initialize a variable with a reference to an extension function, the inferred function type will
-have no receiver, but it will have an additional parameter accepting a receiver object. To have a function type
-with a receiver instead, specify the type explicitly:
-
-```kotlin
-val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
-```
-
-#### Example: function composition
-
-Consider the following function:
-
-```kotlin
-fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
-    return { x -> f(g(x)) }
-}
-```
-
-It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
-You can apply this function to callable references:
-
-```kotlin
-fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
-    return { x -> f(g(x)) }
-}
-
-fun isOdd(x: Int) = x % 2 != 0
+data class User(val name: String, val age: Int)
 
 fun main() {
-//sampleStart
-    fun length(s: String) = s.length
-    
-    val oddLength = compose(::isOdd, ::length)
-    val strings = listOf("a", "ab", "abc")
-    
-    println(strings.filter(oddLength))
-//sampleEnd
+    println(User::class.members.map { it.name }.sorted())
+    // [age, component1, component2, copy, equals, hashCode, name, toString]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Property references
+The `kotlin.reflect.full` package provides more specific properties for selecting declarations by kind, scope, and receiver:
 
-To access properties as first-class objects in Kotlin, use the `::` operator:
+| Property                                                                                                                                            | Returns                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [`declaredMembers`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-members.html)                                       | Functions and properties declared directly in the class, excluding inherited declarations                                                    |
+| [`functions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/functions.html)                                                    | All functions available from the class: non-static functions from the class and its superclasses, and static functions declared in the class |
+| [`declaredFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-functions.html)                                   | All functions declared in the class                                                                                                          |
+| [`memberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-functions.html)                                       | Non-extension, non-static functions declared in the class and its superclasses                                                               |
+| [`declaredMemberFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-functions.html)                      | Non-extension, non-static functions declared in the class                                                                                    |
+| [`memberExtensionFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-extension-functions.html)                    | Extension functions declared as members of the class or its superclasses                                                                     |
+| [`declaredMemberExtensionFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-extension-functions.html)   | Extension functions declared in the class                                                                                                    |
+| [`staticFunctions`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/static-functions.html)                                       | Static functions declared in the class                                                                                                       |
+| [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html)                                     | Non-extension properties declared in the class and its superclasses                                                                          |
+| [`declaredMemberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-properties.html)                    | Non-extension properties declared in the class                                                                                               |
+| [`memberExtensionProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-extension-properties.html)                  | Extension properties declared as members of the class or its superclasses                                                                    |
+| [`declaredMemberExtensionProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/declared-member-extension-properties.html) | Extension properties declared as members in the class.                                                                                       |
+| [`staticProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/static-properties.html)                                     | Properties representing static fields declared in Java classes                                                                               |
+
+Choose the narrowest property that matches the declarations your code needs. For example, a serializer might use
+`declaredMemberProperties` to process only properties introduced by a specific class, while a framework that searches
+for a callable API might need inherited `memberFunctions` as well.
+
+You can also [inspect sealed subclasses](sealed-classes.md#inspect-sealed-subclasses-with-reflection) with reflection.
+
+## Read a property
+
+Reflection allows you to read a property selected at runtime.
+For example, you have a UI configuration specifies `name` as the property to display from a `User` object.
+For that, the application must find the matching property declaration and then invoke its getter:
 
 ```kotlin
-val x = 1
+import kotlin.reflect.full.memberProperties
+
+data class User(val name: String, val age: Int)
+
+fun readProperty(instance: Any, propertyName: String): Any? {
+    // Inspect the runtime class
+    val runtimeClass = instance::class
+
+    // Find the property declaration
+    val property = runtimeClass.memberProperties
+        .firstOrNull { it.name == propertyName }
+        ?: error("Unknown property: $propertyName")
+
+    // Call the getter with the object as a receiver
+    return property.getter.call(instance)
+}
 
 fun main() {
-    println(::x.get())
-    println(::x.name) 
+    val user = User("Jane Doe", 22)
+
+    println(readProperty(user, "name"))
+    // Jane Doe
+    println(readProperty(user, "age"))
+    // 22
 }
 ```
 
-The expression `::x` evaluates to a `KProperty0<Int>` type property object. You can read its
-value using `get()` or retrieve the property name using the `name` property. For more information, see
-the [docs on the `KProperty` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
+This example uses [`memberProperties`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.full/member-properties.html) to return unbound property objects. These objects describe properties
+that belong to the class but aren't attached to a particular instance. Therefore, `getter.call()` needs `instance` as its
+receiver. The result has the `Any?` type because a property selected at runtime can return any type.
 
-For a mutable property such as `var y = 1`, `::y` returns a value with the [`KMutableProperty0<Int>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html) type
-which has a `set()` method:
+> If the property is known at compile time, use direct property access or a [callable reference](lambdas.md#callable-reference), instead of reflections.
+> 
+{style="tip"}
+
+## Call a function
+
+Dynamic function calls follow the same pattern as [properties](#read-a-property). If all arguments are available in their declared order, you
+can use [`call()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-callable/call.html). Declare an unbound member function with its object instance first, then add its regular arguments:
 
 ```kotlin
-var y = 1
+import kotlin.reflect.full.memberFunctions
+
+class Formatter {
+    fun format(text: String, uppercase: Boolean): String =
+        if (uppercase) text.uppercase() else text
+}
 
 fun main() {
-    ::y.set(2)
-    println(y)
+    val formatter = Formatter()
+
+    // Find the function by its name at runtime
+    val function = Formatter::class.memberFunctions
+        .single { it.name == "format" }
+
+    // Supply the receiver first, then the declared arguments in order
+    val result = function.call(formatter, "Kotlin", true)
+
+    println(result)
+    // KOTLIN
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-A property reference can be used where a function with a single generic parameter is expected:
+In this example, the call contains three values: the `Formatter` receiver, `text`, and `uppercase`. It also returns the `Any?` type
+and reports an incompatible receiver or argument at runtime.
+
+You can also associate values with `KParameter` objects instead of supplying them by position. For that, use the [`callBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-callable/call-by.html).
+function:
 
 ```kotlin
-fun main() {
-//sampleStart
-    val strs = listOf("a", "bc", "def")
-    println(strs.map(String::length))
-//sampleEnd
+import kotlin.reflect.full.instanceParameter
+import kotlin.reflect.full.memberFunctions
+import kotlin.reflect.full.valueParameters
+
+class Greeter {
+    fun greet(name: String, punctuation: String = "!") =
+        "Hello, $name$punctuation"
 }
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-To access a property that is a member of a class, qualify it as follows:
-
-```kotlin
-fun main() {
-//sampleStart
-    class A(val p: Int)
-    val prop = A::p
-    println(prop.get(A(1)))
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-For an extension property:
-
-```kotlin
-val String.lastChar: Char
-    get() = this[length - 1]
 
 fun main() {
-    println(String::lastChar.get("abc"))
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    val greeter = Greeter()
+    val function = Greeter::class.memberFunctions
+        .single { it.name == "greet" }
 
-### Interoperability with Java reflection
+    // valueParameters contains parameters declared in greet()
+    // but not the Greeter receiver
+    val nameParameter = function.valueParameters
+        .single { it.name == "name" }
 
-On the JVM platform, the standard library contains extensions for reflection classes that provide a mapping to and from Java
-reflection objects (see package `kotlin.reflect.jvm`).
-For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can write something like this:
+    val result = function.callBy(
+        mapOf(
+            // Member functions need an instance receiver
+            function.instanceParameter!! to greeter,
+            nameParameter to "Kotlin"
+        )
+    )
 
-```kotlin
-import kotlin.reflect.jvm.*
- 
-class A(val p: Int)
- 
-fun main() {
-    println(A::p.javaGetter) // prints "public final int A.getP()"
-    println(A::p.javaField)  // prints "private final int A.p"
-}
-```
-
-To get the Kotlin class that corresponds to a Java class, use the `.kotlin` extension property:
-
-```kotlin
-fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
-```
-
-### Constructor references
-
-Constructors can be referenced just like methods and properties. You can use them wherever the program expects a function type object
-that takes the same parameters as the constructor and returns an object of the appropriate type.
-Constructors are referenced by using the `::` operator and adding the class name. Consider the following function
-that expects a function parameter with no parameters and return type `Foo`:
-
-```kotlin
-class Foo
-
-fun function(factory: () -> Foo) {
-    val x: Foo = factory()
+    println(result)
+    // Hello, Kotlin!
 }
 ```
 
-Using `::Foo`, the zero-argument constructor of the class `Foo`, you can call it like this:
+In this example, `instanceParameter` identifies the member-function receiver, and `valueParameters` contains only parameters declared in the function signature.
 
-```kotlin
-function(::Foo)
-```
-
-Callable references to constructors are typed as one of the
-[`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/index.html) subtypes
-depending on the parameter count.
-
-### Bound function and property references
-
-You can refer to an instance method of a particular object:
-
-```kotlin
-fun main() {
-//sampleStart
-    val numberRegex = "\\d+".toRegex()
-    println(numberRegex.matches("29"))
-     
-    val isNumber = numberRegex::matches
-    println(isNumber("29"))
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Instead of calling the method `matches` directly, the example uses a reference to it.
-Such a reference is bound to its receiver.
-It can be called directly (like in the example above) or used whenever a function type expression is expected:
-
-```kotlin
-fun main() {
-//sampleStart
-    val numberRegex = "\\d+".toRegex()
-    val strings = listOf("abc", "124", "a70")
-    println(strings.filter(numberRegex::matches))
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Compare the types of the bound and the unbound references.
-The bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
-
-```kotlin
-val isNumber: (CharSequence) -> Boolean = numberRegex::matches
-
-val matches: (Regex, CharSequence) -> Boolean = Regex::matches
-```
-
-A property reference can be bound as well:
-
-```kotlin
-fun main() {
-//sampleStart
-    val prop = "abc"::length
-    println(prop.get())
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-You don't need to specify `this` as the receiver: `this::foo` and `::foo` are equivalent.
-
-### Bound constructor references
-
-A bound callable reference to a constructor of an [inner class](nested-classes.md#inner-classes) can
-be obtained by providing an instance of the outer class:
-
-```kotlin
-class Outer {
-    inner class Inner
-}
-
-val o = Outer()
-val boundInnerCtor = o::Inner
-```
+> Use `call()` when the complete ordered argument list is already available.
+> 
+> Use `callBy()` when you match arguments to parameter objects or let optional parameters use their defaults.
+> 
+{style="tip"}
