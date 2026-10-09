@@ -302,7 +302,7 @@ Because `component2()` is private as well, you can only destructure such an inst
 
 ### Property accessors
 
-A data class doesn't need any special handling of [property accessors](properties.md#getters-and-setters): a `val`
+A data class doesn't need any special handling of [property accessors](properties.md#custom-getters-and-setters): a `val`
 property has a generated getter and a `var` property has a generated getter and setter, exactly as in a class without
 the `data` keyword. On the JVM, this means that `data class User(val name: String, var age: Int)` is visible from Java
 code as `getName()`, `getAge()`, and `setAge()`.
