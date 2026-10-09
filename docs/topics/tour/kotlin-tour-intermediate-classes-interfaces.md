@@ -366,6 +366,8 @@ fun main() {
 ```
 {kotlin-runnable="true" id="kotlin-tour-interface-non-delegation"}
 
+Notice that even though `CanvasSession` overrides the `color` property to `"blue"`, calling `session.draw("circle")` still outputs `"black"`. This is because `CanvasSession` delegates the `draw` call directly to the `PenTool` instance. The `PenTool` instance does not know about the overridden property in `CanvasSession` and relies entirely on its own internal state.
+
 You can see that if you have a large number of member functions in the `DrawingTool` interface, the amount of boilerplate
 code in the `CanvasSession` class can be large. However, there is an alternative.
 
