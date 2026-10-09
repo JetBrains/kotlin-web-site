@@ -859,3 +859,8 @@
 
 - from: /docs/multiplatform/choosing-web-target.html
   to: /docs/web-overview.html
+
+- from:
+    - /docs/set-operations.html
+    - docs/collection-plus-minus.html
+  to: /docs/collection-combine.html

@@ -1,4 +1,4 @@
-[//]: # (title: Ordering)
+[//]: # (title: Order collections)
 
 The order of elements is an important aspect of certain collection types.
 For example, two lists of the same elements are not equal if their elements are ordered differently. 
@@ -112,9 +112,9 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
-On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#collection-types) collections.
+On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#read-only-and-mutable-collections) collections.
 These functions return their result as a new collection containing the elements of the original collection in the requested order.
-To learn about functions for sorting [mutable](collections-overview.md#collection-types) collections in place, see the [List-specific operations](list-operations.md#sort).
+To learn about functions for sorting [mutable](collections-overview.md#read-only-and-mutable-collections) collections in place, see the [List-specific operations](list-operations.md#sort).
 
 ## Natural order
 
