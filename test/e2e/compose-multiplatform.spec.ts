@@ -28,6 +28,21 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));
     });
 
+    test('check hero platforms chips', async () => {
+        const platforms = [
+            { name: 'Android', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'iOS', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'Web', href: 'https://kotl.in/wasm-compose-example' },
+            { name: 'Desktop', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' }
+        ];
+
+        for (const { name, href } of platforms) {
+            const chip = composePage.hero.getByRole('tab', { name, exact: true });
+            await expect(chip).toBeVisible();
+            await expect(chip).toHaveAttribute('href', href);
+        }
+    });
+
     test('check platforms block', async () => {
         await expect(composePage.platformsBlock).toBeVisible();
         await expect(composePage.platformsContent).toBeVisible();
