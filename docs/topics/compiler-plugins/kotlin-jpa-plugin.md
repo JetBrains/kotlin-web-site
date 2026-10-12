@@ -25,7 +25,7 @@ JPA can call it through reflection.
 ## Supported JPA annotations
 
 JPA annotations exist in two package namespaces: the older `javax.persistence` (Java EE) and the newer
-`jakarta.persistence` (Jakarta EE 9 and later, used by Spring Boot 3.x and later). The `kotlin-jpa` plugin recognizes
+`jakarta.persistence` (since Jakarta EE 9, used by Spring Boot 3.x and later). The `kotlin-jpa` plugin recognizes
 both namespaces and specifies the following annotations automatically for the underlying `no-arg` and `all-open` plugins:
 
 * `javax.persistence.Entity` and `jakarta.persistence.Entity`
@@ -136,9 +136,13 @@ conflict with how JPA providers manage entities. Follow these guidelines to avoi
 * **Declare mapped properties as `var`.** JPA sets fields when hydrating an entity, so mapped properties must be mutable.
 * **Make generated identifiers nullable and mutable.** A `@GeneratedValue` identifier is `null` until the entity is
   persisted, so declare it as `var id: Long? = null`.
+  
+  > You can't use `lateinit` on primitive types in Kotlin.
+  >
+  {style="note"}
+  
 * **Base `equals()` and `hashCode()` only on the identifier and type**, not on all properties. This keeps them stable
   across the entity lifecycle and avoids loading lazy fields.
-* **Add the `kotlin-reflect` dependency**, which JPA providers rely on to work with Kotlin classes.
 
 For a detailed discussion of these pitfalls, see the
 [How to avoid common pitfalls with JPA and Kotlin](https://blog.jetbrains.com/idea/2026/01/how-to-avoid-common-pitfalls-with-jpa-and-kotlin/) blog post.

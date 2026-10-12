@@ -63,7 +63,7 @@ plugins {
 </tab>
 </tabs>
 
-Then specify an annotation or a list of annotations that make classes `open`:
+Then specify the annotation you declared earlier (for example, `com.example.AllOpenMarker`) or a list of annotations that make classes `open`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

@@ -5,7 +5,7 @@ The `no-arg` compiler plugin generates a zero-argument constructor for classes w
 The generated constructor is annotated with `@Deprecated` at the `HIDDEN` level, so you can call it from Java but not from Kotlin.
 Frameworks can call it through reflection.
 
-This lets the Java Persistence API (JPA) instantiate a class that doesn't declare a zero-argument constructor in Kotlin or Java.
+For example, this allows frameworks such as the Java Persistence API (JPA) to instantiate Kotlin classes that don't declare a zero-argument constructor.
 
 > For JPA entities with Kotlin, you can use the [`kotlin-jpa` compiler plugin](kotlin-jpa-plugin.md).
 > It specifies JPA annotations such as `@Entity`, `@Embeddable`, and `@MappedSuperclass` automatically.
@@ -52,7 +52,7 @@ plugins {
 </tab>
 </tabs>
 
-Then specify the annotations that make the plugin generate a zero-argument constructor for the annotated classes:
+Then specify the annotation you declared earlier (for example, `com.example.NoArgAnnotation`) to generate a zero-argument constructor for annotated classes:
 
 ```groovy
 noArg {
