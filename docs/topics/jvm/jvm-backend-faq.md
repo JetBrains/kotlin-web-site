@@ -79,7 +79,7 @@ You may encounter the "Tests run: 0" error when trying to run the `mvn test` com
 * **Test sources aren't compiled**: ensure that the Kotlin `test-compile` execution runs so your Kotlin test sources are
   compiled before tests execute.
 
-### How do I configure Surefire plugin to run JUnit tests?
+### How do I configure the Surefire plugin to run JUnit tests?
 
 To configure the Surefire plugin for running JUnit tests:
 
@@ -185,7 +185,7 @@ For more information on kapt configuration, see [kapt compiler plugin](kapt.md).
 
 ### How do I enforce Kotlin formatting checks?
 
-Bind a ktlint `check` goal to the `verify` phase in your `pom.xml` build file, so CI fails if formating rules are violated.
+Bind a ktlint `check` goal to the `verify` phase in your `pom.xml` build file, so CI fails if formatting rules are violated.
 Keep `format` as an explicit developer action. You can adjust formatting rules in the `.editorconfig` file.
 
 For more information, see [Code formatting with ktlint](jvm-code-analysis.md#code-formatting-with-ktlint).
@@ -272,9 +272,9 @@ To publish a Kotlin library to [Maven Central](https://central.sonatype.com/), a
 * [GPG signatures for every artifact](#how-do-i-sign-artifacts-for-maven-central-in-a-ci-friendly-way)
 * Complete POM metadata, including name, description, license, developers, and SCM information.
 
-You deploy these artifacts through the Maven Central, for example with the
+You deploy these artifacts through Maven Central, for example with the
 [`central-publishing-maven-plugin`](https://central.sonatype.org/publish/publish-portal-maven/). Running `mvn deploy`
-generates a deployment bundle and uploads it to the Maven Central for validation. The plugin doesn't generate the source
+generates a deployment bundle and uploads it to Maven Central for validation. The plugin doesn't generate the source
 JAR, Javadoc JAR, or GPG signatures for you, so you configure those prerequisites separately.
 
 Remember that Maven Central releases are immutable: once a version is published, it can't be replaced.
@@ -319,6 +319,6 @@ errors. They indicate a mismatch between the Kotlin compiler and the Kotlin libr
 
 * Align the version used by the compiler and all Kotlin libraries. Declare the Kotlin version once in the `<properties>` section
   and reference it with `${kotlin.version}` and use the [Kotlin BOM](maven-set-dependencies.md#manage-dependencies-with-a-bom) file.
-* Remove older transitive Kotlin artifacts that use in an incompatible version.
+* Remove older transitive Kotlin artifacts that use an incompatible version.
 * Check [`languageVersion` and `apiVersion`](maven-kotlin-compiler.md#attributes-specific-to-jvm) against the Kotlin
   version you want to target.
