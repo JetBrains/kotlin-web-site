@@ -109,4 +109,4 @@ The Gist preserves all code, output, and Markdown from your notebook in JSON for
 
 * [Learn about the Kotlin Notebook's usage and key features.](https://www.jetbrains.com/help/idea/kotlin-notebook.html)
 * [Try out Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
-* [Deep dive into Kotlin for data analysis.](data-analysis-overview.md)
+* [Deep dive into Kotlin for data analysis.](data-analysis/data-analysis-overview.md)
