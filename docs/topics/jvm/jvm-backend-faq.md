@@ -5,7 +5,7 @@ Each answer has a link to a more detailed explanation in the Kotlin or external 
 
 ## Multi-module builds, BOM, and version management
 
-### How do I pin a single Kotlin version across a multi-module build?
+### How to pin a single Kotlin version across a multi-module build?
 
 Declare a single `kotlin.version` property in the parent POM file and reuse it everywhere:
 
@@ -16,7 +16,7 @@ Declare a single `kotlin.version` property in the parent POM file and reuse it e
   `kotlin-test`, and other artifacts always resolve to the same release and don't differ from module to module.
   For more information, see [Manage dependencies with a BOM](maven-set-dependencies.md#manage-dependencies-with-a-bom).
 
-### What is the Kotlin BOM and how do I use it?
+### What is the Kotlin BOM and how to use it?
 
 The Kotlin BOM (`org.jetbrains.kotlin:kotlin-bom`) is a special POM file that manages the versions of Kotlin libraries so that
 related artifacts stay aligned to the same Kotlin release, even when they come in as transitive dependencies.
@@ -36,7 +36,7 @@ incompatibilities. The easiest way to stay consistent is to use the same Kotlin 
 * Import the [Kotlin BOM](maven-set-dependencies.md#manage-dependencies-with-a-bom) so all Kotlin libraries follow the same
   release.
 
-### How do I configure Kotlin compiler options across all modules?
+### How to configure Kotlin compiler options across all modules?
 
 To configure the Kotlin compiler across all Maven modules, set the options in one place in the parent `pom.xml` file
 in one of the following ways:
@@ -79,7 +79,7 @@ You may encounter the "Tests run: 0" error when trying to run the `mvn test` com
 * **Test sources aren't compiled**: ensure that the Kotlin `test-compile` execution runs so your Kotlin test sources are
   compiled before tests execute.
 
-### How do I configure the Surefire plugin to run JUnit tests?
+### How to configure the Surefire plugin to run JUnit tests?
 
 To configure the Surefire plugin for running JUnit tests:
 
@@ -103,7 +103,7 @@ When upgrading, ensure that:
 
 For more information, see [Create tests with JUnit](jvm-test-maven.md#create-tests-with-junit).
 
-### How do I split unit and integration tests?
+### How to split unit and integration tests?
 
 Split execution between two plugins. For unit tests, use the [Surefire plugin](jvm-test-maven.md#with-surefire-plugin) during the `test` phase.
 Use the `*Test` naming convention for your unit tests.
@@ -139,7 +139,7 @@ If you'd like to write your own annotation processors, use [KSP](ksp-quickstart.
 
 For more information, see [Annotation processors in Kotlin projects](jvm-annotation-processors.md).
 
-### How do I configure kapt?
+### How to configure kapt?
 
 To configure kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` **before**
 the `compile` execution and list the annotation processors explicitly under `<annotationProcessorPaths>`. This ensures
@@ -183,7 +183,7 @@ For more information on kapt configuration, see [kapt compiler plugin](kapt.md).
 
 ## Quality gates: formatting and coverage
 
-### How do I enforce Kotlin formatting checks?
+### How to enforce Kotlin formatting checks?
 
 Bind a ktlint `check` goal to the `verify` phase in your `pom.xml` build file, so CI fails if formatting rules are violated.
 Keep `format` as an explicit developer action. You can adjust formatting rules in the `.editorconfig` file.
@@ -211,7 +211,7 @@ pipeline and reporting around it.
 
 For more information, see [Code coverage with Kover](jvm-code-analysis.md#code-coverage-with-kover).
 
-### How do I generate an aggregated coverage report for a multi-module project?
+### How to generate an aggregated coverage report for a multi-module project?
 
 To generate a coverage report for all modules in your Maven project, collect coverage data from every module
 and aggregate it in a dedicated reporting module that depends on the others. This way,
@@ -222,7 +222,7 @@ For more information, see [Code coverage with Kover](jvm-code-analysis.md#code-c
 
 ## Building applications: packaging and runtime
 
-### How do I build a runnable JAR and set the entry point?
+### How to build a runnable JAR and set the entry point?
 
 To build a runnable JAR, you need to set the `Main-Class` entry point. It should be the name of the JVM class compiled
 from the Kotlin file with a top-level `main()` function. For example, the `main()` function in the `Main.kt` file
@@ -237,12 +237,12 @@ For more information, see [Create JAR files](maven-compile-package.md#create-jar
 You may encounter "Could not find or load main class" errors when building the application, especially in containers.
 To debug the problem, work through this checklist:
 
-* Check that the `Main-Class` in the manifest points to the [correct compiled class](#how-do-i-build-a-runnable-jar-and-set-the-entry-point).
+* Check that the `Main-Class` in the manifest points to the [correct compiled class](#how-to-build-a-runnable-jar-and-set-the-entry-point).
 * Ensure that you're running the right artifact: a thin [JAR](maven-compile-package.md#create-jar-files) requires its
   dependencies on the classpath, while a [self-contained JAR](maven-compile-package.md#create-self-contained-jar-files) bundles them.
 * Check if the container entry point uses the correct `java -jar` command and classpath.
 
-### How do I build a fat JAR together with Kotlin runtime classes?
+### How to build a fat JAR together with Kotlin runtime classes?
 
 To build a fat (uber) JAR and avoid missing Kotlin runtime classes, build a self-contained JAR that bundles your
 dependencies and ensures the Kotlin standard library is on the runtime classpath. Because the fat JAR includes dependencies,
@@ -265,24 +265,24 @@ Keep JVM arguments for the Maven build process, test JVMs, and runtime in three 
 
 ### What are the requirements to publish to Maven Central?
 
-To publish a Kotlin library to [Maven Central](https://central.sonatype.com/), at a minimum you need:
+To publish a Kotlin library to [Maven Central](https://central.sonatype.com/):
 
-* The main artifact plus a [source JAR](#how-do-i-attach-and-deploy-a-source-jar)
-* Documentation (Javadoc) JAR
-* [GPG signatures for every artifact](#how-do-i-sign-artifacts-for-maven-central-in-a-ci-friendly-way)
-* Complete POM metadata, including name, description, license, developers, and SCM information.
+1. **Prepare the artifacts**: build the main artifact, the [source JAR](#how-to-attach-and-deploy-a-source-jar),
+   and the documentation (Javadoc) JAR.
+2. **Complete the POM metadata**: name, description, license, developers, and SCM information.
+3. **Sign the artifacts**: generate a GPG signature for every artifact in a [CI-friendly way](#how-to-sign-artifacts-for-maven-central-in-a-ci-friendly-way).
+4. **Deploy the artifacts**: run `mvn deploy` with the [`central-publishing-maven-plugin`](https://central.sonatype.org/publish/publish-portal-maven/)
+   to generate a deployment bundle and upload it to Maven Central for validation.
 
-You deploy these artifacts through Maven Central, for example with the
-[`central-publishing-maven-plugin`](https://central.sonatype.org/publish/publish-portal-maven/). Running `mvn deploy`
-generates a deployment bundle and uploads it to Maven Central for validation. The plugin doesn't generate the source
-JAR, Javadoc JAR, or GPG signatures for you, so you configure those prerequisites separately.
+   The plugin doesn't generate the source JAR, Javadoc JAR, or GPG signatures for you, so you configure those
+   prerequisites separately.
 
 Remember that Maven Central releases are immutable: once a version is published, it can't be replaced.
 
 For more information on generating the documentation JAR, see the [Dokka documentation engine](dokka-maven.md).
 For the full publishing process and requirements, see the official [Sonatype documentation](https://central.sonatype.org/publish/publish-portal-maven/).
 
-### How do I attach and deploy a source JAR?
+### How to attach and deploy a source JAR?
 
 To attach and deploy a source JAR for a Maven-based Kotlin library, bind the [`maven-source-plugin`](https://maven.apache.org/plugins/maven-source-plugin/)
 to the build lifecycle so that the source artifact is attached automatically and deployed together with the main artifact.
@@ -290,7 +290,7 @@ to the build lifecycle so that the source artifact is attached automatically and
 If your project publishes several libraries released together, consider providing your own [BOM](maven-set-dependencies.md#manage-dependencies-with-a-bom)
 file so that consumers can align versions the same way you align Kotlin artifacts.
 
-### How do I sign artifacts for Maven Central in a CI-friendly way?
+### How to sign artifacts for Maven Central in a CI-friendly way?
 
 To configure Maven Central artifacts in a CI-friendly way, we recommend to:
 
