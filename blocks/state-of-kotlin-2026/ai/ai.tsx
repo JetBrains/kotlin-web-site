@@ -139,7 +139,7 @@ export const Ai: FC = () => {
                     <div className={styles.assistedHeading}>
                         <h3 className={cn(styles.panelTitle, textCn('rs-h3'))}>AI-assisted Kotlin development</h3>
                         <p className={cn(styles.panelLead, textCn('rs-text-1', { hardness: 'hard' }))}>
-                            AI tools are already common in the surveyed group, and the output holds up.
+                            AI tools are already common in the surveyed group, and the output holds&nbsp;up.
                         </p>
                     </div>
                     <div className={styles.statGrid}>
