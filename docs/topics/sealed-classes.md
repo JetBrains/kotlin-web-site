@@ -219,7 +219,9 @@ For more information, see [Guard conditions in when expressions](control-flow.md
 
 ## Inspect sealed subclasses with reflection
 
-You can use [Reflection](reflection.md) functionality to inspect sealed subclasses. 
+You can use [Reflection](reflection.md) functionality to inspect the direct subclasses of a sealed class or interface at runtime.
+It helps a framework code discover the variants of a sealed hierarchy. For example, you can register a
+serializer or verify that every variant has a handler. 
 
 If you need to inspect a known direct subclass, use [sealedSubclasses](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/sealed-subclasses.html).
 The method returns a [`KClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/) that can represent a regular class or an object declaration. For an object declaration,

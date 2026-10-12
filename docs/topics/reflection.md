@@ -12,7 +12,7 @@ You can inspect these objects and use them to access a value or invoke a functio
 ## How reflection works
 
 The [reflection API](https://kotlinlang.org/api/core/kotlin-reflect/) represents compiled declarations through Kotlin types such as `KClass` or `KFunction`.
-A reflection object represents the declaration itself, not the result of using it. For example, you can use a `KProperty`
+A reflection object represents the declaration itself, not the value of the declared object. For example, you can use a `KProperty`
 to get a property's name and return its type without reading that property from an object.
 
 Kotlin provides some basic features, such as class literals or [callable references](lambdas.md#callable-reference), as part of the language and standard
@@ -28,6 +28,36 @@ The reflection APIs consist of the following packages:
 > in Kotlin/JS](js-reflection.md).
 > 
 {style="note"}
+
+### Interoperability with Java reflection
+
+On the JVM, the `kotlin-reflect` library provides extensions in the [`kotlin.reflect.jvm`](https://kotlinlang.org/api/core/kotlin-reflect/kotlin.reflect.jvm/) package for converting between
+Kotlin and Java reflection objects. For example, you can find the Java method that implements a Kotlin property getter
+and the property's backing field:
+
+```kotlin
+import kotlin.reflect.jvm.*
+
+class User(val name: String)
+
+fun main() {
+    println(User::name.javaGetter)
+    // public final java.lang.String User.getName()
+
+    println(User::name.javaField)
+    // private final java.lang.String User.name
+}
+```
+
+A Kotlin property doesn't always have a corresponding Java field or getter, so both properties return `null` when no matching
+Java reflection object exists.
+
+You can also convert between Kotlin `KClass` and Java `Class` objects. To get the Kotlin class that corresponds to a
+Java class, use the `.kotlin` extension property:
+
+```kotlin
+fun getKClass(o: Any): KClass<Any> = value.javaClass.kotlin
+```
 
 ## Obtain a runtime class
 
@@ -61,10 +91,8 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-> The Kotlin standard library provides basic tools for inspecting classes. For more extensive runtime introspection, add 
-> the `kotlin-reflect` dependency and use its APIs.
-> 
-{style="note"}
+The Kotlin standard library provides basic tools for inspecting classes. For more extensive runtime introspection, add 
+the `kotlin-reflect` dependency and use its APIs.
 
 ## Add the JVM dependency
 
@@ -213,7 +241,7 @@ You can also [inspect sealed subclasses](sealed-classes.md#inspect-sealed-subcla
 ## Read a property
 
 Reflection allows you to read a property selected at runtime.
-For example, you have a UI configuration specifies `name` as the property to display from a `User` object.
+For example, you have a UI configuration that specifies `name` as the property to display from a `User` object.
 For that, the application must find the matching property declaration and then invoke its getter:
 
 ```kotlin
