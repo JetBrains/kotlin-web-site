@@ -479,7 +479,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-lateinit-property" validate="false"}
 
 To check whether a `lateinit var` has already been initialized, use the [`isInitialized`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/is-initialized.html)
-property on the [reference to that property](reflection.md#property-references):
+property on the [reference to that property](lambdas.md#property-references):
 
 ```kotlin
 class WeatherStation {
