@@ -20,8 +20,8 @@ class GetPriceInEurosTest {
 
             else -> when {
                 failed.thrown != null -> hint(
-                    "Use safe call operators (?.) so that a null product info or " +
-                            "price does not stop the program.",
+                    "Use safe call operators (?.) so that a null value " +
+                            "doesn't stop the program.",
                     failed
                 )
 
@@ -34,7 +34,7 @@ class GetPriceInEurosTest {
 
                 else -> hint(
                     "Convert the price with the convertToEuros() function. " +
-                            "For 100.0 dollars it returns 85.0.",
+                            "For 100.0 dollars it should return 85.0.",
                     failed
                 )
             }

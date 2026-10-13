@@ -12,7 +12,7 @@ class FetchDataTest {
 
             output.isEmpty() -> hint(
                 "Print the builder's text inside the lambda with " +
-                        "println(this.toString()). Here this is the StringBuilder " +
+                        "println(this.toString()). this is the StringBuilder " +
                         "that fetchData() creates."
             )
 

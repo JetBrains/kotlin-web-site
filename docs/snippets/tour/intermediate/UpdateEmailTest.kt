@@ -42,14 +42,14 @@ class UpdateEmailTest {
                 "ID: 1" in log -> hint(
                     "Take the ID for the log message from the user being " +
                             "updated. Inside also, it refers to that user. For a " +
-                            "user with ID 7 the log says \"Updating email " +
+                            "user with ID 7 the log should say \"Updating email " +
                             "for user with ID: 7\".",
                     log
                 )
 
                 else -> hint(
                     "Print the log message with the also scope function after " +
-                            "the update, for example for a user with ID 7: " +
+                            "the update. For example for a user with ID 7: " +
                             "\"Updating email for user with ID: 7\".",
                     log
                 )

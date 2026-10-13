@@ -24,7 +24,7 @@ class AsMilesTest {
 
             else -> when {
                 failed.thrown != null -> hint(
-                    "Return the converted value from the property's getter. " +
+                    "Return the converted value from the property's get() function. " +
                             "asMiles works for any kilometer value.",
                     failed
                 )

@@ -25,30 +25,30 @@ class GetActiveUsernamesTest {
             null -> passed(
                 "getActiveUsernames() returns the usernames of active users and " +
                         "excludes inactive users. The test doesn't check whether " +
-                        "you use a single mapNotNull() lambda."
+                        "you use a single mapNotNull() function with a lambda."
             )
 
             else -> when {
                 failed.thrown != null -> hint(
-                    "Return the username or null from the lambda. mapNotNull() " +
+                    "Return the username or null from the lambda function. mapNotNull() " +
                             "must not throw an exception for inactive users.",
                     failed
                 )
 
                 "eli" in failed.actual.toString() || "hana" in failed.actual.toString() -> hint(
-                    "Return null from the lambda when the user is not active. " +
+                    "Return null from the lambda function when the user is not active. " +
                             "mapNotNull() then leaves that user out.",
                     failed
                 )
 
                 failed.actual == emptyList<Any?>() -> hint(
-                    "Return the user's username from the lambda when the user is " +
+                    "Return the user's username from the lambda function when the user is " +
                             "active.",
                     failed
                 )
 
                 else -> hint(
-                    "Make the lambda return the username for active users and " +
+                    "Make the lambda function return the username for active users and " +
                             "null for inactive ones.",
                     failed
                 )
