@@ -99,7 +99,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 ## Practice {completion-point="true"}
 
 <deflist appearance="clear" collapsible="true">
-<def title="Print a statement using string templates">
+<def title="Print a statement using string templates" id="hello-world-exercise-1">
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 

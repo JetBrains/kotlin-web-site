@@ -421,7 +421,7 @@ that you can use in your programs.
 ## Practice {completion-point="true"}
 
 <deflist appearance="clear" collapsible="true" numbered="true">
-<def title="Count the total number of items in two lists">
+<def title="Count the total number of items in two lists" id="collections-exercise-1">
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there
 are in total.
@@ -446,7 +446,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
 </def>
-<def title="Check whether a requested protocol is supported">
+<def title="Check whether a requested protocol is supported" id="collections-exercise-2">
 
 You have a set of protocols supported by your server. A user requests to use a particular protocol. Complete the program
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
@@ -479,7 +479,7 @@ fun main() {
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 </def>
-<def title="Spell out a number using a map">
+<def title="Spell out a number using a map" id="collections-exercise-3">
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.
