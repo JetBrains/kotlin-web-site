@@ -21,10 +21,10 @@ and GitHub Copilot.
 
 Learn how to set up and use AI skills in:
 
+* [With agents in the terminal](https://github.com/Kotlin/kotlin-agent-skills#installation)
 * IDEs:
   * [IntelliJ IDEA](https://www.jetbrains.com/help/ai-assistant/agent-skills.html)
   * [Android Studio](https://developer.android.com/tools/agents/android-skills)
-* [In agents via terminal](https://github.com/Kotlin/kotlin-agent-skills#installation)
 
 ## Supported workflows
 
@@ -83,7 +83,7 @@ help you with.
     </panel>
     <panel>
         <title>Create a Kotlin Toolchain plugin</title>
-        <p>Create local plugins for custom build tasks, code generation, verification, and packaging.</p>
+        <p>Create a local plugin for custom build tasks, code generation, verification, and packaging.</p>
         <a href="https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-kotlin-toolchain-plugin-authoring" as="button" icon="arrow-right" icon-position="right" id="kotlin-tooling-kotlin-toolchain-plugin-authoring">AI skill</a>
     </panel>
 </panels>
