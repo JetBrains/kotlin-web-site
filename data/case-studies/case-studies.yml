@@ -441,6 +441,21 @@ items:
     isExternal: true
     link: https://www.gooddata.ai/blog/ai-on-duty/
   #------------------------------------------------------------------------
+  - id: cobrainer
+    type: ai
+    description: >-
+      **Cobrainer** is a Munich-based B2B HR-tech company whose Work Orchestration Platform, built on an
+      AI-native skills-intelligence data layer, organises the work of mid-sized and enterprise companies
+      worldwide. Its six-person engineering team runs Kotlin across the entire production AI stack: shared
+      end-to-end types, sealed classes, kotlinx.serialization, null safety, coroutines, graph-based workflows
+      and cross-provider fallback chains. That single language and type system lets a small team ship and
+      operate AI features reliably at this scale; removing blocking code from coroutine paths alone
+      increased throughput fivefold on the affected workflows.
+    logo:
+      - /images/case-studies/cobrainer-logo.svg
+    isExternal: true
+    link: https://dev.to/cobrainer/the-jvm-speaks-ai-cobrainers-journey-with-kotlin-koog-and-exposed-386h
+  #------------------------------------------------------------------------
   - id: doist
     type: multiplatform
     description: >-
