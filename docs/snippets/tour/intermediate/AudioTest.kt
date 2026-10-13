@@ -26,13 +26,13 @@ class AudioTest {
             audioOf("Nocturne", "Chopin")
         } catch (e: Throwable) {
             hint(
-                "Make Audio creatable the way main() creates it. " +
+                "Declare the Audio class so that the code in main() runs successfully. " +
                         "Audio(\"Nocturne\", \"Chopin\") throws ${e::class.simpleName}.",
                 ""
             )
         }
         if (audio !is Media) hint(
-            "Make Audio implement your Media interface. Add : Media to the " +
+            "Make the Audio class inherit from the Media interface. Add : Media to the " +
                     "class header and override the interface's members.",
             ""
         )
@@ -69,13 +69,13 @@ class AudioTest {
 
             "Symphony No. 5" in played || "Beethoven" in played -> hint(
                 "Build the message from the title and composer properties instead " +
-                        "of fixed text. This audio is Nocturne, composed by Chopin.",
+                        "of using fixed text. The audio is Nocturne, composed by Chopin.",
                 played
             )
 
             played != "Playing audio: Nocturne, composed by Chopin" -> hint(
                 "Make play() print \"Playing audio: \$title, composed by " +
-                        "\$composer\". For this audio that is \"Playing audio: " +
+                        "\$composer\". For this audio it should be \"Playing audio: " +
                         "Nocturne, composed by Chopin\".",
                 played
             )

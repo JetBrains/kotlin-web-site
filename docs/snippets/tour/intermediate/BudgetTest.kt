@@ -50,9 +50,9 @@ class BudgetTest {
 
             lines.isEmpty() -> hint(
                 "Delegate remainingBudget to observable() and print the " +
-                        "messages from its lambda. Lowering a 2000 budget to " +
+                        "messages from its lambda function. Lowering a budget of 2000 to " +
                         "350 prints a warning, and raising it back to 900 " +
-                        "prints good news.",
+                        "prints a good news message.",
                 ""
             )
 
@@ -65,13 +65,13 @@ class BudgetTest {
 
             goodNewsLike && warningLines.none { "350" in it } -> hint(
                 "Calculate the threshold as 20% of the totalBudget property, " +
-                        "not as a fixed number. For a 2000 budget, dropping to " +
-                        "350 prints the warning.",
+                        "not as a fixed number. For a budget of 2000, dropping to " +
+                        "350 prints a warning.",
                 shown
             )
 
             warningLike && !goodNewsLike -> hint(
-                "Print the good-news message when the new value is greater " +
+                "Print the good news message when the new value is greater " +
                         "than the previous one. Raising 300 to 900 counts as " +
                         "an increase.",
                 shown
@@ -112,9 +112,9 @@ class BudgetTest {
             )
 
             else -> hint(
-                "Print the warning below 20% of totalBudget and the good news " +
-                        "on an increase. Match the wording shown in main()'s " +
-                        "comments.",
+                "Print the warning below 20% of totalBudget and the good news message " +
+                        "on an increase. Match the wording shown in the comments " +
+                        "of main().",
                 shown
             )
         }

@@ -9,14 +9,14 @@ class LazyHealthCheckTest {
         )
         when {
             output.lines() == expectedLines -> passed(
-                "main() prints both application-server health-check lines, and " +
+                "main() prints both application-server health-check lines and " +
                         "the database check does not run because its value is not needed."
             )
 
             "Performing database health check..." in output.lines() -> hint(
-                "Initialize the checks with by lazy so each one only runs " +
+                "Initialize the checks with by lazy keywords so each one only runs " +
                         "when its value is needed. Right now the database " +
-                        "check runs even though the when never reaches it."
+                        "check runs even though the when statement never reaches it."
             )
 
             "Performing application server health check..." !in output.lines() -> hint(
@@ -26,7 +26,7 @@ class LazyHealthCheckTest {
             )
 
             "Application server is online and healthy" !in output.lines() -> hint(
-                "Keep the given when block as it is. checkAppServer() returns " +
+                "Keep the given when statement as it is. checkAppServer() returns " +
                         "true, so main() prints \"Application server is " +
                         "online and healthy\"."
             )
@@ -34,7 +34,7 @@ class LazyHealthCheckTest {
             else -> hint(
                 "Print nothing beyond the two lines shown in main()'s " +
                         "comments. The checks run only through the given when " +
-                        "block."
+                        "statement."
             )
         }
     }

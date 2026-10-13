@@ -26,14 +26,14 @@ class MeasureTimeTest {
             )
 
             "->" in timeLine || "Function" in timeLine || "Lambda" in timeLine -> hint(
-                "Put measureTime in front of the block so the block actually " +
+                "Assign the measureTime() function to the timeTaken variable so the code " +
                         "runs. Import it from the kotlin.time package.",
                 timeLine
             )
 
             lines.none { it == "Processed data" } -> hint(
-                "Keep the given println(\"Processed data\") inside the measured " +
-                        "block."
+                "Keep the given println(\"Processed data\") inside the measureTime " +
+                        "lambda function."
             )
 
             lines.none { it.startsWith("Time taken: ") } -> hint(
@@ -54,7 +54,7 @@ class MeasureTimeTest {
 
             else -> hint(
                 "Assign the result of measureTime to timeTaken. The processing " +
-                        "code goes inside the block that measureTime runs.",
+                        "code goes inside the lambda function that measureTime runs.",
                 timeLine
             )
         }

@@ -6,7 +6,7 @@ class OrderTwoTest {
     @Test
     fun `print the name of OrderTwo and keep the order unique`() {
         val two = orderTwo() as? Order ?: hint(
-            "Make OrderTwo implement the Order interface, like OrderOne does. " +
+            "Make OrderTwo inherit from the Order interface, like OrderOne does. " +
                     "Declare it as data object OrderTwo : Order and override the " +
                     "interface's three properties.",
             ""
@@ -16,7 +16,7 @@ class OrderTwoTest {
             "@" in printed -> hint(
                 "Add the data keyword in front of your object declaration. A " +
                         "data object prints its name, but a plain object prints " +
-                        "only its class and a code, as below.",
+                        "only its class and some code, like below.",
                 printed
             )
 
