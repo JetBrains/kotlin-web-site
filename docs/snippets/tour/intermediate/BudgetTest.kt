@@ -11,6 +11,8 @@ class BudgetTest {
             System.setOut(PrintStream(out))
             budget.remainingBudget = 1200
             budget.remainingBudget = 350
+            budget.remainingBudget = 100
+            budget.remainingBudget = 300
             budget.remainingBudget = 900
         } finally {
             System.setOut(originalOut)
@@ -30,16 +32,20 @@ class BudgetTest {
                 ""
             )
         }
-        val warning =
-            "Warning: Your remaining budget (350) is below 20% of your total budget."
+        val warnings = listOf(350, 100, 300).map {
+            "Warning: Your remaining budget ($it) is below 20% of your total budget."
+        }
         val goodNews = "Good news: Your remaining budget increased to 900."
-        val warningLike = lines.any { "below 20%" in it || it.startsWith("Warning") }
-        val goodNewsLike = lines.any { "increased" in it || it.startsWith("Good news") }
+        val warningLines = lines.filter { "below 20%" in it || it.startsWith("Warning") }
+        val goodNewsLines = lines.filter { "increased" in it || it.startsWith("Good news") }
+        val warningLike = warningLines.isNotEmpty()
+        val goodNewsLike = goodNewsLines.isNotEmpty()
         val shown = lines.joinToString("\n")
         when {
-            lines == listOf(warning, goodNews) -> passed(
+            lines == warnings + goodNews -> passed(
                 "remainingBudget prints a warning below 20% of totalBudget, " +
-                        "reports an increase, and prints nothing for other changes."
+                        "even when the budget increases, reports other " +
+                        "increases, and prints nothing for other changes."
             )
 
             lines.isEmpty() -> hint(
@@ -57,7 +63,7 @@ class BudgetTest {
                 shown
             )
 
-            !warningLike && goodNewsLike -> hint(
+            goodNewsLike && warningLines.none { "350" in it } -> hint(
                 "Calculate the threshold as 20% of the totalBudget property, " +
                         "not as a fixed number. For a 2000 budget, dropping to " +
                         "350 prints the warning.",
@@ -66,14 +72,29 @@ class BudgetTest {
 
             warningLike && !goodNewsLike -> hint(
                 "Print the good-news message when the new value is greater " +
-                        "than the previous one. Raising 350 to 900 counts as " +
+                        "than the previous one. Raising 300 to 900 counts as " +
                         "an increase.",
                 shown
             )
 
-            warning !in lines && warningLike -> hint(
-                "Print \"$warning\" exactly. The warning keeps parentheses " +
-                        "around the remaining value.",
+            goodNewsLines.any { "300" in it } -> hint(
+                "Check the 20% threshold first, and print only the warning " +
+                        "when the new value is below it. For a budget of 2000, " +
+                        "raising 100 to 300 prints the warning, not good news.",
+                shown
+            )
+
+            warningLines.none { "300" in it } -> hint(
+                "Print the warning whenever the new value is below 20% of " +
+                        "totalBudget, even if it's greater than the previous " +
+                        "one. For a budget of 2000, raising 100 to 300 prints " +
+                        "a warning.",
+                shown
+            )
+
+            warningLines.any { it !in warnings } -> hint(
+                "Print \"${warnings.first()}\" exactly. The warning keeps " +
+                        "parentheses around the remaining value.",
                 shown
             )
 
@@ -83,7 +104,7 @@ class BudgetTest {
                 shown
             )
 
-            lines.size > 2 -> hint(
+            lines.size > warnings.size + 1 -> hint(
                 "Print only when the new value is below 20% of totalBudget or " +
                         "greater than the previous one. Lowering 2000 to 1200 " +
                         "prints nothing.",
