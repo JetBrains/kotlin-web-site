@@ -83,7 +83,7 @@ help you with.
     </panel>
     <panel>
         <title>Create a Kotlin Toolchain plugin</title>
-        <p>Create a local plugin for custom build tasks, code generation, verification, and packaging.</p>
+        <p>Create a local plugin for custom build tasks, code generation, verification, or packaging.</p>
         <a href="https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-kotlin-toolchain-plugin-authoring" as="button" icon="arrow-right" icon-position="right" id="kotlin-tooling-kotlin-toolchain-plugin-authoring">AI skill</a>
     </panel>
 </panels>
