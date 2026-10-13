@@ -93,7 +93,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 ## Practice {completion-point="true"}
 
 <deflist appearance="clear" collapsible="true">
-<def title="Declare explicit types for variables">
+<def title="Declare explicit types for variables" id="basic-types-exercise-1">
 
 Explicitly declare the correct type for each variable:
 
