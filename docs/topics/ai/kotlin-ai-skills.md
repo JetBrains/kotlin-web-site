@@ -19,10 +19,10 @@ and GitHub Copilot.
 
 ## Set up AI skills
 
-Learn how to set up and use AI skills in:
+Learn how to set up and use AI skills:
 
 * [With agents in the terminal](https://github.com/Kotlin/kotlin-agent-skills#installation)
-* IDEs:
+* In IDEs:
   * [IntelliJ IDEA](https://www.jetbrains.com/help/ai-assistant/agent-skills.html)
   * [Android Studio](https://developer.android.com/tools/agents/android-skills)
 
