@@ -24,7 +24,7 @@ class CreditCardTest {
             cardReport(250.0, 75.0)
         } catch (e: Throwable) {
             hint(
-                "Make CreditCard constructible and its functions callable without " +
+                "Declare the CreditCard class so that its functions are callable without " +
                         "throwing ${e::class.simpleName}.",
                 ""
             )
@@ -34,21 +34,21 @@ class CreditCardTest {
             card !is PaymentMethod && card !is Refundable -> hint(
                 "Make CreditCard inherit from both PaymentMethod(name) and " +
                         "Refundable. List them after a colon in the class header " +
-                        "and mark processPayment() and refund() with override.",
+                        "and mark processPayment() and refund() with the override keyword.",
                 ""
             )
 
             card !is PaymentMethod -> hint(
                 "Make CreditCard inherit from the PaymentMethod abstract class. " +
-                        "Add PaymentMethod(name) to its supertype list and mark " +
-                        "processPayment() with override.",
+                        "Add PaymentMethod(name) after the colon and mark " +
+                        "processPayment() with the override keyword.",
                 ""
             )
 
             card !is Refundable -> hint(
                 "Make CreditCard also implement the Refundable interface. Add " +
-                        "Refundable to its supertype list and mark refund() with " +
-                        "override.",
+                        "Refundable after the colon and mark refund() with " +
+                        "the override keyword.",
                 ""
             )
 
@@ -60,21 +60,21 @@ class CreditCardTest {
 
             lines.getOrNull(0) != "Authorizing payment of \$250.0." -> hint(
                 "Make authorize() in PaymentMethod print a message with the " +
-                        "amount. For 250.0 main()'s comments expect \"Authorizing " +
+                        "amount. For 250.0, the comments in main() expect \"Authorizing " +
                         "payment of \$250.0.\".",
                 report
             )
 
             lines.getOrNull(1) != "Processing credit card payment of \$250.0." -> hint(
                 "Make CreditCard's processPayment() print \"Processing credit " +
-                        "card payment of \$amount.\". For 250.0 that is " +
+                        "card payment of \$amount.\". For 250.0 it should be " +
                         "\"Processing credit card payment of \$250.0.\".",
                 report
             )
 
             lines.getOrNull(2) != "Refunding \$75.0 to the credit card." -> hint(
                 "Make CreditCard's refund() print \"Refunding \$amount to the " +
-                        "credit card.\". For 75.0 that is \"Refunding \$75.0 to " +
+                        "credit card.\". For 75.0 it should be \"Refunding \$75.0 to " +
                         "the credit card.\".",
                 report
             )
@@ -92,8 +92,8 @@ class CreditCardTest {
                 "Refunding \$50.0 to the credit card.",
             ) -> hint(
                 "Keep the code in main() as it is. It prints \"Authorizing payment " +
-                        "of \\$100.0.\", \"Processing credit card payment of \\$100.0.\", " +
-                        "and \"Refunding \\$50.0 to the credit card.\"."
+                        "of \$100.0.\", \"Processing credit card payment of \$100.0.\", " +
+                        "and \"Refunding \$50.0 to the credit card.\"."
             )
 
             else -> passed(

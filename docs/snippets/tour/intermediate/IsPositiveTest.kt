@@ -22,19 +22,19 @@ class IsPositiveTest {
 
             else -> when {
                 failed.expected == true -> hint(
-                    "Return true when the number is greater than 0. Inside an " +
-                            "extension function, this refers to the receiver number.",
+                    "Return true when the number is greater than zero. Inside the " +
+                            "extension function, the number should be the receiver.",
                     failed
                 )
 
                 failed.call == "0.isPositive()" -> hint(
-                    "Return false for 0. Zero is not a positive number.",
+                    "Return false for zero. Zero is not a positive number.",
                     failed
                 )
 
                 else -> hint(
                     "Return false for negative numbers. Only numbers greater " +
-                            "than 0 are positive.",
+                            "than zero are positive.",
                     failed
                 )
             }

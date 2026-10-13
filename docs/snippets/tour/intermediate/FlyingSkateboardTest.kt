@@ -22,14 +22,14 @@ class FlyingSkateboardTest {
         }
         when {
             !nameCheck.isCorrect -> hint(
-                "Set the name property to \"Flying Skateboard\". main()'s " +
-                        "comments show it at the start of both printed lines.",
+                "Set the name property to \"Flying Skateboard\". The comments " +
+                        "in main() show it at the start of both printed lines.",
                 nameCheck
             )
 
             !moveCheck.isCorrect -> hint(
                 "Return \"Glides through the air with a hover engine\" from " +
-                        "move(), as main()'s first comment shows.",
+                        "move(), as the first comment in main() shows.",
                 moveCheck
             )
 

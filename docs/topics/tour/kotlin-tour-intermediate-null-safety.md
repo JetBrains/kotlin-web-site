@@ -463,7 +463,7 @@ with a predicate to return a `null` value if there is more than one active subsc
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
 
-fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? = TODO("Write your code here")
+fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? = TODO("Replace the TODO() function")
 
 fun main() {
     val userWithPremiumPlan = listOf(

@@ -11,7 +11,7 @@ class SmartMessengerTest {
             smartMessengerOf()
         } catch (e: Throwable) {
             hint(
-                "Give SmartMessenger a constructor that accepts a BasicMessenger, " +
+                "Give SmartMessenger a constructor that accepts a BasicMessenger instance, " +
                         "the way main() creates it. SmartMessenger(BasicMessenger()) " +
                         "throws ${e::class.simpleName}.",
                 ""
@@ -73,7 +73,7 @@ class SmartMessengerTest {
 
             lines.getOrNull(1) != "Sending message: [smart] Good news!" -> hint(
                 "Call sendMessage() on the BasicMessenger from your override, " +
-                        "prefixing the message with [smart]. That call prints " +
+                        "prefixing the message with [smart]. The call should print " +
                         "\"Sending message: [smart] Good news!\".",
                 sent
             )

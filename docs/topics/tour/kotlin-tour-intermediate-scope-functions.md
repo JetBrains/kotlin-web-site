@@ -503,7 +503,7 @@ to update the email address and then the `also` scope function to print a log me
 ```kotlin
 data class User(val id: Int, var email: String)
 
-fun updateEmail(user: User, newEmail: String): User = TODO("Write your code here")
+fun updateEmail(user: User, newEmail: String): User = TODO("Replace the TODO() function")
 
 fun main() {
     val user = User(1, "old_email@example.com")

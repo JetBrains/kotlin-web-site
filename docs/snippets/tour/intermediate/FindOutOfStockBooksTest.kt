@@ -25,9 +25,9 @@ class FindOutOfStockBooksTest {
 
             else -> when {
                 failed.thrown != null -> hint(
-                    "Return the collected list of indices instead of throwing. " +
+                    "Return the collected list of indices instead of throwing an error. " +
                             "Go through the inventory and collect every index " +
-                            "whose quantity is 0.",
+                            "whose quantity is zero.",
                     failed
                 )
 

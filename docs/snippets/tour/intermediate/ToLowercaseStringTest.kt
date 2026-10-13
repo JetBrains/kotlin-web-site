@@ -20,19 +20,19 @@ class ToLowercaseStringTest {
             else -> when {
                 failed.actual == "HELLO WORLD!" || failed.actual == "ALL QUIET" -> hint(
                     "Return the lowercase version of the string, not the " +
-                            "uppercase one.",
+                            "uppercase version.",
                     failed
                 )
 
                 failed.actual == "Hello World!" || failed.actual == "KOTLIN" -> hint(
-                    "Call the standard lowercase() function on the receiver, this, " +
+                    "Call the standard lowercase() function on the receiver by using this, " +
                             "and return the lowercase result.",
                     failed
                 )
 
                 else -> hint(
-                    "Return the string unchanged except for the case: every " +
-                            "letter becomes lowercase.",
+                    "Return the string unchanged except for the letter case: every " +
+                            "letter should become lowercase.",
                     failed
                 )
             }

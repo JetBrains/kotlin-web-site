@@ -24,7 +24,7 @@ class SmartDeviceTest {
             thermostatReport("Hallway Thermostat", 23)
         } catch (e: Throwable) {
             hint(
-                "Make SmartThermostat constructible and its functions callable " +
+                "Make it possible to create an instance of SmartThermostat and check that its functions are callable " +
                         "without throwing ${e::class.simpleName}.",
                 ""
             )
@@ -44,7 +44,7 @@ class SmartDeviceTest {
             )
 
             "Bedroom Thermostat" in report -> hint(
-                "Build the messages from the name property instead of fixed text. " +
+                "Build the messages from the name property instead of using fixed text. " +
                         "This thermostat's name is Hallway Thermostat, not Bedroom " +
                         "Thermostat.",
                 report
@@ -52,21 +52,21 @@ class SmartDeviceTest {
 
             lines.getOrNull(0) != "Hallway Thermostat thermostat is now heating." -> hint(
                 "Make turnOn() print \"\$name thermostat is now heating.\". For " +
-                        "this thermostat that is \"Hallway Thermostat thermostat is " +
+                        "this thermostat it should be \"Hallway Thermostat thermostat is " +
                         "now heating.\".",
                 report
             )
 
             lines.getOrNull(1) != "Hallway Thermostat thermostat set to 23°C." -> hint(
                 "Make adjustTemperature() print \"\$name thermostat set to " +
-                        "\$temperature°C.\". For 23 that is \"Hallway Thermostat " +
+                        "\$temperature°C.\". For 23 it should be \"Hallway Thermostat " +
                         "thermostat set to 23°C.\".",
                 report
             )
 
             lines.getOrNull(2) != "Hallway Thermostat thermostat is now off." -> hint(
                 "Make turnOff() print \"\$name thermostat is now off.\". For this " +
-                        "thermostat that is \"Hallway Thermostat thermostat is now " +
+                        "thermostat it should be \"Hallway Thermostat thermostat is now " +
                         "off.\".",
                 report
             )
