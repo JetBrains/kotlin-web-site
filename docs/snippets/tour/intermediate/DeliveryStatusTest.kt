@@ -1,4 +1,9 @@
+import java.lang.reflect.Modifier
 import kotlin.test.Test
+
+private fun isSealedClass(type: Class<*>): Boolean =
+    !type.isInterface && Modifier.isAbstract(type.modifiers) &&
+        type.declaredConstructors.all { it.isSynthetic || Modifier.isPrivate(it.modifiers) }
 
 class DeliveryStatusTest {
     private fun statuses(): List<Any> = listOf(
@@ -20,6 +25,12 @@ class DeliveryStatusTest {
             "The delivery was canceled due to: Address not found.",
         )
         when {
+            !isSealedClass(DeliveryStatus::class.java) -> hint(
+                "Declare DeliveryStatus as a sealed class. The exercise asks for " +
+                        "a sealed class that contains the four data classes.",
+                ""
+            )
+
             nonData != null -> hint(
                 "Add the data keyword to the ${nonData.javaClass.simpleName} " +
                         "class. The exercise asks for data classes inside " +
@@ -42,8 +53,8 @@ class DeliveryStatusTest {
             )
 
             else -> passed(
-                "DeliveryStatus contains the four data classes, and main() prints " +
-                        "the expected line for every status."
+                "DeliveryStatus is a sealed class with the four data classes, " +
+                        "and main() prints the expected line for every status."
             )
         }
     }
