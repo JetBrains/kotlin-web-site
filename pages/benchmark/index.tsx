@@ -28,8 +28,8 @@ export default function KotlinBenchmarkLanding() {
         >
             <div className={styles.wrapper}>
                 <BenchHero />
-                <Leaderboard rows={currentEdition.rows} notice={currentEdition.notice} />
                 <ArchiveLink date={currentEdition.date} />
+                <Leaderboard rows={currentEdition.rows} notice={currentEdition.notice} />
                 <BenchCta methodologyUrl={METHODOLOGY_URL} githubUrl={GITHUB_URL} />
             </div>
         </LandingLayout>

@@ -4,6 +4,9 @@
     position: relative;
     z-index: 0;
     overflow-x: clip;
+
+    /* No CTA closes this page (each edition links its methodology), so the table needs its own bottom space. */
+    padding-bottom: var(--ktl-box-page-l);
 }
 
 .wrapper::before {

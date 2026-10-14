@@ -1,5 +1,8 @@
 # Kotlin Benchmark leaderboard data.
-date: "2026-05-07"
+# `date` is the publication date: the day this edition goes live on kotlinlang.org.
+# `methodology` is the version from data/benchmark/methodology/<N>.yml the results were produced with.
+date: "2026-10-14"
+methodology: 2
 notice: "Fable 5, Opus 4.8, … — Evaluating…"
 rows:
   #------------------------------ Top scorers -------------------------------
