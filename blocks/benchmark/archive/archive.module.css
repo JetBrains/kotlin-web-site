@@ -1,9 +1,15 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
+/* Centred like the hero of the current leaderboard. */
 .archive {
-    max-width: 840px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 862px;
     margin-inline: auto;
     padding-top: var(--ktl-box-page-l);
+    text-align: center;
 }
 
 .title {
@@ -15,31 +21,43 @@
     }
 }
 
-.subtitle {
+.intro {
     margin: 16px 0 0;
 }
 
-.controls {
+.meta {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 16px;
-    margin-top: 32px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
 
-    @media (--ktl-ms-down) {
-        flex-direction: column;
-        align-items: stretch;
-    }
+    margin-top: 24px;
+}
+
+.published {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .select {
-    min-width: 260px;
-
-    @media (--ktl-ms-down) {
-        min-width: 0;
-    }
+    width: 152px;
+    text-align: left;
 }
 
-.editionTitle {
-    margin: var(--ktl-box-section-l) 0 0;
+.separator {
+    opacity: 0.5;
+}
+
+/* Stacked on small screens, so a wrapped line never ends in a dangling separator. */
+@media (--ktl-ms-down) {
+    .meta {
+        flex-direction: column;
+        row-gap: 8px;
+    }
+
+    .separator {
+        display: none;
+    }
 }
