@@ -3,8 +3,11 @@ import { KotlinBenchmarkArchivePage } from '../page/benchmark-archive-page';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
 // The only published edition today; see data/benchmark/archive/.
-const ARCHIVED_DATE = '2026-05-07';
-const ARCHIVED_DATE_TEXT = '07.05.2026';
+const ARCHIVED_DATE = '2026-07-08';
+const ARCHIVED_DATE_TEXT = '08.07.2026';
+
+// Publication date of the current leaderboard; see data/benchmark/leaderboard.yml.
+const CURRENT_DATE_TEXT = '14.10.2026';
 
 test.describe('Kotlin Benchmark archive page', () => {
     let archive: KotlinBenchmarkArchivePage;
@@ -19,13 +22,18 @@ test.describe('Kotlin Benchmark archive page', () => {
         await expect(archive.title).toContainText('The Kotlin Benchmark Archive');
     });
 
-    test('a single edition puts its date in the subtitle and hides the selector', async () => {
+    test('a single edition needs no selector or instructions', async () => {
         const editionCount = await archive.editions.count();
         test.skip(editionCount !== 1, 'only meaningful while exactly one edition is published');
 
-        await expect(archive.subtitle).toHaveText(ARCHIVED_DATE_TEXT);
         await expect(archive.select).toHaveCount(0);
-        await expect(archive.editionTitles).toHaveCount(0);
+        await expect(archive.subtitle).toHaveCount(0);
+    });
+
+    test('the edition shows its publication date next to its methodology', async () => {
+        const meta = archive.visibleEdition().getByTestId('bench-archive-edition-meta');
+        await expect(meta.getByTestId('bench-archive-edition-date')).toHaveText(`Published ${ARCHIVED_DATE_TEXT}`);
+        await expect(meta.getByTestId('bench-archive-methodology')).toHaveText('Methodology 1.0');
     });
 
     test('exactly one edition is on screen', async () => {
@@ -40,6 +48,17 @@ test.describe('Kotlin Benchmark archive page', () => {
 
         const ranks = (await edition.getByTestId('bench-rank').allInnerTexts()).map(Number);
         expect(ranks).toEqual(ranks.map((_, index) => index + 1));
+    });
+
+    test('the archived edition predates the cost column', async () => {
+        const edition = archive.visibleEdition();
+        await expect(edition.locator('[data-testid="bench-col-header"][data-col="cost"]')).toHaveCount(0);
+        await expect(edition.locator('[data-testid="bench-col-header"][data-col="date"]')).toHaveCount(1);
+    });
+
+    test('the methodology version links to its page', async () => {
+        const link = archive.visibleEdition().getByTestId('bench-archive-methodology').getByRole('link');
+        await expect(link).toHaveAttribute('href', /\/benchmark\/methodology\/1\/$/);
     });
 
     test('archived editions carry no in-progress notice', async () => {
@@ -78,7 +97,7 @@ test.describe('Kotlin Benchmark landing page — archive entry point', () => {
         await benchmark.init();
 
         await expect(benchmark.updatedDate).toBeVisible();
-        await expect(benchmark.updatedDate).toContainText(ARCHIVED_DATE_TEXT);
+        await expect(benchmark.updatedDate).toContainText(CURRENT_DATE_TEXT);
 
         await expect(benchmark.archiveCta).toBeVisible();
         await expect(benchmark.archiveCta).toHaveAttribute('href', /\/benchmark\/archive\/?$/);

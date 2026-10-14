@@ -1,4 +1,9 @@
-# Kotlin Benchmark dataset
+# Kotlin Benchmark methodology 1.0 — dataset.
+# One file per methodology version. For a new version, add <N>.yml next to this one,
+# register it in blocks/benchmark/methodology/versions.ts, and set `methodology: <N>`
+# in data/benchmark/leaderboard.yml. Archived editions keep the version they were run with.
+version: 1
+label: "1.0"
 repositories:
   - name: "ktlint/ktlint"
     url: "https://github.com/ktlint/ktlint"

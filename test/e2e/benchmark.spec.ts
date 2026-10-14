@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
+// Becomes 7 once the current edition carries the optional `cost` column.
 const EXPECTED_DATA_COLUMNS = 6;
 
 test.describe('Kotlin Benchmark landing page', () => {

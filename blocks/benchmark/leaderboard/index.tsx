@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 import styles from './leaderboard.module.css';
-import { BenchRow, columns, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT, twoDecimals } from './leaderboard-data';
+import {
+    BenchRow,
+    columnsFor,
+    MISSING_VALUE,
+    SETUP_COLUMN_LABEL,
+    TOP_SCORE_COUNT,
+    twoDecimals,
+} from './leaderboard-data';
 
 function RateCell({ value, textCn }: { value: number; textCn: ReturnType<typeof useTextStyles> }) {
     return <span className={cn(styles.rateValue, textCn('rs-text-2'))}>{twoDecimals(value)}</span>;
@@ -18,6 +25,7 @@ export interface LeaderboardProps {
 
 export function Leaderboard({ rows, notice }: LeaderboardProps) {
     const textCn = useTextStyles();
+    const columns = useMemo(() => columnsFor(rows), [rows]);
 
     return (
         <section className={cn(styles.section, 'ktl-layout', 'ktl-layout--center')} data-testid="bench-leaderboard">
@@ -91,6 +99,8 @@ export function Leaderboard({ rows, notice }: LeaderboardProps) {
                                         >
                                             {column.key === 'resolutionRate' ? (
                                                 <RateCell value={row.resolutionRate} textCn={textCn} />
+                                            ) : row[column.key] === undefined ? (
+                                                MISSING_VALUE
                                             ) : column.format ? (
                                                 column.format(row[column.key])
                                             ) : (

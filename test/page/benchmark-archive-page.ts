@@ -10,7 +10,6 @@ export class KotlinBenchmarkArchivePage implements BasePage {
     readonly select: Locator;
     readonly backLink: Locator;
     readonly editions: Locator;
-    readonly editionTitles: Locator;
     readonly tables: Locator;
     readonly rows: Locator;
     readonly notice: Locator;
@@ -25,7 +24,6 @@ export class KotlinBenchmarkArchivePage implements BasePage {
         this.select = page.getByTestId('bench-archive-select');
         this.backLink = page.getByTestId('bench-archive-back');
         this.editions = page.getByTestId('bench-archive-edition');
-        this.editionTitles = page.getByTestId('bench-archive-edition-title');
         this.tables = page.getByTestId('bench-leaderboard-table');
         this.rows = page.getByTestId('bench-row');
         this.notice = page.getByTestId('bench-notice');

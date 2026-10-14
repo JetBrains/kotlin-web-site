@@ -1,6 +1,8 @@
 # Kotlin Benchmark leaderboard — archived edition.
 # Archived results are frozen: do not edit once published.
-date: "2026-05-07"
+# `date` is the publication date: the day this edition went live on kotlinlang.org.
+date: "2026-07-08"
+methodology: 1
 rows:
   #------------------------------ Top scorers -------------------------------
   - setup: "Claude Code + Opus 4.7 xhigh"

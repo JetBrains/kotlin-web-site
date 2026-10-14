@@ -6,6 +6,23 @@
     padding-top: var(--ktl-box-page-l);
 }
 
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.back:hover {
+    opacity: 0.7;
+}
+
+.backIcon {
+    flex-shrink: 0;
+}
+
 .title {
     margin: 0;
 
@@ -40,6 +57,26 @@
     }
 }
 
-.editionTitle {
-    margin: var(--ktl-box-section-l) 0 0;
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    max-width: 840px;
+    margin: 16px auto 0;
+}
+
+.metaSeparator {
+    opacity: 0.5;
+}
+
+/* Stacked on small screens, so a wrapped line never ends in a dangling separator. */
+@media (--ktl-ms-down) {
+    .meta {
+        flex-direction: column;
+        row-gap: 4px;
+    }
+
+    .metaSeparator {
+        display: none;
+    }
 }
