@@ -7,9 +7,10 @@ class UserTest {
         expect("User.isValidEmail(\"$email\")", expected) { isValid(email) }
 
     @Test
-    fun `return true only for emails that contain both @ and dot`() {
+    fun `return true only for valid emails`() {
         val checks = listOf(
             check("alice@example.com", expected = true),
+            check("alice@example.org", expected = true),
             check("bob2example-com", expected = false),
             check("bob@example", expected = false),
             check("bobexample.com", expected = false),
@@ -31,14 +32,15 @@ class UserTest {
 
             else -> when {
                 failed.thrown != null -> hint(
-                    "Declare isValidEmail(email: String): Boolean in the " +
-                            "companion object of User, so that User.isValidEmail() " +
-                            "can be called directly.",
+                    "Make isValidEmail() return false for an invalid address instead of " +
+                            "throwing an exception. Code like email.split(\"@\")[1] or " +
+                            "email.substring(email.indexOf('@')) fails when '@' is missing. " +
+                            "Use contains() to check for each character.",
                     failed
                 )
 
                 "bob@example" in failed.call -> hint(
-                    "Check for '.' as well as '@'. An address without a dot " +
+                    "Check for '.' as well as '@'. An address without a period " +
                             "in the domain is not valid.",
                     failed
                 )
