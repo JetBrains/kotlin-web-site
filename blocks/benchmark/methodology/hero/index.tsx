@@ -2,9 +2,14 @@ import React from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import styles from './hero.module.css';
-import { repositoryCountWord, totalTasks } from '../content/dataset-data';
+import { MethodologyVersion } from '../versions';
+import { MethodologyVersionSwitcher } from '../version-switcher';
 
-export function MethodologyHero() {
+interface MethodologyHeroProps {
+    methodology: MethodologyVersion;
+}
+
+export function MethodologyHero({ methodology }: MethodologyHeroProps) {
     const textCn = useTextStyles();
 
     return (
@@ -12,10 +17,11 @@ export function MethodologyHero() {
             <h1 className={cn(styles.title, textCn('rs-h1'))} data-testid="methodology-title">
                 The Kotlin Benchmark&nbsp;— Methodology and&nbsp;Outlook
             </h1>
-            <p className={textCn('rs-text-1', {hardness: 'hard'})}>
-                See how the Kotlin Benchmark is&nbsp;built: {totalTasks}&nbsp;tasks from {repositoryCountWord} open-source Kotlin
-                repositories,
-                SWE-bench-based methodology, and&nbsp;future plans.
+            <MethodologyVersionSwitcher version={methodology.version} />
+            <p className={textCn('rs-text-1', { hardness: 'hard' })}>
+                See how the Kotlin Benchmark is&nbsp;built: {methodology.totalTasks}&nbsp;tasks from{' '}
+                {methodology.repositoryCountWord} open-source Kotlin repositories, SWE-bench-based methodology,
+                and&nbsp;future plans.
             </p>
         </section>
     );

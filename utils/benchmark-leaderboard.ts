@@ -1,7 +1,8 @@
 import leaderboardRaw from '../data/benchmark/leaderboard.yml';
 
 /**
- * A single leaderboard entry
+ * A single leaderboard entry. Optional fields are columns that only newer
+ * editions carry; an edition without them simply doesn't show the column.
  */
 export interface BenchRow {
     setup: string;
@@ -9,8 +10,23 @@ export interface BenchRow {
     resolved: number;
     resolutionRate: number;
     tokens: number;
-    latency: number;
+    latency: string;
+    /** Average cost of a full run, in USD. Introduced with the 2.0 edition. */
+    cost?: number;
     date: string;
+}
+
+/**
+ * One published leaderboard: the current results, or an archived edition
+ * from data/benchmark/archive/.
+ */
+export interface BenchEdition {
+    /** Publication date: the day this edition went live on kotlinlang.org, not the date of any run. */
+    date: string;
+    /** Methodology version the results were produced with. */
+    methodology: number;
+    notice?: string;
+    rows: BenchRow[];
 }
 
 export const TOP_SCORE_COUNT = 3;
@@ -31,15 +47,41 @@ export const formatBenchDate = (value: BenchRow[BenchColumnKey]): string => {
     return match ? `${match[3]}.${match[2]}.${match[1]}` : String(value);
 };
 
-const raw = leaderboardRaw as { rows?: BenchRow[]; notice?: string };
+/**
+ * Ranking order for every edition: resolution rate first, fewer tokens on a tie.
+ * Row dates are normalised because a YAML loader may hand back a Date object.
+ */
+export const prepareRows = (rawRows: BenchRow[] | undefined): BenchRow[] =>
+    [...(rawRows ?? [])]
+        .map((row) => ({ ...row, date: String(row.date).slice(0, 10) }))
+        .sort((a, b) => b.resolutionRate - a.resolutionRate || a.tokens - b.tokens);
 
-export const notice: string | undefined = raw.notice;
+/**
+ * Normalise a parsed YAML edition, whatever loaded it (webpack or fs).
+ * `notice` is omitted rather than set to undefined: editions travel through
+ * getStaticProps, which refuses to serialize an undefined value.
+ */
+export const toEdition = (raw: unknown): BenchEdition => {
+    const { date, methodology, notice, rows } = (raw ?? {}) as {
+        date?: unknown;
+        methodology?: unknown;
+        notice?: string;
+        rows?: BenchRow[];
+    };
+    return {
+        date: String(date ?? '').slice(0, 10),
+        methodology: Number(methodology ?? 1),
+        rows: prepareRows(rows),
+        ...(notice ? { notice } : {}),
+    };
+};
 
-const rawRows: BenchRow[] = raw.rows ?? [];
+/** The leaderboard currently published on /benchmark/. */
+export const currentEdition: BenchEdition = toEdition(leaderboardRaw);
 
-export const rows: BenchRow[] = [...rawRows]
-    .map((row) => ({ ...row, date: String(row.date).slice(0, 10) }))
-    .sort((a, b) => b.resolutionRate - a.resolutionRate || a.tokens - b.tokens);
+export const notice: string | undefined = currentEdition.notice;
+
+export const rows: BenchRow[] = currentEdition.rows;
 
 /**
  * The most recent evaluation in the data, as `Month D` — the "snapshot as of …" date the

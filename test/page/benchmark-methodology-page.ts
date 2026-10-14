@@ -12,6 +12,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
     readonly futureCards: Locator;
     readonly topMenu: Locator;
     readonly benchmarkCta: Locator;
+    readonly versionSwitcher: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -23,6 +24,7 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
         this.futureCards = page.getByTestId('methodology-future-card');
         this.topMenu = page.getByTestId('top-menu');
         this.benchmarkCta = page.getByTestId('methodology-benchmark-cta');
+        this.versionSwitcher = page.getByTestId('methodology-version-switcher');
     }
 
     /** Section heading by its visible text. */

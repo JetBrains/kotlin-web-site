@@ -3,13 +3,19 @@
   "type": "object",
   "required": [
     "date",
+    "methodology",
     "rows"
   ],
   "properties": {
     "date": {
-      "description": "Publication date of this leaderboard edition, shown under the table.",
+      "description": "Publication date: the day this edition went live on kotlinlang.org, not the date of any run.",
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "methodology": {
+      "description": "Methodology version (see data/benchmark/methodology/<N>.yml) the results were produced with.",
+      "type": "integer",
+      "minimum": 1
     },
     "notice": {
       "description": "Optional in-progress banner rendered above the ranked rows.",
@@ -58,6 +64,11 @@
             "description": "Average latency as \"Hh Mm\"; minutes are not zero-padded.",
             "type": "string",
             "pattern": "^\\d+h \\d{1,2}m$"
+          },
+          "cost": {
+            "description": "Average cost of a full run in USD. Optional: editions before 2.0 have no cost column.",
+            "type": "number",
+            "minimum": 0
           },
           "date": {
             "description": "Evaluation date of this individual run.",
