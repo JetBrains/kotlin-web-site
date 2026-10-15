@@ -90,7 +90,7 @@ Add it to your `pom.xml` file:
 </plugin>
 ```
 
-## Use the kotlin-spring plugin
+## Use the `kotlin-spring` plugin
 
 When you apply the plugin, the compiler treats classes with common Spring annotations as `open` at compile time.
 You can write these classes without adding the `open` keyword:

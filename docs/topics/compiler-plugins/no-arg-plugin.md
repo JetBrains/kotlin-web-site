@@ -14,7 +14,8 @@ For example, this allows frameworks such as the Java Persistence API (JPA) to in
 
 ## Declare an annotation
 
-Before enabling the `no-arg` plugin, declare an annotation to mark the classes that need a zero-argument constructor.
+The `no-arg` plugin only processes classes marked with an annotation that you register in its configuration.
+So before enabling the plugin, declare an annotation to mark the classes that need a zero-argument constructor.
 For example, `NoArgAnnotation`:
 
 ```kotlin
@@ -105,7 +106,7 @@ Add the plugin to your `pom.xml` file:
 </plugin>
 ```
 
-## Use the no-arg plugin
+## Use the `no-arg` plugin
 
 When the plugin is applied, classes annotated with a registered annotation get a zero-argument constructor
 at compile time. You don't need to declare the constructor manually:
@@ -134,4 +135,4 @@ Add the plugin JAR file to the compiler plugin classpath and specify annotations
 
 * For JPA entities, use the [`kotlin-jpa` plugin](kotlin-jpa-plugin.md), which configures the `no-arg` and `all-open`
   plugins with JPA annotations such as `@Entity`, `@Embeddable`, and `@MappedSuperclass`.
-* Explore the source code of the [no-arg compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/noarg).
+* Explore the source code of the [`no-arg` compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/noarg).

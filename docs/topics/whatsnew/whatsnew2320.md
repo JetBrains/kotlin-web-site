@@ -422,7 +422,7 @@ are automatically treated as `open` and receive no-argument constructors without
 
 This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
 
-> The upcoming release of [IntelliJ IDEA 2026.1](https://www.jetbrains.com/idea/whatsnew/) automatically configures the `kotlin.plugin.jpa` plugin when setting up Kotlin in a project. The IDE offers a quick-fix to add the plugin and remove any redundant no-arg constructor declarations.
+> The upcoming release of [IntelliJ IDEA 2026.1](https://www.jetbrains.com/idea/whatsnew/) automatically configures the `kotlin.plugin.jpa` plugin when setting up Kotlin in a project. The IDE offers a quick-fix to add the plugin and remove any redundant `no-arg` constructor declarations.
 >
 {style="tip"}
 

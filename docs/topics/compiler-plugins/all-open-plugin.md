@@ -23,13 +23,14 @@ If a class or any of its superclasses is annotated with a configured annotation,
 
 ## Declare an annotation
 
-Before enabling the `all-open` plugin, declare an annotation to mark the classes you want to make `open`.
+The `all-open` plugin only processes classes marked with an annotation that you register in its configuration.
+So before enabling the plugin, declare an annotation to mark the classes you want to make `open`.
 For example, `AllOpenMarker`:
 
 ```kotlin
 package com.example
 
-annotation class AllOpenMarker()
+annotation class AllOpenMarker
 ```
 
 ## Apply the plugin
@@ -90,7 +91,6 @@ allOpen {
 </tab>
 </tabs>
 
-
 ### Maven
 
 Add the plugin in your `pom.xml` file:
@@ -127,7 +127,7 @@ Add the plugin in your `pom.xml` file:
 </plugin>
 ```
 
-## Use the all-open plugin
+## Use the `all-open` plugin
 
 If a class or any of its superclasses has the `com.example.AllOpenMarker` annotation you created,
 the class and all its members become `open`:
@@ -149,7 +149,7 @@ package com.example
 
 // An annotation marked with a previously created annotation
 @AllOpenMarker
-annotation class AnotherAllOpenMarker()
+annotation class AnotherAllOpenMarker
 
 @AllOpenMarker
 class NewClass {
@@ -165,14 +165,14 @@ class AnotherClass {
 <!--
 ## Command-line compiler
 
-All-open compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
+The `all-open` compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
 by providing the path to its JAR file using the `-Xplugin` kotlinc option:
 
 ```bash
 -Xplugin=$KOTLIN_HOME/lib/allopen-compiler-plugin.jar
 ```
 
-You can specify all-open annotations directly, using the `annotation` plugin option, or enable the _preset_:
+You can specify `all-open` annotations directly, using the `annotation` plugin option, or enable the _preset_:
 
 ```bash
 # The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
@@ -182,7 +182,7 @@ You can specify all-open annotations directly, using the `annotation` plugin opt
 -P plugin:org.jetbrains.kotlin.allopen:preset=spring
 ```
 
-Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and `quarkus`.
+Presets available for the `all-open` plugin are: `spring`, `micronaut`, and `quarkus`.
 -->
 
 ## What's next?
@@ -191,4 +191,4 @@ Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and
   that makes classes with Spring annotations `open`.
 * For JPA entities, use the [`kotlin-jpa` plugin](kotlin-jpa-plugin.md), which makes entities `open` and generates
   zero-argument constructors for them.
-* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).
+* Explore the source code of the [`all-open` compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).

@@ -98,7 +98,7 @@ Add it to your `pom.xml` file:
 >
 {style="note"}
 
-## Use the kotlin-jpa plugin
+## Use the `kotlin-jpa` plugin
 
 When the plugin is applied, classes annotated with common JPA annotations become `open` and get a
 zero-argument constructor at compile time. You can write entities as regular classes without adding the `open`
@@ -149,15 +149,132 @@ For a detailed discussion of these pitfalls, see the
 
 ## Cover classes without JPA annotations
 
-The plugin configures only JPA annotations. To generate a zero-argument constructor or make classes `open` for types
-that aren't annotated with a JPA annotation, declare your own annotation and register it with the underlying plugins
-through the `noArg {}` and `allOpen {}` configuration blocks. For details, see [`no-arg`](no-arg-plugin.md) and
-[`all-open`](all-open-plugin.md).
+The `kotlin-jpa` plugin configures only [supported JPA annotations](#supported-jpa-annotations). To generate a zero-argument
+constructor or make classes `open` for types that aren't annotated with a JPA annotation, declare your own annotation
+and register it with the underlying `no-arg` and `all-open` plugins:
+
+1. Declare your own annotation:
+
+   ```kotlin
+   package com.example
+
+   annotation class OpenNoArgAnnotation
+   ```
+
+2. In your build file, register the annotation with the underlying plugins:
+
+   <tabs group="build-script">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+   In your `build.gradle.kts` file, register the annotation in the `noArg {}` and `allOpen {}` blocks that are available
+   through the `kotlin-jpa` plugin:
+
+   ```kotlin
+   plugins {
+       kotlin("jvm") version "%kotlinVersion%"
+       kotlin("plugin.jpa") version "%kotlinVersion%"
+   }
+
+   noArg {
+       annotation("com.example.OpenNoArgAnnotation")
+   }
+
+   allOpen {
+       annotation("com.example.OpenNoArgAnnotation")
+   }
+   ```
+
+   </tab>
+   <tab title="Gradle (Groovy)" group-key="groovy">
+
+   In your `build.gradle` file, register the annotation in the `noArg {}` and `allOpen {}` blocks that are available
+   through the `kotlin-jpa` plugin:
+
+   ```groovy
+   plugins {
+       id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+       id "org.jetbrains.kotlin.plugin.jpa" version "%kotlinVersion%"
+   }
+
+   noArg {
+       annotation("com.example.OpenNoArgAnnotation")
+   }
+
+   allOpen {
+       annotation("com.example.OpenNoArgAnnotation")
+   }
+   ```
+
+   </tab>
+   <tab title="Maven" group-key="maven">
+
+   In your `pom.xml` file, add the `no-arg:annotation` and `all-open:annotation` options to the `kotlin-maven-plugin` configuration:
+
+   ```xml
+   <properties>
+       <kotlin.version>%kotlinVersion%</kotlin.version>
+   </properties>
+
+   <plugin>
+       <groupId>org.jetbrains.kotlin</groupId>
+       <artifactId>kotlin-maven-plugin</artifactId>
+       <version>${kotlin.version}</version>
+       <configuration>
+           <compilerPlugins>
+               <plugin>jpa</plugin>
+           </compilerPlugins>
+
+           <pluginOptions>
+               <!-- Add multiple lines for multiple annotations -->
+               <option>no-arg:annotation=com.example.OpenNoArgAnnotation</option>
+               <option>all-open:annotation=com.example.OpenNoArgAnnotation</option>
+           </pluginOptions>
+       </configuration>
+       <dependencies>
+           <dependency>
+               <groupId>org.jetbrains.kotlin</groupId>
+               <artifactId>kotlin-maven-noarg</artifactId>
+               <version>${kotlin.version}</version>
+           </dependency>
+       </dependencies>
+   </plugin>
+   ```
+
+   </tab>
+   </tabs>
+
+3. Mark the classes that don't have a JPA annotation:
+
+   ```kotlin
+   package com.example
+
+   import jakarta.persistence.Entity
+   import jakarta.persistence.GeneratedValue
+   import jakarta.persistence.Id
+
+   // Automatically covered by the kotlin-jpa plugin
+   @Entity
+   class Message(
+       var text: String,
+   ) {
+       @Id
+       @GeneratedValue
+       var id: Long? = null
+   }
+
+   // The custom annotation makes the class open
+   // and generates a zero-argument constructor
+   @OpenNoArgAnnotation
+   class MessageMetadata(
+       var author: String,
+   )
+   ```
+
+For more details, see [`no-arg`](no-arg-plugin.md) and [`all-open`](all-open-plugin.md).
 
 ## What's next?
 
-* Learn how to avoid common entity-mapping issues in the
-  [How to avoid common pitfalls with JPA and Kotlin](https://blog.jetbrains.com/idea/2026/01/how-to-avoid-common-pitfalls-with-jpa-and-kotlin/) blog post.
+* Read the blog post on [how to avoid common entity-mapping issues](https://blog.jetbrains.com/idea/2026/01/how-to-avoid-common-pitfalls-with-jpa-and-kotlin/).
 * For Spring applications that require classes to be `open`, use the [`kotlin-spring` plugin](kotlin-spring-plugin.md),
   which configures the `all-open` plugin with Spring annotations such as `@Component`, `@Transactional`, and `@Configuration`.
 * Create your first Spring Boot application using the [Get started with Spring Boot and Kotlin](jvm-get-started-spring-boot.md) tutorial.
