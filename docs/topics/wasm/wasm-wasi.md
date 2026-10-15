@@ -12,11 +12,6 @@ Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1. Support for W
 The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target 
 [uses the new exception handling proposal by default](wasm-configuration.md#exception-handling-proposal), ensuring better compatibility with modern WebAssembly runtimes.
 
-> The Kotlin/Wasm toolchain provides Node.js tasks (`wasmWasiNode*`) and Wasmtime (`wasmWasiWasmtime*`) out of the box.
-> Other task variants in the project, such as those utilizing Deno or WasmEdge, are included as custom tasks.
->
-{style="tip"}
-
 ## Before you start
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
@@ -28,6 +23,16 @@ The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target
    
    ```bash
    git clone git@github.com:Kotlin/kotlin-wasm-wasi-template.git
+   ```
+   
+3. Add the `wasmtime()` target to your Gradle build file:
+
+   ```kotlin
+   kotlin {
+       wasmWasi {
+           wasmtime()
+       }
+   }
    ```
 
 ## Run the application
