@@ -52,7 +52,6 @@ For HTML-based solutions, Kotlin/JS supports multiple approaches:
 * Using React-based solutions with Kotlin wrappers to implement [React components in Kotlin](https://kotlinlang.org/docs/js-react.html).
 
 ## Kotlin/Wasm
-<primary-label ref="beta"/> 
 
 [](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm), enabling apps to run across
 environments and devices that support Wasm while meeting Kotlin’s requirements.
