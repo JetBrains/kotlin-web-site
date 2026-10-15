@@ -1,7 +1,5 @@
 [//]: # (title: Debug Kotlin/Wasm code)
 
-<primary-label ref="beta"/> 
-
 This tutorial demonstrates how to use IntelliJ IDEA and the browser 
 to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application built with Kotlin/Wasm.

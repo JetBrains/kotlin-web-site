@@ -1,7 +1,5 @@
 [//]: # (title: Kotlin/Wasm)
 
-<primary-label ref="beta"/> 
-
 Kotlin/Wasm has the power to compile your Kotlin code into [WebAssembly (Wasm)](https://webassembly.org/) format. 
 With Kotlin/Wasm, you can create applications that run on
 different environments and devices, which support Wasm and meet Kotlin's requirements.
@@ -73,8 +71,8 @@ To explore what's possible with the WebAssembly Component Model and Kotlin/Wasm,
 
 ## Kotlin/Wasm performance
 
-Although Kotlin/Wasm is still in Beta, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
-traits. You can see that its execution speed outperforms JavaScript and is approaching that of the JVM:
+Compose Multiplatform running on Kotlin/Wasm shows encouraging performance traits. You can see that its execution speed
+outperforms JavaScript and is approaching that of the JVM:
 
 ![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}
 
