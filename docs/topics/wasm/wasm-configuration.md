@@ -1,7 +1,5 @@
 [//]: # (title: Supported versions and configuration)
 
-<primary-label ref="beta"/> 
-
 This page provides details about the [WebAssembly proposals](https://webassembly.org/roadmap/), supported browsers, and configuration recommendations 
 for efficient development with Kotlin/Wasm.
 

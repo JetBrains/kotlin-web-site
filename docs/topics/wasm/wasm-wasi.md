@@ -1,7 +1,5 @@
 [//]: # (title: Get started with Kotlin/Wasm and WASI)
 
-<primary-label ref="beta"/> 
-
 This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/) 
 in various WebAssembly virtual machines.
 
