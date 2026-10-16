@@ -99,13 +99,12 @@ val myObject = object MySingleton {
 }
 ```
 
-Object declarations cannot be local, which means they cannot be nested directly inside a function.
-However, they can be nested within other object declarations or non-inner classes.
-A nested object declaration is still a singleton, and you can access it through the name of its enclosing object or class.
+You can nest object declarations inside other object declarations or non-inner classes, but not directly inside functions,
+because object declarations can't be local. A nested object declaration is still a singleton, and you can access it through
+the name of its enclosing object or class.
 
-Even though object declarations can't be nested directly inside a function, [object expressions](#object-expressions) can.
-So, if you need an object inside a function, use an object expression.
-Such an object is anonymous: you can assign it to a local variable, but you can't give the `object` keyword a name:
+Since object declarations can't be nested directly inside a function, use [object expressions](#object-expressions) instead.
+Such objects are anonymous: you can assign them to local variables, but you can't give the `object` keyword a name:
 
 ```kotlin
 // Declares an object nested inside another object declaration
@@ -125,7 +124,8 @@ class Server {
 }
 
 fun main() {
-    // To access a nested object, refer to it using the name of its enclosing object
+    // To access a nested object, refer to it
+    // using the name of its enclosing object
     println(Outer.Nested.name)
     // Nested in Outer
 
@@ -139,7 +139,7 @@ fun main() {
     println(local.name)
     // Nested in main()
 
-    // Syntax error: an object declaration can't be nested inside a function
+    // An object declaration can't be nested inside a function
     // object Local {
     //     val name = "Nested in main()"
     // }
