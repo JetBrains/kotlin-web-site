@@ -4,6 +4,8 @@ import { LandingLayout } from '../../components/landing-layout/landing-layout';
 
 import { BenchHero } from '@/blocks/benchmark/hero';
 import { Leaderboard } from '@/blocks/benchmark/leaderboard';
+import { currentEdition } from '@/blocks/benchmark/leaderboard/leaderboard-data';
+import { ArchiveLink } from '@/blocks/benchmark/archive-link';
 import { BenchCta } from '@/blocks/benchmark/cta';
 import { KOTLIN_BENCHMARK_TITLE, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@/blocks/benchmark/constants';
 
@@ -26,7 +28,8 @@ export default function KotlinBenchmarkLanding() {
         >
             <div className={styles.wrapper}>
                 <BenchHero />
-                <Leaderboard />
+                <ArchiveLink date={currentEdition.date} />
+                <Leaderboard rows={currentEdition.rows} notice={currentEdition.notice} />
                 <BenchCta methodologyUrl={METHODOLOGY_URL} githubUrl={GITHUB_URL} />
             </div>
         </LandingLayout>
