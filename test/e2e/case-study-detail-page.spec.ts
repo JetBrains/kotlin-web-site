@@ -28,7 +28,8 @@ test.describe('Case study detail pages', () => {
         test(`"${item.id}" (${item.type}) case study page is available`, async ({ page }) => {
             await page.goto(item.link!);
 
-            await expect(page.getByTestId(CASE_TYPE_TEST_ID[item.type])).toBeVisible();
+            const caseType = Array.isArray(item.type) ? item.type[0] : item.type;
+            await expect(page.getByTestId(CASE_TYPE_TEST_ID[caseType])).toBeVisible();
             await expect(page.locator('h1').first()).not.toBeEmpty();
         });
     }
