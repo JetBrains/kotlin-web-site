@@ -17,11 +17,22 @@ class ControlFlowLoopsExercise1Test {
     fun `print a line for every pizza slice`() {
         val lines = outputLines
         when {
-            lines == EXPECTED_LINES -> return passed(
-                "Checked: the story output only. The test can't see your loop. " +
-                        "The task asks for two versions: one with while and one with " +
-                        "do-while, so make sure you try both."
-            )
+            lines == EXPECTED_LINES -> {
+                // The last println() prints the final line, so the slice lines are all calls before it
+                val sliceCallLines = printCallLines.dropLast(1)
+                if (sliceCallLines.distinct().size > 1) {
+                    hint(
+                        "Use a loop, so one println() prints every slice. Your output is correct, " +
+                                "but your program still has a separate println() for each slice.",
+                        shownOutput = ""
+                    )
+                }
+                return passed(
+                    "Checked: the printed lines, and that the slice lines come from one " +
+                            "println() call inside a loop. The test can't tell while from " +
+                            "do-while, so make sure you try both."
+                )
+            }
 
             actualOutput.isEmpty() ->
                 hint(

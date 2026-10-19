@@ -1,17 +1,36 @@
 @file:OptIn(ExperimentalStdlibApi::class)
 
 import java.io.ByteArrayOutputStream
+import java.io.OutputStream
 import java.io.PrintStream
 import kotlin.math.abs
 
 private var caughtTodo: NotImplementedError? = null
+private val callSites = mutableListOf<Int>()
+
+private class CallSiteRecordingStream(out: OutputStream) : PrintStream(out) {
+    override fun println(x: Any?) {
+        recordCallSite()
+        super.println(x)
+    }
+
+    override fun println(x: String?) {
+        recordCallSite()
+        super.println(x)
+    }
+}
+
+/** Records the line in the learner's main() that called println(). */
+private fun recordCallSite() {
+    Throwable().stackTrace.firstOrNull { it.methodName == "main" }?.let { callSites += it.lineNumber }
+}
 
 fun runMain(echo: Boolean = false): String {
     val out = ByteArrayOutputStream()
     val originalOut = System.out
 
     try {
-        System.setOut(PrintStream(out))
+        System.setOut(CallSiteRecordingStream(out))
         main()
     } catch (e: NotImplementedError) {
         caughtTodo = e
@@ -24,6 +43,12 @@ fun runMain(echo: Boolean = false): String {
 
 val actualOutput: String by lazy { runMain(echo = true) }
 val output: String by lazy { actualOutput.trim() }
+
+/** Source line of each println() call made by main(), in call order. */
+val printCallLines: List<Int> by lazy {
+    actualOutput
+    callSites
+}
 
 /** The TODO() that stopped main(), if any. Null once the learner replaced every reached TODO(). */
 val firedTodo: NotImplementedError? by lazy {
