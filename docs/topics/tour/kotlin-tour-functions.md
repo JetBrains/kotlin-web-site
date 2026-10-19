@@ -217,7 +217,7 @@ area of that circle.
 
 <deflist collapsible="true" id="kotlin-tour-functions-exercise-1-hint">
     <def title="Hint">
-        The formula for calculating the area of a circle is <math>πr²</math>, where <math>r</math> is the radius.
+        The formula for calculating the area of a circle is <math>πr^2</math>, where <math>r</math> is the radius.
     </def>
 </deflist>
 
