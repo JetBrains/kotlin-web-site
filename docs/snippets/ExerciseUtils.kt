@@ -47,14 +47,14 @@ fun escapeHtml(text: String): String = text
 private fun withOutput(hint: String, output: String): String {
     val display = escapeHtml(output.trimEnd('\n'))
     val separator = if ('\n' in display) "\n" else " "
-    return consoleBlock(hint, "Output: " + separator + display)
+    return consoleBlock(hint, "Output:" + separator + display)
 }
 
 private fun consoleBlock(hint: String, text: String): String =
     hint +
             "</div></div>" +
             "<div class=\"console-block\"><span class=\"console-icon\"></span>" +
-            "<div style=\"white-space:pre-wrap\">" + text
+            "<div class=\"test-fail\" style=\"color:inherit;white-space:pre-wrap\">" + text
 
 class Expectation internal constructor(
     val call: String,
