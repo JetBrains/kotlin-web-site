@@ -499,6 +499,113 @@ fun main() {
 </def>
 </deflist>
 
+## Practice with tests
+
+<deflist appearance="clear" collapsible="true">
+<def title="Print a greeting checked by JUnit" id="test-page-junit-practice-1">
+
+Complete the code to make the program print `Hello, Mary!` to standard output:
+
+```kotlin
+fun main() {
+    // Write your code here
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageGreetingTest.kt" validate="false" id="test-page-junit-exercise-1"}
+
+```kotlin
+fun main() {
+    println("Hello, Mary!")
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageGreetingTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-junit-solution-1"}
+
+</def>
+<def title="Print a value from the editable region" id="test-page-junit-practice-2">
+
+Print the value of `status`. Only the code between the markers is editable.
+
+<deflist collapsible="true">
+    <def title="Hint">
+        Use <code>println()</code> to print the variable.
+    </def>
+</deflist>
+
+```kotlin
+fun main() {
+    val status = "Ready"
+    //sampleStart
+    // Write your code here
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageRegionTest.kt" validate="false" folded-button="false" id="test-page-junit-exercise-2"}
+
+```kotlin
+fun main() {
+    val status = "Ready"
+    //sampleStart
+    println(status)
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageRegionTest.kt" folded-button="false" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-junit-solution-2"}
+
+</def>
+<def title="Implement a function checked by expected values" id="test-page-junit-practice-3">
+
+Implement `greetingFor()` so that it returns the greeting for the name `Tom & Jerry` wrapped in a bold tag,
+the same way as for any other name:
+
+```kotlin
+// Replace TODO() with the function body
+fun greetingFor(name: String): String = TODO("Return the greeting")
+
+fun main() {
+    println(greetingFor("Tom & Jerry"))
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageExpectationTest.kt" validate="false" id="test-page-junit-exercise-3"}
+
+```kotlin
+fun greetingFor(name: String): String = "<b>Hello, $name</b>"
+
+fun main() {
+    println(greetingFor("Tom & Jerry"))
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageExpectationTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-junit-solution-3"}
+
+</def>
+<def title="Print a greeting with a string template" id="test-page-junit-practice-4">
+
+Print `Hello, Mary!`. The example solutions show two ways to build the string:
+
+```kotlin
+fun main() {
+    // Write your code here
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageGreetingTest.kt" validate="false" id="test-page-junit-exercise-4"}
+
+```kotlin
+fun main() {
+    println("Hello, " + "Mary!")
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageGreetingTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="test-page-junit-solution-4-1"}
+
+```kotlin
+fun main() {
+    val name = "Mary"
+    println("Hello, $name!")
+}
+```
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageGreetingTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="test-page-junit-solution-4-2"}
+
+</def>
+</deflist>
+
 ## Text elements
 
 * **Bold text**
