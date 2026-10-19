@@ -1,4 +1,9 @@
 export type CaseType = 'multiplatform' | 'backend' | 'ai';
+export type CaseTypes = CaseType | CaseType[];
+
+export const hasCaseType = (caseTypes: CaseTypes, caseType: CaseType): boolean => Array.isArray(caseTypes)
+    ? caseTypes.includes(caseType)
+    : caseTypes === caseType;
 
 export type  CaseTypeSwitch = 'all' | CaseType;
 
@@ -47,7 +52,7 @@ type Media = YoutubeMedia | ImageMedia;
 
 export interface CaseItem {
     id: string;
-    type: CaseType;
+    type: CaseTypes;
     description: string;
     isExternal?: boolean;
     link?: string;

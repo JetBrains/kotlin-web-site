@@ -11,7 +11,7 @@ import { LandingLayout, LandingLayoutProps } from '../../components/landing-layo
 import { CaseStudyPageContent } from '../../blocks/case-studies/page-content/case-study-page-content';
 import { CaseStudyCtaBlock } from '../../blocks/case-studies/cta-block/case-study-cta-block';
 import { CaseStudyPageHero } from '../../blocks/case-studies/page-hero/case-study-page-hero';
-import {  CaseType } from '../../blocks/case-studies/case-studies';
+import { CaseType, CaseTypes, hasCaseType } from '../../blocks/case-studies/case-studies';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import '../backend/styles.css';
@@ -46,7 +46,7 @@ const MULTIPLATFORM_GET_STARTED_URL = '/docs/multiplatform/get-started.html';
 
 interface CaseStudyProps {
     content: string;
-    caseType: CaseType;
+    caseType: CaseTypes;
     frontmatter: {
         title: string;
         id: string;
@@ -56,7 +56,7 @@ interface CaseStudyProps {
 }
 
 export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyProps) {
-    if (caseType === 'multiplatform') {
+    if (hasCaseType(caseType, 'multiplatform')) {
         return (
             <LandingLayout
                 title={`${frontmatter.title} Case Study | Kotlin Multiplatform`}
