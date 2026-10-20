@@ -1,0 +1,10 @@
+# compose-multiplatform-redesign — notes (kotlin-web-site, intake 20 Oct 2026)
+
+- Ticket KTL-5170 (parent KTL-4742): the owner's call 20 Oct is **the whole page**, not the benefits block alone; Figma "Kotlin AI Pages" `JlQuhpF5pdBIhdmBWFr5N6`, Desktop L `92:1036` (1540×7363) base + the five ktl frames (ds 1192 shot at 1190, tl 1000, ts 808, ml 616, ms 360), all six through the gate.
+- Record named `-redesign` (route `/compose-multiplatform-redesign/` while in review): the shipped `/compose-multiplatform/` and Anton's `blocks/compose-multiplatform/*` (PR #5865) stay untouched until acceptance; the swap is a rename at shipping.
+- `minSectionHeight 320` keeps the benefits frame (intro 316 + grid 640) one section; `splits` cannot glue a frame's first child. 8 sections; hero twins pinned by `matchOverrides` on tl/ts/ml/ms (the hero leaves the group wrapper there). 8/8 twins at every range.
+- Chrome: `Header` (1540/1192) or `Rectangle 3545` (narrower frames, a header placeholder — 808 wide on the 616 frame) + `kt--footer`, childless on the narrow frames; the footer sits INSIDE the last content group (`92:1190`) with the CTA.
+- Decor: hero render `92:1040` = a 1356² image rotated 21.08° (AABB 1753²), **present on 1540/1192 only** (the mock drops it below 1190 — preflight WARN, confirmed in the dumps); footer graphic `134:4190` = a 1424×463 clip box showing the top 32.5 % of a square sprite, present at every range. Both from `rawImages` (4096² → 2560², originals kept beside).
+- Revision WARN tl/ts/ml/ms "9/53 base texts absent": hidden code text + the childless footer's texts — chrome and hidden nodes, no content ceiling.
+- Typography: H1 43/49, Sub2 29/39, Text1 20/28, Text2 16/24, Text3 13/20, H3 20/28, H4 16/24 match the installed 0.24.2; H3-plus 28/34 does not → `textRoleDeviations ["28/34"]`.
+- Designer questions so far: `respawn-compose-multiplatform-h264 1` (92:1107) has no raster in the design context — a video? (poster + play button); the hero gallery is one static raster with prev/next arrows — a carousel of the case images Anton's hero already carries?; the gallery card gradient rgba(58,0,166,.6)→#2f0087.

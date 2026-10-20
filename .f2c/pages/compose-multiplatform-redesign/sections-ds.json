@@ -1,0 +1,133 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "breakpoint": "ds",
+  "matchedFrom": "sections.json",
+  "chrome": [
+    {
+      "nodeId": "134:4358",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 6892.373046875,
+        "width": 1192,
+        "height": 384
+      }
+    },
+    {
+      "nodeId": "134:4407",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1192,
+        "height": 128
+      }
+    }
+  ],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "134:4199",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 128,
+        "width": 952,
+        "height": 902
+      }
+    },
+    {
+      "index": 2,
+      "nodeId": "134:4226",
+      "figmaName": "Frame 1321314969",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 1174,
+        "width": 952,
+        "height": 995
+      }
+    },
+    {
+      "index": 3,
+      "nodeId": "134:4253",
+      "figmaName": "Frame 1321314961",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 2313,
+        "width": 952,
+        "height": 1735.373291015625
+      }
+    },
+    {
+      "index": 4,
+      "nodeId": "134:4287",
+      "figmaName": "Frame 1321315000",
+      "role": "format-cards",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 4192.373291015625,
+        "width": 952,
+        "height": 505
+      }
+    },
+    {
+      "index": 5,
+      "nodeId": "134:4315",
+      "figmaName": "Frame 1321314934",
+      "role": "showcase",
+      "matched": true,
+      "bbox": {
+        "x": 0,
+        "y": 4769.373046875,
+        "width": 1192,
+        "height": 857
+      }
+    },
+    {
+      "index": 6,
+      "nodeId": "134:4332",
+      "figmaName": "Frame 1321314935",
+      "role": "content",
+      "matched": true,
+      "bbox": {
+        "x": 0,
+        "y": 5626.373046875,
+        "width": 1192,
+        "height": 540
+      }
+    },
+    {
+      "index": 7,
+      "nodeId": "134:4345",
+      "figmaName": "Frame 6479",
+      "role": "faq",
+      "matched": true,
+      "bbox": {
+        "x": 0,
+        "y": 6166.373046875,
+        "width": 1192,
+        "height": 353
+      }
+    },
+    {
+      "index": 8,
+      "nodeId": "134:4351",
+      "figmaName": "Frame 1195",
+      "role": "showcase",
+      "matched": true,
+      "bbox": {
+        "x": 120,
+        "y": 6519.373046875,
+        "width": 952,
+        "height": 373
+      }
+    }
+  ]
+}

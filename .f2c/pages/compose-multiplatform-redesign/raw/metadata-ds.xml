@@ -1,0 +1,324 @@
+<frame id="134:4196" name="Desktop S" x="6225" y="976" width="1192" height="7363">
+  <frame id="134:4197" name="Frame 1321314986" x="0" y="128" width="1192" height="7148.373046875">
+    <frame id="134:4198" name="Frame 1321314967" x="0" y="0" width="1192" height="4641.373046875">
+      <frame id="134:4199" name="Frame 1883" x="120" y="0" width="952" height="902">
+        <rounded-rectangle id="134:4200" name="Compose Multiplatform Graphic Render 1.1" x="447.48828125" y="-774" width="1753.0277198553085" height="1753.0277198553085" />
+        <frame id="134:4201" name="Group 6615" x="961" y="0" width="111" height="111" />
+        <frame id="134:4204" name="Frame 429486" x="0" y="72" width="952" height="830">
+          <frame id="134:4205" name="Frame 4324" x="0" y="0" width="296" height="830">
+            <frame id="134:4206" name="Frame 6681" x="0" y="72" width="296" height="735">
+              <frame id="134:4207" name="Frame 4700" x="0" y="0" width="296" height="635">
+                <instance id="134:4208" name="Compose Multiplatform/" x="0" y="0" width="128" height="143" />
+                <frame id="134:4209" name="Frame 6683" x="0" y="175" width="296" height="460">
+                  <text id="134:4210" name="Compose Multiplatform" x="0" y="0" width="465" height="98" />
+                  <text id="134:4211" name="Build beautiful shared UIs for Android, iOS, desktop, and web that feel natural on every platform." x="0" y="130" width="296" height="234" />
+                  <frame id="134:4212" name="Frame 429501" x="0" y="396" width="296" height="64">
+                    <instance id="134:4213" name="Tag" x="0" y="0" width="93" height="28" />
+                    <instance id="134:4214" name="Tag" x="101" y="0" width="66" height="28" />
+                    <instance id="134:4215" name="Tag" x="175" y="0" width="73" height="28" />
+                    <instance id="134:4216" name="Tag" x="0" y="36" width="96" height="28" />
+                  </frame>
+                </frame>
+              </frame>
+              <instance id="134:4217" name="Button" x="0" y="683" width="171" height="52" />
+            </frame>
+          </frame>
+          <frame id="134:4218" name="Frame 6686" x="328" y="0" width="624" height="830">
+            <frame id="134:4219" name="Frame 6689" x="0" y="0" width="624" height="830">
+              <instance id="134:4220" name="gallery-img-merged" x="0" y="0" width="654.0000610351562" height="710.0000610351562" />
+              <frame id="134:4221" name="Frame 6685" x="0" y="710" width="624" height="120">
+                <text id="134:4222" name="Markaz, Pakistan’s e-commerce platform with 5M+ downloads, has 100+ screens built entirely with Compose Multiplatform." x="24" y="24" width="424" height="72" />
+                <frame id="134:4223" name="Frame 6688" x="472" y="34" width="128" height="52">
+                  <instance id="134:4224" name="Button" x="0" y="0" width="52" height="52" />
+                  <instance id="134:4225" name="Button" x="76" y="0" width="52" height="52" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="134:4226" name="Frame 1321314969" x="120" y="1046" width="952" height="995">
+        <frame id="134:4227" name="Frame 429494" x="0" y="0" width="952" height="316">
+          <frame id="134:4228" name="Frame 429504" x="79" y="48" width="794" height="104">
+            <text id="134:4229" name="Android skills. Every platform." x="92.5" y="0" width="609" height="49" />
+            <text id="134:4230" name="Use your Jetpack Compose skills across platforms." x="0" y="65" width="794" height="39" />
+          </frame>
+          <text id="134:4231" name="Compose Multiplatform supports familiar APIs like state management, layout, and animations as well as Material components, making it easy to bring your Android architecture to other platforms." x="79" y="184" width="794" height="84" />
+        </frame>
+        <frame id="134:4232" name="Frame 1321314999" x="0" y="348" width="952" height="647">
+          <frame id="134:4233" name="Frame 1321314972" x="0" y="0" width="492" height="647">
+            <text id="134:4234" name="Production-ready for mobile and desktop" x="32" y="32" width="428" height="147" />
+            <frame id="134:4235" name="Frame 1321314971" x="231" y="84" width="682" height="72" hidden="true">
+              <rounded-rectangle id="134:4236" name="image 20" x="0" y="0" width="72" height="72" />
+              <rounded-rectangle id="134:4237" name="image 21" x="122" y="0" width="72" height="72" />
+              <rounded-rectangle id="134:4238" name="image 22" x="244" y="0" width="72" height="72" />
+              <rounded-rectangle id="134:4239" name="image 23" x="366" y="0" width="72" height="72" />
+              <rounded-rectangle id="134:4240" name="image 24" x="488" y="0" width="72" height="72" />
+              <rounded-rectangle id="134:4241" name="image 25" x="610" y="0" width="72" height="72" />
+            </frame>
+            <rounded-rectangle id="134:4242" name="image 31" x="32" y="238.60305786132812" width="428" height="408.3969421386719" />
+          </frame>
+          <frame id="134:4243" name="Frame 1321314966" x="524" y="0" width="428" height="647">
+            <frame id="134:4244" name="Frame 1321314964" x="0" y="0" width="428" height="185">
+              <text id="134:4245" name="2×" x="32" y="32" width="364" height="49" />
+              <text id="134:4246" name="more top 10K apps use Kotlin Multiplatform than a year ago" x="32" y="97" width="364" height="56" />
+            </frame>
+            <frame id="134:4247" name="Frame 1321314962" x="0" y="217" width="428" height="185">
+              <text id="134:4248" name="81%" x="32" y="32" width="364" height="49" />
+              <text id="134:4249" name="of Kotlin Multiplatform developers use Compose Multiplatform" x="32" y="97" width="364" height="56" />
+            </frame>
+            <frame id="134:4250" name="Frame 1321314963" x="0" y="434" width="428" height="213">
+              <text id="134:4251" name="93%" x="32" y="32" width="364" height="49" />
+              <text id="134:4252" name="of developers report a native-like experience with Compose Multiplatform on iOS" x="32" y="97" width="364" height="84" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="134:4253" name="Frame 1321314961" x="120" y="2185" width="952" height="1735.373291015625">
+        <frame id="134:4254" name="Frame 1321314940" x="0" y="0" width="952" height="865.805908203125">
+          <rounded-rectangle id="134:4255" name="Compose Multiplatform Graphic Render 4.1" x="-186" y="114" width="1000" height="1000" hidden="true" />
+          <frame id="134:4256" name="Frame 1321314960" x="32" y="32" width="408" height="418">
+            <text id="134:4257" name="Native experiences" x="0" y="0" width="408" height="34" />
+            <text id="134:4258" name="Feels like iOS because it is. Native scrolling Native gestures Native text editing Native performance" x="0" y="58" width="408" height="184" />
+            <frame id="134:4259" name="Frame 1321314959" x="0" y="266" width="408" height="60">
+              <text id="134:4260" name="Need camera, maps or platform APIs?" x="0" y="0" width="408" height="28" />
+              <text id="134:4261" name="Access native APIs whenever you need them." x="0" y="36" width="408" height="24" />
+            </frame>
+            <frame id="134:4262" name="Frame 1321314958" x="0" y="350" width="212" height="68">
+              <instance id="134:4263" name="Instagram" x="32" y="20" width="28" height="28" />
+              <instance id="134:4264" name="Location-outline" x="92" y="20" width="28" height="28" />
+              <instance id="134:4265" name="Target-outline" x="152" y="20" width="28" height="28" />
+            </frame>
+          </frame>
+          <frame id="134:4266" name="Frame 1321315002" x="472" y="32" width="448" height="801.805908203125">
+            <rounded-rectangle id="134:4267" name="respawn-compose-multiplatform-h264 1" x="39" y="0" width="370" height="801.805908203125" />
+            <instance id="134:4268" name="Button" x="198" y="375" width="52.77227783203125" height="52.624725341796875" />
+          </frame>
+        </frame>
+        <frame id="134:4269" name="Frame 1321314941" x="0" y="867.805908203125" width="952" height="339.5673828125">
+          <frame id="134:4270" name="Frame 1321314973" x="32" y="32" width="408" height="202">
+            <text id="134:4271" name="Gradual adoption" x="0" y="0" width="408" height="34" />
+            <text id="134:4272" name="Start small or go all in without extra work – Compose Multiplatform fits into your existing app, whether you’re sharing one component, one screen, or the entire UI. Keep your existing SwiftUI, Android Views, or Swing code – there’s no need to rewrite anything. Learn from the experience of other companies." x="0" y="58" width="408" height="144" />
+          </frame>
+          <frame id="134:4273" name="Frame 1321315001" x="472" y="32" width="448" height="275.5673828125">
+            <rounded-rectangle id="134:4274" name="image 32" x="0" y="0" width="448" height="275.5673828125" />
+          </frame>
+        </frame>
+        <frame id="134:4275" name="Frame 4604" x="0" y="1209.373291015625" width="475" height="274">
+          <text id="134:4276" name="AI-powered code generation" x="32" y="32" width="411" height="34" />
+          <text id="134:4277" name="Speed up your UI coding with code generation powered by Junie, the coding agent by JetBrains. Compose Multiplatform shares its API with Jetpack Compose. As a result, LLMs are already well-trained, helping you generate UI components and complete screens faster than ever." x="32" y="90" width="411" height="144" />
+        </frame>
+        <frame id="134:4278" name="Frame 4604" x="477" y="1209.373291015625" width="475" height="274">
+          <text id="134:4279" name="Hot reload" x="32" y="32" width="411" height="34" />
+          <text id="134:4280" name="Tweak and preview your UI instantly without restarting on desktop with Compose Hot Reload, speeding up your development workflow." x="32" y="90" width="411" height="72" />
+        </frame>
+        <frame id="134:4281" name="Frame 4604" x="0" y="1485.373291015625" width="475" height="250">
+          <text id="134:4282" name="Seamless tooling" x="32" y="32" width="411" height="34" />
+          <text id="134:4283" name="Enjoy smart IDE support with the KMP plugin for IntelliJ IDEA and Android Studio↗, with common previews, cross-language navigation, refactorings, and debugging across Kotlin and Swift code." x="32" y="90" width="411" height="120" />
+        </frame>
+        <frame id="134:4284" name="Frame 4604" x="477" y="1485.373291015625" width="475" height="250">
+          <text id="134:4285" name="A thriving ecosystem" x="32" y="32" width="411" height="34" />
+          <text id="134:4286" name="Leverage a rich set of production-ready Kotlin Multiplatform libraries↗, including official multiplatform Jetpack libraries↗. Join a growing community that’s shaping the future of cross-platform development." x="32" y="90" width="411" height="120" />
+        </frame>
+      </frame>
+      <frame id="134:4287" name="Frame 1321315000" x="120" y="4064.373291015625" width="952" height="505">
+        <text id="134:4288" name="Supported platforms" x="0" y="0" width="524" height="49" />
+        <frame id="134:4289" name="Frame 1321314974" x="0" y="81" width="952" height="424">
+          <frame id="134:4290" name="Frame 6396" x="0" y="0" width="460" height="208">
+            <frame id="134:4291" name="Frame 4329" x="32" y="32" width="396" height="48">
+              <instance id="134:4292" name="android" x="0" y="0" width="48" height="48" />
+              <text id="134:4293" name="Android" x="60" y="7" width="105" height="34" />
+              <instance id="134:4294" name="Tag" x="177" y="10" width="56" height="28" />
+            </frame>
+            <text id="134:4295" name="Modern Android development with Jetpack Compose plus the flexibility to share your UI across platforms." x="32" y="104" width="396" height="72" />
+          </frame>
+          <frame id="134:4296" name="Frame 6392" x="492" y="0" width="460" height="208">
+            <frame id="134:4297" name="Frame 4329" x="32" y="32" width="396" height="48">
+              <instance id="134:4298" name="apple" x="0" y="0" width="48" height="48" />
+              <text id="134:4299" name="iOS" x="60" y="7" width="47" height="34" />
+              <instance id="134:4300" name="Tag" x="119" y="10" width="56" height="28" />
+            </frame>
+            <text id="134:4301" name="Bring Kotlin to iOS to build native apps with a familiar development experience and native performance." x="32" y="104" width="396" height="72" />
+          </frame>
+          <frame id="134:4302" name="Frame 6397" x="0" y="240" width="460" height="184">
+            <frame id="134:4303" name="Frame 4329" x="32" y="32" width="396" height="48">
+              <instance id="134:4304" name="computer" x="0" y="0" width="48" height="48" />
+              <text id="134:4305" name="Desktop" x="60" y="7" width="112" height="34" />
+              <instance id="134:4306" name="Tag" x="184" y="10" width="56" height="28" />
+            </frame>
+            <text id="134:4307" name="Build powerful desktop apps for Windows, macOS, and Linux from one codebase." x="32" y="104" width="396" height="48" />
+          </frame>
+          <frame id="134:4308" name="Frame 6398" x="492" y="240" width="460" height="184">
+            <frame id="134:4309" name="Frame 4329" x="32" y="32" width="396" height="48">
+              <instance id="134:4310" name="globus" x="0" y="0" width="48" height="48" />
+              <text id="134:4311" name="Web" x="60" y="7" width="63" height="34" />
+              <instance id="134:4312" name="Tag" x="135" y="10" width="45" height="28" />
+            </frame>
+            <text id="134:4313" name="Bring your Compose UI to the browser with Kotlin and WebAssembly." x="32" y="104" width="396" height="48" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="134:4314" name="Frame 1321314944" x="0" y="4641.373046875" width="1192" height="2507">
+      <frame id="134:4315" name="Frame 1321314934" x="0" y="0" width="1192" height="857">
+        <frame id="134:4316" name="Frame 1321314929" x="120" y="72" width="952" height="713">
+          <frame id="134:4317" name="Frame 1321314970" x="0" y="0" width="952" height="49">
+            <text id="134:4318" name="Try Compose Multiplatform" x="0" y="0" width="561" height="49" />
+            <frame id="134:4319" name="Frame 1321314927" x="730" y="4.5" width="222" height="40">
+              <instance id="134:4320" name="Button" x="0" y="0" width="40" height="40" />
+              <instance id="134:4321" name="Button" x="56" y="0" width="40" height="40" />
+              <instance id="134:4322" name="Button" x="112" y="0" width="110" height="40" />
+            </frame>
+          </frame>
+          <frame id="134:4323" name="Frame 1321314928" x="0" y="81" width="952" height="632">
+            <frame id="134:4324" name="Frame 1321314910" x="0" y="0" width="952" height="632" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="134:4332" name="Frame 1321314935" x="0" y="857" width="1192" height="540">
+        <frame id="134:4333" name="Frame 1321314931" x="120" y="72" width="952" height="432">
+          <frame id="134:4334" name="Frame 6393" x="0" y="0" width="952" height="368">
+            <frame id="134:4335" name="Frame 1321314930" x="32" y="32" width="220" height="304">
+              <rounded-rectangle id="134:4336" name="image 2" x="0" y="0" width="220" height="220" />
+              <frame id="134:4337" name="Frame 6392" x="0" y="236" width="220" height="68">
+                <text id="134:4338" name="Alex Askerov" x="0" y="0" width="220" height="28" />
+                <text id="134:4339" name="Mobile Development Unit Lead at Wrike" x="0" y="28" width="220" height="40" />
+              </frame>
+            </frame>
+            <text id="134:4340" name="Building on our success with Kotlin Multiplatform integration, we’ve decided to go ahead with Compose Multiplatform for building Calendar View. In less than three months, it was live on the App Store and Google Play. Most of the client logic was implemented by a single Android developer. From the iOS side, only integration was required. Compose Multiplatform was even smoother [than KMP] to integrate, requiring minimal work from iOS developers." x="284" y="32" width="636" height="304" />
+          </frame>
+          <frame id="134:4341" name="Controls" x="813" y="392" width="139" height="40">
+            <instance id="134:4342" name="Button" x="0" y="0" width="40" height="40" />
+            <text id="134:4343" name="4/6" x="56" y="8" width="27" height="24" />
+            <instance id="134:4344" name="Button" x="99" y="3.552713678800501e-15" width="40" height="40" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="134:4345" name="Frame 6479" x="0" y="1397" width="1192" height="353">
+        <text id="134:4346" name="FAQ" x="120" y="72" width="87" height="49" />
+        <frame id="134:4347" name="Frame 6480" x="120" y="153" width="952" height="128">
+          <instance id="134:4348" name="Accordion" x="0" y="0" width="460" height="128" />
+          <instance id="134:4349" name="Accordion" x="492" y="0" width="460" height="64" />
+        </frame>
+      </frame>
+      <frame id="134:4350" name="Frame 1321314943" x="0" y="1750" width="1192" height="757">
+        <frame id="134:4351" name="Frame 1195" x="120" y="0" width="952" height="373">
+          <frame id="134:4352" name="footer-img" x="42" y="-89.4736328125" width="1424" height="463">
+            <rounded-rectangle id="134:4353" name="DSGN-21280 Graphics for the Exposed website 3 1" x="0.05078125" y="0.0732421875" width="1423.75" height="462.3999938964844" />
+          </frame>
+          <frame id="134:4354" name="Frame 4602" x="0" y="72" width="494" height="129">
+            <text id="134:4355" name="Build your first app" x="0" y="0" width="731" height="49" />
+            <text id="134:4356" name="Follow the guide to launch your first Compose Multiplatform app." x="0" y="73" width="494" height="56" />
+          </frame>
+          <instance id="134:4357" name="Button" x="0" y="249" width="171" height="52" />
+        </frame>
+        <frame id="134:4358" name="kt--footer" x="0" y="373" width="1192" height="384">
+          <frame id="134:4359" name="Frame 4435" x="24" y="72" width="1144" height="240">
+            <frame id="134:4360" name="Frame 4494" x="0" y="0" width="1144" height="88">
+              <frame id="134:4361" name="Frame 9" x="0" y="0" width="424" height="52">
+                <text id="134:4362" name="text" x="0" y="14" width="104" height="24" />
+                <frame id="134:4363" name="Frame 4369" x="112" y="0" width="312" height="52">
+                  <instance id="134:4364" name="Button" x="0" y="0" width="52" height="52" />
+                  <instance id="134:4365" name="Button" x="52" y="0" width="52" height="52" />
+                  <instance id="134:4366" name="Button" x="104" y="0" width="52" height="52" />
+                  <instance id="134:4367" name="Button" x="156" y="0" width="52" height="52" />
+                  <instance id="134:4368" name="Button" x="208" y="0" width="52" height="52" />
+                  <instance id="134:4369" name="Button" x="260" y="0" width="52" height="52" />
+                </frame>
+                <frame id="134:4370" name="row" x="0" y="101" width="548" height="20" hidden="true">
+                  <text id="134:4371" name="Kotlin™ is protected under the" x="0" y="0" width="188" height="20" />
+                  <instance id="134:4372" name="Link" x="187" y="0" width="109" height="20" />
+                  <text id="134:4373" name="and licensed under the" x="298" y="0" width="143" height="20" />
+                  <instance id="134:4374" name="Link" x="443" y="0" width="105" height="20" />
+                </frame>
+              </frame>
+              <frame id="134:4375" name="Frame 4368" x="0" y="64" width="829" height="24">
+                <instance id="134:4376" name="Link" x="0" y="0" width="165" height="24" />
+                <instance id="134:4377" name="Divider" x="177" y="24" width="1" height="24" />
+                <instance id="134:4378" name="Link" x="190" y="0" width="68" height="24" />
+                <instance id="134:4379" name="Divider" x="270" y="24" width="1" height="24" />
+                <instance id="134:4380" name="Link" x="283" y="0" width="67" height="24" />
+                <instance id="134:4381" name="Divider" x="362" y="24" width="1" height="24" />
+                <instance id="134:4382" name="Link" x="375" y="0" width="62" height="24" />
+                <instance id="134:4383" name="Divider" x="449" y="24" width="1" height="24" />
+                <text id="134:4384" name="Type something" x="462" y="0" width="35" height="24" />
+                <instance id="134:4385" name="Divider" x="509" y="24" width="1" height="24" />
+                <text id="134:4386" name="Type something" x="522" y="0" width="99" height="24" />
+                <instance id="134:4387" name="Divider" x="633" y="24" width="1" height="24" />
+                <text id="134:4388" name="Type something" x="646" y="0" width="98" height="24" />
+                <instance id="134:4389" name="Divider" x="756" y="24" width="1" height="24" />
+                <text id="134:4390" name="Type something" x="769" y="0" width="60" height="24" />
+              </frame>
+            </frame>
+            <frame id="134:4391" name="kt--jb-label" x="0" y="160" width="562" height="80">
+              <frame id="134:4392" name="Frame 4501" x="0" y="0" width="562" height="80">
+                <instance id="134:4393" name=" JetBrains" x="0" y="0" width="149" height="32" />
+                <frame id="134:4394" name="Frame 4502" x="0" y="40" width="562" height="40">
+                  <frame id="134:4395" name="row" x="0" y="0" width="244" height="20">
+                    <text id="134:4396" name="Supported and developed by" x="0" y="0" width="182" height="20" />
+                    <instance id="134:4397" name="Link" x="182" y="0" width="58" height="20" />
+                    <text id="134:4398" name="." x="240" y="0" width="4" height="20" />
+                  </frame>
+                  <frame id="134:4399" name="Frame 4493" x="0" y="20" width="562" height="20">
+                    <frame id="134:4400" name="row" x="0" y="0" width="302" height="20">
+                      <text id="134:4401" name="Kotlin™ is protected under the" x="0" y="0" width="188" height="20" />
+                      <instance id="134:4402" name="Link" x="192" y="0" width="110" height="20" />
+                    </frame>
+                    <frame id="134:4403" name="row" x="306" y="0" width="256" height="20">
+                      <text id="134:4404" name="and licensed under the" x="0" y="0" width="145" height="20" />
+                      <instance id="134:4405" name="Link" x="145" y="0" width="107" height="20" />
+                      <text id="134:4406" name="." x="252" y="0" width="4" height="20" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="134:4407" name="Header" x="0" y="0" width="1192" height="128">
+    <frame id="134:4408" name="Source/header/desktop" x="0" y="0" width="1192" height="128">
+      <frame id="134:4409" name="menu/dark/1st_lv" x="0" y="0" width="1192" height="64">
+        <frame id="134:4410" name="logo+title" x="32" y="21.83829116821289" width="152.32073974609375" height="20.323894500732422">
+          <instance id="134:4411" name="Logos" x="0" y="0" width="92.32074737548828" height="20.323894500732422" />
+          <text id="134:4412" name="version" x="96.32073974609375" y="0" width="56" height="16" />
+        </frame>
+        <instance id="134:4413" name="divider/dark" x="0" y="63" width="1680" height="1" hidden="true" />
+        <frame id="134:4414" name="menu" x="653" y="0" width="507" height="64">
+          <frame id="134:4415" name="links" x="0" y="0" width="388" height="64">
+            <instance id="134:4416" name="Header-link" x="0" y="24" width="71" height="40" />
+            <instance id="134:4417" name="Header-link" x="103" y="24" width="39" height="40" />
+            <instance id="134:4418" name="Header-link" x="174" y="24" width="25" height="40" />
+            <instance id="134:4419" name="Header-link" x="231" y="24" width="88" height="40" />
+            <instance id="134:4420" name="Header-link" x="351" y="24" width="37" height="40" />
+          </frame>
+          <instance id="134:4421" name="Header-link" x="412" y="0" width="31" height="64" />
+          <instance id="134:4422" name="Header-link" x="434" y="12" width="85" height="40" hidden="true" />
+          <instance id="134:4423" name="Icon" x="434" y="20" width="24" height="24" hidden="true" />
+          <instance id="134:4424" name="Button" x="467" y="12" width="40" height="40" />
+          <instance id="134:4425" name="Icon" x="562" y="20" width="24" height="24" hidden="true" />
+          <instance id="134:4426" name="Button" x="562" y="12" width="123" height="40" hidden="true" />
+        </frame>
+      </frame>
+      <frame id="134:4427" name="menu/2nd_lv" x="0" y="64" width="1192" height="64">
+        <frame id="134:4428" name="submenu title" x="32" y="16" width="191" height="32">
+          <instance id="134:4429" name="Logos" x="0" y="1.7849998474121094" width="28.43000030517578" height="28.43000030517578" hidden="true" />
+          <instance id="134:4430" name="Icon" x="44.4296875" y="4" width="24" height="24" hidden="true" />
+          <text id="134:4431" name="Title" x="0" y="0" width="191" height="32" />
+        </frame>
+        <frame id="134:4432" name="menu" x="609" y="12" width="551" height="40">
+          <instance id="134:4433" name="Header-link" x="0" y="8" width="182" height="24" />
+          <instance id="134:4434" name="Header-link" x="214" y="8" width="100" height="24" />
+          <instance id="134:4435" name="Header-link" x="346" y="8" width="39" height="24" />
+          <instance id="134:4436" name="Header-link" x="345" y="8" width="86" height="24" hidden="true" />
+          <instance id="134:4437" name="Header-link" x="461" y="8" width="84" height="24" hidden="true" />
+          <instance id="134:4438" name="Header-link" x="578" y="8" width="84" height="24" hidden="true" />
+          <instance id="134:4439" name="Header-link" x="695" y="8" width="84" height="24" hidden="true" />
+          <instance id="134:4440" name="Button" x="417" y="0" width="134" height="40" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</frame>

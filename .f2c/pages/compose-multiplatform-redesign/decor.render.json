@@ -1,0 +1,26 @@
+[
+  {
+    "node": "92:1040",
+    "name": "Compose Multiplatform Graphic Render 1.1",
+    "className": "compose-multiplatform-graphic-render-1-1",
+    "asset": "/compose-multiplatform-redesign/decor-hero-render.png",
+    "section": "01-hero",
+    "covers": [
+      "01-hero"
+    ],
+    "over": false
+  },
+  {
+    "node": "134:4190",
+    "name": "footer-img",
+    "className": "footer-img",
+    "asset": "/compose-multiplatform-redesign/decor-footer-graphic.png",
+    "section": "08-showcase",
+    "covers": [
+      "06-content",
+      "07-faq",
+      "08-showcase"
+    ],
+    "over": false
+  }
+]

@@ -1,0 +1,176 @@
+{
+  "name": "compose-multiplatform-redesign",
+  "title": "Compose Multiplatform | Kotlin AI Pages (KTL-5170 / KTL-4742)",
+  "project": "../..",
+  "figma": {
+    "fileKey": "JlQuhpF5pdBIhdmBWFr5N6",
+    "rootNode": "92:1036",
+    "viewport": {
+      "width": 1540,
+      "height": 7363
+    }
+  },
+  "contentRoot": "92:1037",
+  "chrome": [
+    "92:1247",
+    "92:1198"
+  ],
+  "minSectionHeight": 320,
+  "theme": "dark",
+  "container": {
+    "base": {
+      "max": 1188,
+      "pad": 22
+    },
+    "ds": {
+      "max": 996,
+      "pad": 22
+    },
+    "tl": {
+      "max": 804,
+      "pad": 22
+    },
+    "ts": {
+      "max": 612,
+      "pad": 22
+    },
+    "ml": {
+      "max": 468,
+      "pad": 22
+    },
+    "ms": {
+      "max": 360,
+      "pad": 24
+    }
+  },
+  "containerNote": "kotlinlang's ktl-layout-v2 grid and ITS ranges (decision 26 follow-up): the designer drew the six ktl frames — 1540 Desktop L (base, >1190), 1192 Desktop S (ds, <=1190; shot at 1190), 1000 Tablet L (tl), 808 Tablet S (ts), 616 Mobile L (ml, <=640), 360 Mobile S (ms, <=472). Content columns 1144 / 952 / 760 / 568 / 424 / 312. containerCssFromToolkit false: the page column is ktl-layout-v2.",
+  "breakpoints": {
+    "base": {
+      "frame": "92:1036",
+      "width": 1540,
+      "height": 7363,
+      "contentRoot": "92:1037",
+      "chrome": [
+        "92:1247",
+        "92:1198"
+      ],
+      "decoration": [
+        "92:1040",
+        "134:4190"
+      ],
+      "raw": "raw/metadata.xml",
+      "media": null
+    },
+    "ds": {
+      "frame": "134:4196",
+      "width": 1192,
+      "height": 7363,
+      "contentRoot": "134:4197",
+      "chrome": [
+        "134:4407",
+        "134:4358"
+      ],
+      "decoration": [
+        "134:4200",
+        "134:4352"
+      ],
+      "raw": "raw/metadata-ds.xml",
+      "media": 1190
+    },
+    "tl": {
+      "frame": "134:4735",
+      "width": 1000,
+      "height": 9651,
+      "contentRoot": "134:4736",
+      "chrome": [
+        "134:5309",
+        "134:4890"
+      ],
+      "decoration": [
+        "134:4884"
+      ],
+      "raw": "raw/metadata-tl.xml",
+      "media": 1000
+    },
+    "ts": {
+      "frame": "134:5310",
+      "width": 808,
+      "height": 10001,
+      "contentRoot": "134:5311",
+      "chrome": [
+        "134:5459",
+        "134:5458"
+      ],
+      "decoration": [
+        "134:5452"
+      ],
+      "raw": "raw/metadata-ts.xml",
+      "media": 808
+    },
+    "ml": {
+      "frame": "134:5599",
+      "width": 616,
+      "height": 10512,
+      "contentRoot": "134:5600",
+      "chrome": [
+        "134:5748",
+        "134:5747"
+      ],
+      "decoration": [
+        "134:5741"
+      ],
+      "raw": "raw/metadata-ml.xml",
+      "media": 640
+    },
+    "ms": {
+      "frame": "134:5952",
+      "width": 360,
+      "height": 10512,
+      "contentRoot": "134:5953",
+      "chrome": [
+        "134:6103",
+        "134:6102"
+      ],
+      "decoration": [
+        "134:6100"
+      ],
+      "raw": "raw/metadata-ms.xml",
+      "media": 472
+    }
+  },
+  "decor": [
+    {
+      "node": "92:1040",
+      "asset": "assets/decor-hero-render.png",
+      "transform": "rotate(21.08deg)",
+      "note": "Compose Multiplatform Graphic Render 1.1 — a 1356×1356 image (4096² source, object-cover, no crop) rotated 21.08° (get_design_context of the hero 92:1039: a 1753×1753 AABB wrapper at top −774, the image centered in it); first child of the hero, under the badge 92:1041 and the content. No flip, no blend, no blur. Present on the 1540 and 1192 frames only. The 512² twin fill is kept as assets/decor-hero-render-512.png."
+    },
+    {
+      "node": "134:4190",
+      "asset": "assets/decor-footer-graphic.png",
+      "note": "footer-img — a 1424×463 clip box (overflow-clip) at left 190 / bottom 0 of the CTA frame 92:1191, overflowing the 1144 column to the right and the 1540 page; inside it 134:4193 holds the DSGN-21280 Exposed graphic as a square sprite stretched to width 100 % / height 307.9 %, top 0 — only the top 32.5 % of the source is visible. No transform, no blend. First child of the CTA frame, under its texts and button. Source 4096² downscaled to 2560² (≤2x rule; the original kept as assets/decor-footer-graphic-4096.png). Present at every range (1068×347 on tl/ts/ml, 822×267 on ms)."
+    }
+  ],
+  "metric": {
+    "note": "metric v3 (decor page): both rasters enter the score; nothing masked yet."
+  },
+  "textRoleDeviations": [
+    "28/34"
+  ],
+  "minSectionHeightNote": "320: the benefits frame 92:1066 is intro (316) + grid (640) and the mock reads it as one block; a leading child under the floor vetoes the cut (segment.mjs rules). Every other section is taller at every range (FAQ 353 the smallest).",
+  "matchOverrides": {
+    "note": "the hero Frame 1883 leaves the Frame 1321314967 wrapper and becomes a direct child of the content root on the 1000/808/616/360 frames; its layer-name path no longer matches",
+    "tl": {
+      "1": "134:5267"
+    },
+    "ts": {
+      "1": "134:5312"
+    },
+    "ml": {
+      "1": "134:5601"
+    },
+    "ms": {
+      "1": "134:5954"
+    }
+  }
+}

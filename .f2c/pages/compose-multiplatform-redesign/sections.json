@@ -1,0 +1,174 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "breakpoint": "base",
+  "source": "raw/metadata.xml",
+  "chrome": [
+    {
+      "nodeId": "92:1198",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 6979.4736328125,
+        "width": 1540,
+        "height": 384
+      }
+    },
+    {
+      "nodeId": "92:1247",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1540,
+        "height": 128
+      }
+    }
+  ],
+  "decoration": [],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "92:1039",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "firstText": "Compose Multiplatform",
+      "bbox": {
+        "x": 198,
+        "y": 128,
+        "width": 1144,
+        "height": 902
+      },
+      "components": [
+        "Button",
+        "Compose Multiplatform/",
+        "Tag",
+        "gallery-img-merged"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 2,
+      "nodeId": "92:1066",
+      "figmaName": "Frame 1321314969",
+      "role": "content",
+      "firstText": "Android skills. Every platform.",
+      "bbox": {
+        "x": 198,
+        "y": 1174,
+        "width": 1144,
+        "height": 988
+      },
+      "components": [],
+      "customArt": true
+    },
+    {
+      "index": 3,
+      "nodeId": "92:1093",
+      "figmaName": "Frame 1321314961",
+      "role": "content",
+      "firstText": "Native experiences",
+      "bbox": {
+        "x": 198,
+        "y": 2306,
+        "width": 1144,
+        "height": 1853.4736328125
+      },
+      "components": [
+        "Button",
+        "Instagram",
+        "Location-outline",
+        "Target-outline"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 4,
+      "nodeId": "92:1127",
+      "figmaName": "Frame 1321315000",
+      "role": "format-cards",
+      "firstText": "Supported platforms",
+      "bbox": {
+        "x": 198,
+        "y": 4303.4736328125,
+        "width": 1144,
+        "height": 481
+      },
+      "components": [
+        "Tag",
+        "android",
+        "apple",
+        "computer",
+        "globus"
+      ],
+      "customArt": false
+    },
+    {
+      "index": 5,
+      "nodeId": "92:1155",
+      "figmaName": "Frame 1321314934",
+      "role": "showcase",
+      "firstText": "Try Compose Multiplatform",
+      "bbox": {
+        "x": 0,
+        "y": 4856.4736328125,
+        "width": 1540,
+        "height": 857
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 6,
+      "nodeId": "92:1172",
+      "figmaName": "Frame 1321314935",
+      "role": "content",
+      "firstText": "Alex Askerov",
+      "bbox": {
+        "x": 0,
+        "y": 5713.4736328125,
+        "width": 1540,
+        "height": 540
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true
+    },
+    {
+      "index": 7,
+      "nodeId": "92:1185",
+      "figmaName": "Frame 6479",
+      "role": "faq",
+      "firstText": "FAQ",
+      "bbox": {
+        "x": 0,
+        "y": 6253.4736328125,
+        "width": 1540,
+        "height": 353
+      },
+      "components": [
+        "Accordion"
+      ],
+      "customArt": false
+    },
+    {
+      "index": 8,
+      "nodeId": "92:1191",
+      "figmaName": "Frame 1195",
+      "role": "showcase",
+      "firstText": "Build your first app",
+      "bbox": {
+        "x": 198,
+        "y": 6606.4736328125,
+        "width": 1144,
+        "height": 373
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true
+    }
+  ]
+}
