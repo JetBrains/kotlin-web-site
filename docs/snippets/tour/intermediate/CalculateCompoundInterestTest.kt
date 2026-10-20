@@ -23,7 +23,8 @@ class CalculateCompoundInterestTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "calculateCompoundInterest() computes P times " +
-                        "(1 + r / n) raised to the power of n * t for any inputs."
+                        "(1 + r / n) raised to the power of n * t for any inputs.",
+                showOutput = true
             )
 
             else -> when {

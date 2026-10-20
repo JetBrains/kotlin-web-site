@@ -45,7 +45,8 @@ class BudgetTest {
             lines == warnings + goodNews -> passed(
                 "remainingBudget prints a warning below 20% of totalBudget, " +
                         "even when the budget increases, reports other " +
-                        "increases, and prints nothing for other changes."
+                        "increases, and prints nothing for other changes.",
+                showOutput = true
             )
 
             lines.isEmpty() -> hint(

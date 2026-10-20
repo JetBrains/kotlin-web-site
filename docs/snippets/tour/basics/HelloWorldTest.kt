@@ -23,7 +23,8 @@ class HelloWorldTest {
     output == EXPECTED -> passed(
         "Checked: the program prints exactly \"Mary is 20 years old\". " +
                 "The test doesn't check how you build the string. " +
-                "The example solution uses a string template with the name and age variables."
+                "The example solution uses a string template with the name and age variables.",
+        showOutput = true
     )
 
         output.isEmpty() -> hint("Make the program print something.")

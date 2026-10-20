@@ -12,7 +12,8 @@ class EmployeeTest {
             lines.size == 2 && looksLikeEmployee(lines[0], 20) && looksLikeEmployee(lines[1], 30) ->
                 passed(
                     "Checked: Employee is a data class and its mutable salary " +
-                            "goes up from 20 to 30."
+                            "goes up from 20 to 30.",
+                    showOutput = true
                 )
 
             actualOutput.isBlank() -> hint(

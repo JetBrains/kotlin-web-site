@@ -17,7 +17,8 @@ class IsPositiveTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "isPositive() returns true for positive numbers and " +
-                        "false for zero and negative numbers."
+                        "false for zero and negative numbers.",
+                showOutput = true
             )
 
             else -> when {

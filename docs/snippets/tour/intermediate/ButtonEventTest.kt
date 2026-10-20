@@ -7,7 +7,8 @@ class ButtonEventTest {
             "Double click!" in output.lines() -> passed(
                 "The handler prints \"Double click!\" for the simulated " +
                         "double-click event. The test doesn't check whether " +
-                        "your handler checks the isRightClick and amount variables."
+                        "your handler checks the isRightClick and amount variables.",
+                showOutput = true
             )
 
             output.isEmpty() -> hint(

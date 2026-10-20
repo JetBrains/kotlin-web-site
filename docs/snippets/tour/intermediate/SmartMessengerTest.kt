@@ -101,7 +101,8 @@ class SmartMessengerTest {
                 "SmartMessenger.sendMessage() prints the smart message and the " +
                         "[smart]-prefixed BasicMessenger message, and receiveMessage() " +
                         "returns \"You've got a new message!\". The test doesn't check " +
-                        "whether you delegate to BasicMessenger with the by keyword."
+                        "whether you delegate to BasicMessenger with the by keyword.",
+                showOutput = true
             )
         }
     }

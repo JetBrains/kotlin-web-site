@@ -30,7 +30,8 @@ class ControlFlowLoopsExercise1Test {
                 return passed(
                     "Checked: the printed lines, and that the slice lines come from one " +
                             "println() call inside a loop. The test can't tell while from " +
-                            "do-while, so make sure you try both."
+                            "do-while, so make sure you try both.",
+                    showOutput = true
                 )
             }
 

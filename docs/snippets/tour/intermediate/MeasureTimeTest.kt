@@ -16,7 +16,8 @@ class MeasureTimeTest {
                 "main() prints \"Processed data\" and a measured duration. " +
                         "The duration changes from run to run and includes a time unit. " +
                         "The test checks only the duration's format, not whether " +
-                        "you use measureTime()."
+                        "you use measureTime().",
+                showOutput = true
             )
 
             output.isEmpty() -> hint(

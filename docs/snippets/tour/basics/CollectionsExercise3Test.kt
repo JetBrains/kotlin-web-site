@@ -34,7 +34,8 @@ class CollectionsExercise3Test {
     @Test
     fun `print the spelling of 2 as 'two'`() = when {
         output == EXPECTED -> passed(
-            "Checked: the program prints exactly \"2 is spelled as 'two'\"."
+            "Checked: the program prints exactly \"2 is spelled as 'two'\".",
+            showOutput = true
         )
 
         actualOutput.isEmpty() ->

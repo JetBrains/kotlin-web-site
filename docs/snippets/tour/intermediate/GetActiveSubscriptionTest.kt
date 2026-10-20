@@ -34,7 +34,8 @@ class GetActiveSubscriptionTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "getActiveSubscription() returns the single active " +
-                        "subscription and null when none or more than one is active."
+                        "subscription and null when none or more than one is active.",
+                showOutput = true
             )
 
             else -> when {

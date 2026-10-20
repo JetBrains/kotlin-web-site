@@ -20,7 +20,7 @@ class LambdasExercise2Test {
         val lines = outputLines
 
         when {
-            count3 == 3 && count0 == 0 && lines == List(5) { "Hello" } -> passed()
+            count3 == 3 && count0 == 0 && lines == List(5) { "Hello" } -> passed(showOutput = true)
 
             count3 == 0 -> hint(
                 "Call action() inside repeatN. " +

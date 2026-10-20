@@ -24,7 +24,8 @@ class ControlFlowLoopsExercise2Test {
                 return passed(
                     "Checked: all 100 lines follow the rules. The test can't see how " +
                             "you produce them. A for loop over 1..100 with a when " +
-                            "expression is the intended way."
+                            "expression is the intended way.",
+                    showOutput = true
                 )
 
             actualOutput.isEmpty() ->

@@ -54,7 +54,8 @@ class DeliveryStatusTest {
 
             else -> passed(
                 "DeliveryStatus is a sealed class with the four data classes, " +
-                        "and main() prints the expected line for every status."
+                        "and main() prints the expected line for every status.",
+                showOutput = true
             )
         }
     }

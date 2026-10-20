@@ -34,7 +34,8 @@ class RandomEmployeeGeneratorTest {
                 passed(
                     "Checked: names are picked from your list at random, and salaries " +
                             "always stay between the current minSalary and maxSalary, " +
-                            "even after they change."
+                            "even after they change.",
+                    showOutput = true
                 )
 
             thrown != null -> hint(

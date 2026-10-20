@@ -20,7 +20,7 @@ class ControlFlowConditionalExercise1Test {
 
         when {
             wins > 0 && losses > wins && wins + losses == runs.size ->
-                passed()
+                passed(showOutput = true)
 
             rawRuns.all { it.isEmpty() } ->
                 hint(

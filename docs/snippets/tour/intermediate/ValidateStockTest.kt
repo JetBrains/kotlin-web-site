@@ -20,7 +20,8 @@ class ValidateStockTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "validateStock() returns the requested amount when it " +
-                        "is valid and -1 for every invalid case."
+                        "is valid and -1 for every invalid case.",
+                showOutput = true
             )
 
             else -> when {

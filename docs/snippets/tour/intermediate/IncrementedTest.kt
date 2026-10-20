@@ -19,7 +19,8 @@ class IncrementedTest {
                     "incremented() returns a new list with every element " +
                             "increased by 1, and main() prints [2, 3, 4]. " +
                             "The test doesn't check whether you use the provided " +
-                            "buildList skeleton."
+                            "buildList skeleton.",
+                    showOutput = true
                 ) else hint(
                     "Keep the println(newList) call in main() as it is. It " +
                             "prints [2, 3, 4]."

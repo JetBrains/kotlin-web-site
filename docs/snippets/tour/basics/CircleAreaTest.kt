@@ -18,7 +18,7 @@ class CircleAreaTest {
     @Test
     fun `calculate the area for any radius`() = when {
         areaOf(1).isAbout(PI) && areaOf(2).isAbout(4 * PI) && areaOf(5).isAbout(25 * PI) ->
-            passed()
+            passed(showOutput = true)
 
         areaOf(2).isNaN() -> hint(
             "Return the area instead of printing it inside the function. " +

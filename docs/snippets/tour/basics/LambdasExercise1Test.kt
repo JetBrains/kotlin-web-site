@@ -32,7 +32,7 @@ class LambdasExercise1Test {
         val alternate = buildUrls(ALT_ACTIONS, ALT_PREFIX, 7)
         when {
             reference == EXPECTED && alternate == ALT_EXPECTED &&
-                    (output == EXPECTED.toString() || outputLines == EXPECTED) -> passed()
+                    (output == EXPECTED.toString() || outputLines == EXPECTED) -> passed(showOutput = true)
 
             reference == EXPECTED && alternate != ALT_EXPECTED -> hint(
                 "Build the URLs from the function parameters instead of fixed values. " +

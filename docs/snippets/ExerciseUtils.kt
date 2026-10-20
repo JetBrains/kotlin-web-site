@@ -41,7 +41,7 @@ fun runMain(echo: Boolean = false): String {
     return out.toString().also { if (echo) print(it) }
 }
 
-val actualOutput: String by lazy { runMain(echo = true) }
+val actualOutput: String by lazy { runMain() }
 val output: String by lazy { actualOutput.trim() }
 
 /** Source line of each println() call made by main(), in call order. */
@@ -56,9 +56,10 @@ val firedTodo: NotImplementedError? by lazy {
     caughtTodo
 }
 
-fun passed(note: String = "") {
+fun passed(note: String = "", showOutput: Boolean = false) {
     actualOutput.let {}
-    if (note.isNotEmpty()) println(note)
+    val text = if (showOutput && output.isNotEmpty()) consoleBlock(note, outputText(output)) else note
+    if (text.isNotEmpty()) println(text)
 }
 
 fun hint(hint: String, shownOutput: String = output): Nothing =
@@ -69,10 +70,13 @@ fun escapeHtml(text: String): String = text
     .replace("<", "&#60;")
     .replace(">", "&#62;")
 
-private fun withOutput(hint: String, output: String): String {
+private fun withOutput(hint: String, output: String): String =
+    consoleBlock(hint, outputText(output))
+
+private fun outputText(output: String): String {
     val display = escapeHtml(output.trimEnd('\n'))
     val separator = if ('\n' in display) "\n" else " "
-    return consoleBlock(hint, "Output:" + separator + display)
+    return "Output:" + separator + display
 }
 
 private fun consoleBlock(hint: String, text: String): String =

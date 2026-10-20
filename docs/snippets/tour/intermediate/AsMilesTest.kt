@@ -19,7 +19,8 @@ class AsMilesTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "asMiles converts kilometer values to miles with the formula " +
-                        "from the note above the exercise."
+                        "from the note above the exercise.",
+                showOutput = true
             )
 
             else -> when {

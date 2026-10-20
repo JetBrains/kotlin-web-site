@@ -99,7 +99,8 @@ class SmartDeviceTest {
                         "adjustTemperature(), and turnOff() print messages using its " +
                         "name and the supplied temperature. The test doesn't check " +
                         "whether you declare turnOn() and turnOff() as abstract " +
-                        "functions in SmartDevice."
+                        "functions in SmartDevice.",
+                showOutput = true
             )
         }
     }
