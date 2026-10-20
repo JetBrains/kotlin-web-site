@@ -14,7 +14,8 @@ class ToLowercaseStringTest {
         when (val failed = checks.firstMismatch()) {
             null -> passed(
                 "toLowercaseString() returns the lowercase version of " +
-                        "any string."
+                        "any string.",
+                showOutput = true
             )
 
             else -> when {

@@ -33,7 +33,8 @@ class IntervalInSecondsTest {
         when {
             firstWrong == null && outputLines == EXPECTED_OUTPUT -> passed(
                 "With 0 as the default, you only need to pass the values you want to change. " +
-                        "Named arguments make it clear which value is which."
+                        "Named arguments make it clear which value is which.",
+                showOutput = true
             )
 
             firstWrong != null && firstWrong.omitsArguments -> hint(

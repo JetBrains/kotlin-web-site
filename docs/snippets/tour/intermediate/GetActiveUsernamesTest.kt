@@ -25,7 +25,8 @@ class GetActiveUsernamesTest {
             null -> passed(
                 "getActiveUsernames() returns the usernames of active users and " +
                         "excludes inactive users. The test doesn't check whether " +
-                        "you use a single mapNotNull() function with a lambda."
+                        "you use a single mapNotNull() function with a lambda.",
+                showOutput = true
             )
 
             else -> when {

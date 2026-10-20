@@ -20,7 +20,8 @@ class FindOutOfStockBooksTest {
             null -> passed(
                 "findOutOfStockBooks() returns the indices of every " +
                         "book with quantity 0 for any inventory, and an empty " +
-                        "list when everything is in stock."
+                        "list when everything is in stock.",
+                showOutput = true
             )
 
             else -> when {

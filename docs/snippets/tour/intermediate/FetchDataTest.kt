@@ -7,7 +7,8 @@ class FetchDataTest {
         when {
             expected in output.lines() -> passed(
                 "The lambda prints \"$expected\". The test doesn't check whether " +
-                        "you use append() to add the text."
+                        "you use append() to add the text.",
+                showOutput = true
             )
 
             output.isEmpty() -> hint(

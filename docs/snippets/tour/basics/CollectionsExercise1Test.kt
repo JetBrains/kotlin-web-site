@@ -10,7 +10,8 @@ class CollectionsExercise1Test {
         output.toIntOrNull() == greenNumbers.count() + redNumbers.count() ->
             passed(
                 "Checked: the printed total is ${greenNumbers.count() + redNumbers.count()}. " +
-                        "The test doesn't check how you count them, only the number you print."
+                        "The test doesn't check how you count them, only the number you print.",
+                showOutput = true
             )
 
         actualOutput.isEmpty() ->

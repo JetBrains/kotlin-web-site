@@ -63,7 +63,8 @@ class UpdateEmailTest {
             else -> passed(
                 "updateEmail() sets the new email on the user it receives and " +
                         "logs the update with the user's own ID. " +
-                        "The test doesn't check whether you use apply and also."
+                        "The test doesn't check whether you use apply and also.",
+                showOutput = true
             )
         }
     }

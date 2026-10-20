@@ -10,7 +10,8 @@ class LazyHealthCheckTest {
         when {
             output.lines() == expectedLines -> passed(
                 "main() prints both application-server health-check lines and " +
-                        "the database check does not run because its value is not needed."
+                        "the database check does not run because its value is not needed.",
+                showOutput = true
             )
 
             "Performing database health check..." in output.lines() -> hint(

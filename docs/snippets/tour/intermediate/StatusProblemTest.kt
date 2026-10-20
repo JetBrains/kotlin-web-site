@@ -25,7 +25,8 @@ class StatusProblemTest {
 
             else -> passed(
                 "Problem is an enum class and main() prints \"Network issue\" " +
-                        "and \"Data received: [Data1, Data2]\"."
+                        "and \"Data received: [Data1, Data2]\".",
+                showOutput = true
             )
         }
     }

@@ -54,7 +54,8 @@ class OrderTwoTest {
 
             else -> passed(
                 "OrderTwo is a data object that implements Order, has a customer " +
-                        "name different from OrderOne's, and prints \"OrderTwo\"."
+                        "name different from OrderOne's, and prints \"OrderTwo\".",
+                showOutput = true
             )
         }
     }

@@ -50,7 +50,8 @@ class FlyingSkateboardTest {
             else -> passed(
                 "FlyingSkateboard implements Vehicle. Its name is \"Flying " +
                         "Skateboard\", move() returns \"Glides through the air with " +
-                        "a hover engine\", and fly() returns \"Woooooooo\"."
+                        "a hover engine\", and fly() returns \"Woooooooo\".",
+                showOutput = true
             )
         }
     }

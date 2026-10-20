@@ -101,7 +101,8 @@ class CreditCardTest {
                         "processPayment(), and refund() each print their message with " +
                         "the supplied amount. The test doesn't check whether you " +
                         "declare authorize() and an abstract processPayment() " +
-                        "in PaymentMethod."
+                        "in PaymentMethod.",
+                showOutput = true
             )
         }
     }

@@ -42,7 +42,8 @@ class GetNotificationPreferencesTest {
                         "for a valid user, uses \"Guest\" for a null name, and " +
                         "returns an empty list for a value that is not a User. " +
                         "The test doesn't check whether you use as?, ?:, and " +
-                        "takeIf() as steps 1 to 3 describe."
+                        "takeIf() as steps 1 to 3 describe.",
+                showOutput = true
             )
 
             else -> {
