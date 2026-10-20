@@ -1,0 +1,96 @@
+{
+  "metricVersion": 3,
+  "runs": 3,
+  "sections": {
+    "01-hero": {
+      "best": 0.9619,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9619,
+          "coverage": 0.9989
+        }
+      ]
+    },
+    "02-content": {
+      "best": 0.9554,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9554,
+          "coverage": 1
+        }
+      ]
+    },
+    "03-content": {
+      "best": 0.9399,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9399,
+          "coverage": 0.9995
+        }
+      ]
+    },
+    "04-format-cards": {
+      "best": 0.9515,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9515,
+          "coverage": 1
+        }
+      ]
+    },
+    "05-showcase": {
+      "best": 0.8866,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.8866,
+          "coverage": 0.7429
+        }
+      ]
+    },
+    "06-content": {
+      "best": 0.9171,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9171,
+          "coverage": 0.7429
+        }
+      ]
+    },
+    "07-faq": {
+      "best": 0.9576,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.9576,
+          "coverage": 0.7429
+        }
+      ]
+    },
+    "08-showcase": {
+      "best": 0.9806,
+      "history": [
+        {
+          "run": 1,
+          "score": 0.3084,
+          "coverage": 1
+        },
+        {
+          "run": 2,
+          "score": 0.9806,
+          "coverage": 0.9973
+        },
+        {
+          "run": 3,
+          "score": 0.9806,
+          "coverage": 0.9973
+        }
+      ]
+    }
+  }
+}

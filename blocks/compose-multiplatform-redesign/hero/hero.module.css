@@ -1,11 +1,189 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
-/* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
-   as the block's own padding — rules R2; the bottom padding is the next block's top */
+/* rhythm: the mock's 72px above the row (64px at ml/ms); the bottom is the next block's top, except stacked frames
+   (tl and down) which carry their own bottom padding */
 .wrapper {
-    padding-top: 0px;
+    position: relative;
+    padding: 72px 0 0;
+
+    @media (--ktl-tl-down) {
+        padding: 72px 0;
+    }
+
+    @media (--ktl-ml-down) {
+        padding: 64px 0;
+    }
 }
 
-.text {
-    margin: 0;
+/* page decor: placed by the inventory's numbers, zero loop iterations; hidden from tl down (the mock swaps it for headerMobile) */
+.compose-multiplatform-graphic-render-1-1 {
+    --decor-y: -27.9694rem;
+    position: absolute;
+    left: calc(50% - 20.8594rem);
+    top: -35.9694rem;
+    width: 84.7531rem;
+    height: 84.7531rem;
+    max-width: none;
+    transform: rotate(21.08deg);
+    display: block;
+    pointer-events: none;
+
+    @media (--ktl-ds-down) {
+        left: calc(50% - 19.8594rem);
+    }
+
+    @media (--ktl-tl-down) {
+        display: none;
+    }
+}
+
+/* mobile header art (frame nodes "img-header-mobile"): 969x369 clip box, only on stacked frames;
+   left is the frame offset minus the frame's side padding */
+.headerMobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 969px;
+    height: 369px;
+    overflow: clip;
+    pointer-events: none;
+
+    img {
+        display: block;
+        width: 969px;
+        height: 369px;
+        max-width: none;
+    }
+
+    @media (--ktl-tl-down) {
+        display: block;
+    }
+
+    @media (--ktl-ml-down) {
+        left: 174px;
+    }
+
+    @media (--ktl-ms-down) {
+        left: 113px;
+    }
+}
+
+/* GitHub corner: pinned to the page's right edge (the frame's right edge), top of the hero */
+.corner {
+    position: absolute;
+    top: 0;
+    right: calc(50% - 50vw);
+    z-index: 2;
+    width: 111px;
+    height: 111px;
+    line-height: 0;
+
+    img {
+        display: block;
+    }
+}
+
+.row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+
+    @media (--ktl-tl-down) {
+        flex-direction: column;
+        gap: 48px;
+    }
+}
+
+.content {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-top: 72px;
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+        padding-top: 0;
+    }
+}
+
+.logo {
+    display: block;
+    margin-bottom: 32px;
+
+    @media (--ktl-ml-down) {
+        width: 64px;
+        height: 72px;
+        margin-bottom: 24px;
+    }
+}
+
+.title {
+    margin: 0 0 32px;
+
+    @media (--ktl-tl-down) {
+        margin-bottom: 24px;
+    }
+}
+
+.subtitle {
+    margin: 0 0 32px;
+
+    @media (--ktl-tl-down) {
+        margin-bottom: 48px;
+    }
+}
+
+.platforms {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 48px;
+
+    /* the stacked frames draw no platform tags */
+    @media (--ktl-tl-down) {
+        display: none;
+    }
+}
+
+.button {
+    @media (--ktl-ml-down) {
+        width: 100%;
+    }
+}
+
+.carousel {
+    flex: 0 0 654px;
+    min-width: 0;
+    border-radius: 32px;
+
+    @media (--ktl-ds-down) {
+        flex-basis: 624px;
+
+        /* the ds frame keeps the 654px-wide case image centred and clipped in the 624px card (710px tall) */
+        img {
+            width: 654px;
+            max-width: none;
+            margin-left: -15px;
+        }
+    }
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+
+        /* the stacked frames centre a 520px-wide case image on the card's gradient; ml and down fill the card */
+        img {
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+    }
+
+    @media (--ktl-ml-down) {
+        img {
+            max-width: none;
+        }
+    }
 }

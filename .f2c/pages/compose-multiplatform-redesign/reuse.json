@@ -1,0 +1,2282 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "project": "../..",
+  "index": "../kotlin-web-site/.f2c/artifacts/sections-index.json",
+  "results": [
+    {
+      "section": "01-hero",
+      "signature": {
+        "key": "01-hero",
+        "role": "hero",
+        "components": [
+          "Button",
+          "Compose Multiplatform/",
+          "Tag",
+          "gallery-img-merged"
+        ],
+        "copy": 11,
+        "heading": "rs-h1",
+        "roles": {
+          "rs-h1": 1,
+          "rs-text-3": 4,
+          "rs-text-1": 1
+        },
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [
+          "l",
+          "l",
+          "l"
+        ],
+        "tags": 4,
+        "cards": {
+          "width": 654,
+          "n": 2
+        },
+        "vectors": 8,
+        "rasters": 2,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": true,
+        "firstWords": [
+          "compose",
+          "multiplatform"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/benchmark/methodology/hero",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-07",
+          "score": 3.5,
+          "reasons": [
+            "+3 hero-shaped unit with an h1",
+            "-1 2 cards, unit has no card columns",
+            "-0.5 buttons 3 vs 0",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-07"
+          ]
+        },
+        {
+          "dir": "blocks/compose-multiplatform/hero",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "generated",
+          "lastCommit": "2026-10-19",
+          "score": 3,
+          "reasons": [
+            "+3 hero-shaped unit with an h1",
+            "-1 2 cards, unit has no card columns",
+            "-0.5 buttons 3 vs 1",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 last commit 2026-10-19"
+          ]
+        },
+        {
+          "dir": "blocks/benchmark/hero",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-07",
+          "score": 2,
+          "reasons": [
+            "+3 hero-shaped unit with an h1",
+            "-1 2 cards, unit has no card columns",
+            "-0.5 buttons 3 vs 0",
+            "-0.5 heading rs-h1 vs rs-hero",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-07"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/compose-multiplatform/hero",
+          "provenance": "generated",
+          "score": 3,
+          "selector": "[data-testid=\"hero-block\"]",
+          "height": 972,
+          "box": 902,
+          "findings": [],
+          "failing": 0,
+          "pixel": {
+            "score": 0.6453,
+            "coverage": 0.6894
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/quote-section",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"quote-section\"]",
+          "height": 868,
+          "box": 902,
+          "findings": [
+            "blocks 4 vs 2 in the frame",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3442,
+            "coverage": 0.7429
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Choose what to share\" → closest section",
+          "height": 719,
+          "box": 902,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "blocks side by side in the frame, stacked live",
+            "buttons 1 vs 3 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.0648,
+            "coverage": 0.7816
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"An open-source, declarative framework for sharing stunning U\" → closest section",
+          "height": 820,
+          "box": 902,
+          "findings": [
+            "blocks side by side in the frame, stacked live",
+            "buttons 0 vs 3 in the frame",
+            "note: block 2 width 1144 live vs span 7 (654 at gutter m)"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0188,
+            "coverage": 0.9038
+          }
+        },
+        {
+          "dir": "blocks/benchmark/methodology/hero",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"The Kotlin Benchmark — Methodology and Outlook\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/case-studies/page-hero",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/server-side/features-section",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 0.5,
+          "error": "page.goto: net::ERR_ABORTED at http://localhost:3000/kotlin-effect/"
+        },
+        {
+          "dir": "blocks/case-studies/hero",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"case-studies-hero\"]",
+          "height": 336,
+          "box": 902,
+          "findings": [
+            "blocks side by side in the frame, stacked live",
+            "buttons 0 vs 3 in the frame",
+            "note: block 2 width 850 live vs span 9 (634 at gutter s)"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3939,
+            "coverage": 0.3589
+          }
+        },
+        {
+          "dir": "blocks/benchmark/hero",
+          "provenance": "hand",
+          "score": 2,
+          "selector": "[data-testid=\"bench-hero\"]",
+          "height": 248,
+          "box": 902,
+          "findings": [
+            "blocks side by side in the frame, stacked live",
+            "buttons 0 vs 3 in the frame",
+            "note: block 2 width 862 live vs span 9 (643 at gutter s)"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0293,
+            "coverage": 0.2005
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "C",
+      "liveReference": "blocks/compose-multiplatform/hero",
+      "liveWeak": null
+    },
+    {
+      "section": "02-content",
+      "signature": {
+        "key": "02-content",
+        "role": "content",
+        "components": [],
+        "copy": 10,
+        "heading": "rs-h1",
+        "roles": {
+          "rs-h1": 5,
+          "rs-text-1": 4
+        },
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [],
+        "tags": 0,
+        "cards": null,
+        "vectors": 0,
+        "rasters": 1,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "android",
+          "skills",
+          "every",
+          "platform"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-10-19",
+          "score": 2,
+          "reasons": [
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-10-19"
+          ]
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "page": "server-side",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-05",
+          "score": 2,
+          "reasons": [
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-05"
+          ]
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/questions",
+          "page": "state-of-kotlin-2026",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-09-09",
+          "score": 2,
+          "reasons": [
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-09-09"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "provenance": "hand",
+          "score": 2,
+          "selector": "text=\"more top 10K apps use Kotlin Multiplatform than a year ago\" → closest section",
+          "height": 965,
+          "box": 988,
+          "findings": [],
+          "failing": 0,
+          "pixel": {
+            "score": 0.661,
+            "coverage": 0.9777
+          }
+        },
+        {
+          "dir": "blocks/benchmark/leaderboard",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "[data-testid=\"bench-leaderboard\"]",
+          "height": 1273,
+          "box": 988,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.1747,
+            "coverage": 0.7698
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"The Kotlin Effect in Real Life\" → closest section",
+          "height": 1400,
+          "box": 988,
+          "findings": [
+            "blocks 6 vs 2 in the frame",
+            "buttons 1 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0944,
+            "coverage": 0.7057
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Choose what to share\" → closest section",
+          "height": 719,
+          "box": 988,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0618,
+            "coverage": 0.7166
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"An open-source, declarative framework for sharing stunning U\" → closest section",
+          "height": 820,
+          "box": 988,
+          "findings": [
+            "block 2 side by side in the frame, stacked live"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0077,
+            "coverage": 0.831
+          }
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "provenance": "hand",
+          "score": 2,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/questions",
+          "provenance": "hand",
+          "score": 2,
+          "error": "page.goto: net::ERR_ABORTED at http://localhost:3000/state-of-kotlin-2026/"
+        },
+        {
+          "dir": "blocks/multiplatform/videos/video-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/server-side/ecosystem",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/features-section",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/get-started",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/how-to-start",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/performance",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "pages/education/courses",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "page.goto: net::ERR_ABORTED at http://localhost:3000/education/courses/"
+        },
+        {
+          "dir": "pages/education/why-teach-kotlin",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Why Teach Kotlin\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/main/hero/components/layout",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "composition order 3 of 3",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/server-side/favorite-tools",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/methodology",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "[data-testid=\"sok-methodology\"]",
+          "height": 296,
+          "box": 988,
+          "findings": [
+            "blocks 0 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.7985,
+            "coverage": 0.2996
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 988,
+          "findings": [
+            "blocks 1 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.3894,
+            "coverage": 0.0503
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/case-studies",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Real-world success stories\" → closest section",
+          "height": 2631,
+          "box": 988,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3316,
+            "coverage": 0.3728
+          }
+        },
+        {
+          "dir": "blocks/case-studies/filter",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "[data-testid=\"case-studies-filter\"]",
+          "height": 168,
+          "box": 988,
+          "findings": [],
+          "failing": 0,
+          "pixel": {
+            "score": 0.1675,
+            "coverage": 0.1689
+          }
+        },
+        {
+          "dir": "blocks/benchmark/cta",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"bench-cta\"]",
+          "height": 329,
+          "box": 988,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 2 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.1495,
+            "coverage": 0.3307
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Try Compose Multiplatform\" → closest section",
+          "height": 453,
+          "box": 988,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0882,
+            "coverage": 0.4557
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "B",
+      "liveReference": "blocks/compose-multiplatform/benefits-block",
+      "liveWeak": null
+    },
+    {
+      "section": "03-content",
+      "signature": {
+        "key": "03-content",
+        "role": "content",
+        "components": [
+          "Button",
+          "Instagram",
+          "Location-outline",
+          "Target-outline"
+        ],
+        "copy": 14,
+        "heading": "rs-h3-plus",
+        "roles": {
+          "rs-h3-plus": 6,
+          "rs-h3": 1
+        },
+        "maxSize": 28,
+        "annotations": [],
+        "blocks": 6,
+        "buttons": [
+          "l"
+        ],
+        "tags": 0,
+        "cards": {
+          "width": 408,
+          "n": 2
+        },
+        "vectors": 4,
+        "rasters": 1,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "native",
+          "experiences"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "page": "multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-02-03",
+          "score": 3,
+          "reasons": [
+            "+1 2 cards ↔ card/carousel unit",
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "-0.5 heading rs-h3-plus vs rs-h1",
+            "+0.5 hand-written",
+            "0 last commit 2026-02-03"
+          ]
+        },
+        {
+          "dir": "blocks/main/why-kotlin",
+          "page": "main",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-08-17",
+          "score": 2,
+          "reasons": [
+            "-1 2 cards, unit has no card columns",
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-08-17"
+          ]
+        },
+        {
+          "dir": "blocks/benchmark/methodology/content",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-07",
+          "score": 1.5,
+          "reasons": [
+            "-1 2 cards, unit has no card columns",
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "-0.5 heading rs-h3-plus vs rs-h2",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-07"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"The Kotlin Effect in Real Life\" → closest section",
+          "height": 1400,
+          "box": 1853,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "block 4 stacked in the frame, side by side live",
+            "block 5 stacked in the frame, side by side live"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.1035,
+            "coverage": 0.6919
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/case-studies",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Real-world success stories\" → closest section",
+          "height": 2631,
+          "box": 1853,
+          "findings": [
+            "blocks 3 vs 6 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0197,
+            "coverage": 0.704
+          }
+        },
+        {
+          "dir": "blocks/main/why-kotlin",
+          "provenance": "hand",
+          "score": 2,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/benchmark/methodology/content",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"What we built\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/case-studies/cta-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/main/latest-news",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "composition order 3 of 3",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/server-side/favorite-tools",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 1853,
+          "findings": [
+            "blocks 1 vs 6 in the frame",
+            "buttons 0 vs 1 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.497,
+            "coverage": 0.0268
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/quote-section",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"quote-section\"]",
+          "height": 868,
+          "box": 1853,
+          "findings": [
+            "blocks 4 vs 6 in the frame",
+            "buttons 0 vs 1 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.2709,
+            "coverage": 0.4673
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Try Compose Multiplatform\" → closest section",
+          "height": 453,
+          "box": 1853,
+          "findings": [
+            "blocks 3 vs 6 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.1399,
+            "coverage": 0.243
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "provenance": "hand",
+          "score": 3,
+          "selector": "text=\"Choose what to share\" → closest section",
+          "height": 719,
+          "box": 1853,
+          "findings": [
+            "blocks 3 vs 6 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0699,
+            "coverage": 0.3858
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/download-cta",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"sok-download-cta\"]",
+          "height": 649,
+          "box": 1853,
+          "findings": [
+            "blocks 3 vs 6 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0002,
+            "coverage": 0.3478
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "C",
+      "liveReference": null,
+      "liveWeak": null
+    },
+    {
+      "section": "04-format-cards",
+      "signature": {
+        "key": "04-format-cards",
+        "role": "format-cards",
+        "components": [
+          "Tag",
+          "android",
+          "apple",
+          "computer",
+          "globus"
+        ],
+        "copy": 13,
+        "heading": "rs-h1",
+        "roles": {
+          "rs-h1": 1,
+          "rs-h3-plus": 4,
+          "rs-text-2": 4
+        },
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [],
+        "tags": 4,
+        "cards": null,
+        "vectors": 4,
+        "rasters": 0,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "supported",
+          "platforms"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-01-20",
+          "score": 3.5,
+          "reasons": [
+            "+1 tags",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 list-shaped data",
+            "+0.5 name words platforms",
+            "+0.5 hand-written",
+            "0 last commit 2026-01-20"
+          ]
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "page": "kotlin-effect",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-30",
+          "score": 2.5,
+          "reasons": [
+            "-0.5 buttons 0 vs 1",
+            "+1 tags",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-30"
+          ]
+        },
+        {
+          "dir": "blocks/server-side/ecosystem",
+          "page": "server-side",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2025-12-24",
+          "score": 2.5,
+          "reasons": [
+            "+1 tags",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "0 last commit 2025-12-24"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/benchmark/cta",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"bench-cta\"]",
+          "height": 329,
+          "box": 481,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 2 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3396,
+            "coverage": 0.6674
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"An open-source, declarative framework for sharing stunning U\" → closest section",
+          "height": 820,
+          "box": 481,
+          "findings": [
+            "note: block 1 width 1144 live vs span 6 (556 at gutter m)"
+          ],
+          "failing": 0,
+          "pixel": {
+            "score": 0.0002,
+            "coverage": 0.5769
+          }
+        },
+        {
+          "dir": "blocks/server-side/ecosystem",
+          "provenance": "hand",
+          "score": 2.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "provenance": "hand",
+          "score": 2,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/multiplatform/videos/video-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/server-side/features-section",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/get-started",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/how-to-start",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/performance",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "pages/education/why-teach-kotlin",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Why Teach Kotlin\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 481,
+          "findings": [
+            "blocks 1 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.8265,
+            "coverage": 0.1032
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "provenance": "hand",
+          "score": 2,
+          "selector": "text=\"more top 10K apps use Kotlin Multiplatform than a year ago\" → closest section",
+          "height": 965,
+          "box": 481,
+          "findings": [
+            "note: block 1 width 1144 live vs span 6 (556 at gutter m)"
+          ],
+          "failing": 0,
+          "pixel": {
+            "score": 0.6592,
+            "coverage": 0.4944
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 2.5,
+          "selector": "text=\"The Kotlin Effect in Real Life\" → closest section",
+          "height": 1400,
+          "box": 481,
+          "findings": [
+            "blocks 6 vs 2 in the frame",
+            "buttons 1 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3055,
+            "coverage": 0.341
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/questions",
+          "provenance": "hand",
+          "score": 2,
+          "selector": "[data-testid=\"sok-questions\"]",
+          "height": 970,
+          "box": 481,
+          "findings": [
+            "blocks 4 vs 2 in the frame",
+            "blocks stacked in the frame, wrapping live"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.044,
+            "coverage": 0.4924
+          }
+        },
+        {
+          "dir": "pages/education/courses",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Universities That Teach Kotlin\" → closest section",
+          "height": 40135,
+          "box": 481,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0226,
+            "coverage": 0.0119
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/ai",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"sok-ai\"]",
+          "height": 3928,
+          "box": 481,
+          "findings": [
+            "note: block 1 width 1144 live vs span 6 (556 at gutter m)"
+          ],
+          "failing": 0,
+          "pixel": {
+            "score": 0.0166,
+            "coverage": 0.1216
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "C",
+      "liveReference": null,
+      "liveWeak": null
+    },
+    {
+      "section": "05-showcase",
+      "signature": {
+        "key": "05-showcase",
+        "role": "showcase",
+        "components": [
+          "Button"
+        ],
+        "copy": 2,
+        "heading": "rs-h1",
+        "roles": {
+          "rs-h1": 1,
+          "rs-text-2": 1
+        },
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [
+          "m",
+          "m",
+          "m"
+        ],
+        "tags": 0,
+        "cards": null,
+        "vectors": 3,
+        "rasters": 1,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "compose",
+          "multiplatform"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/benchmark/cta",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-07",
+          "score": 1.5,
+          "reasons": [
+            "-0.5 buttons 3 vs 2",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-07"
+          ]
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-10-19",
+          "score": 1.5,
+          "reasons": [
+            "-0.5 buttons 3 vs 0",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-10-19"
+          ]
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "page": "kotlin-effect",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-08-28",
+          "score": 1.5,
+          "reasons": [
+            "-0.5 buttons 3 vs 1",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-08-28"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/benchmark/leaderboard",
+          "provenance": "hand",
+          "score": 0.5,
+          "selector": "[data-testid=\"bench-leaderboard\"]",
+          "height": 1273,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.6953,
+            "coverage": 0.6662
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"more top 10K apps use Kotlin Multiplatform than a year ago\" → closest section",
+          "height": 965,
+          "box": 857,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.4493,
+            "coverage": 0.7429
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Try Compose Multiplatform\" → closest section",
+          "height": 453,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.4049,
+            "coverage": 0.5189
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"The Kotlin Effect in Real Life\" → closest section",
+          "height": 1400,
+          "box": 857,
+          "findings": [
+            "blocks 6 vs 2 in the frame",
+            "buttons 1 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.2779,
+            "coverage": 0.6052
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Choose what to share\" → closest section",
+          "height": 719,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.1981,
+            "coverage": 0.6241
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/questions",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"sok-questions\"]",
+          "height": 970,
+          "box": 857,
+          "findings": [
+            "blocks 4 vs 2 in the frame",
+            "blocks stacked in the frame, wrapping live",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.0326,
+            "coverage": 0.7429
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"An open-source, declarative framework for sharing stunning U\" → closest section",
+          "height": 820,
+          "box": 857,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0123,
+            "coverage": 0.7082
+          }
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "composition order 3 of 3",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/multiplatform/videos/video-block",
+          "provenance": "hand",
+          "score": 1,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/server-side/ecosystem",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/favorite-tools",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/features-section",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/get-started",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/how-to-start",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/performance",
+          "provenance": "hand",
+          "score": 1,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "pages/education",
+          "provenance": "hand",
+          "score": 1,
+          "error": "page.goto: net::ERR_ABORTED at http://localhost:3000/education/"
+        },
+        {
+          "dir": "pages/education/why-teach-kotlin",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Why Teach Kotlin\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/main/hero/components/layout",
+          "provenance": "hand",
+          "score": 0.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/case-studies/filter",
+          "provenance": "hand",
+          "score": 0.5,
+          "selector": "[data-testid=\"case-studies-filter\"]",
+          "height": 168,
+          "box": 857,
+          "findings": [
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.8297,
+            "coverage": 0.1456
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 857,
+          "findings": [
+            "blocks 1 vs 2 in the frame",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.824,
+            "coverage": 0.0362
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/case-studies",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Real-world success stories\" → closest section",
+          "height": 2631,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.471,
+            "coverage": 0.3256
+          }
+        },
+        {
+          "dir": "blocks/benchmark/cta",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"bench-cta\"]",
+          "height": 329,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 2 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3617,
+            "coverage": 0.2763
+          }
+        },
+        {
+          "dir": "pages/education/courses",
+          "provenance": "hand",
+          "score": 1,
+          "selector": "text=\"Universities That Teach Kotlin\" → closest section",
+          "height": 40135,
+          "box": 857,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 0 vs 3 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0126,
+            "coverage": 0.0214
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "B",
+      "liveReference": "blocks/benchmark/leaderboard",
+      "liveWeak": null
+    },
+    {
+      "section": "06-content",
+      "signature": {
+        "key": "06-content",
+        "role": "content",
+        "components": [
+          "Button"
+        ],
+        "copy": 5,
+        "heading": "rs-text-1",
+        "roles": {
+          "rs-text-1": 1
+        },
+        "maxSize": 20,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [
+          "m",
+          "m"
+        ],
+        "tags": 0,
+        "cards": null,
+        "vectors": 2,
+        "rasters": 1,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "alex",
+          "askerov"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/benchmark/cta",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-07",
+          "score": 1.5,
+          "reasons": [
+            "+1 2 button(s)",
+            "-0.5 heading rs-text-1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-07"
+          ]
+        },
+        {
+          "dir": "blocks/main/kotlin-ai-banner",
+          "page": "main",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-08-18",
+          "score": 1.5,
+          "reasons": [
+            "+1 2 button(s)",
+            "-0.5 heading rs-text-1 vs rs-h2",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-08-18"
+          ]
+        },
+        {
+          "dir": "blocks/benchmark/leaderboard",
+          "page": "benchmark",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-09-09",
+          "score": 0.5,
+          "reasons": [
+            "-0.5 buttons 2 vs 0",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-09-09"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/compose-multiplatform/quote-section",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"quote-section\"]",
+          "height": 868,
+          "box": 540,
+          "findings": [
+            "blocks 4 vs 2 in the frame",
+            "blocks stacked in the frame, wrapping live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.4816,
+            "coverage": 0.6133
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"more top 10K apps use Kotlin Multiplatform than a year ago\" → closest section",
+          "height": 965,
+          "box": 540,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0767,
+            "coverage": 0.559
+          }
+        },
+        {
+          "dir": "blocks/community/keep-in-touch",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"Keep in Touch\" → closest section",
+          "height": 697,
+          "box": 540,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.011,
+            "coverage": 0.7277
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/numbers",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-numbers\"]",
+          "height": 981,
+          "box": 540,
+          "findings": [
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0039,
+            "coverage": 0.5505
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/download-cta",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-download-cta\"]",
+          "height": 649,
+          "box": 540,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 1 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0033,
+            "coverage": 0.7429
+          }
+        },
+        {
+          "dir": "blocks/main/kotlin-ai-banner",
+          "provenance": "hand",
+          "score": 1.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/main/hero/components/layout",
+          "provenance": "hand",
+          "score": 0.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/main/why-kotlin",
+          "provenance": "hand",
+          "score": 0.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/benchmark/methodology/content",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"What we built\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/case-studies/cta-block",
+          "provenance": "hand",
+          "score": 0,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/case-studies/grid",
+          "provenance": "hand",
+          "score": 0,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/case-studies/page-content",
+          "provenance": "hand",
+          "score": 0,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/main/latest-news",
+          "provenance": "hand",
+          "score": 0,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "provenance": "hand",
+          "score": 0,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 540,
+          "findings": [
+            "blocks 1 vs 2 in the frame",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.824,
+            "coverage": 0.0574
+          }
+        },
+        {
+          "dir": "blocks/case-studies/filter",
+          "provenance": "hand",
+          "score": 0.5,
+          "selector": "[data-testid=\"case-studies-filter\"]",
+          "height": 168,
+          "box": 540,
+          "findings": [
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.6588,
+            "coverage": 0.2248
+          }
+        },
+        {
+          "dir": "blocks/benchmark/cta",
+          "provenance": "hand",
+          "score": 1.5,
+          "selector": "[data-testid=\"bench-cta\"]",
+          "height": 329,
+          "box": 540,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "button heights 52/52 vs 40/40 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.3976,
+            "coverage": 0.451
+          }
+        },
+        {
+          "dir": "blocks/benchmark/leaderboard",
+          "provenance": "hand",
+          "score": 0.5,
+          "selector": "[data-testid=\"bench-leaderboard\"]",
+          "height": 1273,
+          "box": 540,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.293,
+            "coverage": 0.4164
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/methodology",
+          "provenance": "hand",
+          "score": 0.5,
+          "selector": "[data-testid=\"sok-methodology\"]",
+          "height": 296,
+          "box": 540,
+          "findings": [
+            "blocks 0 vs 2 in the frame",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0196,
+            "coverage": 0.4072
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/backend",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-backend\"]",
+          "height": 2687,
+          "box": 540,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "block 2 (Controls) side by side in the frame, stacked live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.011,
+            "coverage": 0.201
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/multiplatform",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-multiplatform\"]",
+          "height": 3079,
+          "box": 540,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "block 2 (Controls) side by side in the frame, stacked live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.0108,
+            "coverage": 0.1754
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/organizations",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-organizations\"]",
+          "height": 1669,
+          "box": 540,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "block 2 (Controls) side by side in the frame, stacked live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.0089,
+            "coverage": 0.3235
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/ai",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-ai\"]",
+          "height": 3928,
+          "box": 540,
+          "findings": [
+            "block 1 side by side in the frame, stacked live",
+            "block 2 (Controls) side by side in the frame, stacked live",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 3,
+          "pixel": {
+            "score": 0.0064,
+            "coverage": 0.1375
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/growth",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-growth\"]",
+          "height": 1248,
+          "box": 540,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 0 vs 2 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0036,
+            "coverage": 0.4327
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "C",
+      "liveReference": null,
+      "liveWeak": "blocks/compose-multiplatform/quote-section"
+    },
+    {
+      "section": "07-faq",
+      "signature": {
+        "key": "07-faq",
+        "role": "faq",
+        "components": [
+          "Accordion"
+        ],
+        "copy": 4,
+        "heading": "rs-h1",
+        "roles": {},
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [],
+        "tags": 0,
+        "cards": null,
+        "vectors": 2,
+        "rasters": 0,
+        "diagrams": 0,
+        "accordion": true,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": []
+      },
+      "tier": "B",
+      "candidates": [
+        {
+          "dir": "blocks/state-of-kotlin-2026/faq",
+          "page": "state-of-kotlin-2026",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-09-28",
+          "score": 6,
+          "reasons": [
+            "+4 accordion FAQ",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-09-28"
+          ]
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-10-19",
+          "score": 0,
+          "reasons": [
+            "-2 mock is an accordion, unit is not",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-10-19"
+          ]
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "page": "server-side",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-05",
+          "score": 0,
+          "reasons": [
+            "-2 mock is an accordion, unit is not",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-05"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/benchmark/cta",
+          "provenance": "hand",
+          "score": -0.5,
+          "selector": "[data-testid=\"bench-cta\"]",
+          "height": 329,
+          "box": 353,
+          "findings": [
+            "blocks 3 vs 2 in the frame",
+            "buttons 2 vs 0 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.9038,
+            "coverage": 0.6924
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/faq",
+          "provenance": "hand",
+          "score": 6,
+          "selector": "[data-testid=\"sok-faq\"]",
+          "height": 601,
+          "box": 353,
+          "findings": [],
+          "failing": 0,
+          "pixel": {
+            "score": 0.0096,
+            "coverage": 0.5874
+          }
+        },
+        {
+          "dir": "blocks/server-side/additional-materials",
+          "provenance": "hand",
+          "score": 0,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/multiplatform/videos/video-block",
+          "provenance": "hand",
+          "score": -0.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/server-side/ecosystem",
+          "provenance": "hand",
+          "score": -0.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/server-side/features-section",
+          "provenance": "hand",
+          "score": -0.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": -0.5,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 353,
+          "findings": [
+            "blocks 1 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.824,
+            "coverage": 0.0878
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/benefits-block",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "text=\"more top 10K apps use Kotlin Multiplatform than a year ago\" → closest section",
+          "height": 965,
+          "box": 353,
+          "findings": [],
+          "failing": 0,
+          "pixel": {
+            "score": 0.1176,
+            "coverage": 0.3654
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/questions",
+          "provenance": "hand",
+          "score": 0,
+          "selector": "[data-testid=\"sok-questions\"]",
+          "height": 970,
+          "box": 353,
+          "findings": [
+            "blocks 4 vs 2 in the frame",
+            "blocks stacked in the frame, wrapping live"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.0094,
+            "coverage": 0.3614
+          }
+        },
+        {
+          "dir": "blocks/compose-multiplatform/platforms-block",
+          "provenance": "hand",
+          "score": -0.5,
+          "selector": "text=\"An open-source, declarative framework for sharing stunning U\" → closest section",
+          "height": 820,
+          "box": 353,
+          "findings": [
+            "block 2 side by side in the frame, stacked live"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0004,
+            "coverage": 0.4285
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "B",
+      "liveReference": "blocks/benchmark/cta",
+      "liveWeak": null
+    },
+    {
+      "section": "08-showcase",
+      "signature": {
+        "key": "08-showcase",
+        "role": "showcase",
+        "components": [
+          "Button"
+        ],
+        "copy": 3,
+        "heading": "rs-h1",
+        "roles": {
+          "rs-h1": 1,
+          "rs-text-1": 1
+        },
+        "maxSize": 43,
+        "annotations": [],
+        "blocks": 2,
+        "buttons": [
+          "l"
+        ],
+        "tags": 0,
+        "cards": null,
+        "vectors": 0,
+        "rasters": 1,
+        "diagrams": 0,
+        "accordion": false,
+        "logos": 0,
+        "quotes": false,
+        "hero": false,
+        "firstWords": [
+          "build",
+          "your",
+          "first"
+        ]
+      },
+      "tier": "C",
+      "candidates": [
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "page": "kotlin-effect",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-08-28",
+          "score": 4,
+          "reasons": [
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-08-28"
+          ]
+        },
+        {
+          "dir": "blocks/compose-multiplatform/cta-block",
+          "page": "compose-multiplatform",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-01-20",
+          "score": 3.5,
+          "reasons": [
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "0 last commit 2026-01-20"
+          ]
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "page": "kotlin-effect",
+          "kind": "route",
+          "provenance": "hand",
+          "lastCommit": "2026-07-30",
+          "score": 3.5,
+          "reasons": [
+            "+1 1 button(s)",
+            "+1 button sizes l",
+            "-0.5 unit has 3 tags, mock none",
+            "+1 heading rs-h1 vs rs-h1",
+            "+0.5 hand-written",
+            "+0.5 last commit 2026-07-30"
+          ]
+        }
+      ],
+      "live": [
+        {
+          "dir": "blocks/compose-multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"Try Compose Multiplatform\" → closest section",
+          "height": 453,
+          "box": 373,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.5138,
+            "coverage": 0.5992
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/choose-share/blocks/what",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"Choose what to share\" → closest section",
+          "height": 719,
+          "box": 373,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.2596,
+            "coverage": 0.5034
+          }
+        },
+        {
+          "dir": "blocks/state-of-kotlin-2026/download-cta",
+          "provenance": "hand",
+          "score": 2.5,
+          "selector": "[data-testid=\"sok-download-cta\"]",
+          "height": 649,
+          "box": 373,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.0004,
+            "coverage": 0.5747
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/cta-block",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "composition order 3 of 3",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/server-side/favorite-tools",
+          "provenance": "hand",
+          "score": 3.5,
+          "error": "http://localhost:3000/server-side/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/main/why-kotlin",
+          "provenance": "hand",
+          "score": 3,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/benchmark/methodology/content",
+          "provenance": "hand",
+          "score": 2.5,
+          "selector": "text=\"What we built\" → closest section",
+          "error": "section not found on its page"
+        },
+        {
+          "dir": "blocks/case-studies/cta-block",
+          "provenance": "hand",
+          "score": 2.5,
+          "error": "no anchor, root class, text or composition order to select the section by"
+        },
+        {
+          "dir": "blocks/main/latest-news",
+          "provenance": "hand",
+          "score": 2.5,
+          "error": "http://localhost:3000/main/ is down (404): the route does not exist (404)"
+        },
+        {
+          "dir": "blocks/kotlin-effect/meetups-block",
+          "provenance": "hand",
+          "score": 4,
+          "selector": "text=\"Join the Celebration Near You\" → closest section",
+          "height": 49,
+          "box": 373,
+          "findings": [
+            "blocks 1 vs 2 in the frame",
+            "buttons 0 vs 1 in the frame"
+          ],
+          "failing": 2,
+          "pixel": {
+            "score": 0.8203,
+            "coverage": 0.1331
+          }
+        },
+        {
+          "dir": "blocks/kotlin-effect/card-stack",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"The Kotlin Effect in Real Life\" → closest section",
+          "height": 1400,
+          "box": 373,
+          "findings": [
+            "blocks 6 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.2588,
+            "coverage": 0.2664
+          }
+        },
+        {
+          "dir": "blocks/multiplatform/case-studies",
+          "provenance": "hand",
+          "score": 3.5,
+          "selector": "text=\"Real-world success stories\" → closest section",
+          "height": 2631,
+          "box": 373,
+          "findings": [
+            "blocks 3 vs 2 in the frame"
+          ],
+          "failing": 1,
+          "pixel": {
+            "score": 0.2071,
+            "coverage": 0.1377
+          }
+        }
+      ],
+      "livePreferred": null,
+      "liveTier": "C",
+      "liveReference": null,
+      "liveWeak": "blocks/compose-multiplatform/cta-block"
+    }
+  ]
+}

@@ -1,15 +1,57 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
-/* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
-   as the block's own padding — rules R2; the bottom padding is the next block's top */
+/* the mock's gap above (72) plus the frame's own padding (72 / 64 at ml and below), as the block's padding — rules R2 */
 .wrapper {
-    padding-top: 72px;
+    padding: 144px 0 72px;
 
     @media (--ktl-ml-down) {
-        padding-top: 64px;
+        padding: 128px 0 64px;
     }
 }
 
-.text {
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    @media (--ktl-tl-down) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.title {
     margin: 0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 632px;
+    margin-top: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    background: #1b1b1b;
+
+    @media (--ktl-ml-down) {
+        border-radius: 16px;
+    }
+}
+
+/* deviation: the mock's ds…ms frames draw only the #1b1b1b plate (image hidden there); the one raster is kept at every width */
+.image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
 }

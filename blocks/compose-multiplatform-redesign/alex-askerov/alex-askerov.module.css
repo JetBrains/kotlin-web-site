@@ -1,11 +1,125 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
-/* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
-   as the block's own padding — rules R2; the bottom padding is the next block's top */
+/* the mock's frame padding is the block's own rhythm: 72 above, 36 below (64 at ml and below) */
 .wrapper {
-    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    padding: 72px 0 36px;
 }
 
-.text {
+.track {
+    display: flex;
+    gap: 32px;
+    width: 100%;
     margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: center;
+}
+
+/* #310d83 — the mock's --compose-dark-purple-bgr */
+.card {
+    display: flex;
+    gap: 32px;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    padding: 32px;
+    border-radius: 32px;
+    background: #310d83;
+}
+
+.person {
+    display: flex;
+    flex: 0 0 220px;
+    flex-direction: column;
+    gap: 16px;
+    width: 220px;
+}
+
+.photo {
+    display: block;
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.caption p {
+    margin: 0;
+}
+
+.quote {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+    margin: 0;
+}
+
+.quote p {
+    margin: 0;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.controls p {
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@media (--ktl-ts-down) {
+    .card {
+        flex-direction: column;
+    }
+
+    .person {
+        flex-direction: row;
+        flex-basis: auto;
+        width: auto;
+        align-items: flex-start;
+    }
+
+    .photo {
+        flex: 0 0 48px;
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+    }
+
+    .caption {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .wrapper {
+        padding-top: 64px;
+    }
+
+    .card {
+        border-radius: 16px;
+    }
 }

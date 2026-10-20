@@ -10,4 +10,10 @@
 .content {
     position: relative;
     z-index: 1;
+    /* mock-wide deviation from the rescui mobile scale: every H1 of the six frames
+       stays at 43/49 down to 360 (the dumps), where rs-h1 would drop to its mobile
+       size at <=640 — pinned once here, for every block (not a hand-set size:
+       the role's own variables) */
+    --rs-h1-font-size-mobile: 43px;
+    --rs-h1-line-height-mobile: 49px;
 }

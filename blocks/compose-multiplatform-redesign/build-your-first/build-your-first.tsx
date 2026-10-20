@@ -1,26 +1,58 @@
 /**
  * 08-showcase — Frame 1195 (node 92:1191), 1144×373 at 1540.
  * Bucket 2; crop .f2c/pages/compose-multiplatform-redesign/crops/08-showcase.png.
- * Scaffold from emit-project-page.mjs — the inside of the section is the markup step's.
  */
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
+import { Button } from '@rescui/button';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
-import { BUILD_YOUR_FIRST_COPY } from './build-your-first-data';
+import { BUILD_YOUR_FIRST_COPY, BUILD_YOUR_FIRST_HREF } from './build-your-first-data';
 
 import styles from './build-your-first.module.css';
 
 export const BuildYourFirstSection: FC = () => {
     const textCn = useTextStyles();
+    const isML = useML();
+    const [title, lead, cta] = BUILD_YOUR_FIRST_COPY;
 
     return (
-        <section className={styles.wrapper} id="build-your-first" data-testid="compose-multiplatform-redesign-build-your-first" data-section="08-showcase">
-            {BUILD_YOUR_FIRST_COPY.map((item) => (
-                <p key={item.id} className={cn(styles.text, textCn('rs-text-1'))}>
-                    {item.text}
-                </p>
-            ))}
+        <section
+            className={styles.wrapper}
+            id="build-your-first"
+            data-testid="compose-multiplatform-redesign-build-your-first"
+            data-section="08-showcase"
+        >
+            <div className={styles.decor} aria-hidden>
+                <img
+                    src="/images/compose-multiplatform-redesign/decor-footer-graphic.png"
+                    alt=""
+                    aria-hidden
+                    data-decor="134:4190"
+                    className={styles['footer-img']}
+                />
+            </div>
+            <div className={styles.content}>
+                <div className={styles.texts}>
+                    <h2
+                        className={cn(styles.title, textCn('rs-h1'))}
+                        data-testid="compose-multiplatform-redesign-build-your-first-title"
+                    >
+                        {title.text}
+                    </h2>
+                    <p className={cn(styles.lead, textCn('rs-text-1'))}>{lead.text}</p>
+                </div>
+                <Button
+                    href={BUILD_YOUR_FIRST_HREF}
+                    mode="rock"
+                    size={isML ? 'm' : 'l'}
+                    className={styles.button}
+                    data-testid="compose-multiplatform-redesign-build-your-first-cta"
+                >
+                    {cta.text}
+                </Button>
+            </div>
         </section>
     );
 };

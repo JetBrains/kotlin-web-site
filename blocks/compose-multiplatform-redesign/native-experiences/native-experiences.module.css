@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 /* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
    as the block's own padding — rules R2; the bottom padding is the next block's top */
@@ -10,6 +10,241 @@
     }
 }
 
-.text {
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    overflow: clip;
+    border-radius: 32px;
+
+    @media (--ktl-tl-down) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media (--ktl-ml-down) {
+        border-radius: 15px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px;
+    box-sizing: border-box;
+    background: #310d83;
+    color: #fff;
+    min-width: 0;
+
+    @media (--ktl-ml-down) {
+        padding: 24px;
+    }
+}
+
+.native,
+.adoption {
+    grid-column: span 2;
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+
+    @media (--ktl-tl-down) {
+        grid-column: auto;
+        flex-direction: column;
+    }
+}
+
+.title,
+.subtitle {
     margin: 0;
+    color: #fff;
+    /* mock: H3-plus 28/34 (SemiBold); nearest installed role rs-h3 with its variables overridden */
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+}
+
+.subtitle {
+    /* mock: H3 20/28 — the role's own size */
+    --rs-h3-font-size: 20px;
+    --rs-h3-line-height: 28px;
+}
+
+.body {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.link,
+.mute,
+.featureText a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-decoration-skip-ink: none;
+}
+
+.link {
+    color: #fff;
+}
+
+.nativeText {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 0 1 408px;
+    min-width: 0;
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.nativeBody {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--ktl-tl-down) {
+        gap: 24px;
+    }
+}
+
+.nativeList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.list {
+    margin: 0;
+    padding: 0 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: disc;
+}
+
+.apis {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (--ktl-tl-down) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    @media (--ktl-ts-down) {
+        flex-direction: column;
+    }
+}
+
+.apisText {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pills {
+    display: flex;
+    align-self: flex-start;
+    gap: 32px;
+    padding: 20px 32px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.1);
+
+    @media (--ktl-ml-down) {
+        padding: 16px 24px;
+    }
+}
+
+.videoWrap {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* Placeholder for the video: no raster for it in the mock export (R12) */
+.video {
+    position: relative;
+    width: 370px;
+    max-width: 100%;
+    aspect-ratio: 370 / 802;
+    border-radius: 16px;
+    background: #000;
+
+    @media (--ktl-ml-down) {
+        width: 260px;
+    }
+}
+
+.play.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 0;
+    border-radius: 32px;
+    background: rgba(25, 25, 28, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.adoptionText {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 0 1 408px;
+    min-width: 0;
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.adoptionImage {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 16px;
+    background: #000;
+    overflow: hidden;
+
+    @media (--ktl-tl-down) {
+        flex: none;
+        width: 100%;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3310 / 2036;
+        object-fit: cover;
+    }
+}
+
+.feature {
+    @media (--ktl-tl-down) {
+        grid-column: auto;
+    }
+}
+
+/* Mock deviation: the frames fix these cards at 274 / 250 (taller than their copy); kept as min-height,
+   only while the cards sit two to a row */
+@media (--ktl-ds-up) {
+    .grid > .feature:nth-child(-n + 4) {
+        min-height: 274px;
+    }
+
+    .grid > .feature:nth-child(n + 5) {
+        min-height: 250px;
+    }
 }

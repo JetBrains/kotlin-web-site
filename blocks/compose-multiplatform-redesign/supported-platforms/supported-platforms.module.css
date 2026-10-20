@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 /* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
    as the block's own padding — rules R2; the bottom padding is the next block's top */
@@ -8,6 +8,60 @@
     @media (--ktl-ml-down) {
         padding-top: 128px;
     }
+}
+
+.title {
+    margin: 0 0 32px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* rows size to their own tallest card (mock: ds rows are 208 / 184), cards in a row stretch to equal height */
+    align-items: stretch;
+    gap: 32px;
+
+    @media (--ktl-tl-down) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media (--ktl-ml-down) {
+        gap: 16px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px;
+    border-radius: 32px;
+    background: #19191c;
+
+    @media (--ktl-ml-down) {
+        padding: 24px;
+        border-radius: 16px;
+    }
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    display: block;
+    flex-shrink: 0;
+}
+
+/* mock role h3-plus 28/34 (SemiBold) — nearest installed role is rs-h3 (20/28), overridden through its own variables */
+.name {
+    --rs-h3-font-size: 28px;
+    --rs-h3-line-height: 34px;
+
+    margin: 0;
+    white-space: nowrap;
 }
 
 .text {

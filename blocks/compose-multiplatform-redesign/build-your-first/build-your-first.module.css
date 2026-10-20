@@ -1,11 +1,118 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
-/* the gap above this block is the mock's (.f2c/pages/compose-multiplatform-redesign/layout.json), written
-   as the block's own padding — rules R2; the bottom padding is the next block's top */
+/* the gap above this block is the mock's (layout.json: 0), the mock's own 72px frame padding is the block's */
 .wrapper {
-    padding-top: 0px;
+    position: relative;
+    padding: 72px 0;
 }
 
-.text {
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.texts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 494px;
+    max-width: 100%;
+}
+
+.title,
+.lead {
     margin: 0;
+}
+
+.button {
+    flex-shrink: 0;
+}
+
+/* page decor: placed by the inventory's numbers, never retuned. The inventory measures from the full-width
+   section box of the frame; the block lives in the page column, so the decor sits in a viewport-wide plate
+   centred on the section (the route wrapper clips x overflow) */
+.decor {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    margin-left: -50vw;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.footer-img {
+    position: absolute;
+    --decor-y: 407.3125rem;
+    left: calc(100% - 72rem);
+    top: -5.5919rem;
+    width: 89rem;
+    height: 89rem;
+}
+
+@media (--ktl-ds-down) {
+    .footer-img {
+        --decor-y: 401.8687rem;
+        left: calc(100% - 64.375rem);
+    }
+}
+
+@media (--ktl-tl-down) {
+    .footer-img {
+        --decor-y: 557.5rem;
+        left: calc(100% - 50.75rem);
+        top: 1.5969rem;
+        width: 66.75rem;
+        height: 66.75rem;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .footer-img {
+        --decor-y: 579.3687rem;
+        left: calc(100% - 46.1875rem);
+    }
+}
+
+@media (--ktl-ml-down) {
+    .wrapper {
+        padding: 64px 0 336.8px;
+    }
+
+    .content {
+        gap: 32px;
+        align-items: stretch;
+    }
+
+    .texts {
+        width: 100%;
+    }
+
+    .footer-img {
+        --decor-y: 540.0994rem;
+        left: calc(100% - 52.6194rem);
+        top: 15.9375rem;
+        width: 66.7381rem;
+        height: 66.7381rem;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .wrapper {
+        padding-bottom: 208px;
+    }
+
+    .footer-img {
+        --decor-y: 592.8188rem;
+        left: calc(100% - 36.9375rem);
+        top: 17.6875rem;
+        width: 51.375rem;
+        height: 51.375rem;
+    }
 }
