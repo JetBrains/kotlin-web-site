@@ -172,5 +172,43 @@
     "ms": {
       "1": "134:5954"
     }
+  },
+  "live": {
+    "path": "/compose-multiplatform-redesign/",
+    "sections": {
+      "01-hero": {
+        "path": "/compose-multiplatform-redesign/preview/hero/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-hero\"]"
+      },
+      "02-content": {
+        "path": "/compose-multiplatform-redesign/preview/android-skills-every/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-android-skills-every\"]"
+      },
+      "03-content": {
+        "path": "/compose-multiplatform-redesign/preview/native-experiences/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-native-experiences\"]"
+      },
+      "04-format-cards": {
+        "path": "/compose-multiplatform-redesign/preview/supported-platforms/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-supported-platforms\"]"
+      },
+      "05-showcase": {
+        "path": "/compose-multiplatform-redesign/preview/try-compose-multiplatform/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-try-compose-multiplatform\"]"
+      },
+      "06-content": {
+        "path": "/compose-multiplatform-redesign/preview/alex-askerov/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-alex-askerov\"]"
+      },
+      "07-faq": {
+        "path": "/compose-multiplatform-redesign/preview/faq/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-faq\"]"
+      },
+      "08-showcase": {
+        "path": "/compose-multiplatform-redesign/preview/build-your-first/",
+        "selector": "[data-testid=\"compose-multiplatform-redesign-build-your-first\"]"
+      }
+    },
+    "note": "written by emit-project-page.mjs: each section measured on its own preview route (F4) until the composed page is assembled; then the selectors collapse to section#<slug> on /compose-multiplatform-redesign/"
   }
 }

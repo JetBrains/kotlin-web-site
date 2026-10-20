@@ -1,0 +1,13 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    overflow-x: clip;
+    position: relative;
+    /* page ground: the mock's, read off the base frame's margins */
+    background-color: #000000;
+  }
+
+.content {
+    position: relative;
+    z-index: 1;
+}

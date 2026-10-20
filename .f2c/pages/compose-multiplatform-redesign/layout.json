@@ -1,0 +1,400 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "viewportWidth": 1540,
+  "mockupHeight": 7363,
+  "container": {
+    "base": {
+      "max": 1188,
+      "pad": 22
+    },
+    "ds": {
+      "max": 996,
+      "pad": 22
+    },
+    "tl": {
+      "max": 804,
+      "pad": 22
+    },
+    "ts": {
+      "max": 612,
+      "pad": 22
+    },
+    "ml": {
+      "max": 468,
+      "pad": 22
+    },
+    "ms": {
+      "max": 360,
+      "pad": 24
+    }
+  },
+  "header": {
+    "height": 128
+  },
+  "footerGap": 0,
+  "footer": {
+    "height": 384
+  },
+  "sections": [
+    {
+      "name": "01-hero",
+      "width": 1144,
+      "gap": 0,
+      "sizing": "container"
+    },
+    {
+      "name": "02-content",
+      "width": 1144,
+      "gap": 144,
+      "sizing": "container"
+    },
+    {
+      "name": "03-content",
+      "width": 1144,
+      "gap": 144,
+      "sizing": "container"
+    },
+    {
+      "name": "04-format-cards",
+      "width": 1144,
+      "gap": 144,
+      "sizing": "container"
+    },
+    {
+      "name": "05-showcase",
+      "width": 1540,
+      "gap": 72,
+      "sizing": "bleed"
+    },
+    {
+      "name": "06-content",
+      "width": 1540,
+      "gap": 0,
+      "sizing": "bleed"
+    },
+    {
+      "name": "07-faq",
+      "width": 1540,
+      "gap": 0,
+      "sizing": "bleed"
+    },
+    {
+      "name": "08-showcase",
+      "width": 1144,
+      "gap": 0,
+      "sizing": "container"
+    }
+  ],
+  "breakpoints": {
+    "ds": {
+      "media": 1190,
+      "viewportWidth": 1192,
+      "mockupHeight": 7363,
+      "header": {
+        "height": 128
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 952,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "02-content",
+          "width": 952,
+          "gap": 144,
+          "sizing": "container"
+        },
+        {
+          "name": "03-content",
+          "width": 952,
+          "gap": 144,
+          "sizing": "container"
+        },
+        {
+          "name": "04-format-cards",
+          "width": 952,
+          "gap": 144,
+          "sizing": "container"
+        },
+        {
+          "name": "05-showcase",
+          "width": 1192,
+          "gap": 72,
+          "sizing": "bleed"
+        },
+        {
+          "name": "06-content",
+          "width": 1192,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "07-faq",
+          "width": 1192,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "08-showcase",
+          "width": 952,
+          "gap": 0,
+          "sizing": "container"
+        }
+      ]
+    },
+    "tl": {
+      "media": 1000,
+      "viewportWidth": 1000,
+      "mockupHeight": 9651,
+      "header": {
+        "height": 128
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 1000,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "02-content",
+          "width": 760,
+          "gap": 0,
+          "sizing": "container"
+        },
+        {
+          "name": "03-content",
+          "width": 760,
+          "gap": 144,
+          "sizing": "container"
+        },
+        {
+          "name": "04-format-cards",
+          "width": 760,
+          "gap": 144,
+          "sizing": "container"
+        },
+        {
+          "name": "05-showcase",
+          "width": 1000,
+          "gap": 72,
+          "sizing": "bleed"
+        },
+        {
+          "name": "06-content",
+          "width": 1000,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "07-faq",
+          "width": 1000,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "08-showcase",
+          "width": 760,
+          "gap": 0,
+          "sizing": "container"
+        }
+      ]
+    },
+    "ts": {
+      "media": 808,
+      "viewportWidth": 808,
+      "mockupHeight": 10001,
+      "header": {
+        "height": 128
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 808,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "02-content",
+          "width": 568,
+          "gap": 0,
+          "sizing": "fixed"
+        },
+        {
+          "name": "03-content",
+          "width": 568,
+          "gap": 144,
+          "sizing": "fixed"
+        },
+        {
+          "name": "04-format-cards",
+          "width": 568,
+          "gap": 144,
+          "sizing": "fixed"
+        },
+        {
+          "name": "05-showcase",
+          "width": 808,
+          "gap": 72,
+          "sizing": "bleed"
+        },
+        {
+          "name": "06-content",
+          "width": 808,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "07-faq",
+          "width": 808,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "08-showcase",
+          "width": 806,
+          "gap": 0,
+          "sizing": "container"
+        }
+      ]
+    },
+    "ml": {
+      "media": 640,
+      "viewportWidth": 616,
+      "mockupHeight": 10512,
+      "header": {
+        "height": 96
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 616,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "02-content",
+          "width": 424,
+          "gap": 0,
+          "sizing": "fixed"
+        },
+        {
+          "name": "03-content",
+          "width": 424,
+          "gap": 128,
+          "sizing": "fixed"
+        },
+        {
+          "name": "04-format-cards",
+          "width": 424,
+          "gap": 128,
+          "sizing": "fixed"
+        },
+        {
+          "name": "05-showcase",
+          "width": 616,
+          "gap": 64,
+          "sizing": "bleed"
+        },
+        {
+          "name": "06-content",
+          "width": 616,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "07-faq",
+          "width": 616,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "08-showcase",
+          "width": 614,
+          "gap": 0,
+          "sizing": "container"
+        }
+      ]
+    },
+    "ms": {
+      "media": 472,
+      "viewportWidth": 360,
+      "mockupHeight": 10512,
+      "header": {
+        "height": 96
+      },
+      "footerGap": 0,
+      "footer": {
+        "height": 384
+      },
+      "sections": [
+        {
+          "name": "01-hero",
+          "width": 360,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "02-content",
+          "width": 312,
+          "gap": 0,
+          "sizing": "fixed"
+        },
+        {
+          "name": "03-content",
+          "width": 312,
+          "gap": 128,
+          "sizing": "fixed"
+        },
+        {
+          "name": "04-format-cards",
+          "width": 312,
+          "gap": 128,
+          "sizing": "fixed"
+        },
+        {
+          "name": "05-showcase",
+          "width": 360,
+          "gap": 64,
+          "sizing": "bleed"
+        },
+        {
+          "name": "06-content",
+          "width": 360,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "07-faq",
+          "width": 360,
+          "gap": 0,
+          "sizing": "bleed"
+        },
+        {
+          "name": "08-showcase",
+          "width": 358,
+          "gap": 0,
+          "sizing": "container"
+        }
+      ]
+    }
+  }
+}

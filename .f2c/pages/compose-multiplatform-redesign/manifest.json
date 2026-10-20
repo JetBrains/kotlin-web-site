@@ -1,0 +1,397 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "title": "Compose Multiplatform | Kotlin AI Pages (KTL-5170 / KTL-4742)",
+  "figma": {
+    "fileKey": "JlQuhpF5pdBIhdmBWFr5N6",
+    "rootNode": "92:1036",
+    "viewport": {
+      "width": 1540,
+      "height": 7363
+    }
+  },
+  "theme": "dark",
+  "chrome": [
+    {
+      "nodeId": "92:1198",
+      "name": "kt--footer",
+      "bbox": {
+        "x": 0,
+        "y": 6979.4736328125,
+        "width": 1540,
+        "height": 384
+      }
+    },
+    {
+      "nodeId": "92:1247",
+      "name": "Header",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1540,
+        "height": 128
+      }
+    }
+  ],
+  "decoration": [],
+  "sections": [
+    {
+      "index": 1,
+      "nodeId": "92:1039",
+      "figmaName": "Frame 1883",
+      "role": "hero",
+      "firstText": "Compose Multiplatform",
+      "bbox": {
+        "x": 198,
+        "y": 128,
+        "width": 1144,
+        "height": 902
+      },
+      "components": [
+        "Button",
+        "Compose Multiplatform/",
+        "Tag",
+        "gallery-img-merged"
+      ],
+      "customArt": true,
+      "crop": "crops/01-hero.png",
+      "context": "context/01-hero.gen.tsx",
+      "copy": [
+        "Compose",
+        "Multiplatform",
+        "Build beautiful shared UIs for Android, iOS, desktop, and web that feel natural on every platform.",
+        "Android",
+        "iOS",
+        "Web",
+        "Desktop",
+        "Get started",
+        "​",
+        "Markaz, Pakistan’s e-commerce platform with 5M+ downloads, has 100+ screens built entirely with Compose Multiplatform.",
+        "​"
+      ],
+      "colorDeviations": [
+        "#2f0087",
+        "rgba(58,0,166,0.6)"
+      ],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/712833f6-d595-4f3c-ad9d-0fd7586a0ddc.png",
+        "https://www.figma.com/api/mcp/asset/f4fd9d7f-4707-4677-8ac7-0d4955865d9b.png",
+        "https://www.figma.com/api/mcp/asset/a9e56920-7677-4bf9-9bbe-f65754407bfb.svg",
+        "https://www.figma.com/api/mcp/asset/28bd9cc0-09f8-4524-a208-0835a4d49dd9.svg",
+        "https://www.figma.com/api/mcp/asset/53671bbc-aade-4694-9dbe-51001cdd514c.svg",
+        "https://www.figma.com/api/mcp/asset/1fb27bdc-1a28-4ba6-953f-7d02602156c4.svg",
+        "https://www.figma.com/api/mcp/asset/af209fb9-a60b-435a-aa3b-5cf2fc33ccad.svg",
+        "https://www.figma.com/api/mcp/asset/b16ace44-3774-4392-968b-9c089ce3bf0f.svg",
+        "https://www.figma.com/api/mcp/asset/0795de4d-0c51-4f22-937a-5207b1525656.svg",
+        "https://www.figma.com/api/mcp/asset/899adb0b-a397-4984-bb0b-c10655a972cd.svg"
+      ],
+      "assetRefs": {
+        "imgComposeMultiplatformGraphicRender11": "assets/01-compose-multiplatform-graphic-render11.png",
+        "imgAppMarkaz1": "assets/01-app-markaz1.png",
+        "imgGroup6615": "assets/01-group6615.svg",
+        "imgComposeMultiplatform": "assets/01-compose-multiplatform.svg",
+        "imgAndroid": "assets/01-android.svg",
+        "imgApple": "assets/01-apple.svg",
+        "imgGlobusOutline": "assets/01-globus-outline.svg",
+        "imgComputerOutline": "assets/01-computer-outline.svg",
+        "imgArrowLeftOutline": "assets/01-arrow-left-outline.svg",
+        "imgArrowRightOutline": "assets/01-arrow-right-outline.svg"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 2,
+      "nodeId": "92:1066",
+      "figmaName": "Frame 1321314969",
+      "role": "content",
+      "firstText": "Android skills. Every platform.",
+      "bbox": {
+        "x": 198,
+        "y": 1174,
+        "width": 1144,
+        "height": 988
+      },
+      "components": [],
+      "customArt": true,
+      "crop": "crops/02-content.png",
+      "context": "context/02-content.gen.tsx",
+      "copy": [
+        "Android skills. Every platform.",
+        "Use your Jetpack Compose skills across platforms.",
+        "Compose Multiplatform supports familiar APIs like state management, layout, and animations as well as Material components, making it easy to bring your Android architecture to other platforms.",
+        "Production-ready for mobile and desktop",
+        "2×",
+        "more top 10K apps use Kotlin Multiplatform than a year ago",
+        "81%",
+        "of Kotlin Multiplatform developers use Compose Multiplatform",
+        "93%",
+        "of developers report a native-like experience with Compose Multiplatform on iOS"
+      ],
+      "colorDeviations": [],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/5b68fbf7-a4bd-4ce2-a252-d71b4d8a0549.png"
+      ],
+      "assetRefs": {
+        "imgImage31": "assets/02-image31.png"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 3,
+      "nodeId": "92:1093",
+      "figmaName": "Frame 1321314961",
+      "role": "content",
+      "firstText": "Native experiences",
+      "bbox": {
+        "x": 198,
+        "y": 2306,
+        "width": 1144,
+        "height": 1853.4736328125
+      },
+      "components": [
+        "Button",
+        "Instagram",
+        "Location-outline",
+        "Target-outline"
+      ],
+      "customArt": true,
+      "crop": "crops/03-content.png",
+      "context": "context/03-content.gen.tsx",
+      "copy": [
+        "Native experiences",
+        "Feels like iOS because it is.",
+        "Need camera, maps or platform APIs?",
+        "Access native APIs whenever you need them.",
+        "Gradual adoption",
+        "Start small or go all in without extra work – Compose Multiplatform fits into your existing app, whether you’re sharing one component, one screen, or the entire UI. Keep your existing SwiftUI, Android Views, or Swing code – there’s no need to rewrite anything. Learn from the experience of other companies.",
+        "AI-powered code generation",
+        "Speed up your UI coding with code generation powered by Junie, the coding agent by JetBrains. Compose Multiplatform shares its API with Jetpack Compose. As a result, LLMs are already well-trained, helping you generate UI components and complete screens faster than ever.",
+        "Hot reload",
+        "Tweak and preview your UI instantly without restarting on desktop with Compose Hot Reload, speeding up your development workflow.",
+        "Seamless tooling",
+        "Enjoy smart IDE support with the KMP plugin for IntelliJ IDEA and Android Studio↗, with common previews, cross-language navigation, refactorings, and debugging across Kotlin and Swift code.",
+        "A thriving ecosystem",
+        "Leverage a rich set of production-ready Kotlin Multiplatform libraries↗, including official multiplatform Jetpack libraries↗. Join a growing community that’s shaping the future of cross-platform development."
+      ],
+      "colorDeviations": [
+        "#310d83"
+      ],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/3baf7619-9dbc-4de7-8833-fe893ef86992.png",
+        "https://www.figma.com/api/mcp/asset/56ebd3bb-7d96-4cc7-9bfd-7af29695fb45.svg",
+        "https://www.figma.com/api/mcp/asset/ee19b155-4481-4ae8-94b5-64737b822755.svg",
+        "https://www.figma.com/api/mcp/asset/833512d8-f7a6-4539-b11d-5078a3ede2a9.svg",
+        "https://www.figma.com/api/mcp/asset/41372b32-c6c3-4de8-88b8-13e7bde41a1e.svg"
+      ],
+      "assetRefs": {
+        "imgImage32": "assets/03-image32.png",
+        "imgInstagram": "assets/03-instagram.svg",
+        "imgLocationOutline": "assets/03-location-outline.svg",
+        "imgTargetOutline": "assets/03-target-outline.svg",
+        "imgPlay": "assets/03-play.svg"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 4,
+      "nodeId": "92:1127",
+      "figmaName": "Frame 1321315000",
+      "role": "format-cards",
+      "firstText": "Supported platforms",
+      "bbox": {
+        "x": 198,
+        "y": 4303.4736328125,
+        "width": 1144,
+        "height": 481
+      },
+      "components": [
+        "Tag",
+        "android",
+        "apple",
+        "computer",
+        "globus"
+      ],
+      "customArt": false,
+      "crop": "crops/04-format-cards.png",
+      "context": "context/04-format-cards.gen.tsx",
+      "copy": [
+        "Supported platforms",
+        "Android",
+        "Stable",
+        "Modern Android development with Jetpack Compose plus the flexibility to share your UI across platforms.",
+        "iOS",
+        "Stable",
+        "Bring Kotlin to iOS to build native apps with a familiar development experience and native performance.",
+        "Desktop",
+        "Stable",
+        "Build powerful desktop apps for Windows, macOS, and Linux from one codebase.",
+        "Web",
+        "Beta",
+        "Bring your Compose UI to the browser with Kotlin and WebAssembly."
+      ],
+      "colorDeviations": [
+        "#7e42ff"
+      ],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/32eaa295-f988-424d-bd38-037357547196.svg",
+        "https://www.figma.com/api/mcp/asset/e55eeb1f-cfd4-4ed1-98a1-b469d858a50d.svg",
+        "https://www.figma.com/api/mcp/asset/0a56ee17-55d6-4912-9442-768b01b5f822.svg",
+        "https://www.figma.com/api/mcp/asset/87c5bd9a-0f8f-47e7-b8e1-184bf39121c3.svg"
+      ],
+      "assetRefs": {
+        "imgAndroid": "assets/04-android.svg",
+        "imgApple": "assets/04-apple.svg",
+        "imgComputer": "assets/04-computer.svg",
+        "imgGlobus": "assets/04-globus.svg"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 5,
+      "nodeId": "92:1155",
+      "figmaName": "Frame 1321314934",
+      "role": "showcase",
+      "firstText": "Try Compose Multiplatform",
+      "bbox": {
+        "x": 0,
+        "y": 4856.4736328125,
+        "width": 1540,
+        "height": 857
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true,
+      "crop": "crops/05-showcase.png",
+      "context": "context/05-showcase.gen.tsx",
+      "copy": [
+        "Try Compose Multiplatform",
+        "Run"
+      ],
+      "colorDeviations": [],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/d30c8844-2182-4074-8475-7cf0d2234ea8.png",
+        "https://www.figma.com/api/mcp/asset/486afb18-9e15-4e43-9d28-a6bbfd07b983.svg",
+        "https://www.figma.com/api/mcp/asset/ad3c9207-13aa-4bec-bb31-fca6e38c89de.svg",
+        "https://www.figma.com/api/mcp/asset/882fce7a-010b-4b4e-8f5e-1dcb489d6016.svg"
+      ],
+      "assetRefs": {
+        "imgImage19": "assets/05-image19.png",
+        "imgCodeOutline": "assets/05-code-outline.svg",
+        "imgExternalOutline": "assets/05-external-outline.svg",
+        "imgPlay": "assets/05-play.svg"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 6,
+      "nodeId": "92:1172",
+      "figmaName": "Frame 1321314935",
+      "role": "content",
+      "firstText": "Alex Askerov",
+      "bbox": {
+        "x": 0,
+        "y": 5713.4736328125,
+        "width": 1540,
+        "height": 540
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true,
+      "crop": "crops/06-content.png",
+      "context": "context/06-content.gen.tsx",
+      "copy": [
+        "Alex Askerov",
+        "Mobile Development Unit Lead at Wrike",
+        "Building on our success with Kotlin Multiplatform integration, we’ve decided to go ahead with Compose Multiplatform for building Calendar View. In less than three months, it was live on the App Store and Google Play.",
+        "Most of the client logic was implemented by a single Android developer. From the iOS side, only integration was required. Compose Multiplatform was even smoother [than KMP] to integrate, requiring minimal work from iOS developers.",
+        "1/4"
+      ],
+      "colorDeviations": [
+        "#310d83"
+      ],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/75df7aca-5237-489e-9c4d-683628e97e6a.png",
+        "https://www.figma.com/api/mcp/asset/821e7ad4-cf7b-4699-aa91-1976be2b3271.svg",
+        "https://www.figma.com/api/mcp/asset/f16a8fb9-fd9e-4bdc-b928-4a58f1efa334.svg"
+      ],
+      "assetRefs": {
+        "imgImage2": "assets/06-image2.png",
+        "imgArrowLeftOutline": "assets/06-arrow-left-outline.svg",
+        "imgArrowRightOutline": "assets/06-arrow-right-outline.svg"
+      },
+      "bucket": 2
+    },
+    {
+      "index": 7,
+      "nodeId": "92:1185",
+      "figmaName": "Frame 6479",
+      "role": "faq",
+      "firstText": "FAQ",
+      "bbox": {
+        "x": 0,
+        "y": 6253.4736328125,
+        "width": 1540,
+        "height": 353
+      },
+      "components": [
+        "Accordion"
+      ],
+      "customArt": false,
+      "crop": "crops/07-faq.png",
+      "context": "context/07-faq.gen.tsx",
+      "copy": [
+        "FAQ",
+        "What’s the difference between Kotlin Multiplatform and Compose Multiplatform?",
+        "Are Kotlin Multiplatform and Compose Multiplatform ready for production?",
+        "How is Kotlin Multiplatform different from Flutter or React Native?"
+      ],
+      "colorDeviations": [],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/a6e489a6-ed12-44b5-917f-e1b179439b7d.svg",
+        "https://www.figma.com/api/mcp/asset/3d2166ff-f253-4879-8ddf-c7f6164c6cf7.svg"
+      ],
+      "assetRefs": {
+        "imgPlus": "assets/07-plus.svg",
+        "imgPlus1": "assets/07-plus1.svg"
+      },
+      "bucket": 1
+    },
+    {
+      "index": 8,
+      "nodeId": "92:1191",
+      "figmaName": "Frame 1195",
+      "role": "showcase",
+      "firstText": "Build your first app",
+      "bbox": {
+        "x": 198,
+        "y": 6606.4736328125,
+        "width": 1144,
+        "height": 373
+      },
+      "components": [
+        "Button"
+      ],
+      "customArt": true,
+      "crop": "crops/08-showcase.png",
+      "context": "context/08-showcase.gen.tsx",
+      "copy": [
+        "Build your first app",
+        "Follow the guide to launch your first Compose Multiplatform app.",
+        "Get started"
+      ],
+      "colorDeviations": [],
+      "assets": [
+        "https://www.figma.com/api/mcp/asset/b1435d7b-2917-4e86-b2b7-f1c0b56746db.png"
+      ],
+      "assetRefs": {
+        "imgDsgn21280GraphicsForTheExposedWebsite31": "assets/08-dsgn21280-graphics-for-the-exposed-website31.png"
+      },
+      "bucket": 2
+    }
+  ],
+  "notes": [
+    "Buckets: 1 — library component; 2 — library component with a token deviation; 3 — custom block (decision 08).",
+    "Figma asset URLs live ~7 days — vendor into assets/ when building the section."
+  ]
+}
