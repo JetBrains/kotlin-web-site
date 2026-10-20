@@ -53,27 +53,33 @@ For HTML-based solutions, Kotlin/JS supports multiple approaches:
 
 ## Kotlin/Wasm
 
-[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm), enabling apps to run across
-environments and devices that support Wasm while meeting Kotlin’s requirements.
+[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm). Use it to build web UIs and run applications outside
+the browser in runtimes that support the Wasm features Kotlin requires.
 
-In browsers,
-Kotlin/Wasm lets you build web apps with [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/).
-Outside the browser, it runs in standalone Wasm virtual machines,
-using the [WebAssembly System Interface (WASI)](https://wasi.dev/)
-to access platform APIs.
-
-When developing with Kotlin/Wasm, you can target:
+Kotlin/Wasm supports two targets: 
 
 * **`wasmJs`**: for running in browsers or Node.js.
-* **`wasmWasi`**: for running in Wasm environments supporting WASI, such as Wasmtime, WasmEdge, and so on.
+* **`wasmWasi`**: for running in Wasm environments supporting WASI, such as Wasmtime, WasmEdge, and so on. It uses the
+  [WebAssembly System Interface (WASI)](https://wasi.dev/) to access system resources, such as files and standard input and output.
+  
+  Learn more in [](wasm-wasi.md).
 
-> For information about configuring Kotlin/Wasm targets, see the [Configure a Gradle project](gradle-configure-project.md#targeting-webassembly) guide.
+> Learn how to configure Kotlin/Wasm targets in the [Configure a Gradle project](gradle-configure-project.md#targeting-webassembly) guide.
 >
 {style="tip"}
 
 ### Kotlin/Wasm use cases
 
-Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms.
+#### Build web UIs
+
+Kotlin/Wasm supports several UI frameworks:
+
+* [Doodle](https://nacular.github.io/doodle/) lets you share UIs between web and desktop applications. The vector-based
+  rendering gives you control over custom components, shapes, and visualizations.
+* [Kilua](https://kilua.dev/) uses [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime to build reactive web UIs with standard HTML elements. It provides
+  ready-to-use components and server-side rendering. 
+* [Summon](https://github.com/codeyousef/summon) provides a component-based API for building UIs across Kotlin/Wasm, Kotlin/JS, and JVM. It supports
+  server-side rendering with HTML streaming and CSS styling through modifiers.
 
 #### Build cross-platform apps with Compose Multiplatform
 

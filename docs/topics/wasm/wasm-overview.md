@@ -22,7 +22,9 @@ browser in standalone Wasm virtual machines. In the outside-of-browser case,
 
 [//]: # (TODO KT-85415: For Kotlin/Wasm-compatible standalone runtimes, see Standalone runtimes).
 
-## Kotlin/Wasm and Compose Multiplatform
+## UI frameworks for Kotlin/Wasm
+
+### Compose Multiplatform
 
 With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
 Compose Multiplatform and Kotlin/Wasm.
@@ -42,6 +44,28 @@ see [Adding dependencies on multiplatform libraries](https://kotlinlang.org/docs
 Would you like to try it yourself?
 
 <a href="wasm-get-started.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Kotlin/Wasm</a>
+
+### Doodle
+
+[Doodle](https://nacular.github.io/doodle/) is a UI framework for sharing applications between web and desktop. It supports Kotlin/Wasm and Kotlin/JS
+for the web, and JVM for desktop.
+
+Doodle uses vector-based rendering, giving you control over custom UI components, shapes, gradients, and visualizations.
+
+### Kilua
+
+[Kilua](https://kilua.dev/) is a web framework based on [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime. It uses standard HTML elements to render
+UIs.
+
+Kilua provides declarative components, reactive state management, routing, and integration with CSS frameworks such as
+Bootstrap and Tailwind CSS. It also supports server-side rendering.
+
+### Summon
+
+[Summon](https://github.com/codeyousef/summon) is a [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) frontend framework that supports Kotlin/Wasm, Kotlin/JS, and JVM. It
+provides a declarative API for reusable UI components, reactive state management, and type-safe styling.
+
+Summon supports server-side rendering and integration with JVM backend frameworks, including [Ktor](https://ktor.io/docs/welcome.html) and [Spring Boot](https://spring.io/projects/spring-boot).
 
 ## Kotlin/Wasm and WASI
 
