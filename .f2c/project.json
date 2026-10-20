@@ -35,7 +35,7 @@
   "checks": {
     "lint": "yarn lint --dir pages/<page> --dir <sections>",
     "types": "yarn exec tsc -- --noEmit -p tsconfig.json",
-    "e2e": "see process.e2e — needs the dev server, not run by project-check"
+    "e2e": "see process.e2e \u2014 needs the dev server, not run by project-check"
   },
   "output": {
     "pagesRoot": "pages",
@@ -63,7 +63,7 @@
     },
     "images": {
       "raster": "<img> with a co-located import (./images/x.webp) or a /images/<page>/... path under public/",
-      "vector": "import x from \"./x.svg\" is Next's static import (an object; render x.src) — next.config.js has no svg rule; inline <svg> for small marks",
+      "vector": "import x from \"./x.svg\" is Next's static import (an object; render x.src) \u2014 next.config.js has no svg rule; inline <svg> for small marks",
       "dir": "blocks/<page>/<name>/images/ or public/images/<page>/"
     },
     "links": {
@@ -89,12 +89,13 @@
     }
   },
   "grid": {
-    "$comment": "ktl-layout-v2 widths read off node_modules/@jetbrains/kotlin-web-site-ui/out/components/layout-v2/index.css on 8 Oct 2026: 1144 (>1190), 952 (<=1190), 760 (<=1000), 568 (<=808), 424 (<=640), 312 (<=472). The toolkit's four ranges map to {max, pad}: content = max - 2*pad. The corpus page cmp recorded the same table (design/compose-multiplatform/page.json).",
+    "$comment": "ktl-layout-v2 (node_modules/@jetbrains/kotlin-web-site-ui/out/components/layout-v2/index.css, 8 Oct 2026): column 1144 (>1190) / 952 (<=1190) / 760 (<=1000) / 568 (<=808) / 424 (<=640) / 312 (<=472). The toolkit's ranges are THESE (page.json.breakpoints keys ds/tl/ts/ml/ms, decision 26 follow-up 8 Oct 2026), not rescui's four; a page's twin ranges must match this table (preflight). container = {max, pad} with content = max - 2*pad.",
     "breakpoints": {
-      "xlg": 1540,
-      "lg": 1276,
-      "md": 1000,
-      "sm": 640
+      "ds": 1190,
+      "tl": 1000,
+      "ts": 808,
+      "ml": 640,
+      "ms": 472
     },
     "customMedia": {
       "ds": "--ktl-ds-down (<=1190)",
@@ -108,16 +109,24 @@
         "max": 1188,
         "pad": 22
       },
-      "lg": {
+      "ds": {
         "max": 996,
         "pad": 22
       },
-      "md": {
+      "tl": {
+        "max": 804,
+        "pad": 22
+      },
+      "ts": {
         "max": 612,
         "pad": 22
       },
-      "sm": {
-        "max": 640,
+      "ml": {
+        "max": 468,
+        "pad": 22
+      },
+      "ms": {
+        "max": 360,
         "pad": 24
       }
     },
@@ -133,7 +142,7 @@
     "pagePalettes": [],
     "switchable": null,
     "canon": {
-      "reference": "the mock's theme (page.json.theme) — one theme per landing, no switcher",
+      "reference": "the mock's theme (page.json.theme) \u2014 one theme per landing, no switcher",
       "dark": "LandingLayout default; compose/multiplatform add an inner ThemeProvider theme='dark'",
       "light": "LandingLayout theme='light' (state-of-kotlin-2026)"
     }
@@ -155,13 +164,15 @@
   },
   "textRoles": {
     "extra": [],
-    "source": "artifacts/contracts.json (typography 0.24.2); @jetbrains/kotlin-web-site-ui ships no .d.ts — its components are read from node_modules/@jetbrains/kotlin-web-site-ui/out/components/<name>/ directly (components.md)"
+    "source": "artifacts/contracts.json (typography 0.24.2); @jetbrains/kotlin-web-site-ui ships no .d.ts \u2014 its components are read from node_modules/@jetbrains/kotlin-web-site-ui/out/components/<name>/ directly (components.md)"
   },
   "shot": {
     "viewports": [
       1540,
-      1276,
-      768,
+      1190,
+      1000,
+      808,
+      616,
       360
     ],
     "blockRoutes": [
@@ -176,11 +187,11 @@
     "cookies": {},
     "reducedMotion": true,
     "warmupScroll": true,
-    "$comment": "JetBrains Sans comes over the network from resources.jetbrains.com/storage/jetbrains-sans/ (@rescui/typography/lib/font-jb-sans-auto.css via pages/global.css) — never block that host: measure aborts on a page whose declared font did not load (8 Oct 2026, the first calibration run)."
+    "$comment": "JetBrains Sans comes over the network from resources.jetbrains.com/storage/jetbrains-sans/ (@rescui/typography/lib/font-jb-sans-auto.css via pages/global.css) \u2014 never block that host: measure aborts on a page whose declared font did not load (8 Oct 2026, the first calibration run)."
   },
   "process": {
     "branch": "figma-to-code (experiment; the project's own: ktl-<ticket>-<slug>)",
-    "commit": "feat: <description> | chore: … | fix: … (optional ktl-NNNN)",
+    "commit": "feat: <description> | chore: \u2026 | fix: \u2026 (optional ktl-NNNN)",
     "codeowners": "* @JetBrains/kotlinlang-code-reviewer",
     "e2e": "test/e2e/<page>.spec.ts is part of the deliverable (.ai/guidelines.md): sections in order by data-testid, one h1, anchors; run with the dev server up: yarn test:e2e test/e2e/<page>.spec.ts",
     "neverCommit": [],
@@ -191,7 +202,7 @@
     ]
   },
   "calibration": {
-    "$comment": "Toolkit mocks with a shipped human implementation in this project — measurable with no generation. The shipped page may be a later revision than the mock (compose-multiplatform: 5 blocks shipped, 6 sections in the mock DSGN-24703; last touched 12 Mar 2026) — a check of the instrument, not an acceptance number.",
+    "$comment": "Toolkit mocks with a shipped human implementation in this project \u2014 measurable with no generation. The shipped page may be a later revision than the mock (compose-multiplatform: 5 blocks shipped, 6 sections in the mock DSGN-24703; last touched 12 Mar 2026) \u2014 a check of the instrument, not an acceptance number.",
     "pairs": [
       {
         "toolkit": "design/compose-multiplatform",
@@ -201,7 +212,7 @@
   },
   "annotations": {
     "source": "Figma Dev Mode annotations left by designers on animated/interactive nodes",
-    "mcpShape": "get_design_context: attribute data-interaction-annotations=\"…\" on the annotated element (not the section root); absent from get_metadata",
+    "mcpShape": "get_design_context: attribute data-interaction-annotations=\"\u2026\" on the annotated element (not the section root); absent from get_metadata",
     "fallback": "designer question, logged as an intervention",
     "hosts": [
       "kotlinlang.org",

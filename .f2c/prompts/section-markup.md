@@ -45,14 +45,16 @@ its own preview route.
   list, colour deviations, asset refs, **annotations**).
 - The reference render: `{{pageDir}}/crops/<NN-role>.png` (1540 wide).
 - **Breakpoint frames, mandatory**: the twin DUMPS are
-  `{{pageDir}}/context/lg/<NN-role>.gen.tsx` (1276), `context/md/…` (768) and
-  `context/sm/…` (360) — they are the spec for every width: which blocks stack
-  and in what order, what becomes a carousel, button sizes, text roles that
-  switch, image sizes. Read all four dumps BEFORE writing the base markup. The
-  frame widths map to this project's media like so: 1276 → `--ktl-ds-down`
-  (<=1190), 768 → `--ktl-ts-down` (<=808), 360 → `--ktl-ml-down` (<=640) /
-  `--ktl-ms-down` (<=472); use the query at which the dump's structure changes
-  (`--ktl-tl-down` 1000 when it changes between 1276 and 768).
+  `{{pageDir}}/context/<range>/<NN-role>.gen.tsx`, one per range of this
+  project's grid (`page.json.breakpoints`): `ds` (the 1192 frame, shot at 1190),
+  `tl` (1000), `ts` (808), `ml` (616) and `ms` (360) — they are the spec for
+  every width: which blocks stack and in what order, what becomes a carousel,
+  button sizes, text roles that switch, image sizes. Read all six dumps BEFORE
+  writing the base markup. Each range IS a project media query: `ds` →
+  `--ktl-ds-down` (<=1190), `tl` → `--ktl-tl-down` (<=1000), `ts` →
+  `--ktl-ts-down` (<=808), `ml` → `--ktl-ml-down` (<=640), `ms` →
+  `--ktl-ms-down` (<=472); write a block only at the query where the dumps'
+  structure actually changes.
 
 ## Read first, in this order
 
@@ -148,11 +150,11 @@ its own preview route.
    rounds** — never chase pixels.
 5. Check every breakpoint against its DUMP:
    `cd {{toolkit}}/app && node scripts/bp-structure.mjs {{pageDir}} --live --only=<NN-role>`
-   opens your preview route at 1276 / 768 / 360 and prints `ok` or `FAIL` per
+   opens your preview route at 1190 / 1000 / 808 / 616 / 360 and prints `ok` or `FAIL` per
    width (section height ±3 %, blocks stacked or side by side, buttons, no
    horizontal scroll); `--expected` prints the derived structure. Fix until every
    width is `ok`; a height difference explained by text reflow alone is reported,
-   not chased. Look at `shot.mjs … 768|360 '[data-testid="{{page}}-<slug>"]' --base-url=http://localhost:3000 --project={{project}}`
+   not chased. Look at `shot.mjs … 808|360 '[data-testid="{{page}}-<slug>"]' --base-url=http://localhost:3000 --project={{project}}`
    next to the frame.
 6. **e2e expectation** (the deliverable per `.ai/guidelines.md`, written by the
    orchestrator after finalize, but you make it possible): the section is found
@@ -163,7 +165,7 @@ its own preview route.
 ## Reply (nothing else)
 
 - score, rounds used, Δh at the end
-- heights at 1540 / 1276 / 768 / 360 vs the frames
+- heights at 1540 / 1190 / 1000 / 808 / 616 / 360 vs the frames
 - files written (paths)
 - deviations recorded (colour, px, role) and where
 - **questions for the designer** — an animated element with no annotation, a
