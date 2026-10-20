@@ -95,7 +95,7 @@ class ControlFlowLoopsExercise2Test {
             expected == "buzz" && actual == "$number" ->
                 hint(
                     "Check your number % 5 == 0 condition. $number is divisible " +
-                            "by 5, so print \"buzz\" instead of the number." + details,
+                            "by 5, so print \"buzz\" instead of the number. " + details,
                     window
                 )
 

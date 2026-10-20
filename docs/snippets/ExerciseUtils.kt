@@ -58,7 +58,7 @@ val firedTodo: NotImplementedError? by lazy {
 
 fun passed(note: String = "", showOutput: Boolean = false) {
     actualOutput.let {}
-    val text = if (showOutput && output.isNotEmpty()) consoleBlock(note, outputText(output)) else note
+    val text = if (showOutput && output.isNotEmpty()) withOutput(note, output) else note
     if (text.isNotEmpty()) println(text)
 }
 
@@ -70,20 +70,15 @@ fun escapeHtml(text: String): String = text
     .replace("<", "&#60;")
     .replace(">", "&#62;")
 
-private fun withOutput(hint: String, output: String): String =
-    consoleBlock(hint, outputText(output))
-
-private fun outputText(output: String): String {
-    val display = escapeHtml(output.trimEnd('\n'))
-    val separator = if ('\n' in display) "\n" else " "
-    return "Output:" + separator + display
+private fun withOutput(message: String, output: String): String {
+    val lines = escapeHtml(output.trimEnd('\n')).lines()
+    val separator = if (lines.size > 1) "<br>" else " "
+    return appendLine(message, "Output:" + separator + lines.joinToString("<br>"))
 }
 
-private fun consoleBlock(hint: String, text: String): String =
-    hint +
-            "</div></div>" +
-            "<div class=\"console-block\"><span class=\"console-icon\"></span>" +
-            "<div class=\"test-fail\" style=\"color:inherit;white-space:pre-wrap\">" + text
+/** Adds [line] below [message] in the same element, so it keeps the message color and gets no extra icon. */
+private fun appendLine(message: String, line: String): String =
+    if (message.isEmpty()) line else message + "<br>" + line
 
 class Expectation internal constructor(
     val call: String,
@@ -119,7 +114,7 @@ fun expect(call: String, expected: Any?, tolerance: Double = 1e-9, actual: () ->
 fun List<Expectation>.firstMismatch(): Expectation? = firstOrNull { !it.isCorrect }
 
 fun hint(hint: String, failed: Expectation): Nothing =
-    kotlin.test.fail(consoleBlock(hint, failed.report))
+    kotlin.test.fail(appendLine(hint, failed.report))
 
 private fun valuesMatch(actual: Any?, expected: Any?, tolerance: Double): Boolean = when {
     expected is Double && actual is Number -> abs(actual.toDouble() - expected) <= tolerance
