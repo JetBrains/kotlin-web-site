@@ -49,6 +49,9 @@
 
 .footer-img {
     position: absolute;
+    /* the project's global `img { max-width: 100% }` would clamp the sprite to the plate's width
+       and squash it (seen at 616/360: the phone outline at the left edge) */
+    max-width: none;
     --decor-y: 407.3125rem;
     left: calc(100% - 72rem);
     top: -5.5919rem;
@@ -82,7 +85,7 @@
 
 @media (--ktl-ml-down) {
     .wrapper {
-        padding: 64px 0 336.8px;
+        padding: 64px 0 346.8px;
     }
 
     .content {
@@ -105,7 +108,7 @@
 
 @media (--ktl-ms-down) {
     .wrapper {
-        padding-bottom: 208px;
+        padding-bottom: 267px;
     }
 
     .footer-img {

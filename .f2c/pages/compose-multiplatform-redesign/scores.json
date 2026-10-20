@@ -1,12 +1,17 @@
 {
   "metricVersion": 3,
-  "runs": 3,
+  "runs": 4,
   "sections": {
     "01-hero": {
       "best": 0.9619,
       "history": [
         {
           "run": 1,
+          "score": 0.9619,
+          "coverage": 0.9989
+        },
+        {
+          "run": 4,
           "score": 0.9619,
           "coverage": 0.9989
         }
@@ -19,6 +24,11 @@
           "run": 1,
           "score": 0.9554,
           "coverage": 1
+        },
+        {
+          "run": 4,
+          "score": 0.9554,
+          "coverage": 1
         }
       ]
     },
@@ -27,6 +37,11 @@
       "history": [
         {
           "run": 1,
+          "score": 0.9399,
+          "coverage": 0.9995
+        },
+        {
+          "run": 4,
           "score": 0.9399,
           "coverage": 0.9995
         }
@@ -39,6 +54,11 @@
           "run": 1,
           "score": 0.9515,
           "coverage": 1
+        },
+        {
+          "run": 4,
+          "score": 0.9515,
+          "coverage": 1
         }
       ]
     },
@@ -49,25 +69,40 @@
           "run": 1,
           "score": 0.8866,
           "coverage": 0.7429
+        },
+        {
+          "run": 4,
+          "score": 0.8826,
+          "coverage": 0.7429
         }
       ]
     },
     "06-content": {
-      "best": 0.9171,
+      "best": 0.9195,
       "history": [
         {
           "run": 1,
           "score": 0.9171,
           "coverage": 0.7429
+        },
+        {
+          "run": 4,
+          "score": 0.9195,
+          "coverage": 0.7429
         }
       ]
     },
     "07-faq": {
-      "best": 0.9576,
+      "best": 0.9596,
       "history": [
         {
           "run": 1,
           "score": 0.9576,
+          "coverage": 0.7429
+        },
+        {
+          "run": 4,
+          "score": 0.9596,
           "coverage": 0.7429
         }
       ]
@@ -87,6 +122,11 @@
         },
         {
           "run": 3,
+          "score": 0.9806,
+          "coverage": 0.9973
+        },
+        {
+          "run": 4,
           "score": 0.9806,
           "coverage": 0.9973
         }

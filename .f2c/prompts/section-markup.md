@@ -56,6 +56,8 @@ its own preview route.
   `--ktl-ms-down` (<=472); write a block only at the query where the dumps'
   structure actually changes.
 
+**Variable modes (20 Oct 2026, compose-multiplatform redesign):** a size a bp dump declares as `var(--typography/h1/font-size, 43px)` is the variable's DEFAULT-mode fallback, not what the narrow frame renders — the frame renders the variable's mobile mode (here 35/39 for H1, i.e. rescui's own mobile size). Never pin a desktop size on mobile from a dump's fallback; the crop's line count and the frame height are the evidence. Three sections failed the gate by +6…+9 % the day this was tried.
+
 ## Read first, in this order
 
 1. `{{project}}/.f2c/README.md` (precedence) and `rules.md` R1–R12: the project
