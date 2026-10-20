@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-// Copy verbatim from the mock (.f2c/pages/compose-multiplatform-redesign/manifest.json, section 04-format-cards).
+// Copy verbatim from the mock.
 export const SUPPORTED_PLATFORMS_TITLE: ReactNode = 'Supported platforms';
 
 export type SupportedPlatform = {

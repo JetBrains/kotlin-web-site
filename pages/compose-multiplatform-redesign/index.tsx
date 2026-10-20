@@ -13,7 +13,7 @@ import { BuildYourFirstSection } from '@/blocks/compose-multiplatform-redesign/b
 
 import styles from './index.module.css';
 
-// The blocks in the mock's order (.f2c/pages/compose-multiplatform-redesign/manifest.json). The shell is
+// The blocks in the mock's order. The shell is
 // the newest shipped landing's (pages/state-of-kotlin-2026, rules R1):
 // LandingLayout carries header, meta and footer and takes the page's theme as
 // a prop; the layout column is ktl-layout-v2; every block owns its vertical

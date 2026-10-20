@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-// Copy verbatim from the mock (section 07-faq). The mock draws only the questions;
+// Copy verbatim from the mock. The mock draws only the questions
 // the answer is a placeholder (R12) so the accordion can be operated.
 export const FAQ_TITLE: ReactNode = 'FAQ';
 

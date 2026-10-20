@@ -1,7 +1,3 @@
-/**
- * 08-showcase — Frame 1195 (node 92:1191), 1144×373 at 1540.
- * Bucket 2; crop .f2c/pages/compose-multiplatform-redesign/crops/08-showcase.png.
- */
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
@@ -22,14 +18,12 @@ export const BuildYourFirstSection: FC = () => {
             className={styles.wrapper}
             id="build-your-first"
             data-testid="compose-multiplatform-redesign-build-your-first"
-            data-section="08-showcase"
         >
             <div className={styles.decor} aria-hidden>
                 <img
                     src="/images/compose-multiplatform-redesign/decor-footer-graphic.png"
                     alt=""
                     aria-hidden
-                    data-decor="134:4190"
                     className={styles['footer-img']}
                 />
             </div>

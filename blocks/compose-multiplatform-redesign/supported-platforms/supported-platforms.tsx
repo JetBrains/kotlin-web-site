@@ -15,7 +15,6 @@ export const SupportedPlatformsSection: FC = () => {
             className={styles.wrapper}
             id="supported-platforms"
             data-testid="compose-multiplatform-redesign-supported-platforms"
-            data-section="04-format-cards"
         >
             <h2
                 className={cn(styles.title, textCn('rs-h1'))}

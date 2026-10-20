@@ -28,7 +28,6 @@ export const HeroSection: FC = () => {
                 src="/images/compose-multiplatform-redesign/decor-hero-render.png"
                 alt=""
                 aria-hidden
-                data-decor="92:1040"
                 className={styles['compose-multiplatform-graphic-render-1-1']}
             />
             <div className={styles.headerMobile} aria-hidden>

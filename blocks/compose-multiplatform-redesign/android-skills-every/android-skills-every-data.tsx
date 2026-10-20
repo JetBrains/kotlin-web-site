@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-// Copy verbatim from the mock (.f2c/pages/compose-multiplatform-redesign/manifest.json, section 02-content).
+// Copy verbatim from the mock.
 export const ANDROID_SKILLS_EVERY_COPY: { id: string; text: ReactNode }[] = [
     { id: 'android-skills-every-1', text: 'Android skills. Every platform.' },
     { id: 'android-skills-every-2', text: 'Use your Jetpack Compose skills across platforms.' },

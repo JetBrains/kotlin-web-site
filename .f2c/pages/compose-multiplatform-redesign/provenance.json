@@ -1,0 +1,172 @@
+{
+  "page": "compose-multiplatform-redesign",
+  "route": "/compose-multiplatform-redesign/",
+  "finalizedAt": "2026-10-20",
+  "files": [
+    {
+      "file": "pages/compose-multiplatform-redesign/index.tsx",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/manifest.json",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/android-skills-every/android-skills-every-data.tsx",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/manifest.json,",
+          "line": 3
+        },
+        {
+          "kind": "section-key",
+          "text": "02-content",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/android-skills-every/android-skills-every.module.css",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/layout.json",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/build-your-first/build-your-first-data.tsx",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/manifest.json,",
+          "line": 3
+        },
+        {
+          "kind": "section-key",
+          "text": "08-showcase",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/build-your-first/build-your-first.tsx",
+      "removed": [
+        {
+          "kind": "data-section",
+          "text": "data-section=\"08-showcase\"",
+          "line": 24
+        },
+        {
+          "kind": "data-decor",
+          "text": "data-decor=\"134:4190\"",
+          "line": 30
+        },
+        {
+          "kind": "node-id",
+          "text": "92:1191",
+          "line": 1
+        },
+        {
+          "kind": "figma-frame",
+          "text": "Frame 1195",
+          "line": 1
+        },
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/crops/08-showcase.png.",
+          "line": 1
+        },
+        {
+          "kind": "toolkit-term",
+          "text": "Bucket 2",
+          "line": 1
+        },
+        {
+          "kind": "section-key",
+          "text": "08-showcase",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/faq/faq-data.tsx",
+      "removed": [
+        {
+          "kind": "section-key",
+          "text": "07-faq",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/hero/hero.tsx",
+      "removed": [
+        {
+          "kind": "data-decor",
+          "text": "data-decor=\"92:1040\"",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/native-experiences/native-experiences.module.css",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/layout.json",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/supported-platforms/supported-platforms-data.tsx",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/manifest.json,",
+          "line": 3
+        },
+        {
+          "kind": "section-key",
+          "text": "04-format-cards",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/supported-platforms/supported-platforms.module.css",
+      "removed": [
+        {
+          "kind": "design-path",
+          "text": ".f2c/pages/compose-multiplatform-redesign/layout.json",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/supported-platforms/supported-platforms.tsx",
+      "removed": [
+        {
+          "kind": "data-section",
+          "text": "data-section=\"04-format-cards\"",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "file": "blocks/compose-multiplatform-redesign/try-compose-multiplatform/try-compose-multiplatform-data.tsx",
+      "removed": [
+        {
+          "kind": "section-key",
+          "text": "05-showcase",
+          "line": 3
+        }
+      ]
+    }
+  ]
+}
