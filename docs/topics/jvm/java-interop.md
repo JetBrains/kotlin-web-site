@@ -598,8 +598,8 @@ Java's arrays are mapped as mentioned [below](#java-arrays):
 | `int[]`       | `kotlin.IntArray!`             |
 | `String[]`    | `kotlin.Array<(out) String!>!` |
 
->The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
->of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(255)`.
+> The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
+> of the Kotlin types. To call them, [use the full-qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
 >
 {style="note"}
 
