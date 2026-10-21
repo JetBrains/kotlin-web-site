@@ -59,7 +59,7 @@ and do not open a pull request.
 ### Language or tooling release
 
 * In `kr.tree`, remove `hidden="true"` from the `<toc-element></toc-element>` for `whatsnew-eap.md` (if present) and update
-  `toc-title` with the name of the new EAP release.
+  `toc-title` with the name of the new EAP release. Make sure that the EAP release element is at the top of the `<toc-element toc-title="What's new in Kotlin"></toc-element>` group.
 * In `eap.md`:
   * Inside the `<tldr>` element, comment out the "No preview versions are currently available." line and uncomment
     the "Latest Kotlin EAP release" line (only the inner lines are toggled; the `<tldr>` element itself is not commented).
@@ -96,7 +96,7 @@ Sample PRs:
 
 ### Language or tooling release
 
-* In `kr.tree`, update the `toc-title` for `whatsnew-eap.md` with the name of the new EAP release.
+* In `kr.tree`, update the `toc-title` for `whatsnew-eap.md` with the name of the new EAP release. Make sure that the EAP release element is at the top of the `<toc-element toc-title="What's new in Kotlin"></toc-element>` group.
 * In `v.list`, update `kotlinEapVersion` and `kotlinEapReleaseDate`.
 * In `eap.md`, update the existing EAP row in the **Build details** table with the new EAP release information
   (replace the previous stage's row — each release line keeps a single EAP row, unlike a bug fix release, which adds
@@ -112,7 +112,7 @@ Sample PRs:
 
 ### Language or tooling release
 
-* In `kr.tree`, update `toc-title` for `whatsnew-eap.md` with the name of the new EAP release.
+* In `kr.tree`, update `toc-title` for `whatsnew-eap.md` with the name of the new EAP release. Make sure that the EAP release element is at the top of the `<toc-element toc-title="What's new in Kotlin"></toc-element>` group.
 * In `v.list`, update `kotlinEapVersion` and `kotlinEapReleaseDate`.
 * In `eap.md`, update the existing EAP row in the **Build details** table with the new EAP release information
   (replace the previous stage's row — each release line keeps a single EAP row, unlike a bug fix release, which adds
