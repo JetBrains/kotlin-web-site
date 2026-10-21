@@ -357,8 +357,10 @@
 - from: /docs/reference/kapt.html
   to: /docs/kapt.html
 
-- from: /docs/reference/compiler-plugins.html
-  to: /docs/all-open-plugin.html
+- from:
+  - /docs/reference/compiler-plugins.html
+  - /docs/compiler-plugins.html
+  to: /docs/kotlin-spring-plugin.html
 
 - from: /docs/reference/annotations.html
   to: /docs/annotations.html
