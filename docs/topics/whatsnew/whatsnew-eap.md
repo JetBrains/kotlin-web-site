@@ -46,7 +46,7 @@ companion extensions and blocks, and full value classes.
 
 <secondary-label ref="language"/>
 
-Kotlin 2.3.20 and 2.4.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained).
+Kotlin 2.3.0−2.4.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained).
 We're happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
 
 * [Improved compile-time constants](whatsnew24.md#improved-compile-time-constants).
@@ -246,9 +246,9 @@ With these new value classes, `value class` no longer necessarily means inline. 
 observable inline representation, while other value classes don't expose their runtime representation in the same way.
 This distinction matters for Spring and serialization libraries, which handle inline value classes differently.
 
-To make the distinction explicit, in the future, the compiler will require inline value classes to be declared behavior
-explicitly through the `inline` modifier and `@JvmInline value class` declarations. A plain `value class` declaration 
-will no longer be treated as inline.
+To make the distinction explicit, in the future, the compiler will require inline value classes to be declared explicitly
+through the `inline` modifier and `@JvmInline value class` declarations. A plain `value class` declaration will no longer
+be treated as inline.
 
 We plan a staged migration to change this behavior:
 
@@ -435,7 +435,7 @@ Kotlin %kotlinEapVersion% enables incremental compilation by default on Apple ta
 
 <secondary-label ref="native"/>
 
-Starting with %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default on Apple targets.
+Starting with Kotlin %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default on Apple targets.
 
 With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, only the 
 affected part of the `klib` is further recompiled into a binary.
@@ -660,7 +660,6 @@ Please share your feedback and report any problems in [YouTrack](https://kotl.in
 ### Improved type inference performance
 
 <primary-label ref="experimental-opt-in"/>
-
 <secondary-label ref="compiler"/>
 
 Kotlin %kotlinEapVersion% improves compiler performance by reducing the number of constraints generated during type inference.
