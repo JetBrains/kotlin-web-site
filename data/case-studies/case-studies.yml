@@ -148,6 +148,25 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: deezer
+    type: multiplatform
+    description: >-
+      **Deezer** adopted Kotlin Multiplatform to power a unified music experience across its Android, iOS, web, car,
+      and watch apps. Shared capabilities, such as real-time device synchronization and offline caching, are built
+      once with KMP and shipped on every surface. KMP also powers playback in Deezer’s white-label offering, enabling
+      B2B partners to deliver the full Deezer experience across platforms. By consolidating development and
+      maintenance efforts, this shared foundation accelerates delivery across Deezer’s consumer apps and partner
+      solutions.
+    logo:
+      - /images/case-studies/deezer-logo.svg
+    platforms:
+      - android
+      - ios
+      - frontend
+    media:
+      type: image
+      path: /images/case-studies/deezer-card-preview.png
+  #------------------------------------------------------------------------
   - id: philo
     type: multiplatform
     description: >-
@@ -168,7 +187,7 @@ items:
       - ios
       - frontend
     isExternal: true
-    link: https://www.philo.com/blog/kotlin-multiplatform-at-philo-3-years-later      
+    link: https://www.philo.com/blog/kotlin-multiplatform-at-philo-3-years-later
   #------------------------------------------------------------------------
   - id: workday
     type: multiplatform
