@@ -1,9 +1,6 @@
-export type FaqItem = {
-    question: string;
-    answer: string;
-};
+import type { ColumnedFaqItem } from '../../../components/columned-faq/columned-faq';
 
-export const FAQ_ITEMS: FaqItem[] = [
+export const FAQ_ITEMS: ColumnedFaqItem[] = [
     {
         question: 'What is Compose Multiplatform?',
         answer: 'Compose Multiplatform is an open-source, declarative UI framework developed by JetBrains for building shared UIs across Android, iOS, desktop, and web with Kotlin. It’s powered by Kotlin Multiplatform and Jetpack Compose, so it uses APIs Android developers already know.',
