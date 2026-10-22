@@ -10,7 +10,7 @@ Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1. Support for W
 [Follow this YouTrack issue for updates on WASI 0.2 support](https://youtrack.jetbrains.com/issue/KT-64568). 
 
 The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target 
-[uses the new exception handling proposal by default](wasm-configuration.md#exception-handling-proposal), ensuring better compatibility with modern WebAssembly runtimes.
+[uses the new exception handling proposal by default](wasm-configuration.md#how-do-i-choose-the-exception-handling-proposal), ensuring better compatibility with modern WebAssembly runtimes.
 
 ## Before you start
 
