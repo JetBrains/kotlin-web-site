@@ -10,6 +10,7 @@ import QuoteSection from '../../blocks/compose-multiplatform/quote-section/quote
 import FeaturesBlock from '../../blocks/compose-multiplatform/features-block/features-block';
 import { PlatformsBlock } from '../../blocks/compose-multiplatform/platforms-block';
 import { BenefitsBlock } from '../../blocks/compose-multiplatform/benefits-block';
+import { FaqBlock } from '../../blocks/compose-multiplatform/faq/faq';
 
 const TOP_MENU_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_URL = '/multiplatform/' as const;
@@ -55,6 +56,7 @@ export default function ComposeMultiplatformLanding() {
                     <PlatformsBlock />
                     <FeaturesBlock />
                     <QuoteSection />
+                    <FaqBlock />
                     <CtaBlock />
                 </ThemeProvider>
             </div>
