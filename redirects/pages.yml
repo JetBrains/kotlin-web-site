@@ -861,3 +861,19 @@
 
 - from: /docs/multiplatform/choosing-web-target.html
   to: /docs/web-overview.html
+
+- from:
+    - /docs/data-analysis-overview.html
+    - /docs/data-analysis-work-with-data-sources.html
+    - /docs/data-analysis-work-with-api.html
+    - /docs/data-analysis-connect-to-db.html
+    - /docs/data-analysis-visualization.html
+    - /docs/lets-plot.html
+    - /docs/kotlin-notebook-overview.html
+    - /docs/get-started-with-kotlin-notebooks.html
+    - /docs/kotlin-notebook-set-up-env.html
+    - /docs/kotlin-notebook-create.html
+    - /docs/kotlin-notebook-add-dependencies.html
+    - /docs/kotlin-notebook-share.html
+    - /docs/data-analysis-notebooks-output-formats.html
+  to: /docs/data-analysis-libraries.html
