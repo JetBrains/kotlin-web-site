@@ -38,6 +38,23 @@
     scroll-snap-align: center;
 }
 
+@supports (animation-timeline: view()) {
+    .wrapperFade > .slide {
+        animation: slide-fade linear both;
+        animation-timeline: view(inline);
+    }
+}
+
+@keyframes slide-fade {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 .navigation {
     display: flex;
     align-items: center;
