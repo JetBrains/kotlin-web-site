@@ -1,46 +1,71 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .wrapper {
-  margin: 72px 0;
-}
+  padding: 72px 0 36px;
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 32px;
-
-  @media (--ktl-ds-up) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (--ktl-ml-down) {
+    padding-top: 64px;
   }
 }
 
 .card {
-  background-color: #000;
-  border-color: #8C38FF !important;
-}
-
-.cardHeader {
   display: flex;
-  align-items: center;
-  align-self: stretch;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
+  gap: 32px;
+  padding: 32px;
+  border-radius: 32px;
+  background-color: #310D83;
+
+  @media (--ktl-ts-down) {
+    flex-direction: column;
+  }
+
+  @media (--ktl-ml-down) {
+    border-radius: 16px;
+  }
 }
 
-.cardHeaderText {
-  margin-left: 24px;
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 220px;
+
+  @media (--ktl-ts-down) {
+    flex: none;
+    flex-direction: row;
+  }
 }
 
 .image {
-  height: 64px;
-  width: 64px;
-  overflow: hidden;
-  border-radius: 50%;
-  flex-shrink: 0;
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 16px;
+  object-fit: cover;
+
+  @media (--ktl-ts-down) {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
 }
 
 .name, .role {
   margin: 0;
 }
 
+.text {
+  flex: 1;
+  min-width: 0;
+}
+
 .text p {
-  margin: 24px 0 0;
+  margin: 0;
+}
+
+.text p + p {
+  margin-top: 24px;
 }

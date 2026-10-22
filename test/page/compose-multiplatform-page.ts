@@ -23,6 +23,9 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
 
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
+    readonly quoteCounter: Locator;
+    readonly quotePrevButton: Locator;
+    readonly quoteNextButton: Locator;
 
     readonly faqBlock: Locator;
     readonly faqTitle: Locator;
@@ -54,6 +57,9 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.featureTitles = page.getByTestId('feature-title');
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');
+        this.quoteCounter = this.quoteSection.getByTestId('snap-carousel-counter');
+        this.quotePrevButton = this.quoteSection.getByRole('button', { name: 'Previous slide' });
+        this.quoteNextButton = this.quoteSection.getByRole('button', { name: 'Next slide' });
 
         this.faqBlock = page.getByTestId('faq-block');
         this.faqTitle = this.faqBlock.getByTestId('columned-faq-title');
