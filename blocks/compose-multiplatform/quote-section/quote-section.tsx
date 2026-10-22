@@ -11,7 +11,7 @@ const textCn = createTextCn('dark');
 const QuoteSection = () => (
     <section className={styles.wrapper} data-testid="quote-section" aria-label="Quotes">
         <div className="ktl-layout ktl-layout--center">
-            <SnapCarousel navigationAlign="right" adaptiveHeight>
+            <SnapCarousel navigationAlign="right" adaptiveHeight fadeSlides>
                 {quoteSectionData.map(({ id, name, imageSrc, role, text }) => (
                     <article key={id} data-testid="quote-card" className={styles.card}>
                         <div className={cn(textCn('rs-text-1', { hardness: 'hard' }), styles.text)}>{text}</div>
