@@ -1,7 +1,9 @@
 [//]: # (title: Combine collections)
 
-Kotlin provides operators and functions for adding, removing, and comparing collection elements. These operations return
+Kotlin provides operators and functions for adding, removing, and combining collection elements. These operations return
 a new read-only collection, leaving the original collections unchanged.
+
+You can also add or remove elements in a mutable collection. Learn more in [](collection-write.md).
 
 ## Add and remove elements
 

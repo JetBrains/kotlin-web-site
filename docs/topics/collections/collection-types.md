@@ -22,6 +22,11 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+> The performance of indexed access depends on the list implementation. When processing all elements of a list,
+> prefer iteration over repeatedly accessing elements by index.
+>
+{style="tip"}
+
 List elements (including nulls) can duplicate: a list can contain any number of equal objects or occurrences of a
 single object.
 Two lists are considered equal if they have the same sizes and [structurally equal](equality.md#structural-equality)
@@ -61,7 +66,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 As you see, in some aspects lists are very similar to arrays.
-However, there is one important difference:  an array's size is defined upon initialization and is never changed;
+However, there is one important difference: an array's size is defined upon initialization and is never changed;
 in turn, a list doesn't have a predefined size; a list's size can be changed as a result of write operations: adding,
 updating, or removing elements.
 
@@ -70,8 +75,8 @@ which you can think of as a resizable array.
 
 ## Set
 
-[`Set<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html) stores unique elements;
-their order is generally undefined. `null` elements are unique as well: a `Set` can contain only one `null`.
+[`Set<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html) stores unique elements; their order is generally undefined. A set can contain at most one `null` element if its element type is nullable and its implementation supports `null`.
+
 Two sets are equal if they have the same size, and for each element of a set there is an equal element in the other set.
 
 ```kotlin
@@ -114,8 +119,7 @@ requires less memory to store the same number of elements.
 
 ## Map
 
-[`Map<K, V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html) is not an inheritor of
-the `Collection` interface; however, it's a Kotlin collection type as well.
+[`Map<K, V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html) is not an inheritor of the `Collection` interface; however, it's a Kotlin collection type as well.
 A `Map` stores _key-value_ pairs (or _entries_); keys are unique, but different keys can be paired with equal values.
 The `Map` interface provides specific functions, such as access to value by key, searching keys and values, and so on.
 
@@ -133,6 +137,9 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+A map can contain at most one `null` key if its key type is nullable and its implementation supports `null` keys.
+Support for `null` values also depends on the value type and the implementation.
 
 Two maps containing the equal pairs are equal regardless of the pair order.
 
