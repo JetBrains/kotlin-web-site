@@ -1,11 +1,27 @@
 [//]: # (title: Kotlin/Wasm FAQ)
 [//]: # (description: Find answers to common questions about browser compatibility, WebAssembly features, compiler configuration, and troubleshooting in Kotlin/Wasm.)
 
-## Which Kotlin/Wasm targets are supported?
+## What are the Kotlin/Wasm target support tiers?
 
-Kotlin/Wasm supports `wasm-js` (Tier 1) and `wasm-wasi` (Tier 2).
-For CI coverage, compatibility guarantees, tooling support, and recommendations for library authors,
-see [Kotlin/Wasm target support](wasm-target-support.md).
+Kotlin/Wasm targets belong to two support tiers that reflect the extent of automated testing and tooling coverage:
+
+| Target     | Tier   | Automated QA coverage | Kotlin Gradle plugin testing                        | IDE testing                    |
+|------------|--------|-----------------------|-----------------------------------------------------|--------------------------------|
+| `wasmJs`   | Tier 1 | Broader coverage      | Covered by KGP integration tests                    | Covered by IDE tests           |
+| `wasmWasi` | Tier 2 | More limited coverage | Limited coverage because the target requires opt-in | No dedicated IDE test coverage |
+
+These tiers describe how the Kotlin team tests the targets and their tooling. The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
+
+## Which Kotlin/Wasm targets should my library support?
+
+Prefer supporting both `wasmJs` and `wasmWasi` where your library's functionality and dependencies allow it. 
+This makes your library available both in JavaScript environments and in WASI-compatible runtimes.
+
+* Prioritize `wasmJs` when introducing Kotlin/Wasm support, as it is the more mature target and receives broader tooling
+and QA coverage.
+* Add `wasmWasi` support to make platform-independent functionality available outside JavaScript environments.
+
+Test your library on each target you support, since their available APIs and runtime environments may differ.
 
 ## Which browsers support Kotlin/Wasm?
 
