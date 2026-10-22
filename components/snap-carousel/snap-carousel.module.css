@@ -26,6 +26,12 @@
     }
 }
 
+.wrapperAdaptive {
+    align-items: flex-start;
+    overflow-y: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
 .slide {
     flex: 0 0 auto;
     width: 100%;
@@ -38,4 +44,12 @@
     justify-content: center;
     gap: 16px;
     margin-top: 24px;
+}
+
+.navigation p {
+    margin: 0;
+}
+
+.navigationRight {
+    justify-content: flex-end;
 }

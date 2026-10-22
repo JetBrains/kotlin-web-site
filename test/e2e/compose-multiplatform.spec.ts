@@ -1,7 +1,15 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
 import { FAQ_ITEMS } from '../../blocks/compose-multiplatform/faq/faq-data';
+
+// A slide is shown when it is aligned with the visible area of its scroll container
+const isShownInCarousel = (slide: Locator) =>
+    slide.evaluate(el => {
+        const slideRect = el.getBoundingClientRect();
+        const containerRect = el.parentElement.getBoundingClientRect();
+        return Math.abs(slideRect.left - containerRect.left) < 2;
+    });
 
 test.describe('Compose Multiplatform landing page', async () => {
     let composePage: ComposeMultiplatformPage;
@@ -70,6 +78,32 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.quoteCards).not.toHaveCount(0);
 
         await checkScreenshot(composePage.quoteSection);
+    });
+
+    test('check quote gallery navigation', async () => {
+        const total = await composePage.quoteCards.count();
+        const { quoteCards, quoteCounter, quotePrevButton, quoteNextButton } = composePage;
+
+        await expect(quoteCounter).toHaveText(`1/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(1))).toBe(false);
+        await expect(quotePrevButton).toBeDisabled();
+
+        await quoteNextButton.click();
+        await expect(quoteCounter).toHaveText(`2/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(1))).toBe(true);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(false);
+
+        await quotePrevButton.click();
+        await expect(quoteCounter).toHaveText(`1/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
+
+        for (let i = 2; i <= total; i++) {
+            await quoteNextButton.click();
+            await expect(quoteCounter).toHaveText(`${i}/${total}`);
+        }
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(total - 1))).toBe(true);
+        await expect(quoteNextButton).toBeDisabled();
     });
 
     test('check FAQ block', async () => {
