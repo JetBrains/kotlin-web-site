@@ -11,9 +11,15 @@ interface SnapCarouselProps {
     children: ReactNode;
     navigationAlign?: 'center' | 'right';
     adaptiveHeight?: boolean;
+    fadeSlides?: boolean;
 }
 
-export const SnapCarousel = ({ children, navigationAlign = 'center', adaptiveHeight = false }: SnapCarouselProps) => {
+export const SnapCarousel = ({
+    children,
+    navigationAlign = 'center',
+    adaptiveHeight = false,
+    fadeSlides = false,
+}: SnapCarouselProps) => {
     // useSnapCarousel starts with no pages and only finds them by measuring the DOM on the client,
     // so the server-rendered HTML shows "1/0" and a disabled next button. Assume one slide per page until then.
     const initialPages = useMemo(() => React.Children.map(children, (_, index) => [index]) ?? [], [children]);
@@ -70,7 +76,10 @@ export const SnapCarousel = ({ children, navigationAlign = 'center', adaptiveHei
                 <div className={cn(styles.carousel)}>
                     <div
                         ref={setWrapperRef}
-                        className={cn(styles.wrapper, { [styles.wrapperAdaptive]: adaptiveHeight })}
+                        className={cn(styles.wrapper, {
+                            [styles.wrapperAdaptive]: adaptiveHeight,
+                            [styles.wrapperFade]: fadeSlides,
+                        })}
                         style={adaptiveHeight ? { height } : undefined}
                     >
                         {childrenWithProps}
