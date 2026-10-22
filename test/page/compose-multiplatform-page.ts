@@ -56,7 +56,7 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.quoteCards = page.getByTestId('quote-card');
 
         this.faqBlock = page.getByTestId('faq-block');
-        this.faqTitle = page.getByTestId('faq-title');
+        this.faqTitle = this.faqBlock.getByTestId('columned-faq-title');
         this.faqButtons = this.faqBlock.locator('[data-rs-internal=collapse__button]');
         this.faqAnswers = this.faqBlock.locator('[data-rs-internal=collapse__content]');
 
