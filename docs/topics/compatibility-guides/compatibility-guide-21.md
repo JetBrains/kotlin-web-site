@@ -488,3 +488,21 @@ perspective
 >
 > - 1.3: the platform plugin IDs are deprecated
 > - 2.1.0: the platform plugin IDs are no longer supported
+
+### Deprecate `withJava()` function
+
+> **Issue**: [KT-89878](https://youtrack.jetbrains.com/issue/KT-89878)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `withJava()` function in the JVM target of Kotlin Multiplatform projects is deprecated.
+> [Java source sets are now created by default](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#java-source-sets-created-by-default).
+> To migrate, remove the `withJava()` call and move your Java sources from the `src/main/java` directory to the `src/jvmMain/java` directory.
+> The same applies to Java test sources.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.20: report a warning when using the `withJava()` function
+> - 2.5.0: raise the warning to an error

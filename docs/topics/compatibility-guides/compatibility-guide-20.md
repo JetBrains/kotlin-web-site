@@ -707,3 +707,56 @@ perspective
 >
 > - 1.9.25: the `outputFile` compiler option is deprecated
 > - 2.0.0: the `outputFile` compiler option is removed
+
+### Deprecate `wasm()` target
+
+> **Issue**: [KT-89510](https://youtrack.jetbrains.com/issue/KT-89510)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `wasm()` target functions are deprecated. Use the `wasmJs()` target instead.
+> In Kotlin 2.5.0, the deprecated `wasm()` target functions are removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the `wasm()` target functions
+
+### Deprecate properties in `NodeJsRootExtension`
+
+> **Issue**: [KT-89508](https://youtrack.jetbrains.com/issue/KT-89508)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The properties in the `NodeJsRootExtension` extension are deprecated. Use the `NodeJsEnvSpec` and `WasmNodeJsEnvSpec`
+> extensions instead. Unlike `NodeJsRootExtension`, which is configured in the root project, these extensions are configured per project.
+> In Kotlin 2.5.0, the deprecated properties are removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the deprecated properties
+
+### Deprecate Binaryen declarations
+
+> **Issue**: [KT-89509](https://youtrack.jetbrains.com/issue/KT-89509), [KT-84258](https://youtrack.jetbrains.com/issue/KT-84258)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Several Binaryen-related declarations in the Kotlin Gradle plugin are deprecated. Use the `BinaryenEnvSpec`
+> extension instead, which is configured per project.
+> In Kotlin 2.5.0, the deprecated declarations are removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the deprecated declarations

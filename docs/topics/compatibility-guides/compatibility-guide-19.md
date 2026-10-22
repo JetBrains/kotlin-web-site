@@ -552,3 +552,23 @@ perspective
 >
 > * 1.8.0: raise the deprecation level to a warning
 > * &gt;= 1.9: delete the property
+
+### Deprecate the `kotlin-js` Gradle plugin
+
+> **Issue**: [KT-85440](https://youtrack.jetbrains.com/issue/KT-85440)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The standalone `org.jetbrains.kotlin.js` (`kotlin-js`) Gradle plugin is deprecated as part of consolidating
+> the Kotlin Gradle plugins. Use the Kotlin Multiplatform Gradle plugin with the `js()` target instead.
+> For migration instructions, see the [Compatibility guide for Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin).
+>
+> In Kotlin 2.5.0, the `kotlin-js` plugin is removed, and you can no longer use the `KotlinJsProjectExtension` type in your build scripts.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when using the `kotlin-js` plugin
+> - 2.4.0: raise the warning to an error
+> - 2.5.0: remove the `kotlin-js` plugin

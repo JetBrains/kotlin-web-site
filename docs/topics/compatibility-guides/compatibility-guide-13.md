@@ -367,6 +367,24 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: behavior of described calls is different when comparing JS, JRE 6, JRE 7 versus JRE 8+
 > - &gt;=1.3: unify behavior across the platforms
 
+### Deprecate `StringBuilder.append(obj: Any?)` extension function
+
+> **Issue**: [KTLC-395](https://youtrack.jetbrains.com/issue/KTLC-395)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `StringBuilder.append(obj: Any?)` extension function is deprecated. Use the `StringBuilder.append(value: Any?)` member function instead.
+> This change affects only calls that specify the parameter name explicitly, such as `append(obj = value)`,
+> because calls without a named argument already resolve to the member function.
+> To migrate, remove the parameter name from the call.
+>
+> **Deprecation cycle**:
+>
+> - 1.3.70: report a warning
+> - 2.5.0: raise the warning to an error
+
 ### Discontinued deprecated artifacts in the compiler distribution
 
 > **Issue**: [KT-23799](https://youtrack.jetbrains.com/issue/KT-23799)

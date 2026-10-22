@@ -148,7 +148,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The compiler now checks the left-hand side of callable references and reports a warning if an inner class contains type arguments in the wrong part of the qualifier.
+> **Short summary**: The compiler now checks the left-hand side of callable references and reports an error if an inner class contains type arguments in the wrong part of the qualifier.
 > 
 > To migrate, update the reference so that each type argument belongs to the class that declares it.
 > For example, write the full type `Outer<Int>.Inner<String>::toString` instead of `Inner<String, Int>::toString`.
@@ -156,6 +156,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when type arguments in the left-hand side of a callable reference belong to another part of the qualifier
+> - 2.5.0: raise the warning to an error
 
 ### Report errors for class literals from reified type parameters with nullable upper bounds
 
@@ -376,6 +377,114 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.0: report a warning when an inferred type contains a declaration that isn't accessible in the current scope
 > - 2.4.0: raise the warning to an error
 
+### Forbid `external` modifier on enum entries and primary constructor properties
+
+> **Issue**: [KTLC-389](https://youtrack.jetbrains.com/issue/KTLC-389)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin doesn't support `external` properties on any platform. However, the compiler allowed the `external` modifier
+> on enum entries and on properties declared in primary constructors.
+> Such code either failed at runtime or the `external` modifier was ignored.
+> The compiler now reports an error when you use the `external` modifier in these cases. To migrate, remove the `external` modifier.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when the `external` modifier is used on enum entries and primary constructor properties
+> - 2.5.0: raise the warning to an error
+
+### Prohibit conflicting projections in the left-hand side of callable references
+
+> **Issue**: [KTLC-393](https://youtrack.jetbrains.com/issue/KTLC-393)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now checks projections in the left-hand side of callable references in the same way as in type references.
+> It reports an error if a projection conflicts with the declared variance of the corresponding type parameter.
+> For example, for `interface Out<out X>`, the `Out<in CharSequence>::func` reference results in an error.
+> Previously, such code could compile but fail in the compiler backend or produce error types.
+> To migrate, remove the projection or replace it with `*`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning for redundant projections and a deprecation warning for conflicting projections in the left-hand side of callable references
+> - 2.5.0: raise the deprecation warning for conflicting projections to an error
+
+### Report deprecations of outer classes in imports
+
+> **Issue**: [KTLC-397](https://youtrack.jetbrains.com/issue/KTLC-397)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports deprecations of outer classes when you import their nested declarations.
+> For example, the compiler reports a deprecation on `import my.C.Companion.a` if the `C` class is deprecated.
+> Previously, the compiler didn't report deprecations in such cases.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report the missing deprecations; report a warning for deprecations with the `ERROR` or `HIDDEN` level
+> - 2.5.0: report deprecations with the `ERROR` and `HIDDEN` levels as errors
+
+### Prohibit annotations, type arguments, and parentheses on package parts of qualifiers
+
+> **Issue**: [KTLC-396](https://youtrack.jetbrains.com/issue/KTLC-396)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when you use annotations, type arguments, or parentheses on the package part of
+> a qualified expression, for example, `part1<Int>.part2.foo()` or `(@MyAnnotation part1.part2).foo()`.
+> Packages can't have type arguments or annotations and can't be used as expressions, so such constructs had no effect.
+> To migrate, remove them.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning for annotations, type arguments, and parentheses on package parts of qualifiers
+> - 2.5.0: raise the warning to an error
+
+### Prohibit recursive inline value classes through type parameter upper bounds
+
+> **Issue**: [KTLC-401](https://youtrack.jetbrains.com/issue/KTLC-401)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin already prohibits inline value classes whose underlying type is recursive, such as `value class Rec(val x: Rec)`.
+> The compiler now also reports an error when the recursion goes through a type parameter upper bound,
+> for example, `value class V<T : V<T>>(val value: T)`.
+> Previously, such declarations behaved differently depending on the backend: they worked on the JVM but led to non-terminating compilation on Kotlin/Native.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning for inline value classes that are recursive through a type parameter upper bound
+> - 2.5.0: raise the warning to an error
+
+### Report deprecation and opt-in errors for companion object access in delegates, augmented assignments, and callable references
+
+> **Issue**: [KTLC-408](https://youtrack.jetbrains.com/issue/KTLC-408)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: When a class name implicitly refers to its companion object, the compiler reports deprecation and opt-in errors
+> if the companion object is deprecated or requires opt-in.
+> Previously, the compiler didn't report these errors when such an access happened in a property delegate, such as `val x by C`,
+> in the left-hand side of an augmented assignment, such as `C += ""`, or in the left-hand side of some callable references, such as `C::foo`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a deprecation warning for such companion object accesses
+> - 2.5.0: report deprecation and opt-in errors
+
 ## Standard library
 
 ### Deprecate `kotlin.io.readLine()` function
@@ -445,7 +554,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `sourceSets` in the Kotlin Android extension
 
-> **Issue**: [KT-74451](https://youtrack.jetbrains.com/issue/KT-74451)
+> **Issue**: [KT-74451](https://youtrack.jetbrains.com/issue/KT-74451), [KT-88380](https://youtrack.jetbrains.com/issue/KT-88380)
 >
 > **Component**: Gradle
 >
@@ -454,9 +563,14 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: The `sourceSets` property in `KotlinAndroidProjectExtension` is deprecated.
 > To migrate, configure source sets through the Android Gradle plugin's `android { sourceSets { ... } }` block instead.
 >
+> In Kotlin 2.5.0, using the `sourceSets` property in the `KotlinAndroidExtension` interface and the `KotlinAndroidProjectExtension` class
+> results in an error. The `sourceSets {}` function in `KotlinAndroidProjectExtension` is also deprecated with the `ERROR` level.
+> To migrate, use [built-in Kotlin in the Android Gradle plugin](https://developer.android.com/build/migrate-to-built-in-kotlin).
+>
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when accessing `sourceSets` from `KotlinAndroidProjectExtension`
+> - 2.5.0: raise the warning to an error
 
 ### Remove consumable configurations for Kotlin/Native Apple frameworks
 
@@ -520,7 +634,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate explicit shrunk classpath snapshot configuration
 
-> **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837)
+> **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837), [KT-83937](https://youtrack.jetbrains.com/issue/KT-83937)
 >
 > **Component**: Build tools API 
 >
@@ -530,9 +644,13 @@ perspective (for example, from Java) is out of the scope of this document.
 > The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates and manages it automatically under the incremental compiler metadata `workingDirectory`.
 > To migrate, use the automatically managed snapshot file, instead of passing a value to `shrunkClasspathSnapshot`.
 >
+> In Kotlin 2.5.0, code that provides or accesses the `shrunkClasspathSnapshot` parameter and property no longer compiles.
+> Use the `snapshotBasedIcConfigurationBuilder` or `snapshotBasedIcConfiguration` overload that doesn't accept `shrunkClasspathSnapshot`.
+>
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when using `shrunkClasspathSnapshot`
+> - 2.5.0: raise the warning to an error
 
 ### Remove redundant ABI validation Gradle DSL elements
 
@@ -551,7 +669,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate obsolete Compose compiler Gradle plugin options
 
-> **Issue**: [KT-85343](https://youtrack.jetbrains.com/issue/KT-85343)
+> **Issue**: [KT-85343](https://youtrack.jetbrains.com/issue/KT-85343), [KT-85345](https://youtrack.jetbrains.com/issue/KT-85345)
 >
 > **Component**: Gradle
 >
@@ -569,15 +687,36 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > Use `featureFlags` instead of the deprecated feature options, and `stabilityConfigurationFiles` instead of `stabilityConfigurationFile`.
 >
+> In Kotlin 2.5.0, the `ComposeFeatureFlag.StrongSkipping` and `ComposeFeatureFlag.IntrinsicRemember` feature flags are removed
+> because these features have been enabled by default. Remove these flags from your configuration.
+>
 > **Deprecation cycle**:
 >
 > - 2.0.20: report warnings for `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode`
 > - 2.1.0: report a warning for `stabilityConfigurationFile`
 > - 2.4.0: raise the warnings to errors
+> - 2.5.0: remove the `ComposeFeatureFlag.StrongSkipping` and `ComposeFeatureFlag.IntrinsicRemember` feature flags
+
+### Deprecate `OptimizeNonSkippingGroups` and `PausableComposition` Compose compiler feature flags
+
+> **Issue**: [KT-85345](https://youtrack.jetbrains.com/issue/KT-85345)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `ComposeFeatureFlag.OptimizeNonSkippingGroups` and `ComposeFeatureFlag.PausableComposition` feature flags
+> of the Compose compiler Gradle plugin are deprecated because these features are enabled by default.
+> Remove these flags from your configuration.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using the `ComposeFeatureFlag.OptimizeNonSkippingGroups` and `ComposeFeatureFlag.PausableComposition` feature flags
+> - 2.5.0: raise the warning to an error
 
 ### Report errors for obsolete Kotlin/Native Gradle task APIs
 
-> **Issue**: [KT-85510](https://youtrack.jetbrains.com/issue/KT-85510)
+> **Issue**: [KT-85510](https://youtrack.jetbrains.com/issue/KT-85510), [KT-88813](https://youtrack.jetbrains.com/issue/KT-88813)
 >
 > **Component**: Gradle
 >
@@ -618,9 +757,13 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > Additionally, the `KotlinNativeLink.compilation` property is removed.
 >
+> In Kotlin 2.5.0, all the APIs listed above are removed. Some of them had `ReplaceWith` suggestions in their deprecation messages,
+> while others shouldn't be used anymore.
+>
 > **Deprecation cycle**:
 >
 > - 2.4.0: report an error for the deprecated Kotlin/Native Gradle task APIs, remove the `KotlinNativeLink.compilation` property
+> - 2.5.0: remove the deprecated Kotlin/Native Gradle task APIs
 
 ### Report warnings for case mismatches in compiler argument values
 
@@ -638,3 +781,121 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.20: report a warning when the letter case of a compiler argument value doesn't match the expected value
+
+### Deprecate public `KotlinJsIrTarget` constructor
+
+> **Issue**: [KT-86112](https://youtrack.jetbrains.com/issue/KT-86112)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The public `KotlinJsIrTarget(project: Project, platformType: KotlinPlatformType, isMpp: Boolean)` constructor
+> is deprecated. You don't need to create instances of `KotlinJsIrTarget` manually because the Kotlin Gradle plugin creates them internally.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning when using the public `KotlinJsIrTarget` constructor
+> - 2.5.0: raise the warning to an error
+
+### Deprecate `resolveRootProject()` function with the `services` parameter
+
+> **Issue**: [KT-84740](https://youtrack.jetbrains.com/issue/KT-84740)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `resolveRootProject()` function overload with the unused `services: ServiceRegistry` parameter in the `NpmApiExecution`
+> interface is deprecated. To migrate, use the alternative suggested by the deprecation's `ReplaceWith` argument:
+> the `resolveRootProject(logger, nodeJs, packageManagerEnvironment, cliArgs)` overload.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `resolveRootProject()` with the `services` parameter
+> - 2.5.0: raise the warning to an error
+
+### Remove the legacy mode for Kotlin/JVM compilation without the Build tools API
+
+> **Issue**: [KT-85434](https://youtrack.jetbrains.com/issue/KT-85434)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Kotlin Gradle plugin continues migrating to the [Build tools API](build-tools-api.md) and drops older ways of invoking the Kotlin compiler.
+> Starting with Kotlin 2.5.0, Kotlin/JVM compilations always run through the Build tools API.
+> This shouldn't affect your builds. However, the `kotlin.compiler.runViaBuildToolsApi` Gradle property no longer has any effect,
+> so remove it from your `gradle.properties` file.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning
+> - 2.5.0: remove the legacy mode for Kotlin/JVM compilation without the Build tools API
+
+### Deprecate `contains()` function in Build tools API compiler arguments
+
+> **Issue**: [KT-85448](https://youtrack.jetbrains.com/issue/KT-85448)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Calling the `contains()` function on Build tools API compiler argument classes, such as `JvmCompilerArguments`, is deprecated.
+> In newer Build tools API versions, all compiler arguments have default values, so this function always returns `true`,
+> and checking whether an argument is present is meaningless. Remove calls to this function.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using the `contains()` function
+> - 2.5.0: raise the warning to an error
+
+### Prohibit unsupported compiler arguments in `applyArgumentStrings()` function
+
+> **Issue**: [KT-85439](https://youtrack.jetbrains.com/issue/KT-85439), [KT-85464](https://youtrack.jetbrains.com/issue/KT-85464)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Build tools API no longer allows passing some Kotlin compiler arguments through the `applyArgumentStrings()` function.
+> These arguments either conflict with the configuration that the Build tools API manages itself or represent functionality that the Build tools API doesn't support:
+>
+> * `-Xenable-incremental-compilation`
+> * `-Xrepl`
+> * `-d`
+> * `-expression` and its short form `-e`
+> * `-include-runtime`
+> * `-Xbuild-file` and its deprecated name `-module`
+>
+> If you pass any of these arguments to `applyArgumentStrings()`, the compilation fails. Depending on the compiler version and when argument validation happens,
+> the Build tools API throws a `CompilerArgumentsParseException` or reports the parsing error when the compilation runs.
+> This change affects only the Build tools API. The corresponding options are still available in the Kotlin command-line compiler.
+>
+> To migrate:
+>
+> * Replace `-Xenable-incremental-compilation` with the `JvmCompilationOperation.INCREMENTAL_COMPILATION` configuration option.
+> * Replace `-d` with the `destinationDirectory` parameter of the `JvmPlatformToolchain.jvmCompilationOperationBuilder()` function.
+> * Remove `-Xrepl`, `-expression` (`-e`), `-include-runtime`, and `-Xbuild-file` (`-module`) from calls to `applyArgumentStrings()`,
+>   because the Build tools API doesn't support this functionality.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when these arguments are passed to `applyArgumentStrings()`
+> - 2.5.0: raise the warning to an error
+
+### Remove `MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` option from `JvmSnapshotBasedIncrementalCompilationConfiguration`
+
+> **Issue**: [KT-88776](https://youtrack.jetbrains.com/issue/KT-88776)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The experimental `JvmSnapshotBasedIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` option is deprecated
+> and removed in Kotlin 2.5.0. Use `BaseIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `JvmSnapshotBasedIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION`
+> - 2.5.0: remove the option

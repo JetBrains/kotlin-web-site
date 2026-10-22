@@ -222,6 +222,27 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report an error for non-local returns in lambdas used as parameter's default value
 
+### Prohibit implicit usages of inaccessible types in constructor calls
+
+> **Issue**: [KTLC-398](https://youtrack.jetbrains.com/issue/KTLC-398)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when a constructor call implicitly uses a type from an indirect dependency
+> that isn't available to the compiler. For example, if the `Middle` class extends the `Missing` class from a module that your module
+> doesn't depend on, the `Middle()` call results in an error. Previously, such code could compile, but the inferred types depended on
+> the presence of the transitive dependency, which could lead to inconsistencies.
+> To migrate, add an explicit dependency on the module that declares the inaccessible type.
+>
+> This change follows a similar change for other implicit references to inaccessible types. For more information, see [KTLC-384](compatibility-guide-24.md#forbid-implicit-references-to-inaccessible-types).
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning for implicit usages of inaccessible types in constructor calls
+> - 2.5.0: raise the warning to an error
+
 ## Standard library
 
 ### Deprecate `kotlin.native.Throws`

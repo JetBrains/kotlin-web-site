@@ -103,7 +103,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.0: report a warning
-> - 2.4.0: raise the warning to an error
+> - 2.5.0: raise the warning to an error
 
 ### Prohibit inheritance from nullable supertypes introduced via typealias
 
@@ -167,6 +167,42 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.1.0: report a warning on the problematic type parameter bound
 > - 2.3.0: raise the warning to an error
+
+### Report upper-bound violations in type operators and type parameter bounds
+
+> **Issue**: [KTLC-358](https://youtrack.jetbrains.com/issue/KTLC-358)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports `UPPER_BOUND_VIOLATED` errors for types in `as` and `is` type operators and
+> in type parameter bounds, including `where` clauses. Previously, the compiler didn't report these violations,
+> which could lead to ill-formed types and runtime exceptions such as `ClassCastException`.
+> For example, for `interface Consumer<T : Consumer<T>>`, the `Impl() as Consumer<Any>` cast now results in an error because `Any` isn't a subtype of `Consumer<Any>`.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report warnings for upper-bound violations in type operators and type parameter bounds
+> - 2.5.0: raise the warnings to errors
+
+### Enforce read-only collection types for Java declarations annotated with `@Unmodifiable` and `@UnmodifiableView`
+
+> **Issue**: [KTLC-377](https://youtrack.jetbrains.com/issue/KTLC-377)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now treats collection types in Java declarations annotated with `org.jetbrains.annotations.Unmodifiable` or
+> `org.jetbrains.annotations.UnmodifiableView` as read-only, for example, `List` instead of `MutableList`.
+> As a result, the compiler reports an error when you pass such a collection where a mutable collection is expected or call mutating functions on it.
+> Previously, such code compiled but could throw an exception at runtime.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report warnings for mutability mismatches based on the `@Unmodifiable` and `@UnmodifiableView` annotations
+> - 2.5.0: raise the warnings to errors
 
 ## Standard library
 
@@ -315,7 +351,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `kotlin-android` plugin for AGP versions 9.0.0 and later
 
-> **Issue**: [KT-81199](https://youtrack.jetbrains.com/issue/KT-81199)
+> **Issue**: [KT-81199](https://youtrack.jetbrains.com/issue/KT-81199), [KT-88622](https://youtrack.jetbrains.com/issue/KT-88622)
 >
 > **Component**: Gradle
 >
@@ -324,9 +360,14 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: In Kotlin 2.3.0, the `org.jetbrains.kotlin.android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
 > Starting with AGP 9.0.0, [AGP provides built-in support for Kotlin](https://kotl.in/gradle/agp-built-in-kotlin), so the `kotlin-android` plugin is no longer required.
 >
+> Starting with Kotlin 2.5.0, the Kotlin Gradle plugin reports deprecation warnings regardless of the AGP version when you apply
+> the `org.jetbrains.kotlin.android` plugin, or the `org.jetbrains.kotlin.multiplatform` plugin together with the `com.android.library` plugin.
+> To migrate, update your project to AGP 9.0 or later. For more information, see the [blog post](https://kotl.in/agp9-blog) that the warnings link to.
+>
 > **Deprecation cycle**:
 >
 > - 2.3.0: report a warning when the `kotlin-android` plugin is used with AGP versions 9.0.0 or later, and both the `android.builtInKotlin` and `android.newDsl=false` Gradle properties are set to `false`
+> - 2.5.0: report the deprecation warnings for all AGP versions
 
 ### Deprecate `testApi` configuration
 
@@ -573,7 +614,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `create()` function in `NodeJsExec` DSL
 
-> **Issue**: [KT-81004](https://youtrack.jetbrains.com/issue/KT-81004)
+> **Issue**: [KT-81004](https://youtrack.jetbrains.com/issue/KT-81004), [KT-85179](https://youtrack.jetbrains.com/issue/KT-85179)
 >
 > **Component**: Gradle
 >
@@ -582,11 +623,14 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: The `create()` function in the companion object of the `NodeJsExec` DSL is deprecated. Use
 > the `register()` function instead.
 >
+> In Kotlin 2.5.0, the `create()` functions are removed, which also breaks binary compatibility with code compiled against them.
+>
 > **Deprecation cycle**:
 >
 > - 2.1.20: report a warning
 > - 2.3.0: raise the warning to an error
-> - 2.4.0: remove the function
+> - 2.4.0: hide the function
+> - 2.5.0: remove the function
 
 ### Deprecate properties in `kotlinOptions` DSL
 
@@ -781,7 +825,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `CleanableStore` interface and `CleanDataTask` class
 
-> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104)
+> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104), [KT-77241](https://youtrack.jetbrains.com/issue/KT-77241)
 >
 > **Component**: Gradle
 >
@@ -789,10 +833,15 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Short summary**: The `CleanableStore` interface and `CleanDataTask` class are deprecated since they are no longer used.
 >
+> In Kotlin 2.5.0, the `CleanDataTask` class, the `CleanableStore` interface, and the `DownloadableFile` class are removed.
+> As a result, the following Gradle tasks are also removed: `yarnKotlinClean`, `binaryenKotlinClean`, `d8KotlinClean`, `wasmtimeKotlinClean`, and `nodeKotlinClean`.
+> These tasks already threw an `UnsupportedOperationException` when invoked in Kotlin 2.4.20, so no migration steps are needed.
+>
 > **Deprecation cycle**:
 >
 > - 2.3.20: report a warning
 > - 2.4.20: raise the warning to an error
+> - 2.5.0: remove the class, the interface, and the related Gradle tasks
 
 ### Deprecate `kotlin.kmp.isolated-projects.support` Gradle property
 
