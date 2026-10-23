@@ -2017,6 +2017,14 @@
     "@babel/runtime-corejs3" "^7.26.0"
     classnames "^2.2.6"
 
+"@rescui/icons@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.8.0.tgz#6fb2ad9e890f54f2a39f1aa318a473e2a581fa32"
+  integrity sha512-ZK0E+O0p3i4U/l/yrbhyBmr/q64IHwBUsoRS0bfK1mPut+kclJipRHz5ClAkGZx5TylqUz+MBTqHB4PtN5nV+Q==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+    classnames "^2.2.6"
+
 "@rescui/icons@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.12.0.tgz#28d4acdfabc6f60b05a1eb41102092107208ac54"
@@ -2034,14 +2042,6 @@
     "@babel/runtime-corejs3" "^7.14.0"
     classnames "^2.2.6"
     core-js "^3.9.1"
-
-"@rescui/icons@^1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.7.1.tgz#57c45688a9bb74e0b14cf14bdb125f9a7f9cc0e0"
-  integrity sha512-tXuMaety0sODpG8LY5a8CfwDF6mL0E4yBJmFW5QjeeXgGHM0N6KUTupzA3lce+Xmn+N4T8ioGG8YSICBYL5Y/A==
-  dependencies:
-    "@babel/runtime-corejs3" "^7.26.0"
-    classnames "^2.2.6"
 
 "@rescui/input@^0.8.2":
   version "0.8.4"
@@ -6975,10 +6975,10 @@ knockout@^3.5.0:
   resolved "https://registry.yarnpkg.com/knockout/-/knockout-3.5.1.tgz#62c81e81843bea2008fd23c575edd9ca978e75cf"
   integrity sha512-wRJ9I4az0QcsH7A4v4l0enUpkS++MBx0BnL/68KaLzJg7x1qmbjSlwEoCNol7KTYZ+pmtI7Eh2J0Nu6/2Z5J/Q==
 
-kotlin-playground@^1.29.0-alpha.1:
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.30.0.tgz#bc07facd5166b4bd22f77bd4e3d76416aae059b5"
-  integrity sha512-E9GL84eYBq7D8o8vHm0JKt5Je3ZtNfqZVvwvWEtSmNcjf4iBiJ0i3rsnIRJwVMcjaoeGNmuKTJT3ReKKaGBRjw==
+kotlin-playground@1.35.0-pass-args.4:
+  version "1.35.0-pass-args.4"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.35.0-pass-args.4.tgz#67fb2c41ce674c806e1223d2daf9d4e225fd6a55"
+  integrity sha512-bq+nmGj74lhmVseJH2fOyIsJCDoUuCTQi0sSFzIZBqbq77JXVTZFpSZhqBcgMqRWtUtR+5tZdI9Dr2H+vanrNg==
 
 language-subtag-registry@^0.3.20:
   version "0.3.23"
