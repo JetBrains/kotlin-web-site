@@ -24,6 +24,11 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
 
+    readonly faqBlock: Locator;
+    readonly faqTitle: Locator;
+    readonly faqButtons: Locator;
+    readonly faqAnswers: Locator;
+
     readonly ctaBlock: Locator;
     readonly ctaBlockTitle: Locator;
     readonly ctaBlockButton: Locator;
@@ -49,6 +54,11 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.featureTitles = page.getByTestId('feature-title');
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');
+
+        this.faqBlock = page.getByTestId('faq-block');
+        this.faqTitle = this.faqBlock.getByTestId('columned-faq-title');
+        this.faqButtons = this.faqBlock.locator('[data-rs-internal=collapse__button]');
+        this.faqAnswers = this.faqBlock.locator('[data-rs-internal=collapse__content]');
 
         this.ctaBlock = page.getByTestId('cta-block');
         this.ctaBlockTitle = page.getByTestId('cta-block-title');

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
+import { FAQ_ITEMS } from '../../blocks/compose-multiplatform/faq/faq-data';
 
 test.describe('Compose Multiplatform landing page', async () => {
     let composePage: ComposeMultiplatformPage;
@@ -26,6 +27,21 @@ test.describe('Compose Multiplatform landing page', async () => {
 
         await composePage.heroActionButton.click();
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));
+    });
+
+    test('check hero platforms chips', async () => {
+        const platforms = [
+            { name: 'Android', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'iOS', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'Web', href: 'https://kotl.in/wasm-compose-example' },
+            { name: 'Desktop', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' }
+        ];
+
+        for (const { name, href } of platforms) {
+            const chip = composePage.hero.getByRole('tab', { name, exact: true });
+            await expect(chip).toBeVisible();
+            await expect(chip).toHaveAttribute('href', href);
+        }
     });
 
     test('check platforms block', async () => {
@@ -54,6 +70,23 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.quoteCards).not.toHaveCount(0);
 
         await checkScreenshot(composePage.quoteSection);
+    });
+
+    test('check FAQ block', async () => {
+        await expect(composePage.faqBlock).toBeVisible();
+        await expect(composePage.faqTitle).toBeVisible();
+        await expect(composePage.faqButtons).toHaveCount(FAQ_ITEMS.length);
+
+        await checkScreenshot(composePage.faqBlock);
+
+        await expect(composePage.faqAnswers.first()).toBeHidden();
+
+        await composePage.faqButtons.first().click();
+        await expect(composePage.faqAnswers.first()).toBeVisible();
+
+        await composePage.faqButtons.nth(1).click();
+        await expect(composePage.faqAnswers.nth(1)).toBeVisible();
+        await expect(composePage.faqAnswers.first()).toBeHidden();
     });
 
     test('check CTA block', async () => {
