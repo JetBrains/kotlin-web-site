@@ -1,4 +1,6 @@
+import { readFileSync } from 'fs';
 import { expect, Locator, test } from '@playwright/test';
+import { generateCrosslink } from 'kotlin-playground/dist/crosslink';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
 import { FAQ_ITEMS } from '@/blocks/compose-multiplatform/faq/faq-data';
@@ -110,6 +112,59 @@ test.describe('Compose Multiplatform landing page', async () => {
 
         await platformBenefitsPlayButton.click();
         await expect.poll(isPaused).toBe(false);
+    });
+
+    test('check playground block', async () => {
+        const { playgroundBlock, playgroundTitle, playgroundCode, playgroundOpenButton, playgroundRunButton } =
+            composePage;
+
+        await expect(playgroundTitle).toHaveText('Try Compose Multiplatform');
+        await expect(playgroundOpenButton).toBeVisible();
+        await expect(playgroundRunButton).toBeEnabled();
+
+        // The imports are folded away, so the visible code starts with the entry point
+        await expect(playgroundCode).toContainText('@OptIn(ExperimentalComposeUiApi::class)');
+        await expect(playgroundCode).not.toContainText('import androidx');
+
+        await checkScreenshot(playgroundBlock, {
+            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+        });
+    });
+
+    test('check playground open in playground button', async ({ context }) => {
+        const { page, playgroundOpenButton, playgroundRunButton } = composePage;
+        // The editor returns the whole program, imports included, without the fold markers
+        const code = readFileSync('blocks/compose-multiplatform/playground-block/code-sample.md', 'utf8')
+            .replace(/^\/\/sample(Start|End)\n/gm, '')
+            .trimEnd();
+
+        // Only the link matters, so the external editor isn't loaded
+        await context.route('https://play.kotlinlang.org/**', route => route.fulfill({ body: '' }));
+
+        // The button opens the code from the editor, which is only ready once Run is enabled
+        await expect(playgroundRunButton).toBeEnabled();
+
+        const popupPromise = page.waitForEvent('popup');
+        await playgroundOpenButton.click();
+        const popup = await popupPromise;
+
+        expect(popup.url()).toBe(generateCrosslink(code, { targetPlatform: 'compose-wasm' }));
+    });
+
+    test('check playground run', async () => {
+        const { playgroundBlock, playgroundOutput, playgroundRunButton } = composePage;
+        // Compose renders the app into a shadow root on the iframe body once it starts
+        const isAppStarted = () =>
+            playgroundOutput.evaluate((frame: HTMLIFrameElement) => Boolean(frame.contentDocument.body.shadowRoot));
+
+        // The sample is compiled to Wasm on the Kotlin compiler server
+        test.slow();
+
+        await playgroundBlock.scrollIntoViewIfNeeded();
+        await playgroundRunButton.click();
+
+        await expect(playgroundOutput).toBeVisible();
+        await expect.poll(isAppStarted, { timeout: 60000 }).toBe(true);
     });
 
     test('check quote section', async () => {
