@@ -1,8 +1,8 @@
 import { expect, Locator, test } from '@playwright/test';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
-import { FAQ_ITEMS } from '../../blocks/compose-multiplatform/faq/faq-data';
-import { platformsData } from '../../blocks/compose-multiplatform/platforms-block/platforms-data';
+import { FAQ_ITEMS } from '@/blocks/compose-multiplatform/faq/faq-data';
+import { platformsData } from '@/blocks/compose-multiplatform/platforms-block/platforms-data';
 
 // A slide is shown when it is aligned with the visible area of its scroll container
 const isShownInCarousel = (slide: Locator) =>
@@ -62,17 +62,54 @@ test.describe('Compose Multiplatform landing page', async () => {
         await checkScreenshot(composePage.platformsBlock);
     });
 
-    test('check features block', async () => {
-        await expect(composePage.featuresBlock).toBeVisible();
+    test('check platform benefits block', async () => {
+        const { platformBenefitsBlock, platformBenefitsItems, platformBenefitsTitles } = composePage;
 
-        await expect(composePage.featureItems).not.toHaveCount(0);
+        await expect(platformBenefitsBlock).toBeVisible();
+        await expect(platformBenefitsItems).toHaveCount(6);
+        await expect(platformBenefitsTitles).toHaveText([
+            'Native experiences',
+            'Gradual adoption',
+            'AI-powered code generation',
+            'Hot reload',
+            'Seamless tooling',
+            'A thriving ecosystem'
+        ]);
 
-        for (const title of await composePage.featureTitles.all()) {
-            await expect(title).toBeVisible();
-            await expect(title).not.toBeEmpty();
-        }
+        // The video autoplays on screen, so both its frame and the fading play button vary between runs
+        await checkScreenshot(platformBenefitsBlock, {
+            mask: [composePage.platformBenefitsVideo, composePage.platformBenefitsPlayButton],
+            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+        });
+    });
 
-        await checkScreenshot(composePage.featuresBlock);
+    test('check platform benefits video playback', async () => {
+        const { hero, platformBenefitsVideo, platformBenefitsPlayButton } = composePage;
+        const isPaused = () => platformBenefitsVideo.evaluate((video: HTMLVideoElement) => video.paused);
+
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(false);
+        await expect(platformBenefitsPlayButton).toHaveAccessibleName('Pause video');
+
+        await hero.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(false);
+
+        await platformBenefitsPlayButton.click();
+        await expect.poll(isPaused).toBe(true);
+        await expect(platformBenefitsPlayButton).toHaveAccessibleName('Play video');
+
+        // A video paused by the user stays paused when it scrolls back into view
+        await hero.scrollIntoViewIfNeeded();
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsPlayButton.click();
+        await expect.poll(isPaused).toBe(false);
     });
 
     test('check quote section', async () => {
