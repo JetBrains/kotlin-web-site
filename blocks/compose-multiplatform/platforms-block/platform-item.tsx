@@ -1,51 +1,36 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+import Img, { StaticImageData } from 'next/image';
 import { createTextCn } from '@rescui/typography';
 import { presets, Tag } from '@rescui/tag';
-import Link from 'next/link';
-import { PlatformData } from './platforms-data';
-import styles from './platform-icon.module.css';
+import { PlatformData, PlatformId } from './platforms-data';
+import styles from './platforms-block.module.css';
+
+import androidIcon from './images/android.svg';
+import appleIcon from './images/apple.svg';
+import computerIcon from './images/computer.svg';
+import globusIcon from './images/globus.svg';
+
+const PLATFORM_ICONS: Record<PlatformId, StaticImageData> = {
+    android: androidIcon,
+    ios: appleIcon,
+    desktop: computerIcon,
+    web: globusIcon
+};
 
 type PlatformItemProps = PlatformData;
 
-export const PlatformItem: FC<PlatformItemProps> = ({ icon, title, titleLink, text, tagText }) => {
-    const textCnLight = createTextCn('dark');
+export const PlatformItem: FC<PlatformItemProps> = ({ id, title, text, isBeta }) => {
+    const textCn = createTextCn('dark');
 
     return (
-        <li className={styles.item} data-testid="platforms-block-item">
-            <div className={cn(styles.icon, styles[`${icon}`])} />
-            <div>
-                {titleLink ? (
-                    <div
-                        className={textCnLight('rs-text-1', { hardness: 'hard' })}
-                    >
-                        <Link
-                            href={titleLink}
-                            className={cn(textCnLight('rs-link', {
-                                mode: 'classic',
-                                external: true
-                            }), styles.title)}
-                            target="_blank"
-                        >
-                            {title}
-                        </Link>
-                    </div>
-                ) : (
-                    <p className={cn(textCnLight('rs-text-1', { hardness: 'hard' }), styles.title)}>
-                        {title}
-                    </p>
-                )}
-                {text && (
-                    <p className={cn(textCnLight('rs-text-2'), styles.text)}>
-                        {text}
-                    </p>
-                )}
-                {tagText && (
-                    <Tag{...presets['filled-dark']} className={styles.tag}>
-                        {tagText}
-                    </Tag>
-                )}
+        <li className={styles.card} data-testid="platforms-block-item">
+            <div className={styles.cardHeader}>
+                <Img src={PLATFORM_ICONS[id]} alt="" className={styles.icon} />
+                <h3 className={cn(textCn('rs-h2'), styles.cardTitle)}>{title}</h3>
+                {isBeta && <Tag size="s" {...presets['filled-dark']}>Beta</Tag>}
             </div>
+            <p className={cn(textCn('rs-text-2'), styles.cardText)}>{text}</p>
         </li>
     );
 };
