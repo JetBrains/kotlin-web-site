@@ -2,6 +2,7 @@ import { expect, Locator, test } from '@playwright/test';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
 import { FAQ_ITEMS } from '../../blocks/compose-multiplatform/faq/faq-data';
+import { platformsData } from '../../blocks/compose-multiplatform/platforms-block/platforms-data';
 
 // A slide is shown when it is aligned with the visible area of its scroll container
 const isShownInCarousel = (slide: Locator) =>
@@ -54,8 +55,9 @@ test.describe('Compose Multiplatform landing page', async () => {
 
     test('check platforms block', async () => {
         await expect(composePage.platformsBlock).toBeVisible();
-        await expect(composePage.platformsContent).toBeVisible();
-        await expect(composePage.platformsItems).toHaveCount(4);
+        await expect(composePage.platformsTitle).toHaveText('Supported platforms');
+
+        await expect(composePage.platformsItems).toHaveCount(platformsData.length);
 
         await checkScreenshot(composePage.platformsBlock);
     });

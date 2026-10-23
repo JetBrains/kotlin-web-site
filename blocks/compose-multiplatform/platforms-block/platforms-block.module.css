@@ -1,111 +1,78 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
-.wrapper {
-  margin-top: 72px;
-  margin-bottom: 72px;
-  background-color: #52c1ff;
-  border-radius: 32px;
-  text-align: center;
+.platforms {
+  padding: 72px 0;
 
   @media (--ktl-ml-down) {
-    border-radius: 16px;
-  }
-}
-
-.content {
-  padding: 64px;
-
-  @media (--ktl-ml-down) {
-    padding: 32px;
-  }
-
-  @media (--ktl-ms-down) {
-    padding: 24px;
+    padding: 64px 0;
   }
 }
 
 .title {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 32px;
 
-  @media (--ktl-ts-down) {
+  @media (--ktl-ml-down) {
     font-size: 35px;
-    line-height: 49px;
+    line-height: 39px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (--ktl-tl-down) {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   @media (--ktl-ml-down) {
-    font-size: 28px;
-    line-height: 32px;
+    gap: 16px;
   }
+}
 
-  @media (--ktl-ms-down) {
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  background-color: #19191c;
+  border-radius: 32px;
+
+  @media (--ktl-ml-down) {
+    padding: 24px;
+    border-radius: 16px;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 34px;
+
+  @media (--ktl-ml-down) {
     font-size: 20px;
     line-height: 28px;
   }
 }
 
-.subtitle {
-  margin-top: 0;
-  margin-bottom: 40px;
-
-  @media (--ktl-ml-down) {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  @media (--ktl-ms-down) {
-    margin-bottom: 32px;
-  }
-}
-
-.text {
+.cardText {
   margin: 0;
-
-  @media (--ktl-ml-down) {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.supported {
-  background: linear-gradient(98deg, #3a00a6 4.92%, #18007a 95.23%);
-  padding: 64px;
-  border-radius: 32px;
-
-  @media (--ktl-ml-down) {
-    padding: 32px;
-    border-radius: 16px;
-  }
-
-  @media (--ktl-ms-down) {
-    padding: 24px;
-  }
-}
-
-.row {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 72px;
-  margin-bottom: 18px;
-
-  @media (--ktl-tl-down) {
-    margin-top: 32px;
-    margin-bottom: 8px;
-  }
-
-  @media (--ktl-ts-down) {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 0;
-
-    &  > li {
-     flex-basis: 45%;
-    }
-  }
-
-  @media (--ktl-ms-down) {
-    flex-direction: column;
-    gap: 30px;
-  }
 }
