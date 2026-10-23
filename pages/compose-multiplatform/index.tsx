@@ -7,9 +7,9 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { ComposeMultiplatformHero } from '../../blocks/compose-multiplatform/hero';
 import CtaBlock from '../../blocks/compose-multiplatform/cta-block';
 import QuoteSection from '../../blocks/compose-multiplatform/quote-section/quote-section';
-import FeaturesBlock from '../../blocks/compose-multiplatform/features-block/features-block';
 import { PlatformsBlock } from '../../blocks/compose-multiplatform/platforms-block';
 import { BenefitsBlock } from '../../blocks/compose-multiplatform/benefits-block';
+import { PlatformBenefitsBlock } from '../../blocks/compose-multiplatform/platform-benefits-block';
 import { FaqBlock } from '../../blocks/compose-multiplatform/faq/faq';
 
 const TOP_MENU_TITLE = 'Kotlin Multiplatform' as const;
@@ -53,7 +53,7 @@ export default function ComposeMultiplatformLanding() {
                 <ThemeProvider theme={'dark'}>
                     <ComposeMultiplatformHero />
                     <BenefitsBlock />
-                    <FeaturesBlock />
+                    <PlatformBenefitsBlock />
                     <PlatformsBlock />
                     <QuoteSection />
                     <FaqBlock />
