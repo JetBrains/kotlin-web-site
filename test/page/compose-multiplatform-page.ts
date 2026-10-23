@@ -23,6 +23,14 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly platformBenefitsVideo: Locator;
     readonly platformBenefitsPlayButton: Locator;
 
+    readonly playgroundBlock: Locator;
+    readonly playgroundTitle: Locator;
+    readonly playgroundEditor: Locator;
+    readonly playgroundCode: Locator;
+    readonly playgroundOutput: Locator;
+    readonly playgroundOpenButton: Locator;
+    readonly playgroundRunButton: Locator;
+
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
     readonly quoteCounter: Locator;
@@ -59,6 +67,15 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.platformBenefitsTitles = page.getByTestId('platform-benefits-title');
         this.platformBenefitsVideo = page.getByTestId('platform-benefits-video');
         this.platformBenefitsPlayButton = page.getByTestId('platform-benefits-play-button');
+
+        this.playgroundBlock = page.getByTestId('playground-block');
+        this.playgroundTitle = page.getByTestId('playground-block-title');
+        this.playgroundEditor = page.getByTestId('playground-block-editor');
+        // Rendered by the playground library, which provides no test ids
+        this.playgroundCode = this.playgroundEditor.locator('.CodeMirror-code');
+        this.playgroundOutput = this.playgroundEditor.locator('iframe');
+        this.playgroundOpenButton = this.playgroundBlock.getByRole('button', { name: 'Open in Playground' });
+        this.playgroundRunButton = this.playgroundBlock.getByRole('button', { name: 'Run' });
 
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');
