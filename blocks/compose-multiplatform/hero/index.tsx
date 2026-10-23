@@ -23,7 +23,7 @@ const PLATFORM_ICONS = {
     desktop: ComputerIcon
 };
 
-const HERO_PLATFORMS = Object.keys(PLATFORM_ICONS).map(icon => platformsData.find(item => item.icon === icon));
+const HERO_PLATFORMS = Object.keys(PLATFORM_ICONS).map(id => platformsData.find(item => item.id === id));
 
 export const ComposeMultiplatformHero: FC = () => {
     const textCn = useTextStyles();
@@ -78,8 +78,8 @@ export const ComposeMultiplatformHero: FC = () => {
                             className={styles.platforms}
                             mode={'rock'}
                         >
-                            {HERO_PLATFORMS.map(({ id, icon, title, titleLink }) => {
-                                const Icon = PLATFORM_ICONS[icon];
+                            {HERO_PLATFORMS.map(({ id, title, titleLink }) => {
+                                const Icon = PLATFORM_ICONS[id];
                                 const isExternal = titleLink.startsWith('http');
                                 return (
                                     <Chip

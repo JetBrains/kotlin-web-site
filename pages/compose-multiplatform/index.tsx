@@ -53,8 +53,8 @@ export default function ComposeMultiplatformLanding() {
                 <ThemeProvider theme={'dark'}>
                     <ComposeMultiplatformHero />
                     <BenefitsBlock />
-                    <PlatformsBlock />
                     <FeaturesBlock />
+                    <PlatformsBlock />
                     <QuoteSection />
                     <FaqBlock />
                     <CtaBlock />
