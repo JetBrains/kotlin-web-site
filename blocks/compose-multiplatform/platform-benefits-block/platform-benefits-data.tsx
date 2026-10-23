@@ -20,12 +20,9 @@ export const FEATURE_CARDS: FeatureCard[] = [
         title: 'AI-powered code generation',
         text: (
             <>
-                Speed up your UI coding with code generation powered by{' '}
-                <a href="https://www.jetbrains.com/junie/" className={linkCn}>
-                    Junie
-                </a>
-                , the coding agent by JetBrains. Compose Multiplatform shares its API with Jetpack Compose. As a result,
-                LLMs are already well-trained, helping you generate UI components and complete screens faster than ever.
+                Speed up your UI coding with coding agents. Compose Multiplatform shares its API with Jetpack Compose. As
+                a result, LLMs are already well-trained, helping you generate UI components and complete screens faster
+                than ever.
             </>
         ),
     },
@@ -47,9 +44,14 @@ export const FEATURE_CARDS: FeatureCard[] = [
         title: 'Seamless tooling',
         text: (
             <>
-                Enjoy smart IDE support with the{' '}
+                The{' '}
+                <a href="/docs/multiplatform/kotlin-toolchain.html" className={linkCn}>
+                    Kotlin Toolchain
+                </a>{' '}
+                simplifies project setup, building, running, and testing across platforms for you and your coding
+                agent. The{' '}
                 <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform" className={linkCn}>
-                    KMP plugin
+                    Kotlin Multiplatform plugin
                 </a>{' '}
                 for{' '}
                 <a href="https://www.jetbrains.com/idea/download/" className={linkCn}>
@@ -63,9 +65,8 @@ export const FEATURE_CARDS: FeatureCard[] = [
                     rel="noreferrer"
                 >
                     Android Studio
-                </a>
-                , with common previews, cross-language navigation, refactorings, and debugging across Kotlin and Swift
-                code.
+                </a>{' '}
+                provides smart IDE support.
             </>
         ),
     },

@@ -27,9 +27,13 @@ export const PlatformBenefitsBlock = () => {
                             Native experiences
                         </h2>
                         <div className={textCnAverage}>
-                            <p className={styles.nativeIntro}>Feels like iOS because it is.</p>
+                            <p className={styles.nativeIntro}>
+                                Feels like iOS because it is.
+                                <br />
+                                With Kotlin Multiplatform, you get:
+                            </p>
                             <ul className={styles.nativeList}>
-                                {NATIVE_FEATURES.map(item => (
+                                {NATIVE_FEATURES.map((item) => (
                                     <li key={item}>{item}</li>
                                 ))}
                             </ul>
