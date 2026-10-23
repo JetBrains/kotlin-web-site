@@ -17,9 +17,11 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly platformsTitle: Locator;
     readonly platformsItems: Locator;
 
-    readonly featuresBlock: Locator;
-    readonly featureItems: Locator;
-    readonly featureTitles: Locator;
+    readonly platformBenefitsBlock: Locator;
+    readonly platformBenefitsItems: Locator;
+    readonly platformBenefitsTitles: Locator;
+    readonly platformBenefitsVideo: Locator;
+    readonly platformBenefitsPlayButton: Locator;
 
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
@@ -52,9 +54,12 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.platformsTitle = page.getByTestId('platforms-block-title');
         this.platformsItems = page.getByTestId('platforms-block-item');
 
-        this.featuresBlock = page.getByTestId('features-block');
-        this.featureItems = page.getByTestId('feature-item');
-        this.featureTitles = page.getByTestId('feature-title');
+        this.platformBenefitsBlock = page.getByTestId('platform-benefits-block');
+        this.platformBenefitsItems = page.getByTestId('platform-benefits-item');
+        this.platformBenefitsTitles = page.getByTestId('platform-benefits-title');
+        this.platformBenefitsVideo = page.getByTestId('platform-benefits-video');
+        this.platformBenefitsPlayButton = page.getByTestId('platform-benefits-play-button');
+
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');
         this.quoteCounter = this.quoteSection.getByTestId('snap-carousel-counter');
