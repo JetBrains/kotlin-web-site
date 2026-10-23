@@ -20,7 +20,7 @@ fun main() {
     println("Sum: ${numbers.sum()}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 There are also functions for retrieving the smallest and the largest elements by certain selector function or custom [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/index.html):
 
@@ -45,7 +45,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Besides regular `sum()`, there is an advanced summation function [`sumOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html)
 that takes a selector function and returns the sum of its application to all collection elements. Selector can return 
@@ -87,7 +87,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The example above shows the difference: `fold()` is used for calculating the sum of doubled elements.
 If you pass the same function to `reduce()`, it will return another result because it uses the list's first and second
@@ -108,7 +108,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also apply operations that take element indices as parameters.
 For this purpose, use functions [`reduceIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce-indexed.html)
@@ -131,7 +131,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 All reduce operations throw an exception on empty collections. To receive `null` instead, use their `*OrNull()` counterparts:
 * [`reduceOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce-or-null.html)

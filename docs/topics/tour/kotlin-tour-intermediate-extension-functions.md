@@ -36,7 +36,7 @@ fun main() {
     // <b>hello</b>
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-function"}
+{kotlin-runnable="true" id="kotlin-tour-extension-function"}
 
 In this example:
 
@@ -123,7 +123,7 @@ fun main() {
     // true
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IsPositiveTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-1"}
 
 ```kotlin
 fun Int.isPositive(): Boolean = this > 0
@@ -133,7 +133,7 @@ fun main() {
     // true
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IsPositiveTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
 
 </def>
 <def title="Convert a string to lowercase" id="extension-functions-exercise-2">
@@ -155,7 +155,7 @@ fun main() {
     // hello world!
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ToLowercaseStringTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-2"}
 
 ```kotlin
 fun String.toLowercaseString(): String = this.lowercase()
@@ -165,7 +165,7 @@ fun main() {
     // hello world!
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ToLowercaseStringTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
 
 </def>
 </deflist>
