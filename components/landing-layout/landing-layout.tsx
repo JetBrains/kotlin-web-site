@@ -23,6 +23,8 @@ type NavigationProps = {
     topMenuHomeUrl?: string;
     currentUrl?: string;
     currentTitle?: string;
+    /** Top menu item to highlight, when the page's own path isn't one of the items (e.g. versioned subpages). */
+    activeTopMenuUrl?: string;
     mobileOverview?: boolean;
 }
 
@@ -57,9 +59,11 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
 
     let items = navigationProps.topMenuItems || [];
 
+    const activeUrl = navigationProps.activeTopMenuUrl ?? pathname;
+
     let activeIndex = useMemo(
-        () => items.map((item) => item.url).indexOf(pathname),
-        [pathname, items]
+        () => items.map((item) => item.url).indexOf(activeUrl),
+        [activeUrl, items]
     );
 
     const linkHandler = useCallback(
