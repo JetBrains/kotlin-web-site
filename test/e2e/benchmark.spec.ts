@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
 // Becomes 7 once the current edition carries the optional `cost` column.
@@ -124,6 +124,13 @@ test.describe('Kotlin Benchmark landing page', () => {
 
         await expect(notice).toBeVisible();
         await expect(notice).not.toBeEmpty();
+    });
+
+    test('the secondary navigation shows the leaderboard as the current page', async () => {
+        await expect(benchmark.topMenu).toBeVisible();
+
+        await expect(benchmark.topMenu.getByText('Leaderboard', { exact: true }).first()).toBeVisible();
+        await expect(benchmark.topMenu.getByRole('link', { name: 'Leaderboard', exact: true })).toHaveCount(0);
     });
 
     test('methodology CTA links to the methodology page and GitHub', async () => {

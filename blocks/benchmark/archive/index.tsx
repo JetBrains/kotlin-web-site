@@ -8,6 +8,7 @@ import { parseEnum } from '@/utils/queryParser';
 
 import styles from './archive.module.css';
 import { Leaderboard } from '../leaderboard';
+import { BenchPageHeader } from '../page-header';
 import { BenchEdition, formatBenchDate } from '../leaderboard/leaderboard-data';
 import { findMethodology, methodologyTitle, methodologyUrl } from '../methodology/versions';
 
@@ -59,16 +60,16 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
 
     return (
         <>
-            <section className={cn(styles.archive, 'ktl-layout', 'ktl-layout--center')} data-testid="bench-archive">
-                <h1 className={cn(styles.title, textCn('rs-h1'))} data-testid="bench-archive-title">
-                    The Kotlin Benchmark Archive
-                </h1>
-                <p className={cn(styles.intro, textCn('rs-text-1', { hardness: 'hard' }))}>
-                    {selectedEdition
+            <BenchPageHeader
+                title="The Kotlin Benchmark Archive"
+                intro={
+                    selectedEdition
                         ? 'Earlier leaderboards, kept exactly as they were published.'
-                        : 'No archived leaderboards have been published yet.'}
-                </p>
-
+                        : 'No archived leaderboards have been published yet.'
+                }
+                testId="bench-archive"
+                titleTestId="bench-archive-title"
+            >
                 {/* The same "date · links" line as on the current leaderboard. The date is either plain
                     text or, once there is a choice, the edition selector itself — never both. */}
                 {selectedEdition && (
@@ -101,7 +102,7 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                         </span>
                     </div>
                 )}
-            </section>
+            </BenchPageHeader>
 
             {/* Every edition is rendered so the archive stays complete in the static HTML;
                 the selector only controls which one is on screen. */}
