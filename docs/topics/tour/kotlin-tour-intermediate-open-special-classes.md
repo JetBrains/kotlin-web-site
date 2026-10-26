@@ -424,7 +424,7 @@ fun main() {
     // The delivery was canceled due to: Address not found.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1"}
 
 ```kotlin
 sealed class DeliveryStatus {
@@ -467,7 +467,7 @@ fun main() {
     // The delivery was canceled due to: Address not found.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
 </def>
 <def title="Define problem types with an enum class" id="special-classes-exercise-2">
@@ -508,7 +508,7 @@ fun main() {
     // Data received: [Data1, Data2]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2"}
 
 ```kotlin
 sealed class Status {
@@ -546,7 +546,7 @@ fun main() {
     // Data received: [Data1, Data2]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
 
 </def>
 </deflist>

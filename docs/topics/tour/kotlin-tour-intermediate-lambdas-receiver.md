@@ -181,7 +181,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-1"}
 
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
@@ -197,7 +197,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
 
 </def>
 <def title="Handle a double-click event" id="lambda-receivers-exercise-2">
@@ -234,7 +234,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-2"}
 
 ```kotlin
 class Button {
@@ -267,7 +267,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
 
 </def>
 <def title="Create an incremented list" id="lambda-receivers-exercise-3">
@@ -290,7 +290,7 @@ fun main() {
     // [2, 3, 4]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-3"}
 
 ```kotlin
 fun List<Int>.incremented(): List<Int> {
@@ -307,7 +307,7 @@ fun main() {
     // [2, 3, 4]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-3"}
 
 </def>
 </deflist>

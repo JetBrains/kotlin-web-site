@@ -173,7 +173,7 @@ fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise"}
 
 ```kotlin
 data class Employee (val name: String, var salary: Int)
@@ -192,7 +192,7 @@ fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
 
 </def>
 </deflist>

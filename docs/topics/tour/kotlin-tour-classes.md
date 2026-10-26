@@ -265,7 +265,7 @@ fun main() {
     println(emp)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
 
 ```kotlin
 data class Employee(val name: String, var salary: Int)
@@ -277,7 +277,7 @@ fun main() {
     println(emp)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
 </def>
 <def title="Declare nested data classes" id="classes-exercise-2">
@@ -298,7 +298,7 @@ fun main() {
     println(person)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
 
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
@@ -315,7 +315,7 @@ fun main() {
     println(person)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
 </def>
 <def title="Generate random employees with a class" id="classes-exercise-3">
@@ -360,7 +360,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
 
 ```kotlin
 import kotlin.random.Random
@@ -384,7 +384,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="junit" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
 </def>
 </deflist>
