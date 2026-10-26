@@ -16,6 +16,7 @@ export class KotlinBenchmarkPage implements BasePage {
     readonly githubCta: Locator;
     readonly updatedDate: Locator;
     readonly archiveCta: Locator;
+    readonly topMenu: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -31,6 +32,7 @@ export class KotlinBenchmarkPage implements BasePage {
         this.githubCta = page.getByTestId('bench-cta-github');
         this.updatedDate = page.getByTestId('bench-updated');
         this.archiveCta = page.getByTestId('bench-archive-cta');
+        this.topMenu = page.getByTestId('top-menu');
     }
 
     /** Resolution-rate cells, in row order. */

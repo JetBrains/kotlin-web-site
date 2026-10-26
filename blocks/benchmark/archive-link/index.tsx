@@ -15,10 +15,7 @@ export function ArchiveLink({ date }: ArchiveLinkProps) {
     const textCn = useTextStyles();
 
     return (
-        <p
-            className={cn(styles.archiveLink, 'ktl-layout', 'ktl-layout--center', textCn('rs-text-1', { hardness: 'hard' }))}
-            data-testid="bench-archive-link"
-        >
+        <p className={cn(styles.archiveLink, textCn('rs-text-1', { hardness: 'hard' }))} data-testid="bench-archive-link">
             <span data-testid="bench-updated">Last updated {formatBenchDate(date)}</span>
             <span className={styles.separator} aria-hidden="true">
                 ·
