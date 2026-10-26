@@ -18,8 +18,10 @@ landed in and why.
     └── app/                  engine + measurement host (Playwright lives here)
 ```
 
-On this machine: project `/Users/denis.chernov/WebstormProjects/kotlin-web-site`,
-toolkit `/Users/denis.chernov/WebstormProjects/test-stitch`. The toolkit's
+Paths below use `$PROJECT` (this repository's checkout) and `$F2C_TOOLKIT`
+(the toolkit's checkout); set both in the shell, they differ per machine
+(the first runs used `~/WebstormProjects/kotlin-web-site` and
+`~/WebstormProjects/test-stitch`). The toolkit's
 `package.json` and its Playwright must not land inside the project: the project's
 `next lint`, tsc and CODEOWNERS run over the whole tree.
 
@@ -31,7 +33,7 @@ the Figma revision lives (gitignored, `.f2c/.gitignore`).
 ## 2. Install the project
 
 ```bash
-cd /Users/denis.chernov/WebstormProjects/kotlin-web-site
+cd "$PROJECT"
 nvm use 22                          # .nvmrc = v22.9.0; 22.18.0 was used on 8 Oct 2026 (owner's call)
 corepack enable                     # packageManager yarn@1.22.22
 export WEBTEAM_UI_NPM_TOKEN=...     # in the operator's ~/.zshrc; the @webteam/* and @rescui/* registry needs it
@@ -43,7 +45,7 @@ yarn install --frozen-lockfile      # 55 s on 8 Oct 2026; postinstall builds cod
 - The toolkit keeps its own `node_modules` (React 19, its own Playwright); the
   project's installed versions are the truth for contracts (`artifacts/INDEX.md`).
   Refresh `artifacts/` after a lock-file change:
-  `node scripts/project-setup.mjs /Users/denis.chernov/WebstormProjects/kotlin-web-site`.
+  `node scripts/project-setup.mjs "$PROJECT"` (from `$F2C_TOOLKIT/app`).
 - **Unverified:** `.nvmrc` v22.9.0 vs 22.18.0 — install succeeded on 22.18.0;
   nothing was run on 22.9.0.
 
@@ -126,3 +128,16 @@ node scripts/project-check.mjs <root>/.f2c/pages/<slug> --only=lint,types   # to
 - No stylelint, no unit tests, no image-size gate in this project; `--only=style|unit|images` do not apply.
 - Runtimes of `yarn lint` and `tsc` on this machine: **unverified**.
 - Commit style `feat: <description>` (optional `ktl-NNNN`); no PR before the team presentation.
+
+## 7. e2e for a changed page (rules.md R14)
+
+The checklist the orchestrator writes the spec against after finalize; the
+reference is `test/e2e/compose-multiplatform.spec.ts` + `test/page/compose-multiplatform-page.ts`
+as changed by KTL-4742 (branch `KTL-4742-fixes`).
+
+- [ ] A redesign changes the page's **existing** spec and page object; no new spec for a review route.
+- [ ] Tests of deleted blocks are deleted; every new block has one.
+- [ ] Counts and texts come from the block's data module (`@/blocks/<slug>/<block>/<block>-data`), not retyped.
+- [ ] One behaviour test per interactive element: carousel (counter, prev/next, disabled ends), accordion (one open at a time), video (plays in view, pauses off-screen, user pause sticks), Playground (Run starts the app, open builds the crosslink; `context.route` stubs `play.kotlinlang.org`; `test.slow()`).
+- [ ] `checkScreenshot` masks non-deterministic media (`mask`) and hides the sticky top menu over tall blocks (`stylePath: ['test/e2e/<slug>/hide-top-menu.css']`).
+- [ ] Every shared component changed on the way (rules.md R9): the e2e of each page using it is run too.

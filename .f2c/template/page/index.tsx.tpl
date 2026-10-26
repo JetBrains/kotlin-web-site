@@ -10,7 +10,9 @@ import styles from './index.module.css';
 // the newest shipped landing's (pages/state-of-kotlin-2026, rules R1):
 // LandingLayout carries header, meta and footer and takes the page's theme as
 // a prop; the layout column is ktl-layout-v2; every block owns its vertical
-// padding (rules R2) — nothing is spaced here.
+// padding (rules R2) — nothing is spaced here. A new landing only: a redesign
+// of a shipped page edits that page's route module and keeps its shell,
+// topMenu* props, title and description (rules R1a).
 export const PAGE_TITLE = {{pageTitle}};
 export const PAGE_URL = '/{{route}}/';
 

@@ -60,9 +60,15 @@ its own preview route.
 
 ## Read first, in this order
 
-1. `{{project}}/.f2c/README.md` (precedence) and `rules.md` R1–R12: the project
-   wins over the toolkit; R2 (rhythm), R4 (css), R5 (copy), R6 (images), R7
-   (interaction), R8 (a11y/testid), R12 (missing content).
+0. The section's `agreedDeviations`, `contentSources` and `block` decision in
+   `{{pageDir}}/manifest.json` (rules R13, R1a). An agreed deviation beats the
+   dump; a content source beats the dump's copy and any R12 placeholder;
+   `keep`/`modify:<path>` means you change that shipped block, not the scaffold.
+1. `{{project}}/.f2c/README.md` (precedence) and `rules.md` R1–R14: the project
+   wins over the toolkit; R1a (redesign in place), R2 (rhythm, slugs), R4 (css),
+   R5 (copy), R6 (images, size budget), R7 (interaction, no inert controls), R8
+   (a11y/testid, internal links), R9 (shared components), R12 (missing content),
+   R13 (sources beyond the mock).
 2. `{{project}}/.f2c/components.md` — what to use for what; the "Interaction
    references" table when the manifest carries an annotation.
 3. The living example of the shape: `blocks/state-of-kotlin-2026/` (newest
@@ -70,6 +76,9 @@ its own preview route.
    (a block with grid, cards, hover, breakpoints), `shared/section-heading/`,
    `faq/faq.tsx` (accordion) and `hero/hero.tsx` (h1, Button, `useMS`).
    Nothing under `blocks/{{page}}/` is an example: it is the scaffold you fill in.
+   **In a redesign of a shipped page (R1a) the example is that page instead**:
+   read two of its blocks (`blocks/<slug>/*/index.tsx` and their module css)
+   and write yours in their shape, not in `state-of-kotlin-2026`'s.
 4. Existence and props: `{{project}}/.f2c/artifacts/INDEX.md`, then
    `contracts.json`; for `@jetbrains/kotlin-web-site-ui` read
    `{{project}}/node_modules/@jetbrains/kotlin-web-site-ui/out/components/<name>/`.
@@ -77,9 +86,16 @@ its own preview route.
 
 ## Rules that bind you
 
-- **Copy verbatim** from the dump — never reworded, never re-cased; plain
+- **Copy verbatim** from the section's content source when the manifest names
+  one, otherwise from the dump — never reworded, never re-cased; plain
   strings or JSX, `&nbsp;` where the dump holds a non-breaking space, `<br />`
   where it breaks a line. No i18n.
+- **No inert controls** (R7): every button you write has an `href` or a
+  handler that does what its label says. A "Run"/"open" pair on a code card is
+  the Kotlin Playground (components.md); a play button on a poster is a
+  `<video>`. If you can't build it, leave the control out and ask.
+- **Links** (R8): a `kotlinlang.org` URL is a relative path in the same tab;
+  only other hosts get `target="_blank" rel="noopener noreferrer"`.
 - **Annotations first**: if the manifest entry has `annotations`, resolve the
   reference to project code (components.md → Interaction references) and build
   that behaviour; the annotated element is the spec, the crop is one state. No
@@ -109,12 +125,16 @@ its own preview route.
 - **Cards**: plain `div`s (or `cardCn`) in a CSS grid with `grid-auto-rows: 1fr`;
   never a mock-derived row height; `min-height` only for a card the mock keeps
   taller than its content at every width.
-- **Images**: copy the vendored file from `{{pageDir}}/assets/` to
-  `public/images/{{page}}/`, use `<img src="/images/{{page}}/<file>" alt width height>`;
-  never `next/image`. Check `public/images/companies/` and
-  `public/images/case-studies/` for a logo before vendoring one. An element the
+- **Images**: first look for the image in the page's shipped blocks and
+  `public/images/` (R6: reuse before vendoring); otherwise copy the vendored
+  file from `{{pageDir}}/assets/` to `public/images/{{page}}/` as WebP at 2× its
+  displayed size (about 500 KB at most), use
+  `<img src="/images/{{page}}/<file>" alt width height>`; never `next/image` in
+  a new page (a redesign follows the page, R1a). Check `public/images/companies/` and
+  `public/images/case-studies/` for a logo before vendoring one, and
+  `@rescui/icons` (newer versions too) before vendoring an icon. An element the
   project has no asset for (a product screenshot, a video) is a recorded gap, not
-  an imitation (R12).
+  an imitation (R12) — after R13's sources were checked for it.
 - **Theme**: ONE, the page's (`LandingLayout theme` is already set by the
   scaffold). No `ThemeProvider` unless the mock draws an island of the other theme.
 - **Missing content (R12)**: a repeated block the mock draws once is built with
@@ -122,6 +142,12 @@ its own preview route.
   one; list the gaps as designer questions.
 - **Decor** the mock draws behind an element is positioned relative to that
   element, `aria-hidden`/`alt=""`; no motion the mock or an annotation does not state.
+- **Shared components** (R9): use the one in `components/` that covers the
+  behaviour (`SnapCarousel`, `ColumnedFaq`), never a local copy of the hook
+  it wraps. If it almost fits, **do not edit it** — sibling agents run in
+  parallel — and propose the change in the reply (the prop, its default,
+  why); the orchestrator makes it once and re-runs the e2e of every page
+  that uses the component.
 - **Never** edit `page.json`, `manifest.json`, the dumps, `pages/{{route}}/index.tsx`,
   the preview route, another block's folder, `components/`, `pages/_app.jsx`,
   `pages/global.css`, `package.json`, or anything under `{{toolkit}}/app`. Never
@@ -169,8 +195,13 @@ its own preview route.
 - score, rounds used, Δh at the end
 - heights at 1540 / 1190 / 1000 / 808 / 616 / 360 vs the frames
 - files written (paths)
-- deviations recorded (colour, px, role) and where
+- deviations recorded (colour, px, role) and where; agreed deviations from the
+  manifest applied (one line each)
+- **shared changes proposed** — component, prop, default, why; a dependency
+  bump with its reason; "none" if none
+- assets over the R6 budget (file, size); "none" if none
 - **questions for the designer** — an animated element with no annotation, a
   hidden variant, a missing asset (screenshot, video, logo), missing content
-  repeated under R12; "none" if none
+  repeated under R12; each names the ticket comment or doc you checked first
+  (R13) — a question the ticket answers is not asked; "none" if none
 - what cost you the most time

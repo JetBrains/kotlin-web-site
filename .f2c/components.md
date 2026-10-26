@@ -46,7 +46,9 @@ side and as transitive deps in `next.config.js` `transpiledPackages`).
 
 ## Project-shared components
 
-`components/` (one line each; none is edited by a page):
+`components/` (one line each). A page extends one through optional props with
+backward-compatible defaults, or extracts a new one when a second page needs a
+pattern (`rules.md` R9); it never re-implements one locally:
 
 | folder | what it exports | used by |
 |---|---|---|
@@ -55,11 +57,12 @@ side and as transitive deps in `next.config.js` `transpiledPackages`).
 | `sticky-header/` | `StickyHeader` — sticky wrapper | `landing-layout.tsx`, `section-nav.tsx` |
 | `marquee/` | `Marquee` (`pauseOnHover`, `hasFadingEdges`) — moving strip | `blocks/state-of-kotlin-2026/organizations/organizations.tsx` |
 | `customer-logo-marquee/` | `CustomerLogoMarqueeSection` + logo lists (`multiplatform-logos.ts`, `server-side-logos.ts`) | `pages/backend/index.tsx`, `blocks/multiplatform/case-studies/customers.tsx` |
-| `snap-carousel/` | `SnapCarousel` (react-snap-carousel, prev/next buttons) | `blocks/server-side/features-carousel/index.tsx` |
+| `snap-carousel/` | `SnapCarousel` (react-snap-carousel, prev/next buttons, `n/N` counter; KTL-4742 added `navigationAlign` `center\|right`, `adaptiveHeight`, `fadeSlides` and SSR-safe `initialPages`) | `blocks/server-side/features-carousel/index.tsx`, `blocks/compose-multiplatform/quote-section/quote-section.tsx`† |
+| `columned-faq/`† | `ColumnedFaq` (`items: { question, answer }[]`, `title`, `columnsCount` = 2) — `Accordion` + `Collapse` split into columns, stacked under `--ktl-ts-down`, FAQPage JSON-LD in `Head` | `blocks/compose-multiplatform/faq/faq.tsx`†, `blocks/multiplatform/faq-block/faq-block.tsx`† |
 | `custom-carousel/` | `CustomCarousel` — image + caption slides | `blocks/compose-multiplatform/hero/index.tsx` |
 | `masonry-grid/` | `MasonryGrid` (`items`, `columnCount`, `gap`, `renderItem`, `getKey`) | `blocks/case-studies/grid/case-studies-grid.tsx` |
 | `code-block/` | `CodeBlock` — Kotlin Playground (client only, `ssr: false`) | `blocks/main/why-kotlin/why-kotlin.tsx` |
-| `code-highlight/` | `CodeHighlight` (`code`, `language`) — static highlighted code | `blocks/compose-multiplatform/features-block/code-block.tsx` |
+| `code-highlight/` | `CodeHighlight` (`code`, `language`) — static highlighted code | `blocks/server-side/how-to-start/how-to-start.tsx` |
 | `social-share/` | `SocialShare` (networks `facebook twitter linkedin reddit email`, `theme`, `size`) | `blocks/state-of-kotlin-2026/hero/hero.tsx` |
 | `desktop-break/` | `DesktopBreak` — line break visible on desktop | `pages/community/index.tsx` |
 | `empty-state/`, `favicon/`, `hydration-event.tsx` | not for pages (`hydration-event` sets `html.hydrated`) | `_app.jsx` |
@@ -68,8 +71,11 @@ Also shared: `utils/mdToHtml.tsx` (`Markdown`), `utils/event-logger.ts`
 (`trackEvent`), `blocks/<page>/shared/` for one page's own pieces
 (`blocks/state-of-kotlin-2026/shared/`: `section-heading`, `stat-card`,
 `quote-card`, `chart-figure`, `floating-shape`, `go-deeper-banner`).
-A block shared between pages does not exist: a repeated pattern is copied, not
-imported across `blocks/<page>` folders.
+Blocks are not imported across `blocks/<page>` folders; a pattern two pages
+need moves into `components/` (`columned-faq`†, extracted from
+`blocks/multiplatform/faq-block` for the Compose FAQ) instead of being copied.
+
+† lands with KTL-4742 (branch `KTL-4742-fixes`, PR #5868).
 
 ## What to use for what
 
@@ -81,18 +87,19 @@ imported across `blocks/<page>` folders.
 | card grid | CSS grid in the module css, plain `div` cards, `grid-auto-rows: 1fr` | `blocks/state-of-kotlin-2026/questions/questions.module.css` |
 | clickable/rescui card | `cardCn({ isClickable })` + module css | `blocks/community/keep-in-touch-card/keep-in-touch-card.tsx` |
 | big number / stat | `p` + `rs-hero` | `blocks/state-of-kotlin-2026/shared/stat-card/stat-card.tsx` |
-| FAQ / accordion | `Accordion` + `Collapse` (`borderBottom`), answers via `Markdown`; FAQPage JSON-LD in `Head` when copy is real FAQ | `blocks/state-of-kotlin-2026/faq/faq.tsx` |
+| FAQ / accordion | in columns: `ColumnedFaq`†; one column: `Accordion` + `Collapse` (`borderBottom`), answers via `Markdown`; FAQPage JSON-LD in `Head` when copy is real FAQ; answers from the FAQ doc the ticket links (R13) | `blocks/compose-multiplatform/faq/faq.tsx`†; `blocks/state-of-kotlin-2026/faq/faq.tsx` |
 | logo strip | static: `<img>` row; moving: `Marquee`; shipped lists: `CustomerLogoMarqueeSection` | `blocks/state-of-kotlin-2026/organizations/organizations.tsx`; `components/customer-logo-marquee/index.tsx` |
-| carousel | `SnapCarousel` (mobile swipe) or `CustomCarousel` | `blocks/server-side/features-carousel/index.tsx` |
+| carousel | `SnapCarousel` (mobile swipe, quote gallery with `fadeSlides adaptiveHeight`) or `CustomCarousel`; no autoplay on long text | `blocks/server-side/features-carousel/index.tsx`; `blocks/compose-multiplatform/quote-section/quote-section.tsx`† |
 | tabs / segmented switch | `@rescui/switcher` `Switcher`, `@rescui/tab-list` | `blocks/state-of-kotlin-2026/section-nav/section-nav.tsx` |
 | sticky sub-nav | `StickyHeader` wrapping a `Switcher` | same file |
 | quote | `QuotesSlider` from the kit, or a page-local quote card | `blocks/education/teach-quotes/teach-quotes.tsx`; `blocks/state-of-kotlin-2026/shared/quote-card/` |
 | CTA banner | page-local block with `Button`; the kit's `CtaBlock` for the education/community look | `blocks/state-of-kotlin-2026/download-cta/download-cta.tsx`; `blocks/community/layout/community-layout.tsx` |
-| code sample | `CodeHighlight` (static) / `CodeBlock` (Playground, client only) | `blocks/compose-multiplatform/features-block/code-block.tsx` |
+| code sample | `CodeHighlight` (static) / `CodeBlock` (Playground, client only) | `components/code-highlight/`, `components/code-block/` |
+| code card with Run / open buttons ("Try …") | a live Kotlin Playground, never a screenshot: client-only `import('kotlin-playground')`, `getInstance` → Run `execute()`, open `generateCrosslink(getCode(), { targetPlatform })`; `compose-wasm` for Compose | `blocks/compose-multiplatform/playground-block/index.tsx`† |
 | tag / chip | `Tag` with `presets` | `blocks/compose-multiplatform/platforms-block/platform-item.tsx` |
-| icon | `@rescui/icons`; brand marks as `<img>` svg under `public/images` | `blocks/benchmark/cta/index.tsx` |
+| icon | `@rescui/icons` (a missing icon: check newer versions first, R6); brand marks as `<img>` svg under `public/images` | `blocks/benchmark/cta/index.tsx` |
 | share buttons | `SocialShare` | `blocks/state-of-kotlin-2026/hero/hero.tsx` |
-| video | kit `youtube-player` | `blocks/kotlin-effect/card-stack/card-stack.tsx`, `blocks/server-side/performance/performance.tsx` |
+| video | YouTube: kit `youtube-player`; a short product clip: self-hosted muted `<video>` with in-view play/pause | `blocks/kotlin-effect/card-stack/card-stack.tsx`; `blocks/compose-multiplatform/platform-benefits-block/phone-video.tsx`† |
 | decor shapes / renders | `<img>` + absolute module css, `aria-hidden`; parallax only if stated | `blocks/state-of-kotlin-2026/shared/floating-shape/floating-shape.tsx` |
 | chart | a static chart is an image in a figure: `ChartFigure` (`src alt width height caption`); a live bar chart is `@webteam/horizontal-barchart` (`organizations.tsx`, `backend.tsx`, `ai.tsx`); a chart drawn only in the mock is an image asset or a designer question (R12) | `blocks/state-of-kotlin-2026/shared/chart-figure/chart-figure.tsx` |
 
@@ -111,6 +118,9 @@ Behaviours designers point at by name. The referenced code is the spec. A
 | swipe cards on mobile | `SnapCarousel` | `blocks/server-side/features-carousel/index.tsx` |
 | hover state on a card | CSS `&:hover` background change with `transition` in the module | `questions.module.css` `.card` |
 | expand / collapse answers | `Accordion` / `Collapse` | `faq.tsx` |
+| video poster with a play button | self-hosted `<video muted loop playsInline>`: plays at 50 % in view (`useInView`), pauses off-screen, skips autoplay under `prefers-reduced-motion`, a user pause sticks, `Button` play/pause with `aria-label` | `blocks/compose-multiplatform/platform-benefits-block/phone-video.tsx`†; the e2e checks every transition |
+| "Run" / "Open in Playground" on code | Kotlin Playground instance | `blocks/compose-multiplatform/playground-block/index.tsx`† |
+| quote / testimonial gallery | `SnapCarousel navigationAlign="right" adaptiveHeight fadeSlides`, no autoplay | `blocks/compose-multiplatform/quote-section/quote-section.tsx`† |
 | hero video loop / scripted scene | gsap + `<video>` | `blocks/kotlin-effect/hero-screen/` (heavy; a designer question first) |
 | copy-to-clipboard / share | `SocialShare`, `trackEvent` | `hero.tsx` |
 

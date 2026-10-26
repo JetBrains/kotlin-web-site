@@ -9,7 +9,14 @@ agent, not for the reader of this directory.
 Derived 8 Oct 2026 at HEAD `38512ffcb9` from `CLAUDE.md`, `.ai/guidelines.md`,
 `.eslintrc.json` and the newest shipped landings (`state-of-kotlin-2026`,
 `benchmark`; older: `compose-multiplatform`, `multiplatform`). Where pages
-disagree, the newest landing wins. Paths are relative to the project root.
+disagree, the newest landing wins — **for a new page**. When the work changes a
+shipped page, that page's own blocks are the convention (R1a). Paths are
+relative to the project root.
+
+Revised 26 Oct 2026 after comparing the agentic `compose-multiplatform-redesign`
+run with the hand-guided KTL-4742 page (R1a, R13, R14 and edits marked
+"KTL-4742" below). Paths marked † land with KTL-4742 (branch `KTL-4742-fixes`,
+PR #5868) and exist in the project once it is merged.
 
 Numbering is stable once a rule is cited by a brief or a note: retire a rule
 by marking it, never by renumbering.
@@ -39,6 +46,45 @@ by marking it, never by renumbering.
   it as a designer question; never point at a file that does not exist.
 - Nothing at render time may touch `window`/`document` (static export):
   DOM access in `useEffect`/handlers only (`questions.tsx` scrolls in `onClick`).
+- Title and description never ship as a placeholder, a ticket id or a toolkit
+  name (the redesign run shipped `'TODO: meta description…'` and
+  `Compose Multiplatform | Kotlin AI Pages (KTL-5170 / KTL-4742)`): a redesign
+  keeps the shipped route's values; a new page takes them per R5, or the gap is
+  a question in the reply.
+
+## R1a — redesign of a shipped page (KTL-4742)
+
+A mock that redesigns a page which already exists on kotlinlang.org changes
+that page **in place**; it is not a new page next to it.
+
+- **The route module is edited, not emitted.** `pages/<slug>/index.tsx` keeps
+  its shell as it is: `ktl-layout-to-2`, the inner `ThemeProvider`, `title`,
+  `description`, `ogImageName`, `currentTitle`/`currentUrl` and every
+  `topMenu*` prop (`pages/compose-multiplatform/index.tsx`). The template's
+  `hideTopMenu` shell is for new pages only.
+- **Every mock section gets a block decision** in the manifest before markup:
+  `keep` (the shipped block already matches), `modify:<path>`, `replace:<path>`
+  (a new block takes the place of an old one) or `new`. Match by identity first
+  — the same route's blocks under `blocks/<slug>/`, including the ones landed
+  for sibling tickets on the same branch — and by pixels only for the rest.
+  The redesign run regenerated `hero` and `benefits` although
+  `blocks/compose-multiplatform/hero` and `benefits-block` already existed;
+  the final page kept them and replaced `features-block` with
+  `platform-benefits-block`† + `playground-block`†.
+- **Dead code goes in the same change**: a block no section maps to is
+  deleted with its images (`public/images/<slug>/<block>/`) and its e2e tests
+  (KTL-4742 removed `features-block/*` and `features-block/code-*.svg`).
+- **The page's conventions win over the newest landing** inside its blocks:
+  file shape (`index.tsx` + `<block>.module.css` + `<block>-data.tsx` in
+  `blocks/compose-multiplatform/`), container class on each section
+  (`ktl-layout ktl-layout--center`), text helper (`createTextCn('dark')`),
+  image handling (co-located `./images/*` through `next/image`), testids
+  (`<block>-block`, `<block>-block-title`, `platform-benefits-item`†). Read two
+  of the page's blocks before writing the first line; R3, R4, R6, R8 and R10
+  describe the new-page default where they differ.
+- A review route next to the shipped one (`/<slug>-redesign/`) is the
+  owner's call only. Even then the deliverable is the diff on the shipped
+  route; the review route is deleted before the PR.
 
 ## R2 — the composition layer
 
@@ -56,6 +102,13 @@ by marking it, never by renumbering.
   sections by `section[data-testid]` inside the page's layout and expects their
   count and order (`test/e2e/state-of-kotlin-2026.spec.ts`), so **no nested
   `<section>` carrying a `data-testid`** — inner groups are `div`.
+- **The slug names the section's role, never its copy** (KTL-4742): `hero`,
+  `benefits`, `platforms`, `playground`, `quotes`, `faq`, `cta`. Not the first
+  words of a heading (`android-skills-every`, `build-your-first`), not a
+  person on the first slide (`alex-askerov` for a testimonial carousel), not
+  one card's title for a block of six (`native-experiences`). The slug becomes
+  the folder, the `id` and every testid; set `manifest.sections[].slug` when
+  the derived one reads like copy.
 - A block whose mock fills the width (background plate) puts the plate on an
   inner element, not on the route wrapper; the wrapper's `overflow-x: clip` stays.
   Page-level ground/decor lives on the page wrapper
@@ -151,8 +204,19 @@ by marking it, never by renumbering.
   `public/images/state-of-kotlin-2026/*.webp`). A co-located import is also
   used (`blocks/compose-multiplatform/hero/index.tsx` imports
   `./images/compose-hero-desktop-graphics.webp`); pick `public/images/<slug>/`
-  for new work, it matches the newest landing. The toolkit's
-  `.f2c/pages/<page>/assets/` stays the source of truth and the file is copied.
+  for new work, it matches the newest landing; in a redesign, the page's own
+  way (R1a). The toolkit's `.f2c/pages/<page>/assets/` stays the source of
+  truth and the file is copied.
+- **Reuse before vendoring** (KTL-4742): an image the page already ships (the
+  hero gallery's case-study shots under `blocks/compose-multiplatform/hero/`)
+  is imported from where it is, never vendored again from the mock under a new
+  name (the redesign run added `hero/gallery-img-*.png` beside the shipped
+  `.webp` set).
+- **Size budget**: a raster is exported at 2× its largest displayed size, WebP
+  (PNG only for a cut-out that needs it), about 500 KB at most; decor never
+  ships at the Figma original (the redesign run shipped
+  `decor-hero-render.png` 7.1 MB, `decor-footer-graphic.png` 5.8 MB,
+  `android-skills-phone.png` 5.5 MB). A file over budget is named in the reply.
 - `next/image` is **not** used by the newest landing (12 older files import it;
   `images.unoptimized: true`); write a plain `<img>`
   (`@next/next/no-img-element` is off in `.eslintrc.json`). Give `width`/`height`
@@ -169,12 +233,24 @@ by marking it, never by renumbering.
   `components/customer-logo-marquee` and `components/marquee`
   (`organizations.tsx` uses `Marquee`). Check these before vendoring a logo
   from the mock; a brand missing there is vendored into `public/images/<slug>/`.
-- Icons: `@rescui/icons` (`GitHubIcon`, `ArrowRightIcon`; 26 files).
+- Icons: `@rescui/icons` (`GitHubIcon`, `ArrowRightIcon`; 26 files). An icon
+  the installed version lacks is first looked up in the package's newer
+  versions (KTL-4742 bumped it to 1.8.0 for `ExternalOutlineIcon`; the
+  redesign run vendored `external-outline.svg`, `code-outline.svg` and
+  `play.svg` instead). A bump is a question to the orchestrator (R9); a
+  library icon is never vendored as an svg.
 - Decor (shapes, renders) is `<img>` + absolutely positioned module css, `aria-hidden`
   or `alt=""` (`blocks/state-of-kotlin-2026/shared/floating-shape/`, `hero-decoration/`).
   A parallax is `useParallax` there — do not add motion the mock does not state.
 - Video: `@jetbrains/kotlin-web-site-ui/out/components/youtube-player`
-  (6 files) for YouTube; a self-hosted `<video>` only in `blocks/kotlin-effect/hero-screen/hero-video/`.
+  (6 files) for YouTube. A short product clip is a self-hosted muted `<video>`
+  co-located with its block: `blocks/compose-multiplatform/platform-benefits-block/phone-video.tsx`†
+  (plays while in view, pauses off-screen, respects `prefers-reduced-motion`,
+  a pause by the user sticks, labelled play/pause `Button`, `#t=0.001` so
+  Safari paints the first frame); the heavy scripted case is
+  `blocks/kotlin-effect/hero-screen/hero-video/`. A mock node named `*-h264`,
+  `*.mp4` or "video" is a video: get the file through the ticket (R13) before
+  falling back to an R12 placeholder.
 
 ## R7 — interactive patterns
 
@@ -184,6 +260,17 @@ by marking it, never by renumbering.
   `components/marquee` (`organizations.tsx`). Mobile carousel:
   `components/snap-carousel`. Sticky switcher: `@rescui/switcher` inside
   `components/sticky-header` (`section-nav.tsx`). Tabs: `@rescui/tab-list`.
+- **A control the mock draws is never shipped inert** (KTL-4742). A button
+  with no handler and no `href` is not a deliverable: build the behaviour it
+  implies, or leave the control out and ask. The redesign run shipped the
+  "Try" section as a static `showcase.png` under three `Button`s with no
+  `onClick`; the page shipped a live Kotlin Playground
+  (`blocks/compose-multiplatform/playground-block/index.tsx`†: client-only
+  `import('kotlin-playground')`, `compose-wasm` target, Run →
+  `instance.execute()`, open → `generateCrosslink(instance.getCode())`,
+  the code in `code-sample.md`).
+- Carousels of long text (quotes, testimonials) have **no autoplay** — the
+  agreed decision on KTL-4742; prev/next and the counter only.
 - Smooth in-page scroll is `scrollIntoView({ behavior: 'smooth' })` in an
   `onClick` with `preventDefault` on a real `<a href="#id">` (`questions.tsx`).
 - Analytics: `trackEvent({ eventAction, eventLabel })` from `@/utils/event-logger`
@@ -202,8 +289,13 @@ by marking it, never by renumbering.
   outline 14 / classic 2 across the project; `size` l 29 / s 6 / m 4 / xs 2);
   a narrow-width size switch is `useMS() ? 'm' : 'l'` (`hero.tsx`).
 - External links: `target="_blank" rel="noopener noreferrer"` (`hero.tsx`,
-  `faq.tsx` Markdown override). Internal: `<a href="/x/">` (newest) or
-  `next/link` (15 files) — keep the trailing slash.
+  `faq.tsx` Markdown override); in a link style, `textCn('rs-link', { external: true })`
+  draws the arrow (`platform-benefits-data.tsx`†). Internal: `<a href="/x/">`
+  (newest) or `next/link` (15 files) — keep the trailing slash.
+- **A `kotlinlang.org` URL is internal** (KTL-4742): write the path
+  (`/case-studies/?type=multiplatform`), same tab, no `target="_blank"`. The
+  redesign run wrote `https://kotlinlang.org/case-studies/…` with
+  `target="_blank"`. `/docs/…` is internal too.
 - Decorative images `alt=""`; interactive things reachable by keyboard; a
   clickable card has a real link inside.
 - Test hooks: `data-testid="<page>-<slug>"` on the root, and
@@ -216,11 +308,26 @@ by marking it, never by renumbering.
 
 - No `@webteam/layout` `Row`/`colCn`/`Section`/`Container`, no `wt-*` classes
   (one legacy block uses them).
-- No edits to `components/`, `pages/_app.jsx`, `pages/_document.jsx`,
-  `pages/global.css`, `package.json`, `yarn.lock`, `next.config.js`,
-  `postcss.config.js`, `redirects/`, `data/releases.yml`, `docs/` (code-owned or
-  shared, `CODEOWNERS`). A need there is a question to the orchestrator.
-- No `next/image`, no new dependency, no Tailwind/utility classes, no inline
+- No edits to `pages/_app.jsx`, `pages/_document.jsx`,
+  `pages/global.css`, `next.config.js`, `postcss.config.js`, `redirects/`,
+  `data/releases.yml`, `docs/` (code-owned or shared, `CODEOWNERS`). A need
+  there is a question to the orchestrator.
+- `package.json` / `yarn.lock`: no new dependency. A version bump of an
+  installed one (a missing icon, a needed feature) is proposed to the
+  orchestrator with the reason, never made silently.
+- **Shared components are extended, not re-implemented** (KTL-4742; this
+  replaces "no edits to `components/`"). A mock behaviour that a component in
+  `components/` almost covers gets an **optional prop whose default keeps
+  today's behaviour** (`components/snap-carousel`: `navigationAlign`,
+  `adaptiveHeight`, `fadeSlides`† for the quotes gallery). A pattern a
+  second page needs is extracted into `components/` and the first page is
+  switched to it (`components/columned-faq`†, out of
+  `blocks/multiplatform/faq-block`). Never a local copy of a hook the
+  component wraps (the redesign run hand-rolled `useSnapCarousel` and an
+  accordion). Section agents running in parallel propose the change in their
+  reply; the orchestrator makes it once, lists it as a shared change and runs
+  the e2e of every page that uses the component.
+- In a new page: no `next/image` (in a redesign, the page's way, R1a), no Tailwind/utility classes, no inline
   `style={{}}` except a CSS custom property
   (`section-heading.tsx`: `--sok-heading-title-max-width`).
 - No GTM/Optimizely/analytics code, no cookie logic, no `dangerouslySetInnerHTML`
@@ -241,7 +348,9 @@ by marking it, never by renumbering.
   unless the mock draws an island of the other theme (then wrap that island:
   `ThemeProvider theme="dark"` from `@rescui/ui-contexts`).
 - Dark-theme text: `useTextStyles()` follows the provider; `createTextCn('dark')`
-  is used only in data files that have no hook (`hero-data.tsx`).
+  is used only in data files that have no hook (`hero-data.tsx`) — in a new
+  page. The shipped `compose-multiplatform` blocks call `createTextCn('dark')`
+  in the component too; a redesign follows the page (R1a).
 - No theme switcher exists in this project; do not build one.
 
 ## R11 — designer annotations
@@ -262,6 +371,10 @@ by marking it, never by renumbering.
 
 ## R12 — missing content
 
+Content is missing only after R13's sources were read: the redesign run
+shipped three FAQ questions with placeholder answers while the ticket linked
+the FAQ doc with six questions and answers.
+
 A repeated block whose mock draws one item (a slider with one slide of four, an
 accordion with one answer open, a card list with one logo) is **built with the
 full mechanism and the available content repeated**, so a reviewer can operate
@@ -277,3 +390,51 @@ question and in the page notes. When the asset arrives it replaces the placehold
 and nothing else changes. (Shape from the first consumer's R12; here the example
 is a shipped placeholder-free page, so there is no repository path — this is the
 toolkit's convention, unverified against a reviewer.)
+
+## R13 — sources of truth beyond the mock (KTL-4742)
+
+The mock is one input, and not the newest one. A page is built from, in
+order of precedence:
+
+1. **Agreed deviations**: the YouTrack ticket, its subtasks and the comments
+   of the design ticket it links (`DSGN-…`). On KTL-4742: the Blue-block copy
+   changed per a DSGN-26627 comment, the "Stable" tag removed from the
+   platform cards, no autoplay on the quotes gallery, a live Playground
+   instead of the drawn picture.
+2. **Content documents the ticket links**: copy docs, FAQ docs, sample code.
+   KTL-4742's FAQ (six questions with answers) came from a Google doc, not
+   from the mock's three questions.
+3. **The canonical design file** the ticket names. `page.json.figma.fileKey`
+   is that file; a working copy (the redesign run used `JlQuhpF5pdBIhdmBWFr5N6`
+   "Kotlin AI Pages" instead of `0GtKD7idOxWPoqXfZpnite`) is recorded as
+   `page.json.figma.copyOf` and every difference found is a deviation.
+4. **The mock's drawn state**.
+
+Intake writes (1) and (2) into the record before any brief is generated:
+`manifest.sections[].agreedDeviations` (what changes against the mock, with
+the comment link) and `manifest.sections[].contentSources` (doc link and the
+part of it that feeds the section). The briefs carry both. A designer question
+in a reply first names the ticket comment or doc that was checked; a question
+the ticket already answers is not asked (the redesign run's `notes.md` carried
+about a dozen such questions).
+
+## R14 — e2e for a changed page (KTL-4742)
+
+`.ai/guidelines.md` asks for a test per feature; for a redesign that means the
+page's **existing** spec and page object are changed, not a new spec for a
+new route (`test/e2e/compose-multiplatform.spec.ts`,
+`test/page/compose-multiplatform-page.ts`†):
+
+- Tests of deleted blocks are deleted; every new block gets a test.
+- Expectations come from the block's data module, not retyped strings
+  (`import { FAQ_ITEMS } from '@/blocks/compose-multiplatform/faq/faq-data'`†,
+  `platformsData`).
+- **One behaviour test per interactive element**, not only presence: carousel
+  prev/next, the counter and the disabled ends; accordion opens one answer
+  and closes the other; video plays in view, pauses off-screen, a user pause
+  sticks; Playground Run starts the app and "open" builds the crosslink of
+  the edited code (`context.route('https://play.kotlinlang.org/**', …)` so the
+  external editor is not loaded; `test.slow()` for the remote compile).
+- Screenshots (`checkScreenshot`) mask what is not deterministic (`mask`: the
+  video and its fading button) and hide the sticky top menu over tall blocks
+  (`stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']`†).

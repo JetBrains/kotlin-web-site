@@ -21,6 +21,9 @@ generates into the project (toolkit PLAN decision 25). Layout contract:
 
 ## Precedence
 
+0. The ticket: deviations agreed in the YouTrack ticket and its linked design
+   ticket, and the content documents it links (`rules.md` R13). They outrank
+   the mock; the mock outranks nothing on this list.
 1. The project's own instructions: `CLAUDE.md` → `.ai/guidelines.md` ("MUST be
    followed at all times": a Playwright test per feature, semantic selectors
    role > text > testid, CSS Modules) and its lint config (`.eslintrc.json`,
@@ -28,7 +31,9 @@ generates into the project (toolkit PLAN decision 25). Layout contract:
 2. The project's shipped landings, **newest first**: `pages/state-of-kotlin-2026`
    + `blocks/state-of-kotlin-2026` (Sep 2026), then `pages/benchmark`, then
    `pages/compose-multiplatform` / `multiplatform`. When prose and a shipped page
-   disagree, the page wins; when two pages disagree, the newer wins.
+   disagree, the page wins; when two pages disagree, the newer wins. **Except
+   when the work changes a shipped page**: then that page's own blocks are the
+   convention, and the change is made in place (`rules.md` R1a).
 3. `rules.md` / `components.md` here — a distillation of 1 and 2, dated 8 Oct 2026
    at `38512ffcb9`.
 4. The toolkit's own rules (`.claude/skills/rescui-design/`) — they apply to
