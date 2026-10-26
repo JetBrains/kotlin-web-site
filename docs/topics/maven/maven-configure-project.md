@@ -95,7 +95,7 @@ You can set a different version separately:
 
 The `<extensions>` option ensures that the Kotlin and Maven compilers target the same bytecode version.
 
-The Kotlin Maven plugin automatically resolves the JVM target version in the following order:
+The Kotlin Maven plugin automatically resolves the JVM target version in the following priority order:
 
 ```mermaid
 graph TD
@@ -312,8 +312,8 @@ Kotlin supports [Maven Toolchains](https://maven.apache.org/guides/mini/guide-us
 the JDK version in your build.
 
 If you configure the `maven-toolchains-plugin` in your build, you can specify the JDK used for Kotlin compilation,
-independent of the JVM version running Maven (set in the `JAVA_HOME` path). The Kotlin Maven plugin then automatically picks up
-the selected JDK toolchain and passes it to the compiler as the [`-jdk-home` option](compiler-reference.md#jdk-home-path).
+independent of the JVM version running Maven (set in the `JAVA_HOME` environment variable). The Kotlin Maven plugin then
+automatically picks up the selected JDK toolchain and passes the JDK home directory to the compiler using the [`-jdk-home` option](compiler-reference.md#jdk-home-path).
 
 This allows you to configure a single toolchain that controls the JDK used across all plugins in the build, including Kotlin
 compilation. For example:
@@ -340,7 +340,7 @@ compilation. For example:
 </plugin>
 ```
 
-Keep in mind the priority of different ways to set up the JDK used for Kotlin compilation:
+You can configure the JDK used for Kotlin compilation in multiple ways. The JDK version is resolved in the following priority order:
 
 ```Mermaid
 graph TD
@@ -354,7 +354,7 @@ graph TD
 
 * The JDK version set in the `jdkHome` option of the `kotlin-maven-plugin` configuration always takes precedence over
    the toolchain version.
-* The JDK version in the `maven-toolchains-plugin` overrides the JDK version set in the `JAVA_HOME` path.
+* The JDK version in the `maven-toolchains-plugin` overrides the JDK version set in the `JAVA_HOME` environment variable.
 
 You can also use a plugin-specific `<jdkToolchain>` option to directly set the JDK version in the toolchain of the
 `kotlin-maven-plugin`. Compared to using the `maven-toolchains-plugin`, this parameter only affects Kotlin compilation
@@ -368,7 +368,7 @@ If you don't set it, the Kotlin Maven plugin takes the value of the [`jdkRelease
 option or falls back to the default `%defaultJvmTargetVersion%` if `jdkRelease` isn't set either.
 
 > Currently, setting up the `maven-toolchains-plugin` to use a specific JDK version [does not affect the `kapt` and `test-kapt` goals](https://youtrack.jetbrains.com/issue/KT-79897)
-> of the `kotlin-maven-plugin`. Instead, set the necessary version in the `JAVA_HOME` path.
+> of the `kotlin-maven-plugin`. Instead, set the necessary version in the `JAVA_HOME` environment variable.
 >
 {style="note"}
 
