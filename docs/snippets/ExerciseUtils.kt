@@ -56,29 +56,32 @@ val firedTodo: NotImplementedError? by lazy {
     caughtTodo
 }
 
-fun passed(note: String = "", showOutput: Boolean = false) {
-    actualOutput.let {}
-    val text = if (showOutput && output.isNotEmpty()) withOutput(note, output) else note
+/** Prints [text] to stdout, where Playground shows it as the test's Output. Skips empty text. */
+private fun printOutput(text: String) {
     if (text.isNotEmpty()) println(text)
 }
 
-fun hint(hint: String, shownOutput: String = output): Nothing =
-    kotlin.test.fail(if (shownOutput.isEmpty()) hint else withOutput(hint, shownOutput))
+/** Prints the learner's output to stdout, so Playground shows it under the passed test, then the [note]. */
+fun passed(note: String = "", showOutput: Boolean = false) {
+    actualOutput.let {}
+    if (showOutput) printOutput(output)
+    if (note.isNotEmpty()) println(note)
+}
+
+/** Prints [shownOutput] to stdout, so Playground shows it under the failed test, then fails with [hint]. */
+fun hint(hint: String, shownOutput: String = output): Nothing {
+    printOutput(shownOutput)
+    kotlin.test.fail(hint)
+}
 
 fun escapeHtml(text: String): String = text
     .replace("&", "&#38;")
     .replace("<", "&#60;")
     .replace(">", "&#62;")
 
-private fun withOutput(message: String, output: String): String {
-    val lines = escapeHtml(output.trimEnd('\n')).lines()
-    val separator = if (lines.size > 1) "<br>" else " "
-    return appendLine(message, "Output:" + separator + lines.joinToString("<br>"))
-}
-
 /** Adds [line] below [message] in the same element, so it keeps the message color and gets no extra icon. */
 private fun appendLine(message: String, line: String): String =
-    if (message.isEmpty()) line else message + "<br>" + line
+    if (message.isEmpty()) line else message + "\n" + line
 
 class Expectation internal constructor(
     val call: String,
