@@ -193,27 +193,14 @@ kotlin {
 
 Keep in mind that enabling this option increases the application size.
 
-## Why does out-of-bounds array access cause a trap?
+## How does Kotlin/Wasm handle out-of-bounds array access?
 
-If you access an array with an index outside its bounds, the compiler triggers a WebAssembly trap. A trap immediately
-stops the current execution stack.
+Kotlin/Wasm enables array bounds checks by default. If you try to access an array with an index outside its bounds, the
+compiler throws an `IndexOutOfBoundsException`.
 
-In JavaScript environments, these traps appear as `WebAssembly.RuntimeError` and can be caught on the JavaScript side.
-
-To avoid such traps in Kotlin/Wasm, enable array range checks when linking the executable. This way, the compiler throws
-`IndexOutOfBoundsException` instead of a trap. For that, add the following to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xwasm-enable-array-range-checks")
-    }
-}
-```
-
-To compile from the command line, pass `-Xwasm-enable-array-range-checks` during executable linking.
-
-See more details and share your feedback in the [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-73452).
+To trigger a WebAssembly trap instead, disable these checks with `-Xwasm-enable-array-range-checks=false`. A trap stops the 
+current execution stack. In JavaScript environments, these traps appear as `WebAssembly.RuntimeError` and can be caught
+on the JavaScript side.
 
 ## How can I import and export functions directly between Wasm modules?
 
