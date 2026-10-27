@@ -13,7 +13,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {},
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
-    val dockerImageTag = "ktl-4901-junit-exercises"
+    val dockerImageTag = "ked-websites-stable"
     val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"
@@ -122,7 +122,7 @@ abstract class WritersideBuilder(
 
     dependencies {
         artifacts(BuildWebHelpFrontend) {
-            buildRule = lastSuccessful("+:chernenko/ktl-4901-junit-exercises")
+            buildRule = lastPinned("+:*")
             cleanDestination = true
             artifactRules = "+:static.zip!** => static/"
         }
