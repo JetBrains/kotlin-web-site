@@ -33,5 +33,9 @@ val landingConfigurations = listOf(
   LandingConfiguration(
     name = "kotlin-webflux",
     repositoryUrl = "git@github.com:jetbrains-lovable/webflux-kotlin-draft.git"
+  ),
+  LandingConfiguration(
+    name = "shipaton",
+    repositoryUrl = "git@github.com:jetbrains-lovable/template-tastic-page.git"
   )
 )
