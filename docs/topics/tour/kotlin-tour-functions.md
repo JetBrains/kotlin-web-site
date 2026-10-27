@@ -266,9 +266,7 @@ fun main() {
 ```kotlin
 import kotlin.math.PI
 
-//sampleStart
 fun circleArea(radius: Int): Double = PI * radius * radius
-//sampleEnd
 
 fun main() {
     println(circleArea(2)) // 12.566370614359172

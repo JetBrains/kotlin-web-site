@@ -21,7 +21,7 @@ class UpdateEmailTest {
         val log = captured.toString().trim()
         when {
             emailCheck.thrown is NotImplementedError -> hint(
-                "Replace TODO(\"Write your code here\") with code that updates " +
+                "Replace the TODO() function with code that updates " +
                         "the email and logs the update.",
                 ""
             )
