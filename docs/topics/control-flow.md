@@ -44,7 +44,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
+{kotlin-runnable="true" id="if-else-if-kotlin"}
 
 Each branch in an `if` expression can be a block, where the value of the last expression becomes the result:
 
@@ -66,7 +66,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-blocks-kotlin"}
+{kotlin-runnable="true" id="if-else-blocks-kotlin"}
 
 ## When expressions and statements
 
@@ -87,7 +87,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-conditions-when-statement"}
+{kotlin-runnable="true" id="kotlin-conditions-when-statement"}
 
 You can use `when` either as an **expression** or a **statement**. As an expression, `when` returns a value you can use
 later in your code. As a statement, `when` completes an action without returning a result:
@@ -173,7 +173,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-statement"}
+{kotlin-runnable="true" id="kotlin-when-statement"}
 
 Just like with `if`, each branch can be a block, and its value is the value of the last expression in the block.
 
@@ -209,7 +209,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-expression-subject"}
+{kotlin-runnable="true" id="kotlin-when-expression-subject"}
 
 > To simplify `when` expressions and reduce repetition, try out context-sensitive resolution (currently in preview).
 > This feature allows you to omit the type name when using enum entries or sealed class members in `when` expressions if the expected type is known.
@@ -238,7 +238,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-no-subject"}
+{kotlin-runnable="true" id="kotlin-when-no-subject"}
 
 ### Other ways to use when
 
@@ -258,7 +258,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-multiple-cases"}
+{kotlin-runnable="true" id="kotlin-when-multiple-cases"}
 
 Use expressions that evaluate to `true` or `false` as branch conditions:
 
@@ -276,7 +276,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-branch-expression"}
+{kotlin-runnable="true" id="kotlin-when-branch-expression"}
 
 Check whether a value is or isn't contained in a [range](ranges.md) or collection using the `in` or `!in` keywords:
 
@@ -295,7 +295,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-ranges"}
+{kotlin-runnable="true" id="kotlin-when-ranges"}
 
 Check a value's type using the `is` or `!is` keywords. Due to [smart casts](typecasts.md#smart-casts), you can access the member functions 
 and properties of the type directly:
@@ -312,7 +312,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-type-checks"}
+{kotlin-runnable="true" id="kotlin-when-type-checks"}
 
 Use `when` instead of a traditional `if`-`else` `if` chain.
 Without a subject, the branch conditions are simply boolean expressions. The first branch with a `true` condition runs:
@@ -335,7 +335,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-replace-if"}
+{kotlin-runnable="true" id="kotlin-when-replace-if"}
 
 Finally, capture the subject in a variable by using the following syntax:
 
@@ -351,7 +351,7 @@ fun main() {
     // You said yes
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-capture-subject"}
+{kotlin-runnable="true" id="kotlin-when-capture-subject"}
 
 The scope of a variable introduced as the subject is restricted to the body of the `when` expression or statement.
 
@@ -501,7 +501,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop"}
+{kotlin-runnable="true" id="kotlin-for-loop"}
 
 ### Ranges
 
@@ -533,7 +533,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-range"}
+{kotlin-runnable="true" id="kotlin-for-loop-range"}
 
 ### Arrays
 
@@ -552,7 +552,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-array"}
+{kotlin-runnable="true" id="kotlin-for-loop-array"}
 
 Alternatively, you can use the [`.withIndex()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/with-index.html) function from the standard library:
 
@@ -569,7 +569,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-array-index"}
+{kotlin-runnable="true" id="kotlin-for-loop-array-index"}
 
 ### Iterators
 
@@ -603,7 +603,7 @@ fun main() {
     // Reading page 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-inherit-iterator"}
+{kotlin-runnable="true" id="kotlin-for-loop-inherit-iterator"}
 
 > Learn more about [interfaces](interfaces.md) and [inheritance](inheritance.md).
 > 
@@ -640,7 +640,7 @@ fun main() {
     // Reading page 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-iterator-from-scratch"}
+{kotlin-runnable="true" id="kotlin-for-loop-iterator-from-scratch"}
 
 ## While loops
 
@@ -670,7 +670,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-while-loop"}
+{kotlin-runnable="true" id="kotlin-while-loop"}
 
 For a `do-while` loop, place the body within curly braces `{}` first before the condition to check in parentheses `()`:
 
@@ -692,7 +692,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-do-while-loop"}
+{kotlin-runnable="true" id="kotlin-do-while-loop"}
 
 ## Break and continue in loops
 

@@ -121,7 +121,7 @@ fun main(args: Array<String>) {
     println("LaLaLandIsTheBestMovie = $laLaLandIsTheBestMovie")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 See the [type aliases documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
@@ -141,7 +141,7 @@ fun main(args: Array<String>) {
     println("Result is $numbers")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [documentation](reflection.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
 
@@ -172,7 +172,7 @@ fun main(args: Array<String>) {
     println("e is $e") // 3.0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [sealed classes documentation](sealed-classes.md) or KEEPs for
 [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
@@ -197,7 +197,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [destructuring declarations documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
@@ -214,7 +214,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 This also works in [destructuring declarations](destructuring-declarations.md):
 
@@ -230,7 +230,7 @@ fun main(args: Array<String>) {
     println("status is '$status'")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-for-unused-parameters.md) for more details.
 
@@ -251,7 +251,7 @@ fun main(args: Array<String>) {
     println(bytes.toString(2))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
 
@@ -270,7 +270,7 @@ fun main(args: Array<String>) {
     println("$akari.isAdult = ${akari.isAdult}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Inline property accessors
 
@@ -289,7 +289,7 @@ fun main(args: Array<String>) {
     println("Last index of $list is ${list.lastIndex}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
@@ -320,7 +320,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-delegated-properties.md) for more details.
 
@@ -370,7 +370,7 @@ fun main(args: Array<String>) {
     printAllValues<RGB>() // prints RED, GREEN, BLUE
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Scope control for implicit receivers in DSLs
 
@@ -460,7 +460,7 @@ fun main(args: Array<String>) {
     println(block.content == copy.content)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
 returns the receiver, if it does or `null` if it doesn't. 
@@ -486,7 +486,7 @@ fun main(args: Array<String>) {
     println(" ".repeat(index) + "^")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet
 the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
@@ -511,7 +511,7 @@ fun main(args: Array<String>) {
     testTakeUnless("abc")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### groupingBy()
 
@@ -532,7 +532,7 @@ fun main(args: Array<String>) {
     println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Map.toMap() and Map.toMutableMap()
 
@@ -563,7 +563,7 @@ fun main(args: Array<String>) {
     println("emptyMap: $emptyMap")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### minOf() and maxOf()
 
@@ -584,7 +584,7 @@ fun main(args: Array<String>) {
     println("longestList = $longestList")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Array-like List instantiation functions
 
@@ -602,7 +602,7 @@ fun main(args: Array<String>) {
     println("mutable: $mutable")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Map.getValue()
 
@@ -627,7 +627,7 @@ fun main(args: Array<String>) {
     println("value2 is $value2")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Abstract collections
 
@@ -653,7 +653,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## JVM Backend
 

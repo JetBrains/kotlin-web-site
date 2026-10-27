@@ -31,7 +31,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-rangeto-rangeuntil"}
+{kotlin-runnable="true" id="kotlin-ranges-rangeto-rangeuntil"}
 
 Ranges are particularly useful for iterating over `for` loops:
 
@@ -43,7 +43,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-for-loop"}
+{kotlin-runnable="true" id="kotlin-ranges-for-loop"}
 
 To iterate numbers in reverse order, use the [`downTo`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/down-to.html)
 function instead of `..`.
@@ -56,7 +56,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-downto"}
+{kotlin-runnable="true" id="kotlin-ranges-downto"}
 
 You can also iterate over numbers with a custom step using the
 [`step()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/step.html) function, instead of the default increment of 1:
@@ -75,7 +75,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-step"}
+{kotlin-runnable="true" id="kotlin-ranges-step"}
 
 ## Progressions
 
@@ -106,7 +106,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions"}
+{kotlin-runnable="true" id="kotlin-ranges-progressions"}
 
 To define a custom progression step, use the `step` function on a range.
 
@@ -119,7 +119,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-step"}
+{kotlin-runnable="true" id="kotlin-ranges-progressions-step"}
 
 The `last` element of the progression is calculated this way:
 * For a positive step: the maximum value not greater than the end value such that `(last - first) % step == 0`.
@@ -136,7 +136,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-last"}
+{kotlin-runnable="true" id="kotlin-ranges-progressions-last"}
 
 Progressions implement `Iterable<N>`, where `N` is `Int`, `Long`, or `Char` respectively, so you can use them in various
 [collection functions](collection-operations.md) like `map`, `filter`, and other.
@@ -150,5 +150,5 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-filter"}
+{kotlin-runnable="true" id="kotlin-ranges-progressions-filter"}
 

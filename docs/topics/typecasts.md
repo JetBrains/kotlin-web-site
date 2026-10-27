@@ -28,7 +28,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-is-operator"}
+{kotlin-runnable="true" id="kotlin-typecasts-is-operator"}
 
 You can also use `is` and `!is` operators to check if an object matches a subtype:
 
@@ -83,7 +83,7 @@ fun main() {
     // ---
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-is-operator-subtype"}
+{kotlin-runnable="true" id="kotlin-typecasts-is-operator-subtype"}
 
 This example uses the `is` operator to check if the `Animal` class instance has subtype `Dog` or `Cat` to print the relevant
 care instructions.
@@ -122,7 +122,7 @@ fun main() {
     logMessage(404)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast"}
+{kotlin-runnable="true" id="kotlin-typecasts-smartcast"}
 
 The compiler is even smart enough to know that a cast is safe if a negative check leads to a return:
 
@@ -140,7 +140,7 @@ fun main() {
     logMessage(true)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-negative"}
+{kotlin-runnable="true" id="kotlin-typecasts-smartcast-negative"}
 
 ### Control flow
 
@@ -167,7 +167,7 @@ fun main() {
     // Log: Processed scores, total = 60
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-when"}
+{kotlin-runnable="true" id="kotlin-typecasts-smartcast-when"}
 
 And for [`while` loops](control-flow.md#while-loops):
 
@@ -210,7 +210,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-while"}
+{kotlin-runnable="true" id="kotlin-typecasts-smartcast-while"}
 
 In this example, the sealed interface `Status` has two implementations: the data class `Ok` and the data object `Error`.
 Only the `Ok` data class has the `currentRoom` property. When the `while` loop condition evaluates to true, the
