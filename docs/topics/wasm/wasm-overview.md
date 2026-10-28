@@ -27,6 +27,9 @@ For CI coverage, tooling support, and recommendations for library authors, see [
 
 ## UI frameworks for Kotlin/Wasm
 
+Kotlin/Wasm supports different frameworks to build user interfaces. Choose a framework based on your UI requirements, 
+preferred rendering approach, and whether you need to share the UI with other platforms.
+
 ### Compose Multiplatform
 
 With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
