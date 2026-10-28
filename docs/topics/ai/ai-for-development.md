@@ -177,16 +177,15 @@ tools before deciding to adopt them. The following tools support AI-assisted dev
 Teams can configure machine resources, network access, variables, and secrets for each project, and connect MCP servers 
 so team members and agents can use the same external tools.
 
-Use Air Teams when your project needs shared agent environments or recurring workflows, such as code reviews, release note generation, 
-and fixes. You can also work with agent sessions in a browser and share them with teammates. Air Teams is available in early access.
+Use Air Teams when your project needs shared agent environments and sessions for collaboration and review.
 
 Learn more about [Air Teams](https://www.jetbrains.com/air/) or [access Air Teams](https://air.jetbrains.cloud/).
 
 ### JetBrains Air Governance
 
 [JetBrains Air Governance](https://www.jetbrains.com/air/governance/) provides organization-level controls for AI-assisted and agent-driven development. 
-Administrators can set access permissions for an organization, a team, or an individual, and limit AI spending. Usage
-analytics help you understand which tools teams use and where to invest.
+Administrators can control which agents, models, and MCP servers developers can use, and set AI credit limits. Policies can apply across the
+organization or be tailored to specific teams or individuals. Usage analytics help you understand which tools teams use and where to invest.
 
 Use Air Governance when your organization needs to manage access and costs across different AI tools and providers. You
 can use JetBrains AI or supply your organization's provider API keys while managing usage centrally.
