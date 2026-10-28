@@ -55,9 +55,9 @@ the Agent Client Protocol.
 
 Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html).
 
-### JetBrains Air in IDEs
+### Air in IDEs
 
-[JetBrains Air in IDEs](https://www.jetbrains.com/air/ides/) is a plugin that provides an environment in JetBrains IDEs
+[Air in IDEs](https://www.jetbrains.com/air/ides/) is a plugin that provides an environment in JetBrains IDEs
 for working with coding agents. Use it to start agent sessions across projects, follow their progress, and review changes
 with IDE features such as code navigation and inspections. You can comment on a diff and ask an agent to revise its work.
 
@@ -171,9 +171,9 @@ or task-specific success criteria:
 Development teams may need multiple AI agents to automate recurring tasks, monitor agent activity, or evaluate different
 tools before deciding to adopt them. The following tools support AI-assisted development beyond individual coding sessions.
 
-### JetBrains Air Teams
+### Air Teams
 
-[JetBrains Air Teams](https://www.jetbrains.com/air/) lets teams collaborate on agent tasks in shared projects and dedicated cloud environments.
+[Air Teams](https://www.jetbrains.com/air/) lets teams collaborate on agent tasks in shared projects and dedicated cloud environments.
 Teams can configure machine resources, network access, variables, and secrets for each project, and connect MCP servers 
 so team members and agents can use the same external tools.
 
@@ -181,9 +181,9 @@ Use Air Teams when your project needs shared agent environments and sessions for
 
 Learn more about [Air Teams](https://www.jetbrains.com/air/) or [access Air Teams](https://air.jetbrains.cloud/).
 
-### JetBrains Air Governance
+### Air Governance
 
-[JetBrains Air Governance](https://www.jetbrains.com/air/governance/) provides organization-level controls for AI-assisted and agent-driven development. 
+[Air Governance](https://www.jetbrains.com/air/governance/) provides organization-level controls for AI-assisted and agent-driven development. 
 Administrators can control which agents, models, and MCP servers developers can use, and set AI credit limits. Policies can apply across the
 organization or be tailored to specific teams or individuals. Usage analytics help you understand which tools teams use and where to invest.
 
