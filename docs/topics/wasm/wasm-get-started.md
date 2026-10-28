@@ -1,7 +1,5 @@
 [//]: # (title: Get started with Kotlin/Wasm and Compose Multiplatform)
 
-<primary-label ref="beta"/> 
-
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
 app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts you can publish as a website.
 

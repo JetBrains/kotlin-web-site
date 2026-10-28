@@ -1,7 +1,5 @@
 [//]: # (title: Kotlin/Wasm)
 
-<primary-label ref="beta"/> 
-
 Kotlin/Wasm has the power to compile your Kotlin code into [WebAssembly (Wasm)](https://webassembly.org/) format. 
 With Kotlin/Wasm, you can create applications that run on
 different environments and devices, which support Wasm and meet Kotlin's requirements.
@@ -15,7 +13,10 @@ web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp
 browser in standalone Wasm virtual machines. In the outside-of-browser case,
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
-> To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-configuration.md#browser-versions) that supports 
+Kotlin/Wasm provides Tier 1 support for `wasm-js` and Tier 2 support for `wasm-wasi`.
+For CI coverage, tooling support, and recommendations for library authors, see [Kotlin/Wasm target support](wasm-configuration.md).
+
+> To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-configuration.md#which-browsers-support-kotlin-wasm) that supports 
 > WebAssembly's garbage collection
 > and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
 > roadmap](https://webassembly.org/roadmap/).
@@ -24,7 +25,12 @@ browser in standalone Wasm virtual machines. In the outside-of-browser case,
 
 [//]: # (TODO KT-85415: For Kotlin/Wasm-compatible standalone runtimes, see Standalone runtimes).
 
-## Kotlin/Wasm and Compose Multiplatform
+## UI frameworks for Kotlin/Wasm
+
+Kotlin/Wasm supports different frameworks to build user interfaces. Choose a framework based on your UI requirements, 
+preferred rendering approach, and whether you need to share the UI with other platforms.
+
+### Compose Multiplatform
 
 With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
 Compose Multiplatform and Kotlin/Wasm.
@@ -44,6 +50,28 @@ see [Adding dependencies on multiplatform libraries](https://kotlinlang.org/docs
 Would you like to try it yourself?
 
 <a href="wasm-get-started.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Kotlin/Wasm</a>
+
+### Doodle
+
+[Doodle](https://nacular.github.io/doodle/) is a UI framework for sharing applications between web and desktop. It supports Kotlin/Wasm and Kotlin/JS
+for the web, and JVM for desktop.
+
+Doodle uses vector-based rendering, giving you control over custom UI components, shapes, gradients, and visualizations.
+
+### Kilua
+
+[Kilua](https://kilua.dev/) is a web framework based on [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime. It uses standard HTML elements to render
+UIs.
+
+Kilua provides declarative components, reactive state management, routing, and integration with CSS frameworks such as
+Bootstrap and Tailwind CSS. It also supports server-side rendering.
+
+### Summon
+
+[Summon](https://github.com/codeyousef/summon) is a [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) frontend framework that supports Kotlin/Wasm, Kotlin/JS, and JVM. It
+provides a declarative API for reusable UI components, reactive state management, and type-safe styling.
+
+Summon supports server-side rendering and integration with JVM backend frameworks, including [Ktor](https://ktor.io/docs/welcome.html) and [Spring Boot](https://spring.io/projects/spring-boot).
 
 ## Kotlin/Wasm and WASI
 
@@ -73,8 +101,8 @@ To explore what's possible with the WebAssembly Component Model and Kotlin/Wasm,
 
 ## Kotlin/Wasm performance
 
-Although Kotlin/Wasm is still in Beta, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
-traits. You can see that its execution speed outperforms JavaScript and is approaching that of the JVM:
+Compose Multiplatform running on Kotlin/Wasm shows encouraging performance traits. You can see that its execution speed
+outperforms JavaScript and is approaching that of the JVM:
 
 ![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}
 

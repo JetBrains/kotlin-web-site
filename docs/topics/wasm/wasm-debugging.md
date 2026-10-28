@@ -1,7 +1,5 @@
 [//]: # (title: Debug Kotlin/Wasm code)
 
-<primary-label ref="beta"/> 
-
 This tutorial demonstrates how to use IntelliJ IDEA and the browser 
 to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application built with Kotlin/Wasm.
@@ -79,7 +77,7 @@ If you previously added this configuration
 to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 
 > This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
-> see [Browser versions](wasm-configuration.md#browser-versions).
+> see [Browser versions](wasm-configuration.md#which-browsers-support-kotlin-wasm).
 >
 {style="tip"}
 
