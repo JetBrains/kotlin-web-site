@@ -69,7 +69,7 @@ export const PlatformBenefitsBlock = () => {
                             app, whether you’re sharing one component, one screen, or the entire UI. Keep your existing
                             SwiftUI, Android Views, or Swing code – there’s no need to rewrite anything. Learn from the{' '}
                             <Link
-                                href="/case-studies/?type=multiplatform"
+                                href="/case-studies/?type=multiplatform&compose=true"
                                 className={textCn('rs-link', { hardness: 'hard' })}
                             >
                                 experience of other companies

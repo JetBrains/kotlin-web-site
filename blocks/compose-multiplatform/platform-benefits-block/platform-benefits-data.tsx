@@ -81,7 +81,7 @@ export const FEATURE_CARDS: FeatureCard[] = [
                 </a>
                 , including{' '}
                 <a
-                    href="https://developer.android.com/kotlin/multiplatform"
+                    href="https://developer.android.com/kotlin/multiplatform#kotlin-multiplatform-and-jetpack-libraries"
                     className={externalLinkCn}
                     target="_blank"
                     rel="noreferrer"
