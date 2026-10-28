@@ -21,6 +21,7 @@ jobs:
   sync:
     if: github.repository == 'JetBrains/kotlin-web-site'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out kotlin-web-site
         uses: actions/checkout@v4
@@ -36,7 +37,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pyyaml
+      - run: pip install pyyaml==6.0.3
 
       - name: Update kotlin-ai-skills.md
         id: sync
