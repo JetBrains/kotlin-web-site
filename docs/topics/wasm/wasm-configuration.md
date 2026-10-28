@@ -174,7 +174,7 @@ kotlin.incremental.wasm=false
 
 ## Can I access fully qualified class names at runtime?
 
-Yes. Starting with Kotlin 2.3.0, `KClass.qualifiedName` is enabled by default on Kotlin/Wasm targets.
+Yes, `KClass.qualifiedName` is enabled by default on Kotlin/Wasm targets.
 
 Fully qualified names include the package name. This makes runtime errors more informative and helps you reuse code
 that relies on this information.

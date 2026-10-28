@@ -70,6 +70,9 @@ Kotlin/Wasm supports two targets:
 
 ### Kotlin/Wasm use cases
 
+Kotlin/Wasm can help you build web UIs, share UI and application logic across platforms, or run Kotlin code outside the 
+browser. The following use cases can help you choose an approach that fits your project.
+
 #### Build web UIs
 
 Kotlin/Wasm supports several UI frameworks:
