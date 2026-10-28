@@ -122,7 +122,7 @@ and cloud-based development environments. For example:
 Choose a third-party tool if it matches your preferred development environment or offers capabilities that fit your workflow.
 Many of these tools support Kotlin code generation, explanations, test creation, and refactoring.
 
-You can use third-party tools independently or connect compatible agents to JetBrains IDEs through [ACP](#agent-client-protocol).
+You can use third-party tools independently or connect compatible agents to JetBrains IDEs through ACP.
 
 ### MCP servers
 
