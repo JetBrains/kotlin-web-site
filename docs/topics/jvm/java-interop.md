@@ -50,10 +50,11 @@ Note that if the Java class only has a setter, it isn't visible as a property in
 set-only properties.
 
 Only no-argument getters are represented as synthetic properties. If a getter is overloaded with a version that takes
-arguments, that overload isn't exposed as a property and you have to call it using its full method name. Consider the
-following Java class:
+arguments, that overload isn't exposed as a property and in most cases you call it using its full method name. Consider
+the following Java class:
 
 ```java
+// Java
 public class Greeting {
     public String getMessage() {
         return "Hello!";
@@ -66,17 +67,43 @@ public class Greeting {
 ```
 
 The no-argument `getMessage()` method is available through the synthetic `message` property, but the overloaded
-`getMessage(String)` method must be called directly:
+`getMessage(String)` method must be called as a function:
 
 ```kotlin
+// Kotlin
 fun main() {
     val greeting = Greeting()
     println(greeting.message)              // Accesses getMessage() via the synthetic property
-    println(greeting.getMessage("Kotlin")) // Calls the overloaded getMessage(String) method directly
+    println(greeting.getMessage("Kotlin")) // Calls the overloaded getMessage(String) method
 }
 ```
 
 Calling `greeting.message("Kotlin")` doesn't compile and fails with an `UNRESOLVED_REFERENCE` (receiver type mismatch) error because the `message` property doesn't accept arguments.
+
+However, in some cases, when a Java method with parameters overrides the getter of a Kotlin
+[member extension property](extensions.md#declaring-extensions-as-members), Kotlin sees the method as the
+property. So you can only call it as a property within the receiver's scope and not by its method name:
+
+```java
+// Java
+public class Greeter implements Message {
+    public String getText(String name) {
+        return "Hello, " + name + "!";
+    }
+}
+```
+
+```kotlin
+// Kotlin
+interface Message {
+  val String.text: String
+}
+
+fun demo(greeter: Greeter) {
+    greeter.getText("Kotlin")       // Error: unresolved reference
+    with(greeter) { "Kotlin".text } // Accesses getText(String) via the member extension property
+}
+```
 
 ## Methods returning void
 
@@ -171,7 +198,7 @@ You can instruct the compiler to report nullability mismatches for specific null
 -Xnullability-annotations=@<package-name>:<report-level>
 ``` 
 
-Specify the package name for the fully qualified nullability annotations and one of these report levels:
+Specify the package name for the fully-qualified nullability annotations and one of these report levels:
 
 * `ignore` to ignore nullability mismatches
 * `warn` to report warnings
@@ -363,7 +390,7 @@ in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nul
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-nullable; `When.MAYBE` and
 `When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
-A library can be compiled against the JSR-305 annotations, but there's no need to make the annotation artifact (e.g. `jsr305.jar`)
+A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations' artifact (e.g. `jsr305.jar`)
 a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library
 without the annotations present on the classpath.
 
@@ -510,7 +537,7 @@ they may want to have errors while the official migration status is `WARN`, or v
 they may wish to postpone errors reporting for some until they complete their migration.
 
 * `-Xjsr305=@<fq.name>:{strict|warn|ignore}` to override the behavior for a single annotation, where `<fq.name>`
-is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
+is the fully-qualified class name of the annotation. May appear several times for different annotations. This is useful
 for managing the migration state for a particular library.
 
 The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`,
@@ -599,7 +626,7 @@ Java's arrays are mapped as mentioned [below](#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String!>!` |
 
 > The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
-> of the Kotlin types. To call them, [use the full-qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
+> of the Kotlin types. To call them, [use the fully-qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
 >
 {style="note"}
 
@@ -886,7 +913,7 @@ fun main() {
 }
 ```
 
-To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the fully qualified name of
+To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the fully-qualified name of
 the Java type: `java.lang.Integer.bitCount(5)`.
 
 ## Java reflection
