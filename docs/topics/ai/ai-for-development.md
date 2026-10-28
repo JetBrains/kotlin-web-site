@@ -24,7 +24,7 @@ graph LR
         AI agent"]
     Review["**Review and refine**
         AI agent"]
-    Automate["**Automate**
+    Automate["**Automate and manage**
         JetBrains Air"]
 
     DefineTask --> Guide --> Connect --> Implement --> Review --> Automate
@@ -49,23 +49,22 @@ You can use it for interactive development tasks where you want to stay in contr
 The AI assistant provides:
 
 * Access to AI agents, including [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, and any third-party agents that support 
-the [Agent Client Protocol](#agent-client-protocol).
+the Agent Client Protocol.
 * Context-aware AI chat using cloud-hosted models, such as Gemini, GPT, and Claude, as well as your own local models.
 * AI-assisted code completion and next edit suggestions.
 
 Learn more about [AI assistant integration with JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html).
 
-### Agent Client Protocol
+### Air in IDEs
 
-The Agent Client Protocol (ACP) is an open protocol for connecting AI agents to IDEs and code editors.
-ACP defines a common protocol for AI agents and development tools to communicate without separate integrations for each
-agent and editor combination.
+[Air in IDEs](https://www.jetbrains.com/air/ides/) is a plugin that provides an environment in JetBrains IDEs
+for working with coding agents. Use it to start agent sessions across projects, follow their progress, and review changes
+with IDE features such as code navigation and inspections. You can comment on a diff and ask an agent to revise its work.
 
-JetBrains IDEs support ACP, allowing you to use compatible AI agents within your IDE. You can choose between different AI
-agents while working with Kotlin-aware IDE features such as navigation, inspections, refactoring, debugging, and project analysis.
+Air allows you to connect compatible agents installed locally on your machine or choose agents from the [ACP registry](https://agentclientprotocol.com/get-started/registry).
+You can also run tasks locally or delegate longer tasks to cloud agents through [Air Teams](https://air.jetbrains.cloud/).
 
-The ACP registry provides access to multiple agents, including Claude Agent, Cursor, GitHub Copilot, OpenCode, and others.
-See the full list of supported agents in the [ACP registry](https://agentclientprotocol.com/get-started/registry).
+Learn more about [Air in JetBrains IDEs](https://www.jetbrains.com/air/ides/).
 
 ## Use AI agents
 
@@ -76,6 +75,24 @@ can explore a project, plan implementation steps, modify multiple files, or run 
 > development tasks.
 > 
 {style="tip"}
+
+### Air Gateway
+
+[Air Gateway](https://www.jetbrains.com/air/gateway/) is a command-line tool for running terminal agents, such as Claude Code, Codex,
+and Junie CLI, through a JetBrains account using JetBrains AI credits. Your agent keeps its existing terminal workflow,
+while access to agents and models can be managed centrally through JetBrains Console.
+
+Learn more about [Air Gateway](https://www.jetbrains.com/air/gateway/).
+
+### Air Context
+
+[Air Context](https://www.jetbrains.com/air/context/) is a codebase indexing service with a command-line interface that builds a semantic 
+index of repositories so coding agents can find relevant code, APIs, dependencies, tests, and implementation patterns.
+
+Use Air Context when agents need to explore a large codebase or find existing implementations and project conventions. It integrates
+with supported agents, including Claude Code, Codex CLI, and Junie CLI, and can be used from IDEs and other supported editors.
+
+Learn more about [Air Context](https://www.jetbrains.com/air/context/).
 
 ### Junie
 
@@ -105,7 +122,7 @@ and cloud-based development environments. For example:
 Choose a third-party tool if it matches your preferred development environment or offers capabilities that fit your workflow.
 Many of these tools support Kotlin code generation, explanations, test creation, and refactoring.
 
-You can use third-party tools independently or connect compatible agents to JetBrains IDEs through [ACP](#agent-client-protocol).
+You can use third-party tools independently or connect compatible agents to JetBrains IDEs through ACP.
 
 ### MCP servers
 
@@ -154,33 +171,23 @@ or task-specific success criteria:
 Development teams may need multiple AI agents to automate recurring tasks, monitor agent activity, or evaluate different
 tools before deciding to adopt them. The following tools support AI-assisted development beyond individual coding sessions.
 
-### JetBrains Air
+### Air Teams
 
-[JetBrains Air](https://air.dev/) is the Agentic Development Environment (ADE) for engineering teams building products with AI.
-With Air, you can provide context for each task, choose the agent, model, and execution environment, and then review or
-refine the resulting changes before applying them to your code.
+[Air Teams](https://www.jetbrains.com/air/) lets teams collaborate on agent tasks in shared projects and dedicated cloud environments.
+Teams can configure machine resources, network access, variables, and secrets for each project, and connect MCP servers 
+so team members and agents can use the same external tools.
 
-Use Air when you want to delegate a defined coding task to an AI agent, isolate AI-generated changes from your local working copy,
-run multiple implementation tasks in parallel, or turn recurring development tasks into scheduled or event-driven automations.
-You can run tasks in your local workspace, isolated Git worktree or Docker container, and JetBrains-managed cloud environment.
+Use Air Teams when your project needs shared agent environments and sessions for collaboration and review.
 
-You can work with JetBrains Air through:
+Learn more about [Air Teams](https://www.jetbrains.com/air/) or [access Air Teams](https://air.jetbrains.cloud/).
 
-* **Air desktop app** – Run local and cloud tasks from a desktop application.
-* **Air on the web** – Run, monitor, and manage cloud tasks and automations from a web browser.
-* **AI Assistant in IntelliJ-based IDEs** – Start cloud tasks and review results without leaving your IDE. Work with the same tasks in the Air desktop app or in the web version.
+### Air Governance
 
-Learn more about [JetBrains Air](https://www.jetbrains.com/help/air/getting-started.html).
+[Air Governance](https://www.jetbrains.com/air/governance/) provides organization-level controls for AI-assisted and agent-driven development. 
+Administrators can control which agents, models, and MCP servers developers can use, and set AI credit limits. Policies can apply across the
+organization or be tailored to specific teams or individuals. Usage analytics help you understand which tools teams use and where to invest.
 
-### JetBrains Central
+Use Air Governance when your organization needs to manage access and costs across different AI tools and providers. You
+can use JetBrains AI or supply your organization's provider API keys while managing usage centrally.
 
-[JetBrains Central](https://www.jetbrains.com/agentic-software-development/) is a platform for agentic software development
-across an organization. It connects AI agents, development tools, and infrastructure so that agent-driven work can run,
-be monitored, and be managed across teams, with visibility into results, costs, and performance.
-
-[JetBrains Central Console](https://www.jetbrains.com/help/jetbrains-console/about-jetbrains-console.html) is the web
-interface for organization-level AI governance in JetBrains Central. Organization administrators can use the Console to
-manage access and policies, monitor AI usage and spending, analyze adoption, and control which AI models and features teams
-can use.
-
-Learn more about [agentic software development](https://www.jetbrains.com/agentic-software-development/).
+Learn more about [Air Governance](https://www.jetbrains.com/air/governance/).
