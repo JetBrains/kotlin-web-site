@@ -62,7 +62,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
-Replacing an object expression with a SAM conversion can change object identity. An object expression creates a new instance 
+Replacing an [object expression](object-declarations.md#object-expressions) with a SAM conversion can change object identity. An object expression creates a new instance 
 each time it's evaluated, while a SAM conversion may create a new instance or reuse an existing one. Therefore:
 
 * If you need a distinct instance each time, for example for each registration, use an object expression or create an
