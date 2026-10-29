@@ -752,7 +752,7 @@ Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
 
 `kotlinx.coroutines` [1.5.0-RC](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC) is here with:
 * [New channels API](channels.md)
-* Stable [reactive integrations](async-programming.md#reactive-extensions)
+* Stable reactive integrations
 * And more
 
 Starting with Kotlin 1.5.0, [experimental coroutines](whatsnew14.md#exclusion-of-the-deprecated-experimental-coroutines)

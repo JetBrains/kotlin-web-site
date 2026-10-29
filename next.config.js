@@ -36,7 +36,9 @@ let transpiledPackages = [
     '@webteam/country-select',
     '@webteam/postcard-section',
     '@webteam/social-share',
-    '@webteam/article'
+    '@webteam/article',
+    '@webteam/horizontal-barchart',
+    '@webteam/chart-core-v3'
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);

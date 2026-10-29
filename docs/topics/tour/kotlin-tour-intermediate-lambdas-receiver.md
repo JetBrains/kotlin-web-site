@@ -54,7 +54,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-intermediate-tour-lambda-expression-with-receiver"}
+{kotlin-runnable="true" id="kotlin-intermediate-tour-lambda-expression-with-receiver"}
 
 In this example:
 
@@ -144,7 +144,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-intermediate-tour-lambda-expression-with-receiver-dsl"}
+{kotlin-runnable="true" id="kotlin-intermediate-tour-lambda-expression-with-receiver-dsl"}
 
 As you can see, using a lambda expression with receiver greatly simplifies the code needed to create your menu. Lambda 
 expressions are not only useful for setup and creation but also for configuration. They are commonly used in building 
@@ -162,12 +162,12 @@ standard library.
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Process data with a lambda expression with receiver" id="lambda-receivers-exercise-1">
 
 You have a `fetchData()` function that accepts a lambda expression with receiver. Update the lambda expression to use 
 the `append()` function so that the output of your code is: `Data received - Processed`.
 
-|---|---|
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
     val builder = StringBuilder("Data received")
@@ -181,9 +181,8 @@ fun main() {
     }
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-1"}
 
-|---|---|
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
     val builder = StringBuilder("Data received")
@@ -198,9 +197,10 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-2"}
+</def>
+<def title="Handle a double-click event" id="lambda-receivers-exercise-2">
 
 You have a `Button` class and `ButtonEvent` and `Position` data classes. Write some code that triggers the `onEvent()`
 member function of the `Button` class to trigger a double-click event. Your code should print `"Double click!"`.
@@ -234,9 +234,8 @@ fun main() {
     }
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-2"}
 
-|---|---|
 ```kotlin
 class Button {
     fun onEvent(action: ButtonEvent.() -> Unit) {
@@ -268,9 +267,10 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-3"}
+</def>
+<def title="Create an incremented list" id="lambda-receivers-exercise-3">
 
 Write a function that creates a copy of a list of integers where every element is incremented by 1. Use the provided 
 function skeleton that extends `List<Int>` with an `incremented` function.
@@ -290,9 +290,8 @@ fun main() {
     // [2, 3, 4]
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-3"}
 
-|---|---|
 ```kotlin
 fun List<Int>.incremented(): List<Int> {
     val originalList = this
@@ -308,7 +307,10 @@ fun main() {
     // [2, 3, 4]
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-3"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

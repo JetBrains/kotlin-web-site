@@ -575,36 +575,21 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 ## All compiler options
 
-Here is a complete list of options for the Gradle compiler:
+Here is a complete list of Kotlin compiler options available through the Kotlin Gradle plugin:
 
 ### Common attributes
-
-| Name              | Description                                                                                                                            | Possible values           | Default value |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------|---------------|
-| `optIn`           | A property for configuring a list of [opt-in compiler arguments](opt-in-requirements.md)                                               | `listOf( /* opt-ins */ )` | `emptyList()` |
-| `progressiveMode` | Enables the [progressive compiler mode](whatsnew13.md#progressive-mode)                                                                | `true`, `false`           | `false`       |
-| `extraWarnings`   | Enables [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that emit warnings if true | `true`, `false`           | `false`       |
-
-### Attributes specific to JVM
-
-| Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                        | Default value               |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|-----------------------------|
-| `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                        | false                       |
-| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ...,  "25", 26". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                        | false                       |
-| `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `IGNORE`                                                                           | `ERROR`                     |
-| `jvmDefault`              | Control how functions declared in interfaces are compiled to default methods on the JVM                                                                                                                                                       | `ENABLE`, `NO_COMPATIBILITY`, `DISABLE`                                                                | `ENABLE`                    |
-
-### Attributes common to JVM and JavaScript
 
 | Name                  | Description                                                                                                                                                                          | Possible values                                         | Default value |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|---------------|
 | `allWarningsAsErrors` | Report an error if there are any warnings                                                                                                                                            |                                                         | false         |
+| `apiVersion`          | Control which Kotlin APIs your code can use. For more information, see [`-api-version`](compiler-reference.md#api-version-version).                                                  | "2.0", "2.1", "2.2", "2.3", "2.4", "2.5" (EXPERIMENTAL) |               |
+| `extraWarnings`       | Enables [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that emit warnings if true                                               | `true`, `false`                                         | `false`       |
+| `freeCompilerArgs`    | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freecompilerargs)             |                                                         | []            |
+| `languageVersion`     | Control which Kotlin language features and syntax are available during compilation. For more information, see [`-language-version`](compiler-reference.md#language-version-version). | "2.0", "2.1", "2.2", "2.3", "2.4", "2.5" (EXPERIMENTAL) |               |
+| `optIn`               | A property for configuring a list of [opt-in compiler arguments](opt-in-requirements.md)                                                                                             | `listOf( /* opt-ins */ )`                               | `emptyList()` |
+| `progressiveMode`     | Enables the [progressive compiler mode](whatsnew13.md#progressive-mode)                                                                                                              | `true`, `false`                                         | `false`       |
 | `suppressWarnings`    | Don't generate warnings                                                                                                                                                              |                                                         | false         |
 | `verbose`             | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)                                          |                                                         | false         |
-| `freeCompilerArgs`    | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freecompilerargs)             |                                                         | []            |
-| `apiVersion`          | Control which Kotlin APIs your code can use. For more information, see [`-api-version`](compiler-reference.md#api-version-version).                                                   | "2.0", "2.1", "2.2", "2.3", "2.4", "2.5" (EXPERIMENTAL) |               |
-| `languageVersion`     | Control which Kotlin language features and syntax are available during compilation. For more information, see [`-language-version`](compiler-reference.md#language-version-version). | "2.0", "2.1", "2.2", "2.3", "2.4", "2.5" (EXPERIMENTAL)  |               |
 
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL,
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
@@ -634,6 +619,9 @@ kotlin {
 
         // Single additional argument
         freeCompilerArgs.add("-Xno-param-assertions")
+
+        // Resolves an additional root module on the module path
+        freeCompilerArgs.add("-Xadd-modules=jdk.incubator.vector")
 
         // List of arguments
         freeCompilerArgs.addAll(
@@ -665,6 +653,9 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
         // Single additional argument, can be a key-value pair
         freeCompilerArgs.add("-Xno-param-assertions")
         
+        // Resolves an additional root module on the module path
+        freeCompilerArgs.add("-Xadd-modules=jdk.incubator.vector")
+        
         // List of arguments
         freeCompilerArgs.addAll(["-Xno-receiver-assertions", "-Xno-call-assertions"])
     }
@@ -676,7 +667,7 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 > The `freeCompilerArgs` attribute is available at the [extension](#extension-level), [target](#target-level), and [compilation unit (task)](#compilation-unit-level) levels.
 >
-{style="tip"} 
+{style="tip"}
 
 #### Example of setting languageVersion {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -708,7 +699,18 @@ tasks
 </tab>
 </tabs>
 
-Also, see [Types for compiler options](#types-for-compiler-options).
+Some attributes use a custom type. For more information, see [Types for compiler options](#types-for-compiler-options).
+
+### Attributes specific to JVM
+
+| Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                                                                    | Default value               |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                                                                    | false                       |
+| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ...,  "25", 26". Also, see [Types for compiler options](#types-for-compiler-options)                                             | "%defaultJvmTargetVersion%" |
+| `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `IGNORE`                                                                                                                       | `ERROR`                     |
+| `jvmDefault`              | Control how functions declared in interfaces are compiled to default methods on the JVM                                                                                                                                                       | `ENABLE`, `NO_COMPATIBILITY`, `DISABLE`                                                                                                            | `ENABLE`                    |
+| `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                                                                    | false                       |
+| `-Xadd-modules`           | (Experimental) Resolve the specified root modules in addition to the initial modules. Set the `ALL-MODULE-PATH` value to resolve all modules on the module path.                                                                              | Comma-separated module names or `ALL-MODULE-PATH` passed through [`freeCompilerArgs`](#example-of-additional-arguments-usage-via-freecompilerargs) |                             |
 
 ### Attributes specific to JavaScript
 
@@ -721,17 +723,17 @@ Also, see [Types for compiler options](#types-for-compiler-options).
 | `sourceMapEmbedSources` | Embed source files into the source map                                                                                                                                                                                                        | `JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_INLINING`, `JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_NEVER`, `JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_ALWAYS`    | `null`                             |
 | `sourceMapNamesPolicy`  | Add variable and function names that you declared in Kotlin code into the source map. For more information on the behavior, see our [compiler reference](compiler-reference.md#source-map-names-policy-simple-names-fully-qualified-names-no) | `JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_FQ_NAMES`, `JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_SIMPLE_NAMES`, `JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_NO` | `null`                             |
 | `sourceMapPrefix`       | Add the specified prefix to paths in the source map                                                                                                                                                                                           |                                                                                                                                                                               | `null`                             |
-| `target`                | Generate JS files for specific ECMA version                                                                                                                                                                                                   | `"es5"`, `"es2015"`                                                                                                                                                           | `"es5"`                            |
-| `useEsClasses`          | Let generated JavaScript code use ES2015 classes. Enabled by default in case of ES2015 target usage                                                                                                                                           |                                                                                                                                                                               | `null`                             |
+| `target`                | Generate JS files for specific ECMA version                                                                                                                                                                                                   | `"es5"`, `"es2015"`, `"es2020"`                                                                                                                                               | `"es5"`                            |
+| `useEsClasses`          | Let generated JavaScript code use ES2015 classes. Enabled by default for ES2015 and ES2020 targets usage                                                                                                                                      |                                                                                                                                                                               | `null`                             |
 
 ### Types for compiler options
 
-Some of the `compilerOptions` use the new types instead of the `String` type:
+Some of the `compilerOptions` use a custom type instead of the `String` type:
 
 | Option                             | Type                                                                                                                                                                                                              | Example                                                                                              |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `jvmTarget`                        | [`JvmTarget`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JvmTarget.kt)                                     | `compilerOptions.jvmTarget.set(JvmTarget.JVM_11)`                                                    |
 | `apiVersion` and `languageVersion` | [`KotlinVersion`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinVersion.kt)                             | `compilerOptions.languageVersion.set(KotlinVersion.%gradleLanguageVersion%)`                         |
+| `jvmTarget`                        | [`JvmTarget`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JvmTarget.kt)                                     | `compilerOptions.jvmTarget.set(JvmTarget.JVM_11)`                                                    |
 | `main`                             | [`JsMainFunctionExecutionMode`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsMainFunctionExecutionMode.kt) | `compilerOptions.main.set(JsMainFunctionExecutionMode.NO_CALL)`                                      |
 | `moduleKind`                       | [`JsModuleKind`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsModuleKind.kt)                               | `compilerOptions.moduleKind.set(JsModuleKind.MODULE_ES)`                                             |
 | `sourceMapEmbedSources`            | [`JsSourceMapEmbedMode`](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapEmbedMode.kt)               | `compilerOptions.sourceMapEmbedSources.set(JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_INLINING)` |

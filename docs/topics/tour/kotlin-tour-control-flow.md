@@ -41,7 +41,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if"}
+{kotlin-runnable="true" id="kotlin-tour-if"}
 
 There is no ternary operator `condition ? then : else` in Kotlin. Instead, `if` can be used as an expression. If there is
 only one line of code per action, the curly braces `{}` are optional:
@@ -56,7 +56,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if-expression"}
+{kotlin-runnable="true" id="kotlin-tour-if-expression"}
 
 ### When
 
@@ -90,7 +90,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-statement"}
+{kotlin-runnable="true" id="kotlin-tour-when-statement"}
 
 > Note that all branch conditions are checked sequentially until one of them is satisfied. So only the first suitable 
 > branch is executed.
@@ -120,7 +120,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression"}
 
 The examples of `when` that you've seen so far both had a subject: `obj`. But `when` can also be used without a subject.
 
@@ -141,7 +141,7 @@ fun main() {
     // Stop
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression-boolean"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression-boolean"}
 
 However, you can have the same code but with `trafficLightState` as the subject:
 
@@ -160,15 +160,16 @@ fun main() {
     // Stop
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression-boolean-subject"}
+{kotlin-runnable="true" id="kotlin-tour-when-expression-boolean-subject"}
 
 Using `when` with a subject makes your code easier to read and maintain. When you use a subject with a `when` expression, 
 it also helps Kotlin check that all possible cases are covered. Otherwise, if you don't use a subject with a 
 `when` expression, you need to provide an else branch.
 
-## Conditional expressions practice
+## Practice: Conditional expressions
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Check whether two dice rolls match" id="conditional-expressions-exercise-1">
 
 Create a simple game where you win if throwing two dice results in the same number. Use `if` to print `You win :)`
 if the dice match or `You lose :(` otherwise.
@@ -184,7 +185,6 @@ if the dice match or `You lose :(` otherwise.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -194,9 +194,8 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-conditional-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-1"}
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -209,12 +208,13 @@ fun main() {
         println("You lose :(")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-2"}
+</def>
+<def title="Print the action for a game console button" id="conditional-expressions-exercise-2">
 
-Using a `when` expression, update the following program so that it prints the corresponding actions when you input the 
-names of game console buttons.
+Using a `when` expression, update the following program so that it prints the corresponding action for any game console
+button in the table. The initial value of `button` is `"A"` but you can change it to try other buttons.
 
 | **Button** | **Action**              |
 |------------|-------------------------|
@@ -224,23 +224,21 @@ names of game console buttons.
 | Y          | Nothing                 |
 | Other      | There is no such button |
 
-|---|---|
 ```kotlin
-fun main() {
-    val button = "A"
+var button = "A"
 
+fun main() {
     println(
         // Write your code here
     )
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-conditional-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
-|---|---|
 ```kotlin
+var button = "A"
+
 fun main() {
-    val button = "A"
-    
     println(
         when (button) {
             "A" -> "Yes"
@@ -252,7 +250,10 @@ fun main() {
     )
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+
+</def>
+</deflist>
 
 ## Ranges
 
@@ -296,7 +297,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-loop"}
+{kotlin-runnable="true" id="kotlin-tour-for-loop"}
 
 Collections can also be iterated over by loops:
 
@@ -314,7 +315,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-collection-loop"}
+{kotlin-runnable="true" id="kotlin-tour-for-collection-loop"}
 
 ### While
 
@@ -347,7 +348,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-loop"}
+{kotlin-runnable="true" id="kotlin-tour-while-loop"}
 
 In the second use case (`do-while`):
 
@@ -376,22 +377,22 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-do-loop"}
+{kotlin-runnable="true" id="kotlin-tour-while-do-loop"}
 
 For more information and examples of conditional expressions and loops, see [Conditions and loops](control-flow.md).
 
 Now that you know the fundamentals of Kotlin control flow, it's time to learn how to write your own [functions](kotlin-tour-functions.md).
 
-## Loops practice {completion-point="true"}
+## Practice: Loops {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Count pizza slices using while and do-while loops" id="loops-exercise-1">
 
 You have a program that counts pizza slices until there's a whole pizza with 8 slices. Refactor this program in two ways:
 
 * Use a `while` loop.
 * Use a `do-while` loop.
 
-|---|---|
 ```kotlin
 fun main() {
     var pizzaSlices = 0
@@ -415,9 +416,8 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-1"}
 
-|---|---|
 ```kotlin
 fun main() {
     var pizzaSlices = 0
@@ -429,9 +429,8 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
 
-|---|---|
 ```kotlin
 fun main() {
     var pizzaSlices = 0
@@ -442,11 +441,11 @@ fun main() {
     } while ( pizzaSlices < 8 )
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
-
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-2"}
+</def>
+<def title="Play the Fizz buzz game" id="loops-exercise-2">
 
 Write a program that simulates the [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz) game. Your task is to print 
 numbers from 1 to 100 incrementally, replacing any number divisible by three with the word "fizz", and any number 
@@ -466,15 +465,13 @@ divisible by five with the word "buzz". Any number divisible by both 3 and 5 mus
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-2"}
 
-|---|---|
 ```kotlin
 fun main() {
     for (number in 1..100) {
@@ -489,9 +486,10 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-3"}
+</def>
+<def title="Print words that start with a given letter" id="loops-exercise-3">
 
 You have a list of words. Use `for` and `if` to print only the words that start with the letter `l`.
 
@@ -502,16 +500,14 @@ You have a list of words. Use `for` and `if` to print only the words that start 
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun main() {
     val words = listOf("dinosaur", "limousine", "magazine", "language")
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-loops-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-3"}
 
-|---|---|
 ```kotlin
 fun main() {
     val words = listOf("dinosaur", "limousine", "magazine", "language")
@@ -521,7 +517,10 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

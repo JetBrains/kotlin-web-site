@@ -10,7 +10,7 @@ The Kotlin Multiplatform Gradle plugin gives you access to features
 such as controlling your application's bundling and adding JavaScript dependencies directly from npm.
 To get an overview of the available configuration options, see [Set up a Kotlin/JS project](js-project-setup.md).
 
-> The current implementation of Kotlin/JS targets the [ES5](https://www.ecma-international.org/ecma-262/5.1/) and [ES2015](https://262.ecma-international.org/6.0/) standards.
+> The current implementation of Kotlin/JS targets the [ES5](https://www.ecma-international.org/ecma-262/5.1/), [ES2015](https://262.ecma-international.org/6.0/), and [ES2020](https://262.ecma-international.org/11.0/) standards.
 >
 {style="tip"}
 

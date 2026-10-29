@@ -17,12 +17,13 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Standard library:** [Support for coroutine stack trace recovery and new features for checking equality and uniqueness of collection elements](#standard-library)
-* **Kotlin/Native:** [New Swift export features and automatically generated `Package.swift` files for SwiftPM dependencies](#kotlin-native)
-* **Kotlin/Wasm:** [Changes to top-level `require()` calls in `@JsFun` declarations, improved companion object initialization order, and support for Wasmtime in the Kotlin Gradle plugin](#kotlin-wasm)
-* **Kotlin/JS:** [New DSL for browser testing and support for exporting suspend lambdas as async functions](#kotlin-js)
-* **Build tools API:** [Support for new targets: Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
-* **Kotlin compiler:** [Experimental release of the native image](#kotlin-compiler-native-image)
+* **Language**: [Stable name-based destructuring in `only-syntax` mode, unused return value checker, and improved compile-time constants](#stable-language-features).
+* **Standard library**: [New experimental functions for simplifying common patterns with `if` expressions](#new-functions-for-simplifying-common-patterns-with-if-expressions) and [experimental support for Unicode code points](#support-for-unicode-code-points).
+* **Kotlin/JVM**: [Support for Java 28](#kotlin-jvm).
+* **Kotlin/Native**: [Incremental compilation enabled by default on Apple targets](#incremental-compilation-enabled-by-default-on-apple-targets) and [Swift export in Beta with a new DSL](#swift-export-goes-beta-with-a-new-gradle-dsl).
+* **Kotlin Multiplatform**: [New experimental compilation scheme for Kotlin Multiplatform](#new-experimental-compilation-scheme-for-kotlin-multiplatform) and [new publication format for multiplatform libraries](#new-publication-format-for-kotlin-multiplatform-libraries).
+* **Kotlin/JS**: [Support for the `es2020` target](#kotlin-js).
+* **Kotlin compiler**: [More consistent inline function behavior during `klib` compilation](#consistent-cross-module-function-inlining-during-klib-compilation).
 
 > For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
 >
@@ -36,541 +37,650 @@ and [Android Studio](https://developer.android.com/studio).
 To update to the new Kotlin version, make sure your IDE is updated to the latest version and [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
 to %kotlinEapVersion% in your build scripts.
 
-## New features {id=new-experimental-features}
-<primary-label ref="experimental-exp"/>
+## Language
 
-The following pre-stable features are available in this release.
-This includes features with [Beta](components-stability.md#stability-levels-explained), [Alpha](components-stability.md#stability-levels-explained), and [Experimental](components-stability.md#stability-levels-explained) status:
+Kotlin %kotlinEapVersion% stabilizes multiple language features introduced in earlier releases. It also introduces experimental
+companion extensions and blocks, and full value classes.
 
-* [Standard library: Support for coroutine stack trace recovery](#support-for-coroutine-stack-trace-recovery)
-* [Standard library: New functions to check collection elements for equality and uniqueness](#new-functions-to-check-collection-elements-for-equality-and-uniqueness)
-* [Kotlin/JS: New DSL for browser testing](#a-new-dsl-for-browser-testing)
-* [Build tools API: Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata](#build-tools-api)
-* [Kotlin compiler: Separate Kotlin compiler image](#kotlin-compiler-native-image)
+### Stable language features
+
+<secondary-label ref="language"/>
+
+Kotlin 2.3.0−2.4.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained).
+We're happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
+
+* [Improved compile-time constants](whatsnew24.md#improved-compile-time-constants).
+
+* [The `@IntroducedAt` annotation](whatsnew24.md#new-introducedat-annotation-to-generate-version-based-overloads-for-optional-parameters) to generate version-based overloads for optional parameters.
+
+* [The unused return value checker](whatsnew23.md#unused-return-value-checker), which is now enabled by default.
+
+* [Name-based destructuring](destructuring-declarations.md#name-based-destructuring) in `only-syntax` mode, which is now the default.
+
+  In this mode, the "old" destructuring syntax `val (x, y)` keeps its position-based behavior, while the "new" syntax `(val x, val y)` performs name-based destructuring. You can find an overview of the feature in this video:
+
+  <video src="https://www.youtube.com/v/He8J34KHEY4" title="Kotlin's Name-Based Destructuring"/>
+
+### Companion extensions and blocks
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="language"/>
+
+Kotlin %kotlinEapVersion% introduces companion extensions and companion blocks.
+
+Previously, to declare extensions, functions, and properties that you could access through a type's name, the type needed
+to have a companion object. Companion extensions and blocks remove this requirement and let you:
+
+* Declare a companion extension by adding the `companion` modifier to a top-level extension, even if the type it extends has no companion object.
+* Declare functions and properties in a `companion {}` block inside a class or interface without creating an object instance. On platforms that support static members, the compiler generates these declarations as static members. As a result, you don't need to annotate them with `@JvmStatic` on the JVM.
+
+Here's an example that declares `UnitX` as a companion extension and `Zero` in a companion block:
+
+```kotlin
+// Declares UnitX as a companion extension
+companion val Vector.UnitX get() = Vector(1.0, 0.0)
+
+data class Vector(val x: Double, val y: Double) {
+    companion {
+        // Declares Zero in a companion block
+        val Zero: Vector get() = Vector(0.0, 0.0)
+    }
+}
+
+fun main() {
+    println(Vector.UnitX)
+    // Vector(x=1.0, y=0.0)
+
+    println(Vector.Zero)
+    // Vector(x=0.0, y=0.0)
+}
+```
+
+For more information about the design, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0449-companions-block-extension.md). You can also read about the feature in our [blog post](https://blog.jetbrains.com/kotlin/2026/09/the-companions-to-come/).
+
+Companion extensions and blocks are [Experimental](components-stability.md#stability-levels-explained). To opt in, add
+the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xcompanion-blocks-and-extensions")
+    }
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xcompanion-blocks-and-extensions</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab>
+</tabs>
+
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-11968).
+
+### Full value classes
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="language"/>
+
+Before Kotlin %kotlinEapVersion%, [inline value classes](inline-classes.md) let you create a custom wrapper type around
+a single value. If your type needed multiple properties, you had to use a regular class or data class. But for these classes,
+two instances that contain the same data can still be distinguished by their references, even when that distinction has no
+meaning for the type. This can limit runtime optimizations and allow code to depend unnecessarily on whether the same object
+reference is preserved.
+
+Kotlin %kotlinEapVersion% introduces experimental full value classes that let you define types where the properties together
+make up the value and the identity of individual instances doesn't matter. For example, you can declare a full value class
+`Complex` to represent a complex number with real and imaginary properties:
+
+```kotlin
+value class Complex(val real: Double, val imaginary: Double)
+```
+
+The compiler automatically generates `equals()`, `hashCode()`, and `toString()` functions for full value classes, similar
+to data classes. However, there:
+
+* are no `componentN()` functions. Instead, you can use [name-based destructuring](destructuring-declarations.md#name-based-destructuring). You don't need to opt in.
+* is no `copy()` function. In the future, you can use `copy vars` instead. For more information, see [KT-44653](https://youtrack.jetbrains.com/issue/KT-44653).
+
+For more information about the differences compared to data classes, see the KEEP's section about [inheritance](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0454-better-immutability-value-classes-MFVC.md#mfvc-and-inheritance).
+
+#### Abstract value classes
+
+Full value classes can be abstract. Unlike [interfaces](interfaces.md), they can define initialization logic that every subclass runs during construction.
+
+For example, the `OrderedInterval` value class accepts `start` and `end` as constructor parameters. The `IntInterval` 
+value class stores the values in its `start` and `end` properties.
+
+```kotlin
+sealed value class OrderedInterval<T : Comparable<T>> protected constructor(
+    start: T,
+    end: T,
+) {
+    init {
+        require(start <= end)
+    }
+}
+
+value class IntInterval(
+    val start: Int,
+    val end: Int
+) : OrderedInterval<Int>(start, end)
+```
+
+For more information, see the KEEP's section about [inheritance](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0454-better-immutability-value-classes-MFVC.md#mfvc-and-inheritance).
+
+#### Value objects
+
+Full value classes can have no properties. These are called _value objects_ and are useful for representing types with only
+one possible value without an identity, such as states or tokens. For example:
+
+```kotlin
+sealed interface UserResponse
+
+value class UserFound(val user: User) : UserResponse
+value object UserUnknown : UserResponse
+```
+
+For more information, see the KEEP's section about [value objects](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0454-better-immutability-value-classes-MFVC.md#value-objects).
+
+#### How to enable
+
+This feature is [Experimental](components-stability.md#stability-levels-explained). To opt in, add the following compiler
+option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xfull-value-classes")
+    }
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xfull-value-classes</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab>
+</tabs>
+
+#### Changes to inline value class declarations
+
+With these new value classes, `value class` no longer necessarily means inline. Inline value classes have an externally
+observable inline representation, while other value classes don't expose their runtime representation in the same way.
+This distinction matters for Spring and serialization libraries, which handle inline value classes differently.
+
+To make the distinction explicit, in the future, the compiler will require inline value classes to be declared explicitly
+through the `inline` modifier and `@JvmInline value class` declarations. A plain `value class` declaration will no longer
+be treated as inline.
+
+We plan a staged migration to change this behavior:
+
+* Kotlin 2.5.20 will report a warning for unmarked single-field value classes.
+* Kotlin 2.6.0 or 2.7.0 will raise this warning to an error.
+
+You can use the `-Xinline-value-class-migration=warning` and `-Xinline-value-class-migration=strict` compiler options to prepare your code for this change.
+
+For more information, see the [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0468-inline-value-classes.md#migration).
+
+##### Prepare your library's classes for migration to value classes
+
+As a library author, you can use the `@WillBecomeValue` annotation to prepare your library's regular classes for a future migration to 
+full value classes. The compiler warns users when their code relies on object identity, for example through reference 
+equality (`===`), synchronization, or identity hash codes. These warnings give users time to update their code before you
+migrate the classes. 
+
+The annotation is [Experimental](components-stability.md#stability-levels-explained) and requires 
+you to opt in with `@OptIn(ExperimentalValueClassApi::class)`. Your library's users don't need this opt-in to use the annotated classes.
+
+For more information, see the [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0470-will-become-value.md).
+
+### Improved checks for equality comparisons on structural classes
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="language"/>
+
+Kotlin %kotlinEapVersion% introduces additional analysis of equality comparisons involving data classes, data objects, 
+final value classes, and enum classes, collectively referred to as _structural classes_.
+
+The compiler uses strict equality checks for these classes to report comparisons that always return `false` with `==` or
+`true` with `!=`, based on the known types of the operands. These checks help catch mistakes such as comparing a vector 
+with a point, even when both classes have the same properties:
+
+```kotlin
+data class Point(val x: Double, val y: Double) {
+    companion object {
+        val ZERO: Point = Point(0.0, 0.0)
+    }
+}
+
+data class Vector(val x: Double, val y: Double)
+
+fun normalize(v: Vector) {
+    if (v == Point.ZERO) {
+        // Diagnostic: this comparison is always false.
+        // A Vector is being compared with a Point.
+    }
+    // ...
+}
+```
+
+The compiler can also use equality checks to smart-cast the right-hand operand.
+
+To enable this feature, add the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xstrict-equality-for-structural-classes")
+    }
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xstrict-equality-for-structural-classes</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab>
+</tabs>
+
+For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0456-equals.md).
 
 ## Standard library
 
-Kotlin %kotlinEapVersion% adds support for coroutine stack trace recovery and introduces new functions to check
-collection elements for equality and uniqueness.
+In this release, the Kotlin standard library has new experimental functions to simplify your `if` expressions and experimental
+support for Unicode code points.
 
-### Support for coroutine stack trace recovery
+### New functions for simplifying common patterns with `if` expressions
+
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="standard-library"/>
 
-Kotlin %kotlinEapVersion% adds the `StackTraceRecoverable` interface to the standard library.
-This improves integration with the `kotlinx.coroutines` library because it lets you define how to create new exception
-instances for stack trace recovery without adding a dependency on `kotlinx.coroutines`.
+Kotlin %kotlinEapVersion% introduces new standard library functions that let you inspect a `Boolean` value before returning
+it or return a nullable result depending on that value.
 
-Stack trace recovery helps with debugging when one coroutine throws an exception and another rethrows it.
-It lets you see where the exception originates and where another coroutine rethrows it.
+Previously, these patterns required explicit `if` expressions with `else` branches. You can now simplify them with the
+following functions:
 
-The `kotlinx.coroutines` library performs stack trace recovery by creating a new exception instance with additional
-coroutine stack trace information. This happens automatically for exceptions with constructors that take only an
-exception message, a cause, both, or no arguments.
+* `onTrue()` runs a specified code block when a `Boolean` value is `true` and returns the original Boolean value.
+* `onFalse()` runs a specified code block when a `Boolean` value is `false` and returns the original Boolean value.
+* `ifOrNull()` runs a specified code block and returns its result if the `Boolean` value is `true`. If the value is `false`, the function returns `null` without running the block.
 
-If an exception constructor has additional required arguments, such as a line number or an error code, implement the
-`StackTraceRecoverable` interface to define how the `kotlinx.coroutines` library creates a new instance of that exception.
+These functions are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the 
+`@OptIn(ExperimentalStdlibApi::class)` annotation or the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
 
-To implement the interface, override the `copyForStackTraceRecovery()` function. In the override, return a new exception
-instance for stack trace recovery, or `null` if you don't want the `kotlinx.coroutines` library to copy the exception.
-
-> The `StackTraceRecoverable` interface is available on all targets, but the `kotlinx.coroutines`
-> library uses it for stack trace recovery only on the JVM.
->
-{style="note"}
-
-These APIs are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the
-`@OptIn(ExperimentalStdlibCoroutineSupportApi::class)` annotation.
-
-Here's an example of a custom exception that preserves a `line` property when it creates a new instance for stack trace
-recovery:
-
-```kotlin
-import kotlin.coroutines.ExperimentalStdlibCoroutineSupportApi
-import kotlin.coroutines.debug.StackTraceRecoverable
-
-@OptIn(ExperimentalStdlibCoroutineSupportApi::class)
-class FileEditException
-// The implementation requires a private constructor
-// to pass the cause to the IllegalStateException constructor
-private constructor(
-    val line: Int,
-    private val detail: String,
-    cause: Throwable?,
-) : IllegalStateException("When editing line $line: $detail", cause),
-    // Implements StackTraceRecoverable for stack trace recovery
-    StackTraceRecoverable<FileEditException> {
-
-    constructor(line: Int, detail: String) : this(line, detail, null)
-
-    // Copies the line number and message details
-    override fun copyForStackTraceRecovery(): FileEditException =
-        FileEditException(line, detail, this)
-    }
-
-fun main() {
-    val original = FileEditException(15, "Unexpected token")
-    
-    // Normally, you don't need to call this function directly unless you're testing its behavior
-    // The kotlinx.coroutines library invokes it automatically during stack trace recovery
-    val copy = original.copyForStackTraceRecovery()
-
-    println(copy.message)
-    // When editing line 15: Unexpected token
-
-    println(copy.cause == original)
-    // true
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.4.20-Beta2"}
-
-For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/stdlib/KEEP-0461-stacktrace-recoverable.md).
-
-We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-86595).
-
-### New functions to check collection elements for equality and uniqueness
-<primary-label ref="experimental-opt-in"/>
-<secondary-label ref="standard-library"/>
-
-Before Kotlin %kotlinEapVersion%, if you wanted to check whether collection elements were all distinct or all equal,
-you had to use inefficient code patterns.
-
-Kotlin %kotlinEapVersion% introduces experimental functions to fill this gap:
-
-| Function           | Checks                                                     |
-|--------------------|------------------------------------------------------------|
-| `.allDistinct()`   | Every value in the collection is unique.                   |
-| `.allDistinctBy()` | Every object has a unique value for the selected property. |
-| `.allEqual()`      | Every value in the collection is the same.                 |
-| `.allEqualBy()`    | Every object has the same value for the selected property. |
-
-You can use these functions on collections, sequences, and arrays. They compare elements using structural equality
-just like other collection operations.
-
-These functions are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the
-`@OptIn(ExperimentalStdlibApi::class)` annotation or the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option:
+Here's an example:
 
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
 fun main() {
-    data class Response(
-        val participantId: String,
-        val answer: String,
-        val responseDate: String
-    )
+    val tags = mutableSetOf("kotlin", "jvm")
 
-    val responses = listOf(
-        Response("P001", "Yes", "2026-07-21"),
-        Response("P002", "Maybe", "2026-07-21"),
-        Response("P003", "No", "2026-07-21")
-    )
+    // Uses the onTrue() function to print a message when add() returns true
+    val added = tags.add("wasm").onTrue {
+        println("Tag added")
+    }
+    println(added)
+    // Tag added
+    // true
 
-    // Checks if all participants gave the same answer
-    println(responses.allEqualBy { it.answer })
+    // Uses the onFalse() function to print a message when remove() returns false
+    val removed = tags.remove("native").onFalse {
+        println("Tag not found")
+    }
+    println(removed)
+    // Tag not found
     // false
 
-    // Checks for duplicate participants
-    println(responses.allDistinctBy { it.participantId })
-    // true
-
-    // Checks if all responses were submitted on the same date
-    println(responses.allEqualBy { it.responseDate })
-    // true
-
-    val answers = responses.map { it.answer }
-
-    // Checks if answers are identical
-    println(answers.allEqual())
-    // false
-
-    // Checks if answers are distinct
-    println(answers.allDistinct())
-    // true
+    // Uses the ifOrNull() function to return a message when "wasm" is in tags
+    val message = ifOrNull("wasm" in tags) {
+        "Wasm tag is available"
+    }
+    println(message)
+    // Wasm tag is available
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.5.0-Beta1" validate="false"}
 
-We would appreciate hearing your feedback on your experience with these functions in [YouTrack](https://youtrack.jetbrains.com/issue/KT-30270).
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-6938).
+
+### Support for Unicode code points
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="standard-library"/>
+
+Kotlin %kotlinEapVersion% introduces the `CodePoint` inline value class and the related APIs in the `kotlin.text.unicode`
+package. This allows you to work with Unicode code points across platforms.
+
+A `Char` represents one UTF-16 code unit. However, some Unicode code points require two `Char` values, known as a surrogate pair.
+When a program iterates over a string as `Char` values, it processes each half of a surrogate pair as a separate element.
+
+The `CodePoint` value class represents a Unicode code point and uses `Int` as its underlying type to store its integer value.
+It provides access to properties such as the number of UTF-16 code units needed to represent it, its Unicode category,
+and whether it is a letter, digit, or whitespace.
+
+The new APIs let you count and iterate over code points, convert their case, and append, insert, replace, or delete them in text.
+You can also compare code points, perform arithmetic, create ranges, and traverse text in both directions. The text APIs
+continue to use UTF-16 code-unit offsets for positions.
+
+These APIs are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the `@OptIn(ExperimentalUnicodeApi::class)`
+annotation or the `-opt-in=kotlin.text.unicode.ExperimentalUnicodeApi` compiler option.
+
+For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/stdlib/KEEP-0400-unicode-codepoints.md).
+
+## Kotlin/JVM
+<secondary-label ref="jvm"/>
+
+Starting with Kotlin %kotlinEapVersion%, the compiler can generate classes containing Java 28 bytecode.
 
 ## Kotlin/Native
 
-Kotlin %kotlinEapVersion% brings new Swift export features, including support for sealed classes and cross-language
-inheritance, and automatic generation of `Package.swift` files for SwiftPM dependencies.
+Kotlin %kotlinEapVersion% enables incremental compilation by default on Apple targets and promotes Swift export to Beta with a new Gradle DSL.
 
-### New Swift export features
+### Incremental compilation enabled by default on Apple targets
+
 <secondary-label ref="native"/>
 
-#### Sealed classes
+Starting with Kotlin %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default on Apple targets.
 
-Kotlin %kotlinEapVersion% adds support for sealed classes and interfaces to Swift export.
+With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, only the 
+affected part of the `klib` is further recompiled into a binary.
 
-Previously, you had to write a `default` case for every `switch` statement
-over a sealed type. Now, sealed hierarchies defined in Kotlin are mapped to Swift enums, enabling exhaustive `switch`
-statements with full autocompletion in Xcode.
+This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts)
+and has proven to drastically reduce compilation time for debug builds in certain cases.
 
-Swift export generates a `.sealedType()` method on each sealed type. This method returns a Swift enum whose cases match
-the direct subclasses of the sealed hierarchy. You can nest these calls to match deeper levels of the hierarchy.
-
-For example, declare a sealed interface with a class hierarchy in Kotlin:
-
-```kotlin
-// Kotlin
-sealed interface Shape
-
-class Circle : Shape {
-   override fun toString(): String = "Circle"
-}
-
-class Rectangle : Shape {
-   override fun toString(): String = "Rectangle"
-}
-
-fun createCircle(): Shape = Circle()
-```
-
-On the Swift side, you can use an exhaustive `switch` without a `default` case:
-
-```swift
-// Swift
-let shape = createCircle()
-
-let name = switch shape.sealedType() {
-   case let .circle(type): "It's a \(type.value)"
-   case let .rectangle(type): "It's a \(type.value)"
-}
-// name == "It's a Circle"
-```
-
-Because the `switch` is exhaustive, the compiler warns you if a new subclass is added to the sealed hierarchy, so you can
-handle it immediately instead of relying on a `default` case.
-
-#### Cross-language inheritance in Swift export
-
-Kotlin %kotlinEapVersion% introduces cross-language inheritance support to Swift export.
-
-A common use case for this feature is the [reverse import](native-lib-import-stability.md#swift-library-import) pattern,
-where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
-This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
-
-To implement the pattern, declare a Kotlin superclass for the Swift implementation to inherit from and
-a Kotlin interface. Then implement the interface in Swift and pass the Swift object to Kotlin functions that accept
-that interface. For example, for the CryptoKit library:
-
-1. On the Kotlin side, declare an `open` base class and a Kotlin interface with a function that accepts it:
-
-   ```kotlin
-   // Kotlin
-   interface CryptoProvider {
-      fun hashMD5(input: String): String
-   }
-
-   fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
-
-   open class SwiftBase 
-   ```
-
-2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using a pure Swift library,
-   and pass the object back to Kotlin:
-
-   ```swift
-   // Swift
-   import CryptoKit
-
-   final class IosCryptoProvider: SwiftBase, CryptoProvider {
-      func hashMD5(input: String) -> String {
-          guard let data = input.data(using: .utf8) else { return "failed" }
-          return Insecure.MD5.hash(data: data).description
-      }
-   }
-
-   let provider = IosCryptoProvider()
-
-   // The call is dispatched to the Swift implementation
-   print(processHash(provider: provider, input: "Hello, world!"))
-   ```
-
-When Kotlin receives a Swift object, it treats it like an implementation of a regular interface, executing Swift code.
-
-For more details on Swift export, see our [documentation](native-swift-export.md).
-
-### Generated `Package.swift` for SwiftPM dependencies
-<secondary-label ref="native"/>
-
-When exporting an XCFramework that depends on SwiftPM packages, you must publish the resulting SwiftPM package for it to
-resolve correctly. To help with this, the `assembleSharedXCFramework` Gradle task now generates a `Package.swift` file
-to be distributed along with the XCFramework.
-
-For details, see the [SwiftPM export page](https://kotlinlang.org/docs/multiplatform/multiplatform-spm-export.html).
-
-## Kotlin/Wasm
-
-Kotlin %kotlinEapVersion% changes how Kotlin/Wasm handles top-level `require()` calls in `@JsFun` declarations,
-aligns companion object initialization order with JVM behavior, and adds support for Wasmtime as a runtime for the
-`wasmWasi` target in the Kotlin Gradle plugin.
-
-### Changes to top-level `require()` calls in `@JsFun` declarations
-<secondary-label ref="wasm"/>
-
-Kotlin/Wasm now reports an error when a `@JsFun` declaration uses the top-level `require()` function.
-
-Previously, the compiler generated a `require` variable in the `import-object.mjs` file, allowing `@JsFun` declarations
-to call `require()`.
-
-This behavior unintentionally exposed a compiler implementation detail. To support migration away from it, Kotlin/Wasm
-removes this generated `require` declaration, and the compiler now reports errors for such calls. For example:
-
-```kotlin
-// Reports an error
-@JsFun("(mod) => require(mod)")
-external fun loadModule(mod: String): JsAny
-```
-
-To prepare for this change, replace top-level `require()` calls in `@JsFun` declarations with the `@JsModule` annotation:
-
-```kotlin
-@JsModule("module")
-external val module: Module
-
-external interface Module {
-    // Defines the expected module members
-}
-```
-
-For dynamic module loading, use the `import()` expression instead.
-Add the `/* webpackIgnore: true */` magic comment to prevent webpack from parsing the dynamic import:
-
-```kotlin
-@JsFun("""
-    ((module) => () => module)(
-        await import(/* webpackIgnore: true */ "module")
-    )
-""")
-private external fun loadModuleDynamically(): JsAny?
-```
-
-You can also use the `import()` expression conditionally. For example, you can load a module only when running in Node.js:
-
-```kotlin
-@JsFun("""
-    ((module) => () => module)(
-        ((typeof process !== "undefined") && (process.release.name === "node"))
-            ? await import(/* webpackIgnore: true */ "module")
-            : null
-    )
-""")
-private external fun loadNodeModule(): JsAny?
-```
-
-If your project relies on dependencies that require a top-level `require()` function, add it as a property of
-`globalThis` as a workaround:
-
-```kotlin
-@JsFun("""
-    ((module) => {
-        globalThis.require = module.default.createRequire(import.meta.url)
-        return () => {}
-    })(await import("node:module"))
-""")
-external fun defineRequire()
-```
-
-If you run into any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/projects/KT/issues/KT-86192).
-
-### Improved companion object initialization order
-<secondary-label ref="wasm"/>
-
-Kotlin/Wasm now initializes superclass companion objects before subclass companion objects, matching the JVM behavior.
-Previously, the initialization could be reversed, leading to inconsistent behavior across platforms.
-
-The update improves cross-platform consistency and reduces platform-specific differences in class initialization behavior.
-It also enables correct handling of companion object initialization in deeper inheritance hierarchies, including cases
-where intermediate classes don't declare companion objects.
-
-### Support for Wasmtime in the Kotlin Gradle plugin
-<secondary-label ref="wasm"/>
-
-Kotlin %kotlinEapVersion% introduces support for [Wasmtime](https://docs.wasmtime.dev/) as a runtime for the `wasmWasi`
-target in the Kotlin Gradle plugin.
-
-Previously, the `wasmWasi` target supported only the Node.js runtime, which required a JavaScript bootstrap to run WASI
-applications. With Wasmtime support, you can now run Kotlin/Wasm applications on a standalone WebAssembly runtime.
-
-To use Wasmtime as the runtime for the `wasmWasi` target, add `wasmtime()` to your Gradle build file:
-
-```kotlin
-kotlin {
-    wasmWasi {
-        wasmtime()
-    }
-}
-```
-
-We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-86633).
-
-## Kotlin/JS
-
-Kotlin %kotlinEapVersion% introduces a new experimental DSL for browser testing and adds support for exporting suspending
-lambdas as JavaScript async functions.
-
-### A new DSL for browser testing
-<primary-label ref="experimental-opt-in"/>
-<secondary-label ref="js"/>
-
-Kotlin %kotlinEapVersion% introduces a new experimental DSL for running Kotlin/JS tests in a browser environment.
-
-Currently, the Kotlin Gradle plugin uses [Karma](https://github.com/karma-runner/karma) as a browser launcher to run
-JavaScript tests across different browsers. The Karma project has been deprecated for two years now, which has led us to
-explore alternative ways to support browser testing.
-
-The new DSL is intended to replace Karma as a manager of different tools under the hood and includes:
-
-* [Mocha](https://mochajs.org/) as a test runner.
-* [Webpack](https://webpack.js.org/) as a bundler (will be replaced with [Vite](https://vite.dev/)
-  in [future releases](https://youtrack.jetbrains.com/issue/KT-48308/)).
-* [Playwright](https://playwright.dev/) as a browser driver and a distribution manager that supports the Chromium, Firefox,
-  and WebKit (Safari) browser engines.
-
-To try out the new testing DSL, add the opt-in `test{}` block inside `browser{}` for your Kotlin/JS target:
-
-```kotlin
-import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
-import kotlin.time.Duration.Companion.seconds
-
-kotlin {
-    js {
-        browser {
-            @OptIn(ExperimentalJsTestDsl::class)
-            // Add and configure the new test{} block
-            test {
-                // Configure default timeout for all runners
-                timeout = 2.seconds
-                // Configure headless mode using Gradle providers
-                headless = providers
-                    .environmentVariable("IS_IN_CI")
-                    .map { it.toBoolean() }
-                    .orElse(false)
-                // Enable and configure Chromium test runner
-                chromium {
-                    // Override the common timeout option
-                    timeout = 5.seconds
-                    // Add extra launch arguments
-                    launchArgs.add("--no-sandbox")
-                }
-                // Enable Firefox test runner
-                firefox()
-                // Enable WebKit test runner
-                webkit()
-                // Enable and configure an additional WebKit test runner
-                webkit("noheadless") {
-                    // Set up custom options
-                    headless = false
-                }
-            }
-        }
-    }
-}
-```
-
-The new DSL is in active development. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66897).
-
-### Support for exporting suspending lambdas as async functions
-<secondary-label ref="js"/>
-
-With Kotlin %kotlinEapVersion%, you can now export suspending [lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions)
-as JavaScript `async` functions.
-
-Previously, there was no way to export declarations containing suspending lambdas from Kotlin/JS libraries. Now the Kotlin
-compiler automatically handles the bridging between Kotlin's `suspend` functions and JavaScript's native [`async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-model, which is useful for mixed Kotlin/TypeScript codebases.
-
-To enable this feature, add the following compiler option to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    js {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions {
-                    freeCompilerArgs.add("-Xsuspend-lambda-exporting")
-                }
-            }
-        }
-    }
-}
-```
-
-Then, mark the relevant declarations with `@JsExport`:
-
-```kotlin
-// Kotlin
-@JsExport
-class TaskRunner {
-    suspend fun runTask(task: suspend () -> String): String {
-        return task()
-    }
-}
-```
-
-From the TypeScript side, the suspending lambda appears as a regular `async` function:
-
-```typescript
-// TypeScript
-import { TaskRunner } from "..."
-
-const runner = new TaskRunner();
-const result = await runner.runTask(async () => "done");
-console.log(result); // "done"
-```
-
-For more information on the `@JsExport` annotation, see [our documentation](js-to-kotlin-interop.md#jsexport-annotation).
-
-## Build tools API
-
-### Support for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata
-<primary-label ref="experimental-general"/>
-<secondary-label ref="bta"/>
-
-In [Kotlin 2.2.0](whatsnew22.md#new-experimental-build-tools-api), the build tools API (BTA) became available for
-Kotlin/JVM. Kotlin %kotlinEapVersion% takes the next step toward BTA stabilization by adding support for new targets:
-Kotlin/JS, Kotlin/Wasm, and Kotlin metadata.
-
-This makes the Kotlin Gradle plugin interact with the compiler more consistently. In some cases, you can also benefit
-from faster, more stable compilation.
-
-The BTA is a universal API that acts as an abstraction layer between build systems and the Kotlin compiler ecosystem.
-It helps support Kotlin features and compatibility with the Kotlin compiler in available build tools.
-
-In Kotlin %kotlinEapVersion%, BTA is available as an opt-in for the new targets.
-To try it out, add the corresponding properties to your `gradle.properties` file:
+The new default is only relevant to Apple targets. Incremental compilation is not supported on Windows ([MinGW toolchain](https://www.mingw-w64.org/)).
+And for Linux, it's still required to opt in with:
 
 ```properties
-kotlin.wasm.runViaBuildToolsApi=true
-kotlin.js.runViaBuildToolsApi=true
-kotlin.metadata.runViaBuildToolsApi=true
+kotlin.incremental.native=true
 ```
 
-Starting with Kotlin 2.5.0, we plan to enable BTA in Kotlin/JS, Kotlin/Wasm, and Kotlin metadata by default.
+Note that in some cases, this optimization may come with a performance cost for clean builds.
+To work around that, you can try the new [binary option](native-binary-options.md#how-to-enable) designed to run a 
+special compilation mode on clean builds. The option is [Experimental](components-stability.md#stability-levels-explained),
+opt in with:
 
-If you're curious about the BTA proposal or want to share your feedback, see this [KEEP](https://github.com/Kotlin/KEEP/blob/build-tools-api/proposals/extensions/build-tools-api.md).
+```properties
+kotlin.native.binary.batchedCacheBuild=true
+```
 
-## Kotlin compiler: Native image
-<primary-label ref="experimental-general"/>
+If you face unexpected problems with incremental compilation, you can disable it manually by setting the following option
+in your `gradle.properties` file:
+
+```properties
+kotlin.incremental.native=false
+```
+
+Please report any problems in [YouTrack](https://kotl.in/issue).
+
+For more tips on improving compilation time, see our [documentation](native-improving-compilation-time.md).
+
+### Swift export goes Beta with a new Gradle DSL
+
+<primary-label ref="beta"/>
+<secondary-label ref="native"/>
+
+In Kotlin %kotlinEapVersion%, Swift export graduates to [Beta](components-stability.md#stability-levels-explained) and 
+receives a more ergonomic Gradle DSL. The new DSL reduces duplication and increases configuration reuse, making it easier
+to expose your Kotlin code to Swift.
+
+The main changes are:
+
+| Feature                         | Before                                                          | After                                                 |
+|---------------------------------|-----------------------------------------------------------------|-------------------------------------------------------|
+| Entry point                     | `swiftExport {}`                                                | `export { swift {} }`                                 |
+| Collapse rule property          | `flattenPackage = "com.example.sandbox"`                        | `rootPackage = "com.example.sandbox"`                 |
+| Exporting declared dependencies | `export(project(":subproject")) {}`                             | Exported automatically; no explicit `export()` needed |
+| Overriding dependency configuration  | `export(libs.utils) {}`                                         | `xcodeIntegration { configure(libs.utils) {} }`                            |
+| Compiler arguments              | `configure { freeCompilerArgs.add("-Xexpect-actual-classes") }` | Removed                                               |
+
+Here's a complete build configuration that uses the new Swift export DSL:
+
+```kotlin
+// subproject/build.gradle.kts
+kotlin {
+
+    iosArm64()
+    iosSimulatorArm64()
+
+    // This configuration is used when exporting ":subproject"
+    // as a dependency of ":shared"
+    export {
+        swift {
+            // Set the root module name
+            moduleName = "Subproject"
+
+            // Set the collapse rule
+            // Removes package prefix from generated Swift code
+            rootPackage = "com.subproject.library"
+        }
+    }
+}
+
+// shared/build.gradle.kts
+kotlin {
+
+    iosArm64()
+    iosSimulatorArm64()
+
+    export {
+        swift {
+            // Sets the root module name
+            moduleName = "Shared"
+
+            // Sets the collapse rule
+            // Removes package prefix from generated Swift code
+            rootPackage = "com.example.sandbox"
+
+            // Enables Xcode integration for this module
+            xcodeIntegration {
+                // Configures external module export
+                configure(libs.utils) {
+                    // Optional: overrides the exported module name
+                    moduleName = "Utils"
+                    // Optional: overrides the collapse rule of the exported dependency
+                    rootPackage = "com.example.utils"
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                // These dependencies are automatically
+                // included in Swift export
+                api(project(":subproject"))
+                api(libs.utils)
+            }
+        }
+    }
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Full DSL example"}
+
+In addition, Swift export configuration is now publishable: if a library author provides option overrides,
+Gradle automatically consumes and applies them during Swift export.
+
+If you run into any issues, report them in [YouTrack](https://kotl.in/issue) or [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+and join the [#swift-export](https://kotlinlang.slack.com/archives/C073GUW6WN9) Slack channel.
+
+## Kotlin Multiplatform
+
+Kotlin %kotlinEapVersion% introduces a new experimental compilation scheme for Kotlin Multiplatform and a new publication
+format that significantly decreases the size of published multiplatform libraries.
+
+### New experimental compilation scheme for Kotlin Multiplatform
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="multiplatform"/>
+
+Kotlin %kotlinEapVersion% introduces a new experimental compilation scheme for Kotlin Multiplatform (KMP) that makes the
+compiler handle common source sets more consistently with the IDE. This change prevents common code from accidentally 
+resolving to platform-specific declarations, improves consistency in overload resolution and type inference, and enables
+us to implement incremental compilation for common source sets. Learn more about KMP separate compilation and how to try
+it in our [blog post](https://blog.jetbrains.com/kotlin/2026/09/a-more-reliable-compilation-scheme-for-kotlin-multiplatform-modules/).
+
+### New publication format for Kotlin Multiplatform libraries
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="multiplatform"/>
+
+Kotlin %kotlinEapVersion% introduces a new publication format for Kotlin Multiplatform libraries that significantly decreases
+the size of a published library. The new format publishes platform artifacts (except for JVM and Android) as a single `.kar`
+archive, which is a ZIP archive additionally compressed with XZ.
+
+This change addresses the [publication size limits](https://central.sonatype.org/publish/maven-central-publishing-limits/)
+recently introduced to Maven Central. With the new format, adding a new target no longer creates new files, so the publication
+size doesn't increase that much. In some cases, the total publication is even smaller than a single-target one before. 
+For example, for the [cryptography-kotlin](https://github.com/whyoleg/cryptography-kotlin) library, the published artifact
+set went from 7539 files and 91 MB to 1036 files and 23 MB for the whole multi-module project.
+
+To enable the new format for a specific module, configure it in the module's build script:
+
+```kotlin
+kotlin {
+    publishing {
+        publicationFormat.set(KotlinPublicationFormat.KOTLIN_ARCHIVE)
+    }
+}
+```
+
+Alternatively, to enable it for all modules in your project, add the following property to your `gradle.properties` file:
+
+```properties
+kotlin.publicationFormat=KOTLIN_ARCHIVE
+```
+
+While publishing in the new format is still [Experimental](components-stability.md#stability-levels-explained), consumption
+of such artifacts is already available for all projects. This change is relevant to library authors only and doesn't affect
+developers of final applications.
+
+Please share your feedback and report any problems in [YouTrack](https://kotl.in/issue).
+
+## Kotlin/JS
+<secondary-label ref="js"/>
+
+Kotlin %kotlinEapVersion% adds the `es2020` target to the Kotlin/JS compiler and Gradle plugin. Previously, only the `es5` and
+`es2015` targets were available, and support for newer JavaScript features, such as `BigInt`, had to be enabled separately
+targeting ES2015. By targeting ES2020, you can use all supported JavaScript features up to ECMAScript 2020, including `BigInt`,
+without additional configuration.
+
+To enable the new target, set `target` to `es2020` in the `compilerOptions {}` block:
+
+```kotlin
+kotlin {
+    js {
+        compilerOptions {
+            target.set("es2020")
+        }
+    }
+}
+```
+
+## Kotlin compiler
+
+Kotlin %kotlinEapVersion% brings more improvements to function inlining during `klib` compilation and improves type inference
+performance.
+
+### Consistent cross-module function inlining during klib compilation
+
 <secondary-label ref="compiler"/>
 
-Kotlin %kotlinEapVersion% features the first [Experimental](components-stability.md#stability-levels-explained) release of
-the Kotlin compiler native image. The native image provides a drop-in replacement for the standard `kotlinc` command-line tool,
-while offering faster startup time and higher performance.
+Kotlin 2.4.0 enabled [consistent intra-module function inlining on Kotlin/Native, Kotlin/JS, and
+Kotlin/Wasm](whatsnew24.md#consistent-intra-module-function-inlining-during-klib-compilation) during `klib` compilation.
+The consistency of function inlining across different Kotlin platforms makes it easier to provide compatibility guarantees.
 
-To try out the native image, download the build from [GitHub Releases](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
+Kotlin 2.4.0 also introduced the possibility to enable **cross-module** inlining during `klib` compilation, ensuring that
+all inline functions in a project are consistently inlined. Kotlin %kotlinEapVersion% enables cross-module inlining by default.
 
-The native image also bundles the following compiler plugins you can use with the `-Xplugin` or `-Xcompiler-plugin` CLI options:
+If you face unexpected problems with this feature, you can disable it with the following command-line compiler option:
 
-* [Serialization](serialization.md)
-* [Compose compiler](compose-compiler-options.md)
-* [All-open](all-open-plugin.md)
-* [`no-arg`](no-arg-plugin.md)
-* [SAM with receiver](sam-with-receiver-plugin.md)
-* [Assignment](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.assignment)
-* [Lombok](lombok.md)
-* [Power-assert](power-assert.md)
+```bash
+-Xklib-ir-inliner=disabled
+```
 
-For more information on the Kotlin compiler native image, see its [README](https://github.com/JetBrains/kotlin/blob/master/prepare/compiler-native-image/README.md).
+Please share your feedback and report any problems in [YouTrack](https://kotl.in/issue).
+
+### Improved type inference performance
+
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="compiler"/>
+
+Kotlin %kotlinEapVersion% improves compiler performance by reducing the number of constraints generated during type inference.
+Previously, complex generic code could generate excessive constraints, causing compilation or IDE analysis to hang. This
+change may affect type inference in certain edge cases, particularly those involving builder inference or complex platform
+types with unusual bounds. As a result, the compiler may infer different types, select different overloads, or report
+different diagnostics. These differences can be an expected result of the improvement.
+
+The functionality is enabled by default. To restore the previous type inference behavior, use the
+`-XXLanguage:-EliminateSecondKindIncorporation` option.
+
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-85879).
+
+## Breaking changes and deprecations
+
+Kotlin %kotlinEapVersion% introduces an error as the next step to raising the minimum JDK version required to run the
+Kotlin compiler from JDK 8 to JDK 17. We're raising the minimum required JDK to speed up development and give the compiler
+access to new libraries that require newer Java versions. JDK 17 has a long support window and helps us maintain compatibility
+with newer versions of Gradle and Maven. Opt out of the error with the `-Xallow-pre-17-runtime-jdk` compiler option. 
+This option will be removed in Kotlin 2.5.20 or 2.6.0 when JDK 17 becomes mandatory.
+
+If you have difficulty upgrading your project, share your experience on [YouTrack](https://kotl.in/issue) or reach out 
+directly to developers on Kotlin Slack. [Get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+and join the [#compiler](https://kotlinlang.slack.com/archives/C7L3JB43G) channel.

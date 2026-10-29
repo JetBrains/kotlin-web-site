@@ -407,7 +407,7 @@ Starting with Kotlin 2.3.20:
 
 * The `all-open` compiler plugin provides a JPA preset.
 * The Gradle `org.jetbrains.kotlin.plugin.jpa` plugin automatically applies the `org.jetbrains.kotlin.plugin.all-open` plugin with the JPA preset enabled.
-* The [Maven JPA setup](no-arg-plugin.md#jpa-support) enables `all-open` with the JPA preset by default. (Support in IntelliJ IDEA is available from 2026.1.)
+* The [Maven JPA setup](kotlin-jpa-plugin.md#maven) enables `all-open` with the JPA preset by default. (Support in IntelliJ IDEA is available from 2026.1.)
 * The Maven dependency `org.jetbrains.kotlin:kotlin-maven-noarg` now implicitly includes `org.jetbrains.kotlin:kotlin-maven-allopen`, so you no longer need to add it explicitly in the `<plugin><dependencies>` block.
 
 As a result, JPA entities annotated with the following annotations
@@ -422,7 +422,7 @@ are automatically treated as `open` and receive no-argument constructors without
 
 This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
 
-> The upcoming release of [IntelliJ IDEA 2026.1](https://www.jetbrains.com/idea/whatsnew/) automatically configures the `kotlin.plugin.jpa` plugin when setting up Kotlin in a project. The IDE offers a quick-fix to add the plugin and remove any redundant no-arg constructor declarations.
+> The upcoming release of [IntelliJ IDEA 2026.1](https://www.jetbrains.com/idea/whatsnew/) automatically configures the `kotlin.plugin.jpa` plugin when setting up Kotlin in a project. The IDE offers a quick-fix to add the plugin and remove any redundant `no-arg` constructor declarations.
 >
 {style="tip"}
 

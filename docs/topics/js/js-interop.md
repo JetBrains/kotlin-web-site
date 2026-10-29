@@ -18,7 +18,7 @@ fun jsTypeOf(o: Any): String {
 }
 ```
 
-JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#support-for-es2015-features), including:
+JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#set-an-ecmascript-target), including:
 
 * `const` and `let` variable declarations
 * ES classes

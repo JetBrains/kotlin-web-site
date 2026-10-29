@@ -148,6 +148,25 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: deezer
+    type: multiplatform
+    description: >-
+      **Deezer** adopted Kotlin Multiplatform to power a unified music experience across its Android, iOS, web, car,
+      and watch apps. Shared capabilities, such as real-time device synchronization and offline caching, are built
+      once with KMP and shipped on every surface. KMP also powers playback in Deezer’s white-label offering, enabling
+      B2B partners to deliver the full Deezer experience across platforms. By consolidating development and
+      maintenance efforts, this shared foundation accelerates delivery across Deezer’s consumer apps and partner
+      solutions.
+    logo:
+      - /images/case-studies/deezer-logo.svg
+    platforms:
+      - android
+      - ios
+      - frontend
+    media:
+      type: image
+      path: /images/case-studies/deezer-card-preview.png
+  #------------------------------------------------------------------------
   - id: philo
     type: multiplatform
     description: >-
@@ -168,7 +187,7 @@ items:
       - ios
       - frontend
     isExternal: true
-    link: https://www.philo.com/blog/kotlin-multiplatform-at-philo-3-years-later      
+    link: https://www.philo.com/blog/kotlin-multiplatform-at-philo-3-years-later
   #------------------------------------------------------------------------
   - id: workday
     type: multiplatform
@@ -1131,4 +1150,21 @@ items:
       - compose-multiplatform
     isExternal: true
     link: https://tech.phonepe.com/pincode-migration-journey-with-compose-multiplatform/
+  #------------------------------------------------------------------------
+  - id: cobrainer
+    type:
+      - ai
+      - backend
+    description: >-
+      **Cobrainer** is a Munich-based B2B HR-tech company whose Work Orchestration Platform, built on an
+      AI-native skills-intelligence data layer, organises the work of mid-sized and enterprise companies
+      worldwide. Its six-person engineering team runs Kotlin across the entire production AI stack: shared
+      end-to-end types, sealed classes, kotlinx.serialization, null safety, coroutines, graph-based workflows
+      and cross-provider fallback chains. That single language and type system lets a small team ship and
+      operate AI features reliably at this scale; removing blocking code from coroutine paths alone
+      increased throughput fivefold on the affected workflows.
+    logo:
+      - /images/case-studies/cobrainer-logo.svg
+    isExternal: true
+    link: https://dev.to/cobrainer/the-jvm-speaks-ai-cobrainers-journey-with-kotlin-koog-and-exposed-386h
   #------------------------------------------------------------------------

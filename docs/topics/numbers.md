@@ -155,7 +155,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The result type depends on the types of the operands. Learn more in [](#mixed-numeric-expressions).
 
@@ -179,7 +179,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To return a floating-point result, make at least one operand a `Float` or `Double`:
 
@@ -194,7 +194,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Type conversion
 
@@ -245,7 +245,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 When you convert a floating-point value to an integer type, the compiler discards the fractional part:
 
@@ -259,7 +259,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Mixed numeric expressions
 
@@ -375,7 +375,7 @@ fun main(){
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Here, the result wraps around because the value no longer fits in `Int`.
 
@@ -396,7 +396,7 @@ fun main(){
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Narrowing conversions
 
@@ -413,7 +413,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 However, since floating-point types follow the
 [IEEE 754 Standard](https://en.wikipedia.org/wiki/IEEE_754), very large results can become `Infinity`:
@@ -425,7 +425,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Bitwise operations
 
@@ -442,7 +442,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Bitwise operations include:
 
@@ -492,7 +492,7 @@ fun main() {
 }
 //sampleEnd  
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-numbers-floating-comp"}
+{kotlin-runnable="true" id="kotlin-numbers-floating-comp"}
 
 ## Boxing and caching numbers on the JVM
 
@@ -518,7 +518,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
+{kotlin-runnable="true" validate="false"}
 
 For values outside the cached range, boxed values are separate objects. In that case,
 they are not referentially equal, even if their values are [structurally equal](equality.md#structural-equality).
@@ -536,4 +536,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
+{kotlin-runnable="true" validate="false"}

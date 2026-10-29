@@ -61,7 +61,7 @@ fun main() {
     val contact = Contact(1, "mary@gmail.com")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-class-create-instance"}
+{kotlin-runnable="true" id="kotlin-tour-class-create-instance"}
 
 In the example:
 
@@ -95,7 +95,7 @@ fun main() {
     // jane@gmail.com
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-access-property"}
+{kotlin-runnable="true" id="kotlin-tour-access-property"}
 
 > To concatenate the value of a property as part of a string, you can use string templates (`$`).
 > For example:
@@ -127,7 +127,7 @@ fun main() {
     // 1
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-member-function"}
+{kotlin-runnable="true" id="kotlin-tour-member-function"}
 
 ## Data classes
 
@@ -178,7 +178,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-print-string"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-print-string"}
 
 This is particularly useful when debugging or creating logs.
 
@@ -205,7 +205,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-compare-instances"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-compare-instances"}
 
 ### Copy instance
 
@@ -237,7 +237,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-copy-instance"}
+{kotlin-runnable="true" id="kotlin-tour-data-classes-copy-instance"}
 
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
@@ -248,13 +248,13 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Declare a data class" id="classes-exercise-1">
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
 for salary is mutable, otherwise you won't get a salary boost at the end of the year! The main function demonstrates how
 you can use this data class.
 
-|---|---|
 ```kotlin
 // Write your code here
 
@@ -265,9 +265,8 @@ fun main() {
     println(emp)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
 
-|---|---|
 ```kotlin
 data class Employee(val name: String, var salary: Int)
 
@@ -278,13 +277,13 @@ fun main() {
     println(emp)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Declare nested data classes" id="classes-exercise-2">
 
 Declare the additional data classes that are needed for this code to compile.
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 // Write your code here
@@ -296,11 +295,11 @@ fun main() {
         Address("123 Fake Street", City("Springfield", "US")),
         ownsAPet = false
     )
+    println(person)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 data class Name(val first: String, val last: String)
@@ -313,11 +312,13 @@ fun main() {
         Address("123 Fake Street", City("Springfield", "US")),
         ownsAPet = false
     )
+    println(person)
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Generate random employees with a class" id="classes-exercise-3">
 
 To test your code, you need a generator that can create random employees. Define a `RandomEmployeeGenerator` class with 
 a fixed list of potential names (inside the class body). Configure the class with a minimum and maximum salary (inside 
@@ -342,7 +343,6 @@ how you can use this class.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -360,9 +360,8 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -385,7 +384,10 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

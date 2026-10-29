@@ -1,25 +1,11 @@
 import cn from 'classnames';
 import { useTextStyles, createTextCn } from '@rescui/typography';
 
-import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
-
 import styles from './offer-block.module.css';
-import { Button } from '@rescui/button';
-import { Tag, presets as basePresets } from '@rescui/tag';
-import { WinIcon } from '@rescui/icons';
-
-import offerKodee from './images/meditation-kodee.webp';
 
 export const OfferBlock = () => {
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
-
-    const tagPresets = {
-        ...basePresets,
-        light: { color: 'white', backgroundColor: '#19191C' }
-    };
-
-    const isMM = useMM();
 
     return (
         <div
@@ -35,33 +21,6 @@ export const OfferBlock = () => {
                     Move from fundamentals to real-world development – across<br /> mobile, backend, web, and
                     desktop applications.
                 </p>
-            </div>
-
-            <div className={cn(styles.card)}>
-
-                <img src={offerKodee.src} alt="Meditation Kodee background image" className={styles.offerImage} />
-
-                <div className={styles.offerContainer}>
-
-                    <div>
-                        <Tag {...tagPresets.light} size={isMM ? 'm' : 'l'} icon={<WinIcon color={'#6B57FF'} />}>
-                            Exclusive
-                            anniversary offer
-                        </Tag>
-
-                        <h3 className={cn(textCn('rs-subtitle-2'), styles.offerTitle)}>Get free access to select Kotlin
-                            courses on Hyperskill
-                        </h3>
-                    </div>
-
-                    <div className={styles.buttonContainer}>
-                        <Button mode={'rock'} size={'l'} href="https://hyperskill.org/categories/37?utm_source=kotlinlang&utm_medium=referral&utm_campaign=kotlin15"
-                                className={styles.button} target="_blank" rel="noopener noreferrer">
-                            Start learning
-                        </Button>
-                    </div>
-
-                </div>
             </div>
 
             <div className={styles.linksGrid}>

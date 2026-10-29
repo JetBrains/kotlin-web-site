@@ -226,7 +226,7 @@ These projects can enable the [`-progressive` option](compiler-reference.md#prog
 before they become the default.
 
 You can configure these options on the [command line](compiler-reference.md#common-options) or with the
-[Gradle](gradle-compiler-options.md#attributes-common-to-jvm-and-javascript) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
+[Gradle](gradle-compiler-options.md#common-attributes) or [Maven](maven-kotlin-compiler.md#specify-compiler-options)
 build tools.
 
 ### Evolving the binary format

@@ -49,7 +49,7 @@ example). Derive the casing variants from the base name.
 | Dokka Gradle task | `:kotlinx-collections-immutable:dokkaGenerate` | The task `stepBuildHtml` runs. **Confirm against the repo** (see Pre-conditions). |
 | TOC title | `Immutable collections (kotlinx.collections.immutable)` | Sidebar label, overview-page card title, and the production-test button text. |
 | Library description | `A multiplatform library providing immutable and persistent collection interfaces…` | One or two sentences for the overview-page card. |
-| GitHub repo URL + name | `https://github.com/Kotlin/kotlinx.collections.immutable` / `kotlinx.collections.immutable` | HTTPS form of the Git SSH URL; the name is the card's link text. |
+| GitHub repo URL | `https://github.com/Kotlin/kotlinx.collections.immutable` | HTTPS form of the Git SSH URL; the card's "View on GitHub" link target. |
 
 ## Steps — apply these edits
 
@@ -252,34 +252,35 @@ library entries:
 
 ### 6. Add the card to the API references overview page
 
-File: `docs/topics/api-references.topic`
+File: `docs/topics/api-references.md`
 
 The sidebar link is not enough — the library must also appear on the "API references" overview
-page. Add an `<li>` to the `<list columns="2">`, in the position that matches the `kr.tree`
+page. Add a `<panel>` to the `<panels columns="2">`, in the position that matches the `kr.tree`
 ordering (this page is **not** alphabetical; place it relative to the same neighbours it has in
 the TOC):
 
 ```xml
-<li>
-    <a href="https://kotlinlang.org/api/<api id>/"><b><TOC title></b></a>
-    <br/>
+<panel>
+    <title><TOC title></title>
     <p><library description></p>
-    <img src="github.svg" width="18" alt="GitHub"/> <a href="<GitHub repo URL>"><repo name></a>
-    <br/>
-</li>
+    <img src="github.svg" width="18" alt="GitHub"/> <a href="<GitHub repo URL>">View on GitHub</a><br/><br/>
+    <a href="https://kotlinlang.org/api/<api id>/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
+</panel>
 ```
 
-Keep the link text and URL identical to the `kr.tree` entry from Step 5 so the two stay in sync.
+Keep the `<title>` text identical to the `kr.tree` entry's `toc-title` and the "Browse API"
+button URL identical to the `kr.tree` entry's `href` from Step 5 so the two stay in sync. Use
+the literal `View on GitHub` as the GitHub link text.
 
 ### 7. Add the production navigation test
 
 File: `test/production/api-navigation.spec.ts`
 
 Add a test mirroring the existing ones, using the **TOC title** as the button text and the
-`/api/<id>/` slug:
+`/api/<id>/` slug. The button text must match the `kr.tree` `toc-title` from Step 5.
 
 ```typescript
-test('Click on "<TOC title short>" button should open the related page', async ({ page }) => {
+test.skip('Click on "<TOC title short>" button should open the related page', async ({ page }) => {
     const button = await hoverOverApiElement(page, '<TOC title short>');
     await expect(button).toBeVisible();
     await button.click();
@@ -289,6 +290,10 @@ test('Click on "<TOC title short>" button should open the related page', async (
 
 `<TOC title short>` is the leading text of the TOC title that `hoverOverApiElement` matches
 (e.g. `Immutable collections`).
+
+> Add the test as `test.skip(...)`: the suite runs against the deployed production site, where
+> `/api/<id>/` 404s until the new TeamCity build has published the reference. Un-skip it
+> (`test.skip` → `test`) once the page is live.
 
 ## Worked example — kotlinx.collections.immutable
 
@@ -447,22 +452,21 @@ object KotlinxCollectionsImmutableBuildSearchIndex : TemplateSearchIndex({
 ```
 
 ```diff
-# docs/topics/api-references.topic  (inside <list columns="2">, after the datetime card)
-         </li>
-+        <li>
-+            <a href="https://kotlinlang.org/api/kotlinx.collections.immutable/"><b>Immutable collections (kotlinx.collections.immutable)</b></a>
-+            <br/>
+# docs/topics/api-references.md  (inside <panels columns="2">, after the datetime panel)
+         </panel>
++        <panel>
++            <title>Immutable collections (kotlinx.collections.immutable)</title>
 +            <p>A multiplatform library providing immutable and persistent collection interfaces and implementations. It offers efficient copy-on-write operations that share structure between versions, so updating a collection doesn't copy the whole thing.</p>
-+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.collections.immutable">kotlinx.collections.immutable</a>
-+            <br/>
-+        </li>
-         <li>
-             <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
++            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.collections.immutable">View on GitHub</a><br/><br/>
++            <a href="https://kotlinlang.org/api/kotlinx.collections.immutable/" as="button" icon="arrow-right" icon-position="right">Browse API</a>
++        </panel>
+         <panel>
+             <title>Kotlin Gradle plugins (kotlin-gradle-plugin)</title>
 ```
 
 ```typescript
-// test/production/api-navigation.spec.ts  (new test next to the others)
-test('Click on "Immutable collections" button should open the related page', async ({ page }) => {
+// test/production/api-navigation.spec.ts  (new test next to the others; skipped until the page is live)
+test.skip('Click on "Immutable collections" button should open the related page', async ({ page }) => {
     const immutableButton = await hoverOverApiElement(page, 'Immutable collections');
     await expect(immutableButton).toBeVisible();
     await immutableButton.click();
@@ -493,13 +497,14 @@ the build details on request):
 - Compile/validate the TeamCity DSL so the new objects, imports and registration are valid
   Kotlin: `cd .teamcity && mvn -q teamcity-configs:generate` (or the repo's configured DSL
   check). It should generate without errors and emit configs for the three new build types.
-- Confirm `docs/kr.tree` and `docs/topics/api-references.topic` are still valid XML, that the new
-  TOC entry sits under "API reference", and that the new card is inside the `<list columns="2">`
-  with the same link text and URL as the TOC entry.
+- Confirm `docs/kr.tree` is still valid XML and `docs/topics/api-references.md` still parses (its
+  `<panels>` markup is well-formed), that the new TOC entry sits under "API reference", and that
+  the new `<panel>` is inside the `<panels columns="2">` with a `<title>` and "Browse API" URL
+  matching the TOC entry.
 - The change should touch only: `.teamcity/BuildParams.kt`,
   `.teamcity/references/BuildApiReferencesProject.kt`, the new `vcsRoots/<Base>.kt`, the three
   new `builds/kotlinx/<segment>/*.kt` files, `docs/kr.tree`,
-  `docs/topics/api-references.topic`, and `test/production/api-navigation.spec.ts` — nothing else.
+  `docs/topics/api-references.md`, and `test/production/api-navigation.spec.ts` — nothing else.
 - After the build runs on TeamCity, `<Base>BuildApiReference` → `<Base>BuildSearchIndex`
-  produce and index `/api/<id>/`; the new production navigation test should pass against the
-  deployed site.
+  produce and index `/api/<id>/`. Until that deploy lands, the new production navigation test
+  stays `test.skip` (it hits the live site); un-skip it once `/api/<id>/` is reachable.

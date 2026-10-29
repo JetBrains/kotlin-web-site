@@ -54,7 +54,7 @@ fun main() {
     println(strLength(nullable))  // Throws a compiler error
 }
 ```
-{kotlin-runnable="true" validate="false" kotlin-min-compiler-version="1.3" id="kotlin-tour-nullable-type"}
+{kotlin-runnable="true" validate="false" id="kotlin-tour-nullable-type"}
 
 > `length` is a property of the [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) class that 
 > contains the number of characters within a string.
@@ -81,7 +81,7 @@ fun main() {
     // Empty or null string
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-check-nulls"}
+{kotlin-runnable="true" id="kotlin-tour-check-nulls"}
 
 ## Use safe calls
 
@@ -100,7 +100,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-property"}
+{kotlin-runnable="true" id="kotlin-tour-safe-call-property"}
 
 > Safe calls can be chained so that if any property of an object contains a `null` value, then `null` is returned without 
 > an error being thrown. For example:
@@ -124,7 +124,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-function"}
+{kotlin-runnable="true" id="kotlin-tour-safe-call-function"}
 
 ## Use Elvis operator
 
@@ -143,19 +143,19 @@ fun main() {
     // 0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-elvis-operator"}
+{kotlin-runnable="true" id="kotlin-tour-elvis-operator"}
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
 ## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true">
+<def title="Calculate an employee's salary" id="null-safety-basics-exercise-1">
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
 returns the salary of an employee when their `id` is provided, or `0` if the employee is missing from the database.
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -167,15 +167,14 @@ fun employeeById(id: Int) = when(id) {
     else -> null
 }
 
-fun salaryById(id: Int) = // Write your code here
+fun salaryById(id: Int): Int = TODO() // Write your code here
 
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise"}
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -187,13 +186,16 @@ fun employeeById(id: Int) = when(id) {
     else -> null
 }
 
-fun salaryById(id: Int) = employeeById(id)?.salary ?: 0
+fun salaryById(id: Int): Int = employeeById(id)?.salary ?: 0
 
 fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+
+</def>
+</deflist>
 
 ## What's next?
 

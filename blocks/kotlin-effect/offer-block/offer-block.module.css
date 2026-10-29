@@ -20,56 +20,6 @@
     margin: 0;
 }
 
-.card {
-    border-radius: 32px;
-    border: 12px solid #6B57FF;
-    padding: 32px;
-    margin-top: 48px;
-    position: relative;
-    @media (--ktl-ts-down) {
-        padding: 12px;
-    }
-}
-
-.offerImage {
-    width: 309px;
-    height: 309px;
-    position: absolute;
-    top: -190px;
-    right: -30px;
-    @media (--ktl-ds-down) {
-        display: none;
-    }
-}
-
-.offerContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media (--ktl-ds-down) {
-        flex-direction: column;
-        align-items: start;
-    }
-}
-
-.offerTitle {
-    margin-top: 16px;
-    margin-bottom: 0;
-}
-
-.buttonContainer {
-    margin-top: 24px;
-    @media (--ktl-ts-down) {
-        width: 100%;
-    }
-}
-
-.button {
-    @media (--ktl-ts-down) {
-        width: 100%;
-    }
-}
-
 .linksGrid {
     flex: 1;
     display: grid;

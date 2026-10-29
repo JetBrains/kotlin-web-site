@@ -140,7 +140,7 @@ fun main() {
     // BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG BONG 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-companion-object"}
+{kotlin-runnable="true" id="kotlin-tour-classes-companion-object"}
 
 This example creates a class called `BigBen` that contains a companion object called `Bonger`. The companion object
 has a member function called `getBongs()` that accepts an integer and prints `"BONG"` to the console the same number of times
@@ -153,12 +153,11 @@ For more information, see [](object-declarations.md#companion-objects).
 
 ## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Implement a data object for order tracking" id="objects-exercise-1">
 
 You run a coffee shop and have a system for tracking customer orders. Consider the code below and complete the declaration
 of the second data object so that the following code in the `main()` function runs successfully:
-
-|---|---|
 
 ```kotlin
 interface Order {
@@ -197,9 +196,8 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" validate="false" id="kotlin-tour-objects-exercise-1"}
 
-|---|---|
 ```kotlin
 interface Order {
     val orderId: String
@@ -241,15 +239,14 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-2"}
+</def>
+<def title="Create an object declaration" id="objects-exercise-2">
 
 Create an object declaration that inherits from the `Vehicle` interface to create a unique vehicle type: `FlyingSkateboard`.
 Implement the `name` property and the `move()` function in your object so that the following code in the `main()` function runs 
 successfully:
-
-|---|---|
 
 ```kotlin
 interface Vehicle {
@@ -266,9 +263,8 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" validate="false" id="kotlin-tour-objects-exercise-2"}
 
-|---|---|
 ```kotlin
 interface Vehicle {
     val name: String
@@ -289,9 +285,10 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="objects-exercise-3"}
+</def>
+<def title="Validate an email address before creating a user" id="objects-exercise-3">
 
 You are building a user registration module for an app. You want to keep email validation associated with the `User`
 class but don't want to create an unnecessary `User` instance if the email address is invalid.
@@ -305,7 +302,6 @@ following code in the `main()` function runs successfully:
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 data class User(val name: String, val email: String) {
     // Write your code here
@@ -329,9 +325,8 @@ fun main() {
     }
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" validate="false" id="kotlin-tour-objects-exercise-3"}
 
-|---|---|
 ```kotlin
 data class User(val name: String, val email: String) {
     companion object {
@@ -358,12 +353,15 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
+{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
 
 > As an extension of this exercise, try using functions in companion objects as factory methods to construct
 > instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).
 >
 {style="tip"}
+
+</def>
+</deflist>
 
 <seealso></seealso>
 

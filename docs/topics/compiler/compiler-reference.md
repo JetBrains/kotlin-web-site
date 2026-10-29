@@ -417,10 +417,22 @@ into the classpath.
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
 
+### -Xadd-modules=module[,]
+<primary-label ref="experimental-general"/>
+
+Specify the root modules to resolve in addition to the initial modules. Set the `ALL-MODULE-PATH` value to resolve all
+modules on the module path. Separate multiple modules with commas (**,**).
+
+For example, to resolve the incubator module:
+
+```bash
+kotlinc -Xadd-modules=jdk.incubator.vector
+```
+
 ### -Xdump-directory
 <primary-label ref="experimental-general"/>
 
-Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
+Configure the dump file directory for the [`-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
 ### -Xjvm-expose-boxed
 <primary-label ref="experimental-general"/>
@@ -510,7 +522,7 @@ Add variable and function names that you declared in Kotlin code into the source
 
 Add the specified prefix to paths in the source map.
 
-### -target {es5|es2015}
+### -target {es5|es2015|es2020}
 
 Generate JS files for the specified ECMA version.
 
@@ -521,9 +533,9 @@ Allow [implementing Kotlin interfaces](whatsnew2320.md#implementing-kotlin-inter
 exported with the `@JsExport` annotation from JavaScript/TypeScript.
 
 ### -Xes-long-as-bigint
-<primary-label ref="experimental-general"/>
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
+This option is required for the `es5` and `es2015` targets only. The `es2020` target enables this option by default.
 
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>

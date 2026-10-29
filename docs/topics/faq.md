@@ -97,8 +97,8 @@ There are also some build tools available that target client-side JavaScript.
 
 When targeting the JVM, Kotlin produces Java-compatible bytecode.
 
-When targeting JavaScript, Kotlin transpiles to ES5.1 and generates
-code which is compatible with module systems including AMD and CommonJS. 
+When targeting JavaScript, Kotlin can generate ES5, ES2015, or ES2020 code depending on the configured target.
+The code is compatible with module systems including AMD and CommonJS. 
 
 When targeting native, Kotlin will produce platform-specific code (via LLVM). 
 
@@ -158,7 +158,7 @@ Yes! Kotlin has a very vibrant community. Kotlin developers hang out on the [Kot
 ### Are there Kotlin events?
  
 Yes! There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the website](https://kotlinlang.org/user-groups/user-group-list.html).
-In addition, there are community-organized [Kotlin Nights](https://kotlinlang.org/community/events.html) events around the world.
+In addition, there are community-organized [Kotlin Nights](kotlin-night-guidelines.md) events around the world.
 
 ### Is there a Kotlin conference?
 
