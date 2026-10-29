@@ -78,7 +78,7 @@ fun main() {
 }
 ```
 
-Calling `greeting.message("Kotlin")` doesn't compile and fails with an `UNRESOLVED_REFERENCE` (receiver type mismatch) error because the `message` property doesn't accept arguments.
+Calling `greeting.message("Kotlin")` doesn't compile and fails with an unresolved reference error (receiver type mismatch) because the `message` property doesn't accept arguments.
 
 However, in some cases, when a Java method with parameters overrides the getter of a Kotlin
 [member extension property](extensions.md#declaring-extensions-as-members), Kotlin sees the method as the
@@ -96,7 +96,7 @@ public class Greeter implements Message {
 ```kotlin
 // Kotlin
 interface Message {
-  val String.text: String
+    val String.text: String
 }
 
 fun demo(greeter: Greeter) {
@@ -107,7 +107,7 @@ fun demo(greeter: Greeter) {
 
 ## Methods returning void
 
-If a Java method returns `void`, the method returns `Unit` when called from Kotlin.
+If a Java method returns `void`, the method's return type is seen as `Unit` when called from Kotlin.
 If you use the return value, the Kotlin compiler assigns it at the call site, since the value (`Unit`) is known in
 advance.
 
