@@ -35,11 +35,11 @@ import java.util.Calendar
 
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
-    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // call getFirstDayOfWeek()
-        calendar.firstDayOfWeek = Calendar.MONDAY // call setFirstDayOfWeek()
+    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // Call getFirstDayOfWeek()
+        calendar.firstDayOfWeek = Calendar.MONDAY     // Call setFirstDayOfWeek()
     }
-    if (!calendar.isLenient) { // call isLenient()
-        calendar.isLenient = true // call setLenient()
+    if (!calendar.isLenient) {    // Call isLenient()
+        calendar.isLenient = true // Call setLenient()
     }
 }
 ```
@@ -135,10 +135,10 @@ Null-checks are relaxed for such types so that safety guarantees for them are th
 Consider the following examples:
 
 ```kotlin
-val list = ArrayList<String>() // non-null (constructor result)
+val list = ArrayList<String>() // Non-null (constructor result)
 list.add("Item")
-val size = list.size // non-null (primitive int)
-val item = list[0] // platform type inferred (ordinary Java object)
+val size = list.size // Non-null (primitive int)
+val item = list[0] // Platform type inferred (ordinary Java object)
 ```
 
 When you call methods on variables of platform types, Kotlin does not issue nullability errors at compile time,
@@ -146,7 +146,7 @@ but the call may fail at runtime, because of a null-pointer exception or an asse
 prevent nulls from propagating:
 
 ```kotlin
-item.substring(1) // allowed, throws an exception if item == null
+item.substring(1) // Allowed, throws an exception if item == null
 ```
 
 You can assign a value of a platform type to a variable of both nullable and non-nullable Kotlin types. However,
@@ -154,8 +154,8 @@ if you assign such a value to a variable of a non-nullable type and the value is
 throws a `NullPointerException`. To avoid this, add explicit nullability to your Kotlin code:
 
 ```kotlin
-val nullable: String? = item // allowed, always works
-val notNull: String = item // allowed, may fail at runtime
+val nullable: String? = item // Allowed, always works
+val notNull: String = item // Allowed, may fail at runtime
 ```
 
 If you choose a non-nullable type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-nullable variables from holding
@@ -181,16 +181,16 @@ to restore null-safety checks or eliminate platform types at the source using nu
 Java types that have nullability annotations are represented not as platform types, but as actual nullable or non-nullable
 Kotlin types. The compiler supports several flavors of nullability annotations, including:
 
-  * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
-(`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
-  * [JSpecify](#jspecify-support) (`org.jspecify.annotations`)
-  * Android (`com.android.annotations` and `android.support.annotations`)
-  * [JSR-305](#jsr-305-support) (`javax.annotation`)
-  * FindBugs (`edu.umd.cs.findbugs.annotations`)
-  * Eclipse (`org.eclipse.jdt.annotation`)
-  * [Lombok](lombok.md) (`lombok.NonNull`)
-  * RxJava 3 (`io.reactivex.rxjava3.annotations`)
-  * [Vert.x](https://vertx.io/) (`io.vertx.codegen.annotations`)
+* [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
+  (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
+* [JSpecify](#jspecify-support) (`org.jspecify.annotations`)
+* Android (`com.android.annotations` and `android.support.annotations`)
+* [JSR-305](#jsr-305-support) (`javax.annotation`)
+* FindBugs (`edu.umd.cs.findbugs.annotations`)
+* Eclipse (`org.eclipse.jdt.annotation`)
+* [Lombok](lombok.md) (`lombok.NonNull`)
+* RxJava 3 (`io.reactivex.rxjava3.annotations`)
+* [Vert.x](https://vertx.io/) (`io.vertx.codegen.annotations`)
 
 You can instruct the compiler to report nullability mismatches for specific nullability annotations with the following compiler option:
 
@@ -273,7 +273,7 @@ In the Kotlin code, passing the instance of `Derived` where the `Base<String>` i
 fun takeBaseOfNotNullStrings(x: Base<String>) {}
 
 fun main() {
-    takeBaseOfNotNullStrings(Derived()) // warning: nullability mismatch
+    takeBaseOfNotNullStrings(Derived()) // Warning: nullability mismatch
 }
 ```
 
@@ -294,7 +294,7 @@ When inheriting from `Base`, Kotlin expects a non-nullable type argument or type
 Thus, the following Kotlin code produces a warning:
 
 ```kotlin
-class Derived<K> : Base<K> {} // warning: K has undefined nullability
+class Derived<K> : Base<K> {} // Warning: K has undefined nullability
 ```
 
 You can fix it by specifying the upper bound `K : Any`.
@@ -358,8 +358,8 @@ In Kotlin, these are treated as regular nullable and non-nullable types rather t
 ```kotlin
 // Kotlin
 fun test(inventory: InventoryService) {
-   inventory.notNull().length // OK
-   inventory.nullable().length // Error: only safe (?.) or non-null asserted (!!) calls are allowed
+    inventory.notNull().length  // OK
+    inventory.nullable().length // Error: only safe (?.) or non-null asserted (!!) calls are allowed
 }
 ```
 
@@ -390,9 +390,9 @@ in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nul
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-nullable; `When.MAYBE` and
 `When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
-A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations' artifact (e.g. `jsr305.jar`)
-a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library
-without the annotations present on the classpath.
+A library can be compiled against the JSR-305 annotations, but there's no need to make the artifact with annotations
+(for example, `jsr305.jar`) a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305
+annotations from a library without the annotations present on the classpath.
 
 [Custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/master/proposals/jsr-305-custom-nullability-qualifiers.md)
 are also supported (see below).
@@ -412,17 +412,17 @@ public @interface MyNonnull {
 }
 
 @TypeQualifierNickname
-@CheckForNull // a nickname to another type qualifier nickname
+@CheckForNull // A nickname to another type qualifier nickname
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyNullable {
 }
 
 interface A {
     @MyNullable String foo(@MyNonnull String x);
-    // in Kotlin (strict mode): `fun foo(x: String): String?`
+    // In Kotlin (strict mode): `fun foo(x: String): String?`
 
     String bar(List<@MyNonnull String> x);
-    // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
+    // In Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
 
@@ -457,18 +457,18 @@ public @interface NullableApi {
 
 @NullableApi
 interface A {
-    String foo(String x); // fun foo(x: String?): String?
+    String foo(String x); // In Kotlin: fun foo(x: String?): String?
 
-    @NonNullApi // overriding default from the interface
-    String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String
+    @NonNullApi // Overriding default from the interface
+    String bar(String x, @Nullable String y); // In Kotlin: fun bar(x: String, y: String?): String
 
     // The List<String> type argument is seen as nullable because of `@NullableApi`
     // having the `TYPE_USE` element type:
-    String baz(List<String> x); // fun baz(List<String?>?): String?
+    String baz(List<String> x); // In Kotlin: fun baz(List<String?>?): String?
 
     // The type of `x` parameter remains platform because there's an explicit
     // UNKNOWN-marked nullability annotation:
-    String qux(@Nonnull(when = When.UNKNOWN) String x); // fun qux(x: String!): String?
+    String qux(@Nonnull(when = When.UNKNOWN) String x); // In Kotlin: fun qux(x: String!): String?
 }
 ```
 
@@ -481,7 +481,7 @@ Package-level default nullability is also supported:
 
 ```java
 // FILE: test/package-info.java
-@NonNullApi // declaring all types in package 'test' as non-nullable by default
+@NonNullApi // Declaring all types in package 'test' as non-nullable by default
 package test;
 ```
 
@@ -543,10 +543,10 @@ for managing the migration state for a particular library.
 The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`,
 and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
 
-> Note: the built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
->[`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html) and
->[`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
->affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
+> The built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
+> [`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html) and
+> [`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
+> affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
 {style="note"}
 
@@ -649,8 +649,8 @@ Kotlin only allows `is`-checks for star-projected generic types:
 
 ```kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
-// but
-if (a is List<*>) // OK: no guarantees about the contents of the list
+// But
+if (a is List<*>)   // OK: no guarantees about the contents of the list
 ```
 
 ## Java arrays
@@ -669,7 +669,7 @@ Suppose there is a Java method that accepts an int array of indices:
 ``` java
 public class JavaArrayExample {
     public void removeIndices(int[] indices) {
-        // code here...
+        // Your code here
     }
 }
 ```
@@ -679,15 +679,15 @@ To pass an array of primitive values, you can do the following in Kotlin:
 ```kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
-javaObj.removeIndices(array)  // passes int[] to method
+javaObj.removeIndices(array) // Passes int[] to method
 ```
 
 When compiling to the JVM bytecode, the compiler optimizes access to arrays so that there's no overhead introduced:
 
 ```kotlin
 val array = arrayOf(1, 2, 3, 4)
-array[1] = array[1] * 2 // no actual calls to get() and set() generated
-for (x in array) { // no iterator created
+array[1] = array[1] * 2 // No actual calls to get() and set() generated
+for (x in array) {      // No iterator created
     print(x)
 }
 ```
@@ -695,7 +695,7 @@ for (x in array) { // no iterator created
 Even when you navigate with an index, it does not introduce any overhead:
 
 ```kotlin
-for (i in array.indices) { // no iterator created
+for (i in array.indices) { // No iterator created
     array[i] += 2
 }
 ```
@@ -703,7 +703,7 @@ for (i in array.indices) { // no iterator created
 Finally, `in`-checks have no overhead either:
 
 ```kotlin
-if (i in array.indices) { // same as (i >= 0 && i < array.size)
+if (i in array.indices) { // Same as (i >= 0 && i < array.size)
     print(array[i])
 }
 ```
@@ -716,7 +716,7 @@ Java classes sometimes use a method declaration for the indices with a variable 
 public class JavaArrayExample {
 
     public void removeIndicesVarArg(int... indices) {
-        // code here...
+        // Your code here
     }
 }
 ```
@@ -755,8 +755,8 @@ public class IntContainer {
 ```kotlin
 fun main() {
     val container = IntContainer()
-    container[0] = 42       // Calls set(0, 42)
-    println(container[0])   // Calls get(0)
+    container[0] = 42     // Calls set(0, 42)
+    println(container[0]) // Calls get(0)
 }
 ```
 
@@ -792,7 +792,7 @@ import java.util.LinkedList
 class SimpleBlockingQueue<T>(private val capacity: Int) {
     private val queue = LinkedList<T>()
 
-    // java.lang.Object is used specifically to access wait() and notify()
+    // The java.lang.Object class is used specifically to access wait() and notify()
     // In Kotlin, the standard 'Any' type does not expose these methods.
     @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
     private val lock = Object()
@@ -865,7 +865,7 @@ To override `finalize()`, declare it without using the `override` keyword:
 ```kotlin
 class C {
     protected fun finalize() {
-        // finalization logic
+        // Finalization logic
     }
 }
 ```
@@ -928,8 +928,8 @@ example, `Int::class.java` will return the class instance representing the primi
 corresponding to `Integer.TYPE` in Java. To get the class of the corresponding wrapper type, use
 `Int::class.javaObjectType`, which is equivalent of Java's `Integer.class`.
 
-Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
-
+Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property,
+a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
 
 ## SAM conversions
 
@@ -944,7 +944,7 @@ You can use this for creating instances of SAM interfaces:
 val runnable = Runnable { println("This runs in a runnable") }
 ```
 
-...and in method calls:
+And in method calls:
 
 ```kotlin
 val executor = Executors.newSingleThreadExecutor()
@@ -960,8 +960,7 @@ by the compiler when needed:
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
 
-> SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
-abstract method.
+> SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single abstract method.
 >
 {style="note"}
 
