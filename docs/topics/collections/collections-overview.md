@@ -11,10 +11,10 @@ Kotlin provides three main collection types:
 
 * [_List_](collection-types.md#list) is an ordered collection. It supports indexed access and can contain duplicate elements.
   For example, you can use a list to store the digits of a telephone number.
-* [_Set_](collection-types.md#set) is a collection of unique elements. The order of set elements has no significance.
-  For example, you can use to store the numbers of lottery tickets.
+* [_Set_](collection-types.md#set) is a collection of unique elements. It doesn't guarantee iteration order, but specific implementations can
+  preserve insertion order or keep elements sorted. For example, you can use a set to store the numbers of lottery tickets.
 * [_Map_](collection-types.md#map) (or _dictionary_) is a set of key-value pairs. Each key is unique and maps to one value.
-  For example, you can use to associate employee IDs and their position.
+  For example, you can use a map to associate employee IDs and their position.
 
 Kotlin also provides [`ArrayDeque`](collection-types.md#arraydeque). It's a double-ended queue that you can use as a queue or stack.
 
