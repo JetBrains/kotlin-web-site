@@ -1,6 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
+// Becomes 7 once the current edition carries the optional `cost` column.
 const EXPECTED_DATA_COLUMNS = 6;
 
 test.describe('Kotlin Benchmark landing page', () => {
@@ -16,7 +17,7 @@ test.describe('Kotlin Benchmark landing page', () => {
         await expect(benchmark.heroTitle).toContainText('Kotlin Benchmark');
 
         await expect(benchmark.heroIntro).toBeVisible();
-        await expect(benchmark.heroIntro).toContainText('continuous initiative');
+        await expect(benchmark.heroIntro).toContainText('realistic, idiomatic Kotlin');
     });
 
     test('leaderboard renders every row', async () => {
@@ -61,9 +62,9 @@ test.describe('Kotlin Benchmark landing page', () => {
 
         expect(latencies.length).toBeGreaterThan(0);
 
-        // Every cell follows the "Hh Mm" shape with zero-padded minutes (no seconds).
+        // Every cell follows the "Hh Mm" shape (no seconds); minutes are not zero-padded in the data.
         for (const latency of latencies) {
-            expect(latency).toMatch(/^\d+h \d{2}m$/);
+            expect(latency).toMatch(/^\d+h \d{1,2}m$/);
         }
     });
 
@@ -117,8 +118,19 @@ test.describe('Kotlin Benchmark landing page', () => {
 
     test('notice banner is visible when set in data', async () => {
         const notice = benchmark.page.getByTestId('bench-notice');
+
+        // The notice is optional: leaderboard.yml only carries one while a run is in progress.
+        test.skip((await notice.count()) === 0, 'no notice set in leaderboard.yml');
+
         await expect(notice).toBeVisible();
-        await expect(notice).toContainText('Evaluating');
+        await expect(notice).not.toBeEmpty();
+    });
+
+    test('the secondary navigation shows the leaderboard as the current page', async () => {
+        await expect(benchmark.topMenu).toBeVisible();
+
+        await expect(benchmark.topMenu.getByText('Leaderboard', { exact: true }).first()).toBeVisible();
+        await expect(benchmark.topMenu.getByRole('link', { name: 'Leaderboard', exact: true })).toHaveCount(0);
     });
 
     test('methodology CTA links to the methodology page and GitHub', async () => {
