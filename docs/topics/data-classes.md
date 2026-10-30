@@ -1,18 +1,20 @@
 [//]: # (title: Data classes)
 [//]: # (description: Learn what data classes in Kotlin are, when to use them, which members the compiler generates for them, and why named data classes are usually better than Pair and Triple.)
 
-A data class is a class whose main job is to hold data.
+A data class is a kind of class optimized for holding data, as opposed to packing related behavior. This follows the
+data-oriented programming approach that focuses on simple data structures that hold information as plain values and keeps
+the program's logic and behavior in separate functions that operate that data.
 Use data classes for the values that your program passes around and stores, for example:
 
 * A user profile or another entity that comes from a database or a server response.
 * A point, a size, or a color in a user interface.
-* A parameter object that groups several related arguments.
-* A result that consists of more than one value.
+* The description of a command or event in your system.
+* A result with more than one value, like the quotient and remainder of a division.
 
-Compared to regular classes, where printing an instance shows just the class name and an identifier, and two instances
-are equal only if they are the same object, data classes benefit from [pre-generated functions](#generated-functions).
-They make it convenient to print an instance as readable text, compare two instances by their content, and copy an instance
-with some values changed.
+The crucial difference with regular classes is that an instance of a data class is in principle determined by the _data_
+it holds, as opposed to the identity of the instance. This is visible in the [pre-generated functions](#generated-functions)
+that data classes have. Printing an instance of a data class shows all the primary properties, and equality ensures that
+two instances holding the same data are considered equal for all purposes.
 
 Kotlin stores data classes like any other class: an instance of a data class is a regular object, and
 a variable of a data class type holds a reference to it. Kotlin gives no guarantees about stack or heap allocation, and
@@ -32,8 +34,9 @@ To keep the generated functions consistent and meaningful, a data class has to f
 
 * The primary constructor must have at least one parameter.
 * All primary constructor parameters must be marked as `val` or `var`.
-* A data class can't be abstract, open, sealed, or inner, and it [can't be inherited from](#inheritance).
-* You can't provide explicit implementations of the [generated functions](#generated-functions) like `componentN()` and `copy()`.
+* A data class is always `final`, so it [can't be inherited from](#inheritance).
+* No custom implementations of the `componentN()` and `copy()` functions are allowed. But you can still write your own
+  `equals()`, `hashCode()`, and `toString()` functions, which replace the [generated ones](#generated-functions).
 
 You can create instances of a data class the same way as instances of any other class: pass the arguments in the order
 of the constructor parameters, or pass them by name in any order, for example, `User(age = 35, name = "Jane")`.
@@ -97,10 +100,7 @@ The following table lists all the members that the compiler automatically genera
 | [`hashCode()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/hash-code.html) | Returns a hash code computed from the properties of the primary constructor, so that instances work as elements of a set and as keys in a map.   |
 | [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/to-string.html) | Returns a string with the class name and the properties of the primary constructor, such as `User(name=John, age=42)`.                           |
 | [`copy()`](#copying)                                                                     | Returns a new instance with the same properties, except for the ones that you pass as arguments.                                                 |
-| [`componentN()`](destructuring-declarations.md)                                          | Returns the property at the given position, which makes [destructuring declarations](#destructuring) possible.                                   |
-
-Data classes have no other generated functions, and they inherit the rest of their members from
-[`Any`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/), the superclass of every Kotlin class.
+| [`componentN()`](destructuring-declarations.md)                                          | Returns the property at the given position, which makes positional [destructuring declarations](#destructuring) possible.                        |
 
 Here's a short example of the generated functions in action:
 
@@ -552,6 +552,13 @@ fun main() {
 }
 ```
 {kotlin-runnable="true"}
+
+> Kotlin also supports [name-based destructuring](destructuring-declarations.md#name-based-destructuring), where
+> variables match properties by name instead of by position. It's currently
+> [Experimental](components-stability.md#stability-levels-explained) and requires an opt-in, but it's planned to become
+> the recommended way of destructuring data classes.
+>
+{style="tip"}
 
 ## Inheritance
 
