@@ -13,10 +13,18 @@ to the same object.
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
+    
     println("Number of elements: ${numbers.size}")
+    // Number of elements: 4
+    
     println("Third element: ${numbers.get(2)}")
+    // Third element: three
+    
     println("Fourth element: ${numbers[3]}")
+    // Fourth element: four
+    
     println("Index of element: \"two\" ${numbers.indexOf("two")}")
+    // Index of element: "two" 1
 //sampleEnd
 }
 ```
@@ -37,9 +45,13 @@ fun main() {
     val bob = Person("Bob", 31)
     val people = listOf(Person("Adam", 20), bob, bob)
     val people2 = listOf(Person("Adam", 20), Person("Bob", 31), bob)
+    
     println(people == people2)
+    // true
+    
     bob.age = 32
     println(people == people2)
+    // false
 //sampleEnd
 }
 ```
@@ -52,11 +64,11 @@ You can also replace an element at a specific position. For example:
 fun main() {
 //sampleStart
     val numbers = mutableListOf(1, 2, 3, 4)
-    // Adds an elemnt to the list
+    // Adds an element to the list
     numbers.add(5)
-    // Removes the element with index 1
+    // Removes the element at index 1
     numbers.removeAt(1)
-    // Replace the element with index 0
+    // Replace the element at index 0
     numbers[0] = 0
     
     numbers.shuffle()
@@ -81,10 +93,14 @@ fun main() {
 //sampleStart
     val numbers = setOf(1, 2, 3, 4)
     println("Number of elements: ${numbers.size}")
+    // Number of elements: 4
+    
     if (numbers.contains(1)) println("1 is in the set")
+    // 1 is in the set
 
     val numbersBackwards = setOf(4, 3, 2, 1)
     println("The sets are equal: ${numbers == numbersBackwards}")
+    // The sets are equal: true
 //sampleEnd
 }
 ```
@@ -92,7 +108,7 @@ fun main() {
 
 [`MutableSet<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html) is a `Set` with write operations from `MutableCollection`.
 
-The default implementation of `MutableSet` ([`LinkedHashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-set/index.html)) preserves the element insertion order.
+[`LinkedHashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-set/index.html) is the default implementation of `MutableSet`. It preserves the element insertion order.
 Therefore, the order-dependent functions like `first()` and `last()` return predictable results:
 
 ```kotlin
@@ -112,8 +128,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-If you don't need a predictable iteration order, you can use [`HashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-set/index.html). It's an alternative implementation that doesn't 
-guarantee iteration order, so don't rely on `first()` or `last()` returning elements in insertion order. 
+If you don't need a predictable iteration order, you can use an alternative implementation [`HashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-set/index.html), which requires less memory than
+`LinkedHashSet`. Since it doesn't guarantee iteration order, you can't rely on `first()` or `last()` returning elements in insertion order. 
 
 ## Map
 
@@ -127,11 +143,20 @@ fun main() {
     val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
     
     println("All keys: ${numbersMap.keys}")
+    // All keys: [key1, key2, key3, key4]
+    
     println("All values: ${numbersMap.values}")
-    if ("key2" in numbersMap) println("Value by key \"key2\": ${numbersMap["key2"]}")    
+    // All values: [1, 2, 3, 1]
+    
+    if ("key2" in numbersMap) println("Value by key \"key2\": ${numbersMap["key2"]}")
+    // Value by key "key2": 2
+    
     if (1 in numbersMap.values) println("The value 1 is in the map")
+    // The value 1 is in the map
+    
     // Checks for the value with containsValue(), equivalent to the previous condition
     if (numbersMap.containsValue(1)) println("The value 1 is in the map")
+    // The value 1 is in the map
 //sampleEnd
 }
 ```
@@ -149,6 +174,7 @@ fun main() {
     val anotherMap = mapOf("key2" to 2, "key1" to 1, "key4" to 1, "key3" to 3)
     
     println("The maps are equal: ${numbersMap == anotherMap}")
+    // The maps are equal: true
 //sampleEnd
 }
 ```
@@ -165,12 +191,13 @@ fun main() {
     numbersMap["one"] = 11
 
     println(numbersMap)
+    // {one=11, two=2, three=3}
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-([`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html)) The default implementation of `MutableMap`. It preserves the order in which entries are inserted.
+[`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) is the default implementation of `MutableMap`. It preserves the order in which you insert the entries.
 In turn, [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) is an alternative implementation that doesn't control the elements order.
 
 ## ArrayDeque
@@ -184,14 +211,19 @@ fun main() {
 
     deque.addFirst(0)
     deque.addLast(4)
-    println(deque) // [0, 1, 2, 3, 4]
+    println(deque)
+    // [0, 1, 2, 3, 4]
 
-    println(deque.first()) // 0
-    println(deque.last()) // 4
+    println(deque.first())
+    // 0
+    
+    println(deque.last())
+    // 4
 
     deque.removeFirst()
     deque.removeLast()
-    println(deque) // [1, 2, 3]
+    println(deque)
+    // [1, 2, 3]
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
