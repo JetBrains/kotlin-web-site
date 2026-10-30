@@ -441,15 +441,9 @@ The compiler uses this information to automatically generate the corresponding h
 This gives you version-based overload generation and helps preserve
 binary compatibility for callers compiled against older versions of your library.
 
-> The `@IntroducedAt` annotation is [Experimental](components-stability.md#stability-levels-explained). To opt in, use the
-> `@OptIn(ExperimentalVersionOverloading::class)` annotation.
-> 
-{style="warning"}
-
 Here's an example where the `Button()` function receives multiple optional parameters over several API versions:
 
 ```kotlin
-@OptIn(ExperimentalVersionOverloading::class)
 fun Button(
     label: String = "",
     color: Color = DefaultColor,
