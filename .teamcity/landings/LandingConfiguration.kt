@@ -37,5 +37,9 @@ val landingConfigurations = listOf(
   LandingConfiguration(
     name = "shipaton",
     repositoryUrl = "git@github.com:jetbrains-lovable/template-tastic-page.git"
+  ),
+  LandingConfiguration(
+    name = "multiplatform-startups",
+    repositoryUrl = "git@github.com:jetbrains-lovable/brightstart-project-kit.git"
   )
 )
