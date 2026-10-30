@@ -24,7 +24,7 @@ object BuildParams {
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 
   const val KOTLINX_IO_RELEASE_TAG = "master"
-  const val KOTLINX_IO_RELEASE_LABEL = "0.8.1"
+  const val KOTLINX_IO_RELEASE_LABEL = "0.9.2"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
