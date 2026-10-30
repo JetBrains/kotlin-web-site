@@ -61,7 +61,7 @@ The following example uses `KSPJvmMain` to run KSP for a JVM target:
 
 ```bash
 java -cp \
-symbol-processing-aa-%kspVersion%.jar:symbol-processing-common-deps-%kspVersion%.jar:symbol-processing-api-%kspVersion%.jar:kotlin-stdlib-2.3.20.jar:kotlinx-coroutines-core-jvm-1.10.2.jar \
+symbol-processing-aa-%kspVersion%.jar:symbol-processing-common-deps-%kspVersion%.jar:symbol-processing-api-%kspVersion%.jar:kotlin-stdlib-%kotlinVersion%.jar:kotlinx-coroutines-core-jvm-%coroutinesVersion%.jar \
 com.google.devtools.ksp.cmdline.KSPJvmMain \
 -language-version=2.0 \
 -api-version=2.0 \

@@ -42,7 +42,8 @@ mapper implementations between Java beans at compile time.
    
    ```xml
    <properties>
-       <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
+       <kotlin.version>%kotlinVersion%</kotlin.version>
+       <maven.compiler.release>17</maven.compiler.release>
        <mapstruct.version>1.6.3</mapstruct.version>
    </properties>
    
@@ -59,33 +60,23 @@ mapper implementations between Java beans at compile time.
        <artifactId>kotlin-maven-plugin</artifactId>
        <version>${kotlin.version}</version>
        <extensions>true</extensions>
-       <executions>
-           <execution>
-               <id>kapt</id>
-               <goals>
-                   <goal>kapt</goal>
-               </goals>
-               <configuration>
-                   <sourceDirs>
-                       <sourceDir>src/main/kotlin</sourceDir>
-                       <sourceDir>src/main/java</sourceDir>
-                   </sourceDirs>
-                   <aptMode>stubs</aptMode>
-                   <annotationProcessorPaths>
-                       <annotationProcessorPath>
-                           <groupId>org.mapstruct</groupId>
-                           <artifactId>mapstruct-processor</artifactId>
-                           <version>${mapstruct.version}</version>
-                       </annotationProcessorPath>
-                   </annotationProcessorPaths>
-               </configuration>
-           </execution>
-       </executions>
+       <configuration>
+           <annotationProcessorPaths>
+               <annotationProcessorPath>
+                   <groupId>org.mapstruct</groupId>
+                   <artifactId>mapstruct-processor</artifactId>
+                   <version>${mapstruct.version}</version>
+               </annotationProcessorPath>
+           </annotationProcessorPaths>
+       </configuration>
    </plugin>
    ```
    
-   * Add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
-   * Configure the [mode of annotation processing](kapt.md#set-up-in-maven) using the `aptMode` option.
+   * The `<extensions>true</extensions>` option configures kapt [automatically](maven-configure-project.md#automatic-configuration).
+     It registers the `src/main/kotlin` and `src/test/kotlin` source roots and adds the `kapt` and `compile` executions
+     bound to the correct lifecycle phases, so the `kapt` goal runs before compilation.
+   * The `maven.compiler.release` property configures both the Java and Kotlin compilers, so the Java sources generated
+     by kapt are compiled against the same JVM target.
 
    </tab>
    <tab title="Gradle Kotlin" group-key="kotlin">
