@@ -392,8 +392,8 @@ sorts the entries before returning them.
 ## Compile-time constants
 
 If the value of a read-only property is known at compile time, mark it as a _compile-time constant_ using the `const` modifier.
-Compile-time constants are inlined at compile time, so each reference is replaced with its actual value. They are accessed
-more efficiently because no getter is called:
+The compiler evaluates the property's initializer at compile time and inlines its value wherever the property is referenced,
+without calling a getter:
 
 ```kotlin
 // File: AppConfig.kt
@@ -406,8 +406,33 @@ const val MAX_LOGIN_ATTEMPTS = 3
 Compile-time constants must meet the following requirements:
 
 * They must be either a top-level property, or a member of an [`object` declaration](object-declarations.md#object-declarations-overview) or a [companion object](object-declarations.md#companion-objects).
-* They must be initialized with a value of type `String` or a [primitive type](types-overview.md).
+* Their type must be `String`, a [primitive type](types-overview.md), or an [unsigned integer type](unsigned-integer-types.md).
+* Their initializer must be an expression that the compiler can evaluate at compile time.
 * They can't have a custom getter.
+
+You can initialize compile-time constants using supported operations, such as arithmetic, comparisons, bitwise operations,
+and string concatenation.
+
+The compiler can also evaluate some standard library functions, including string functions such as `.trim()`, `.trimIndent()`,
+`.lowercase()`, and `.uppercase()`. You can also use the [`name` property of enum constants](enum-classes.md#access-enum-constants-and-their-properties) and [callable references](lambdas.md#callable-reference)
+in compile-time constant initializers. For example:
+
+```kotlin
+const val SECONDS_PER_DAY = 60u * 60u * 24u
+
+const val APP_NAME = "  Kotlin App  ".trim()
+
+fun main() {
+    println(SECONDS_PER_DAY)
+    // 86400
+    println(APP_NAME) 
+    // Kotlin App
+}
+```
+{kotlin-runnable="true" id="kotlin-compile-time-constants" validate="false"}
+
+Not all expressions support compile-time evaluation. For example, you can't call user-defined functions or use control-flow
+expressions such as `if` in a compile-time constant initializer.
 
 Compile-time constants still have a backing field, so you can interact with them using [reflection](reflection.md).
 
