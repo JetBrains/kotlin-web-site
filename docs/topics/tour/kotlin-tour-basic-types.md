@@ -107,7 +107,7 @@ fun main() {
     val f = '\n'
 }
 ```
-{validate="false" kotlin-runnable="true" id="kotlin-tour-basic-types-exercise"}
+{validate="false" kotlin-target-platform="exercise" id="kotlin-tour-basic-types-exercise"}
 
 ```kotlin
 fun main() {
@@ -119,7 +119,7 @@ fun main() {
     val f: Char = '\n'
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
+{solution="true" id="kotlin-tour-basic-types-solution"}
 
 </def>
 </deflist>

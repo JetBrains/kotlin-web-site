@@ -265,7 +265,7 @@ fun main() {
     println(emp)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" validate="false" id="kotlin-tour-classes-exercise-1"}
 
 ```kotlin
 data class Employee(val name: String, var salary: Int)
@@ -277,7 +277,7 @@ fun main() {
     println(emp)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
+{solution="true" id="kotlin-tour-classes-solution-1"}
 
 </def>
 <def title="Declare nested data classes" id="classes-exercise-2">
@@ -298,7 +298,7 @@ fun main() {
     println(person)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" validate="false" id="kotlin-tour-classes-exercise-2"}
 
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
@@ -315,7 +315,7 @@ fun main() {
     println(person)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+{solution="true" id="kotlin-tour-classes-solution-2"}
 
 </def>
 <def title="Generate random employees with a class" id="classes-exercise-3">
@@ -329,19 +329,6 @@ how you can use this class.
 > For more information about importing packages, see [Packages and imports](packages.md).
 >
 {style="tip"}
-
-<deflist collapsible="true" id="kotlin-tour-classes-exercise-3-hint-1">
-    <def title="Hint 1">
-        Lists have an extension function called <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random.html"><code>.random()</code></a>
-        that returns a random item within a list.
-    </def>
-</deflist>
-
-<deflist collapsible="true" id="kotlin-tour-classes-exercise-3-hint-2">
-    <def title="Hint 2">
-        <code>Random.nextInt(from = ..., until = ...)</code> gives you a random <code>Int</code> number within specified limits.
-    </def>
-</deflist>
 
 ```kotlin
 import kotlin.random.Random
@@ -360,7 +347,13 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" validate="false" id="kotlin-tour-classes-exercise-3"}
+
+> Lists have an extension function called [`.random()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random.html) that returns a random item within a list.
+{style="hint"}
+
+> `Random.nextInt(from = ..., until = ...)` gives you a random `Int` number within specified limits.
+{style="hint"}
 
 ```kotlin
 import kotlin.random.Random
@@ -384,7 +377,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
+{solution="true" id="kotlin-tour-classes-solution-3"}
 
 </def>
 </deflist>
