@@ -1,7 +1,7 @@
 [//]: # (title: Collections overview)
 
 The Kotlin standard library provides a comprehensive set of tools for working with collections. A collection is a group
-of items that relate to the problem you solve and that you commonly process together. Collections usually contain
+of items that relate to the problem you're solving and that you commonly process together. Collections usually contain
 elements of the same type or its subtypes. Objects in a collection are called _elements_ or _items_.
 
 The collection API is generic, so you can use the same functions and interfaces with built-in
@@ -12,9 +12,9 @@ Kotlin provides three main collection types:
 * [_List_](collection-types.md#list) is an ordered collection. It supports indexed access and can contain duplicate elements.
   For example, you can use a list to store the digits of a telephone number.
 * [_Set_](collection-types.md#set) is a collection of unique elements. It doesn't guarantee iteration order, but specific implementations can
-  preserve insertion order or keep elements sorted. For example, you can use a set to store the numbers of lottery tickets.
+  preserve insertion order or keep elements sorted. For example, you can use a set to store the numbers on lottery tickets.
 * [_Map_](collection-types.md#map) (or _dictionary_) is a set of key-value pairs. Each key is unique and maps to one value.
-  For example, you can use a map to associate employee IDs and their position.
+  For example, you can use a map to associate employee IDs and their positions.
 
 Kotlin also provides [`ArrayDeque`](collection-types.md#arraydeque). It's a double-ended queue that you can use as a queue or stack.
 
@@ -33,7 +33,7 @@ Each main collection type has a read-only interface, such as `List`, and a corre
 for adding, removing, and updating them.
 
 Prefer read-only interfaces when callers don't need to modify a collection. This makes your intent explicit in the
-API and prevents accidental modification through that interface. By contrast, an immutable collection doesn't allow to
+API and prevents accidental modification through that interface. By contrast, an immutable collection doesn't allow you to
 change its elements after creation. For immutable and persistent implementations, use the [`kotlinx-collections-immutable`](https://kotlinlang.org/api/kotlinx.collections.immutable/) library.
 
 The interfaces form the following hierarchy:
@@ -44,5 +44,6 @@ The interfaces form the following hierarchy:
 checking the size of a collection. `Collection` inherits from the `Iterable<T>` interface, which supports iteration over elements.
 `Map` doesn't extend `Collection`.
 
-You can use `Collection` as a parameter of a function that applies to different collection types. For more specific cases,
-use the `Collection`'s inheritors: [`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) and [`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html). 
+You can use `Collection` as a parameter of a function that applies to different collection types.
+For type-specific operations, use an interface that inherits from `Collection`, such as [`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) or [`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html).
+

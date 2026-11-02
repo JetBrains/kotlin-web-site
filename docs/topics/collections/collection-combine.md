@@ -12,7 +12,7 @@ The first operand is a collection, and the second is either an element or anothe
 Each operator returns a new read-only collection:
 
 * `plus` returns a collection containing the original elements and the element or elements from the second operand.
-* `minus` returns a collection without the specified elements in the second operand. If that operand is an element,
+* `minus` returns a collection without the elements specified in the second operand. If that operand is an element,
   `minus` removes its first occurrence. If the second operand is a collection, `minus` removes all occurrences of its elements.
 
 ```kotlin
@@ -72,7 +72,7 @@ fun main() {
 To find elements present in both collections (their intersection), use [`intersect()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/intersect.html).
 To find elements present in the first collection but absent from the second, use [`subtract()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/subtract.html).
 
-Both functions return a `Set` and support infix notations (`a intersect b` and `a subtract b`):
+Both functions return a `Set` and support infix notation (`a intersect b` and `a subtract b`):
 
 ```kotlin
 fun main() {

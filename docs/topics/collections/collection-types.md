@@ -22,9 +22,9 @@ fun main() {
     
     println("Fourth element: ${numbers[3]}")
     // Fourth element: four
-    
-    println("Index of element: \"two\" ${numbers.indexOf("two")}")
-    // Index of element: "two" 1
+
+    println("Index of element \"two\": ${numbers.indexOf("two")}")
+    // Index of element "two": 1
 //sampleEnd
 }
 ```
@@ -68,7 +68,7 @@ fun main() {
     numbers.add(5)
     // Removes the element at index 1
     numbers.removeAt(1)
-    // Replace the element at index 0
+    // Replaces the element at index 0
     numbers[0] = 0
     
     numbers.shuffle()
@@ -109,7 +109,7 @@ fun main() {
 [`MutableSet<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html) is a `Set` with write operations from `MutableCollection`.
 
 [`LinkedHashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-set/index.html) is the default implementation of `MutableSet`. It preserves the element insertion order.
-Therefore, the order-dependent functions like `first()` and `last()` return predictable results:
+Therefore, order-dependent functions like `first()` and `last()` return predictable results:
 
 ```kotlin
 fun main() {
@@ -119,7 +119,7 @@ fun main() {
     val numbersBackwards = setOf(4, 3, 2, 1)
     
     println(numbers.first() == numbersBackwards.first())
-    //false
+    // false
     
     println(numbers.first() == numbersBackwards.last())
     // true
@@ -135,7 +135,7 @@ If you don't need a predictable iteration order, you can use an alternative impl
 
 Even though [`Map<K, V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html) is not an inheritor of the `Collection` interface, it's a Kotlin collection type.
 A `Map` stores _key-value_ pairs or _entries_. Keys are unique, but different keys can be paired with equal values.
-The `Map` interface provides specific functions, such as access to value by key, searching keys and values, and so on.
+The `Map` interface provides specific functions, such as access to value by key, searching for keys and values, and so on.
 
 ```kotlin
 fun main() {
@@ -198,7 +198,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 [`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) is the default implementation of `MutableMap`. It preserves the order in which you insert the entries.
-In turn, [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) is an alternative implementation that doesn't control the elements order.
+In turn, [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) is an alternative implementation is an alternative implementation that doesn't guarantee the order of its entries.
 
 ## ArrayDeque
 
