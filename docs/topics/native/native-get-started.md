@@ -339,9 +339,8 @@ To install the compiler:
    export PATH="/<path to the compiler>/kotlin-native/bin:$PATH"
    ```
 
-> Although the compiler output has no dependencies or virtual machine requirements, the compiler itself
-> requires Java 1.8 or higher runtime. It's supported
-> by [JDK 8 (JAVA SE 8) or later versions](https://www.oracle.com/java/technologies/downloads/).
+> Kotlin/Native produces native binaries that don't require a Java runtime or JVM. However, the compiler 
+> itself requires [JDK 17 or later](https://www.oracle.com/java/technologies/downloads/).
 >
 {style="note"}
 

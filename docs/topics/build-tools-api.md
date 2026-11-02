@@ -72,7 +72,7 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
     @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
     compilerVersion.set("2.3.21") // <-- different version than 2.4.20
 }

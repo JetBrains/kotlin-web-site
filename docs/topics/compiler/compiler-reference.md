@@ -155,6 +155,11 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 
 Allows using the `returnsResultOf()` contract so that the unused return value checker can distinguish between results that can be ignored and meaningful results from higher-order functions.
 
+### -Xallow-pre-17-runtime-jdk
+<primary-label ref="experimental-general"/>
+
+Suppresses the error that the compiler reports when you run it on a JDK version earlier than 17. Use this option temporarily while upgrading to JDK 17. This option will be removed in Kotlin 2.5.20 when JDK 17 becomes mandatory.
+
 ### -Xallow-reified-type-in-catch
 <primary-label ref="experimental-general"/>
 
