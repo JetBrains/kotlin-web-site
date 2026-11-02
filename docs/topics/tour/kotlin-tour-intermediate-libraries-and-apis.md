@@ -280,6 +280,7 @@ What should the opt-in look like in your code?
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
 ```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
 
 </def>
 </deflist>
