@@ -120,16 +120,6 @@ When passing arguments, follow these rules:
 * Use the minus sign `-` **only** before the arguments `Xmx`, `XX:MaxMetaspaceSize`, and `XX:ReservedCodeCacheSize`.
 * Separate arguments with commas (`,`) _without_ spaces. Arguments that come after a space will be used for the Gradle daemon, not for the Kotlin daemon.
 
-> Gradle ignores these properties if all the following conditions are satisfied:
-> * Gradle is using JDK 1.9 or higher.
-> * The version of Gradle is between 7.0 and 7.1.1 inclusively.
-> * Gradle is compiling Kotlin DSL scripts.
-> * The Kotlin daemon isn't running.
->
-> To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following section.
->
-{style="warning"}
-
 #### kotlin.daemon.jvmargs property
 
 You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
@@ -223,7 +213,7 @@ The Kotlin daemon has the following default JVM arguments:
 * `-XX:+UseCodeCacheFlushing`
 * `-Djava.awt.headless=true`
 * `-D{java.servername.property}={localhostip}`
-* `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`. This argument is only applied for JDK versions 16 or higher.
+* `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`
 
 > The list of default JVM arguments for the Kotlin daemon may vary between versions. You can use a tool like [VisualVM](https://visualvm.github.io/) to check the actual settings of a running JVM process, like the Kotlin daemon.
 >

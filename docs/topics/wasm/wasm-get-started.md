@@ -58,8 +58,7 @@ Generate your project's artifacts to publish on a website:
 1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 2. In **WasmDemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
-   > For Compose Multiplatform projects in general, we recommend Java 17 or later.
+   > You need at least Java 17 as your Gradle JVM for the tasks to load successfully.
    >
    {style="note"}
 
