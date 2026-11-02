@@ -454,13 +454,6 @@ Then, create another child class called `SmartThermostat` that inherits from the
 Finally, add another function called `adjustTemperature()` that accepts a temperature measurement as an input and prints:
 `$name thermostat set to $temperature°C.`
 
-<deflist collapsible="true">
-    <def title="Hint">
-        In the <code>SmartDevice</code> class, add the <code>turnOn()</code> and <code>turnOff()</code> functions so that 
-        you can override their behavior later in the <code>SmartThermostat</code> class.
-    </def>
-</deflist>
-
 ```kotlin
 abstract class // Write your code here
 
@@ -499,7 +492,10 @@ fun main() {
     // Bedroom Thermostat thermostat is now off.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1"}
+
+> In the `SmartDevice` class, add the `turnOn()` and `turnOff()` functions so that you can override their behavior later in the `SmartThermostat` class.
+{style="hint"}
 
 ```kotlin
 abstract class SmartDevice(val name: String) {
@@ -555,7 +551,7 @@ fun main() {
     // Bedroom Thermostat thermostat is now off.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartDeviceTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
+{solution="true" id="kotlin-tour-classes-interfaces-solution-1"}
 
 </def>
 <def title="Implement a media interface" id="classes-interfaces-exercise-2">
@@ -570,12 +566,6 @@ Then, create a class called `Audio` that implements the `Media` interface. The `
 in its constructor as well as have an additional property called `composer` that has `String` type. In the class, implement
 the `play()` function to print the following: `"Playing audio: $title, composed by $composer"`.
 
-<deflist collapsible="true">
-    <def title="Hint">
-        You can use the <code>override</code> keyword in class headers to implement a property from an interface in the constructor.
-    </def>
-</deflist>
-
 ```kotlin
 interface // Write your code here
 
@@ -587,7 +577,10 @@ fun main() {
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2"}
+
+> You can use the `override` keyword in class headers to implement a property from an interface in the constructor.
+{style="hint"}
 
 ```kotlin
 interface Media {
@@ -607,7 +600,7 @@ fun main() {
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AudioTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
+{solution="true" id="kotlin-tour-classes-interfaces-solution-2"}
 
 </def>
 <def title="Combine an interface and an abstract class" id="classes-interfaces-exercise-3">
@@ -649,7 +642,7 @@ fun main() {
     // Refunding $50.0 to the credit card.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3"}
 
 ```kotlin
 interface Refundable {
@@ -685,7 +678,7 @@ fun main() {
     // Refunding $50.0 to the credit card.
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CreditCardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
+{solution="true" id="kotlin-tour-classes-interfaces-solution-3"}
 
 </def>
 <def title="Customize behavior with interface delegation" id="classes-interfaces-exercise-4">
@@ -735,7 +728,7 @@ fun main() {
     // Sending message: [smart] Hello from SmartMessenger!
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4"}
 
 ```kotlin
 interface Messenger {
@@ -773,7 +766,7 @@ fun main() {
     // Sending message: [smart] Hello from SmartMessenger!
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartMessengerTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
+{solution="true" id="kotlin-tour-classes-interfaces-solution-4"}
 
 </def>
 </deflist>

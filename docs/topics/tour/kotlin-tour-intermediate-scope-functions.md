@@ -422,13 +422,6 @@ For more information about scope functions, see [Scope functions](scope-function
 
 Rewrite the `.getPriceInEuros()` function as a single-expression function that uses safe call operators `?.` and the `let` scope function.
 
-<deflist collapsible="true">
-    <def title="Hint">
-        Use safe call operators <code>?.</code> to safely access the <code>priceInDollars</code> property from the <code>getProductInfo()</code>
-        function. Then, use the <code>let</code> scope function to convert the value of <code>priceInDollars</code> into euros.
-    </def>
-</deflist>
-
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
 
@@ -463,7 +456,10 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-1"}
+
+> Use safe call operators `?.` to safely access the `priceInDollars` property from the `getProductInfo()` function. Then, use the `let` scope function to convert the value of `priceInDollars` into euros.
+{style="hint"}
 
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
@@ -492,7 +488,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
+{solution="true" id="kotlin-tour-scope-functions-solution-1"}
 
 </def>
 <def title="Chain apply and also" id="scope-functions-exercise-2">
@@ -514,7 +510,7 @@ fun main() {
     // Updated User: User(id=1, email=new_email@example.com)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-2"}
 
 ```kotlin
 data class User(val id: Int, var email: String)
@@ -532,7 +528,7 @@ fun main() {
     // Updated User: User(id=1, email=new_email@example.com)
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
+{solution="true" id="kotlin-tour-scope-functions-solution-2"}
 
 </def>
 </deflist>
