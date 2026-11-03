@@ -14,9 +14,7 @@ class MeasureTimeTest {
                     timeLine.startsWith("Time taken: ") &&
                     durationLike.matches(timeValue) -> passed(
                 "main() prints \"Processed data\" and a measured duration. " +
-                        "The duration changes from run to run and includes a time unit. " +
-                        "The test checks only the duration's format, not whether " +
-                        "you use measureTime().",
+                        "The duration changes from run to run and includes a time unit.",
                 showOutput = true
             )
 

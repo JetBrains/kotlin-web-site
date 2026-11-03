@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bby\s+lazy\s*\{'
+    message: "Initialize both health-check properties lazily with `by lazy`: the value is computed on first use only, like `val config by lazy { loadConfig() }`."

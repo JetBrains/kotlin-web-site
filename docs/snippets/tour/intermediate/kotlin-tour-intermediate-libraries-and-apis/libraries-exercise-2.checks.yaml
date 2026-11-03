@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bmeasureTime\s*[\({]'
+    message: "Measure the block with the `measureTime()` function from `kotlin.time`: it runs the lambda and returns the time it took, like `val elapsed = measureTime { loadData() }`."

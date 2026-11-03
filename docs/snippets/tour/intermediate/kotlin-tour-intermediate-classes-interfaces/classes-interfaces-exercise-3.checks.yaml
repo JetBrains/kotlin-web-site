@@ -1,0 +1,8 @@
+checks:
+  - type: and
+    checks:
+      - type: source-matches
+        value: '\babstract\s+fun\s+processPayment'
+      - type: source-matches
+        value: 'fun\s+authorize[\s\S]*?class\s+CreditCard'
+    message: "Declare `authorize()` and an `abstract processPayment()` in the `PaymentMethod` class, like `abstract class Animal { fun breathe() {}; abstract fun speak() }` mixes a ready member with one each subclass must implement."

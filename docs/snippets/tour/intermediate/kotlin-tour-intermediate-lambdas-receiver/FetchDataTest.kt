@@ -6,8 +6,7 @@ class FetchDataTest {
         val expected = "Data received - Processed"
         when {
             expected in output.lines() -> passed(
-                "The lambda prints \"$expected\". The test doesn't check whether " +
-                        "you use append() to add the text.",
+                "The lambda prints \"$expected\".",
                 showOutput = true
             )
 

@@ -88,8 +88,7 @@ class AudioTest {
             else -> passed(
                 "Audio implements Media. Its title property returns the audio's " +
                         "title, and play() prints a message using the audio's title " +
-                        "and composer. The test doesn't check whether you override " +
-                        "title in Audio's constructor.",
+                        "and composer.",
                 showOutput = true
             )
         }

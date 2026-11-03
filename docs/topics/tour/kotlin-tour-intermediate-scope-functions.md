@@ -456,7 +456,7 @@ fun main() {
     }
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetPriceInEurosTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-scope-functions/GetPriceInEurosTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-scope-functions/scope-functions-exercise-1.checks.yaml" id="kotlin-tour-scope-functions-exercise-1"}
 
 > Use safe call operators `?.` to safely access the `priceInDollars` property from the `getProductInfo()` function. Then, use the `let` scope function to convert the value of `priceInDollars` into euros.
 {style="hint"}
@@ -510,7 +510,7 @@ fun main() {
     // Updated User: User(id=1, email=new_email@example.com)
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UpdateEmailTest.kt" validate="false" id="kotlin-tour-scope-functions-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-scope-functions/UpdateEmailTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-scope-functions/scope-functions-exercise-2.checks.yaml" id="kotlin-tour-scope-functions-exercise-2"}
 
 ```kotlin
 data class User(val id: Int, var email: String)

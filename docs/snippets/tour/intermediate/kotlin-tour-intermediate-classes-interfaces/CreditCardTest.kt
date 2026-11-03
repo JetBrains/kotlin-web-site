@@ -99,9 +99,7 @@ class CreditCardTest {
             else -> passed(
                 "CreditCard implements PaymentMethod and Refundable. authorize(), " +
                         "processPayment(), and refund() each print their message with " +
-                        "the supplied amount. The test doesn't check whether you " +
-                        "declare authorize() and an abstract processPayment() " +
-                        "in PaymentMethod.",
+                        "the supplied amount.",
                 showOutput = true
             )
         }

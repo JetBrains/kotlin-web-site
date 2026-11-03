@@ -424,7 +424,7 @@ fun main() {
     // The delivery was canceled due to: Address not found.
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/DeliveryStatusTest.kt" id="kotlin-tour-special-classes-exercise-1"}
 
 ```kotlin
 sealed class DeliveryStatus {
@@ -508,7 +508,7 @@ fun main() {
     // Data received: [Data1, Data2]
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" validate="false" id="kotlin-tour-special-classes-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/StatusProblemTest.kt" id="kotlin-tour-special-classes-exercise-2"}
 
 ```kotlin
 sealed class Status {

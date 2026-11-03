@@ -181,7 +181,7 @@ fun main() {
     }
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FetchDataTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/FetchDataTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/lambda-receivers-exercise-1.checks.yaml" id="kotlin-tour-lambda-receivers-exercise-1"}
 
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
@@ -234,7 +234,7 @@ fun main() {
     }
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ButtonEventTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/ButtonEventTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/lambda-receivers-exercise-2.checks.yaml" id="kotlin-tour-lambda-receivers-exercise-2"}
 
 ```kotlin
 class Button {
@@ -290,7 +290,7 @@ fun main() {
     // [2, 3, 4]
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IncrementedTest.kt" validate="false" id="kotlin-tour-lambda-receivers-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/IncrementedTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/lambda-receivers-exercise-3.checks.yaml" id="kotlin-tour-lambda-receivers-exercise-3"}
 
 ```kotlin
 fun List<Int>.incremented(): List<Int> {

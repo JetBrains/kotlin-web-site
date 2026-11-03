@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bsingleOrNull\s*[\({]'
+    message: "Find the single active subscription with the `singleOrNull()` function and a predicate: it returns the only matching element or `null`, like `nums.singleOrNull { it > 9 }`."

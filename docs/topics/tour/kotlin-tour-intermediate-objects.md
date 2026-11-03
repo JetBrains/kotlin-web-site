@@ -196,7 +196,7 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" validate="false" id="kotlin-tour-objects-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" id="kotlin-tour-objects-exercise-1"}
 
 ```kotlin
 interface Order {
@@ -263,7 +263,7 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" validate="false" id="kotlin-tour-objects-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" id="kotlin-tour-objects-exercise-2"}
 
 ```kotlin
 interface Vehicle {
@@ -319,7 +319,7 @@ fun main() {
     }
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" validate="false" id="kotlin-tour-objects-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" id="kotlin-tour-objects-exercise-3"}
 
 > Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
 {style="hint"}

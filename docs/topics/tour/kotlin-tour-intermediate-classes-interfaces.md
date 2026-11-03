@@ -492,7 +492,7 @@ fun main() {
     // Bedroom Thermostat thermostat is now off.
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartDeviceTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartDeviceTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-classes-interfaces/classes-interfaces-exercise-1.checks.yaml" id="kotlin-tour-classes-interfaces-exercise-1"}
 
 > In the `SmartDevice` class, add the `turnOn()` and `turnOff()` functions so that you can override their behavior later in the `SmartThermostat` class.
 {style="hint"}
@@ -577,7 +577,7 @@ fun main() {
    // Playing audio: Symphony No. 5, composed by Beethoven
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AudioTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-classes-interfaces/AudioTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-classes-interfaces/classes-interfaces-exercise-2.checks.yaml" id="kotlin-tour-classes-interfaces-exercise-2"}
 
 > You can use the `override` keyword in class headers to implement a property from an interface in the constructor.
 {style="hint"}
@@ -642,7 +642,7 @@ fun main() {
     // Refunding $50.0 to the credit card.
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CreditCardTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-classes-interfaces/CreditCardTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-classes-interfaces/classes-interfaces-exercise-3.checks.yaml" id="kotlin-tour-classes-interfaces-exercise-3"}
 
 ```kotlin
 interface Refundable {
@@ -728,7 +728,7 @@ fun main() {
     // Sending message: [smart] Hello from SmartMessenger!
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/SmartMessengerTest.kt" validate="false" id="kotlin-tour-classes-interfaces-exercise-4"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartMessengerTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-classes-interfaces/classes-interfaces-exercise-4.checks.yaml" id="kotlin-tour-classes-interfaces-exercise-4"}
 
 ```kotlin
 interface Messenger {

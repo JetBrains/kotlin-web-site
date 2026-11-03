@@ -1,0 +1,8 @@
+checks:
+  - type: and
+    checks:
+      - type: source-matches
+        value: '\bapply\s*[\({]'
+      - type: source-matches
+        value: '\balso\s*[\({]'
+    message: "Update the user with the `apply` scope function and log with `also`: `apply` changes its receiver and `also` observes the result, like `person.apply { age = 30 }.also { println(it.age) }`."

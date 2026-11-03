@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bbuildList\b'
+    message: "Keep the provided `buildList { ... }` skeleton: inside it the new list is the receiver, so `add()` needs no name — like `buildList { add(10); add(20) }` builds `[10, 20]`."

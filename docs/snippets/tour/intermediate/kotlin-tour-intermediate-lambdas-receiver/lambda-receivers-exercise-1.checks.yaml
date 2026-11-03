@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bappend\w*\s*\('
+    message: "Add the text with the receiver's `append()` function instead of printing it directly: inside the lambda the `StringBuilder` is the receiver, so `append()` needs no name — like `append(\" done\")`."

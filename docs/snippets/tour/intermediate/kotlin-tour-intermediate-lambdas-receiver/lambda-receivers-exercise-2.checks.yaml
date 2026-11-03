@@ -1,0 +1,8 @@
+checks:
+  - type: and
+    checks:
+      - type: source-matches
+        value: 'button\s*\.\s*onEvent\s*[\({][\s\S]*\bisRightClick\b'
+      - type: source-matches
+        value: 'button\s*\.\s*onEvent\s*[\({][\s\S]*\bamount\b'
+    message: "Check the event's fields inside the `onEvent { ... }` handler: the `ButtonEvent` is the receiver, so you can read its properties directly, like `position.x` — read `isRightClick` and `amount` to detect the double click."

@@ -10,9 +10,7 @@ class GetPriceInEurosTest {
             null ->
                 if ("Price in Euros: \u20AC85.0" in output.lines()) passed(
                     "getPriceInEuros() returns 85.0, and main() prints \"Price " +
-                            "in Euros: \u20AC85.0\". The test doesn't check whether " +
-                            "you use a single-expression function with safe call " +
-                            "operators (?.) and let.",
+                            "in Euros: \u20AC85.0\".",
                     showOutput = true
                 ) else hint(
                     "Keep main() as it is. It prints \"Price in Euros: " +

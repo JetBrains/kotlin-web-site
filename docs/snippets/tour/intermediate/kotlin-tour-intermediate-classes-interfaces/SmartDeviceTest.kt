@@ -97,9 +97,7 @@ class SmartDeviceTest {
             else -> passed(
                 "SmartThermostat inherits from SmartDevice. turnOn(), " +
                         "adjustTemperature(), and turnOff() print messages using its " +
-                        "name and the supplied temperature. The test doesn't check " +
-                        "whether you declare turnOn() and turnOff() as abstract " +
-                        "functions in SmartDevice.",
+                        "name and the supplied temperature.",
                 showOutput = true
             )
         }
