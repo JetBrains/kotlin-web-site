@@ -101,12 +101,17 @@ To explore what's possible with the WebAssembly Component Model and Kotlin/Wasm,
 
 ## Kotlin/Wasm performance
 
-Compose Multiplatform running on Kotlin/Wasm shows encouraging performance traits. You can see that its execution speed
-outperforms JavaScript and is approaching that of the JVM:
+Kotlin/Wasm can improve execution performance compared with Kotlin/JS. The results depend on the workload,
+the framework, and the browser or runtime.
+
+For example, the Compose Multiplatform benchmarks show Kotlin/Wasm outperforming Kotlin/JS and approaching
+JVM performance in the measured workloads:
 
 ![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}
 
 We regularly run benchmarks on Kotlin/Wasm, and these results come from our testing in a recent version of Google Chrome.
+
+For more framework's results, see Summon's [performance comparison](https://github.com/codeyousef/summon#performance-comparison).
 
 ## Browser API support
 

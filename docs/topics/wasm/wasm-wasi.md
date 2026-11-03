@@ -24,16 +24,7 @@ The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target
    ```bash
    git clone git@github.com:Kotlin/kotlin-wasm-wasi-template.git
    ```
-   
-3. Add the `wasmtime()` target to your Gradle build file:
 
-   ```kotlin
-   kotlin {
-       wasmWasi {
-           wasmtime()
-       }
-   }
-   ```
 
 ## Run the application
 

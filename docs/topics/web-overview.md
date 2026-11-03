@@ -73,17 +73,6 @@ Kotlin/Wasm supports two targets:
 Kotlin/Wasm can help you build web UIs, share UI and application logic across platforms, or run Kotlin code outside the 
 browser. The following use cases can help you choose an approach that fits your project.
 
-#### Build web UIs
-
-Kotlin/Wasm supports several UI frameworks:
-
-* [Doodle](https://nacular.github.io/doodle/) lets you share UIs between web and desktop applications. The vector-based
-  rendering gives you control over custom components, shapes, and visualizations.
-* [Kilua](https://kilua.dev/) uses [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime to build reactive web UIs with standard HTML elements. It provides
-  ready-to-use components and server-side rendering. 
-* [Summon](https://github.com/codeyousef/summon) provides a component-based API for building UIs across Kotlin/Wasm, Kotlin/JS, and JVM. It supports
-  server-side rendering with HTML streaming and CSS styling through modifiers.
-
 #### Build cross-platform apps with Compose Multiplatform
 
 If you want to share both logic and UI across multiple platforms, including web,
@@ -94,6 +83,17 @@ Kotlin/Wasm with [Compose Multiplatform](https://kotlinlang.org/compose-multipla
 * Supporting the latest version of the
   [WebAssembly Garbage Collection (WasmGC)](https://developer.chrome.com/blog/wasmgc) proposal,
   which allows Kotlin/Wasm to run on all major modern browsers.
+
+#### Build web UIs
+
+Kotlin/Wasm supports several UI frameworks:
+
+* [Doodle](https://nacular.github.io/doodle/) lets you share UIs between web and desktop applications. The vector-based
+  rendering gives you control over custom components, shapes, and visualizations.
+* [Kilua](https://kilua.dev/) uses [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime to build reactive web UIs with standard HTML elements. It provides
+  ready-to-use components and server-side rendering.
+* [Summon](https://github.com/codeyousef/summon) provides a component-based API for building UIs across Kotlin/Wasm, Kotlin/JS, and JVM. It supports
+  server-side rendering with HTML streaming and CSS styling through modifiers.
 
 ## Choose your web approach
 
