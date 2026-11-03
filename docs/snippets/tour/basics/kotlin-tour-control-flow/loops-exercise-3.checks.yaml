@@ -1,5 +1,6 @@
 checks:
   - type: and
+    title: "Pick the words with a for loop and an if condition"
     checks:
       - type: source-matches
         value: '\bfor\s*\('

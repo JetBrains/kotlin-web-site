@@ -1,5 +1,6 @@
 checks:
   - type: and
+    title: "Read the event fields inside the onEvent handler"
     checks:
       - type: source-matches
         value: 'button\s*\.\s*onEvent\s*[\({][\s\S]*\bisRightClick\b'

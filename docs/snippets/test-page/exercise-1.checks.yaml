@@ -1,4 +1,5 @@
 checks:
   - type: source-matches
+    title: "Build the sentence with a string template"
     value: '\$name is \$age'
     message: "Build the sentence with a string template instead of typing the whole text: put `$` before a variable to insert its value, like `\"There are $customers customers\"`."

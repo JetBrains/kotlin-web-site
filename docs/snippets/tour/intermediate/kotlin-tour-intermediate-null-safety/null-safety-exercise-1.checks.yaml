@@ -1,5 +1,6 @@
 checks:
   - type: and
+    title: "Use a safe cast, a default value, and takeIf"
     checks:
       - type: source-matches
         value: '\bas\?\s*User\b'

@@ -1,16 +1,21 @@
 checks:
   - type: source-matches
+    title: "Declare the type of b explicitly"
     value: 'val\s+b\b\s*:\s*String\b'
     message: "Declare the type of `b` explicitly: it holds text, so use `String`."
   - type: source-matches
+    title: "Declare the type of c explicitly"
     value: 'val\s+c\b\s*:\s*Double\b'
     message: "Declare the type of `c` explicitly: it holds a fractional number, so use `Double`."
   - type: source-matches
+    title: "Declare the type of d explicitly"
     value: 'val\s+d\b\s*:\s*Long\b'
     message: "Declare the type of `d` explicitly: the value is too large for `Int`, so use `Long`."
   - type: source-matches
+    title: "Declare the type of e explicitly"
     value: 'val\s+e\b\s*:\s*Boolean\b'
     message: "Declare the type of `e` explicitly: it holds a truth value, so use `Boolean`."
   - type: source-matches
+    title: "Declare the type of f explicitly"
     value: 'val\s+f\b\s*:\s*Char\b'
     message: "Declare the type of `f` explicitly: it holds a single character, so use `Char`."

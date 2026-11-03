@@ -1,4 +1,5 @@
 checks:
   - type: source-matches
+    title: "Return the usernames with mapNotNull"
     value: '\bmapNotNull\s*[\({]'
     message: "Keep the `mapNotNull { ... }` call from the starter code — it drops every `null` the lambda returns, like `ids.mapNotNull { findUser(it) }`: return the username for active users and `null` otherwise."

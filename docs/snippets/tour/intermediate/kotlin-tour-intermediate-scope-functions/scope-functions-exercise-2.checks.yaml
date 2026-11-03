@@ -1,5 +1,6 @@
 checks:
   - type: and
+    title: "Update the user with apply and log with also"
     checks:
       - type: source-matches
         value: '\bapply\s*[\({]'

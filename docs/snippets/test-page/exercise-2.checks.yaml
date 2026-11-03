@@ -1,5 +1,6 @@
 checks:
   - type: not-and
+    title: "Compare the two results with the equality operator"
     checks:
       - type: source-contains
         value: 'Write your code here'

@@ -1,5 +1,6 @@
 checks:
   - type: and
+    title: "Declare turnOn and turnOff as abstract"
     checks:
       - type: source-matches
         value: '\babstract\s+fun\s+turnOn\s*\('

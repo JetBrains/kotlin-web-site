@@ -1,5 +1,6 @@
 checks:
   - type: or
+    title: "Create the URLs with a lambda"
     checks:
       - type: source-matches
         value: '->'
