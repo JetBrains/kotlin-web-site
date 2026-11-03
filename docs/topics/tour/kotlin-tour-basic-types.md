@@ -107,7 +107,7 @@ fun main() {
     val f = '\n'
 }
 ```
-{kotlin-target-platform="exercise" kotlin-checks-file="tour/basics/kotlin-tour-basic-types/exercise.checks.yaml" id="kotlin-tour-basic-types-exercise"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-basic-types/BasicTypesTest.kt" kotlin-checks-file="tour/basics/kotlin-tour-basic-types/exercise.checks.yaml" id="kotlin-tour-basic-types-exercise"}
 
 ```kotlin
 fun main() {
