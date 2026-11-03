@@ -435,7 +435,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" validate="false" id="kotlin-tour-collections-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise1Test.kt" id="kotlin-tour-collections-exercise-1"}
 
 ```kotlin
 val greenNumbers = listOf(1, 4, 23)
@@ -462,7 +462,7 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise2Test.kt" validate="false" id="kotlin-tour-collections-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-collections/CollectionsExercise2Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-collections/exercise-2.checks.yaml" id="kotlin-tour-collections-exercise-2"}
 
 > Make sure that you check the requested protocol in upper case. You can use the [`.uppercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html) function to help you with this.
 {style="hint"}
@@ -492,7 +492,7 @@ fun main() {
     println("$n is spelled as '${number2word[n]}'")
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" validate="false" id="kotlin-tour-collections-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CollectionsExercise3Test.kt" id="kotlin-tour-collections-exercise-3"}
 
 ```kotlin
 val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")

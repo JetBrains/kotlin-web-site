@@ -173,7 +173,7 @@ fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" validate="false" id="kotlin-tour-null-safety-exercise"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/SalaryByIdTest.kt" id="kotlin-tour-null-safety-exercise"}
 
 ```kotlin
 data class Employee (val name: String, var salary: Int)

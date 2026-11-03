@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: 'fun\s+circleArea\s*\([^)]*\)[^{;]*='
+    message: "Rewrite the function with an expression body: replace the block body with `=` and the expression, like `fun double(x: Int) = x * 2`."

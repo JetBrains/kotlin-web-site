@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\.uppercase\s*\(\s*\)'
+    message: "Check the requested protocol in upper case: `.uppercase()` returns the string in capitals, like `\"kotlin\".uppercase()` is `\"KOTLIN\"` — call it before comparing with the `SUPPORTED` set."

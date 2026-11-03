@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\$[a-zA-Z{]'
+    message: "Build the sentence with a string template instead of typing the whole text: put `$` before a variable to insert its value, like `\"There are $customers customers\"`."

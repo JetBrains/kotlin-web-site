@@ -224,7 +224,7 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" id="kotlin-tour-functions-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-functions/CircleAreaTest.kt" id="kotlin-tour-functions-exercise-1"}
 
 > The formula for calculating the area of a circle is <math>πr^2</math>, where <math>r</math> is the radius.
 {style="hint"}
@@ -258,7 +258,7 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/CircleAreaTest.kt" folded-button="false" id="kotlin-tour-functions-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-functions/CircleAreaTest.kt" kotlin-checks-file="tour/basics/kotlin-tour-functions/exercise-2.checks.yaml" folded-button="false" id="kotlin-tour-functions-exercise-2"}
 
 ```kotlin
 import kotlin.math.PI
@@ -292,7 +292,7 @@ fun main() {
     println(intervalInSeconds(1, 0, 1))
 }
 ```
-{validate="false" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" id="kotlin-tour-functions-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/IntervalInSecondsTest.kt" id="kotlin-tour-functions-exercise-3"}
 
 ```kotlin
 fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
@@ -573,7 +573,7 @@ fun main() {
     println(urls)
 }
 ```
-{validate="false" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise1Test.kt" id="kotlin-tour-lambdas-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-functions/LambdasExercise1Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-functions/lambdas-exercise-1.checks.yaml" id="kotlin-tour-lambdas-exercise-1"}
 
 ```kotlin
 fun buildUrls(actions: List<String>, prefix: String, id: Int): List<String> {
@@ -603,7 +603,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/LambdasExercise2Test.kt" id="kotlin-tour-lambdas-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-functions/LambdasExercise2Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-functions/lambdas-exercise-2.checks.yaml" id="kotlin-tour-lambdas-exercise-2"}
 
 ```kotlin
 fun repeatN(n: Int, action: () -> Unit) {

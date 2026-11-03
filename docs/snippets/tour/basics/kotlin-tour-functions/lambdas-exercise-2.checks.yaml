@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\brepeatN\s*\(\s*(\d|n\s*=)'
+    message: "Print the lines through your `repeatN` function: call it in `main()` with a count and a lambda, like `repeat(2) { println(\"Hi\") }` calls the standard `repeat`."

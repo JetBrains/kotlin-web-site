@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bif\s*\('
+    message: "Print the two messages from an `if` expression with an `else` branch, like `if (score > 100) println(\"win\") else println(\"lose\")`."

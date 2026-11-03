@@ -1,0 +1,8 @@
+checks:
+  - type: or
+    checks:
+      - type: source-matches
+        value: '->'
+      - type: source-matches
+        value: '\.\w+\s*\{'
+    message: "Create the URLs with a lambda expression over the actions, for example with `map`: it builds a new value for every element, like `names.map { it.length }`."

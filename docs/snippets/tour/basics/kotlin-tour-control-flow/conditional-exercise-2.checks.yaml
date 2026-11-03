@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: '\bwhen\s*[\({]'
+    message: "Map the buttons with a `when` expression on `button`, with an `else` branch for the unknown buttons, like `when (hour) { 9 -> \"open\"; else -> \"closed\" }`."

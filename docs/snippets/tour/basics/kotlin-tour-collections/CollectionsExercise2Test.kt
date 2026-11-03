@@ -10,8 +10,7 @@ class CollectionsExercise2Test {
     @Test
     fun `print the support message for smtp`() = when {
         output == EXPECTED -> passed(
-            "Checked: the program prints \"Support for smtp: false\". The test " +
-                    "can't see how your code computes isSupported.",
+            "Checked: the program prints \"Support for smtp: false\".",
             showOutput = true
         )
 

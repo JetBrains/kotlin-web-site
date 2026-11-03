@@ -1,0 +1,8 @@
+checks:
+  - type: and
+    checks:
+      - type: source-matches
+        value: '\bfor\s*\('
+      - type: source-matches
+        value: '\bif\s*\('
+    message: "Pick the words with a `for` loop over the list and an `if` condition inside it, like `for (city in cities) if (city.length > 5) println(city)`."

@@ -24,8 +24,7 @@ class ControlFlowLoopsExercise3Test {
 
         when {
             lines == EXPECTED_WORDS -> passed(
-                "Checked: the printed words only. The test doesn't check how you pick " +
-                        "them. The intended solution uses a for loop with an if condition inside.",
+                "Checked: the printed words only.",
                 showOutput = true
             )
 
