@@ -22,7 +22,9 @@ const PLAYGROUND_ATTRIBUTES: Record<string, string> = {
 export const PlaygroundBlock = () => {
     const textCn = createTextCn('dark');
     const codeRef = useRef<HTMLElement>(null);
+    const editButtonRef = useRef<HTMLButtonElement>(null);
     const [instance, setInstance] = useState(null);
+    const [isEditorFocused, setIsEditorFocused] = useState(false);
 
     // The playground touches `window` on import, so it's loaded on the client only
     useEffect(() => {
@@ -37,8 +39,42 @@ export const PlaygroundBlock = () => {
         };
     }, []);
 
+    // The editor is excluded from the tab order, so Tab passes through the block without getting trapped
+    useEffect(() => {
+        const cmInstance = instance?.codemirror;
+
+        if (cmInstance) {
+            cmInstance.setOption('tabindex', '-1');
+
+            cmInstance.on('focus', () => setIsEditorFocused(true));
+            cmInstance.on('blur', () => setIsEditorFocused(false));
+        }
+
+        // The scrollable code area is a tab stop in Chromium, exclude it too
+        instance?.nodes?.[0]?.querySelector('.code-area')?.setAttribute('tabindex', '-1');
+    }, [instance]);
+
+    // Escape hands the focus from the editor back to the page
+    useEffect(() => {
+        if (!isEditorFocused) return undefined;
+
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') editButtonRef.current?.focus();
+        };
+
+        document.addEventListener('keydown', handleEscape);
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [isEditorFocused]);
+
     const handleRun = () => {
         instance?.execute();
+    };
+
+    const handleEdit = () => {
+        instance?.codemirror?.focus();
     };
 
     // Opens the code as currently edited, not the original sample
@@ -48,10 +84,7 @@ export const PlaygroundBlock = () => {
     };
 
     return (
-        <section
-            className={cn(styles.playground, 'ktl-layout', 'ktl-layout--center')}
-            data-testid="playground-block"
-        >
+        <section className={cn(styles.playground, 'ktl-layout', 'ktl-layout--center')} data-testid="playground-block">
             <Head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
@@ -86,6 +119,11 @@ export const PlaygroundBlock = () => {
                 <code ref={codeRef} {...PLAYGROUND_ATTRIBUTES}>
                     {codeSample}
                 </code>
+                <div className={styles.editButtonWrapper}>
+                    <Button mode="rock" size="m" onClick={handleEdit} ref={editButtonRef}>
+                        Edit code example
+                    </Button>
+                </div>
             </div>
         </section>
     );

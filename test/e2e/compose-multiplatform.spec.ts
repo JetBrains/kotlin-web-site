@@ -131,11 +131,38 @@ test.describe('Compose Multiplatform landing page', async () => {
         });
     });
 
+    test('check playground keyboard navigation', async ({ page }) => {
+        const { playgroundEditor, playgroundRunButton, playgroundEditButton } = composePage;
+
+        // The editor is focused through its hidden textarea inside the CodeMirror wrapper
+        const isEditorFocused = () =>
+            page.evaluate(() => Boolean(document.activeElement?.closest('.CodeMirror')));
+
+        // The editor is only wired up once the playground instance is ready
+        await expect(playgroundRunButton).toBeEnabled();
+
+        await playgroundRunButton.focus();
+        await page.keyboard.press('Tab');
+
+        // Tab skips the editor instead of getting trapped in it and reaches the edit button
+        await expect(playgroundEditButton).toBeFocused();
+        await expect.poll(isEditorFocused).toBe(false);
+
+        // Enter moves the focus into the editor
+        await page.keyboard.press('Enter');
+        await expect.poll(isEditorFocused).toBe(true);
+
+        // Escape hands the focus back to the page
+        await page.keyboard.press('Escape');
+        await expect(playgroundEditButton).toBeFocused();
+        await expect.poll(isEditorFocused).toBe(false);
+    });
+
     test('check playground open in playground button', async ({ context }) => {
         const { page, playgroundOpenButton, playgroundRunButton } = composePage;
         // The editor returns the whole program, imports included, without the fold markers
         const code = readFileSync('blocks/compose-multiplatform/playground-block/code-sample.md', 'utf8')
-            .replace(/^\/\/sample(Start|End)\n/gm, '')
+            .replace(/^\/\/sample(Start|End)\n?/gm, '')
             .trimEnd();
 
         // Only the link matters, so the external editor isn't loaded

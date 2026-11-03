@@ -36,7 +36,23 @@
     gap: 16px;
 }
 
+.editButtonWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+
+    &:focus-within {
+        padding: 12px;
+        width: auto;
+        height: auto;
+    }
+}
+
 .editor {
+    position: relative;
     box-sizing: border-box;
     height: 632px;
     overflow: hidden;
