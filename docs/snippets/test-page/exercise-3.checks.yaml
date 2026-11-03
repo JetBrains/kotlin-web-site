@@ -1,0 +1,4 @@
+checks:
+  - type: source-matches
+    value: 'filter\s*\{'
+    message: "Print the even numbers with the `filter` function: it keeps the elements whose condition holds, like `values.filter { it > 0 }` keeps the positive ones."
