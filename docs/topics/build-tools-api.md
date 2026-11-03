@@ -24,28 +24,16 @@ For more details, see [](components-stability.md#build-tools-api-bta). Using the
 
 ## Integration with Gradle
 
-The Kotlin Gradle plugin (KGP) uses the BTA by default for Kotlin/JVM compilation.
+The Kotlin Gradle plugin (KGP) uses the BTA by default when compiling:
+
+* Kotlin/JVM
+* Kotlin/JS
+* Kotlin metadata
+* Kotlin/Wasm
 
 > We'd appreciate your feedback on your experience with the KGP in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
 > 
 {style="note"}
-
-### Enable the BTA for Kotlin/JS, Kotlin/Wasm, and Kotlin metadata
-
-<primary-label ref="alpha"/>
-
-Since Kotlin 2.4.20, the KGP can also run Kotlin/JS, Kotlin/Wasm, and Kotlin metadata compilations through the BTA.
-This makes the KGP interact with the compiler more consistently, and in some cases compilation becomes faster and
-more stable.
-
-In Kotlin 2.4.20, these targets are available as an opt-in. To try them out, add the corresponding properties to your
-`gradle.properties` file:
-
-```none
-kotlin.js.runViaBuildToolsApi = true
-kotlin.wasm.runViaBuildToolsApi = true
-kotlin.metadata.runViaBuildToolsApi = true
-```
 
 ### Configure different compiler versions
 
