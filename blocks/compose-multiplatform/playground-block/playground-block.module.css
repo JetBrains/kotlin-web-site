@@ -1,0 +1,131 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.playground {
+    padding: 72px 0;
+
+    @media (--ktl-ml-down) {
+        padding: 64px 0;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 32px;
+
+    @media (--ktl-tl-down) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.title {
+    margin: 0;
+
+    @media (--ktl-ml-down) {
+        font-size: 35px;
+        line-height: 39px;
+    }
+}
+
+.controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+}
+
+.editor {
+    box-sizing: border-box;
+    height: 632px;
+    overflow: hidden;
+    background-color: #19191c;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+
+    @media (--ktl-ml-down) {
+        border-radius: 16px;
+    }
+
+    > div,
+    :global(.executable-fragment-wrapper) {
+        height: 100%;
+        margin: 0;
+    }
+
+    :global(.executable-fragment.darcula) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        height: 100%;
+        background: none;
+        border: 0;
+
+        @media (--ktl-tl-down) {
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    :global(.run-button),
+    :global(.compiler-info),
+    :global(.console-close) {
+        display: none;
+    }
+
+    :global(.code-area) {
+        overflow: auto;
+        padding: 24px;
+
+        @media (--ktl-ml-down) {
+            padding: 16px;
+        }
+    }
+
+    :global(.cm-s-darcula.CodeMirror),
+    :global(.cm-s-darcula .CodeMirror-gutters) {
+        background: none;
+        border: 0;
+    }
+
+    :global(.CodeMirror) {
+        color: #e0e0e0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        line-height: 28px;
+
+        @media (--ktl-ml-down) {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
+    :global(.CodeMirror pre.CodeMirror-line) {
+        font-variant-ligatures: none;
+    }
+
+    :global(.js-code-output-executor.darcula) {
+        position: relative;
+        overflow: hidden;
+        border: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+
+        @media (--ktl-tl-down) {
+            border-left: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    :global(.output-wrapper.darcula) {
+        background: none;
+        border: 0;
+    }
+
+    :global(.k2js-iframe) {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: 0;
+    }
+}

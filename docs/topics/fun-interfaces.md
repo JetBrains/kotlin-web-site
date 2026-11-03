@@ -40,7 +40,7 @@ val isEven = object : IntPredicate {
 }
 ```
 
-By leveraging Kotlin's SAM conversion, you can write the following equivalent code instead:
+By leveraging Kotlin's SAM conversion, you can write the following code instead:
 
 ```kotlin
 // Creating an instance using lambda
@@ -62,11 +62,53 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
+Replacing an [object expression](object-declarations.md#object-expressions) with a SAM conversion can change object identity. An object expression creates a new instance 
+each time it's evaluated, while a SAM conversion may create a new instance or reuse an existing one. Therefore:
+
+* If you need a distinct instance each time, for example for each registration, use an object expression or create an
+  instance of a class explicitly.
+* If you need to refer to the same instance later, for example to remove a listener, store it in a variable.
+
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
+
+### Pass callable references to SAM parameters
+
+If the required behavior already exists as a named function, you can pass a [callable reference](lambdas.md#callable-reference).
+Kotlin adapts a compatible callable reference to the expected functional interface:
+
+```kotlin
+fun interface Action {
+    fun run()
+}
+
+fun execute(action: Action) {
+    action.run()
+}
+
+fun start() {
+    println("Run from a callable reference")
+}
+
+fun main() {
+    // Kotlin converts the lambda to an Action instance
+    execute { start() }
+    // Run from a callable reference
+
+    // Kotlin adapts the reference to an Action instance
+    execute(::start)
+    // Run from a callable reference
+}
+```
+{kotlin-runnable="true"}
+
+The lambda in execute `{ start() }` is a function literal, so Kotlin uses SAM conversion to create an `Action` instance.
+In `execute(::start)`, `::start` is a callable reference to the existing `start()` function. Because `execute()` expects
+an `Action`, the compiler creates a compatible `Action` instance that uses `start()` as the implementation of `Action.run()`.
+This process is called _SAM adaptation_.
 
 ## Migration from an interface with constructor function to a functional interface
 
-Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callable-references) to functional interface constructors, which
+Starting from 1.6.20, Kotlin supports callable references to functional interface constructors, which
 adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider the following code:
 

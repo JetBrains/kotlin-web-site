@@ -529,8 +529,8 @@
 - title: University of Waterloo
   location: Waterloo, Canada
   courses:
-  - name: CS349 User Interfaces
-    url: https://student.cs.uwaterloo.ca/~cs349/1231/
+  - name: CS 346 Application Development
+    url: https://student.cs.uwaterloo.ca/~cs346/site/
   geo:
     lat: 43.4722854
     lng: -80.5448576
@@ -4017,3 +4017,27 @@
   geo:
     lat: -16.4277494
     lng: -71.5202792
+- title: Thakur College of Engineering and Technology
+  location: Mumbai, India
+  courses:
+  - name: 'Mobile Application Development'
+    url: https://drive.google.com/file/d/1oLcaompX4M624YbPosRYipscU4IDUB_3/view?usp=sharing
+  geo:
+    lat: 19.2059442
+    lng: 72.8745916
+- title: University of Côte d’Azur
+  location: Nice, France
+  courses:
+  - name: 'Multiplatform Programming with KMP'
+    url: 
+  geo:
+    lat: 43.715766
+    lng: 7.265803
+- title: California State University, Los Angeles
+  location: Los Angeles, CA, USA
+  courses:
+  - name: 'CS 3035 - Programming Paradigms'
+    url: https://ecatalog.calstatela.edu/preview_course_nopop.php?catoid=75&coid=551622
+  geo:
+    lat: 34.0665257
+    lng: -118.1683409

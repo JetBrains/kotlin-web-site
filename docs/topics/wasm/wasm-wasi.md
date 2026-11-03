@@ -31,7 +31,7 @@ The [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi) target
    
    In the **Gradle** tool window, you can find the Gradle tasks under **kotlin-wasm-wasi-example** once the project loads.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
+   > You need at least Java 17 as your Gradle JVM for the tasks to load successfully.
    >
    {style="note"}
 

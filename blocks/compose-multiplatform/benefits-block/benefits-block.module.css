@@ -1,0 +1,162 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 72px;
+  margin-bottom: 72px;
+
+  @media (--ktl-ml-down) {
+    gap: 16px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+.intro {
+  padding: 48px 150px;
+  background-color: #fff;
+  border-radius: 32px;
+  text-align: center;
+
+  @media (--ktl-ml-down) {
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  @media (--ktl-ms-down) {
+    padding: 24px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 53fr) minmax(0, 47fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 24px 32px;
+
+  @media (--ktl-tl-down) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 16px;
+  }
+}
+
+.card {
+  padding: 32px;
+  background-color: #19191c;
+  border-radius: 32px;
+
+  @media (--ktl-ml-down) {
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  @media (--ktl-ms-down) {
+    padding: 24px;
+  }
+}
+
+.showcase {
+  grid-row: span 3;
+
+  @media (--ktl-ml-down) {
+    grid-row: auto;
+    text-align: center;
+  }
+
+  @media (--ktl-tl-down) {
+    padding-bottom: 0;
+  }
+}
+
+.title {
+  margin-bottom: 18px;
+
+  @media (--ktl-ml-down) {
+    font-size: 35px;
+    line-height: 39px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 28px;
+
+  @media (--ktl-ml-down) {
+    font-size: 23px;
+    line-height: 30px;
+  }
+}
+
+.showcaseTitle {
+  margin-bottom: 48px;
+
+  @media (--ktl-ml-down) {
+    font-size: 35px;
+    line-height: 39px;
+    margin-bottom: 32px;
+  }
+}
+
+.cases {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (--ktl-ml-down) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 8px;
+  }
+
+  @media (--ktl-ms-down) {
+    display: none;
+  }
+}
+
+.casesMobile {
+  display: none;
+
+  @media (--ktl-ms-down) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+
+  @media (--ktl-ml-down) {
+    gap: 8px;
+  }
+}
+
+.caseLogo {
+  width: 64px;
+  height: 64px;
+
+  @media (--ktl-ml-down) {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.caseName {
+  white-space: nowrap;
+}
+
+.statValue {
+  margin-bottom: 24px;
+
+  @media (--ktl-ml-down) {
+    margin-bottom: 16px;
+  }
+}

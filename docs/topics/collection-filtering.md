@@ -27,7 +27,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The predicates in `filter()` can only check the values of the elements.
 If you want to use element positions in the filter, use [`filterIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-indexed.html).
@@ -49,7 +49,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 There are also functions that narrow the element type by filtering elements of a given type:
 
@@ -68,7 +68,7 @@ There are also functions that narrow the element type by filtering elements of a
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true"}
 
 * [`filterNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-not-null.html) returns all
     non-nullable elements. Being called on a `List<T?>`, `filterNotNull()` returns a `List<T: Any>`, thus allowing you to treat
@@ -84,7 +84,7 @@ There are also functions that narrow the element type by filtering elements of a
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true"}
 
 ## Partition
 
@@ -104,7 +104,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Test predicates
 
@@ -128,7 +128,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 `any()` and `none()` can also be used without a predicate: in this case, they just check the collection emptiness.
 `any()` returns `true` if there are elements and `false` if there aren't; `none()` does the opposite.
@@ -147,4 +147,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

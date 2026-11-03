@@ -6,7 +6,6 @@ import {
     BenchColumnKey,
     BenchRow,
     formatBenchDate,
-    notice,
     rows,
     TOP_SCORE_COUNT,
     twoDecimals,
@@ -75,14 +74,6 @@ export const BenchmarkLeaderboard: FC = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {notice && (
-                                <tr data-testid="sok-ai-leaderboard-notice">
-                                    <td className={cn(styles.td, styles.rank)}>?</td>
-                                    <td className={cn(styles.td, styles.tdSetup)} colSpan={COLUMNS.length + 1}>
-                                        <span className={styles.setupName}>{notice}</span>
-                                    </td>
-                                </tr>
-                            )}
                             {topRows.map((row, index) => (
                                 <tr
                                     key={row.setup}

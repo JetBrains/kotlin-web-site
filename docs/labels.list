@@ -22,4 +22,5 @@
     <secondary-label id="compiler" name="Compiler" color="black"></secondary-label>
     <secondary-label id="compose-compiler" name="Compose compiler" color="blue"></secondary-label>
     <secondary-label id="bta" name="Build tools API" color="tangerine"></secondary-label>
+    <secondary-label id="multiplatform" name="Kotlin Multiplatform" color="green"></secondary-label>
 </labels>

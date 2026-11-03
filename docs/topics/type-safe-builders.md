@@ -152,7 +152,7 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-type-safe-builders"}
+{kotlin-runnable="true" id="kotlin-type-safe-builders"}
 
 ```
 <html>

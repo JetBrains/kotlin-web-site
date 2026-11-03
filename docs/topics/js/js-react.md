@@ -39,10 +39,10 @@ concepts behind React may help you understand some sample code, but it is not st
        implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion")
    
        // Video Player
-       implementation(npm("react-player", "2.12.0"))
+       implementation(npm("react-player", "^2.12.0"))
    
        // Share Buttons
-       implementation(npm("react-share", "4.4.1"))
+       implementation(npm("react-share", "^4.4.1"))
    
        // Coroutines & serialization
        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
@@ -871,7 +871,7 @@ in GitHub.
    dependencies {
        // ...
        // Video Player
-       implementation(npm("react-player", "2.12.0"))
+       implementation(npm("react-player", "^2.12.0"))
        // ...
    }
    ```
@@ -946,7 +946,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
    dependencies {
        // ...
        // Share Buttons
-       implementation(npm("react-share", "4.4.1"))
+       implementation(npm("react-share", "^4.4.1"))
        // ...
    }
    ```

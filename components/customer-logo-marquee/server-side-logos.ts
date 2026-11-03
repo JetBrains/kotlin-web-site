@@ -1,4 +1,5 @@
 import caseStudiesDataRaw from '../../data/case-studies/case-studies.yml';
+import { hasCaseType } from '../../blocks/case-studies/case-studies';
 import { LogoItem } from './index';
 
 type CaseStudyItem = typeof caseStudiesDataRaw[number];
@@ -8,7 +9,7 @@ const logos: LogoItem[] = caseStudiesDataRaw.items
         const link = item.carousel?.link || item.link;
         const logo = item.carousel?.logo || item.logo;
 
-        if (item.type === 'backend' && link && logo) return {
+        if (hasCaseType(item.type, 'backend') && link && logo) return {
             id: item.id,
             logo,
             link

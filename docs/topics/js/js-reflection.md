@@ -3,7 +3,7 @@
 Kotlin/JS provides a limited support for the Kotlin [reflection API](reflection.md). The only supported parts of the API
 are:
 
-* [Class references](reflection.md#class-references) (`::class`)
+* [Class references](reflection.md#obtain-a-runtime-class) (`::class`)
 * [`KType` and `typeof()`](#ktype-and-typeof)
 * [`KClass` and `createInstance()`](#kclass-and-createinstance)
 

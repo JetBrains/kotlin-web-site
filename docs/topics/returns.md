@@ -67,7 +67,7 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Now, it returns only from the lambda expression. Often it is more convenient to use _implicit labels_, because such a label
 has the same name as the function to which the lambda is passed.
@@ -87,7 +87,7 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Alternatively, you can replace the lambda expression with an [anonymous function](lambdas.md#anonymous-functions).
 A `return` statement in an anonymous function will return from the anonymous function itself.
@@ -107,7 +107,7 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Note that the use of local returns in the previous three examples is similar to the use of `continue` in regular loops.
 
@@ -131,7 +131,7 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The non-local return here is possible since the nested `forEach()` lambda acts as an [inline function](inline-functions.md).
 

@@ -31,7 +31,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Another way to go through an `Iterable` collection is the well-known `for` loop. When using `for` on a collection, you
 obtain the iterator implicitly. So, the following code is equivalent to the example above:
@@ -51,7 +51,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Finally, there is a useful `forEach()` function that lets you automatically iterate a collection and execute the given
 code for each element. So, the same example would look like this:
@@ -71,7 +71,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## List iterators
 
@@ -103,7 +103,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Having the ability to iterate in both directions, means the `ListIterator` can still be used after it reaches the last element.
 
@@ -127,7 +127,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 In addition to removing elements, the [`MutableListIterator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/index.html)
 can also insert and replace elements while iterating the list by using the [`add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/add.html)
@@ -151,5 +151,5 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 

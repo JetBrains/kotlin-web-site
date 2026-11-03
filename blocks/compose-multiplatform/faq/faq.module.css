@@ -1,0 +1,9 @@
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
+
+.wrapper {
+    padding: 72px 0;
+
+    @media (--ktl-ml-down) {
+        padding: 64px 0;
+    }
+}

@@ -1,0 +1,4 @@
+/* The sticky top menu overlays blocks taller than the viewport at a scroll-dependent position */
+[data-testid="top-menu"] {
+    visibility: hidden !important;
+}

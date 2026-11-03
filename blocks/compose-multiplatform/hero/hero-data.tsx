@@ -1,20 +1,20 @@
 import React from 'react';
 import { createTextCn } from '@rescui/typography';
 
-import GalleryImg1 from '../../../public/images/compose-multiplatform/hero/gallery-img-1.png';
-import GalleryImg2 from '../../../public/images/compose-multiplatform/hero/gallery-img-2.png';
-import GalleryImg3 from '../../../public/images/compose-multiplatform/hero/gallery-img-3.png';
-import GalleryImg4 from '../../../public/images/compose-multiplatform/hero/gallery-img-4.png';
-import GalleryImg5 from '../../../public/images/compose-multiplatform/hero/gallery-img-5.png';
-import GalleryImg6 from '../../../public/images/compose-multiplatform/hero/gallery-img-6.png';
-import GalleryImg7 from '../../../public/images/compose-multiplatform/hero/gallery-img-7.png';
-import GalleryImg8 from '../../../public/images/compose-multiplatform/hero/gallery-img-8.png';
+import GalleryImgMarkaz from '../../../public/images/compose-multiplatform/hero/gallery-img-markaz.png';
+import GalleryImgWrike from '../../../public/images/compose-multiplatform/hero/gallery-img-wrike.png';
+import GalleryImgFeres from '../../../public/images/compose-multiplatform/hero/gallery-img-feres.png';
+import GalleryImgPhysicsWallah from '../../../public/images/compose-multiplatform/hero/gallery-img-physics-wallah.png';
+import GalleryImgBilibili from '../../../public/images/compose-multiplatform/hero/gallery-img-bilibili.png';
+import GalleryImgInstabox from '../../../public/images/compose-multiplatform/hero/gallery-img-instabox.png';
+import GalleryImgPocketBard from '../../../public/images/compose-multiplatform/hero/gallery-img-pocket-bard.png';
+import GalleryImgFabuly from '../../../public/images/compose-multiplatform/hero/gallery-img-fabuly.png';
 
 const textCn = createTextCn('dark');
 
 export const ComposeMultiplatformGalleryItems = [
     {
-        image: GalleryImg3,
+        image: GalleryImgFeres,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
                 Feres, a taxi app with 1M+ downloads, shares all business logic with
@@ -23,7 +23,7 @@ export const ComposeMultiplatformGalleryItems = [
         )
     },
     {
-        image: GalleryImg1,
+        image: GalleryImgMarkaz,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
                 Markaz, Pakistan’s e-commerce platform with 5M+ downloads, has 100+
@@ -32,34 +32,37 @@ export const ComposeMultiplatformGalleryItems = [
         )
     },
     {
-        image: GalleryImg5,
+        image: GalleryImgInstabox,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
-                Respawn, your coach on lasting habits, is using Compose Multiplatform
-                with 96% shared code.
+                Instabox, the Nordic parcel-delivery app with 340K+ installs in Sweden
+                alone, shares almost all of its UI across Android and iOS while keeping
+                maps, camera, and video fully native.
             </p>
         )
     },
     {
-        image: GalleryImg7,
+        image: GalleryImgPocketBard,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
-                The Fast&Fit app shares over 90% of its codebase – including the
-                entire UI – using KMP and Compose Multiplatform.
+                Pocket Bard, an interactive audio companion for tabletop RPGs with 750K+
+                downloads, ships its entire UI from a&nbsp;single Compose Multiplatform
+                codebase.
             </p>
         )
     },
     {
-        image: GalleryImg6,
+        image: GalleryImgFabuly,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
-                Music Work, a playlist player with brand-tailored content, is built
-                with Compose Multiplatform for mobile, desktop, and web.
+                Fabuly, a classic-audiobooks subscription service with 350K+ downloads,
+                has built its entire UI with Compose Multiplatform since January 2024,
+                with 173 releases so far.
             </p>
         )
     },
     {
-        image: GalleryImg4,
+        image: GalleryImgPhysicsWallah,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
                 Physics Wallah, an educational platform with 17M active users, unified
@@ -68,7 +71,7 @@ export const ComposeMultiplatformGalleryItems = [
         )
     },
     {
-        image: GalleryImg2,
+        image: GalleryImgWrike,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
                 Wrike apps feature Calendars, Boards, Dashboards, Charts, Timesheet
@@ -77,7 +80,7 @@ export const ComposeMultiplatformGalleryItems = [
         )
     },
     {
-        image: GalleryImg8,
+        image: GalleryImgBilibili,
         description: (
             <p className={textCn('rs-text-2', { hardness: 'hard' })}>
                 BiliBili (China version) has adopted Kotlin Multiplatform and Compose

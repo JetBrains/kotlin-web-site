@@ -33,7 +33,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-stringbuilder"}
+{kotlin-runnable="true" id="kotlin-extension-function-stringbuilder"}
 
 ## Extension functions
 
@@ -62,7 +62,7 @@ fun main() {
     // JetBrainsLov...
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-truncate"}
+{kotlin-runnable="true" id="kotlin-extension-function-truncate"}
 
 The `.truncate()` function truncates any string that it's called on by the number in the `maxLength` argument and adds an ellipsis `...`.
 If the string is shorter than `maxLength`, the function returns the original string.
@@ -86,7 +86,7 @@ fun main() {
     // User(name=Alice, email=alice@example.com)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-interface"}
+{kotlin-runnable="true" id="kotlin-extension-function-interface"}
 
 The `.displayInfo()` function returns a string containing the `name` and `email` of a `RegularUser` instance. Defining 
 an extension on an interface like this is useful when you want to add functionality to all types that implement an interface
@@ -110,7 +110,7 @@ fun main() {
     // Dogs
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-mostvoted"}
+{kotlin-runnable="true" id="kotlin-extension-function-mostvoted"}
 
 The `.mostVoted()` function iterates through the key-value pairs of the map it's called on and uses the [`maxByOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/max-by-or-null.html)
 function to return the key of the pair containing the highest value. If the map is empty, the `maxByOrNull()` function
@@ -141,7 +141,7 @@ fun main() {
     // (21.0, 22.3)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-endpoints"}
+{kotlin-runnable="true" id="kotlin-extension-function-endpoints"}
 
 The `.endpoints()` function returns a pair containing the first and last elements of the list that it's called on.
 Inside the function body, it calls the `first()` and `last()` functions and combines their returned values into a `Pair`
@@ -179,7 +179,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
+{kotlin-runnable="true" id="kotlin-extension-function-nullable-receiver"}
 
 ### Extension or member functions?
 
@@ -205,7 +205,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-shape"}
+{kotlin-runnable="true" id="kotlin-extension-function-shape"}
 
 In this example, the compiler calls the `Shape.getName()` extension function because the parameter `shape` is declared
 as type `Shape`. Because extension functions are resolved statically, the compiler chooses the function based on the declared
@@ -231,7 +231,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-member-function"}
+{kotlin-runnable="true" id="kotlin-extension-function-member-function"}
 
 However, extension functions can overload member functions that have the same name but a _different_ signature:
 
@@ -250,7 +250,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-member-function-overload"}
+{kotlin-runnable="true" id="kotlin-extension-function-member-function-overload"}
 
 In this example, since an `Int` is passed to the `.printFunctionType()` function, the compiler chooses the extension
 function because it matches the signature. The compiler ignores the member function, which takes no arguments.
@@ -274,7 +274,7 @@ fun main() {
     // Shipping cost: 7.5
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-anonymous"}
+{kotlin-runnable="true" id="kotlin-extension-function-anonymous"}
 
 To pass extension behavior as a parameter, use a [lambda expression](lambdas.md#lambda-expression-syntax) with a type annotation.
 For example, let's say you want to check if a number is within a range without defining a named function:
@@ -289,7 +289,7 @@ fun main() {
     // false
 }
 ```
- {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-anonymous-lambda"}
+ {kotlin-runnable="true" id="kotlin-extension-function-anonymous-lambda"}
 
 In this example, the `isInRange` variable holds a function of type `Int.(min: Int, max: Int) -> Boolean`. The type is
 an extension function on the `Int` class that takes `min` and `max` parameters and returns a `Boolean`.
@@ -323,7 +323,7 @@ fun main() {
     // Generated email username: mickey.mouse
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property"}
+{kotlin-runnable="true" id="kotlin-extension-function-property"}
 
 Since extensions don't actually add members to classes, there's no efficient way for an extension
 property to have a [backing field](properties.md#backing-fields). That's why initializers are not allowed for
@@ -360,7 +360,7 @@ fun main() {
     // Updated number: 99 Maple Street
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property-error"}
+{kotlin-runnable="true" id="kotlin-extension-function-property-error"}
 
 In this example, the getter uses the [Elvis operator](null-safety.md#elvis-operator) to return the house number if it exists in the `houseNumbers` map or
 `1`. To learn more about how to write getters and setters, see [Custom getters and setters](properties.md#custom-getters-and-setters).
@@ -386,7 +386,7 @@ fun main() {
     // Application started.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-companion-object"}
+{kotlin-runnable="true" id="kotlin-extension-function-companion-object"}
 
 ## Declaring extensions as members
 
@@ -432,7 +432,7 @@ fun main() {
     // Unresolved reference 'printConnectionString'.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-members"}
+{kotlin-runnable="true" id="kotlin-extension-function-members"}
 
 This example declares the `printConnectionString()` function inside the `Connection` class, so the `Connection` class is the
 dispatch receiver. The extension function's receiver type is the `Host` class, so the `Host` class is the extension receiver.
@@ -515,7 +515,7 @@ fun main() {
     // Sending user notification from special sender 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-open"}
+{kotlin-runnable="true" id="kotlin-extension-open"}
 
 The dispatch receiver is resolved at runtime using virtual dispatch, which makes the behavior in the `main()` function
 easier to follow. What may surprise you is that when you call the `notify()` function on an `Admin` instance, the 
@@ -550,7 +550,7 @@ fun main() {
     // Looks like an email: true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-top-level"}
+{kotlin-runnable="true" id="kotlin-extension-visibility-top-level"}
 
 And if an extension is declared outside its receiver type, it can't access the receiver's `private` or `protected` members:
 
@@ -575,7 +575,7 @@ fun main() {
     // Is user secure: true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-outside-receiver"}
+{kotlin-runnable="true" id="kotlin-extension-visibility-outside-receiver"}
 
 If an extension is marked as `internal`, it's only accessible within its [module](visibility-modifiers.md#modules):
 

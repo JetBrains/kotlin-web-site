@@ -22,7 +22,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If the transformation produces `null` on certain elements, you can filter out the `null`s from the result collection by
 calling the [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html) function
@@ -39,7 +39,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 When transforming maps, you have two options: transform keys leaving values unchanged and vice versa.
 To apply a given transformation to keys, use [`mapKeys()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-keys.html);
@@ -56,7 +56,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Zip
 
@@ -85,7 +85,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also call `zip()` with a transformation function that takes two parameters: the receiver element and the argument
 element. In this case, the result `List` contains the return values of the transformation function called on pairs of the
@@ -102,7 +102,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 When you have a `List` of `Pair`s, you can do the reverse transformation – _unzipping_ – that builds two lists from these
 pairs:
@@ -121,7 +121,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Associate
 
@@ -141,7 +141,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For building maps with collection elements as values, there is the function [`associateBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-by.html).
 It takes a function that returns a key based on an element's value. If two elements' keys are equal, only the last one remains
@@ -160,7 +160,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Another way to build maps in which both keys and values are somehow produced from collection elements is the function [`associate()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate.html). 
 It takes a lambda function that returns a `Pair`: the key and the value of the corresponding map entry.
@@ -188,7 +188,7 @@ fun parseFullName(fullName: String): FullName {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Here we call a transform function on an element first, and then build a pair from the properties of that function's result.
 
@@ -210,7 +210,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Another function – [`flatMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html) provides
 a flexible way to process nested collections. It takes a function that maps a collection element to another collection.
@@ -233,7 +233,7 @@ fun main() {
 }
 
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## String representation
 
@@ -262,7 +262,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 To build a custom string representation, you can specify its parameters in function arguments `separator`, `prefix`, and
 `postfix`. The resulting string will start with the `prefix` and end with the `postfix`. The `separator` will come after
@@ -277,7 +277,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For bigger collections, you may want to specify the `limit` – a number of elements that will be included into result.
 If the collection size exceeds the `limit`, all the other elements will be replaced with a single value of the `truncated`
@@ -292,7 +292,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Finally, to customize the representation of elements themselves, provide the `transform` function. 
 
@@ -305,4 +305,4 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}

@@ -1,4 +1,4 @@
-import { CaseItem } from '../case-studies';
+import { CaseItem, hasCaseType } from '../case-studies';
 import { parseCompose, parsePlatforms, parseType } from '../utils';
 import caseStudiesDataRaw from '../../../data/case-studies/case-studies.yml';
 import { useRouter } from 'next/router';
@@ -115,9 +115,9 @@ export const filterCaseStudies = (
     };
 
     return source.filter((caseItem) => {
-        const isMultiplatformCase = caseItem.type === 'multiplatform';
-        const isServerSideCase = caseItem.type === 'backend';
-        const isAiCase = caseItem.type === 'ai'
+        const isMultiplatformCase = hasCaseType(caseItem.type, 'multiplatform');
+        const isServerSideCase = hasCaseType(caseItem.type, 'backend');
+        const isAiCase = hasCaseType(caseItem.type, 'ai');
 
         if (type === 'ai') {
             return isAiCase;

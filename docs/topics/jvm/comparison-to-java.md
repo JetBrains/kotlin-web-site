@@ -11,6 +11,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Use-site variance](generics.md#use-site-variance-type-projections) without wildcards
 * Kotlin does not have checked [exceptions](exceptions.md)
 * [Separate interfaces for read-only and mutable collections](collections-overview.md)
+* Kotlin provides [a performant and ergonomic replacement for `Enum.values()`](enum-classes.md#find-enum-constants)
 
 ## What Java has that Kotlin does not
 

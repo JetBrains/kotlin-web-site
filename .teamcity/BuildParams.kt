@@ -14,7 +14,7 @@ object BuildParams {
   const val KOTLINX_COROUTINES_TITLE = KOTLINX_COROUTINES_ID
 
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "master"
-  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.12.0-RC"
+  const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.12.0"
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
@@ -24,7 +24,7 @@ object BuildParams {
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 
   const val KOTLINX_IO_RELEASE_TAG = "master"
-  const val KOTLINX_IO_RELEASE_LABEL = "0.8.1"
+  const val KOTLINX_IO_RELEASE_LABEL = "0.9.2"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 

@@ -91,6 +91,14 @@
 
 .subtitle {
   margin-top: 0;
+  margin-bottom: 36px;
+
+  @media (--ktl-ml-down) {
+    margin-bottom: 20px;
+  }
+}
+
+.platforms {
   margin-bottom: 48px;
 
   @media (--ktl-ml-down) {

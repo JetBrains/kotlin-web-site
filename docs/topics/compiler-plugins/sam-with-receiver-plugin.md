@@ -29,7 +29,7 @@ fun test(context: TaskContext) {
 
 ## Gradle
 
-The usage is the same to [all-open](all-open-plugin.md) and [no-arg](no-arg-plugin.md), except the fact that sam-with-receiver
+The usage is the same to [`all-open`](all-open-plugin.md) and [`no-arg`](no-arg-plugin.md), except the fact that sam-with-receiver
 does not have any built-in presets, and you need to specify your own list of special-treated annotations.
 
 <tabs group="build-script">

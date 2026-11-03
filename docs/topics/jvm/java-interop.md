@@ -832,13 +832,13 @@ Or explicitly cast to `java.lang.Object` and suppress the `PLATFORM_CLASS_MAPPED
 
 ### `getClass()`
 
-To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.md#class-references):
+To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.md#obtain-a-runtime-class):
 
 ```kotlin
 val fooClass = foo::class.java
 ```
 
-The code above uses a [bound class reference](reflection.md#bound-class-references). You can also use the `javaClass` extension property:
+The code above uses a [bound class reference](lambdas.md#bound-and-unbound-references). You can also use the `javaClass` extension property:
 
 ```kotlin
 val fooClass = foo.javaClass

@@ -7,6 +7,10 @@ Native, Wasm, JS, Gradle, BTA, and the Kotlin compiler</web-summary>
 
 _[Released: September 7, 2026](releases.md#release-history)_
 
+<tldr>
+    <p> For details about bug fix release 2.4.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.21">changelog</a></p>
+</tldr>
+
 Kotlin 2.4.20 is out! Here are the release highlights:
 
 * **Standard library:** [Support for coroutine stack trace recovery, new functions for checking the equality and uniqueness of collection elements, and new overloads for `kotlin.test` assertion functions](#standard-library)

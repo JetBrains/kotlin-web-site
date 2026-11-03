@@ -59,7 +59,7 @@ export const quoteSectionData = [
   },
   {
     id: 'kashif-mehmood',
-    imageSrc: '/images/compose-multiplatform/quote-section/kashif-mehmood.png',
+    imageSrc: '/images/compose-multiplatform/quote-section/kashif-mehmood.jpg',
     name: 'Kashif Mehmood',
     role: 'Mobile Engineering Lead at Markaz',
     text: (
@@ -79,7 +79,7 @@ export const quoteSectionData = [
   {
     id: 'suresh-maidaragi',
     imageSrc:
-      '/images/compose-multiplatform/quote-section/suresh-maidaragi.png',
+      '/images/compose-multiplatform/quote-section/suresh-maidaragi.jpg',
     name: 'Suresh Maidaragi',
     role: 'Mobile Platform Lead Engineer at Physics Wallah',
     text: (

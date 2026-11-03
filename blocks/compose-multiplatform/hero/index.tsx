@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
+import { Chip, ChipList } from '@rescui/chip-list';
+import { AndroidIcon, AppleIcon, ComputerIcon, GlobusIcon } from '@rescui/icons';
 import Img from 'next/image';
 import { CustomCarousel } from '../../../components/custom-carousel/custom-carousel';
 import heroImageDesktop from './images/compose-hero-desktop-graphics.webp';
@@ -12,6 +14,16 @@ import styles from './hero.module.css';
 
 
 import { ComposeMultiplatformGalleryItems } from './hero-data';
+import { platformsData } from '../platforms-block/platforms-data';
+
+const PLATFORM_ICONS = {
+    android: AndroidIcon,
+    ios: AppleIcon,
+    web: GlobusIcon,
+    desktop: ComputerIcon
+};
+
+const HERO_PLATFORMS = Object.keys(PLATFORM_ICONS).map(id => platformsData.find(item => item.id === id));
 
 export const ComposeMultiplatformHero: FC = () => {
     const textCn = useTextStyles();
@@ -55,6 +67,33 @@ export const ComposeMultiplatformHero: FC = () => {
                             Build beautiful shared UIs for&nbsp;Android,&nbsp;iOS, desktop, and web that feel natural
                             on&nbsp;every platform.
                         </p>
+
+                        <ChipList
+                            size={'s'}
+                            alignItems={'left'}
+                            compact={true}
+                            // Chips are plain links: -1 matches no chip index, so none is selected
+                            value={-1}
+                            onChange={() => {}}
+                            className={styles.platforms}
+                            mode={'rock'}
+                        >
+                            {HERO_PLATFORMS.map(({ id, title, titleLink }) => {
+                                const Icon = PLATFORM_ICONS[id];
+                                const isExternal = titleLink.startsWith('http');
+                                return (
+                                    <Chip
+                                        key={id}
+                                        icon={<Icon size={'s'} />}
+                                        href={titleLink}
+                                        {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+                                    >
+                                        {title}
+                                    </Chip>
+                                );
+                            })}
+                        </ChipList>
+
                         <Button
                             size={isML ? 'm' : 'l'}
                             mode="rock"

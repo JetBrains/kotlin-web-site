@@ -21,15 +21,21 @@
 
 .title {
     @media (--ktl-ds-up) {
-        max-width: 360px;
+        max-width: 494px;
     }
 }
 
 .text {
     margin-bottom: 0;
-    max-width: 360px;
+    max-width: 494px;
 }
 
 .button {
     margin-top: 32px;
+}
+
+@media (--ktl-ml-down) {
+    .button {
+        width: 100%;
+    }
 }

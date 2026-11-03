@@ -14,15 +14,33 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly heroCarousel: Locator;
 
     readonly platformsBlock: Locator;
-    readonly platformsContent: Locator;
+    readonly platformsTitle: Locator;
     readonly platformsItems: Locator;
 
-    readonly featuresBlock: Locator;
-    readonly featureItems: Locator;
-    readonly featureTitles: Locator;
+    readonly platformBenefitsBlock: Locator;
+    readonly platformBenefitsItems: Locator;
+    readonly platformBenefitsTitles: Locator;
+    readonly platformBenefitsVideo: Locator;
+    readonly platformBenefitsPlayButton: Locator;
+
+    readonly playgroundBlock: Locator;
+    readonly playgroundTitle: Locator;
+    readonly playgroundEditor: Locator;
+    readonly playgroundCode: Locator;
+    readonly playgroundOutput: Locator;
+    readonly playgroundOpenButton: Locator;
+    readonly playgroundRunButton: Locator;
 
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
+    readonly quoteCounter: Locator;
+    readonly quotePrevButton: Locator;
+    readonly quoteNextButton: Locator;
+
+    readonly faqBlock: Locator;
+    readonly faqTitle: Locator;
+    readonly faqButtons: Locator;
+    readonly faqAnswers: Locator;
 
     readonly ctaBlock: Locator;
     readonly ctaBlockTitle: Locator;
@@ -41,14 +59,34 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.heroCarousel = page.getByTestId('hero-carousel');
 
         this.platformsBlock = page.getByTestId('platforms-block');
-        this.platformsContent = page.getByTestId('platforms-block-content');
+        this.platformsTitle = page.getByTestId('platforms-block-title');
         this.platformsItems = page.getByTestId('platforms-block-item');
 
-        this.featuresBlock = page.getByTestId('features-block');
-        this.featureItems = page.getByTestId('feature-item');
-        this.featureTitles = page.getByTestId('feature-title');
+        this.platformBenefitsBlock = page.getByTestId('platform-benefits-block');
+        this.platformBenefitsItems = page.getByTestId('platform-benefits-item');
+        this.platformBenefitsTitles = page.getByTestId('platform-benefits-title');
+        this.platformBenefitsVideo = page.getByTestId('platform-benefits-video');
+        this.platformBenefitsPlayButton = page.getByTestId('platform-benefits-play-button');
+
+        this.playgroundBlock = page.getByTestId('playground-block');
+        this.playgroundTitle = page.getByTestId('playground-block-title');
+        this.playgroundEditor = page.getByTestId('playground-block-editor');
+        // Rendered by the playground library, which provides no test ids
+        this.playgroundCode = this.playgroundEditor.locator('.CodeMirror-code');
+        this.playgroundOutput = this.playgroundEditor.locator('iframe');
+        this.playgroundOpenButton = this.playgroundBlock.getByRole('button', { name: 'Open in Playground' });
+        this.playgroundRunButton = this.playgroundBlock.getByRole('button', { name: 'Run' });
+
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');
+        this.quoteCounter = this.quoteSection.getByTestId('snap-carousel-counter');
+        this.quotePrevButton = this.quoteSection.getByRole('button', { name: 'Previous slide' });
+        this.quoteNextButton = this.quoteSection.getByRole('button', { name: 'Next slide' });
+
+        this.faqBlock = page.getByTestId('faq-block');
+        this.faqTitle = this.faqBlock.getByTestId('columned-faq-title');
+        this.faqButtons = this.faqBlock.locator('[data-rs-internal=collapse__button]');
+        this.faqAnswers = this.faqBlock.locator('[data-rs-internal=collapse__content]');
 
         this.ctaBlock = page.getByTestId('cta-block');
         this.ctaBlockTitle = page.getByTestId('cta-block-title');

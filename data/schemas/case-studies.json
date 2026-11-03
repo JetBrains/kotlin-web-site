@@ -15,7 +15,17 @@
       "type": "object",
       "properties": {
         "id": { "type": "string", "minLength": 1 },
-        "type": { "enum": ["multiplatform", "backend", "ai"] },
+        "type": {
+          "oneOf": [
+            { "enum": ["multiplatform", "backend", "ai"] },
+            {
+              "type": "array",
+              "items": { "enum": ["multiplatform", "backend", "ai"] },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          ]
+        },
         "description": { "type": "string", "minLength": 1 },
         "logo": {
           "type": "array",

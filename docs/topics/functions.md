@@ -22,7 +22,7 @@ fun main() {
     // 10
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="kotlin-function-double"}
+{kotlin-runnable="true" validate="false" id="kotlin-function-double"}
 
 ## Function usage
 
@@ -118,7 +118,7 @@ fun main() {
     greeting("Hello!")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="default-before-ordinary"}
+{kotlin-runnable="true" validate="false" id="default-before-ordinary"}
 
 [Trailing lambdas](lambdas.md#passing-trailing-lambdas) are an exception to this rule,
 since the last parameter must correspond to the passed function:
@@ -140,7 +140,7 @@ greeting() { println ("Hello!") }
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="default-before-trailing-lambda"}
+{kotlin-runnable="true" id="default-before-trailing-lambda"}
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
 When you override a method that has default parameter values, you must omit the default parameter values from the signature:
@@ -195,7 +195,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="non-constant-default"}
+{kotlin-runnable="true" id="non-constant-default"}
 
 If the last parameter in a function declaration has a functional type,
 you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
@@ -222,7 +222,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="lambda-outside-parentheses"}
+{kotlin-runnable="true" id="lambda-outside-parentheses"}
 
 ### Named arguments
 
@@ -327,7 +327,7 @@ fun main() {
     // 5.0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-data-class"}
+{kotlin-runnable="true" id="return-multiple-values-data-class"}
 
 A data class works well when you need to return multiple values with distinct meanings. If the returned values
 are of the same kind and you want to handle them as a group, consider returning a collection instead:
@@ -379,7 +379,7 @@ fun main() {
     // 5.0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
+{kotlin-runnable="true" id="return-multiple-values-pair"}
 
 For results with distinct meanings, prefer a data class with descriptive property names, as demonstrated in the 
 [`OrderSummary` data class example](#return-multiple-values).
@@ -455,7 +455,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
+{kotlin-runnable="true" validate="false" id="return-unit-implicit"}
 
 This is equivalent to the following more verbose declaration, which specifies the return type and value explicitly:
 
@@ -487,7 +487,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
+{kotlin-runnable="true" validate="false" id="return-unit-explicit"}
 
 ### Variable number of arguments (varargs)
 
@@ -522,7 +522,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
+{kotlin-runnable="true" validate="false" id="varargs-aslist"}
 
 Only one parameter can be marked as `vararg`.
 If you declare a `vararg` parameter anywhere other than last in the parameter list, you must pass values for the following
@@ -553,7 +553,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
+{kotlin-runnable="true" validate="false" id="varargs-aslist-with-array"}
 
 If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
 as `vararg`, you need to convert it to a regular (typed) array using the [`.toTypedArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/to-typed-array.html) function:
@@ -632,7 +632,7 @@ fun main() {
     // Items = [first, second]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="infix-notation-example"}
+{kotlin-runnable="true" id="infix-notation-example"}
 
 ## Function scope
 
@@ -672,7 +672,7 @@ fun main() {
     dfs(network)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs"}
+{kotlin-runnable="true" id="local-functions-dfs"}
 
 A local function can access local variables of outer functions (the closure).
 In the case above, the `visited` function parameter can be a local variable:
@@ -705,7 +705,7 @@ fun main() {
     dfs(network)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs-with-local-variable"}
+{kotlin-runnable="true" id="local-functions-dfs-with-local-variable"}
 
 ### Member functions
 

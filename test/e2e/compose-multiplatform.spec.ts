@@ -1,6 +1,18 @@
-import { expect, test } from '@playwright/test';
+import { readFileSync } from 'fs';
+import { expect, Locator, test } from '@playwright/test';
+import { generateCrosslink } from 'kotlin-playground/dist/crosslink';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
 import { checkScreenshot } from '../utils';
+import { FAQ_ITEMS } from '@/blocks/compose-multiplatform/faq/faq-data';
+import { platformsData } from '@/blocks/compose-multiplatform/platforms-block/platforms-data';
+
+// A slide is shown when it is aligned with the visible area of its scroll container
+const isShownInCarousel = (slide: Locator) =>
+    slide.evaluate(el => {
+        const slideRect = el.getBoundingClientRect();
+        const containerRect = el.parentElement.getBoundingClientRect();
+        return Math.abs(slideRect.left - containerRect.left) < 2;
+    });
 
 test.describe('Compose Multiplatform landing page', async () => {
     let composePage: ComposeMultiplatformPage;
@@ -28,25 +40,131 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));
     });
 
+    test('check hero platforms chips', async () => {
+        const platforms = [
+            { name: 'Android', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'iOS', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' },
+            { name: 'Web', href: 'https://kotl.in/wasm-compose-example' },
+            { name: 'Desktop', href: '/docs/multiplatform/compose-multiplatform-create-first-app.html' }
+        ];
+
+        for (const { name, href } of platforms) {
+            const chip = composePage.hero.getByRole('tab', { name, exact: true });
+            await expect(chip).toBeVisible();
+            await expect(chip).toHaveAttribute('href', href);
+        }
+    });
+
     test('check platforms block', async () => {
         await expect(composePage.platformsBlock).toBeVisible();
-        await expect(composePage.platformsContent).toBeVisible();
-        await expect(composePage.platformsItems).toHaveCount(4);
+        await expect(composePage.platformsTitle).toHaveText('Supported platforms');
+
+        await expect(composePage.platformsItems).toHaveCount(platformsData.length);
 
         await checkScreenshot(composePage.platformsBlock);
     });
 
-    test('check features block', async () => {
-        await expect(composePage.featuresBlock).toBeVisible();
+    test('check platform benefits block', async () => {
+        const { platformBenefitsBlock, platformBenefitsItems, platformBenefitsTitles } = composePage;
 
-        await expect(composePage.featureItems).not.toHaveCount(0);
+        await expect(platformBenefitsBlock).toBeVisible();
+        await expect(platformBenefitsItems).toHaveCount(6);
+        await expect(platformBenefitsTitles).toHaveText([
+            'Native experiences',
+            'Gradual adoption',
+            'AI-powered code generation',
+            'Hot reload',
+            'Seamless tooling',
+            'A thriving ecosystem'
+        ]);
 
-        for (const title of await composePage.featureTitles.all()) {
-            await expect(title).toBeVisible();
-            await expect(title).not.toBeEmpty();
-        }
+        // The video autoplays on screen, so both its frame and the fading play button vary between runs
+        await checkScreenshot(platformBenefitsBlock, {
+            mask: [composePage.platformBenefitsVideo, composePage.platformBenefitsPlayButton],
+            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+        });
+    });
 
-        await checkScreenshot(composePage.featuresBlock);
+    test('check platform benefits video playback', async () => {
+        const { hero, platformBenefitsVideo, platformBenefitsPlayButton } = composePage;
+        const isPaused = () => platformBenefitsVideo.evaluate((video: HTMLVideoElement) => video.paused);
+
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(false);
+        await expect(platformBenefitsPlayButton).toHaveAccessibleName('Pause video');
+
+        await hero.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(false);
+
+        await platformBenefitsPlayButton.click();
+        await expect.poll(isPaused).toBe(true);
+        await expect(platformBenefitsPlayButton).toHaveAccessibleName('Play video');
+
+        // A video paused by the user stays paused when it scrolls back into view
+        await hero.scrollIntoViewIfNeeded();
+        await platformBenefitsVideo.scrollIntoViewIfNeeded();
+        await expect.poll(isPaused).toBe(true);
+
+        await platformBenefitsPlayButton.click();
+        await expect.poll(isPaused).toBe(false);
+    });
+
+    test('check playground block', async () => {
+        const { playgroundBlock, playgroundTitle, playgroundCode, playgroundOpenButton, playgroundRunButton } =
+            composePage;
+
+        await expect(playgroundTitle).toHaveText('Try Compose Multiplatform');
+        await expect(playgroundOpenButton).toBeVisible();
+        await expect(playgroundRunButton).toBeEnabled();
+
+        // The imports are folded away, so the visible code starts with the entry point
+        await expect(playgroundCode).toContainText('@OptIn(ExperimentalComposeUiApi::class)');
+        await expect(playgroundCode).not.toContainText('import androidx');
+
+        await checkScreenshot(playgroundBlock, {
+            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+        });
+    });
+
+    test('check playground open in playground button', async ({ context }) => {
+        const { page, playgroundOpenButton, playgroundRunButton } = composePage;
+        // The editor returns the whole program, imports included, without the fold markers
+        const code = readFileSync('blocks/compose-multiplatform/playground-block/code-sample.md', 'utf8')
+            .replace(/^\/\/sample(Start|End)\n/gm, '')
+            .trimEnd();
+
+        // Only the link matters, so the external editor isn't loaded
+        await context.route('https://play.kotlinlang.org/**', route => route.fulfill({ body: '' }));
+
+        // The button opens the code from the editor, which is only ready once Run is enabled
+        await expect(playgroundRunButton).toBeEnabled();
+
+        const popupPromise = page.waitForEvent('popup');
+        await playgroundOpenButton.click();
+        const popup = await popupPromise;
+
+        expect(popup.url()).toBe(generateCrosslink(code, { targetPlatform: 'compose-wasm' }));
+    });
+
+    test('check playground run', async () => {
+        const { playgroundBlock, playgroundOutput, playgroundRunButton } = composePage;
+        // Compose renders the app into a shadow root on the iframe body once it starts
+        const isAppStarted = () =>
+            playgroundOutput.evaluate((frame: HTMLIFrameElement) => Boolean(frame.contentDocument.body.shadowRoot));
+
+        // The sample is compiled to Wasm on the Kotlin compiler server
+        test.slow();
+
+        await playgroundBlock.scrollIntoViewIfNeeded();
+        await playgroundRunButton.click();
+
+        await expect(playgroundOutput).toBeVisible();
+        await expect.poll(isAppStarted, { timeout: 60000 }).toBe(true);
     });
 
     test('check quote section', async () => {
@@ -54,6 +172,49 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.quoteCards).not.toHaveCount(0);
 
         await checkScreenshot(composePage.quoteSection);
+    });
+
+    test('check quote gallery navigation', async () => {
+        const total = await composePage.quoteCards.count();
+        const { quoteCards, quoteCounter, quotePrevButton, quoteNextButton } = composePage;
+
+        await expect(quoteCounter).toHaveText(`1/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(1))).toBe(false);
+        await expect(quotePrevButton).toBeDisabled();
+
+        await quoteNextButton.click();
+        await expect(quoteCounter).toHaveText(`2/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(1))).toBe(true);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(false);
+
+        await quotePrevButton.click();
+        await expect(quoteCounter).toHaveText(`1/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
+
+        for (let i = 2; i <= total; i++) {
+            await quoteNextButton.click();
+            await expect(quoteCounter).toHaveText(`${i}/${total}`);
+        }
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(total - 1))).toBe(true);
+        await expect(quoteNextButton).toBeDisabled();
+    });
+
+    test('check FAQ block', async () => {
+        await expect(composePage.faqBlock).toBeVisible();
+        await expect(composePage.faqTitle).toBeVisible();
+        await expect(composePage.faqButtons).toHaveCount(FAQ_ITEMS.length);
+
+        await checkScreenshot(composePage.faqBlock);
+
+        await expect(composePage.faqAnswers.first()).toBeHidden();
+
+        await composePage.faqButtons.first().click();
+        await expect(composePage.faqAnswers.first()).toBeVisible();
+
+        await composePage.faqButtons.nth(1).click();
+        await expect(composePage.faqAnswers.nth(1)).toBeVisible();
+        await expect(composePage.faqAnswers.first()).toBeHidden();
     });
 
     test('check CTA block', async () => {
