@@ -8,4 +8,4 @@ checks:
         value: '\?:'
       - type: source-matches
         value: '\btakeIf\s*[\({]'
-    message: "Follow steps 1–3: cast safely and default with `as?` and `?:`, like `(input as? Int) ?: 0`, and include only the enabled notifications with `takeIf`, like `\"done\".takeIf { ready }` is null when `ready` is false."
+    message: "Follow steps 1–3: cast safely and default with `as?` and `?:`, like `(input as? Int) ?: 0`, and include only the enabled notifications with [`.takeIf()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/take-if.html), like `\"done\".takeIf { ready }` is `null` when `ready` is `false`."

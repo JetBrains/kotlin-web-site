@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Print the even numbers with filter"
     value: 'filter\s*\{'
-    message: "Print the even numbers with the `filter` function: it keeps the elements whose condition holds, like `values.filter { it > 0 }` keeps the positive ones."
+    message: "Print the even numbers with the [`.filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) function: it keeps the elements whose condition holds, like `values.filter { it > 0 }` keeps the positive ones."

@@ -2,7 +2,7 @@ checks:
   - type: source-matches
     title: "Measure the block with measureTime"
     value: '\bmeasureTime\s*[\({]'
-    message: "Measure the block with the `measureTime()` function from `kotlin.time`: it runs the lambda and returns the time it took, like `val elapsed = measureTime { loadData() }`."
+    message: "Measure the block with the [`measureTime()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/measure-time.html) function from `kotlin.time`: it runs the lambda and returns the time it took, like `val elapsed = measureTime { loadData() }`."
   - type: not-and
     title: "Import measureTime from kotlin.time"
     checks:
@@ -10,4 +10,4 @@ checks:
         value: "Unresolved reference 'measureTime'"
       - type: source-not-contains
         value: "import kotlin.time.measureTime"
-    message: "The `measureTime()` function lives in the `kotlin.time` package: import it at the top of the code, the way other library functions arrive, like `import kotlin.time.measureTime`."
+    message: "The [`measureTime()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/measure-time.html) function lives in the `kotlin.time` package: import it at the top of the code, the way other library functions arrive, like `import kotlin.time.measureTime`."
