@@ -135,7 +135,7 @@ If you don't need a predictable iteration order, you can use an alternative impl
 
 Even though [`Map<K, V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html) is not an inheritor of the `Collection` interface, it's a Kotlin collection type.
 A `Map` stores _key-value_ pairs or _entries_. Keys are unique, but different keys can be paired with equal values.
-The `Map` interface provides specific functions, such as access to value by key, searching for keys and values, and so on.
+The `Map` interface provides specific functions, such as accessing values by key, searching for keys and values, and so on.
 
 ```kotlin
 fun main() {
@@ -198,7 +198,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 [`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) is the default implementation of `MutableMap`. It preserves the order in which you insert the entries.
-In turn, [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) is an alternative implementation is an alternative implementation that doesn't guarantee the order of its entries.
+In turn, [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) is an alternative implementation that doesn't guarantee the order of its entries.
 
 ## ArrayDeque
 
