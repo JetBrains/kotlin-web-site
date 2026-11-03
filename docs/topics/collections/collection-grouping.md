@@ -1,4 +1,4 @@
-[//]: # (title: Grouping)
+[//]: # (title: Group collections)
 
 The Kotlin standard library provides extension functions for grouping collection elements.
 The basic function [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html) takes a

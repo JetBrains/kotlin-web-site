@@ -1,6 +1,6 @@
 [//]: # (title: List-specific operations)
 
-[`List`](collections-overview.md#list) is the most popular type of built-in collection in Kotlin. Index access to the elements
+[`List`](collection-types.md#list) is the most popular type of built-in collection in Kotlin. Index access to the elements
 of lists provides a powerful set of operations for lists. 
 
 ## Retrieve elements by index
@@ -188,7 +188,7 @@ Both comparator and comparison binary search can be performed for list ranges as
 ## List write operations
 
 In addition to the collection modification operations described in [Collection write operations](collection-write.md),
-[mutable](collections-overview.md#collection-types) lists support specific write operations.
+[mutable](collections-overview.md#read-only-and-mutable-collections) lists support specific write operations.
 Such operations use the index to access elements to broaden the list modification capabilities.
 
 ### Add
