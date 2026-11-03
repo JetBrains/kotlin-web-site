@@ -208,7 +208,6 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(quoteCounter).toHaveText(`1/${total}`);
         await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
         await expect.poll(() => isShownInCarousel(quoteCards.nth(1))).toBe(false);
-        await expect(quotePrevButton).toBeDisabled();
 
         await quoteNextButton.click();
         await expect(quoteCounter).toHaveText(`2/${total}`);
@@ -224,7 +223,14 @@ test.describe('Compose Multiplatform landing page', async () => {
             await expect(quoteCounter).toHaveText(`${i}/${total}`);
         }
         await expect.poll(() => isShownInCarousel(quoteCards.nth(total - 1))).toBe(true);
-        await expect(quoteNextButton).toBeDisabled();
+
+        await quoteNextButton.click();
+        await expect(quoteCounter).toHaveText(`1/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(0))).toBe(true);
+
+        await quotePrevButton.click();
+        await expect(quoteCounter).toHaveText(`${total}/${total}`);
+        await expect.poll(() => isShownInCarousel(quoteCards.nth(total - 1))).toBe(true);
     });
 
     test('check FAQ block', async () => {
