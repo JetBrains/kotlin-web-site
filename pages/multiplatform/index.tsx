@@ -27,6 +27,10 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
         url: '/case-studies/?type=multiplatform'
     },
     {
+        title: 'For startups',
+        url: '/lp/multiplatform-startups/'
+    },
+    {
         title: 'Libraries',
         url: 'https://klibs.io/'
     }
