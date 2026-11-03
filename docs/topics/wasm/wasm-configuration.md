@@ -3,14 +3,18 @@
 
 ## What are the Kotlin/Wasm target support tiers?
 
-Kotlin/Wasm targets belong to two support tiers that reflect the extent of automated testing and tooling coverage:
+Kotlin/Wasm targets belong to two support tiers that describe how the Kotlin team tests the targets and their tooling. 
+The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
 
-| Target     | Tier   | Automated QA coverage | Kotlin Gradle plugin testing                        | IDE testing                    |
-|------------|--------|-----------------------|-----------------------------------------------------|--------------------------------|
-| `wasmJs`   | Tier 1 | Broader coverage      | Covered by KGP integration tests                    | Covered by IDE tests           |
-| `wasmWasi` | Tier 2 | More limited coverage | Limited coverage because the target requires opt-in | No dedicated IDE test coverage |
+| Target     | Tier   | Automated testing                                                                   | 
+|------------|--------|-------------------------------------------------------------------------------------|
+| `wasmJs`   | Tier 1 | Broader QA coverage, including Kotlin Gradle plugin integration tests and IDE tests |
+| `wasmWasi` | Tier 2 | More limited QA and Kotlin Gradle plugin test coverage, with no dedicated IDE tests |
 
-These tiers describe how the Kotlin team tests the targets and their tooling. The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
+Tooling support also differs between the targets:
+
+* **Kotlin Gradle plugin:** support for `wasmWasi` is more limited, and WASI-specific functionality requires opt-in.
+* **IDE:** `wasmWasi` has more limited support. For example, debugging and gutter icons for running code aren't available.
 
 ## Which Kotlin/Wasm targets should my library support?
 
@@ -25,102 +29,45 @@ Test your library on each target you support, since their available APIs and run
 
 ## Which browsers support Kotlin/Wasm?
 
-Kotlin/Wasm relies on the latest [WebAssembly proposals](#which-webassembly-proposals-does-kotlin-wasm-use), such as garbage collection (WasmGC) and
-exception handling, to introduce improvements and new features within WebAssembly. Applications work in the following browsers:
+To support Kotlin's language features on WebAssembly, Kotlin/Wasm relies on [WebAssembly features](#which-webassembly-features-does-kotlin-wasm-use) such as garbage
+collection (WasmGC) and exception handling.
 
-<tabs>
+Applications work without additional browser configuration in the following versions:
 
-<tab id="Chrome-wasm" title="Chrome">
+| Browser        | Minimum supported version |
+|----------------|---------------------------|
+| Chrome         | 119                       |
+| Chromium-based | 119                       |
+| Firefox        | 120                       |
+| Safari         | 18.2                      |
 
-* **Version 119 or later:**
 
-  Works by default.
-
-* **Older versions:**
-
-  1. Use a Kotlin version older than 1.9.20.
-  2. In your browser, go to `chrome://flags/#enable-webassembly-garbage-collection`.
-  3. Enable **WebAssembly Garbage Collection**.
-  4. Relaunch your browser.
-
-</tab>
-
-<tab id="chromium-wasm" title="Chromium-based">
-
-Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Internet.
-
-* **Version 119 or later:**
-
-  Works by default.
-
-* **Older versions:**
-
-  1. Use a Kotlin version older than 1.9.20.
-  2. Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
-
-</tab>
-
-<tab id="firefox-wasm" title="Firefox">
-
-* **Version 120 or later:**
-
-  Works by default.
-
-* **Version 119:**
-
-  1. In your browser, go to `about:config`.
-  2. Enable `javascript.options.wasm_gc` option.
-  3. Refresh the page.
-
-</tab>
-
-<tab id="safari-webkit-wasm" title="Safari/WebKit">
-
-* **Version 18.2 or later:**
-
-  Works by default. Available for:
-
-  * iOS 18.2
-  * iPadOS 18.2
-  * visionOS 2.2
-  * macOS 15.2
-  * macOS Sonoma
-  * macOS Ventura
-
-* **Older versions:**
-
-  Not supported.
-
-For more information, see the [Safari release notes](https://developer.apple.com/documentation/safari-release-notes/safari-18_2-release-notes#Overview).
-
-</tab>
-</tabs>
-
-> For development, use the latest available browser version.
+> For the best performance and development experience, use the latest available browser version.
 > 
 {style="tip"}
 
-## Which WebAssembly proposals does Kotlin/Wasm use?
+## Which WebAssembly features does Kotlin/Wasm use?
 
-Kotlin/Wasm relies on [WebAssembly proposals](https://webassembly.org/roadmap/), including:
+Kotlin/Wasm relies on [WebAssembly features](https://webassembly.org/features/), including:
 
-* [Garbage collection (WasmGC)](https://github.com/WebAssembly/gc), which supports managed objects in WebAssembly. Starting with Kotlin 1.9.20, the toolchain uses the updated WasmGC proposal.
-* Exception handling, for which the toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/legacy/Exceptions.md) and [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) proposals.
+* [Garbage collection (WasmGC)](https://github.com/WebAssembly/gc), which supports managed objects in WebAssembly. Starting with Kotlin 1.9.20, the
+  toolchain uses the updated WasmGC version.
+* Exception handling, for which the toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/legacy/Exceptions.md) and [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) versions.
 
 > Use the latest Kotlin version and a compatible browser or runtime to benefit from current support.
 >
 {style="tip"}
 
-## How do I choose the exception handling proposal?
+## How do I choose the exception handling version?
 
-This depends on your target:
+The default exception handling version depends on your target:
 
-| Target | Default proposal |
-|---|---|
-| `wasmJs` | Legacy exception handling |
-| `wasmWasi` | New exception handling |
+| Target     | Default version           |
+|------------|---------------------------|
+| `wasmJs`   | Legacy exception handling |
+| `wasmWasi` | New exception handling    |
 
-To enable the new proposal for `wasmJs`, add the following to your `build.gradle.kts` file:
+To enable the new exception handling version for `wasmJs`, add the following to your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -132,7 +79,7 @@ kotlin {
 }
 ```
 
-For `wasmWasi`, the new proposal is enabled by default. If your runtime requires the legacy proposal, configure:
+For `wasmWasi`, the new version is enabled by default. If your runtime requires the legacy proposal, configure:
 
 ```kotlin
 kotlin {
@@ -174,12 +121,12 @@ kotlin.incremental.wasm=false
 
 ## Can I access fully qualified class names at runtime?
 
-Yes, `KClass.qualifiedName` is enabled by default on Kotlin/Wasm targets.
+Yes. Starting with Kotlin 2.3.0, `KClass.qualifiedName` is enabled by default on Kotlin/Wasm targets.
 
 Fully qualified names include the package name. This makes runtime errors more informative and helps you reuse code
 that relies on this information.
 
-If you use Kotlin 2.2.20, you must explicitly enable support. Add the following to your `build.gradle.kts` file:
+For earlier Kotlin versions, explicitly enable support in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -191,16 +138,18 @@ kotlin {
 }
 ```
 
-Keep in mind that enabling this option increases the application size.
+Enabling this option for earlier Kotlin versions increases the application size.
 
 ## How does Kotlin/Wasm handle out-of-bounds array access?
 
 Kotlin/Wasm enables array bounds checks by default. If you try to access an array with an index outside its bounds, the
 compiler throws an `IndexOutOfBoundsException`.
 
-To trigger a WebAssembly trap instead, disable these checks with `-Xwasm-enable-array-range-checks=false`. A trap stops the 
-current execution stack. In JavaScript environments, these traps appear as `WebAssembly.RuntimeError` and can be caught
-on the JavaScript side.
+However, explicit bounds checks can add performance overhead. To disable them, add the `-Xwasm-enable-array-range-checks=false`
+option to your `build.gradle.kts` file. 
+
+This way, out-of-bounds access triggers a WebAssembly trap. A trap stops the current execution stack. In JavaScript
+environments, these traps appear as `WebAssembly.RuntimeError` and can be caught on the JavaScript side.
 
 ## How can I import and export functions directly between Wasm modules?
 
