@@ -224,7 +224,8 @@ area of that circle.
 ```kotlin
 import kotlin.math.PI
 
-// Write your code here
+// Write your code here,
+// considering that the type of PI is Double
 
 fun main() {
     println(circleArea(2))

@@ -95,7 +95,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 <deflist appearance="clear" collapsible="true">
 <def title="Declare explicit types for variables">
 
-Explicitly declare the correct type for each variable:
+Explicitly declare a suitable type for each variable:
 
 ```kotlin
 fun main() {
