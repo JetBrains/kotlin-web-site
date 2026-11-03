@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createTextCn } from '@rescui/typography';
 
-import { SnapCarousel } from '../../../components/snap-carousel/snap-carousel';
+import { SnapCarousel } from '@/components/snap-carousel/snap-carousel';
 import { quoteSectionData } from './quote-section-data';
 import styles from './quote-section.module.css';
 
@@ -11,7 +11,7 @@ const textCn = createTextCn('dark');
 const QuoteSection = () => (
     <section className={styles.wrapper} data-testid="quote-section" aria-label="Quotes">
         <div className="ktl-layout ktl-layout--center">
-            <SnapCarousel navigationAlign="right" adaptiveHeight fadeSlides>
+            <SnapCarousel navigationAlign="right" adaptiveHeight fadeSlides loop>
                 {quoteSectionData.map(({ id, name, imageSrc, role, text }) => (
                     <article key={id} data-testid="quote-card" className={styles.card}>
                         <div className={cn(textCn('rs-text-1', { hardness: 'hard' }), styles.text)}>{text}</div>
