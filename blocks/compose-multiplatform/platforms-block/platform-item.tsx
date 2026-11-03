@@ -28,7 +28,7 @@ export const PlatformItem: FC<PlatformItemProps> = ({ id, title, text, isBeta })
             <div className={styles.cardHeader}>
                 <Img src={PLATFORM_ICONS[id]} alt="" className={styles.icon} />
                 <h3 className={cn(textCn('rs-h2'), styles.cardTitle)}>{title}</h3>
-                {isBeta && <Tag size="s" {...presets['filled-dark']}>Beta</Tag>}
+                {isBeta && <Tag size="s" {...presets['classic-dark']}>Beta</Tag>}
             </div>
             <p className={cn(textCn('rs-text-2'), styles.cardText)}>{text}</p>
         </li>
