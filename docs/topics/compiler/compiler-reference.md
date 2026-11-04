@@ -238,9 +238,12 @@ Configure how the compiler interprets [destructuring declarations](destructuring
 
 The option supports the following modes:
 
-* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
+* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations. (default)
 * `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
 * `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+
+Name-based destructuring is [Stable](components-stability.md#stability-levels-explained) in the default `only-syntax` mode.
+The `name-mismatch` and `complete` modes are [Experimental](components-stability.md#stability-levels-explained) and require opt-in.
 
 ### -Xphases-to-dump-before
 <primary-label ref="experimental-general"/>
