@@ -133,7 +133,6 @@ map.mapValues { (_, value: String) -> "$value!" }
 ```
 
 ## Name-based destructuring
-<primary-label ref="experimental-opt-in"/>
 
 Kotlin supports *name-based destructuring declarations*,
 where variables match properties by name instead of the position defined by `componentN()` functions in *position-based* destructuring.
@@ -166,6 +165,8 @@ In this example, because destructuring relies on the order of `componentN()` fun
 With name-based destructuring, property names determine which values are extracted rather than the position of `componentN()` functions:
 
 ```kotlin
+data class User(val username: String, val email: String)
+
 fun main() {
     val user = User("alice", "alice@example.com")
 
@@ -179,9 +180,9 @@ fun main() {
     // alice@example.com
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.5.0-Beta2"}
 
-Name-based destructuring is [Experimental](components-stability.md#stability-levels-explained).
-When you enable this feature, it also introduces a new syntax for position-based destructuring using square brackets.
+You can also use position-based destructuring with square brackets by default.
 Use this syntax for types where the order of elements matters, such as lists and other ordered collections, as well as unnamed tuples like `Pair` or `Triple`:
 
 ```kotlin
@@ -195,22 +196,12 @@ You can control how the compiler interprets destructuring declarations with the 
 
 It has the following modes:
 
-* `only-syntax` enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
+* `only-syntax` enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations. (default, [Stable](components-stability.md#stability-levels-explained))
 * `name-mismatch` reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
 * `complete` enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
 
-> Before enabling `complete` mode, review and resolve the warnings reported in `name-mismatch` mode.
-> These warnings show which destructuring declarations the compiler interprets differently in `complete` mode and include suggestions for rewriting those declarations accordingly.
-> 
-{style="tip"}
-
-If you use `complete` mode, the short-form destructuring syntax with parentheses matches variables to property names instead of relying on position:
-
-```kotlin
-val (email, username) = user
-```
-
-To enable name-based destructuring in your project, add the compiler option to your build configuration file:
+The `name-mismatch` and `complete` modes are [Experimental](components-stability.md#stability-levels-explained).
+To opt in, add the `-Xname-based-destructuring` compiler option to your build configuration file with the mode name as its value:
 
 <tabs group="build-system">
 <tab title="Gradle" group-key="gradle">
@@ -218,7 +209,7 @@ To enable name-based destructuring in your project, add the compiler option to y
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-Xname-based-destructuring=only-syntax")
+        freeCompilerArgs.add("-Xname-based-destructuring=name-mismatch")
     }
 }
 ```
@@ -234,7 +225,7 @@ kotlin {
             <artifactId>kotlin-maven-plugin</artifactId>
             <configuration>
                 <args>
-                    <arg>-Xname-based-destructuring=only-syntax</arg>
+                    <arg>-Xname-based-destructuring=name-mismatch</arg>
                 </args>
             </configuration>
         </plugin>
@@ -244,3 +235,14 @@ kotlin {
 
 </tab> 
 </tabs>
+
+> Before enabling `complete` mode, review and resolve the warnings reported in `name-mismatch` mode.
+> These warnings show which destructuring declarations the compiler interprets differently in `complete` mode and include suggestions for rewriting those declarations accordingly.
+>
+{style="tip"}
+
+If you use `complete` mode, the short-form destructuring syntax with parentheses matches variables to property names instead of relying on position:
+
+```kotlin
+val (email, username) = user
+```
