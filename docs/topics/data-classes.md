@@ -183,7 +183,7 @@ fun main() {
 
 #### Private properties
 
-A property of the primary constructor can be `private`. The compiler still uses it in the generated functions:
+A primary constructor property can be `private`. The compiler still uses it in the generated functions:
 `toString()` prints it, `equals()` and `hashCode()` take it into account, and `copy()` accepts it as a named argument.
 Only the corresponding `componentN()` function becomes private:
 
@@ -226,7 +226,7 @@ property has a generated getter, and a `var` property has a generated getter and
 On the JVM, this means that `data class User(val name: String, var age: Int)` is visible from Java
 code as `getName()`, `getAge()`, and `setAge()`.
 
-You can't write a custom accessor for a property of the primary constructor, as `get()` and `set()` are only allowed on
+You can't write a custom accessor for a primary constructor property, as `get()` and `set()` are only allowed on
 a property that is declared in the class body. The following code doesn't compile:
 
 ```kotlin
@@ -250,7 +250,7 @@ fun main() {
     println(temperature.fahrenheit)
     // 212.0
 
-    // Only the property of the primary constructor is printed
+    // Only the primary constructor property is printed
     println(temperature)
     // Temperature(celsius=100.0)
 }
@@ -416,6 +416,12 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+> You don't have to write these functions by hand. In IntelliJ IDEA, place the caret inside the class, go to
+> **Code** | **Generate** (<shortcut>Cmd + N</shortcut>/<shortcut>Alt + Insert</shortcut>), and select `equals()` and `hashCode()`
+> or `toString()`. For array properties, the IDE suggests comparing the content instead of the reference.
+>
+{style="tip"}
+
 ### Equality
 
 In data classes, the `==` operator uses the generated `equals()` function to compare the content, while `===` still
@@ -562,7 +568,7 @@ fun main() {
 
 ## Inheritance
 
-A data class is always `final`, so **you can't inherit from a data class**:
+A data class is always `final`, so you can't inherit **from** a data class:
 
 ```kotlin
 data class User(val name: String, val age: Int)
@@ -571,9 +577,9 @@ data class User(val name: String, val age: Int)
 // class Admin(name: String, age: Int) : User(name, age)
 ```
 
-The limitations are the following:
+Since data classes are `final`, the following limitations apply:
 
-* A data class can't be marked as `open`, `abstract`, `sealed`, or `inner`, so no other class can extend it.
+* A data class can't be marked as `open`, `abstract`, or `sealed`.
 * A data class can't be the supertype of another class, not even of another data class.
 
 This keeps the generated `equals()`, `hashCode()`, and `copy()` functions consistent: a subclass could add
