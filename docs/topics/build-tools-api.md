@@ -37,12 +37,12 @@ The Kotlin Gradle plugin (KGP) uses the BTA by default when compiling:
 
 ### Configure different compiler versions
 
-With the BTA, you can now use a different Kotlin compiler version than the version used by the KGP. This is useful when:
+With the BTA, you can now use a different Kotlin compiler version than the version used by the KGP. This is useful when you:
 
-* You want to try new Kotlin features but haven't updated your build scripts yet.
-* You need the latest plugin fixes but want to stay on an older compiler version for now.
+* Want to try new Kotlin features but haven't updated your build scripts yet.
+* Need the latest plugin fixes but want to stay on an older compiler version for now.
 
-Here's an example of how to configure this in your `build.gradle.kts` file:
+For a Kotlin/JVM project, set the `compilerVersion` property in your `build.gradle.kts`:
 
 ```kotlin
 import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
@@ -62,9 +62,97 @@ repositories {
 kotlin {
     jvmToolchain(17)
     @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
-    compilerVersion.set("2.3.21") // <-- different version than 2.4.20
+    compilerVersion.set("2.3.21") // different version than 2.4.20
 }
 ```
+
+If your project contains Kotlin/JS or Kotlin/Wasm targets, you also need to configure the [`coreLibrariesVersion`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.dsl/-kotlin-top-level-extension-config/core-libraries-version.html)
+property to match the `compilerVersion`:
+
+```kotlin
+import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+plugins {
+    kotlin("multiplatform") version "2.4.20"
+}
+
+group = "org.jetbrains.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+// Keep the compiler and core libraries on the same version
+val kotlinCompilerVersion = "2.5.0"
+
+kotlin {
+    js {
+        browser()
+    }
+
+    @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+    compilerVersion.set(kotlinCompilerVersion) // different version
+                                               // than 2.4.20
+
+    // Aligns kotlin-stdlib and dependencies declared with kotlin()
+    coreLibrariesVersion = kotlinCompilerVersion
+
+    sourceSets {
+        commonTest.dependencies {
+            // Resolved to kotlinCompilerVersion through coreLibrariesVersion
+            implementation(kotlin("test"))
+        }
+    }
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example with Kotlin/JS target"}
+
+> The `coreLibrariesVersion` property doesn't override dependencies that declare an explicit version, such as in a
+> version catalog. Set these dependencies to the same version as `compilerVersion`.
+>
+{style="note"}
+
+If you use compiler plugins with any target, you currently need to align their versions separately. The following example
+configures all `org.jetbrains.kotlin` dependencies in configurations whose names start with `kotlinCompilerPluginClasspath`
+to use the same version as `compilerVersion`:
+
+```kotlin
+import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+plugins {
+    kotlin("jvm") version "2.4.20"
+    kotlin("plugin.serialization") version "2.4.20"
+}
+
+group = "org.jetbrains.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvmToolchain(17)
+    @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+    compilerVersion.set("2.3.21") // different version 
+                                  // than 2.4.20
+}
+
+@OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+configurations
+    .matching { it.name.startsWith("kotlinCompilerPluginClasspath") }
+    .configureEach {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(kotlin.compilerVersion.get())
+            }
+        }
+    }
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example with compiler plugin"}
 
 #### Compatible Kotlin compiler and KGP versions
 
