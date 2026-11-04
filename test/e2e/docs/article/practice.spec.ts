@@ -62,30 +62,39 @@ test.describe('Docs: Test Page practice exercises', async () => {
         await expect(exercises.nth(2)).not.toContainClass('collapse--expanded');
     });
 
-    test(`Should expand a nested hint without collapsing the exercise`, async ({ page }) => {
+    test(`Should open a hint without collapsing the exercise`, async ({ page }) => {
         const exercise = exercisesOf(page).nth(1);
         await expandItem(exercise);
 
-        const hint = itemsOf(exercise.locator(testSelector('definition-list')).first()).first();
-        await expect(hint).toBeVisible();
+        // the hint is rendered as an assist chip under the exercise card, not as a nested definition list
+        const hintChip = exercise.locator('.kotlin-playground__assist-chip[id$="-hints-chip"]');
+        await expect(hintChip).toBeVisible();
 
-        await expandItem(hint);
+        await hintChip.click();
+        await expect(hintChip).toHaveAttribute('aria-expanded', 'true');
 
-        await expect(hint.locator(testSelector('definition-list-description')).first()).toBeVisible();
+        const panel = exercise.locator('.kotlin-playground__assist-panel');
+        await expect(panel).toBeVisible();
+        await expect(panel).toContainText('Use the equality operator');
+
+        // the exercise stays expanded while the hint is open
         await expect(exercise).toContainClass('collapse--expanded');
         await expect(bodyOf(exercise)).toBeVisible();
     });
 
-    test(`Should expand the example solution inside an exercise`, async ({ page }) => {
+    test(`Should open the example solution inside an exercise`, async ({ page }) => {
         const exercise = exercisesOf(page).first();
         await expandItem(exercise);
 
-        const solution = exercise.locator(testSelector('code-collapse')).first();
+        const solutionChip = exercise.locator('.kotlin-playground__assist-chip[id$="-solution-chip"]');
+        await expect(solutionChip).toBeVisible();
+
+        await solutionChip.click();
+        await expect(solutionChip).toHaveAttribute('aria-expanded', 'true');
+
+        // the solution panel restores the code block with its stable id from the markdown source
+        const solution = exercise.locator('#test-page-solution-1');
         await expect(solution).toBeVisible();
-
-        await solution.locator(testSelector('synopsis-ending')).click();
-        await solution.locator(':scope.code-collapse--fully-opened').waitFor({ state: 'visible' });
-
         await expect(solution).toContainText('years old');
     });
 
@@ -97,21 +106,25 @@ test.describe('Docs: Test Page practice exercises', async () => {
         const playground = exercise.locator('.kotlin-playground__wrapper').first();
         await expect(playground).toBeVisible();
 
-        await playground.locator('.run-button').click();
+        await playground.locator('.kotlin-playground__controls-run').click();
 
-        const output = playground.locator('.code-output');
-        await output.waitFor({ state: 'visible' });
-        await expect(output).toContainText('[1, 2, 3, 4, 5]');
+        // the starter code is unsolved, so the run reports the failed source check from the checks file
+        const result = playground.locator('.kotlin-playground__result');
+        await result.waitFor({ state: 'visible' });
+        await expect(result).toContainText('Validation failed');
+        await expect(result).toContainText('Print the even numbers with filter');
     });
 
     test(`Should auto-expand an exercise when opened by deep link`, async ({ page }) => {
-        // the id of a runnable block is consumed by the playground, so the solution block is used as the anchor
-        const target = page.locator('#test-page-solution-2');
+        // the solution block id is consumed by the lazy assist panel and doesn't exist until the panel
+        // is opened, and the assist chips get random per-load ids, so the exercise's own id is the only
+        // stable anchor. Once the build passes an explicit id to the solution chip, deep-link by it instead
+        const target = page.locator('#test-page-practice-2');
         const exercise = exercisesOf(page).nth(1);
 
         await expect(exercise).not.toContainClass('collapse--expanded');
 
-        const deepLinkPage = new WebHelpPage(page, `${TEST_PAGE_URL}#test-page-solution-2`);
+        const deepLinkPage = new WebHelpPage(page, `${TEST_PAGE_URL}#test-page-practice-2`);
         await deepLinkPage.init();
         // a hash-only navigation doesn't reload the page, while such a link is normally opened from the outside
         await page.reload();
