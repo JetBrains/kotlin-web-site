@@ -1004,7 +1004,7 @@ devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
 }
 ```
 
-Starting with Kotlin 2.2.20, debugging your applications in [modern browsers](wasm-configuration.md#browser-versions) works out of the box.
+Starting with Kotlin 2.2.20, debugging your applications in [modern browsers](wasm-configuration.md#which-browsers-support-kotlin-wasm) works out of the box.
 When you run Gradle development tasks (`*DevRun`), Kotlin automatically serves the source files to the browser, allowing you to
 set breakpoints, inspect variables, and step through Kotlin code without extra setup.
 
