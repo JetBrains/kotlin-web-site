@@ -8,4 +8,4 @@ checks:
         value: '\blet\s*[\({]'
       - type: source-matches
         value: '\bfun\s+[\w.]*getPriceInEuros\s*\([^)]*\)\s*(:\s*[\w?.\s]+)?='
-    message: "Rewrite the function as a single expression with an `=` body: chain safe calls and [`let`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/let.html) instead of `if` checks, like `fun greeting(): String? = getName()?.let { it.uppercase() }`."
+    message: "Rewrite the function as a single expression with an `=` body: chain safe calls and [`let`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#let) instead of `if` checks, like `fun greeting(): String? = getName()?.let { it.uppercase() }`."

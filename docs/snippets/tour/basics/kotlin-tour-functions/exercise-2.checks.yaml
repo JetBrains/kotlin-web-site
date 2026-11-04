@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Rewrite circleArea with an expression body"
     value: 'fun\s+circleArea\s*\([^)]*\)[^{;]*='
-    message: "Rewrite the function with an expression body: replace the block body with `=` and the expression, like `fun double(x: Int) = x * 2`."
+    message: "Rewrite the function with an [expression body](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions): replace the block body with `=` and the expression, like `fun double(x: Int) = x * 2`."

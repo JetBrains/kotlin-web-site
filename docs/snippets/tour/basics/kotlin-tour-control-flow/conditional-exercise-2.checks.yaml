@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Map the buttons with a when expression"
     value: '\bwhen\s*[\({]'
-    message: "Map the buttons with a `when` expression on `button`, with an `else` branch for the unknown buttons, like `when (hour) { 9 -> \"open\"; else -> \"closed\" }`."
+    message: "Map the buttons with a [`when` expression](https://kotlinlang.org/docs/kotlin-tour-control-flow.html#when) on `button`, with an `else` branch for the unknown buttons, like `when (hour) { 9 -> \"open\"; else -> \"closed\" }`."

@@ -6,4 +6,4 @@ checks:
         value: '\bapply\s*[\({]'
       - type: source-matches
         value: '\balso\s*[\({]'
-    message: "Update the user with the [`apply`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/apply.html) scope function and log with [`also`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/also.html): `apply` changes its receiver and `also` observes the result, like `person.apply { age = 30 }.also { println(it.age) }`."
+    message: "Update the user with the [`apply`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#apply) scope function and log with [`also`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#also): `apply` changes its receiver and `also` observes the result, like `person.apply { age = 30 }.also { println(it.age) }`."

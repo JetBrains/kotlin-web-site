@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Delegate the Messenger interface with by"
     value: 'Messenger\s+by\b'
-    message: "Delegate the `Messenger` implementation to the `BasicMessenger` instance with the `by` keyword: after the colon, it forwards the members you don't override, like `class Wrapper(val base: Base) : Base by base`."
+    message: "Delegate the `Messenger` implementation to the `BasicMessenger` instance with the [`by` keyword](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#delegation): after the colon, it forwards the members you don't override, like `class Wrapper(val base: Base) : Base by base`."

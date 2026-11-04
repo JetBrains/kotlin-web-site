@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Append the text instead of printing it"
     value: '\bappend\w*\s*\('
-    message: "Add the text with the receiver's [`append()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/append.html) function instead of printing it directly: inside the lambda the `StringBuilder` is the receiver, so `append()` needs no name — like `append(\" done\")`."
+    message: "Add the text with the receiver's [`append()`](https://kotlinlang.org/docs/strings.html#build-and-format-strings) function instead of printing it directly: inside the lambda the `StringBuilder` is the receiver, so `append()` needs no name — like `append(\" done\")`."

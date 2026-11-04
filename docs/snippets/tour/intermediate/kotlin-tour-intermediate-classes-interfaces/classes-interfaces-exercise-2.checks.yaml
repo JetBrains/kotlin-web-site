@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Override the title property in the Audio constructor"
     value: 'class\s+Audio\s*\([^)]*override\s+val\s+title'
-    message: "Override the `title` property of the `Media` interface in `Audio`'s primary constructor: `override val` on a constructor parameter implements an interface property, like `class Song(override val title: String) : Media`."
+    message: "Override the `title` property of the `Media` interface in `Audio`'s primary constructor: [`override val`](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#interface-implementation) on a constructor parameter implements an interface property, like `class Song(override val title: String) : Media`."

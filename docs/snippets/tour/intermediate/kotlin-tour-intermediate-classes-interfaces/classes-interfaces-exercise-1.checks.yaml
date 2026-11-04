@@ -6,4 +6,4 @@ checks:
         value: '\babstract\s+fun\s+turnOn\s*\('
       - type: source-matches
         value: '\babstract\s+fun\s+turnOff\s*\('
-    message: "Declare `turnOn()` and `turnOff()` as `abstract` functions in `SmartDevice`, like `abstract class Shape { abstract fun area(): Double }` leaves the implementation to each subclass."
+    message: "Declare `turnOn()` and `turnOff()` as [`abstract` functions](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#abstract-classes) in `SmartDevice`, like `abstract class Shape { abstract fun area(): Double }` leaves the implementation to each subclass."

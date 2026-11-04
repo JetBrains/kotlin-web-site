@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Print the two messages from an if expression"
     value: '\bif\s*\('
-    message: "Print the two messages from an `if` expression with an `else` branch, like `if (score > 100) println(\"win\") else println(\"lose\")`."
+    message: "Print the two messages from an [`if` expression](https://kotlinlang.org/docs/kotlin-tour-control-flow.html#if) with an `else` branch, like `if (score > 100) println(\"win\") else println(\"lose\")`."

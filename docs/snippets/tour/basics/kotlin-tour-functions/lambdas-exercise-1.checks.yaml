@@ -6,4 +6,4 @@ checks:
         value: '->'
       - type: source-matches
         value: '\.\w+\s*\{'
-    message: "Create the URLs with a lambda expression over the `actions`, for example with [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html): it builds a new value for every element, like `names.map { it.length }`."
+    message: "Create the URLs with a lambda expression over the `actions`, for example with [`.map()`](https://kotlinlang.org/docs/kotlin-tour-functions.html#pass-to-another-function): it builds a new value for every element, like `names.map { it.length }`."

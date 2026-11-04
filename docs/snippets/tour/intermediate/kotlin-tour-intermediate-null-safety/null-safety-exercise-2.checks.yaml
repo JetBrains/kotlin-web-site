@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Find the active subscription with singleOrNull"
     value: '\bsingleOrNull\s*[\({]'
-    message: "Find the single active subscription with the [`singleOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html) function and a predicate: it returns the only matching element or `null`, like `nums.singleOrNull { it > 9 }`."
+    message: "Find the single active subscription with the [`singleOrNull()`](https://kotlinlang.org/docs/kotlin-tour-intermediate-null-safety.html#null-values-and-collections) function and a predicate: it returns the only matching element or `null`, like `nums.singleOrNull { it > 9 }`."

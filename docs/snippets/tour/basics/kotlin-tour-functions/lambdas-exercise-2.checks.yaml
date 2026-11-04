@@ -2,4 +2,4 @@ checks:
   - type: source-matches
     title: "Print the lines through repeatN"
     value: '\brepeatN\s*\(\s*\w+\s*[),=]'
-    message: "Print the lines through your `repeatN()` function: call it in `main()` with a count and a lambda, like `repeat(2) { println(\"Hi\") }` calls the standard [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html)."
+    message: "Print the lines through your `repeatN()` function: call it in `main()` with a count and a lambda, like `repeat(2) { println(\"Hi\") }` calls the standard [`repeat()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/repeat.html)."
