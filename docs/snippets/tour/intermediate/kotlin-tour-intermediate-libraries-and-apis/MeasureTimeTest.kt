@@ -12,11 +12,7 @@ class MeasureTimeTest {
         when {
             lines.size == 2 && lines[0] == "Processed data" &&
                     timeLine.startsWith("Time taken: ") &&
-                    durationLike.matches(timeValue) -> passed(
-                "main() prints \"Processed data\" and a measured duration. " +
-                        "The duration changes from run to run and includes a time unit.",
-                showOutput = true
-            )
+                    durationLike.matches(timeValue) -> passed(showOutput = true)
 
             output.isEmpty() -> hint(
                 "Run the data processing inside the measureTime function from " +

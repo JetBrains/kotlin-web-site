@@ -115,6 +115,40 @@ test.describe('Docs: Test Page practice exercises', async () => {
         await expect(result).toContainText('Print the even numbers with filter');
     });
 
+    test(`Should show only the program output on a passed exercise`, async ({ page }) => {
+        const exercise = exercisesOf(page).first();
+        await expandItem(exercise);
+
+        const playground = exercise.locator('.kotlin-playground__wrapper').first();
+
+        // replace the starter with the reference solution through the CodeMirror instance,
+        // the same way the widget's own integration tests enter the learner's code
+        const editor = playground.locator('.CodeMirror').first();
+        const solution = [
+            'fun main() {',
+            '    val name = "Mary"',
+            '    val age = 20',
+            '    println("$name is $age years old")',
+            '}',
+        ].join('\n');
+        await editor.evaluate((node, code) => {
+            (node as HTMLElement & { CodeMirror?: { setValue: (value: string) => void } })
+                .CodeMirror?.setValue(code);
+        }, solution);
+
+        await playground.locator('.kotlin-playground__controls-run').click();
+
+        const result = playground.locator('.kotlin-playground__result');
+        await result.waitFor({ state: 'visible' });
+
+        // the passed card carries the heading and the program output only:
+        // the success notes of the old widget are gone, so no note paragraph renders
+        await expect(result).toContainText('Validation passed');
+        await expect(result.locator('.kotlin-playground__result-text')).toHaveCount(0);
+        await expect(result.locator('.kotlin-playground__result-output-text'))
+            .toContainText('Mary is 20 years old');
+    });
+
     test(`Should auto-expand an exercise when opened by deep link`, async ({ page }) => {
         // the solution block id is consumed by the lazy assist panel and doesn't exist until the panel
         // is opened, and the assist chips get random per-load ids, so the exercise's own id is the only

@@ -33,10 +33,7 @@ class CollectionsExercise3Test {
 
     @Test
     fun `print the spelling of 2 as 'two'`() = when {
-        output == EXPECTED -> passed(
-            "Checked: the program prints exactly \"2 is spelled as 'two'\".",
-            showOutput = true
-        )
+        output == EXPECTED -> passed(showOutput = true)
 
         actualOutput.isEmpty() ->
             hint("Print the spelling of n with println(). Your program doesn't print anything yet.")

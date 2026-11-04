@@ -15,11 +15,7 @@ class IncrementedTest {
         )
         when (val failed = checks.firstMismatch()) {
             null ->
-                if ("[2, 3, 4]" in output.lines()) passed(
-                    "incremented() returns a new list with every element " +
-                            "increased by 1, and main() prints [2, 3, 4].",
-                    showOutput = true
-                ) else hint(
+                if ("[2, 3, 4]" in output.lines()) passed(showOutput = true) else hint(
                     "Keep the println(newList) call in main() as it is. It " +
                             "prints [2, 3, 4]."
                 )

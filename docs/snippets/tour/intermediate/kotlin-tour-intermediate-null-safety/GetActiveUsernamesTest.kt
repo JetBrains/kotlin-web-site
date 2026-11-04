@@ -22,11 +22,7 @@ class GetActiveUsernamesTest {
             ) { usernames(listOf(User("hana", false))) },
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "getActiveUsernames() returns the usernames of active users and " +
-                        "excludes inactive users.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.thrown != null -> hint(

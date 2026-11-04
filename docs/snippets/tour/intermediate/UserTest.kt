@@ -20,12 +20,7 @@ class UserTest {
                     "Registered: Alice, alice@example.com",
                     "Error: 'bob2example-com' is not valid. The email should contain '@' and '.'",
                 )
-            ) passed(
-                "User.isValidEmail() returns true for an address that contains " +
-                        "both '@' and '.', and false otherwise. main() registers " +
-                        "Alice and reports Bob's address as invalid.",
-                showOutput = true
-            ) else hint(
+            ) passed(showOutput = true) else hint(
                 "Keep the code in main() as it is. It prints \"Registered: " +
                         "Alice, alice@example.com\" and \"Error: 'bob2example-com' " +
                         "is not valid. The email should contain '@' and '.'\"."

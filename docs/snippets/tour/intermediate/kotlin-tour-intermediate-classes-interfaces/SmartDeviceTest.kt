@@ -94,12 +94,7 @@ class SmartDeviceTest {
                         "Thermostat thermostat is now off.\"."
             )
 
-            else -> passed(
-                "SmartThermostat inherits from SmartDevice. turnOn(), " +
-                        "adjustTemperature(), and turnOff() print messages using its " +
-                        "name and the supplied temperature.",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

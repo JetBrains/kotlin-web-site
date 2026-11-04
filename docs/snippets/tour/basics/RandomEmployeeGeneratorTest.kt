@@ -31,12 +31,7 @@ class RandomEmployeeGeneratorTest {
                     first.mapTo(HashSet()) { it.name }.size > 1 &&
                     first.mapTo(HashSet()) { it.salary }.size > 1 &&
                     second.all { it.salary!! in 100..103 } ->
-                passed(
-                    "Checked: names are picked from your list at random, and salaries " +
-                            "always stay between the current minSalary and maxSalary, " +
-                            "even after they change.",
-                    showOutput = true
-                )
+                passed(showOutput = true)
 
             thrown != null -> hint(
                 "Pass the limits in order: Random.nextInt(from = minSalary, until = maxSalary). " +

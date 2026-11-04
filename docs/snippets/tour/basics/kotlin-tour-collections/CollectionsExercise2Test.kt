@@ -9,10 +9,7 @@ class CollectionsExercise2Test {
 
     @Test
     fun `print the support message for smtp`() = when {
-        output == EXPECTED -> passed(
-            "Checked: the program prints \"Support for smtp: false\".",
-            showOutput = true
-        )
+        output == EXPECTED -> passed(showOutput = true)
 
         firedTodo != null ->
             hint(

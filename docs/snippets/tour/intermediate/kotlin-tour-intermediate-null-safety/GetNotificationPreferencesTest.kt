@@ -37,12 +37,7 @@ class GetNotificationPreferencesTest {
             ),
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "getNotificationPreferences() includes only the enabled notifications " +
-                        "for a valid user, uses \"Guest\" for a null name, and " +
-                        "returns an empty list for a value that is not a User.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> {
                 val expected = failed.expected as List<*>

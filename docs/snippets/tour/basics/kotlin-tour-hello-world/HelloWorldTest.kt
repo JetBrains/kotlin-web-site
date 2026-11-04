@@ -20,11 +20,7 @@ class HelloWorldTest {
     @Test
     fun `print the expected output`() = when {
 
-    output == EXPECTED -> passed(
-        "Checked: the program prints exactly \"Mary is 20 years old\". " +
-                "The example solution uses a string template with the name and age variables.",
-        showOutput = true
-    )
+    output == EXPECTED -> passed(showOutput = true)
 
         output.isEmpty() -> hint("Make the program print something.")
 

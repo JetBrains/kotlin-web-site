@@ -96,12 +96,7 @@ class CreditCardTest {
                         "and \"Refunding \$50.0 to the credit card.\"."
             )
 
-            else -> passed(
-                "CreditCard implements PaymentMethod and Refundable. authorize(), " +
-                        "processPayment(), and refund() each print their message with " +
-                        "the supplied amount.",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

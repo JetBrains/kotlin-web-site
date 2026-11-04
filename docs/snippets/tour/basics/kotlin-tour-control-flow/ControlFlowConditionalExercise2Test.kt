@@ -28,10 +28,7 @@ class ControlFlowConditionalExercise2Test {
         }
 
         val (pressed, expected, rawOutput) = runs.firstOrNull { (_, action, raw) -> raw.trim() != action }
-            ?: return passed(
-                "Checked: buttons A, B, X, Y, C, a, and an empty string print their expected actions.",
-                showOutput = true
-            )
+            ?: return passed(showOutput = true)
         val actual = rawOutput.trim()
         val lines = actual.lines().map { it.trim() }.filter { it.isNotEmpty() }
         val details = "Button \"$pressed\" should print \"$expected\"."

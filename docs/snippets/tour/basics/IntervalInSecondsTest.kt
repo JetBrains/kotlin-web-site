@@ -31,11 +31,7 @@ class IntervalInSecondsTest {
         val firstWrong = checks.firstOrNull { it.actual != it.expected }
 
         when {
-            firstWrong == null && outputLines == EXPECTED_OUTPUT -> passed(
-                "With 0 as the default, you only need to pass the values you want to change. " +
-                        "Named arguments make it clear which value is which.",
-                showOutput = true
-            )
+            firstWrong == null && outputLines == EXPECTED_OUTPUT -> passed(showOutput = true)
 
             firstWrong != null && firstWrong.omitsArguments -> hint(
                 "Set the default value of hours, minutes, and seconds to 0. " +

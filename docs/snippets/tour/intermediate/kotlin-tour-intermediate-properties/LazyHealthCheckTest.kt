@@ -8,11 +8,7 @@ class LazyHealthCheckTest {
             "Application server is online and healthy",
         )
         when {
-            output.lines() == expectedLines -> passed(
-                "main() prints both application-server health-check lines and " +
-                        "the database check does not run because its value is not needed.",
-                showOutput = true
-            )
+            output.lines() == expectedLines -> passed(showOutput = true)
 
             "Performing database health check..." in output.lines() -> hint(
                 "Initialize the checks with by lazy keywords so each one only runs " +

@@ -97,12 +97,7 @@ class SmartMessengerTest {
                         "Hello from SmartMessenger!\"."
             )
 
-            else -> passed(
-                "SmartMessenger.sendMessage() prints the smart message and the " +
-                        "[smart]-prefixed BasicMessenger message, and receiveMessage() " +
-                        "returns \"You've got a new message!\".",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

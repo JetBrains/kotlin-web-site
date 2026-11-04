@@ -21,11 +21,7 @@ class CalculateCompoundInterestTest {
             ) { amount(500.0, 0.1, 1, 2) },
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "calculateCompoundInterest() computes P times " +
-                        "(1 + r / n) raised to the power of n * t for any inputs.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.thrown != null -> hint(

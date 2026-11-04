@@ -32,11 +32,7 @@ class GetActiveSubscriptionTest {
             ) { active(noneActive) },
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "getActiveSubscription() returns the single active " +
-                        "subscription and null when none or more than one is active.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.thrown is NotImplementedError -> hint(

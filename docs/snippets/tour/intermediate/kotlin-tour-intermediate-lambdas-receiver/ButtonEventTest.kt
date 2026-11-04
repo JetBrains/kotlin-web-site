@@ -4,11 +4,7 @@ class ButtonEventTest {
     @Test
     fun `print Double click! for a double-click event`() {
         when {
-            "Double click!" in output.lines() -> passed(
-                "The handler prints \"Double click!\" for the simulated " +
-                        "double-click event.",
-                showOutput = true
-            )
+            "Double click!" in output.lines() -> passed(showOutput = true)
 
             output.isEmpty() -> hint(
                 "Print \"Double click!\" when the event is a double click. " +

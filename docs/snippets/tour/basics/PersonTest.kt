@@ -10,11 +10,7 @@ class PersonTest {
         when {
             output.lines().any { it.startsWith("Person(") } && values.all { it in output } &&
                     "ownsAPet=false" in output && !hashed.containsMatchIn(output) ->
-                passed(
-                    "Checked: Name, Address, and City are data classes. " +
-                            "The program prints the person with all its nested property values.",
-                    showOutput = true
-                )
+                passed(showOutput = true)
 
             actualOutput.isBlank() -> hint(
                 "Keep the println(person) call in main(). It prints the person with all" +

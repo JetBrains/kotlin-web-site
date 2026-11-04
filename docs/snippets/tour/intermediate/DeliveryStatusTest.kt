@@ -52,11 +52,7 @@ class DeliveryStatusTest {
                         "\"The delivery was canceled due to: Address not found.\"."
             )
 
-            else -> passed(
-                "DeliveryStatus is a sealed class with the four data classes, " +
-                        "and main() prints the expected line for every status.",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

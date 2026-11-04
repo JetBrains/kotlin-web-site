@@ -5,10 +5,7 @@ class FetchDataTest {
     fun `print processed data`() {
         val expected = "Data received - Processed"
         when {
-            expected in output.lines() -> passed(
-                "The lambda prints \"$expected\".",
-                showOutput = true
-            )
+            expected in output.lines() -> passed(showOutput = true)
 
             output.isEmpty() -> hint(
                 "Print the builder's text inside the lambda with " +

@@ -42,12 +42,7 @@ class BudgetTest {
         val goodNewsLike = goodNewsLines.isNotEmpty()
         val shown = lines.joinToString("\n")
         when {
-            lines == warnings + goodNews -> passed(
-                "remainingBudget prints a warning below 20% of totalBudget, " +
-                        "even when the budget increases, reports other " +
-                        "increases, and prints nothing for other changes.",
-                showOutput = true
-            )
+            lines == warnings + goodNews -> passed(showOutput = true)
 
             lines.isEmpty() -> hint(
                 "Delegate remainingBudget to observable() and print the " +

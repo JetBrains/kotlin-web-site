@@ -85,12 +85,7 @@ class AudioTest {
                         "\"Playing audio: Symphony No. 5, composed by Beethoven\"."
             )
 
-            else -> passed(
-                "Audio implements Media. Its title property returns the audio's " +
-                        "title, and play() prints a message using the audio's title " +
-                        "and composer.",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

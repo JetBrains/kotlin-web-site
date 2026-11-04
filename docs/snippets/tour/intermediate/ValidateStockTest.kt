@@ -18,11 +18,7 @@ class ValidateStockTest {
             check(8, 8, expected = 8),
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "validateStock() returns the requested amount when it " +
-                        "is valid and -1 for every invalid case.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.thrown is NullPointerException -> hint(

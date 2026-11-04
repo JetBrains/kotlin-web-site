@@ -17,12 +17,7 @@ class FindOutOfStockBooksTest {
             check(listOf(0, 4), expected = listOf(0)),
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "findOutOfStockBooks() returns the indices of every " +
-                        "book with quantity 0 for any inventory, and an empty " +
-                        "list when everything is in stock.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.thrown != null -> hint(

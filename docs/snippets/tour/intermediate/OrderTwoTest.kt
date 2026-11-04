@@ -52,11 +52,7 @@ class OrderTwoTest {
                         "orders have the same customer name? false\"."
             )
 
-            else -> passed(
-                "OrderTwo is a data object that implements Order, has a customer " +
-                        "name different from OrderOne's, and prints \"OrderTwo\".",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

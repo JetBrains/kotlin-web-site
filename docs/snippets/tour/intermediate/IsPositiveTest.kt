@@ -15,11 +15,7 @@ class IsPositiveTest {
             check(0, expected = false),
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "isPositive() returns true for positive numbers and " +
-                        "false for zero and negative numbers.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.expected == true -> hint(

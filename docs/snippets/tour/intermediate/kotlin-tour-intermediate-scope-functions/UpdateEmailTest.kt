@@ -60,11 +60,7 @@ class UpdateEmailTest {
                         "\"Updated User: User(id=1, email=new_email@example.com)\"."
             )
 
-            else -> passed(
-                "updateEmail() sets the new email on the user it receives and " +
-                        "logs the update with the user's own ID.",
-                showOutput = true
-            )
+            else -> passed(showOutput = true)
         }
     }
 }

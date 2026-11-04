@@ -23,10 +23,7 @@ class ControlFlowLoopsExercise3Test {
         }
 
         when {
-            lines == EXPECTED_WORDS -> passed(
-                "Checked: the printed words only.",
-                showOutput = true
-            )
+            lines == EXPECTED_WORDS -> passed(showOutput = true)
 
             actualOutput.isEmpty() ->
                 hint(

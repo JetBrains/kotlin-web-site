@@ -12,11 +12,7 @@ class ToLowercaseStringTest {
             check("all quiet", expected = "all quiet"),
         )
         when (val failed = checks.firstMismatch()) {
-            null -> passed(
-                "toLowercaseString() returns the lowercase version of " +
-                        "any string.",
-                showOutput = true
-            )
+            null -> passed(showOutput = true)
 
             else -> when {
                 failed.actual == "HELLO WORLD!" || failed.actual == "ALL QUIET" -> hint(

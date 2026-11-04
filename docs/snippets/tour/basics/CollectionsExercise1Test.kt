@@ -8,11 +8,7 @@ class CollectionsExercise1Test {
     @Test
     fun `print the total of both lists`() = when {
         output.toIntOrNull() == greenNumbers.count() + redNumbers.count() ->
-            passed(
-                "Checked: the printed total is ${greenNumbers.count() + redNumbers.count()}. " +
-                        "The test doesn't check how you count them, only the number you print.",
-                showOutput = true
-            )
+            passed(showOutput = true)
 
         actualOutput.isEmpty() ->
             hint("Add a println() call inside main() and run again. Your program doesn't print anything yet.")

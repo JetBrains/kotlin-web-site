@@ -21,12 +21,7 @@ class ControlFlowLoopsExercise2Test {
         val lines = outputLines
         when {
             lines.size == 100 && (0..99).all { lines[it] == expectedFor(it + 1) } ->
-                return passed(
-                    "Checked: all 100 lines follow the rules. The test can't see how " +
-                            "you produce them. A for loop over 1..100 with a when " +
-                            "expression is the intended way.",
-                    showOutput = true
-                )
+                return passed(showOutput = true)
 
             actualOutput.isEmpty() ->
                 hint(
