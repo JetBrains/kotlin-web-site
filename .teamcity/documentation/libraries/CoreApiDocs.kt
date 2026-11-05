@@ -20,7 +20,7 @@ object CoreApiDocs : KotlinLibrariesDocs(
     latest = StdlibDocsVersion(
         version = "2.4",
         deployVersion = PLACEHOLDER,
-        branch = PLACEHOLDER,
+        branch = "main",
         layout = StdlibDocsLayout.DOKKA2,
     ),
     historicalVersions = listOf(

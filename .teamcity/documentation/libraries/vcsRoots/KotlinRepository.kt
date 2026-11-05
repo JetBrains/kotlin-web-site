@@ -29,11 +29,9 @@ val STDLIB_DOCS_CHECKOUT_RULES = """
 fun kotlinRepositoryRoot(name: String, branch: String) = GitVcsRoot {
     id = RelativeId("DocumentationLibraries_Kotlin_${sanitizeId(name)}")
     this.name = "kotlin $name ($branch)"
-    url = "git@github.com:JetBrains/kotlin.git"
+    url = "https://github.com/JetBrains/kotlin.git"
     this.branch = VCS.branch(branch)
     branchSpec = ""
     checkoutPolicy = GitVcsRoot.AgentCheckoutPolicy.USE_MIRRORS
-    authMethod = uploadedKey {
-        uploadedKey = "default teamcity key"
-    }
+    authMethod = anonymous()
 }

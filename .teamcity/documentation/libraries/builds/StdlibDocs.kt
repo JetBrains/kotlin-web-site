@@ -248,7 +248,7 @@ fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
         )
         // A default keeps the VCS root resolvable when no run is configured; the check step rejects a wrong branch.
         text(
-            HISTORICAL_BRANCH_PARAM, "master",
+            HISTORICAL_BRANCH_PARAM, "main",
             label = "Branch",
             description = "Branch of JetBrains/kotlin with libraries/tools/kotlin-stdlib-docs for this version",
             display = ParameterDisplay.PROMPT,
