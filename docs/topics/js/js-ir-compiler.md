@@ -46,12 +46,12 @@ and add the `generateTypeScriptDefinitions()` function to the `js {}` block in y
 
 ```kotlin
 kotlin {
-   js {
-       binaries.executable()
-       browser {
-       }
-       generateTypeScriptDefinitions()
-   }
+    js {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
 }
 ```
 
@@ -70,12 +70,12 @@ You can choose how the compiler outputs `.js` files in your project:
 
 To change the granularity, set the `kotlin.js.ir.output.granularity` property in your `gradle.properties` file:
 
-```none
+```properties
 # Default: per-module
 kotlin.js.ir.output.granularity=whole-program
 ```
 
-For configuration details, including the per-file requirements , see [Configure output granularity](js-project-setup.md#configure-output-granularity).
+For configuration details, including the per-file requirements, see [Configure output granularity](js-project-setup.md#configure-output-granularity).
 
 ## Lazy initialization of top-level properties
 
