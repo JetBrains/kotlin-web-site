@@ -2,9 +2,9 @@
 [//]: # (description: Learn how to call Java code from Kotlin, including getters and setters, null-safety and platform types, nullability annotations, mapped types, and SAM conversions.)
 
 Kotlin is designed with Java interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
-and Kotlin code can be used from Java as well. This page describes some details about calling Java code from Kotlin.
+and Kotlin code can be used from Java as well.
 
-Most Java code can be used without additional configuration:
+You can use most Java code without additional configuration:
 
 ```kotlin
 import java.util.*
@@ -35,11 +35,11 @@ import java.util.Calendar
 
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
-    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // Call getFirstDayOfWeek()
-        calendar.firstDayOfWeek = Calendar.MONDAY     // Call setFirstDayOfWeek()
+    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // Calls getFirstDayOfWeek()
+        calendar.firstDayOfWeek = Calendar.MONDAY     // Calls setFirstDayOfWeek()
     }
-    if (!calendar.isLenient) {    // Call isLenient()
-        calendar.isLenient = true // Call setLenient()
+    if (!calendar.isLenient) {    // Calls isLenient()
+        calendar.isLenient = true // Calls setLenient()
     }
 }
 ```
@@ -49,7 +49,7 @@ fun calendarDemo() {
 Note that if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
 
-Only no-argument getters are represented as synthetic properties. If a getter is overloaded with a version that takes
+Only no-argument getters are represented as synthetic properties. If the getter has an overload that takes
 arguments, that overload isn't exposed as a property and in most cases you call it using its full method name. Consider
 the following Java class:
 
@@ -66,22 +66,23 @@ public class Greeting {
 }
 ```
 
-The no-argument `getMessage()` method is available through the synthetic `message` property, but the overloaded
-`getMessage(String)` method must be called as a function:
+The no-argument `getMessage()` method is available through the synthetic `message` property. To use the overloaded
+`getMessage(String)` method, call it as a function:
 
 ```kotlin
 // Kotlin
 fun main() {
     val greeting = Greeting()
-    println(greeting.message)              // Accesses getMessage() via the synthetic property
+    println(greeting.message)              // Accesses getMessage() through the synthetic property
     println(greeting.getMessage("Kotlin")) // Calls the overloaded getMessage(String) method
 }
 ```
 
-Calling `greeting.message("Kotlin")` doesn't compile and fails with an unresolved reference error (receiver type mismatch) because the `message` property doesn't accept arguments.
+Calling `greeting.message("Kotlin")` doesn't compile and returns an unresolved reference error (receiver type mismatch)
+because the `message` property doesn't accept arguments.
 
 However, in some cases, when a Java method with parameters overrides the getter of a Kotlin
-[member extension property](extensions.md#declaring-extensions-as-members), Kotlin sees the method as the
+[member extension property](extensions.md#declaring-extensions-as-members), Kotlin treats the method as a
 property. So you can only call it as a property within the receiver's scope and not by its method name:
 
 ```java
@@ -101,14 +102,14 @@ interface Message {
 
 fun demo(greeter: Greeter) {
     greeter.getText("Kotlin")       // Error: unresolved reference
-    with(greeter) { "Kotlin".text } // Accesses getText(String) via the member extension property
+    with(greeter) { "Kotlin".text } // Accesses getText(String) through the member extension property
 }
 ```
 
-## Methods returning void
+## Methods returning `void`
 
-If a Java method returns `void`, the method's return type is seen as `Unit` when called from Kotlin.
-If you use the return value, the Kotlin compiler assigns it at the call site, since the value (`Unit`) is known in
+If a Java method returns `void`, its return type becomes `Unit` when called from Kotlin.
+If you use the return value, the Kotlin compiler assigns `Unit` at the call site, since the value is known in
 advance.
 
 ## Escaping for Java identifiers that are keywords in Kotlin
@@ -124,14 +125,14 @@ matcher.`is`(expected)
 ## Null-safety and platform types
 
 Any reference in Java may be `null`, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
-Types of Java declarations are treated in Kotlin as non-denotable and called [*platform types*](https://kotlinlang.org/spec/type-system.html#platform-types).
+Types of Java declarations are treated in Kotlin as non-denotable and called [_platform types_](https://kotlinlang.org/spec/type-system.html#platform-types).
 You can't write the non-denotable types in the code explicitly. Therefore, when a platform value is assigned to a Kotlin
 variable, you can: 
 
 * Rely on the type inference. In this case, the variable has an inferred platform type.
 * Choose the type you expect. Kotlin allows both nullable and non-nullable types.
 
-Null-checks are relaxed for such types so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
+Null-checks are relaxed for platform types so that they have the same safety guarantees as [mapped Java types](#mapped-types).
 Consider the following examples:
 
 ```kotlin
@@ -184,7 +185,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
   (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
 * [JSpecify](#jspecify-support) (`org.jspecify.annotations`)
-* Android (`com.android.annotations` and `android.support.annotations`)
+* Android (`com.android.annotations`, `android.support.annotation`, `androidx.annotation`, `android.annotation`)
 * [JSR-305](#jsr-305-support) (`javax.annotation`)
 * FindBugs (`edu.umd.cs.findbugs.annotations`)
 * Eclipse (`org.eclipse.jdt.annotation`)
@@ -412,7 +413,7 @@ public @interface MyNonnull {
 }
 
 @TypeQualifierNickname
-@CheckForNull // A nickname to another type qualifier nickname
+@CheckForNull // A nickname for another type qualifier nickname
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyNullable {
 }
@@ -544,7 +545,7 @@ The `strict`, `warn` and `ignore` values have the same meaning as those of `Migr
 and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
 
 > The built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
-> [`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html) and
+> [`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html), and
 > [`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
 > affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
@@ -561,7 +562,7 @@ The default behavior is the same to `-Xjsr305=warn`. The
 
 Kotlin treats some Java types specifically. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
 The mapping only matters at compile time, the runtime representation remains unchanged.
- Java's primitive types are mapped to corresponding Kotlin types (keeping [platform types](#null-safety-and-platform-types) in mind):
+Java's primitive types are mapped to corresponding Kotlin types (keeping [platform types](#null-safety-and-platform-types) in mind):
 
 | **Java type** | **Kotlin type**  |
 |---------------|------------------|
@@ -625,7 +626,7 @@ Java's arrays are mapped as mentioned [below](#java-arrays):
 | `int[]`       | `kotlin.IntArray!`             |
 | `String[]`    | `kotlin.Array<(out) String!>!` |
 
-> The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
+> The static members of these Java types aren't directly accessible on the [companion objects](object-declarations.md#companion-objects)
 > of the Kotlin types. To call them, [use the fully-qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
 >
 {style="note"}
@@ -735,7 +736,7 @@ Since Java has no way of marking methods for which it makes sense to use the ope
 Java methods with the right name and signature as operator overloads and other conventions (`invoke()` etc.)
 Calling Java methods using the infix call syntax is not allowed.
 
-For example, a Java class that declares `get(int)` and `set(int, T)` methods can be used with the indexed access
+For example, you can use a Java class that declares `get(int)` and `set(int, T)` methods with the indexed access
 operator in Kotlin:
 
 ```java
@@ -768,7 +769,7 @@ So, when you call a Java method that declares a checked exception, Kotlin does n
 ```kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
-        to.append(item.toString()) // Java would require catching IOException here because Appendable.append throws IOException
+        to.append(item.toString()) // In Java, you'd need to catch IOException thrown from Appendable.append()
     }
 }
 ```
@@ -792,8 +793,8 @@ import java.util.LinkedList
 class SimpleBlockingQueue<T>(private val capacity: Int) {
     private val queue = LinkedList<T>()
 
-    // The java.lang.Object class is used specifically to access wait() and notify()
-    // In Kotlin, the standard 'Any' type does not expose these methods.
+    // Uses a java.lang.Object instance to access wait() and notify()
+    // In Kotlin, the standard 'Any' type doesn't expose these methods
     @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
     private val lock = Object()
 
@@ -872,7 +873,7 @@ class C {
 
 According to Java's rules, `finalize()` must not be `private`.
 
-> `finalize()` is deprecated in modern Java versions. Consider alternatives such as [`java.lang.ref.Cleaner`](https://docs.oracle.com/javase/9/docs/api/java/lang/ref/Cleaner.html)
+> The `finalize()` method is deprecated in modern Java versions. Consider alternatives such as [`java.lang.ref.Cleaner`](https://docs.oracle.com/javase/9/docs/api/java/lang/ref/Cleaner.html)
 > or [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) instead.
 >
 {style="note"}
@@ -920,7 +921,7 @@ the Java type: `java.lang.Integer.bitCount(5)`.
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
-Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s [companion object](object-declarations.md#companion-objects) class,
+Don't use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s [companion object](object-declarations.md#companion-objects) class,
 which is the same as `ClassName.Companion::class.java` and not `ClassName::class.java`.
 
 For each primitive type, there are two different Java classes, and Kotlin provides ways to get both. For
@@ -929,7 +930,7 @@ corresponding to `Integer.TYPE` in Java. To get the class of the corresponding w
 `Int::class.javaObjectType`, which is equivalent of Java's `Integer.class`.
 
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property,
-a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
+a `KProperty` for a Java field, a Java method or constructor for a `KFunction`, and vice versa.
 
 ## SAM conversions
 
@@ -960,7 +961,7 @@ by the compiler when needed:
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
 
-> SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single abstract method.
+> SAM conversions only work for interfaces. They don't apply to abstract classes, even if those classes have only one abstract method.
 >
 {style="note"}
 
