@@ -1,15 +1,10 @@
 [//]: # (title: Unused return value checker)
 
-<primary-label ref="experimental-general"/>
-
-> This feature is planned to be stabilized and improved in future Kotlin releases.
-> We would appreciate your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-12719).
-> 
-> For more information, see the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
+> For more information about the unused return value checker, see the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
 >
 {style="note"}
 
-The unused return value checker allows you to detect _ignored results_.
+The unused return value checker detects _ignored results_.
 These are values returned from expressions that produce something other than
 `Unit`, `Nothing`, or `Nothing?` and aren't:
 
@@ -36,36 +31,38 @@ fun formatGreeting(name: String): String {
         // "Unused return value of 'plus'."
         "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
     }
-    val (first, last) = name.split(' ')
+    val [first, last] = name.split(' ')
     return "Hello, $first! Or should I call you Dr. $last?"
 }
 ```
 
 ## Configure the unused return value checker
 
-You can control how the compiler reports ignored results with the `-Xreturn-value-checker` compiler option.
+You can control how the compiler reports ignored results with the `returnValueCheckerMode` DSL property for Gradle projects or the `-Xreturn-value-checker` compiler option for other build systems.
 
-It has the following modes:
+You can select one of the following modes:
 
-* `disable` disables the unused return value checker (default).
-* `check` enables the checker, and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
+* `check` enables the checker and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results) (default).
 * `full` enables the checker, treats all functions in your project as [marked](#mark-functions-to-check-ignored-results), and reports warnings for ignored results.
+* `disable` disables the unused return value checker.
 
 > All marked functions are propagated as such, and ignored results are reported if the checker is enabled in projects that use your code as a dependency.
 > 
 {style="note"}
 
-To use the unused return value checker in your project, add the compiler option to your build configuration file:
+To use a different mode, configure it in your build configuration file:
 
-<tabs>
+<tabs group="build-system">
 <tab id="kotlin" title="Gradle">
 
 ```kotlin
 // build.gradle(.kts)
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.ReturnValueCheckerMode
+
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xreturn-value-checker=check")
-    }
+    returnValueCheckerMode = ReturnValueCheckerMode.Full
 }
 ```
 </tab>
@@ -79,7 +76,7 @@ kotlin {
     ..
     <configuration>
         <args>
-            <arg>-Xreturn-value-checker=check</arg>
+            <arg>-Xreturn-value-checker=full</arg>
         </args>
     </configuration>
 </plugin>
@@ -90,11 +87,13 @@ kotlin {
 
 ## Mark functions to check ignored results
 
-When you set [the `-Xreturn-value-checker` compiler option](#configure-the-unused-return-value-checker) to `check`,
-the checker reports ignored results only from expressions that are marked, like most functions in the Kotlin standard library.
+In the default `check` mode, the checker reports ignored results only from marked functions, including most functions in the Kotlin standard library.
 
-To mark your own code, 
-use the [`@MustUseReturnValues`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-must-use-return-values/) annotation.
+> The checker also reports ignored results from lambda calls because they use the standard library's non-ignorable `invoke()` operator.
+>
+{style="note"}
+
+To mark your own code, use the [`@MustUseReturnValues`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-must-use-return-values/) annotation.
 You can apply it to a file, class, or function depending on the scope you want the checker to cover.
 
 For example, you can mark an entire file:
@@ -120,8 +119,7 @@ class Greeter {
 fun someFunction(): Int = ...
 ```
 
-> You can apply the checker to your entire project by setting the `-Xreturn-value-checker` compiler option to `full`.
-> With this option, you don't have to annotate your code with `@MustUseReturnValues`.
+> In `full` mode, you don't have to annotate your code with `@MustUseReturnValues`.
 >
 {style="note"}
 
@@ -185,7 +183,7 @@ fun check(g: Greeter) {
 ## Check for unused results in higher-order functions
 
 Some higher-order functions, such as the `let` scope function, return the result of a lambda.
-To check for unused lambda results of higher-order functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's contract.
+To check for unused lambda results of higher-order functions, add the [`returnsResultOf()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.contracts/-contract-builder/returns-result-of.html) contract to the function's contract.
 
 > Kotlin contracts are Experimental. To opt in, add the `@OptIn(ExperimentalContracts::class)` annotation when declaring a function with a contract.
 >
@@ -218,46 +216,9 @@ fun handleNullablePackageName(packageName: String?, builder: StringBuilder) {
 }
 ```
 
-> The `returnsResultOf()` contract requires a separate compiler option to opt in.
-> Be aware that using it produces pre-release binaries that Kotlin compiler versions earlier than 2.4.0 can't read.
+> The `returnsResultOf()` contract produces pre-release binaries that Kotlin compiler versions 2.4.0 and earlier can't read.
 >
 {style="warning"}
-
-To opt in for your project, add the following compiler option to your build file:
-
-<tabs group="build-system">
-<tab title="Gradle" group-key="gradle">
-
-```kotlin
-// build.gradle(.kts)
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xallow-returns-result-of")
-    }
-}
-```
-
-</tab> 
-<tab title="Maven" group-key="maven">
-
-```xml
-<!-- pom.xml -->
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-maven-plugin</artifactId>
-            <configuration>
-                <args>
-                    <arg>-Xallow-returns-result-of</arg>
-                </args>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-```
-</tab> 
-</tabs>
 
 ## Interoperability with Java annotations
 
