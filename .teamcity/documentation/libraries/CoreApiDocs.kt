@@ -6,9 +6,9 @@ import documentation.libraries.builds.StdlibDocsVersion
 /**
  * Core API docs at https://kotlinlang.org/api/core/.
  *
- * The latest version is built from [latest] on every change of its branch.
- * Every older version is a custom run of the single historical build: its version, Kotlin release, branch, layout and
- * Dokka version are run parameters. Tag a successful run with its version (e.g. `2.3`) by hand; the latest build takes
+ * The latest version is built from [latest] on every change of its branch; a custom run can use another branch.
+ * Every older version is a custom run of the single historical build on a JetBrains/kotlin branch; its version, Kotlin
+ * release, layout and Dokka version are run parameters. Tag a successful run with its version (e.g. `2.3`) by hand; the latest build takes
  * the newest run with each tag. `historicalVersions` is the default of the latest build's `stdlib.historicalVersions`
  * parameter; a custom run can list fewer versions.
  *

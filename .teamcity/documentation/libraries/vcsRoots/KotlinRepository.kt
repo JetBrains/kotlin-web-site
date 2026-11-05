@@ -22,16 +22,17 @@ val STDLIB_DOCS_CHECKOUT_RULES = """
 """.trimIndent()
 
 /**
- * A root pinned to a single branch: `branchSpec` is empty so TeamCity doesn't track the repository's other branches.
  * The ID comes from [name], so changing the branch keeps the root and its build history.
- * [branch] may be a parameter reference; TeamCity then creates a root instance per resolved value.
+ *
+ * @param branch Default branch.
+ * @param branchSpec Other branches builds can run on. Empty pins the root to [branch].
  */
-fun kotlinRepositoryRoot(name: String, branch: String) = GitVcsRoot {
+fun kotlinRepositoryRoot(name: String, branch: String, branchSpec: String = "") = GitVcsRoot {
     id = RelativeId("DocumentationLibraries_Kotlin_${sanitizeId(name)}")
     this.name = "kotlin $name ($branch)"
     url = "https://github.com/JetBrains/kotlin.git"
     this.branch = VCS.branch(branch)
-    branchSpec = ""
+    this.branchSpec = branchSpec
     checkoutPolicy = GitVcsRoot.AgentCheckoutPolicy.USE_MIRRORS
     authMethod = anonymous()
 }

@@ -1,6 +1,5 @@
 package documentation.libraries
 
-import documentation.libraries.builds.HISTORICAL_BRANCH_PARAM
 import documentation.libraries.builds.StdlibDocsVersion
 import documentation.libraries.builds.stdlibHistoricalDocs
 import documentation.libraries.builds.stdlibLatestDocs
@@ -8,6 +7,9 @@ import documentation.libraries.vcsRoots.kotlinRepositoryRoot
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId
+
+/** Lets a custom run of either build pick any JetBrains/kotlin branch; only the default branch triggers builds. */
+private const val ALL_BRANCHES = "+:refs/heads/(*)"
 
 /** Value for a `deployVersion` or branch that is not known yet. A latest build that uses it is created paused. */
 const val PLACEHOLDER = "TODO"
@@ -34,10 +36,10 @@ open class KotlinLibrariesDocs(latest: StdlibDocsVersion, historicalVersions: Li
             description = "Core API documentation (kotlin-stdlib, kotlin-test, kotlin-reflect) for https://kotlinlang.org/api/core/"
         }
 
-        val historicalRoot = kotlinRepositoryRoot("Historical", "%$HISTORICAL_BRANCH_PARAM%").also { project.vcsRoot(it) }
+        val historicalRoot = kotlinRepositoryRoot("Historical", "main", ALL_BRANCHES).also { project.vcsRoot(it) }
         historicalBuild = stdlibHistoricalDocs(historicalRoot).also { project.buildType(it) }
 
-        val latestRoot = kotlinRepositoryRoot(latest.version, latest.branch).also { project.vcsRoot(it) }
+        val latestRoot = kotlinRepositoryRoot(latest.version, latest.branch, ALL_BRANCHES).also { project.vcsRoot(it) }
         latestBuild = stdlibLatestDocs(latest, latestRoot, historicalBuild, historicalVersions)
             .pauseIfPlaceholder(latest)
             .also { project.buildType(it) }

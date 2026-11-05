@@ -59,9 +59,6 @@ const val PREVIOUS_VERSIONS_ARTIFACT = "previous-versions.zip"
 /** Artifact of the latest build; contains `all-libs/`, the same layout as the Kotlin Release `LibraryReferenceLatestDocs` build. */
 const val LATEST_VERSION_ARTIFACT = "latest-version.zip"
 
-/** Branch of JetBrains/kotlin for a historical run; the historical VCS root reads it. */
-const val HISTORICAL_BRANCH_PARAM = "stdlib.branch"
-
 /**
  * Tag to put on a historical run by hand once its docs are checked; the latest build takes the newest run with it.
  * Untagged runs are never published, so a rebuild replaces the published version only after it is tagged.
@@ -224,7 +221,7 @@ fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
 
     id = RelativeId("DocumentationLibraries_Stdlib_Historical")
     name = "Historical docs"
-    description = "One older Core API version, set by run parameters. Tag a good run with its version, e.g. ${historicalTag("2.3")}, to publish it"
+    description = "One older Core API version, set by the run branch and parameters. Tag a good run with its version, e.g. ${historicalTag("2.3")}, to publish it"
     buildNumberPattern = "%stdlib.version%-%build.counter%"
 
     artifactRules = "$versionDir/** => $PREVIOUS_VERSIONS_ARTIFACT!all-libs/%stdlib.version%"
@@ -245,14 +242,6 @@ fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
             display = ParameterDisplay.PROMPT,
             regex = """\d+\.\d+\.\d+\S*""",
             validationMessage = "Use a released Kotlin version, e.g. 2.3.21",
-        )
-        // A default keeps the VCS root resolvable when no run is configured; the check step rejects a wrong branch.
-        text(
-            HISTORICAL_BRANCH_PARAM, "main",
-            label = "Branch",
-            description = "Branch of JetBrains/kotlin with libraries/tools/kotlin-stdlib-docs for this version",
-            display = ParameterDisplay.PROMPT,
-            allowEmpty = false,
         )
         select(
             "stdlib.layout", StdlibDocsLayout.LEGACY.name,
@@ -283,7 +272,7 @@ fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
             scriptContent = """
                 set -eu
                 if [ ! -f "$versionDir/index.html" ]; then
-                    echo "No docs for %stdlib.version% in $versionDir. Generated versions:"
+                    echo "No docs for %stdlib.version% in $versionDir from branch %teamcity.build.branch%. Generated versions:"
                     ls "$OUTPUT_DIR/previous/all-libs" 2>/dev/null || echo "(none)"
                     echo "The branch must document %stdlib.version%: its versions list (legacy) or kotlinLanguageVersion (Dokka 2)."
                     exit 1
@@ -303,7 +292,7 @@ fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
 fun stdlibLatestDocs(target: StdlibDocsVersion, root: GitVcsRoot, historical: BuildType, historicalVersions: List<String>) = BuildType {
     id = RelativeId("DocumentationLibraries_Stdlib_Latest")
     name = "${target.version} latest docs"
-    description = "Core API ${target.version} docs from ${target.branch}, Kotlin ${target.deployVersion}, " +
+    description = "Core API ${target.version} docs from ${target.branch} by default, Kotlin ${target.deployVersion}, " +
         "with tagged historical runs as older versions"
 
     artifactRules = """
@@ -350,7 +339,8 @@ fun stdlibLatestDocs(target: StdlibDocsVersion, root: GitVcsRoot, historical: Bu
             missing=""
             for version in %stdlib.historicalVersions%; do
                 tag="${historicalTag("${'$'}version")}"
-                build="buildType:(id:$historicalId),tag:${'$'}tag,count:1"
+                # Historical runs are on any branch; the REST API defaults to the default branch only.
+                build="buildType:(id:$historicalId),tag:${'$'}tag,branch:(default:any),count:1"
                 if ! number=${'$'}(curl -fsS -u "${'$'}auth" "${'$'}api/${'$'}build/number" 2>/dev/null); then
                     missing="${'$'}missing ${'$'}version"
                     continue
