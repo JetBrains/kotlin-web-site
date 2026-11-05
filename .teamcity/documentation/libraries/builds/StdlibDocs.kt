@@ -2,11 +2,10 @@ package documentation.libraries.builds
 
 import common.extensions.dependsOnDokkaTemplate
 import common.extensions.isProjectPlayground
-import common.sanitizeId
 import documentation.libraries.vcsRoots.STDLIB_DOCS_CHECKOUT_RULES
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.CheckoutMode
-import jetbrains.buildServer.configs.kotlin.FailureAction
+import jetbrains.buildServer.configs.kotlin.ParameterDisplay
 import jetbrains.buildServer.configs.kotlin.RelativeId
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
@@ -60,6 +59,15 @@ const val PREVIOUS_VERSIONS_ARTIFACT = "previous-versions.zip"
 /** Artifact of the latest build; contains `all-libs/`, the same layout as the Kotlin Release `LibraryReferenceLatestDocs` build. */
 const val LATEST_VERSION_ARTIFACT = "latest-version.zip"
 
+/** Branch of JetBrains/kotlin for a historical run; the historical VCS root reads it. */
+const val HISTORICAL_BRANCH_PARAM = "stdlib.branch"
+
+/**
+ * Tag to put on a historical run by hand once its docs are checked; the latest build takes the newest run with it.
+ * Untagged runs are never published, so a rebuild replaces the published version only after it is tagged.
+ */
+fun historicalTag(version: String) = version
+
 /** How a branch of `kotlin-stdlib-docs` is driven. */
 enum class StdlibDocsLayout {
     /** Dokka Gradle plugin in V1 mode with versioned tasks (branches up to 2.3.20). */
@@ -70,42 +78,39 @@ enum class StdlibDocsLayout {
 }
 
 class StdlibDocsVersion(
-    /** Version shown in the selector, e.g. `2.2`. */
+    /** Version shown in the selector, e.g. `2.4`. */
     val version: String,
-    /** Released Kotlin version whose artifacts are documented, e.g. `2.2.21`. */
+    /** Released Kotlin version whose artifacts are documented, e.g. `2.4.20`. */
     val deployVersion: String,
     /** Branch of JetBrains/kotlin containing the docs build for this version. */
     val branch: String,
     val layout: StdlibDocsLayout,
     /** Overrides the branch's `dokka_version`; `null` keeps the branch default. */
     val dokkaVersion: String? = null,
-) {
-    val idPart = sanitizeId(version)
-}
+)
 
 /**
- * Legacy branches register `all-libs_<version>` for every entry of their hardcoded `versions` list, and
- * `buildAllVersions` runs all of them (the 1.6.20 branch lists 1.0–1.6). Running the single versioned task lets
- * several historical builds share one branch while each produces only its own version. Its child tasks for
- * kotlin-stdlib, kotlin-test and kotlin-reflect, and the library download, run as its dependencies.
- *
- * Dokka 2 branches document only the branch's `kotlinLanguageVersion`, so the branch decides the version.
+ * Shared steps of both builds. The caller defines `stdlib.version`, `stdlib.deployVersion`, `stdlib.layout` and
+ * `stdlib.dokkaVersion`; they are run parameters in the historical build, so the Gradle task and the
+ * layout-specific Gradle arguments are computed by a step instead of in the DSL.
  */
-private fun gradleTask(target: StdlibDocsVersion, latest: Boolean) = when (target.layout) {
-    StdlibDocsLayout.LEGACY -> if (latest) "buildLatestVersion" else "all-libs_${target.version}"
-    StdlibDocsLayout.DOKKA2 -> ":dokkaGeneratePublicationHtml"
-}
-
-private fun BuildType.stdlibDocsBuild(target: StdlibDocsVersion, root: GitVcsRoot, latest: Boolean) {
+private fun BuildType.stdlibDocsBuild(root: GitVcsRoot, latest: Boolean) {
     params {
-        param("stdlib.deployVersion", target.deployVersion)
-        param("stdlib.githubRevision", "v${target.deployVersion}")
+        param("stdlib.isLatest", latest.toString())
+        param("stdlib.githubRevision", "v%stdlib.deployVersion%")
         param("stdlib.kotlinLibsRepo", KOTLIN_LIBS_REPO)
         param("stdlib.jdkHome", "%env.$JDK_ENV_VAR%")
         param("stdlib.jvmToolchain", JVM_TOOLCHAIN)
         // Gradle 9 removed APIs that old Dokka V1-mode code may use; set this to empty for a branch that fails on it.
-        param("stdlib.gradleVersion", GRADLE_VERSION)
-        param("stdlib.gradleTasks", "cleanDocs ${gradleTask(target, latest)}")
+        text(
+            "stdlib.gradleVersion", GRADLE_VERSION,
+            label = "Gradle version",
+            description = "Replaces the branch's Gradle wrapper version. Empty keeps the wrapper.",
+            allowEmpty = true,
+        )
+        // Set by the "Resolve layout" step.
+        text("stdlib.gradleTasks", "", display = ParameterDisplay.HIDDEN, allowEmpty = true)
+        text("stdlib.layoutGradleParams", "", display = ParameterDisplay.HIDDEN, allowEmpty = true)
     }
 
     vcs {
@@ -142,23 +147,58 @@ private fun BuildType.stdlibDocsBuild(target: StdlibDocsVersion, root: GitVcsRoo
                 grep '^distributionUrl=' "${'$'}wrapper"
             """.trimIndent()
         }
+        script {
+            id = "step-resolve-layout"
+            name = "Resolve layout"
+            /*
+             * Legacy branches register `all-libs_<version>` for every entry of their hardcoded `versions` list, and
+             * `buildAllVersions` runs all of them (the 1.6.20 branch lists 1.0–1.6). Running the single versioned task
+             * lets several versions share one branch while each run produces only its own version.
+             * Dokka 2 branches document only the branch's `kotlinLanguageVersion`, so the branch decides the version.
+             */
+            // language=bash
+            scriptContent = """
+                set -eu
+                version="%stdlib.version%"
+                case "%stdlib.layout%" in
+                    ${StdlibDocsLayout.LEGACY})
+                        if [ "%stdlib.isLatest%" = true ]; then task=buildLatestVersion; else task="all-libs_${'$'}version"; fi
+                        params="-Pdokka_repository=$DOKKA_DEV_REPO"
+                        ;;
+                    ${StdlibDocsLayout.DOKKA2})
+                        task=":dokkaGeneratePublicationHtml"
+                        params="-PisLatest=%stdlib.isLatest%"
+                        ;;
+                    *)
+                        echo "Unknown layout '%stdlib.layout%'"
+                        exit 1
+                        ;;
+                esac
+                dokka_version="%stdlib.dokkaVersion%"
+                if [ -n "${'$'}dokka_version" ]; then
+                    params="${'$'}params -Pdokka_version=${'$'}dokka_version"
+                fi
+                echo "Tasks: cleanDocs ${'$'}task"
+                echo "Layout parameters: ${'$'}params"
+                echo "##teamcity[setParameter name='stdlib.gradleTasks' value='cleanDocs ${'$'}task']"
+                echo "##teamcity[setParameter name='stdlib.layoutGradleParams' value='${'$'}params']"
+            """.trimIndent()
+        }
         gradle {
             id = "step-build-stdlib-docs"
-            name = "Build ${target.version} docs"
+            name = "Build docs"
             workingDir = DOCS_PROJECT_DIR
             useGradleWrapper = true
             jdkHome = "%stdlib.jdkHome%"
             tasks = "%stdlib.gradleTasks%"
-            gradleParams = listOfNotNull(
+            gradleParams = listOf(
                 "-PdeployVersion=%stdlib.deployVersion%",
                 "-PgithubRevision=%stdlib.githubRevision%",
                 "-PkotlinLibsRepo=%stdlib.kotlinLibsRepo%",
                 "-PtemplatesDir=%teamcity.build.checkoutDir%/$TEMPLATES_DIR",
                 "-PdocsBuildDir=%teamcity.build.checkoutDir%/$OUTPUT_DIR",
                 "-PdocsPreviousVersionsDir=%teamcity.build.checkoutDir%/$PREVIOUS_DIR",
-                if (target.layout == StdlibDocsLayout.DOKKA2) "-PisLatest=$latest" else null,
-                if (target.layout == StdlibDocsLayout.LEGACY) "-Pdokka_repository=$DOKKA_DEV_REPO" else null,
-                target.dokkaVersion?.let { "-Pdokka_version=$it" },
+                "%stdlib.layoutGradleParams%",
                 "--init-script $INIT_SCRIPT",
                 "-PstdlibDocsJvmToolchain=%stdlib.jvmToolchain%",
                 "-Porg.gradle.java.installations.fromEnv=$JDK_ENV_VAR",
@@ -175,31 +215,76 @@ private fun BuildType.stdlibDocsBuild(target: StdlibDocsVersion, root: GitVcsRoo
 }
 
 /**
- * Builds one version for the version selector of later releases. Runs only as a snapshot dependency.
- * Only `all-libs/<version>/` is published, even if the branch generated other versions too.
+ * Builds one older version for the version selector of the latest build. Started manually with custom run parameters;
+ * only `all-libs/<version>/` is published, even if the branch generated other versions too.
  */
-fun stdlibHistoricalDocs(target: StdlibDocsVersion, root: GitVcsRoot) = BuildType {
-    val versionDir = "$OUTPUT_DIR/previous/all-libs/${target.version}"
+fun stdlibHistoricalDocs(root: GitVcsRoot) = BuildType {
+    val versionDir = "$OUTPUT_DIR/previous/all-libs/%stdlib.version%"
 
-    id = RelativeId("DocumentationLibraries_Stdlib_${target.idPart}_Historical")
-    name = "${target.version} historical docs"
-    description = "Core API ${target.version} docs from ${target.branch}, Kotlin ${target.deployVersion}"
+    id = RelativeId("DocumentationLibraries_Stdlib_Historical")
+    name = "Historical docs"
+    description = "One older Core API version, set by run parameters. Tag a good run with its version, e.g. ${historicalTag("2.3")}, to publish it"
+    buildNumberPattern = "%stdlib.version%-%build.counter%"
 
-    artifactRules = "$versionDir/** => $PREVIOUS_VERSIONS_ARTIFACT!all-libs/${target.version}"
+    artifactRules = "$versionDir/** => $PREVIOUS_VERSIONS_ARTIFACT!all-libs/%stdlib.version%"
 
-    stdlibDocsBuild(target, root, latest = false)
+    params {
+        text(
+            "stdlib.version", "",
+            label = "Version",
+            description = "Version shown in the selector, e.g. 2.3",
+            display = ParameterDisplay.PROMPT,
+            regex = """\d+\.\d+""",
+            validationMessage = "Use <major>.<minor>, e.g. 2.3",
+        )
+        text(
+            "stdlib.deployVersion", "",
+            label = "Kotlin release",
+            description = "Released Kotlin version whose Maven Central artifacts are documented, e.g. 2.3.21",
+            display = ParameterDisplay.PROMPT,
+            regex = """\d+\.\d+\.\d+\S*""",
+            validationMessage = "Use a released Kotlin version, e.g. 2.3.21",
+        )
+        // A default keeps the VCS root resolvable when no run is configured; the check step rejects a wrong branch.
+        text(
+            HISTORICAL_BRANCH_PARAM, "master",
+            label = "Branch",
+            description = "Branch of JetBrains/kotlin with libraries/tools/kotlin-stdlib-docs for this version",
+            display = ParameterDisplay.PROMPT,
+            allowEmpty = false,
+        )
+        select(
+            "stdlib.layout", StdlibDocsLayout.LEGACY.name,
+            label = "Layout",
+            description = "Legacy for branches up to 2.3.20, Dokka 2 for 2.4.20 and later",
+            display = ParameterDisplay.PROMPT,
+            options = listOf(
+                "Legacy (Dokka V1 mode)" to StdlibDocsLayout.LEGACY.name,
+                "Dokka 2" to StdlibDocsLayout.DOKKA2.name,
+            ),
+        )
+        text(
+            "stdlib.dokkaVersion", "",
+            label = "Dokka version",
+            description = "Overrides the branch's dokka_version. Empty keeps the branch default.",
+            display = ParameterDisplay.PROMPT,
+            allowEmpty = true,
+        )
+    }
+
+    stdlibDocsBuild(root, latest = false)
 
     steps {
         script {
             id = "step-check-version-output"
-            name = "Check ${target.version} output"
+            name = "Check output"
             // language=bash
             scriptContent = """
                 set -eu
                 if [ ! -f "$versionDir/index.html" ]; then
-                    echo "No docs for ${target.version} in $versionDir. Generated versions:"
+                    echo "No docs for %stdlib.version% in $versionDir. Generated versions:"
                     ls "$OUTPUT_DIR/previous/all-libs" 2>/dev/null || echo "(none)"
-                    echo "The branch must document ${target.version}: its versions list (legacy) or kotlinLanguageVersion (Dokka 2)."
+                    echo "The branch must document %stdlib.version%: its versions list (legacy) or kotlinLanguageVersion (Dokka 2)."
                     exit 1
                 fi
             """.trimIndent()
@@ -207,19 +292,42 @@ fun stdlibHistoricalDocs(target: StdlibDocsVersion, root: GitVcsRoot) = BuildTyp
     }
 }
 
-/** Builds the current version with every historical version merged into its version selector. */
-fun stdlibLatestDocs(target: StdlibDocsVersion, root: GitVcsRoot, historical: List<Pair<StdlibDocsVersion, BuildType>>) = BuildType {
-    id = RelativeId("DocumentationLibraries_Stdlib_${target.idPart}_Latest")
+/**
+ * Builds the current version with older versions merged into its selector. Each older version listed in
+ * `stdlib.historicalVersions` comes from the newest run of [historical] tagged with it.
+ *
+ * Artifact dependencies can't be optional: one with no matching tagged build stops the build from starting.
+ * The versions are a run parameter instead, and a step downloads them through the REST API.
+ */
+fun stdlibLatestDocs(target: StdlibDocsVersion, root: GitVcsRoot, historical: BuildType, historicalVersions: List<String>) = BuildType {
+    id = RelativeId("DocumentationLibraries_Stdlib_Latest")
     name = "${target.version} latest docs"
     description = "Core API ${target.version} docs from ${target.branch}, Kotlin ${target.deployVersion}, " +
-        "with ${historical.joinToString { it.first.version }} as older versions"
+        "with tagged historical runs as older versions"
 
     artifactRules = """
         $OUTPUT_DIR/latest/** => $LATEST_VERSION_ARTIFACT
         -:$OUTPUT_DIR/latest/all-libs/not-found-version.html
     """.trimIndent()
 
-    stdlibDocsBuild(target, root, latest = true)
+    // RelativeId.value already resolves to the absolute ID used by the REST API.
+    val historicalId = checkNotNull(historical.id).value
+
+    params {
+        param("stdlib.version", target.version)
+        param("stdlib.deployVersion", target.deployVersion)
+        param("stdlib.layout", target.layout.name)
+        param("stdlib.dokkaVersion", target.dokkaVersion.orEmpty())
+        text(
+            "stdlib.historicalVersions", historicalVersions.joinToString(" "),
+            label = "Older versions",
+            description = "Space-separated versions for the selector, each taken from the newest historical run " +
+                "tagged with it. Empty publishes no older versions.",
+            allowEmpty = true,
+        )
+    }
+
+    stdlibDocsBuild(root, latest = true)
 
     triggers {
         vcs {
@@ -228,36 +336,35 @@ fun stdlibLatestDocs(target: StdlibDocsVersion, root: GitVcsRoot, historical: Li
         }
     }
 
-    // Artifacts land in separate directories so each can be cleaned; this step merges them into one tree.
     steps.items.add(0, ScriptBuildStep {
-        id = "step-merge-previous-versions"
-        name = "Merge historical versions"
+        id = "step-download-previous-versions"
+        name = "Download historical versions"
         // language=bash
         scriptContent = """
             set -eu
-            rm -rf "$PREVIOUS_DIR"
-            mkdir -p "$PREVIOUS_DIR"
-            for dir in "$DEPENDENCIES_DIR"/*/; do
-                [ -d "${'$'}dir" ] || continue
-                cp -R "${'$'}dir". "$PREVIOUS_DIR"/
+            rm -rf "$PREVIOUS_DIR" "$DEPENDENCIES_DIR"
+            mkdir -p "$PREVIOUS_DIR" "$DEPENDENCIES_DIR"
+            api="%teamcity.serverUrl%/httpAuth/app/rest/builds"
+            auth="%system.teamcity.auth.userId%:%system.teamcity.auth.password%"
+            missing=""
+            for version in %stdlib.historicalVersions%; do
+                tag="${historicalTag("${'$'}version")}"
+                build="buildType:(id:$historicalId),tag:${'$'}tag,count:1"
+                if ! number=${'$'}(curl -fsS -u "${'$'}auth" "${'$'}api/${'$'}build/number" 2>/dev/null); then
+                    missing="${'$'}missing ${'$'}version"
+                    continue
+                fi
+                echo "${'$'}version: historical run #${'$'}number"
+                zip="${'$'}PWD/$DEPENDENCIES_DIR/${'$'}version.zip"
+                curl -fsS -u "${'$'}auth" -o "${'$'}zip" "${'$'}api/${'$'}build/artifacts/files/$PREVIOUS_VERSIONS_ARTIFACT"
+                (cd "$PREVIOUS_DIR" && "%stdlib.jdkHome%/bin/jar" xf "${'$'}zip")
             done
+            if [ -n "${'$'}missing" ]; then
+                echo "No historical run tagged with:${'$'}missing. Tag a run or remove the versions from stdlib.historicalVersions."
+                exit 1
+            fi
             echo "Older versions:"
             ls "$PREVIOUS_DIR/all-libs" 2>/dev/null || echo "(none)"
         """.trimIndent()
     })
-
-    dependencies {
-        for ((version, build) in historical) {
-            dependency(build) {
-                snapshot {
-                    onDependencyFailure = FailureAction.FAIL_TO_START
-                    onDependencyCancel = FailureAction.CANCEL
-                }
-                artifacts {
-                    artifactRules = "$PREVIOUS_VERSIONS_ARTIFACT!** => $DEPENDENCIES_DIR/${version.idPart}"
-                    cleanDestination = true
-                }
-            }
-        }
-    }
 }
