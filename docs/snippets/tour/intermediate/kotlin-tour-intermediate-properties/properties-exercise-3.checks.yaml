@@ -1,5 +1,15 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-properties/LazyHealthCheckTest.kt
+  - type: not-and
+    title: "Declare the health-check properties"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'isAppServerHealthy'"
+      - type: source-not-matches
+        value: '\b(?:val|var)\s+isAppServerHealthy\b'
+    message: "`main()` reads `isAppServerHealthy` and `isDatabaseHealthy`, but neither property is declared: declare both inside `main()` with `by lazy`, like `val isAppServerHealthy by lazy { checkAppServer() }`, so the checks run only when they are read. See [Standard delegates](https://kotlinlang.org/docs/kotlin-tour-intermediate-properties.html#standard-delegates)."
   - type: source-matches
     title: "Initialize the health checks with by lazy"
-    value: '\bby\s+lazy\s*\{'
+    value: '\bby\s+lazy\s*[\({]'
     message: "Initialize both health-check properties lazily with [`by lazy`](https://kotlinlang.org/docs/kotlin-tour-intermediate-properties.html#standard-delegates): the value is computed on first use only, like `val config by lazy { loadConfig() }`."

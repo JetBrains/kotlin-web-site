@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-collections/CollectionsExercise2Test.kt
   - type: source-matches
     title: "Check the requested protocol in upper case"
     value: '\.uppercase\s*\(\s*\)'

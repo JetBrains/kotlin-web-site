@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-classes/PersonTest.kt
+  - type: not-and
+    title: "Declare the Name, Address, and City data classes"
+    checks:
+      - type: error-matches
+        value: "Unresolved reference '(Name|Address|City)'"
+      - type: source-not-matches
+        value: '\bclass\s+Address\b'
+    message: "`Person` mentions the `Name`, `Address`, and `City` types, but they aren't declared yet: follow the comment in the code, like `data class Name(val first: String, val last: String)`, `data class Address(val street: String, val city: City)`, `data class City(val name: String, val countryCode: String)`. See [Data classes](https://kotlinlang.org/docs/kotlin-tour-classes.html#data-classes)."

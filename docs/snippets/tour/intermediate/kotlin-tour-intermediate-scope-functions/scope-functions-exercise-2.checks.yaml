@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-scope-functions/UpdateEmailTest.kt
   - type: and
     title: "Update the user with apply and log with also"
     checks:

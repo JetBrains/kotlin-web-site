@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-functions/LambdasExercise1Test.kt
   - type: or
     title: "Create the URLs with a lambda"
     checks:

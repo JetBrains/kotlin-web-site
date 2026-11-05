@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/ButtonEventTest.kt
   - type: and
     title: "Read the event fields inside the onEvent handler"
     checks:

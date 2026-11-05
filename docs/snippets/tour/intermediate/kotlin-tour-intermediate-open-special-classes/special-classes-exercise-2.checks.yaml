@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-open-special-classes/StatusProblemTest.kt
+  - type: not-and
+    title: "Declare the Problem enum class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'Problem'"
+      - type: source-not-matches
+        value: '\bclass\s+Problem\b'
+    message: "`Status.Error` takes a `problem: Problem`, but the `Problem` type isn't declared yet: write the enum class with its three entries inside `Status.Error`, like `enum class Problem { NETWORK, TIMEOUT, UNKNOWN }`. See [Enum classes](https://kotlinlang.org/docs/kotlin-tour-intermediate-open-special-classes.html#enum-classes)."

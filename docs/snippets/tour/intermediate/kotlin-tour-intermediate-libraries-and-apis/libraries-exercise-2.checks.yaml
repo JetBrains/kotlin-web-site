@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/MeasureTimeTest.kt
   - type: source-matches
     title: "Measure the block with measureTime"
     value: '\bmeasureTime\s*[\({]'
@@ -8,6 +10,6 @@ checks:
     checks:
       - type: error-contains
         value: "Unresolved reference 'measureTime'"
-      - type: source-not-contains
-        value: "import kotlin.time.measureTime"
+      - type: source-not-matches
+        value: 'import\s+kotlin\.time'
     message: "The [`measureTime()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/measure-time.html) function lives in the `kotlin.time` package: import it at the top of the code, the way other library functions arrive, like `import kotlin.time.measureTime`."

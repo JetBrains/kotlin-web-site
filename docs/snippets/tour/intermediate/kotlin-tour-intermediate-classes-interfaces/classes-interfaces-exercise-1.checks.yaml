@@ -1,4 +1,14 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartDeviceTest.kt
+  - type: not-and
+    title: "Complete the SmartDevice class header"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'SmartDevice'"
+      - type: source-not-matches
+        value: '\bclass\s+SmartDevice\b'
+    message: "The starter starts the declaration with `abstract class // Write your code here`, so `SmartDevice` is never declared and `SmartLight` has nothing to inherit from: complete the header, like `abstract class SmartDevice(val name: String) { ... }`, then complete `SmartThermostat` the way `SmartLight` is written. See [Abstract classes](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#abstract-classes)."
   - type: and
     title: "Declare turnOn and turnOff as abstract"
     checks:

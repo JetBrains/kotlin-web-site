@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-hello-world/HelloWorldTest.kt
   - type: source-matches
     title: "Build the sentence with a string template"
     value: '\$[a-zA-Z{]'

@@ -1,4 +1,14 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/AudioTest.kt
+  - type: not-and
+    title: "Declare the Media interface and the Audio class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'Audio'"
+      - type: source-not-matches
+        value: '\bclass\s+Audio\b'
+    message: "The starter truncates both declarations after the keyword: `interface // Write your code here` and `class // Write your code here`. Write the `Media` interface with its `title` property and `play()` function, and the `Audio` class implementing them, like `class Audio(override val title: String, val composer: String) : Media`. See [Interface implementation](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#interface-implementation)."
   - type: source-matches
     title: "Override the title property in the Audio constructor"
     value: 'class\s+Audio\s*\([^)]*override\s+val\s+title'

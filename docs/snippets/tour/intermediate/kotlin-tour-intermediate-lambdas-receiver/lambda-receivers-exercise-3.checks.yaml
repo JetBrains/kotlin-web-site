@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/IncrementedTest.kt
   - type: source-matches
     title: "Keep the buildList skeleton"
     value: '\bbuildList\b'

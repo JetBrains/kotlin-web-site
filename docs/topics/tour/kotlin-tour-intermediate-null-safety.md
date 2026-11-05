@@ -423,7 +423,7 @@ fun main() {
     // []
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-null-safety/GetNotificationPreferencesTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-1.checks.yaml" id="kotlin-tour-null-safety-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-1.checks.yaml" id="kotlin-tour-null-safety-exercise-1"}
 
 ```kotlin
 data class User(val name: String?)
@@ -483,7 +483,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-null-safety/GetActiveSubscriptionTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-2.checks.yaml" id="kotlin-tour-null-safety-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-2.checks.yaml" id="kotlin-tour-null-safety-exercise-2"}
 
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
@@ -568,7 +568,7 @@ fun main() {
     // [alice123, charlie99]
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-null-safety/GetActiveUsernamesTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-3.checks.yaml" id="kotlin-tour-null-safety-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-3.checks.yaml" id="kotlin-tour-null-safety-exercise-3"}
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -640,7 +640,7 @@ fun main() {
     // -1
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ValidateStockTest.kt" id="kotlin-tour-null-safety-exercise-4"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-4.checks.yaml" id="kotlin-tour-null-safety-exercise-4"}
 
 ```kotlin
 fun validateStock(requested: Int?, available: Int?): Int {

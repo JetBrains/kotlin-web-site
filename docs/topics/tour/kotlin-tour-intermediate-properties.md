@@ -437,7 +437,7 @@ fun main() {
     // [1, 3]
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FindOutOfStockBooksTest.kt" id="kotlin-tour-properties-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-properties/properties-exercise-1.checks.yaml" id="kotlin-tour-properties-exercise-1"}
 
 > Use the [`indices`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/indices.html) extension property from the standard library.
 {style="hint"}
@@ -504,7 +504,7 @@ fun main() {
     // 42.195 km is 26.218749345 miles
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/AsMilesTest.kt" id="kotlin-tour-properties-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-properties/properties-exercise-2.checks.yaml" id="kotlin-tour-properties-exercise-2"}
 
 > Remember that extension properties need a custom `get()` function.
 {style="hint"}
@@ -555,7 +555,7 @@ fun main() {
     // Application server is online and healthy
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-properties/LazyHealthCheckTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-properties/properties-exercise-3.checks.yaml" id="kotlin-tour-properties-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-properties/properties-exercise-3.checks.yaml" id="kotlin-tour-properties-exercise-3"}
 
 ```kotlin
 fun checkAppServer(): Boolean {
@@ -611,7 +611,7 @@ fun main() {
     // Good news: Your remaining budget increased to 300.
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/BudgetTest.kt" id="kotlin-tour-properties-exercise-4"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-properties/properties-exercise-4.checks.yaml" id="kotlin-tour-properties-exercise-4"}
 
 ```kotlin
 import kotlin.properties.Delegates.observable

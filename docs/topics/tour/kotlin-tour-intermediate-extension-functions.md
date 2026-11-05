@@ -123,7 +123,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IsPositiveTest.kt" id="kotlin-tour-extension-functions-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-extension-functions/extension-functions-exercise-1.checks.yaml" id="kotlin-tour-extension-functions-exercise-1"}
 
 ```kotlin
 fun Int.isPositive(): Boolean = this > 0
@@ -148,7 +148,7 @@ fun main() {
     // hello world!
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ToLowercaseStringTest.kt" id="kotlin-tour-extension-functions-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-extension-functions/extension-functions-exercise-2.checks.yaml" id="kotlin-tour-extension-functions-exercise-2"}
 
 > Use the [`.lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function for the `String` type.
 {style="hint"}

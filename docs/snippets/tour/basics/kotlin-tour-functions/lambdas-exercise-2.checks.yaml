@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-functions/LambdasExercise2Test.kt
   - type: source-matches
     title: "Print the lines through repeatN"
     value: '\brepeatN\s*\(\s*\w+\s*[),=]'

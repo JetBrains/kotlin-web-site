@@ -110,7 +110,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-hello-world/HelloWorldTest.kt" kotlin-checks-file="tour/basics/kotlin-tour-hello-world/exercise.checks.yaml" id="kotlin-tour-hello-world-exercise"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-hello-world/exercise.checks.yaml" id="kotlin-tour-hello-world-exercise"}
 
 ```kotlin
 fun main() {

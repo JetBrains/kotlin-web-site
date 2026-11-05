@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-scope-functions/GetPriceInEurosTest.kt
   - type: and
     title: "Rewrite the function as a single expression with let"
     checks:

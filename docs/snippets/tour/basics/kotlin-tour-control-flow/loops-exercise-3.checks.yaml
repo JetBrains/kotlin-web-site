@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise3Test.kt
   - type: and
     title: "Pick the words with a for loop and an if condition"
     checks:

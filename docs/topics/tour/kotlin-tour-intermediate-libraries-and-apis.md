@@ -205,7 +205,7 @@ fun main() {
     // The accumulated amount is: 1282.0372317085844
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/CalculateCompoundInterestTest.kt" id="kotlin-tour-libraries-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/libraries-exercise-1.checks.yaml" id="kotlin-tour-libraries-exercise-1"}
 
 ```kotlin
 import kotlin.math.*
@@ -249,7 +249,7 @@ fun main() {
     println("Time taken: $timeTaken") // e.g. 16 ms
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/MeasureTimeTest.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/libraries-exercise-2.checks.yaml" id="kotlin-tour-libraries-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/libraries-exercise-2.checks.yaml" id="kotlin-tour-libraries-exercise-2"}
 
 ```kotlin
 import kotlin.time.measureTime

@@ -265,7 +265,7 @@ fun main() {
     println(emp)
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/EmployeeTest.kt" id="kotlin-tour-classes-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-classes/classes-exercise-1.checks.yaml" id="kotlin-tour-classes-exercise-1"}
 
 ```kotlin
 data class Employee(val name: String, var salary: Int)
@@ -298,7 +298,7 @@ fun main() {
     println(person)
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/PersonTest.kt" id="kotlin-tour-classes-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-classes/classes-exercise-2.checks.yaml" id="kotlin-tour-classes-exercise-2"}
 
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
@@ -347,7 +347,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/RandomEmployeeGeneratorTest.kt" id="kotlin-tour-classes-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-classes/classes-exercise-3.checks.yaml" id="kotlin-tour-classes-exercise-3"}
 
 > Lists have an extension function called [`.random()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random.html) that returns a random item within a list.
 {style="hint"}

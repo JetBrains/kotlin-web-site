@@ -1,4 +1,14 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-functions/CircleAreaTest.kt
+  - type: not-and
+    title: "Declare the circleArea function"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'circleArea'"
+      - type: source-not-matches
+        value: '\bfun\s+circleArea\b'
+    message: "This exercise starts from no code at all: declare `circleArea` again, this time as a single expression, like `fun circleArea(radius: Int): Double = PI * radius * radius`. See [Single-expression functions](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions)."
   - type: source-matches
     title: "Rewrite circleArea with an expression body"
     value: 'fun\s+circleArea\s*\([^)]*\)[^{;]*='

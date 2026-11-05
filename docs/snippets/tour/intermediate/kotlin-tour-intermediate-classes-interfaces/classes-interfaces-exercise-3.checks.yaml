@@ -1,4 +1,14 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/CreditCardTest.kt
+  - type: not-and
+    title: "Connect CreditCard to PaymentMethod"
+    checks:
+      - type: error-contains
+        value: "Too many arguments for 'constructor(): CreditCard'"
+      - type: source-not-matches
+        value: '\bclass\s+CreditCard\s*\('
+    message: "The starter stops right after `class CreditCard`: the class has no constructor, so `CreditCard(\"Visa\")` fails. Give it a constructor that passes the name to the base class, and add both interfaces after the colon, like `class CreditCard(name: String) : PaymentMethod(name), Refundable { ... }`. See [Class inheritance](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#class-inheritance)."
   - type: and
     title: "Declare authorize and an abstract processPayment in PaymentMethod"
     checks:

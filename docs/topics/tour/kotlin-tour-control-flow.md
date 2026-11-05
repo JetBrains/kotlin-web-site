@@ -188,7 +188,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowConditionalExercise1Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-1.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-1.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-1"}
 
 > Use the [equality operator](operator-overloading.md#equality-and-inequality-operators) (`==`) to compare the dice results.
 {style="hint"}
@@ -230,7 +230,7 @@ fun main() {
     )
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowConditionalExercise2Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-2.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-2.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
 ```kotlin
 var button = "A"
@@ -413,7 +413,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" id="kotlin-tour-control-flow-loops-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise1Test.kt" id="kotlin-tour-control-flow-loops-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -453,7 +453,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" id="kotlin-tour-control-flow-loops-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise2Test.kt" id="kotlin-tour-control-flow-loops-exercise-2"}
 
 > Use a `for` loop to count numbers and a `when` expression to decide what to print at each step.
 {style="hint"}
@@ -488,7 +488,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise3Test.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/loops-exercise-3.checks.yaml" id="kotlin-tour-control-flow-loops-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/loops-exercise-3.checks.yaml" id="kotlin-tour-control-flow-loops-exercise-3"}
 
 > Use the [`.startsWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/starts-with.html) function for `String` type.
 {style="hint"}

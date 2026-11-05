@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-basic-types/BasicTypesTest.kt
   - type: source-matches
     title: "Declare the type of b explicitly"
     value: '\bv(?:al|ar)\s+b\b\s*:\s*String\b'

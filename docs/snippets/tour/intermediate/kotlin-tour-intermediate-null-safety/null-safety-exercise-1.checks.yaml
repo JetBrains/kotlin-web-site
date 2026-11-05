@@ -1,4 +1,14 @@
 checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-null-safety/GetNotificationPreferencesTest.kt
+  - type: not-and
+    title: "Complete the placeholder expressions"
+    checks:
+      - type: error-contains
+        value: "This variable must either have an explicit type or be initialized"
+      - type: source-not-matches
+        value: '\bas\?'
+    message: "Every `// Write your code here` line leaves a variable without a value: write the safe cast with a default, like `val validUser = user as? User ?: return emptyList()`, the guest name, like `val userName = validUser.name ?: \"Guest\"`, and the two `.takeIf { }` expressions inside `listOfNotNull(...)`. See [as and as? operators](https://kotlinlang.org/docs/kotlin-tour-intermediate-null-safety.html#as-and-as-operators)."
   - type: and
     title: "Use a safe cast, a default value, and takeIf"
     checks:
