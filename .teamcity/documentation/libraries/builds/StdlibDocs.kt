@@ -33,7 +33,7 @@ private const val JVM_TOOLCHAIN = "21"
 /** Current Gradle release, used instead of the branch wrapper (8.14 on every branch from 1.6.20 to 2.4.20). Empty keeps the wrapper. */
 private const val GRADLE_VERSION = "9.8.2"
 
-private const val INIT_SCRIPT = "%teamcity.build.tempDir%/stdlib-docs.init.gradle"
+private const val INIT_SCRIPT = "%system.teamcity.build.tempDir%/stdlib-docs.init.gradle"
 
 /**
  * The docs plugins under `plugins/` pin `kotlin { jvmToolchain(8) }` on every branch, and agents have no JDK 8.
@@ -119,7 +119,8 @@ private fun BuildType.stdlibDocsBuild(root: GitVcsRoot, latest: Boolean) {
     }
 
     requirements {
-        equals("teamcity.agent.jvm.os.name", "Linux")
+        // The steps use GNU sed. Other Linux builds in this repository select agents the same way.
+        contains("docker.server.osType", "linux")
         exists("env.$JDK_ENV_VAR")
         // Dokka runs in a separate process with a 6 GB heap next to the Gradle daemon.
         noLessThan("teamcity.agent.hardware.memorySizeMb", "15000")
