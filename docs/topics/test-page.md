@@ -426,7 +426,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageTest.kt" kotlin-checks-file="test-page/exercise-1.checks.yaml" id="test-page-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-1.checks.yaml" id="test-page-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -453,7 +453,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageTest.kt" kotlin-checks-file="test-page/exercise-2.checks.yaml" id="test-page-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-2.checks.yaml" id="test-page-exercise-2"}
 
 > Use the equality operator (`==`) to compare the results.
 {style="hint"}
@@ -482,7 +482,7 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,test-page/TestPageTest.kt" kotlin-checks-file="test-page/exercise-3.checks.yaml" id="test-page-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-3.checks.yaml" id="test-page-exercise-3"}
 
 ```kotlin
 fun main() {

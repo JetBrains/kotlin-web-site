@@ -1,4 +1,6 @@
 checks:
+  - type: junit
+    value: test-page/TestPageTest.kt
   - type: not-and
     title: "Compare the two results with the equality operator"
     checks:
@@ -6,6 +8,6 @@ checks:
         value: 'Write your code here'
       - type: source-not-contains
         value: '=='
-      - type: source-not-contains
-        value: '.equals('
+      - type: source-not-matches
+        value: '\.equals\s*\('
     message: "Compare the two results with the `==` operator: it holds when both sides match, like `if (code == 42) println(\"unlocked\")`."
