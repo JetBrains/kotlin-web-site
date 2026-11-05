@@ -13,7 +13,7 @@ Kotlin Maven plugin node:
     <groupId>org.jetbrains.kotlin</groupId>
     <artifactId>kotlin-maven-plugin</artifactId>
     <version>${kotlin.version}</version>
-    <extensions>true</extensions> <!-- If you want to enable automatic addition of executions to your build -->
+    <extensions>true</extensions> <!-- If you want to enable automatic addition of extensions to your build -->
     <executions>...</executions>
     <configuration>
         <nowarn>true</nowarn> <!-- Disable warnings -->
