@@ -2,6 +2,7 @@ package documentation
 
 import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
+import documentation.libraries.CoreApiDocs
 import documentation.vcsRoots.*
 import jetbrains.buildServer.configs.kotlin.Project
 
@@ -25,4 +26,6 @@ object DocumentationProject: Project({
     vcsRoot(DokkaRoot)
     vcsRoot(APIGuidelinesRoot)
     vcsRoot(KotlinxSerializationRoot)
+
+    subProject(CoreApiDocs.project)
 })
