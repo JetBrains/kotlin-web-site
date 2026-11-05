@@ -24,7 +24,7 @@ object KotlinxDatetimeBuildApiReference : BuildApiPages(
         }
     },
     stepBuildHtml = {
-        scriptBuildHtml { tasks = "dokkaGenerate" }
+        scriptBuildHtml { tasks = ":dokkaGenerate" }
     },
     init = {
         vcs {
