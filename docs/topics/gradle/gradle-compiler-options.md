@@ -84,7 +84,7 @@ You can configure compiler options for a specific compilation unit or task in a 
 block inside the task configuration:
 
 ```kotlin
-tasks.named<KotlinJvmCompile>("compileKotlin"){
+tasks.named<KotlinJvmCompile>("compileKotlin") {
     compilerOptions {
         optIn.add("kotlin.RequiresOptIn")
     }
@@ -213,7 +213,7 @@ kotlin {
 }
 
 // Example of overriding at compilation unit level
-tasks.named<KotlinJvmCompile>("compileKotlin"){
+tasks.named<KotlinJvmCompile>("compileKotlin") {
     compilerOptions {
         apiVersion = KotlinVersion.fromVersion("%apiVersion%")
     }
@@ -232,7 +232,7 @@ plugins {
 }
 
 kotlin {
-  // Extension level
+    // Extension level
     compilerOptions {
         jvmTarget = JvmTarget.fromTarget("%jvmLTSVersionSupportedByKotlin%")
         languageVersion = KotlinVersion.fromVersion("%languageVersion%")
