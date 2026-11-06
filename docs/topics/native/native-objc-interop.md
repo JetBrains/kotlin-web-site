@@ -521,7 +521,7 @@ in generated blocks.
 
 To enable explicit parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.objcExportBlockExplicitParameterNames=true
 ```
 

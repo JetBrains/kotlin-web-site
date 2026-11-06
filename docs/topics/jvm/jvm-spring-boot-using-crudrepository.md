@@ -96,7 +96,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
 5. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
 
-   ```none
+   ```properties
    spring.application.name=demo
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.url=jdbc:h2:file:./data/testdb2

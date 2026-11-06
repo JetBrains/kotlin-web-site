@@ -746,7 +746,7 @@ The implementation of stack protection in Kotlin/Native follows the behavior of 
 
 To enable stack canaries, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.stackProtector=yes
 ```
 
@@ -769,7 +769,7 @@ affect runtime performance in some cases.
 The new feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your
 project, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.smallBinary=true
 ```
 
@@ -854,7 +854,7 @@ greetUserBlock:^(NSString *name) {
 
 To enable explicit parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.objcExportBlockExplicitParameterNames=true
 ```
 
@@ -1217,7 +1217,7 @@ frontend to improve performance in certain complex incremental compilation scena
 These improvements are disabled by default while we work on stabilizing the behavior. To enable them, add the following
 property in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.incremental.jvm.fir=true
 ```
 

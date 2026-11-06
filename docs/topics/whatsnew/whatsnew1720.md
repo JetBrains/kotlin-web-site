@@ -437,7 +437,7 @@ repeatable annotations.
 
 To use the IR backend in kapt, add the following option to your `gradle.properties` file:
 
-```none
+```properties
 kapt.use.jvm.ir=true
 ```
 
@@ -502,7 +502,7 @@ In certain cases, this restriction is no longer required, but a check of all the
 implemented. Because of this, we decided to keep it in the new memory manager while introducing an option for you to disable
 it. For this, add the following option to your `gradle.properties`:
 
-```none
+```properties
 kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 ```
 

@@ -25,7 +25,7 @@ To configure specific memory limits, like `-Xmx` and `-XX:MaxMetaspaceSize`, use
 <tabs group="build-system">
 <tab title="Gradle" group-key="gradle">
 
-```kotlin
+```properties
 kotlin.daemon.jvmargs=-Xmx1500m
 ```
 
@@ -63,7 +63,7 @@ To configure an attached daemon lifetime strategy, set `autoshutdownIdleSeconds`
 
 Add the following to your `gradle.properties` file:
 
-```none
+```properties
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=autoshutdownIdleSeconds=7200,shutdownDelayMilliseconds=1000
 ```
 
@@ -86,7 +86,7 @@ To configure a detached daemon lifetime strategy, set `shutdownDelayMilliseconds
 
 Add the following to your `gradle.properties` file:
 
-```none
+```properties
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=shutdownDelayMilliseconds=7200
 ```
 

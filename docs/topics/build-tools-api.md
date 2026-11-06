@@ -41,7 +41,7 @@ more stable.
 In Kotlin 2.4.20, these targets are available as an opt-in. To try them out, add the corresponding properties to your
 `gradle.properties` file:
 
-```none
+```properties
 kotlin.js.runViaBuildToolsApi = true
 kotlin.wasm.runViaBuildToolsApi = true
 kotlin.metadata.runViaBuildToolsApi = true
@@ -106,7 +106,7 @@ Ordinarily, the "in-process" strategy (which runs the compiler in the Gradle dae
 With the BTA, the "in-process" strategy now supports incremental compilation. To enable it, add the following property to
 your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.compiler.execution.strategy=in-process
 ```
 

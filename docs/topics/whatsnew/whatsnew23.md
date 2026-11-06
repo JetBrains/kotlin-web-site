@@ -418,7 +418,7 @@ greetUserBlock:^(NSString *name) {
 If you run into issues, you can disable explicit parameter names.
 To do that, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.objcExportBlockExplicitParameterNames=false
 ```
 

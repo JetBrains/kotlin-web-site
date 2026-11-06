@@ -283,7 +283,7 @@ with [App Extensions](https://developer.apple.com/app-extensions/) out of the bo
 It means that the memory manager doesn't adjust GC behavior accordingly, which might be harmful in some cases. To change
 this behavior, add the following [Experimental](components-stability.md) binary option to your `gradle.properties`:
 
-```none
+```properties
 kotlin.native.binary.appStateTracking=enabled
 ```
 
