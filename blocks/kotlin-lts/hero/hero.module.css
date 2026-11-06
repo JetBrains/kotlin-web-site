@@ -1,0 +1,68 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 128px;
+    background-color: #19191c;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: auto -20% -60% -20%;
+    height: 120%;
+    background:
+        radial-gradient(40% 50% at 25% 60%, rgba(127, 82, 255, 0.45), transparent 70%),
+        radial-gradient(35% 45% at 60% 70%, rgba(199, 17, 225, 0.3), transparent 70%),
+        radial-gradient(30% 40% at 85% 55%, rgba(228, 72, 87, 0.28), transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+}
+
+.eyebrow {
+    margin-bottom: 32px;
+}
+
+.eyebrow .dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #7f52ff 0%, #c711e1 50%, #e44857 100%);
+}
+
+.title {
+    max-width: 900px;
+    margin: 0;
+}
+
+.lead {
+    max-width: 720px;
+    margin: 28px 0 0;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+@media (--ktl-ml-down) {
+    .hero {
+        padding: 80px 0 88px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

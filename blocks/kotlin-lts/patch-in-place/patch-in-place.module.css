@@ -1,0 +1,64 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.split {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: center;
+    gap: 48px;
+}
+
+@media (--ktl-tl-down) {
+    .split {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+}
+
+.checklist {
+    display: grid;
+    gap: 16px;
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.checkItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 0;
+}
+
+.checkIcon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background-color: rgba(127, 82, 255, 0.12);
+    color: #7f52ff;
+}
+
+.code {
+    min-width: 0;
+}
+
+.codeBlock {
+    min-height: 200px;
+    padding: 28px;
+    border-radius: 16px;
+    background-color: #19191c;
+    box-sizing: border-box;
+}
+
+.codeBlock pre {
+    line-height: 1.7;
+}
+
+@media (--ktl-ml-down) {
+    .codeBlock {
+        padding: 16px;
+    }
+}

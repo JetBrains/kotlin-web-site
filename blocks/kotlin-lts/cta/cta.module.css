@@ -1,0 +1,35 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.cta {
+    position: relative;
+    overflow: hidden;
+    background-color: #19191c;
+    text-align: center;
+}
+
+.cta::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7f52ff 0%, #c711e1 50%, #e44857 100%);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    max-width: 640px;
+    margin: 16px 0 40px;
+}
+
+@media (--ktl-ml-down) {
+    .button {
+        width: 100%;
+    }
+}
