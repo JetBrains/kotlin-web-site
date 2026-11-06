@@ -38,9 +38,7 @@ fun formatGreeting(name: String): String {
 
 ## Configure the unused return value checker
 
-You can control how the compiler reports ignored results with the `returnValueCheckerMode` DSL property for Gradle projects or the `-Xreturn-value-checker` compiler option for other build systems.
-
-You can select one of the following modes:
+You can select one of the following modes to control how the compiler reports ignored results:
 
 * `check` enables the checker and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results) (default).
 * `full` enables the checker, treats all functions in your project as [marked](#mark-functions-to-check-ignored-results), and reports warnings for ignored results.
@@ -55,19 +53,34 @@ To use a different mode, configure it in your build configuration file:
 <tabs group="build-system">
 <tab id="kotlin" title="Gradle">
 
+The `returnValueCheckerMode` Gradle DSL property controls the mode the checker uses for main source sets.
+
+You can use the `returnValueCheckerModeForTests` property to configure the checker separately for non-main source sets.
+For example, you can disable the checker for tests while adopting it in a larger project:
+
 ```kotlin
-// build.gradle(.kts)
+// build.gradle.kts
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.ReturnValueCheckerMode
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    // Uses full mode for main source sets
     returnValueCheckerMode = ReturnValueCheckerMode.Full
+    
+    // Disables the checker for non-main source sets
+    returnValueCheckerModeForTests = ReturnValueCheckerMode.Disabled
 }
 ```
+
+If you don't set the `returnValueCheckerModeForTests` property, it uses the value of the `returnValueCheckerMode` property:
+
+
 </tab>
 
 <tab id="maven" title="Maven">
+
+For Maven projects, add the `-Xreturn-value-checker` compiler option to your `pom.xml` file:
 
 ```xml
 <!-- pom.xml -->
