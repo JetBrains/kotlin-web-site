@@ -1,0 +1,23 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-basic-types/BasicTypesTest.kt
+  - type: source-matches
+    title: "Declare the type of b explicitly"
+    value: '\bv(?:al|ar)\s+b\b\s*:\s*String\b'
+    message: "Declare the type of `b` explicitly: it holds text, so use [`String`](https://kotlinlang.org/docs/strings.html)."
+  - type: source-matches
+    title: "Declare the type of c explicitly"
+    value: '\bv(?:al|ar)\s+c\b\s*:\s*Double\b'
+    message: "Declare the type of `c` explicitly: it holds a fractional number, so use [`Double`](https://kotlinlang.org/docs/numbers.html#floating-point-types)."
+  - type: source-matches
+    title: "Declare the type of d explicitly"
+    value: '\bv(?:al|ar)\s+d\b\s*:\s*Long\b'
+    message: "Declare the type of `d` explicitly: the value is too large for `Int`, so use [`Long`](https://kotlinlang.org/docs/numbers.html#integer-types)."
+  - type: source-matches
+    title: "Declare the type of e explicitly"
+    value: '\bv(?:al|ar)\s+e\b\s*:\s*Boolean\b'
+    message: "Declare the type of `e` explicitly: it holds a truth value, so use [`Boolean`](https://kotlinlang.org/docs/booleans.html)."
+  - type: source-matches
+    title: "Declare the type of f explicitly"
+    value: '\bv(?:al|ar)\s+f\b\s*:\s*Char\b'
+    message: "Declare the type of `f` explicitly: it holds a single character, so use [`Char`](https://kotlinlang.org/docs/characters.html)."

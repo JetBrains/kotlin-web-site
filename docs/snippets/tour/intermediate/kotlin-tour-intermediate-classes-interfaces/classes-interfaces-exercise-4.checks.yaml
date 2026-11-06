@@ -1,0 +1,15 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartMessengerTest.kt
+  - type: not-and
+    title: "Give SmartMessenger a constructor and delegate the interface"
+    checks:
+      - type: error-contains
+        value: "Too many arguments for 'constructor(): SmartMessenger'"
+      - type: source-not-matches
+        value: '\bclass\s+SmartMessenger\s*\('
+    message: "The starter stops right after `class SmartMessenger`: the class has no constructor, so `SmartMessenger(basicMessenger)` fails. Accept the `BasicMessenger` in the constructor and delegate the `Messenger` interface to it, like `class SmartMessenger(val basicMessenger: BasicMessenger) : Messenger by basicMessenger { ... }`. See [Delegation](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#delegation)."
+  - type: source-matches
+    title: "Delegate the Messenger interface with by"
+    value: 'Messenger\s+by\b'
+    message: "Delegate the `Messenger` implementation to the `BasicMessenger` instance with the [`by` keyword](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#delegation): after the colon, it forwards the members you don't override, like `class Wrapper(val base: Base) : Base by base`."

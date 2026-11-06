@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-classes/RandomEmployeeGeneratorTest.kt
+  - type: not-and
+    title: "Declare the RandomEmployeeGenerator class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'RandomEmployeeGenerator'"
+      - type: source-not-matches
+        value: '\bclass\s+RandomEmployeeGenerator\b'
+    message: "`main()` creates a `RandomEmployeeGenerator(10, 30)` and reassigns its `minSalary` and `maxSalary`, but the class isn't declared yet: configure the salaries in the class header and keep the names in the class body, like `class RandomEmployeeGenerator(var minSalary: Int, var maxSalary: Int) { val names = listOf(...); fun generateEmployee() = ... }`. See [Properties](https://kotlinlang.org/docs/kotlin-tour-classes.html#properties)."

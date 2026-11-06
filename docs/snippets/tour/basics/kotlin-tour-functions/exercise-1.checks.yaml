@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-functions/CircleAreaTest.kt
+  - type: not-and
+    title: "Declare the circleArea function"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'circleArea'"
+      - type: source-not-matches
+        value: '\bfun\s+circleArea\b'
+    message: "`main()` calls `circleArea(2)`, but the function isn't declared yet: write it in the `// Write your code here` place, like `fun circleArea(radius: Int): Double = PI * radius * radius`. See [Functions](https://kotlinlang.org/docs/kotlin-tour-functions.html)."

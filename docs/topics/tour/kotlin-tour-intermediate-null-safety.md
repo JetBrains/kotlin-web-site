@@ -423,7 +423,7 @@ fun main() {
     // []
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetNotificationPreferencesTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-1.checks.yaml" id="kotlin-tour-null-safety-exercise-1"}
 
 ```kotlin
 data class User(val name: String?)
@@ -451,7 +451,7 @@ fun main() {
     // []
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetNotificationPreferencesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-1"}
+{solution="true" id="kotlin-tour-null-safety-solution-1"}
 
 </def>
 <def title="Find a single active subscription with singleOrNull()" id="null-safety-exercise-2">
@@ -483,7 +483,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveSubscriptionTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-2.checks.yaml" id="kotlin-tour-null-safety-exercise-2"}
 
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
@@ -510,7 +510,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveSubscriptionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-2-1"}
+{solution="true" id="kotlin-tour-null-safety-solution-2-1"}
 
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
@@ -536,7 +536,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveSubscriptionTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-2-2"}
+{solution="true" id="kotlin-tour-null-safety-solution-2-2"}
 
 </def>
 <def title="Filter active usernames with mapNotNull()" id="null-safety-exercise-3">
@@ -544,6 +544,11 @@ fun main() {
 You are working on a social media platform where users have usernames and account statuses. You want to see the list of 
 currently active usernames. Complete the `getActiveUsernames()` function so that the [`mapNotNull()` function](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/map-not-null.html)
 has a predicate that returns the username if it is active or a `null` value if it isn't:
+
+> Just like in Exercise 1, you can use the [`takeIf()` function](scope-functions.md#takeif-and-takeunless) when you check
+> if the user is active.
+>
+{style="tip"}
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -563,12 +568,7 @@ fun main() {
     // [alice123, charlie99]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveUsernamesTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-3"}
-
-> Just like in Exercise 1, you can use the [`takeIf()` function](scope-functions.md#takeif-and-takeunless) when you check
-> if the user is active.
->
-{ style = "tip" }
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-3.checks.yaml" id="kotlin-tour-null-safety-exercise-3"}
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -590,7 +590,7 @@ fun main() {
     // [alice123, charlie99]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveUsernamesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-3-1"}
+{solution="true" id="kotlin-tour-null-safety-solution-3-1"}
 
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
@@ -609,7 +609,7 @@ fun main() {
     // [alice123, charlie99]
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/GetActiveUsernamesTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-3-2"}
+{solution="true" id="kotlin-tour-null-safety-solution-3-2"}
 
 </def>
 <def title="Validate stock with early returns and the Elvis operator" id="null-safety-exercise-4">
@@ -640,7 +640,7 @@ fun main() {
     // -1
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ValidateStockTest.kt" validate="false" id="kotlin-tour-null-safety-exercise-4"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-null-safety/null-safety-exercise-4.checks.yaml" id="kotlin-tour-null-safety-exercise-4"}
 
 ```kotlin
 fun validateStock(requested: Int?, available: Int?): Int {
@@ -662,7 +662,7 @@ fun main() {
     // -1
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ValidateStockTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-4"}
+{solution="true" id="kotlin-tour-null-safety-solution-4"}
 
 </def>
 </deflist>

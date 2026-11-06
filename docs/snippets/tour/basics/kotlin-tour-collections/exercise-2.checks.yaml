@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-collections/CollectionsExercise2Test.kt
+  - type: source-matches
+    title: "Check the requested protocol in upper case"
+    value: '\.uppercase\s*\(\s*\)'
+    message: "Check the requested protocol in upper case: [`.uppercase()`](https://kotlinlang.org/docs/strings.html#work-with-string-content) returns the string in capitals, like `\"kotlin\".uppercase()` is `\"KOTLIN\"` — call it before comparing with the `SUPPORTED` set."

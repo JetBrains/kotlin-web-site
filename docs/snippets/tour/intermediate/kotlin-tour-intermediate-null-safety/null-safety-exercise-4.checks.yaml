@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-null-safety/ValidateStockTest.kt
+  - type: not-and
+    title: "Return a value from validateStock"
+    checks:
+      - type: error-contains
+        value: "Missing return statement"
+      - type: source-not-matches
+        value: '\breturn\b'
+    message: "`validateStock` declares an `Int` return type, but its body never returns one: return early with `-1` for every invalid case and the valid amount at the end, like `val validRequested = requested ?: return -1`. See [Early returns and the Elvis operator](https://kotlinlang.org/docs/kotlin-tour-intermediate-null-safety.html#early-returns-and-the-elvis-operator)."

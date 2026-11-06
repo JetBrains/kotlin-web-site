@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-properties/AsMilesTest.kt
+  - type: not-and
+    title: "Declare the asMiles extension property"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'asMiles'"
+      - type: source-not-matches
+        value: '\bDouble\s*\.\s*asMiles\b'
+    message: "The starter truncates the declaration after `val`, so `asMiles` doesn't exist yet: declare it as an extension property of `Double` with a `get()` function, like `val Double.asMiles: Double get() = this * 0.621371`. See [Extension properties](https://kotlinlang.org/docs/kotlin-tour-intermediate-properties.html#extension-properties)."
