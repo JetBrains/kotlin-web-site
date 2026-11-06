@@ -94,7 +94,7 @@ Each of the following ways to set arguments overrides the ones that came before 
 By default, the Kotlin daemon inherits a specific set of arguments from the Gradle daemon but overwrites them with any 
 JVM arguments specified directly for the Kotlin daemon. For example, if you add the following JVM arguments in the `gradle.properties` file:
 
-```none
+```properties
 org.gradle.jvmargs=-Xmx1500m -Xms500m -XX:MaxMetaspaceSize=1g
 ```
 
@@ -112,7 +112,7 @@ These arguments are then added to the Kotlin daemon's JVM arguments:
 
 If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
-```none
+```properties
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms500m
 ```
 
@@ -134,7 +134,7 @@ When passing arguments, follow these rules:
 
 You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
-```none
+```properties
 kotlin.daemon.jvmargs=-Xmx1500m -Xms500m
 ```
 
@@ -283,7 +283,7 @@ and about [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2
 
 To enable build reports, declare where to save the build report output in `gradle.properties`:
 
-```none
+```properties
 kotlin.build.report.output=file
 ```
 
@@ -299,7 +299,7 @@ The following values and their combinations are available for the output:
 
 Here's a list of available options for `kotlin.build.report`:
 
-```none
+```properties
 # Required outputs. Any combination is allowed
 kotlin.build.report.output=file,single_file,http,build_scan,json
 
@@ -316,7 +316,7 @@ kotlin.build.report.label=some_label
 
 Options, applicable only to HTTP:
 
-```none
+```properties
 # Mandatory. Where to post HTTP(S)-based reports
 kotlin.build.report.http.url=http://127.0.0.1:8080
 
@@ -347,7 +347,7 @@ Maximum number of custom values (1,000) exceeded
 
 To reduce the number of custom values the Kotlin plugin produces, you can use the following property in `gradle.properties`:
 
-```none
+```properties
 kotlin.build.report.build_scan.custom_values_limit=500
 ```
 

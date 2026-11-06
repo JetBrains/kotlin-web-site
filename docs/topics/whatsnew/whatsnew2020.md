@@ -347,7 +347,7 @@ This should significantly shorten the GC pause time and help improve app respons
 The feature is currently [Experimental](components-stability.md#stability-levels-explained).
 To enable it, set the following option in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.gc=cms
 ```
 
@@ -568,7 +568,7 @@ However, on Windows hosts, we have seen a degradation in performance due to how 
 
 To try this new approach, add the following property to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.jvm.addClassesVariant=true
 ```
 
@@ -638,7 +638,7 @@ To fix this circular dependency error, we've added a Gradle property: `archivesT
 By default, this property is set to `true` to track the task dependency. To disable the use of the artifact in the compilation
 task, so that no task dependency is required, add the following in your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.build.archivesTaskOutputAsFriendModule=false
 ```
 

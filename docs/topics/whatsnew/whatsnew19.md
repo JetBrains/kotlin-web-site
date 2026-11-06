@@ -329,7 +329,7 @@ Kotlin on a thread other than main, the `objc_release` is called on a special GC
 
 In case you face issues, you can disable this behavior in your `gradle.properties` file with the following option:
 
-```none
+```properties
 kotlin.native.binary.objcDisposeOnMain=false
 ```
 

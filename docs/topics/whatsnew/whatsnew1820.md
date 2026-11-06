@@ -851,7 +851,7 @@ Due to some technical challenges, using Gradle composite builds with Kotlin Mult
 Kotlin 1.8.20 contains a preview of the improved support that should work with a larger variety of projects.
 To try it out, add the following option to your `gradle.properties`:
 
-```none
+```properties
 kotlin.mpp.import.enableKgpDependencyResolution=true
 ```
 
@@ -1018,7 +1018,7 @@ making backups, especially if a project is located on a slow HDD.
 This optimization is Experimental. You can enable it by adding the `kotlin.compiler.preciseCompilationResultsBackup`
 Gradle property to the `gradle.properties` file:
 
-```none
+```properties
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
@@ -1054,7 +1054,7 @@ To estimate the impact of the optimization on your computer for your project and
 you can use [Kotlin build reports](gradle-compilation-and-caches.md#build-reports).
 Enable reports in the text file format by adding the following property to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.build.report.output=file
 ```
 

@@ -1025,7 +1025,7 @@ if the file contains exported declarations) JavaScript file per each Kotlin file
 
 2. Apply the `-Xir-per-file` compiler option or update your `gradle.properties` file with:
 
-   ```none
+   ```properties
    # gradle.properties
    kotlin.js.ir.output.granularity=per-file // `per-module` is the default
    ```
@@ -1190,7 +1190,7 @@ setup.
 For backward compatibility, Yarn is still the default package manager. To use npm as your package manager,
 set the following property in your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.js.yarn = false
 ```
 
@@ -1313,7 +1313,7 @@ from non-multiplatform clients as well, such as Java-only projects.
 If necessary, you can disable attribute publication. To do that, add the following Gradle option to
 your `gradle.properties` file:
 
-```none
+```properties
 kotlin.publishJvmEnvironmentAttribute=false
 ```
 
@@ -1500,7 +1500,7 @@ execution phase as well.
 If you encounter any issues with the new behavior, you can temporarily switch back to the previous behavior by adding
 the following Gradle property to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.toolchain.enabled=false
 ```
 
@@ -1512,7 +1512,7 @@ it now uses the Maven repositories that you specified in the `repositories {}` b
 
 You can temporarily switch this behavior back by setting the following Gradle property in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.distribution.downloadFromMaven=false
 ```
 
