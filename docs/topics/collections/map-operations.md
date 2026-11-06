@@ -250,7 +250,7 @@ fun main() {
     val mapForNull = mutableMapOf<String, Int?>("one" to null)
     val mapForMissing = mutableMapOf<String, Int?>("one" to null)
 
-    // Replaces the value if "one" has a null value
+    // Replaces the value because "one" has a null value
     mapForNull.getOrPutIfNull("one") { 1 }
 
     println(mapForNull)
