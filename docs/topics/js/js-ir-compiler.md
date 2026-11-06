@@ -1,8 +1,81 @@
 [//]: # (title: Kotlin/JS compiler features)
 
-Kotlin/JS includes compiler features to optimize code for performance, size, and development speed.
-This works through the compilation process, which transforms Kotlin code into an intermediate representation (IR) before
-generating the JavaScript code.
+The Kotlin/JS compiler transforms Kotlin code into an intermediate representation (IR) before generating JavaScript code.
+This intermediate step lets the compiler optimize the output for performance, size, and development speed, and gives you
+control over the JavaScript it produces, such as the target JavaScript version, the module system, TypeScript
+declaration files, and output granularity.
+
+## Set the target JavaScript version
+
+The Kotlin/JS compiler can generate JavaScript for the ES5, ES2015, and ES2020 versions of the ECMAScript standard.
+Choose the newest version supported by your target environment.
+Set the `target` property in your `build.gradle.kts` file. For example, to target ES2020:
+
+```kotlin
+tasks.withType<KotlinJsCompile>().configureEach {
+    compilerOptions {
+        target = "es2020"
+    }
+}
+```
+
+For the features available with each target, see [Set an ECMAScript target](js-project-setup.md#set-an-ecmascript-target).
+
+## Configure the module system
+
+The Kotlin/JS compiler can produce code for different module systems, such as UMD, CommonJS, AMD, and ES modules.
+To select the target module system, set the `moduleKind` compiler option in your `build.gradle.kts` file:
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.targets.js.ir.KotlinJsIrLink> {
+    compilerOptions.moduleKind.set(org.jetbrains.kotlin.gradle.dsl.JsModuleKind.MODULE_COMMONJS)
+}
+```
+
+For supported `moduleKind` values and configuration details, see [JavaScript modules](js-modules.md).
+
+## Generate TypeScript declaration files (`d.ts`)
+<primary-label ref="experimental-opt-in"/>
+
+The Kotlin/JS compiler can generate TypeScript definitions from your Kotlin code. These definitions provide type
+information for code completion and static analysis in JavaScript tools and IDEs, making Kotlin APIs easier to use in
+JavaScript and TypeScript projects.
+
+To generate definition files, annotate Kotlin declarations with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation)
+and add the `generateTypeScriptDefinitions()` function to the `js {}` block in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+    js {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
+}
+```
+
+The compiler collects the top-level declarations marked with `@JsExport` and generates TypeScript definitions in a `.d.ts` file.
+
+For more details, see [Generation of TypeScript declaration files (`d.ts`)](js-project-setup.md#generation-of-typescript-declaration-files-d-ts).
+
+## Configure output granularity
+
+You can choose how the compiler outputs `.js` files in your project:
+
+* **Per module** generates a separate `.js` file for each project module (default).
+* **Whole program** generates a single `.js` file for the whole program.
+* **Per file** generates one `.js` file for each Kotlin file, or two if the file contains exported declarations
+  (available for `es2015` and `es2020` target JavaScript versions).
+
+To change the granularity, set the `kotlin.js.ir.output.granularity` property in your `gradle.properties` file:
+
+```properties
+# Default: per-module
+kotlin.js.ir.output.granularity=whole-program
+```
+
+For configuration details, including the per-file requirements, see [Configure output granularity](js-project-setup.md#configure-output-granularity).
 
 ## Lazy initialization of top-level properties
 
@@ -32,7 +105,8 @@ Incremental compilation is enabled by default. To disable incremental compilatio
 or `local.properties`:
 
 ```none
-kotlin.incremental.js.ir=false // true by default
+# Default: true
+kotlin.incremental.js.ir=false
 ```
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
@@ -43,7 +117,7 @@ kotlin.incremental.js.ir=false // true by default
 
 The Kotlin/JS compiler uses its internal information about the relationships of your Kotlin classes and functions to apply more efficient minification, shortening the names of functions, properties, and classes. This reduces the size of resulting bundled applications.
 
-This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode, and enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
+This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode and is enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
 
 ```kotlin
 kotlin {
