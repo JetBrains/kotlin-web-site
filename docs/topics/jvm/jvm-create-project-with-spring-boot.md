@@ -133,7 +133,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 
    * The `kotlin("jvm")` plugin defines the version of Kotlin to be used in the project.
    * The Kotlin Spring compiler plugin, `kotlin("plugin.spring")`, adds the `open` modifier to Kotlin classes to make
-     them compatible with Spring Framework features
+     them compatible with Spring Framework features.
 
 2. In the `dependencies` block, a few Kotlin-related modules are listed:
 

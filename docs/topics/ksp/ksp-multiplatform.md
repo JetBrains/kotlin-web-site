@@ -21,7 +21,7 @@ dependencies {
 * `<Target>` is one of the targets used in your multiplatform project. 
 
   > For a full list of targets, see [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
-  > and [Kotlin/Native supported targets](https://kotlinlang.org/docs/native-target-support.html).
+  > and [Kotlin/Native supported targets](native-target-support.md).
   >
   {style="tip"}
 

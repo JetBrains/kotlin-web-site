@@ -64,10 +64,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType(CompileUsingKotlinDaemon)
-        .configureEach {
-            compilerExecutionStrategy = KotlinCompilerExecutionStrategy.IN_PROCESS
-        }
+tasks.withType(CompileUsingKotlinDaemon).configureEach {
+    compilerExecutionStrategy = KotlinCompilerExecutionStrategy.IN_PROCESS
+}
 ```
 
 </tab>

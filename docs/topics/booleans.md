@@ -40,12 +40,14 @@ You can use comparison expressions and functions to produce `Boolean` values:
 fun main() {
 //sampleStart
     val number = 10
-    val isPositive = number > 0 
-    println(isPositive) // true
+    val isPositive = number > 0
+    println(isPositive)
+    // true
 
     val language = "Kotlin"
-    val isEmpty = language.isEmpty() 
-    println(isEmpty) // false
+    val isEmpty = language.isEmpty()
+    println(isEmpty)
+    // false
 //sampleEnd
 }
 ```
@@ -62,7 +64,7 @@ fun main() {
     if (isPositive) {
         println("The number is positive.")
     }
-//sampleEnd    
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -158,8 +160,9 @@ In the following example, the compiler evaluates `&&` before `||`:
 fun main() {
 //sampleStart
     val result = true || false && false
-    println(result) // true
-//sampleEnd    
+    println(result)
+    // true
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" validate="false"}
@@ -170,8 +173,9 @@ To make evaluation order explicit, use parentheses:
 fun main() {
 //sampleStart
     val result = (true || false) && false
-    println(result) // false
-//sampleEnd    
+    println(result)
+    // false
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" validate="false"}
@@ -192,12 +196,12 @@ fun main() {
 
     // Condition already has the `Boolean` type
     // You do not need to compare it to `true` or `false`
-    if (isEven) { 
+    if (isEven) {
         println("The number is even.")
     } else {
         println("The number is odd.")
     }
-//sampleEnd    
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -215,7 +219,7 @@ fun main() {
         number < 0 -> println("The number is negative.")
         else -> println("The number is zero.")
     }
-//sampleEnd    
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -226,12 +230,12 @@ fun main() {
 fun main() {
 //sampleStart
     var isCalculating = true
-    
+
     while (isCalculating) {
         println("Calculating...")
         isCalculating = false
     }
-//sampleEnd    
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
