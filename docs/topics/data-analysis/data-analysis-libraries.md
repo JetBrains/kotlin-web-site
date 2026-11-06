@@ -115,26 +115,6 @@ Additionally, LPK has seamless integration with [IntelliJ IDEA](https://www.jetb
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/JetBrains/kotlin-spark-api"><strong>Kotlin for Apache Spark</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data collection</li>
-        <li>Data cleaning and processing</li>
-        <li>Data exploration and visualization</li>
-        <li>Model building</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Layer of compatibility between <a href="https://spark.apache.org/">Apache Spark</a> and Kotlin</li>
-        <li>Apache Spark data transformation operations in Kotlin-idiomatic code</li>
-        <li>Simple usage of Kotlin features, such as data classes and lambda expressions, in curly braces or method reference</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
       <a href="https://github.com/mipt-npm/kmath"><strong>KMath</strong></a>
     </td>
     <td>
@@ -150,22 +130,6 @@ Additionally, LPK has seamless integration with [IntelliJ IDEA](https://www.jetb
         <li>APIs for algebraic structures, mathematical expressions, histograms, and streaming operations</li>
         <li>Interchangeable wrappers over existing Java and Kotlin libraries, including <a href="https://github.com/eclipse/deeplearning4j/tree/master/nd4j">ND4J</a>, <a href="https://commons.apache.org/proper/commons-math/">Apache Commons Math</a>, and <a href="https://github.com/Kotlin/multik">Multik</a></li>
         <li>Inspired by Python's <a href="https://numpy.org/">NumPy</a> but with other additional features like type safety</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://github.com/holgerbrandl/kravis"><strong>kravis</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data exploration and visualization</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Visualization of tabular data</li>
-        <li>Inspired by R's <a href="https://ggplot2.tidyverse.org/">ggplot</a></li>
       </list>
     </td>
   </tr>
@@ -238,23 +202,6 @@ Here are some examples of such libraries:
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/londogard/smile-nlp-kt"><strong>Smile-NLP-kt</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data cleaning and processing</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Kotlin rewrite of the <a href="https://www.scala-lang.org/api/current/">Scala</a> implicits for the natural language processing part of Smile</li>
-        <li>Operations in the format of Kotlin extension functions and interfaces</li>
-        <li>Sentence breaking, stemming, bag of words, and other tasks</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
       <a href="https://github.com/eclipse/deeplearning4j/tree/master/nd4j"><strong>ND4J</strong></a>
     </td>
     <td>
@@ -290,7 +237,7 @@ Here are some examples of such libraries:
   </tr>
   <tr>
     <td>
-      <a href="https://nm.dev/"><strong>NM Dev</strong></a>
+      <a href="https://nm.dev/products/nmdev"><strong>NM Dev</strong></a>
     </td>
     <td>
       <list>
