@@ -854,6 +854,21 @@ items:
     isExternal: true
     link: https://engineering.memrise.com/kotlin-multiplatform-memrise-3764b5a4a0db
   #------------------------------------------------------------------------
+  - id: babbel
+    type: multiplatform
+    description: >-
+      “Shared code paired with AI-assisted development has more than doubled our team's capacity, with no change in headcount.”
+    signature:
+      name: Antoine Lamy
+      position: Principal Mobile Engineer at Babbel
+    logo:
+      - /images/case-studies/babbel-logo.svg
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://www.babbel.com/en/magazine/how-we-brought-kotlin-multiplatform-into-babbels-mobile-apps
+  #------------------------------------------------------------------------
   - id: meituan
     type: multiplatform
     description: >-
