@@ -31,8 +31,8 @@ AGENT_ENV_FILE="$HOME/.air-kotlinlang-env.sh"
 # Variables from the Air environment configuration that the agent session needs
 # for itself. The script can read them, but it runs in its own process, so they
 # reach the agent only by way of the file sourced from ~/.bashrc. The repository
-# .npmrc interpolates ${WEBTEAM_UI_NPM_TOKEN}, and yarn refuses to start when
-# that variable is missing, so the agent cannot run yarn without this.
+# .npmrc interpolates ${WEBTEAM_UI_NPM_TOKEN} to fetch the private @webteam/*
+# optional dependencies, so npm needs it for a full install.
 AGENT_FORWARDED_VARS=(WEBTEAM_UI_NPM_TOKEN)
 
 # Path of the nvm.sh that was actually loaded; set by setup_node once sourcing
@@ -112,41 +112,16 @@ setup_node() {
     log "node $(node -v), npm $(npm -v)"
 }
 
-# Activate the yarn release pinned by the packageManager field in package.json.
-setup_yarn() {
-    local spec version
-
-    spec="$(node -p "require('./package.json').packageManager || ''" 2>/dev/null)"
-    spec="${spec%%+*}"
-    [ -n "$spec" ] || spec='yarn@1.22.22'
-    version="${spec#*@}"
-
-    if [ "$(yarn --version 2>/dev/null)" = "$version" ]; then
-        log "yarn $version already active"
+# npm ships with Node.js itself, and .nvmrc pins the Node version, so the
+# bundled npm is the one to use - no corepack, whose npm shims are broken on
+# some hosts (npm's signing-key rotation vs. corepack < 0.31).
+setup_npm() {
+    if command -v npm >/dev/null 2>&1; then
+        log "npm $(npm -v) (bundled with node)"
         return 0
     fi
 
-    if command -v corepack >/dev/null 2>&1; then
-        corepack enable >/dev/null 2>&1
-        corepack prepare "$spec" --activate >/dev/null 2>&1
-        if [ "$(yarn --version 2>/dev/null)" = "$version" ]; then
-            log "yarn $version activated via corepack"
-            return 0
-        fi
-        # Corepack installs yarn lazily from registry.yarnpkg.com, so its shims
-        # are useless when that host is unreachable. Remove them before falling
-        # back, otherwise they shadow the yarn npm is about to install.
-        corepack disable >/dev/null 2>&1
-        warn "corepack could not activate $spec, falling back to npm"
-    fi
-
-    npm install -g "$spec" >/dev/null 2>&1
-    if [ "$(yarn --version 2>/dev/null)" = "$version" ]; then
-        log "yarn $version installed via npm"
-        return 0
-    fi
-
-    warn "could not provide yarn $version"
+    warn "npm not found - the node installed by the image has no bundled npm"
     return 1
 }
 
@@ -213,35 +188,26 @@ write_agent_env() {
     done
 }
 
-# yarn skips the work when node_modules is already up to date, which covers
-# resumed tasks and snapshots.
+# npm ci wipes node_modules and reinstalls from the committed package-lock.json,
+# which is safe to repeat on every launch, resume and snapshot start.
 install_dependencies() {
     local rc
 
     log "installing dependencies"
-    yarn install --frozen-lockfile
+    npm ci
     rc=$?
     if [ $rc -eq 0 ]; then
-        log "dependencies are up to date"
+        log "dependencies installed"
         return 0
     fi
 
-    warn "yarn install failed with exit code $rc"
+    warn "npm ci failed with exit code $rc"
     if [ -z "${WEBTEAM_UI_NPM_TOKEN:-}" ]; then
-        warn "WEBTEAM_UI_NPM_TOKEN is not set, so yarn cannot resolve the @webteam/* packages - it fails with 'Failed to replace env in config' before reaching the registry"
+        warn "WEBTEAM_UI_NPM_TOKEN is not set, so npm cannot fetch the private @webteam/* packages - the registry rejects anonymous requests"
     else
         warn "a 401 from packages.jetbrains.team above means the WEBTEAM_UI_NPM_TOKEN value is no longer valid"
     fi
     return $rc
-}
-
-# Produces the gitignored public/data/*.json the site reads at runtime.
-generate_data() {
-    if yarn generate-data >/dev/null; then
-        log "site data generated"
-    else
-        warn "yarn generate-data failed"
-    fi
 }
 
 # Chromium is the default project in playwright.config.ts and the only browser
@@ -258,26 +224,25 @@ install_playwright_browsers() {
     # tell a current cache from one left by an earlier pinned version.
     log "installing playwright chromium"
     if sudo -n true 2>/dev/null; then
-        yarn playwright install --with-deps chromium >/dev/null && return 0
+        npx playwright install --with-deps chromium >/dev/null && return 0
     else
-        yarn playwright install chromium >/dev/null && return 0
+        npx playwright install chromium >/dev/null && return 0
     fi
 
-    warn "could not install playwright browsers; run 'yarn playwright install chromium' when a task needs them"
+    warn "could not install playwright browsers; run 'npx playwright install chromium' when a task needs them"
 }
 
 main() {
     log "setting up $PROJECT_ROOT"
 
     setup_node || warn "continuing with the node version provided by the image"
-    setup_yarn
+    setup_npm
     write_agent_env
 
     if install_dependencies; then
-        generate_data
         install_playwright_browsers
     else
-        warn "skipping data generation and browser install because dependencies are missing"
+        warn "skipping browser install because dependencies are missing"
     fi
 
     log "startup finished"

@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const packageJSON = require('./package.json');
 
 const withPlugins = require('next-compose-plugins');
@@ -40,6 +43,11 @@ let transpiledPackages = [
     '@webteam/horizontal-barchart',
     '@webteam/chart-core-v3'
 ];
+
+// Check packages exist (not installed when optional @webteam/* deps are omitted)
+transpiledPackages = transpiledPackages.filter((name) =>
+    fs.existsSync(path.join(__dirname, 'node_modules', name, 'package.json'))
+);
 
 const withTranspile = nextTranspileModules(transpiledPackages);
 

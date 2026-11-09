@@ -58,7 +58,7 @@ with that reason.
    the comments point at.
 4. Open exactly the files each comment references (`path` + `line` from the thread). Navigate from
    the comment's file:line by direct read; do not run broad codebase searches to "get oriented".
-5. If `node_modules/` is absent, run `yarn install --frozen-lockfile` once (Node version is pinned
+5. If `node_modules/` is absent, run `npm ci` once (Node version is pinned
    in `.nvmrc`).
 
 ## 3. Scope fence
@@ -80,14 +80,14 @@ touching:
 - `docs/`, `redirects/`, `dokka-templates/`, `pdf/`
 - `data/**` (events, user groups, universities, releases — separate owners)
 - `.teamcity/`, `.github/`, `scripts/`
-- `package.json` dependency versions, `yarn.lock`
+- `package.json` dependency versions, `package-lock.json`
 
 **Never, regardless of scope:**
 
 - No drive-by refactors, renames, or reordering of code the comment did not mention.
 - No reformatting of lines you did not otherwise change.
 - No dependency additions, removals, or version bumps.
-- No `yarn test:e2e:update` / snapshot regeneration unless a comment explicitly asks for it.
+- No `npm run test:e2e:update` / snapshot regeneration unless a comment explicitly asks for it.
   Snapshots in `test/snapshots/` are the visual-regression baseline; silently rewriting them hides
   the very change a reviewer is checking.
 - Never weaken, skip, or delete a test to make a gate pass.
@@ -145,21 +145,21 @@ Condensed from `.ai/guidelines.md`; read that file for the full rules.
 Run these in order after all edits. Quote the real outcome of each in the report — never report a
 gate you did not run.
 
-1. `yarn lint`
+1. `npm run lint`
 2. `npx tsc --noEmit` (there is no `typecheck` script; `tsconfig.json` already sets `noEmit`)
 3. If you changed anything under `blocks/`, `components/`, `pages/`, or `test/`, run the narrowest
    Playwright spec covering the touched area. Playwright needs the dev server on port 3000
    (`playwright.config.ts` `baseURL`), so start it detached first:
 
    ```bash
-   nohup yarn start > /tmp/next-dev.log 2>&1 &
+   nohup npm run start > /tmp/next-dev.log 2>&1 &
    # wait until http://localhost:3000 answers, then:
    npx playwright test test/e2e/<area>.spec.ts
    ```
 
-   Call `playwright` directly for a single spec: `yarn test:e2e` expands to
+   Call `playwright` directly for a single spec: `npm run test:e2e` expands to
    `playwright test test/e2e`, so appending a spec path adds a second filter that still matches the
-   whole suite. Use `yarn test:e2e` (all e2e) or `yarn test` (everything) only when the change's
+   whole suite. Use `npm run test:e2e` (all e2e) or `npm run test` (everything) only when the change's
    blast radius is genuinely wide. Stop the dev server when finished.
 
 Gate policy:

@@ -43,33 +43,16 @@ object PdfGenerator : BuildType({
       scriptContent = """
         #!/bin/sh
         set -e
-        
-        YARN_HOME=""
 
-        cleanup() {
-          if [ -n "${'$'}YARN_HOME" ] && [ -d "${'$'}YARN_HOME" ]; then
-            echo "Removing temporary yarn installation: ${'$'}YARN_HOME"
-            rm -rf "${'$'}YARN_HOME"
-          fi
-        }
-
-        trap cleanup EXIT INT TERM
-        
         if [ -s "${'$'}NVM_DIR/nvm.sh" ]; then
           \. "${'$'}NVM_DIR/nvm.sh"
           nvm install
           nvm use
         fi
-        
-        if ! command -v yarn >/dev/null 2>&1; then
-          YARN_HOME="$(mktemp -d)"
-          npm install --no-save --prefix "${'$'}YARN_HOME" yarn
-          export PATH="${'$'}YARN_HOME/node_modules/.bin:${'$'}PATH"
-        fi
-        
-        yarn install --frozen-lockfile
-        cd scripts/dist && yarn install --frozen-lockfile && cd ../..
-        yarn run generate-pdf
+
+        npm ci
+        cd scripts/dist && npm install && cd ../..
+        npm run generate-pdf
       """.trimIndent()
     }
   }

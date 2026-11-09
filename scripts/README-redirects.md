@@ -9,12 +9,12 @@ The `generate-redirect-pages.js` script generates static HTML files for redirect
 ### Automatic during build
 The script automatically runs as part of the build process:
 ```bash
-yarn build
+npm run build
 ```
 
 ### Manual run
 ```bash
-yarn generate-redirects
+npm run generate-redirects
 # or
 node scripts/generate-redirect-pages.js
 ```

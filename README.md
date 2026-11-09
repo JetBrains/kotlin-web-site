@@ -132,9 +132,9 @@ To generate a PDF version of the Kotlin documentation:
    This will provide the required `dist/docs` directory.
 2. Run:
    ```bash
-   yarn install --frozen-lockfile
-   cd scripts/dist && yarn install --frozen-lockfile && cd ../..
-   yarn generate-pdf
+   npm ci
+   cd scripts/dist && npm install && cd ../..
+   npm run generate-pdf
    ```
 
 The PDF will be created at `assets/kotlin-reference.pdf`. Generation may take several minutes. (Team members can also run or download artifacts directly from the [PDF Generator CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_PdfGenerator)).
@@ -153,32 +153,36 @@ You can:
 [slack-url]: https://slack.kotlinlang.org
 
 ## Local development
-For the frontend development, you need to connect to the WebTeam registry.
-Visit [the registry](https://jetbrains.team/p/wt/packages/npm/npm) page in Space:
-- On the top right, click Connect;
-- Click Generate personal token;
-- Copy your personal token.
-- Add your personal token to the environmental variable. This step differs based on your OS.
 
-##### For macOS:
-Add your token to the ~/.zshenv file:
-- Open the Terminal;
-- Use this command to access .zshenv file `nano ~/.zshenv`;
-- Replace your_token with your actual Space token and use this command to add an environment variable: `export WEBTEAM_UI_NPM_TOKEN=yourtoken`.
-Then install frontend dependencies `npm install`.
+Before you begin, make sure your development environment meets the following requirements:
+- Your [Node.js](https://nodejs.org/en/download) version matches [`.nvmrc`](.nvmrc).
+- Optional, for JetBrains team members: [get a `WEBTEAM_UI_NPM_TOKEN`](#get-the-token). Without it, blocks built on the internal WebTeam UI render labeled placeholders.
 
-```
-# install frontend dependencies
-yarn install
+1. Install the dependencies:
 
-# at first start you need to build the static
-yarn run next-build-static
+   ```bash
+   # without a token
+   npm ci --omit=optional
 
-# run development server
-yarn start
-```
+   # with a token
+   npm ci
+   ```
+
+   The install also generates the site data from the `data/` directory. Re-run `npm run generate-data` after editing files there.
+
+2. Run the development server:
+
+   ```bash
+   npm start
+   ```
+
 Now you can open the website at [http://localhost:3000](http://localhost:3000).
 
+Avoid plain `npm install` without a token: it fails to fetch the private packages and rewrites `package-lock.json` incorrectly.
+
+### Get the token
+
+Generate a personal token at [the WebTeam registry](https://jetbrains.team/p/wt/packages/npm/npm) page in Space (**Connect** → **Generate personal token**) and export it as `WEBTEAM_UI_NPM_TOKEN` (e.g. add `export WEBTEAM_UI_NPM_TOKEN=yourtoken` to `~/.zshenv`).
 
 ## Pages on Next.js
 
@@ -225,20 +229,20 @@ To run tests locally:
 
 ## Run Tests
 
-- `yarn test` to run all tests in headless mode locally.
-- `yarn test:e2e` to run e2e tests locally, visual tests are also included.
-- `yarn test:e2e:skip-visual` to run e2e tests without visual tests locally.
-- `yarn test:production` to run the subset of e2e tests that are meant to check the production locally.
+- `npm run test` to run all tests in headless mode locally.
+- `npm run test:e2e` to run e2e tests locally, visual tests are also included.
+- `npm run test:e2e:skip-visual` to run e2e tests without visual tests locally.
+- `npm run test:production` to run the subset of e2e tests that are meant to check the production locally.
 
 There are also additional options to run tests:
-- `yarn run test:e2e:ci` or `yarn test:production:ci` to run tests in CI environments.
-- `yarn test:e2e:headed` or `yarn test:production:headed` to run tests in headed mode locally.
-- `yarn test:e2e:debug` or `yarn test:production:debug` to run e2e tests in headed mode with debug locally.
+- `npm run test:e2e:ci` or `npm run test:production:ci` to run tests in CI environments.
+- `npm run test:e2e:headed` or `npm run test:production:headed` to run tests in headed mode locally.
+- `npm run test:e2e:debug` or `npm run test:production:debug` to run e2e tests in headed mode with debug locally.
 
 To ease the process of adding and maintaining e2e tests:
-- `yarn test:e2e:new` to generate the test for the user interactions.
-- `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.
-- `yarn test:e2e:screenshots` to run e2e tests with screenshots across different breakpoints (breakpoints-v2).
+- `npm run test:e2e:new` to generate the test for the user interactions.
+- `npm run test:e2e:update`  to update screenshots when something on page has changed intentionally.
+- `npm run test:e2e:screenshots` to run e2e tests with screenshots across different breakpoints (breakpoints-v2).
 
 ## Write Tests
 
@@ -250,7 +254,7 @@ To run these tests locally, follow the next steps:
 1. Create the `dist` folder in the project.
 2. Open the last successful build of [Reference Docs](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs?branch=&mode=builds#all-projects) on TeamCity.
 3. Download the artifacts of this build and place them in the `dist` folder.
-4. Run the tests locally with the following command `yarn run test:e2e`
+4. Run the tests locally with the following command `npm run test:e2e`
 5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e.yml up --build  --exit-code-from playwright`
 
 ## API references tests

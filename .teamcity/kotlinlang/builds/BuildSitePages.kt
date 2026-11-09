@@ -98,9 +98,9 @@ object BuildSitePages : BuildType({
                 
                 rm -rf node_modules/sharp
                 
-                yarn install --frozen-lockfile
+                npm ci
                 
-                yarn run generate-llms-index
+                npm run generate-llms-index
             """.trimIndent()
             dockerImage = KLANG_NODE_CONTAINER
             dockerPull = true
