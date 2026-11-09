@@ -863,6 +863,7 @@ items:
       position: Principal Mobile Engineer at Babbel
     logo:
       - /images/case-studies/babbel-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
