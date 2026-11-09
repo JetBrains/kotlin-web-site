@@ -49,6 +49,7 @@ const VALIDATION_CHART_MODEL = {
         { title: 'Check against documentation', value: 21 },
         { title: 'No validation', value: 0.3 },
     ],
+    groups: [],
 };
 
 const VALIDATION_CHART_HIGHLIGHT = [0];

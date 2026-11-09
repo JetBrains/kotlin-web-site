@@ -31,9 +31,9 @@ object BuildJsAssets: BuildType({
         #!/bin/sh
         set -e -x -u
         
-        yarn install --frozen-lockfile
+        npm ci
         
-        NODE_ENV=production yarn run build
+        NODE_ENV=production npm run build
       """.trimIndent()
       dockerImage = KLANG_NODE_CONTAINER
       dockerPull = true

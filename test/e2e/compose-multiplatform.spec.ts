@@ -49,7 +49,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         ];
 
         for (const { name, href } of platforms) {
-            const chip = composePage.hero.getByRole('tab', { name, exact: true });
+            const chip = composePage.hero.getByRole('navigation').getByRole('link', { name, exact: true });
             await expect(chip).toBeVisible();
             await expect(chip).toHaveAttribute('href', href);
         }

@@ -63,7 +63,7 @@ function generateRedirectPages() {
 
     if (!fs.existsSync(outFolder)) {
         console.error(`Output folder does not exist: ${outFolder}`);
-        console.log('Please run "yarn next-build-static" first');
+        console.log('Please run "npm run next-build-static" first');
         process.exit(1);
     }
 

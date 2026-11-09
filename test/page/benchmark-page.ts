@@ -49,7 +49,7 @@ export class KotlinBenchmarkPage implements BasePage {
 
     /** Switcher option of a task view, e.g. "Open tasks". */
     taskOption(name: string): Locator {
-        return this.taskSwitcher.getByRole('button', { name: new RegExp(`^${name}`) });
+        return this.taskSwitcher.locator('[data-rs-internal=switcher__option]').filter({ hasText: new RegExp(`^${name}`) });
     }
 
     /** Token cells, in row order. */

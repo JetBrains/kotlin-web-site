@@ -43,14 +43,14 @@ test.describe('Kotlin Benchmark methodology page', () => {
         const switcherCount = await methodology.versionSwitcher.count();
         test.skip(switcherCount === 0, 'only one methodology version is published');
 
-        const options = methodology.versionSwitcher.getByRole('button');
+        const options = methodology.versionSwitcher.locator('[data-rs-internal=switcher__option]');
         await expect(options).not.toHaveCount(1);
 
         await options.last().click();
         await expect(page).toHaveURL(/\/benchmark\/methodology\/\d+\/$/);
         await expect(methodology.title).toBeVisible();
 
-        await methodology.versionSwitcher.getByRole('button').first().click();
+        await options.first().click();
         await expect(page).toHaveURL(/\/benchmark\/methodology\/$/);
     });
 

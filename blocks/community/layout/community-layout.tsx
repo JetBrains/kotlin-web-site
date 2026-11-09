@@ -41,8 +41,8 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
     let items = TOP_MENU_ITEMS;
 
     let activeIndex = useMemo(
-        () => items.map((item) => item.url).indexOf(pathname),
-        [pathname, items]
+        () => TOP_MENU_ITEMS.map((item) => item.url).indexOf(pathname),
+        [pathname]
     );
 
     const linkHandler = useCallback(

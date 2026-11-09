@@ -43,9 +43,10 @@ const CHART_POSTFIX = ' tasks';
 
 const SOURCE_CHART_MODEL = {
     entries: [
-        { title: 'Open source - 70 tasks', value: '70' },
-        { title: 'Close source - 30 tasks *', value: '30' }
+        { title: 'Open source - 70 tasks', value: 70 },
+        { title: 'Close source - 30 tasks *', value: 30 }
     ],
+    groups: [],
 };
 
 const CATEGORY_CHART_MODEL = {
@@ -55,6 +56,7 @@ const CATEGORY_CHART_MODEL = {
         { title: 'Libraries and tools', value: 10 },
         { title: 'Kotlin Multiplatform', value: 10 },
     ],
+    groups: [],
 };
 
 const CHART_HIGHLIGHT = [0];
