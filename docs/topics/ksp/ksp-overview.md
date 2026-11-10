@@ -43,9 +43,9 @@ Processors then use these symbols to inspect declarations such as classes, funct
 
 KSP fits into the compilation process as follows:
 
-1. KSP analyzes the source code and its dependencies and then runs the processors.
-2. Processors inspect the symbols and generate new files, such as source files or resources. They can't modify existing
-   files.
+1. KSP loads the processors and runs them.
+2. Processors use KSP to analyze the source code and its dependencies. They inspect symbols and types and generate 
+   new files, such as source files and resources. Importantly, they cannot modify existing files.
 3. The Kotlin compiler compiles the original source code together with the generated code.
 
 To learn more about KSP, watch this video:
