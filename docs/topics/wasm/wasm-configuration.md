@@ -1,230 +1,179 @@
-[//]: # (title: Supported versions and configuration)
+[//]: # (title: Kotlin/Wasm FAQ)
+[//]: # (description: Find answers to common questions about browser compatibility, WebAssembly features, compiler configuration, and troubleshooting in Kotlin/Wasm.)
 
-<primary-label ref="beta"/> 
+## What are the Kotlin/Wasm target support tiers?
 
-This page provides details about the [WebAssembly proposals](https://webassembly.org/roadmap/), supported browsers, and configuration recommendations 
-for efficient development with Kotlin/Wasm.
+Kotlin/Wasm targets belong to two support tiers that describe how the Kotlin team tests the targets and their tooling. 
+The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
 
-## Browser versions
+| Target     | Tier   | Automated testing                                                                   | 
+|------------|--------|-------------------------------------------------------------------------------------|
+| `wasmJs`   | Tier 1 | Broader QA coverage, including Kotlin Gradle plugin integration tests and IDE tests |
+| `wasmWasi` | Tier 2 | More limited QA and Kotlin Gradle plugin test coverage, with no dedicated IDE tests |
 
-Kotlin/Wasm relies on the latest WebAssembly proposals, such as [garbage collection (WasmGC)](#garbage-collection-proposal) and
-[exception handling](#exception-handling-proposal), to introduce improvements and new features within WebAssembly.
+Tooling support also differs between the targets:
 
-To make sure these features work properly, provide an environment that supports the latest proposals.
-Check if your browser version supports 
-the new WasmGC by default or if you need to make changes to the environment.
+* **Kotlin Gradle plugin:** support for `wasmWasi` is more limited, and WASI-specific functionality requires opt-in.
+* **IDE:** `wasmWasi` has more limited support. For example, debugging and gutter icons for running code aren't available.
 
-### Chrome 
+## Which Kotlin/Wasm targets should my library support?
 
-* **For version 119 or later:**
+Prefer supporting both `wasmJs` and `wasmWasi` where your library's functionality and dependencies allow it. 
+This makes your library available both in JavaScript environments and in WASI-compatible runtimes.
 
-  Works by default.
+* Prioritize `wasmJs` when introducing Kotlin/Wasm support, as it is the more mature target and receives broader tooling
+and QA coverage.
+* Add `wasmWasi` support to make platform-independent functionality available outside JavaScript environments.
 
-* **For older versions:**
+Test your library on each target you support, since their available APIs and runtime environments may differ.
 
-  > To run applications in an older browser, you need a Kotlin version older than 1.9.20.
-  >
-  {style="note"}
+## Which browsers support Kotlin/Wasm?
 
-  1. In your browser, go to `chrome://flags/#enable-webassembly-garbage-collection`.
-  2. Enable **WebAssembly Garbage Collection**.
-  3. Relaunch your browser.
+To support Kotlin's language features on WebAssembly, Kotlin/Wasm relies on [WebAssembly features](#which-webassembly-features-does-kotlin-wasm-use) such as garbage
+collection (WasmGC) and exception handling.
 
-### Chromium-based
+Applications work without additional browser configuration in the following versions:
 
-Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Internet.
+| Browser        | Minimum supported version |
+|----------------|---------------------------|
+| Chrome         | 119                       |
+| Chromium-based | 119                       |
+| Firefox        | 120                       |
+| Safari         | 18.2                      |
 
-* **For version 119 or later:**
 
-  Works by default.
+> For the best performance and development experience, use the latest available browser version.
+> 
+{style="tip"}
 
-* **For older versions:**
+## Which WebAssembly features does Kotlin/Wasm use?
 
-   > To run applications in an older browser, you need a Kotlin version older than 1.9.20.
-   >
-   {style="note"}
+Kotlin/Wasm relies on [WebAssembly features](https://webassembly.org/features/), including:
 
-  Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
+* [Garbage collection (WasmGC)](https://github.com/WebAssembly/gc), which supports managed objects in WebAssembly. Starting with Kotlin 1.9.20, the
+  toolchain uses the updated WasmGC version.
+* Exception handling, for which the toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/legacy/Exceptions.md) and [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) versions.
 
-### Firefox
-
-* **For version 120 or later:**
-
-  Works by default.
-
-* **For version 119:**
-
-  1. In your browser, go to `about:config`.
-  2. Enable `javascript.options.wasm_gc` option.
-  3. Refresh the page.
-
-### Safari/WebKit
-
-* **For version 18.2 or later:**
-
-  Works by default.
-
-* **For older versions:**
-
-   Not supported.
-
-> Safari 18.2 is available for iOS 18.2, iPadOS 18.2, visionOS 2.2, macOS 15.2, macOS Sonoma, and macOS Ventura.
-> On iOS and iPadOS, Safari 18.2 is bundled with the operating system. To get it, update your device to version 18.2 or later.
->
-> For more information, see the [Safari release notes](https://developer.apple.com/documentation/safari-release-notes/safari-18_2-release-notes#Overview).
->
-{style="note"}
-
-## Wasm proposals support
-
-Kotlin/Wasm improvements are based on [WebAssembly proposals](https://webassembly.org/roadmap/). Here you can find details about the support for WebAssembly's 
-garbage collection and (legacy) exception handling proposals. 
-
-### Garbage collection proposal
-
-Since Kotlin 1.9.20, the Kotlin toolchain uses the latest version of the [Wasm garbage collection](https://github.com/WebAssembly/gc) (WasmGC) proposal. 
-
-For this reason, we strongly recommend that you update your Wasm projects to the latest version of Kotlin. We also recommend you use the latest versions of browsers with the Wasm environment.
-
-### Exception handling proposal
-
-The Kotlin toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) 
-and the [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md)
-versions of the exception handling proposal. This allows Kotlin-produced Wasm binaries to run in a wider range of environments.
-
-The [`wasmJs` target](wasm-overview.md#kotlin-wasm-and-compose-multiplatform) uses the legacy exception handling proposal by default.
-To enable the new exception handling proposal for the `wasmJs` target, use the `-Xwasm-use-new-exception-proposal` compiler option.
-
-By contrast, the [`wasmWasi` target](wasm-overview.md#kotlin-wasm-and-wasi) uses the new proposal by default,
-ensuring better compatibility with modern WebAssembly runtimes. 
-To switch to the legacy proposal, use the `-Xwasm-use-new-exception-proposal=false` compiler option.
-
-For the `wasmWasi` target, it is safe to adopt 
-the new exception handling proposal.
-Applications targeting this environment usually run in a less diverse runtime environment 
-(often running on a single specific VM) that is typically controlled by the user,
-reducing the risk of compatibility issues.
-
-> Learn more about setting up projects, using dependencies, and other tasks with our
-> [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
+> Use the latest Kotlin version and a compatible browser or runtime to benefit from current support.
 >
 {style="tip"}
 
-## Use default import
+## How do I choose the exception handling version?
 
-[Importing Kotlin/Wasm code into Javascript](wasm-js-interop.md) has shifted to named exports, moving away from default exports.
+The default exception handling version depends on your target:
 
-If you still want to use a default import, generate a new JavaScript wrapper module. Create a `.mjs` file with the following snippet:
+| Target     | Default version           |
+|------------|---------------------------|
+| `wasmJs`   | Legacy exception handling |
+| `wasmWasi` | New exception handling    |
 
-```Javascript
-// Specifies the path to the main .mjs file
-import * as moduleExports from "./wasm-test.mjs";
-
-export { moduleExports as default };
-```
-
-You can place your new `.mjs` file in the resources folder, and it will automatically be placed next to the main `.mjs` file during the build process.
-
-You can also place your `.mjs` file in a custom location. In this case, you need to either manually move it next to the main `.mjs` file or 
-adjust the path in the import statement to match its location.
-
-## Kotlin/Wasm incremental compilation
-
-Kotlin/Wasm targets support incremental compilation, which allows the compiler to recompile only
-the files affected by recent changes. This helps reduce compilation time.
-
-Incremental compilation for the Wasm targets is enabled by default.
-To disable it, add the following line to your project's `local.properties` or `gradle.properties` file:
-
-```text
-kotlin.incremental.wasm=false
-```
-
-## Diagnostics in fully qualified class names
-
-On Kotlin/Wasm, the compiler does not store fully qualified names (FQNs) of classes in the generated binary by default,
-to avoid increasing the application size.
-
-For this reason, the compiler reports an error when you call the `KClass::qualifiedName` property in Kotlin/Wasm projects,
-unless you explicitly enable the qualified names feature.
-
-This diagnostic is enabled by default, and errors are reported automatically. To disable the diagnostic and allow `qualifiedName` in
-Kotlin/Wasm, instruct the compiler to store fully qualified names for all classes by adding the following option to your
-`build.gradle.kts` file:
+To enable the new exception handling version for `wasmJs`, add the following to your `build.gradle.kts` file:
 
 ```kotlin
-// build.gradle.kts
 kotlin {
-   wasmJs {
-       ...
-       compilerOptions {
-           freeCompilerArgs.add("-Xwasm-kclass-fqn")
-       }
-   }
-}
-```
-
-Keep in mind that enabling this option increases the application size.
-
-### Fully qualified names
-
-On Kotlin/Wasm targets, fully qualified names (FQNs) are available at runtime without any additional configuration.
-This means that the `KClass.qualifiedName` property is enabled by default.
-
-Using FQNs improves code portability from JVM to Wasm targets and makes runtime errors more informative by showing 
-the full qualified name.
-
-## Array out-of-bounds access and traps
-
-In Kotlin/Wasm, accessing an array with an index outside its bounds triggers a WebAssembly trap instead of a regular Kotlin exception. 
-The trap immediately stops the current stack of execution.
-
-When running in a JavaScript environment, these traps appear as
-`WebAssembly.RuntimeError` and can be caught on the JavaScript side.
-
-You can avoid such traps in Kotlin/Wasm environments by using the following compiler option in the command line when linking an executable:
-
-```
--Xwasm-enable-array-range-checks
-```
-
-Or add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xwasm-enable-array-range-checks")
+    wasmJs {
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-use-new-exception-proposal")
+        }
     }
 }
 ```
 
-With the compiler option enabled, an `IndexOutOfBoundsException` is thrown instead of a trap. 
-
-See more details and share your feedback in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-73452/K-Wasm-turning-on-range-checks-by-default).
-
-## Experimental annotations
-
-Kotlin/Wasm provides several experimental annotations for general WebAssembly interoperability.
-
-[`@WasmImport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-import/) and [`@WasmExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-export/) let you call functions defined outside a Kotlin/Wasm module and expose Kotlin functions to the host or other Wasm modules, respectively.
-
-Because these mechanisms are still evolving, all annotations are marked as experimental. 
-You must explicitly [opt in to use them](opt-in-requirements.md), and their design or behavior may change in future Kotlin 
-versions.
-
-## Reloads during debugging
-
-[Debugging](wasm-debugging.md) your applications in [modern browsers](#browser-versions) works out of the box.
-When you run development Gradle tasks (`*DevRun`), Kotlin automatically serves the source files to the browser.
-
-However, serving sources by default may cause [repeated reloads of the application in the browser before Kotlin compilation and bundling are complete](https://youtrack.jetbrains.com/issue/KT-80582/Multiple-reloads-when-using-webpack-dev-server-after-2.2.20-Beta2#focus=Comments-27-12596427.0-0).
-As a workaround, adjust your webpack configuration to ignore Kotlin source files and disable watching for served static files. Add a `.js` file with the following content into the `webpack.config.d` directory at the root of your project:
+For `wasmWasi`, the new version is enabled by default. If your runtime requires the legacy proposal, configure:
 
 ```kotlin
+kotlin {
+    wasmWasi {
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-use-new-exception-proposal=false")
+        }
+    }
+}
+```
+
+## How can I use a default JavaScript import?
+
+Kotlin/Wasm uses named exports. To use a default import, create a JavaScript wrapper module that re-exports them as a
+single object:
+
+1. Create a `.mjs` file with the following content:
+
+   ```javascript
+   import * as moduleExports from "./wasm-test.mjs";
+
+   export { moduleExports as default };
+   ```
+2. Replace `wasm-test.mjs` with your generated module's filename. 
+
+Place the wrapper in your source set's resources directory. This way the build copies it next to the generated `.mjs` file.
+If you place the wrapper elsewhere, adjust the import path or copy the wrapper next to the generated module.
+
+## Does Kotlin/Wasm support incremental compilation?
+
+Yes. Incremental compilation is enabled by default for Kotlin/Wasm targets. It reduces compilation time by recompiling
+only the files affected by changes.
+
+To disable it, add the following to your project's `gradle.properties` or `local.properties` file:
+
+```properties
+kotlin.incremental.wasm=false
+```
+
+## Can I access fully qualified class names at runtime?
+
+Yes. Starting with Kotlin 2.3.0, `KClass.qualifiedName` is enabled by default on Kotlin/Wasm targets.
+
+Fully qualified names include the package name. This makes runtime errors more informative and helps you reuse code
+that relies on this information.
+
+For earlier Kotlin versions, explicitly enable support in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+    wasmJs {
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-kclass-fqn")
+        }
+    }
+}
+```
+
+Enabling this option for earlier Kotlin versions increases the application size.
+
+## How does Kotlin/Wasm handle out-of-bounds array access?
+
+Kotlin/Wasm enables array bounds checks by default. If you try to access an array with an index outside its bounds, the
+compiler throws an `IndexOutOfBoundsException`.
+
+However, explicit bounds checks can add performance overhead. To disable them, add the `-Xwasm-enable-array-range-checks=false`
+option to your `build.gradle.kts` file. 
+
+This way, out-of-bounds access triggers a WebAssembly trap. A trap stops the current execution stack. In JavaScript
+environments, these traps appear as `WebAssembly.RuntimeError` and can be caught on the JavaScript side.
+
+## How can I import and export functions directly between Wasm modules?
+
+Use the experimental WebAssembly interoperability annotations:
+
+* [`@WasmImport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-import/) imports a function from the host environment or another Wasm module.
+* [`@WasmExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-export/) exports a Kotlin function to the host environment or other Wasm modules.
+
+These annotations operate directly at the Wasm module boundary, without JavaScript type adapters.
+
+Their design and behavior may change in future Kotlin versions. You must explicitly [opt in](opt-in-requirements.md) to use them.
+
+## Why does my application reload repeatedly during debugging?
+
+When you run development Gradle tasks (`*DevRun`), Kotlin automatically serves source files to the browser for debugging.
+Watching these files can cause the browser to reload before compilation and bundling finish.
+
+To avoid it, configure webpack to ignore Kotlin source files and stop watching served static files. Create a `.js` file in 
+the `webpack.config.d` directory at the root of your project:
+
+```javascript
 config.watchOptions = config.watchOptions || {
     ignored: ["**/*.kt", "**/node_modules"]
-}
+};
 
 if (config.devServer) {
     config.devServer.static = config.devServer.static.map(file => {
@@ -232,11 +181,17 @@ if (config.devServer) {
             return {
                 directory: file,
                 watch: false,
-            }
+            };
         } else {
-            return file
+            return file;
         }
-    })
+    });
 }
 ```
 
+For more information about debugging, see [Debug Kotlin/Wasm code](wasm-debugging.md).
+
+## Where can I find Kotlin/Wasm configuration examples?
+
+Browse the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples) for sample projects, dependency
+configuration, and integrations.
