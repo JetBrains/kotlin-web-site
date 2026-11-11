@@ -108,15 +108,13 @@ fun demo(greeter: Greeter) {
 
 ## Methods returning `void`
 
-If a Java method returns `void`, its return type becomes `Unit` when called from Kotlin.
-If you use the return value, the Kotlin compiler assigns `Unit` at the call site, since the value is known in
-advance.
+If a Java method returns `void`, its return type becomes `Unit` when called from Kotlin. If you use the return value,
+the Kotlin compiler assigns `Unit` at the call site, since the value is known in advance.
 
 ## Escaping for Java identifiers that are keywords in Kotlin
 
-Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and others.
-If a Java library uses a Kotlin keyword for a method, you can still call the method
-escaping it with the backtick (`) character:
+Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`, and others. If a Java library uses a
+Kotlin keyword for a method, you can still call the method escaping it with the backtick (`) character:
 
 ```kotlin
 matcher.`is`(expected)
@@ -132,7 +130,7 @@ variable, you can:
 * Rely on the type inference. In this case, the variable has an inferred platform type.
 * Choose the type you expect. Kotlin allows both nullable and non-nullable types.
 
-Null-checks are relaxed for platform types so that they have the same safety guarantees as [mapped Java types](#mapped-types).
+Null checks are relaxed for platform types, so they have the same safety guarantees as [mapped Java types](#mapped-types).
 Consider the following examples:
 
 ```kotlin
@@ -199,7 +197,7 @@ You can instruct the compiler to report nullability mismatches for specific null
 -Xnullability-annotations=@<package-name>:<report-level>
 ``` 
 
-Specify the package name for the fully-qualified nullability annotations and one of these report levels:
+Specify the package name for the fully qualified nullability annotations and one of these report levels:
 
 * `ignore` to ignore nullability mismatches
 * `warn` to report warnings
@@ -525,21 +523,19 @@ from the default type qualifier is used.
 
 #### Compiler configuration
 
-The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
+The JSR-305 checks can be configured by adding the `-Xjsr305` compiler option with the following values (and their combination):
 
 * `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations.
-Custom nullability qualifiers, especially
-`@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when
-updating to the Kotlin version containing JSR-305 support. Since Kotlin 1.1.60, this flag only affects non-`@UnderMigration` annotations.
-
+  Custom nullability qualifiers, especially `@TypeQualifierDefault`, are already spread among many well-known libraries,
+  and users may need to migrate smoothly when updating to the Kotlin version containing JSR-305 support.
+  This option only affects non-`@UnderMigration` annotations.
 * `-Xjsr305=under-migration:{strict|warn|ignore}` to override the behavior for the `@UnderMigration` annotations.
-Users may have different view on the migration status for the libraries:
-they may want to have errors while the official migration status is `WARN`, or vice versa,
-they may wish to postpone errors reporting for some until they complete their migration.
-
+  Users may have different view on the migration status for the libraries:
+  they may want to have errors while the official migration status is `WARN`, or vice versa,
+  they may wish to postpone errors reporting for some until they complete their migration.
 * `-Xjsr305=@<fq.name>:{strict|warn|ignore}` to override the behavior for a single annotation, where `<fq.name>`
-is the fully-qualified class name of the annotation. May appear several times for different annotations. This is useful
-for managing the migration state for a particular library.
+  is the fully qualified class name of the annotation. May appear several times for different annotations.
+  This is useful for managing the migration state for a particular library.
 
 The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`,
 and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
@@ -547,7 +543,7 @@ and only the `strict` mode affects the types in the annotated declarations as th
 > The built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
 > [`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html), and
 > [`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
-> affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
+> affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` option.
 >
 {style="note"}
 
@@ -627,7 +623,7 @@ Java's arrays are mapped as mentioned [below](#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String!>!` |
 
 > The static members of these Java types aren't directly accessible on the [companion objects](object-declarations.md#companion-objects)
-> of the Kotlin types. To call them, [use the fully-qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
+> of the Kotlin types. To call them, [use the fully qualified names of the Java types](#accessing-static-members), for example, `java.lang.Integer.toHexString(255)`.
 >
 {style="note"}
 
@@ -914,7 +910,7 @@ fun main() {
 }
 ```
 
-To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the fully-qualified name of
+To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the fully qualified name of
 the Java type: `java.lang.Integer.bitCount(5)`.
 
 ## Java reflection
