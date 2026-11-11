@@ -1,34 +1,38 @@
 [//]: # (title: Migrate from kapt to KSP)
-[//]: # (description: Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.)
 
-In this guide, you will learn how to migrate your annotation processors from [kapt](kapt.md) to [KSP](ksp-overview.md)
-so that your project can take full advantage of Kotlin features and improve build performance.
+<web-summary>Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.</web-summary>
 
-[kapt](kapt.md) (Kotlin Annotation Processing Tool) is a useful tool that lets you use Java annotation processors in Kotlin. 
-It works by translating Kotlin source code into Java "stubs" and then running 
-the annotation processors on those stubs. However, this process is expensive, significantly increases build time, 
-and loses some Kotlin-specific features in translation.
+In this guide, you will learn how to migrate your annotation processors from [kapt](kapt.md) to
+[Kotlin Symbol Processing (KSP)](ksp-overview.md) so that your project can take full advantage of Kotlin features and
+improve build performance.
 
-In contrast, [KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt designed specifically for Kotlin. KSP understands all
-Kotlin features and analyzes the source code directly, reducing build time.
+kapt (Kotlin Annotation Processing Tool) is a useful tool that lets you use Java annotation processors in Kotlin.
+It works by translating Kotlin source code into Java "stubs" and then running the annotation processors on those stubs.
+However, this process is expensive, significantly increases build time, and loses some Kotlin-specific features in
+translation.
 
-Before you begin, check whether the processors in your project support KSP. See the list of [supported libraries](ksp-overview.md#supported-libraries)
-or consult their documentation.
+In contrast, KSP is an alternative to kapt designed specifically for Kotlin. KSP understands all Kotlin features and
+analyzes the source code directly, reducing build time.
+
+Before you begin, check whether the processors in your project support KSP. See the list of
+[supported libraries](ksp-overview.md#supported-libraries) or consult their documentation.
 
 > KSP and kapt can run alongside each other, so you can migrate your project in stages, one library or module at a time.
-> 
+>
 {style="note"}
 
 ## Add the KSP plugin to your project
 
-Add KSP to the `plugins {}` block in the project-level `build.gradle(.kts)` file:
+Add the KSP plugin to the `plugins {}` block in the project-level `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
+
 plugins {
-    id("com.google.devtools.ksp") version "%kspVersion%" apply false 
+    id("com.google.devtools.ksp") version "%kspVersion%" apply false
 }
 ```
 
@@ -36,8 +40,10 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
+
 plugins {
-    id 'com.google.devtools.ksp' version '%kspVersion%' apply false 
+    id 'com.google.devtools.ksp' version '%kspVersion%' apply false
 }
 ```
 
@@ -45,19 +51,21 @@ plugins {
 </tabs>
 
 > To find the latest version of KSP, check the GitHub [Releases](https://github.com/google/ksp/releases).
-> 
+>
 {style="tip"}
 
-## Update your processor
+## Replace kapt with KSP in your modules
 
 Find the module that uses the processor you want to migrate. In the module's `build.gradle(.kts)` file:
 
-1. Add KSP to the `plugins {}` block:
+1. Add the KSP plugin to the `plugins {}` block:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
+    // build.gradle.kts
+
     plugins {
         id("com.google.devtools.ksp")
     }
@@ -67,6 +75,8 @@ Find the module that uses the processor you want to migrate. In the module's `bu
     <tab title="Groovy" group-key="groovy">
 
     ```groovy
+    // build.gradle
+
     plugins {
         id 'com.google.devtools.ksp'
     }
@@ -74,54 +84,55 @@ Find the module that uses the processor you want to migrate. In the module's `bu
 
     </tab>
     </tabs>
-   
+
 2. In the `dependencies {}` block, replace `kapt` with `ksp`:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
+    // build.gradle.kts
+
     dependencies {
         implementation("com.google.dagger:dagger:2.48")
-        // kapt("com.google.dagger:dagger-compiler:2.48")
-        
-        // KSP processor dependency:
-        ksp("com.google.dagger:dagger-compiler:2.48") 
+        // Replaces kapt("com.google.dagger:dagger-compiler:2.48")
+        ksp("com.google.dagger:dagger-compiler:2.48")
     }
     ```
 
     </tab>
-    <tab title="Groovy" group-key="groovy"> 
+    <tab title="Groovy" group-key="groovy">
 
     ```groovy
+    // build.gradle
+
     dependencies {
         implementation 'com.google.dagger:dagger:2.48'
-        // kapt 'com.google.dagger:dagger-compiler:2.48'
-        
-        // KSP processor dependency:
+        // Replaces kapt 'com.google.dagger:dagger-compiler:2.48'
         ksp 'com.google.dagger:dagger-compiler:2.48'
     }
     ```
 
     </tab>
     </tabs>
-    
 
-> For most libraries, this replacement is enough. Check each library's
-> documentation to see if you need to make any additional changes.
-> 
+> For most libraries, this replacement is enough. Check each library's documentation to see if you need to make any
+> additional changes.
+>
 {style="note"}
 
 ## Remove the kapt plugin
 
-After migrating all your processors to KSP, you can safely remove the kapt plugin from all build files:
+After migrating all your processors to KSP, you can safely remove the kapt plugin from all `build.gradle(.kts)` files:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
+
 plugins {
-   // Delete this line:
+    // Remove the kapt plugin declaration:
     id("org.jetbrains.kotlin.kapt")
 }
 ```
@@ -130,8 +141,10 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
+
 plugins {
-    // Delete this line:
+    // Remove the kapt plugin declaration:
     id 'org.jetbrains.kotlin.kapt'
 }
 ```
@@ -139,10 +152,11 @@ plugins {
 </tab>
 </tabs>
 
-Delete any leftover kapt configurations if you have them.
+Delete any leftover kapt configuration, such as the `kapt {}` block, if you have it.
 
-## What's next?
+## See also
 
-* Learn how to make your own KSP-based annotation processor in [Getting started with KSP](ksp-quickstart.md#create-your-own-processor).
-* Explore example projects that use KSP in the [KSP repository](https://github.com/google/ksp/tree/main/examples).
-* Read more about KSP in the [Overview](ksp-overview.md).
+* [Create your own processor](ksp-quickstart.md#create-your-own-processor)
+* [Java annotation processing to KSP reference](ksp-reference.md)
+* [Kotlin Symbol Processing API](ksp-overview.md)
+* [Example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository
