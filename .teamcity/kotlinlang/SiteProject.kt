@@ -2,6 +2,7 @@ package kotlinlang
 
 import jetbrains.buildServer.configs.kotlin.Project
 import kotlinlang.builds.*
+import kotlinlang.vcsRoots.CmsPoc
 import kotlinlang.vcsRoots.GrammarGenerator
 import kotlinlang.vcsRoots.KotlinSpecGrammar
 import kotlinlang.vcsRoots.WebHelp
@@ -20,6 +21,7 @@ object SiteProject : Project({
         BuildKotlinSpec,
         BuildJsAssets,
         PageViews,
+        CmsPocSync,
     )
 
     buildTypesOrder.forEach {
@@ -30,5 +32,6 @@ object SiteProject : Project({
 
     vcsRoot(GrammarGenerator)
     vcsRoot(KotlinSpecGrammar)
+    vcsRoot(CmsPoc)
     vcsRoot(WebHelp)
 })
