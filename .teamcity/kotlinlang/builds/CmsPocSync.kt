@@ -12,7 +12,7 @@ object CmsPocSync : BuildType({
   params {
     param("env.NOTION_TOKEN_V2", "%NOTION_TOKEN_V2%")
     param("env.NOTION_USER_ID", "%NOTION_USER_ID%")
-    param("env.NOTION_PAGES", "effbf30651628213a23b81fc8a079faa")
+    param("env.NOTION_PAGES", "effbf30651628213a23b81fc8a079faa 40fc51971d4f80368a32d40bb9181e28")
   }
 
   vcs {
