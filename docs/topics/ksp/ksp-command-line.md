@@ -35,8 +35,8 @@ The archive contains the required KSP JAR files:
 
 You must also include the following runtime dependencies from the Maven repository:
 
-* [`kotlin-stdlib-%kotlinVersion%.jar`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib)
-* [`kotlinx-coroutines-core-jvm-%coroutinesVersion%.jar`](https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm)
+* [`kotlin-stdlib-%kotlinVersion%.jar`](https://central.sonatype.com/artifact/org.jetbrains.kotlin/kotlin-stdlib)
+* [`kotlinx-coroutines-core-jvm-%coroutinesVersion%.jar`](https://central.sonatype.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm)
 
 ## Main class
 
@@ -128,6 +128,6 @@ java -cp <classpath> <mainclass> -h
 
 ## See also
 
-* [Pass options to processors](ksp-quickstart.md#pass-options-to-processors) in `build.gradle(.ksp)` files
+* [Pass options to processors](ksp-quickstart.md#pass-options-to-processors) in `build.gradle(.kts)` files
 * [Incremental processing](ksp-incremental.md)
 * [KSP with Kotlin Multiplatform](ksp-multiplatform.md)
