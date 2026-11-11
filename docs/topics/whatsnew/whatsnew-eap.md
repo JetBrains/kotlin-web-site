@@ -20,7 +20,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 * **Language**: [Stable name-based destructuring in `only-syntax` mode, unused return value checker, and improved compile-time constants](#stable-language-features).
 * **Standard library**: [New experimental functions for simplifying common patterns with `if` expressions](#new-functions-for-simplifying-common-patterns-with-if-expressions) and [experimental support for Unicode code points](#support-for-unicode-code-points).
 * **Kotlin/JVM**: [Support for Java 28](#kotlin-jvm).
-* **Kotlin/Native**: [Incremental compilation enabled by default on Apple targets](#incremental-compilation-enabled-by-default-on-apple-targets) and [Swift export in Beta with a new DSL](#swift-export-goes-beta-with-a-new-gradle-dsl).
+* **Kotlin/Native**: [Swift export in Beta with a new DSL](#swift-export-goes-beta-with-a-new-gradle-dsl).
 * **Kotlin Multiplatform**: [New experimental compilation scheme for Kotlin Multiplatform](#new-experimental-compilation-scheme-for-kotlin-multiplatform) and [new publication format for multiplatform libraries](#new-publication-format-for-kotlin-multiplatform-libraries).
 * **Kotlin/JS**: [Support for the `es2020` target](#kotlin-js).
 * **Kotlin compiler**: [More consistent inline function behavior during `klib` compilation](#consistent-cross-module-function-inlining-during-klib-compilation).
@@ -429,46 +429,7 @@ Starting with Kotlin %kotlinEapVersion%, the compiler can generate classes conta
 
 ## Kotlin/Native
 
-Kotlin %kotlinEapVersion% enables incremental compilation by default on Apple targets and promotes Swift export to Beta with a new Gradle DSL.
-
-### Incremental compilation enabled by default on Apple targets
-
-<secondary-label ref="native"/>
-
-Starting with Kotlin %kotlinEapVersion%, incremental compilation of `klib` artifacts is enabled by default on Apple targets.
-
-With incremental compilation, if only a part of the `klib` artifact produced by the project module changes, only the 
-affected part of the `klib` is further recompiled into a binary.
-
-This optimization was first introduced in [Kotlin 1.9.20](whatsnew1920.md#incremental-compilation-of-klib-artifacts)
-and has proven to drastically reduce compilation time for debug builds in certain cases.
-
-The new default is only relevant to Apple targets. Incremental compilation is not supported on Windows ([MinGW toolchain](https://www.mingw-w64.org/)).
-And for Linux, it's still required to opt in with:
-
-```properties
-kotlin.incremental.native=true
-```
-
-Note that in some cases, this optimization may come with a performance cost for clean builds.
-To work around that, you can try the new [binary option](native-binary-options.md#how-to-enable) designed to run a 
-special compilation mode on clean builds. The option is [Experimental](components-stability.md#stability-levels-explained),
-opt in with:
-
-```properties
-kotlin.native.binary.batchedCacheBuild=true
-```
-
-If you face unexpected problems with incremental compilation, you can disable it manually by setting the following option
-in your `gradle.properties` file:
-
-```properties
-kotlin.incremental.native=false
-```
-
-Please report any problems in [YouTrack](https://kotl.in/issue).
-
-For more tips on improving compilation time, see our [documentation](native-improving-compilation-time.md).
+Kotlin %kotlinEapVersion% promotes Swift export to Beta with a new Gradle DSL.
 
 ### Swift export goes Beta with a new Gradle DSL
 
