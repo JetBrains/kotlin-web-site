@@ -1,0 +1,24 @@
+/*
+ * Global (not CSS Modules) on purpose: the `nw-*` class names are a contract that
+ * custom CSS authored in Notion targets, so they must not be hashed.
+ * Scoped to `.nw-page` so nothing leaks into the rest of the site.
+ */
+.nw-page,
+.nw-page *,
+.nw-page *::before,
+.nw-page *::after {
+    box-sizing: border-box;
+}
+
+.nw-page {
+    color: #19191c;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 50vh;
+}
+
+/* Text without a rescui style (e.g. dev placeholders) must stay readable on dark sections. */
+.nw-theme-purple,
+.nw-theme-red,
+.nw-theme-pink {
+    color: #fff;
+}

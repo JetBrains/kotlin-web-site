@@ -1,0 +1,112 @@
+.nw-section {
+    background: #fff;
+    padding: 64px 0;
+}
+
+.nw-theme-default {
+    background: #fff;
+}
+
+.nw-theme-gray {
+    background: #f5f5f7;
+}
+
+.nw-theme-purple {
+    background: linear-gradient(120deg, #19133f 0%, #25145c 48%, #5426a8 100%);
+}
+
+.nw-theme-red {
+    background: #e7445f;
+}
+
+.nw-theme-pink {
+    background: #d92f83;
+}
+
+.nw-theme-fallback {
+    background: #fff;
+}
+
+.nw-hero {
+    padding: 112px 0 96px;
+}
+
+.nw-placeholder {
+    align-items: center;
+    border: 1px dashed currentColor;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin: 16px 0;
+    min-height: 56px;
+    padding: 12px 16px;
+}
+
+.nw-placeholder a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.nw-color-gray {
+    color: #6b6b75;
+}
+
+.nw-color-red {
+    color: #df304c;
+}
+
+.nw-color-pink {
+    color: #ea4e9d;
+}
+
+.nw-color-purple {
+    color: #8e5be8;
+}
+
+.nw-color-blue {
+    color: #2676db;
+}
+
+.nw-color-green {
+    color: #168258;
+}
+
+.nw-color-orange {
+    color: #df6b16;
+}
+
+.nw-color-yellow {
+    color: #a78000;
+}
+
+.nw-image {
+    margin: 0;
+}
+
+.nw-image img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.nw-divider {
+    border: 0;
+    border-top: 1px solid #d8d8df;
+    margin: 32px 0;
+}
+
+@media (max-width: 640px) {
+    .nw-section {
+        padding: 48px 0;
+    }
+
+    .nw-hero {
+        padding: 72px 0 56px;
+    }
+
+    .nw-placeholder {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
