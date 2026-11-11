@@ -129,25 +129,23 @@ export const TeachLaunchCourse: FC = () => {
             </div>
 
             <div className={cn(styles.linksBlock, styles.linksBlockSecond)}>
-
-               <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>
-    <a
-        className={textCn('rs-link', { external: true })}
-        href="https://docs.google.com/presentation/d/1LdJ8HJXkCEq74YSbtMKktJQNr0BiKaKQUPgIZU4W1no/edit?usp=sharing"
-    >
-        Backend Development with Kotlin
-    </a>
-</div>
-
-<div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-s', 'ktl-offset-top-s')}>
-    NEW:{' '}
-    <a
-        className={textCn('rs-link', { external: true })}
-        href="https://docs.google.com/presentation/d/1wPiDvZ_OrC_ycSwiMfZTzhkEvtbvjQrg13is6wDMhwg/edit?usp=drive_link"
-    >
-        Test-Driven and Spec-Driven Development with Kotlin
-    </a>
-</div>
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-s', 'ktl-offset-top-s')}>
+                    NEW:{' '}
+                    <a
+                        className={textCn('rs-link', { external: true })}
+                        href="https://docs.google.com/presentation/d/1wPiDvZ_OrC_ycSwiMfZTzhkEvtbvjQrg13is6wDMhwg/edit?usp=drive_link"
+                    >
+                        Test-Driven and Spec-Driven Development with Kotlin
+                    </a>
+                </div>
+                <div className={cn('ktl-offset-bottom-xs')}>
+                    <a
+                        className={textCn('rs-link', { external: true })}
+                        href="https://docs.google.com/presentation/d/1LdJ8HJXkCEq74YSbtMKktJQNr0BiKaKQUPgIZU4W1no/edit?usp=sharing"
+                    >
+                        Backend Development with Kotlin
+                    </a>
+                </div>
                 <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>
                     <a
                         className={textCn('rs-link', { external: true })}
@@ -161,10 +159,7 @@ export const TeachLaunchCourse: FC = () => {
 
                 <ul className={cn(styles.list, textCn('rs-text-2'))}>
                     <li>
-                        <a
-                            className={textCn('rs-link', { external: true })}
-                            href="https://forms.gle/UJ91acwMAk17qax7A"
-                        >
+                        <a className={textCn('rs-link', { external: true })} href="https://forms.gle/UJ91acwMAk17qax7A">
                             Quizzes
                         </a>
                     </li>
