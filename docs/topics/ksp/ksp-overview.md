@@ -20,12 +20,12 @@ To learn how to create your first KSP-based processor, see [Getting started with
 
 The latest KSP version, %kspVersion%, supports the following dependency versions:
 
-| Dependency                      |  Min and max versions                                  |
-| ------------------------------  | ------------------------------------------------------ |
-| Kotlin Gradle plugin (KGP)      | 2.2.10–2.3.x                                           |
-| Android Gradle Plugin (AGP)     | 8.12.0 or later                                        |
-| Gradle                          | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.   |
-| JDK                             | 17 or later                                            |
+| Dependency                  | Min and max versions                                 |
+|-----------------------------|------------------------------------------------------|
+| Kotlin Gradle plugin (KGP)  | 2.3.20–2.4.x                                         |
+| Android Gradle Plugin (AGP) | 8.13.0 or later                                      |
+| Gradle                      | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x. |
+| JDK                         | 17 or later                                          |
 
 ## How KSP works during compilation
 
