@@ -240,37 +240,6 @@ kotlin {
 </tab>
 </tabs>
 
-#### Changes to inline value class declarations
-
-With these new value classes, `value class` no longer necessarily means inline. Inline value classes have an externally
-observable inline representation, while other value classes don't expose their runtime representation in the same way.
-This distinction matters for Spring and serialization libraries, which handle inline value classes differently.
-
-To make the distinction explicit, in the future, the compiler will require inline value classes to be declared explicitly
-through the `inline` modifier and `@JvmInline value class` declarations. A plain `value class` declaration will no longer
-be treated as inline.
-
-We plan a staged migration to change this behavior:
-
-* Kotlin 2.5.20 will report a warning for unmarked single-field value classes.
-* Kotlin 2.6.0 or 2.7.0 will raise this warning to an error.
-
-You can use the `-Xinline-value-class-migration=warning` and `-Xinline-value-class-migration=strict` compiler options to prepare your code for this change.
-
-For more information, see the [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0468-inline-value-classes.md#migration).
-
-##### Prepare your library's classes for migration to value classes
-
-As a library author, you can use the `@WillBecomeValue` annotation to prepare your library's regular classes for a future migration to 
-full value classes. The compiler warns users when their code relies on object identity, for example through reference 
-equality (`===`), synchronization, or identity hash codes. These warnings give users time to update their code before you
-migrate the classes. 
-
-The annotation is [Experimental](components-stability.md#stability-levels-explained) and requires 
-you to opt in with `@OptIn(ExperimentalValueClassApi::class)`. Your library's users don't need this opt-in to use the annotated classes.
-
-For more information, see the [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0470-will-become-value.md).
-
 ### Improved checks for equality comparisons on structural classes
 
 <primary-label ref="experimental-opt-in"/>
