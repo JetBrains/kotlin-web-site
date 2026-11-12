@@ -84,8 +84,11 @@ To learn more about what else is in the standard library, explore its [API refer
 ## Kotlin libraries
 
 The standard library covers many common use cases, but there are some that it doesn't address. Fortunately, the Kotlin
-team and the rest of the community have developed a wide range of libraries to complement the standard library. For example,
-[`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/) helps you manage time across different platforms.
+team and the rest of the community have developed a wide range of libraries to complement the standard library, including:
+
+* [`kotlinx-coroutines`](coroutines-overview.md), which enables you to write asynchronous Kotlin code. 
+* [`kotlinx-serialization`](serialization.md) for converting Kotlin objects to and from formats such as JSON.
+* [`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/) that helps you manage time across different platforms.
 
 You can find useful libraries on our [search platform](https://klibs.io/). To use them, you need to take extra steps,
 like adding a dependency or plugin. Each library has a GitHub repository with instructions on how to include
@@ -283,6 +286,43 @@ What should the opt-in look like in your code?
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
 
 </def>
+
+<def title="Run your first coroutine" id="libraries-exercise-4">
+
+You want to create a program that prints "Hello," followed by "World!" from a coroutine.
+
+Update the code to:
+
+1. Use `launch()` to start a new coroutine inside the `coroutineScope()` block.
+2. Inside the coroutine, use `delay()` to wait one second before printing "World!".
+
+```kotlin
+import kotlinx.coroutines.*
+
+suspend fun main() = coroutineScope {
+    // Write your code here
+
+    println("Hello,")
+}
+```
+{kotlin-runnable="true" id="kotlin-tour-libraries-exercise-4"}
+
+```kotlin
+import kotlinx.coroutines.*
+
+suspend fun main() = coroutineScope {
+    launch {
+        delay(1000)
+        println("World!")
+    }
+
+    println("Hello,")
+}
+```
+{kotlin-runnable="true" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-4"}
+
+</def>
+
 </deflist>
 
 ## What's next?
@@ -292,7 +332,7 @@ Congratulations! You've completed the intermediate tour! Would you like to [shar
 As a next step, check out our tutorials for popular Kotlin applications:
 
 <p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements -->
-<panels columns="2" id="kotlin-tour-whats-next">
+<panels columns="3" id="kotlin-tour-whats-next">
     <panel>
         <title>Kotlin for backend</title>
         <p>Create a backend application with Spring Boot and Kotlin.</p>
@@ -302,6 +342,11 @@ As a next step, check out our tutorials for popular Kotlin applications:
         <title>Kotlin Multiplatform</title>
         <p>Create a cross-platform application from scratch and share business logic and UI.</p>
         <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-cmp-tutorial">Start</a>
+    </panel>
+    <panel>
+        <title>Kotlin coroutines</title>
+        <p>Learn to use coroutines and flows to load articles concurrently, report progress, and handle cancellation and failures.</p>
+        <a href="coroutines-and-flows-tutorial.md" as="button" icon="arrow-right" icon-position="right" id="kotlin-coroutines-flows-tutorial">Start</a>
     </panel>
 </panels>
 
