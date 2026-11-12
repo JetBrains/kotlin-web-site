@@ -346,7 +346,7 @@ As a next step, check out our tutorials for popular Kotlin applications:
     <panel>
         <title>Kotlin coroutines</title>
         <p>Learn to use coroutines and flows to load articles concurrently, report progress, and handle cancellation and failures.</p>
-        <a href="coroutines-and-flows-tutorial.md" as="button" icon="arrow-right" icon-position="right" id="kotlin-coroutines-flows-tutorial">Start</a>
+        <a href="coroutines-overview.md" as="button" icon="arrow-right" icon-position="right" id="kotlin-coroutines-flows-tutorial">Start</a>
     </panel>
 </panels>
 
