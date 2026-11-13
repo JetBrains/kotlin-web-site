@@ -6,11 +6,11 @@ Generates a PDF version of the Kotlin documentation using Node.js and Vivliostyl
 
 ```bash
 # Full pipeline
-yarn generate-pdf
+npm run generate-pdf
 
 # Individual steps
-yarn generate-pdf:html     # Step 1: Generate combined HTML
-yarn generate-pdf:convert  # Step 2: Convert to PDF
+npm run generate-pdf:html     # Step 1: Generate combined HTML
+npm run generate-pdf:convert  # Step 2: Convert to PDF
 ```
 
 ### Fast Testing Mode
@@ -18,7 +18,7 @@ yarn generate-pdf:convert  # Step 2: Convert to PDF
 For quick iteration, you can generate PDF from a single page using the `TEST_FILE` environment variable:
 
 ```bash
-TEST_FILE=docs/your-page.html yarn generate-pdf
+TEST_FILE=docs/your-page.html npm run generate-pdf
 ```
 
 This reduces generation time from ~5 minutes to seconds.
@@ -58,6 +58,6 @@ pdf/
 
 ## Troubleshooting
 
-**"Source file not found"**: Run `yarn generate-pdf:html` first.
+**"Source file not found"**: Run `npm run generate-pdf:html` first.
 
-**Blank PDF**: Ensure `yarn build` completed and `dist/docs/` has content.
+**Blank PDF**: Ensure `npm run build` completed and `dist/docs/` has content.

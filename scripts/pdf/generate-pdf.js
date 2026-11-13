@@ -127,7 +127,7 @@ async function generatePDF(outputName, data) {
   if (!fs.existsSync(sourceFilePath)) {
     throw new Error(
       `Source file not found: ${sourceFilePath}\n` +
-      `Please run step 1 first: yarn generate-pdf:html`
+      `Please run step 1 first: npm run generate-pdf:html`
     );
   }
 
