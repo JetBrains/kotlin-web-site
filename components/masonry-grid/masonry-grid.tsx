@@ -2,12 +2,22 @@ import cn from 'classnames';
 import { useMemo, ReactNode, useEffect, useRef, useState } from 'react';
 import styles from './masonry-grid.module.css';
 
+export interface MasonryItemSizeContext {
+    columnWidth: number;
+}
+
 export interface MasonryGridProps<T> {
     items: T[];
     columnCount?: number;
     gap?: number;
     renderItem: (item: T, index: number) => ReactNode;
     getKey: (item: T, index: number) => string | number;
+    /**
+     * Item height at ctx.columnWidth, computed without DOM measurement
+     * (e.g. via @chenglou/pretext for text). Returns null while the height
+     * is unknown — the grid stays on the cyclic fallback until then.
+     */
+    getItemHeight: (item: T, ctx: MasonryItemSizeContext) => number | null;
     className?: string;
     columnClassName?: string;
     itemClassName?: string;
@@ -18,9 +28,10 @@ export interface MasonryGridProps<T> {
 export function MasonryGrid<T>({
     items,
     columnCount = 2,
-    gap, 
+    gap,
     renderItem,
     getKey,
+    getItemHeight,
     className,
     columnClassName,
     itemClassName,
@@ -29,10 +40,8 @@ export function MasonryGrid<T>({
 }: MasonryGridProps<T>) {
     const [isMobile, setIsMobile] = useState(false);
 
-    // Container refs for measuring and responsive recalculation
+    // Container ref for responsive recalculation
     const gridRef = useRef<HTMLDivElement | null>(null);
-    const measureWrapperRef = useRef<HTMLDivElement | null>(null);
-    const measureItemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const [containerWidth, setContainerWidth] = useState<number>(0);
 
@@ -64,59 +73,14 @@ export function MasonryGrid<T>({
 
     const effectiveColumnCount = Math.max(1, isMobile ? 1 : columnCount);
 
-    // Compute per-column width (used by hidden measuring container)
+    // Compute per-column width
     const columnWidth = useMemo(() => {
         const g = gap ?? 0;
         if (!containerWidth || effectiveColumnCount <= 0) return 0;
         return Math.max(0, Math.floor((containerWidth - g * (effectiveColumnCount - 1)) / effectiveColumnCount));
     }, [containerWidth, effectiveColumnCount, gap]);
 
-    // State with the final greedy distribution
-    const [greedyColumns, setGreedyColumns] = useState<T[][] | null>(null);
-
-    // Measure item heights in a hidden container and distribute greedily
-    useEffect(() => {
-        // Avoid running on server or when measurement isn't possible yet
-        if (typeof window === 'undefined') return;
-        if (effectiveColumnCount <= 0) return;
-        if (!measureWrapperRef.current) return;
-        if (columnWidth <= 0) return;
-
-        // Defer until browser lays out hidden nodes
-        const id = window.setTimeout(() => {
-            // Collect heights for each item (fallback to 0 if not measurable)
-            const heights = items.map((_, i) => measureItemRefs.current[i]?.offsetHeight ?? 0);
-
-            // Greedy placement by current column total heights
-            const cols: T[][] = Array.from({ length: effectiveColumnCount }, () => []);
-            const colHeights: number[] = Array.from({ length: effectiveColumnCount }, () => 0);
-            const g = gap ?? 0;
-
-            items.forEach((item, i) => {
-                // Find the shortest column
-                let minIndex = 0;
-                let minValue = colHeights[0];
-                for (let c = 1; c < effectiveColumnCount; c++) {
-                    if (colHeights[c] < minValue) {
-                        minIndex = c;
-                        minValue = colHeights[c];
-                    }
-                }
-                cols[minIndex].push(item);
-                const h = heights[i] || 0;
-                // Add gap except for the very first item in a column
-                colHeights[minIndex] += (colHeights[minIndex] > 0 ? g : 0) + h;
-            });
-
-            setGreedyColumns(cols);
-            setTimeout(onLayoutReady, 0);
-        }, 0);
-
-        return () => window.clearTimeout(id);
-        // Recompute when items, columns or width change
-    }, [items, effectiveColumnCount, columnWidth, gap]);
-
-    // If we don't have measurements yet, fall back to simple cyclic distribution to avoid empty UI
+    // Cyclic distribution fallback: used before heights are known (and in SSG HTML)
     const cyclicColumns = useMemo(() => {
         const cols: T[][] = Array.from({ length: effectiveColumnCount }, () => []);
         items.forEach((item, index) => {
@@ -126,63 +90,67 @@ export function MasonryGrid<T>({
         return cols;
     }, [items, effectiveColumnCount]);
 
+    // Greedy placement by shortest column, computed synchronously from the
+    // provided heights — pure arithmetic, no DOM measurement.
+    const greedyColumns = useMemo<T[][] | null>(() => {
+        if (columnWidth <= 0 || effectiveColumnCount <= 0) return null;
+        const g = gap ?? 0;
+
+        const cols: T[][] = Array.from({ length: effectiveColumnCount }, () => []);
+        const colHeights: number[] = Array.from({ length: effectiveColumnCount }, () => 0);
+
+        for (const item of items) {
+            const height = getItemHeight(item, { columnWidth });
+            // Heights not ready yet — fall back to the cyclic distribution
+            if (height === null || !Number.isFinite(height) || height < 0) return null;
+
+            // Find the shortest column
+            let minIndex = 0;
+            for (let c = 1; c < effectiveColumnCount; c++) {
+                if (colHeights[c] < colHeights[minIndex]) {
+                    minIndex = c;
+                }
+            }
+            cols[minIndex].push(item);
+            // Add gap except for the very first item in a column
+            colHeights[minIndex] += (colHeights[minIndex] > 0 ? g : 0) + height;
+        }
+
+        return cols;
+    }, [items, effectiveColumnCount, columnWidth, gap, getItemHeight]);
+
     const columns = greedyColumns ?? cyclicColumns;
+
+    const onLayoutReadyRef = useRef(onLayoutReady);
+    onLayoutReadyRef.current = onLayoutReady;
+    useEffect(() => {
+        if (greedyColumns) onLayoutReadyRef.current?.();
+    }, [greedyColumns]);
 
     const style = gap !== undefined ? { gap: `${gap}px` } : undefined;
 
     return (
-        <>
-            {/* Visible grid */}
-            <div ref={gridRef} className={cn(styles.grid, className)} style={style}>
-                {columns.map((column, columnIndex) => (
-                    <div
-                        key={columnIndex}
-                        className={cn(styles.column, columnClassName)}
-                        style={style}
-                    >
-                        {column.map((item, itemIndex) => {
-                            // Preserve stable keys based on original index order
-                            const originalIndex = columnIndex + itemIndex * Math.max(1, effectiveColumnCount);
-                            return (
-                                <div
-                                    key={getKey(item, originalIndex)}
-                                    className={cn(styles.item, itemClassName)}
-                                >
-                                    {renderItem(item, originalIndex)}
-                                </div>
-                            );
-                        })}
-                    </div>
-                ))}
-            </div>
-
-            {/* Hidden measuring container: renders all items at exact column width to get real heights */}
-            <div
-                ref={measureWrapperRef}
-                aria-hidden
-                style={{
-                    position: 'absolute',
-                    visibility: 'hidden',
-                    pointerEvents: 'none',
-                    left: -99999,
-                    top: 0,
-                    width: columnWidth || undefined,
-                }}
-            >
-                {/* Force the same width as a column so heights match real layout */}
-                <div style={{ width: columnWidth }}>
-                    {items.map((item, i) => (
-                        <div
-                            key={getKey(item, i)}
-                            ref={(el) => (measureItemRefs.current[i] = el)}
-                            className={cn(styles.item, itemClassName)}
-                            style={{ marginBottom: gap && i < items.length - 1 ? gap : undefined }}
-                        >
-                            {renderItem(item, i)}
-                        </div>
-                    ))}
+        <div ref={gridRef} className={cn(styles.grid, className)} style={style}>
+            {columns.map((column, columnIndex) => (
+                <div
+                    key={columnIndex}
+                    className={cn(styles.column, columnClassName)}
+                    style={style}
+                >
+                    {column.map((item, itemIndex) => {
+                        // Preserve stable keys based on original index order
+                        const originalIndex = columnIndex + itemIndex * Math.max(1, effectiveColumnCount);
+                        return (
+                            <div
+                                key={getKey(item, originalIndex)}
+                                className={cn(styles.item, itemClassName)}
+                            >
+                                {renderItem(item, originalIndex)}
+                            </div>
+                        );
+                    })}
                 </div>
-            </div>
-        </>
+            ))}
+        </div>
     );
 }
