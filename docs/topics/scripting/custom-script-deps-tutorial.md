@@ -8,7 +8,7 @@
 _Kotlin scripting_ is the technology that enables executing Kotlin code as scripts without prior compilation or
 packaging into executables.
 
-For an overview of Kotlin scripting with examples, check out the talk [Implementing the Gradle Kotlin DSL](https://kotlinconf.com/2019/talks/video/2019/126701/)
+For an overview of Kotlin scripting with examples, check out the talk [Implementing the Gradle Kotlin DSL](https://youtu.be/OEFwnWxoazI?si=HdYnHvoN_gKC71xO/)
 by Rodrigo Oliveira from KotlinConf'19.
 
 In this tutorial, you'll create a Kotlin scripting project that executes arbitrary Kotlin code with Maven dependencies.
@@ -356,4 +356,4 @@ downloaded dependencies from the local Maven repository.
 Once you've created a simple Kotlin scripting project, find more information on this topic:
 * Read the [Kotlin scripting KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md)
 * Browse more [Kotlin scripting examples](https://github.com/Kotlin/kotlin-script-examples)
-* Watch the talk [Implementing the Gradle Kotlin DSL](https://kotlinconf.com/2019/talks/video/2019/126701/) by Rodrigo Oliveira
+* Watch the talk [Implementing the Gradle Kotlin DSL](https://youtu.be/OEFwnWxoazI?si=HdYnHvoN_gKC71xO/) by Rodrigo Oliveira
