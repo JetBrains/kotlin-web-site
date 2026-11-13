@@ -45,3 +45,9 @@ body {
         box-shadow: none;
     }
 }
+
+/* RescUI's select list has no list reset, so the browser's default <ul> margin and indent shift its options. */
+[data-rs-internal="select-list-box"] {
+    margin: 0;
+    padding: 0;
+}

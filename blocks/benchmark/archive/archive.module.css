@@ -1,0 +1,36 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+}
+
+.published {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.select {
+    width: 152px;
+    text-align: left;
+}
+
+.separator {
+    opacity: 0.5;
+}
+
+/* Stacked on small screens, so a wrapped line never ends in a dangling separator. */
+@media (--ktl-ms-down) {
+    .meta {
+        flex-direction: column;
+        row-gap: 8px;
+    }
+
+    .separator {
+        display: none;
+    }
+}

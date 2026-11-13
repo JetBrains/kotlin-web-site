@@ -23,12 +23,28 @@ test.describe('Kotlin Benchmark methodology page', () => {
         }
     });
 
+    test('the version switcher opens the older methodology and comes back', async ({ page }) => {
+        const switcherCount = await methodology.versionSwitcher.count();
+        test.skip(switcherCount === 0, 'only one methodology version is published');
+
+        const options = methodology.versionSwitcher.getByRole('button');
+        await expect(options).not.toHaveCount(1);
+
+        // Newest first: the latest is selected on the unversioned URL.
+        await options.last().click();
+        await expect(page).toHaveURL(/\/benchmark\/methodology\/\d+\/$/);
+        await expect(methodology.title).toBeVisible();
+
+        await methodology.versionSwitcher.getByRole('button').first().click();
+        await expect(page).toHaveURL(/\/benchmark\/methodology\/$/);
+    });
+
     test('the dataset table lists every repository with its task count', async () => {
         await expect(methodology.datasetTable).toBeVisible();
-        await expect(methodology.datasetRows).toBeVisible();
+        await expect(methodology.datasetRows.first()).toBeVisible();
 
         // Repository names link out to GitHub.
-        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'pinterest/ktlint' });
+        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'ktlint/ktlint' });
         await expect(ktlint).toHaveAttribute('href', 'https://github.com/ktlint/ktlint');
     });
 
