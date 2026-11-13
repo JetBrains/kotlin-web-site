@@ -287,9 +287,9 @@ The example:
 * Creates the `medals` variable that contains a list of strings.
 * Creates the `reversedLongUpperCaseMedals` variable that has the `List<String>` type.
 * Uses the `.map()` extension function on the `medals` variable.
-* Passes a lambda expression to the `.map()` function that refers to `medals` via the `it` keyword and calls the `.uppercase()` extension function on it.
+* Passes a lambda expression to the `.map()` function that refers to each item in `medals` via the `it` keyword and calls the `.uppercase()` extension function on it.
 * Uses the `.filter()` extension function on the `medals` variable.
-* Passes a lambda expression as a predicate to the `.filter()` function that refers to `medals` via the `it` keyword and checks if the item in the list has more than 4 characters.
+* Passes a lambda expression as a predicate to the `.filter()` function that refers to each item in `medals` via the `it` keyword and checks if the item in the list has more than 4 characters.
 * Uses the `.reversed()` extension function on the `medals` variable.
 * Assigns the result to the `reversedLongUpperCaseMedals` variable.
 * Prints the list contained in the `reversedLongUpperCaseMedals` variable.

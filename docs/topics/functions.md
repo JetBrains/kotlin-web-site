@@ -113,7 +113,7 @@ fun greeting(
 fun main() {
     // Uses 0 as the default value for 'userId'
     greeting(message = "Hello!")
-    
+
     // Error: No value passed for parameter 'message'
     greeting("Hello!")
 }
@@ -124,17 +124,20 @@ fun main() {
 since the last parameter must correspond to the passed function:
 
 ```kotlin
-fun main () {
-//sampleStart    
+fun main() {
+//sampleStart
 fun greeting(
     userId: Int = 0,
     message: () -> Unit,
-)
-{ println(userId)
-  message() }
-    
+) {
+    println(userId)
+    message()
+}
+
 // Uses the default value for 'userId'
-greeting() { println ("Hello!") }
+greeting() { 
+    println("Hello!") 
+}
 // 0
 // Hello!
 //sampleEnd
@@ -192,7 +195,7 @@ fun main() {
     read(1)
     // Prints only "1"
     read(1, null)
-    //sampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" id="non-constant-default"}
@@ -785,4 +788,3 @@ or when the function is [open](inheritance.md).
 * [Inline functions](inline-functions.md)
 * [Extension functions](extensions.md)
 * [Higher-order functions and lambdas](lambdas.md)
-

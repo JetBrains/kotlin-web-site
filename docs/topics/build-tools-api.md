@@ -61,7 +61,7 @@ import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("jvm") version "2.4.20"
+    kotlin("jvm") version "%kotlinVersion%"
 }
 
 group = "org.jetbrains.example"
@@ -74,7 +74,7 @@ repositories {
 kotlin {
     jvmToolchain(8)
     @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
-    compilerVersion.set("2.3.21") // <-- different version than 2.4.20
+    compilerVersion.set("2.3.21") // <-- different version than %kotlinVersion%
 }
 ```
 

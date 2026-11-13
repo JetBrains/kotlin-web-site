@@ -52,7 +52,7 @@ into a plugin helps simplify and modularize your build scripts.
 
 Although the initial setup may be time-consuming, it's easy to maintain and add new build logic once you complete it.
 
-Learn more in Gradle's documentation about [Convention plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:convention_plugins).
+Learn more in Gradle's documentation about [Convention plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:convention_plugins).
 
 ## Optimize
 

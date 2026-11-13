@@ -211,7 +211,7 @@ If you encounter any error that occurs only when incremental processing is enabl
 To help debug incremental processing, KSP can generate a Graphviz DOT file that visualizes the symbol dependency graph
 starting from a specified symbol.
 
-Enable incremental logging and specify the [fully qualified name](https://kotlinlang.org/docs/packages.html#package-headers) 
+Enable incremental logging and specify the [fully qualified name](packages.md#package-headers) 
 of the symbol to use as the starting point for visualizing the graph:
 
 ```properties
