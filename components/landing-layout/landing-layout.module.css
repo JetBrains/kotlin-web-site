@@ -5,3 +5,13 @@
 .contentWrapperLight {
     background: #ffffff;
 }
+
+.footerLight.footerLight {
+    background: #ffffff;
+    border-top: 1px solid #e6e6e8;
+}
+
+/* The shared footer's wordmark has a fixed white fill; its symbol keeps its brand colors. */
+.footerLight [aria-label='jetbrains.com link'] svg > path:first-child {
+    fill: #000000;
+}

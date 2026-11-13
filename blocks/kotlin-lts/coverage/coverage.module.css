@@ -1,12 +1,52 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 .grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     gap: 16px;
-    margin: 48px 0 0;
+    margin: 40px 0 0;
     padding: 0;
     list-style: none;
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+    border: 1px solid #e6e6e8;
+    background: #fff;
+}
+
+.icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3edff;
+    color: #6b3dcc;
+}
+
+.cardTitle {
+    margin: 0 0 8px;
+}
+
+.cardCopy {
+    width: 100%;
+    min-width: 0;
+}
+
+.cardText {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.footnote {
+    max-width: 800px;
+    margin: 24px 0 0;
 }
 
 @media (--ktl-tl-down) {
@@ -18,54 +58,6 @@
 @media (--ktl-ml-down) {
     .grid {
         grid-template-columns: minmax(0, 1fr);
+        margin-top: 32px;
     }
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.badge {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    color: #ffffff;
-    font: 700 16px/1 'JetBrains Mono', monospace;
-}
-
-/* Badge gradients cycle by card position */
-.card:nth-child(6n + 1) .badge {
-    background: linear-gradient(135deg, #7f52ff, #c711e1);
-}
-
-.card:nth-child(6n + 2) .badge {
-    background: linear-gradient(135deg, #c711e1, #e44857);
-}
-
-.card:nth-child(6n + 3) .badge {
-    background: linear-gradient(135deg, #7f52ff, #e44857);
-}
-
-.card:nth-child(6n + 4) .badge {
-    background: linear-gradient(135deg, #e44857, #7f52ff);
-}
-
-.card:nth-child(6n + 5) .badge {
-    background: linear-gradient(135deg, #c711e1, #7f52ff);
-}
-
-.card:nth-child(6n + 6) .badge {
-    background: linear-gradient(135deg, #e44857, #c711e1);
-}
-
-.cardTitle {
-    margin: 4px 0 0;
-}
-
-.cardText {
-    margin: 0;
 }

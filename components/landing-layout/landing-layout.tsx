@@ -34,6 +34,7 @@ export type LandingLayoutProps = {
     dataTestId?: string;
     canonical?: string;
     theme?: Theme;
+    footerTheme?: Theme;
     forceDarkTopMenu?: boolean;
     hideTopMenu?: boolean;
 } & NavigationProps;
@@ -46,6 +47,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
     dataTestId,
     canonical,
     theme = 'dark',
+    footerTheme = 'dark',
     forceDarkTopMenu = false,
     hideTopMenu = false,
     mobileOverview = true,
@@ -127,6 +129,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
                         <div className={styles.sticky} data-testid="top-menu">
                             <ThemeProvider theme={forceDarkTopMenu ? 'dark' : theme}>
                                 <TopMenu
+                                    key={router.asPath}
                                     className={styles.topMenu}
                                     homeUrl={navigationProps.topMenuHomeUrl}
                                     title={navigationProps.topMenuTitle}
@@ -148,8 +151,8 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
                 </div>
             </ThemeProvider>
 
-            <ThemeProvider theme="dark">
-                <GlobalFooter />
+            <ThemeProvider theme={footerTheme}>
+                <GlobalFooter className={cn({ [styles.footerLight]: footerTheme === 'light' })} />
             </ThemeProvider>
         </>
     );

@@ -1,0 +1,43 @@
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
+
+.section {
+    border-bottom: 1px solid #e6e6e8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #f8f8f9;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    background: #eee7fb;
+    color: #6b3dcc;
+}
+
+.title {
+    margin: 0;
+}
+
+.description {
+    margin: 16px 0 0;
+}
+
+@media (--ktl-tl-down) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+}

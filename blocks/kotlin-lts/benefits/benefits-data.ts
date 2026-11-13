@@ -1,23 +1,21 @@
-export type BenefitItem = {
-    title: string;
-    text: string;
-};
-
-export const BENEFIT_ITEMS: BenefitItem[] = [
+export const SUPPORT_OPTIONS = [
     {
-        title: 'Priority patching',
-        text: "Receive security fixes before vulnerabilities are publicly disclosed, so attackers won't have a chance to exploit them."
+        id: 'public',
+        title: 'Public security support',
+        points: [
+            'JVM standard library, starting with Kotlin 2.4.0.',
+            'An 18-month support window per release line.',
+            'Security fixes published through public release channels.',
+        ],
     },
     {
-        title: 'Private maintenance releases',
-        text: 'Patched artifacts available through a subscriber-only repository.'
+        id: 'commercial',
+        title: 'Commercial subscription',
+        points: [
+            'Targeted patches for covered components and release lines.',
+            'Private patch delivery and engineering validation.',
+            'Priority access for eligible security patches.',
+            'Agreed support terms and communication.',
+        ],
     },
-    {
-        title: 'Verified updates',
-        text: 'Every maintenance release validated by our engineering teams through full automated test suites and manual verification.'
-    },
-    {
-        title: 'Contractual SLAs',
-        text: 'Severity-based commitments for response and fix delivery.'
-    }
 ];

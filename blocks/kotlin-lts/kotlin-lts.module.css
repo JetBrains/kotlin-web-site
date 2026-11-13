@@ -1,28 +1,27 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
-
-/* Shared styles for the Kotlin LTS landing sections */
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 .section {
     padding: 96px 0;
-    scroll-margin-top: 72px;
-}
-
-@media (--ktl-ml-down) {
-    .section {
-        padding: 64px 0;
-    }
+    scroll-margin-top: 96px;
 }
 
 .light {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .soft {
     background-color: #f4f4f4;
 }
 
+.eyebrow {
+    margin: 0 0 20px;
+    color: #6b3dcc;
+}
+
 .title {
+    max-width: 800px;
     margin: 0;
+    text-wrap: balance;
 }
 
 .lead {
@@ -30,9 +29,8 @@
     margin: 24px 0 0;
 }
 
-.gradientText {
-    background: linear-gradient(90deg, #7f52ff 0%, #c711e1 50%, #e44857 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+@media (--ktl-ml-down) {
+    .section {
+        padding: 56px 0;
+    }
 }

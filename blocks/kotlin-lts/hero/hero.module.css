@@ -1,48 +1,37 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 120px 0 128px;
-    background-color: #19191c;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: auto -20% -60% -20%;
-    height: 120%;
-    background:
-        radial-gradient(40% 50% at 25% 60%, rgba(127, 82, 255, 0.45), transparent 70%),
-        radial-gradient(35% 45% at 60% 70%, rgba(199, 17, 225, 0.3), transparent 70%),
-        radial-gradient(30% 40% at 85% 55%, rgba(228, 72, 87, 0.28), transparent 70%);
-    filter: blur(20px);
-    pointer-events: none;
+    overflow: clip;
+    padding: 88px 0 96px;
+    background-color: #f5f2ff;
+    background-image: radial-gradient(ellipse at 82% 45%, #e0d5fa 0%, #efe8fd 45%, rgba(245, 242, 255, 0) 75%);
 }
 
 .content {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.copy {
     position: relative;
-}
-
-.eyebrow {
-    margin-bottom: 32px;
-}
-
-.eyebrow .dot {
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: linear-gradient(90deg, #7f52ff 0%, #c711e1 50%, #e44857 100%);
+    z-index: 1;
 }
 
 .title {
-    max-width: 900px;
     margin: 0;
+    font-size: 64px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
 }
 
-.lead {
-    max-width: 720px;
+.titleLine {
+    display: block;
+}
+
+.description {
+    max-width: 520px;
     margin: 28px 0 0;
 }
 
@@ -50,19 +39,172 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 48px;
+    margin-top: 36px;
+}
+
+.artwork {
+    position: relative;
+    height: 510px;
+    margin: -20px -120px -20px -8px;
+    pointer-events: none;
+}
+
+.heroImage {
+    position: absolute;
+    z-index: 1;
+    top: -125px;
+    left: 10px;
+    display: block;
+    width: 700px;
+    max-width: none;
+    height: auto;
+    transform: rotate(18deg);
+}
+
+.detailImage {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+.cubeImage {
+    top: -60px;
+    left: -24px;
+    width: 210px;
+    transform: rotate(-18deg);
+}
+
+.sphereImage {
+    z-index: 2;
+    bottom: -24px;
+    left: -60px;
+    width: 180px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .heroImage {
+        animation: triangleDrift 4.8s ease-in-out;
+    }
+
+    .cubeImage {
+        animation: cubeDrift 4.2s ease-in-out;
+    }
+
+    .sphereImage {
+        animation: sphereDrift 4.6s ease-in-out;
+    }
+}
+
+@keyframes triangleDrift {
+    0%, 100% {
+        transform: rotate(18deg);
+    }
+
+    50% {
+        transform: translate3d(0, -12px, 0) rotate(19deg);
+    }
+}
+
+@keyframes cubeDrift {
+    0%, 100% {
+        transform: rotate(-18deg);
+    }
+
+    50% {
+        transform: translate3d(8px, -12px, 0) rotate(-14deg);
+    }
+}
+
+@keyframes sphereDrift {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-8px, -14px, 0);
+    }
+}
+
+@media (--ktl-tl-down) {
+    .hero {
+        padding: 64px 0 72px;
+    }
+
+    .title {
+        font-size: 48px;
+        letter-spacing: -1px;
+    }
+
+    .artwork {
+        height: 440px;
+        margin-right: -100px;
+    }
+
+    .heroImage {
+        top: -20px;
+        left: 0;
+        width: 540px;
+    }
+
+    .cubeImage {
+        top: 0;
+        left: 16px;
+        width: 170px;
+    }
+
+    .sphereImage {
+        bottom: -20px;
+        left: -4px;
+        width: 140px;
+    }
 }
 
 @media (--ktl-ml-down) {
     .hero {
-        padding: 80px 0 88px;
+        padding: 48px 0 56px;
+    }
+
+    .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .title {
+        font-size: 44px;
+        line-height: 1.12;
     }
 
     .actions {
         flex-direction: column;
+        margin-top: 28px;
     }
 
     .button {
         width: 100%;
+    }
+
+    .artwork {
+        width: calc(100% + 40px);
+        height: 340px;
+        margin: 0 -20px -56px;
+    }
+
+    .heroImage {
+        top: -46px;
+        left: calc(50% - 160px);
+        width: 460px;
+    }
+
+    .cubeImage {
+        top: -16px;
+        left: calc(50% - 180px);
+        width: 140px;
+    }
+
+    .sphereImage {
+        bottom: 20px;
+        left: calc(50% - 160px);
+        width: 120px;
     }
 }

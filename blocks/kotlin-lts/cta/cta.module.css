@@ -1,34 +1,69 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 .cta {
-    position: relative;
     overflow: hidden;
-    background-color: #19191c;
-    text-align: center;
-}
-
-.cta::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #7f52ff 0%, #c711e1 50%, #e44857 100%);
+    background: #f0ebfb;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 32px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.copy {
+    position: relative;
+    z-index: 1;
 }
 
 .text {
-    max-width: 640px;
-    margin: 16px 0 40px;
+    max-width: 600px;
+    margin: 24px 0 32px;
+}
+
+.artwork {
+    position: absolute;
+    right: -120px;
+    bottom: -180px;
+    width: 600px;
+    pointer-events: none;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: rotate(-32deg);
+}
+
+@media (--ktl-tl-down) {
+    .content {
+        grid-template-columns: minmax(0, 1fr);
+        padding-bottom: 220px;
+    }
+
+    .artwork {
+        right: -64px;
+        bottom: -220px;
+        width: 500px;
+    }
 }
 
 @media (--ktl-ml-down) {
+    .content {
+        padding-top: 56px;
+        padding-bottom: 220px;
+    }
+
+    .artwork {
+        right: -96px;
+        bottom: -200px;
+        width: 420px;
+    }
+
     .button {
         width: 100%;
     }

@@ -1,45 +1,27 @@
-export type CoverageItem = {
-    id: string;
-    badge: string;
-    title: string;
-    text: string;
-};
-
-export const COVERAGE_ITEMS: CoverageItem[] = [
+export const COVERAGE_ITEMS = [
     {
         id: 'kotlin',
-        badge: 'K',
-        title: 'Kotlin compiler',
-        text: 'Compiler, standard library, and Gradle and Maven plugins.'
-    },
-    {
-        id: 'serialization',
-        badge: '{ }',
-        title: 'kotlinx.serialization',
-        text: 'Multiplatform serialization runtime and compiler plugin.'
+        title: 'Kotlin',
+        text: 'Compiler, standard library, and build plugins',
     },
     {
         id: 'kotlinx',
-        badge: 'kx',
         title: 'kotlinx libraries',
-        text: 'Coroutines, datetime, and other official kotlinx libraries.'
+        text: 'Including coroutines and serialization',
     },
     {
         id: 'ktor',
-        badge: 'Kt',
         title: 'Ktor',
-        text: 'Asynchronous server and client framework.'
+        text: 'Server and client components',
     },
     {
         id: 'exposed',
-        badge: 'Ex',
         title: 'Exposed',
-        text: 'Lightweight SQL library and ORM for Kotlin.'
+        text: 'Database access library',
     },
     {
         id: 'compose',
-        badge: 'C',
         title: 'Compose Multiplatform',
-        text: 'Declarative UI framework for Android, iOS, desktop, and web.'
-    }
-];
+        text: 'Platform and version scope to confirm',
+    },
+] as const;

@@ -1,0 +1,80 @@
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
+
+.banner {
+    padding: 32px 0;
+    background: #ede6fc;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) auto;
+    grid-template-areas: 'artwork copy action';
+    align-items: center;
+    gap: 32px;
+}
+
+.artwork {
+    grid-area: artwork;
+    pointer-events: none;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.copy {
+    grid-area: copy;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+}
+
+.title {
+    margin: 0;
+}
+
+.description {
+    max-width: 640px;
+    margin: 12px 0 0;
+}
+
+.action {
+    grid-area: action;
+    justify-self: start;
+}
+
+@media (--ktl-tl-down) {
+    .content {
+        grid-template-columns: 80px minmax(0, 1fr);
+        grid-template-areas: 'artwork copy' '. action';
+        gap: 24px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .content {
+        grid-template-columns: minmax(0, 1fr) 64px;
+        grid-template-areas: 'intro artwork' 'description description' 'action action';
+        gap: 20px;
+    }
+
+    .copy {
+        display: contents;
+    }
+
+    .intro {
+        grid-area: intro;
+    }
+
+    .description {
+        grid-area: description;
+        margin: 0;
+    }
+
+    .action {
+        width: 100%;
+    }
+}

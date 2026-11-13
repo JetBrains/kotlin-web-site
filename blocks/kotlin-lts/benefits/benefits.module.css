@@ -1,64 +1,133 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
-
-.note {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    max-width: 760px;
-    margin: 32px 0;
-    padding: 20px 24px;
-    border: 1px solid rgba(127, 82, 255, 0.3);
-    border-left: 4px solid #7f52ff;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-}
-
-.noteIcon {
-    flex: none;
-    margin-top: 2px;
-    color: #7f52ff;
-}
-
-.noteTitle {
-    margin: 0 0 4px;
-}
-
-.noteText {
-    margin: 0;
-}
+@import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
 .grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid #e6e6e8;
+    background: #fff;
+}
+
+.commercial {
+    border-color: #d9ccf5;
+}
+
+.cardHeader {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 240px;
+    margin: -32px -32px 0;
+    padding: 32px;
+    background: radial-gradient(ellipse at 90% 15%, #e0dce8 0%, #efedf4 50%, #f8f7fa 100%);
+}
+
+.commercial .cardHeader {
+    background: radial-gradient(ellipse at 90% 15%, #bca9f5 0%, #ded2fc 50%, #f1ebff 100%);
+}
+
+.artwork {
+    position: absolute;
+    top: -36px;
+    right: -20px;
+    width: 220px;
+    max-width: none;
+    height: auto;
+    transform: rotate(12deg);
+    pointer-events: none;
+}
+
+.commercial .artwork {
+    top: -48px;
+    right: -16px;
+}
+
+.commercial .icon {
+    color: #6b3dcc;
+}
+
+.cardTitle {
+    position: relative;
+    z-index: 1;
+    max-width: 320px;
+    margin: 0;
+}
+
+.cardBody {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 32px;
+}
+
+.points {
+    display: grid;
     gap: 24px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-@media (--ktl-ts-down) {
-    .grid {
-        grid-template-columns: minmax(0, 1fr);
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.icon {
+    flex: none;
+    margin-top: 3px;
+    color: #64646b;
+}
+
+.policyLink {
+    margin: auto 0 0;
+    padding-top: 32px;
+}
+
+@media (--ktl-ds-down) {
+    .cardHeader {
+        min-height: 228px;
+    }
+
+    .artwork {
+        top: -52px;
+        right: -36px;
+        width: 180px;
+    }
+
+    .commercial .artwork {
+        top: -56px;
+        right: -28px;
     }
 }
 
-.card {
-    background-color: #ffffff;
-}
+@media (--ktl-ml-down) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
 
-.num {
-    display: block;
-    margin-bottom: 20px;
-    color: #7f52ff;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-}
+    .card {
+        padding: 24px;
+    }
 
-.cardTitle {
-    margin: 0 0 12px;
-}
+    .cardHeader {
+        margin: -24px -24px 0;
+        padding: 24px;
+    }
 
-.cardText {
-    margin: 0;
+    .cardBody {
+        padding-top: 24px;
+    }
 }

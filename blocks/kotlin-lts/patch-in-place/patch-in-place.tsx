@@ -5,14 +5,13 @@ import { useTextStyles } from '@rescui/typography';
 
 import { CodeHighlight } from '@/components/code-highlight/code-highlight';
 import { SECTION_IDS } from '../constants';
-
 import shared from '../kotlin-lts.module.css';
 import styles from './patch-in-place.module.css';
 
 const CHECKLIST = [
     'Minimal, targeted changes on top of your current version',
     'Drop-in artifacts from a subscriber-only repository',
-    'Direct notifications when a security fix is available'
+    'Direct notifications when a security fix is available',
 ];
 
 const CODE_SAMPLE = `// settings.gradle.kts
@@ -37,11 +36,16 @@ export const PatchInPlace: FC = () => {
     const textCn = useTextStyles();
 
     return (
-        <section id={SECTION_IDS.how} className={cn(shared.section, shared.light)} data-testid="lts-how">
+        <section
+            id={SECTION_IDS.how}
+            aria-labelledby="lts-how-title"
+            className={cn(shared.section, shared.light)}
+            data-testid="lts-how"
+        >
             <div className={cn('ktl-layout', 'ktl-layout--center', styles.split)}>
                 <div>
-                    <h2 className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-how-title">
-                        Patch in place
+                    <h2 id="lts-how-title" className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-how-title">
+                        Targeted Patches in Your Workflow
                     </h2>
                     <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), shared.lead)}>
                         Point your build at the subscriber repository and pick up maintenance releases of the version
@@ -49,7 +53,7 @@ export const PatchInPlace: FC = () => {
                     </p>
 
                     <ul className={styles.checklist}>
-                        {CHECKLIST.map(item => (
+                        {CHECKLIST.map((item) => (
                             <li key={item} className={cn(textCn('rs-text-1'), styles.checkItem)}>
                                 <span className={styles.checkIcon} aria-hidden="true">
                                     <CheckIcon size="s" />
