@@ -12,7 +12,6 @@ import { buildPage, buildSiteIndex, findPageId, summarizeWarnings } from '../../
 import { getCanonicalUrl } from '../../utils/site-config';
 
 import '../../components/cms/styles/page.css';
-import '../../components/cms/styles/grid.css';
 import '../../components/cms/styles/themes.css';
 import '../../components/cms/styles/callouts.css';
 import '../../components/cms/styles/gallery.css';
@@ -73,7 +72,7 @@ export default function CmsPage({ page, css, isDev }: CmsPageProps) {
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
             <DevProvider isDev={isDev}>
-                <div className="nw-page">
+                <div className="nw-page ktl-layout-to-2">
                     <Blocks nodes={page.nodes} />
                 </div>
             </DevProvider>

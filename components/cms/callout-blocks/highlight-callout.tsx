@@ -25,7 +25,9 @@ export function HighlightCallout({ node, children }: { node: SectionNode; childr
     return (
         <ThemeProvider theme={node.scheme}>
             <section id={`b-${node.id}`} className={className} style={style}>
-                <div className="nw-container">{children}</div>
+                <div className="ktl-layout ktl-layout--center">
+                    <div className="nw-container ktl-container">{children}</div>
+                </div>
             </section>
         </ThemeProvider>
     );

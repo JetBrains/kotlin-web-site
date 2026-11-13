@@ -10,7 +10,9 @@ export function Section({ node, children }: { node: SectionNode; children: React
     return (
         <ThemeProvider theme={node.scheme}>
             <section id={node.implicit ? undefined : `b-${node.id}`} className={className}>
-                <div className="nw-container">{children}</div>
+                <div className="ktl-layout ktl-layout--center">
+                    <div className="nw-container ktl-container">{children}</div>
+                </div>
             </section>
         </ThemeProvider>
     );
