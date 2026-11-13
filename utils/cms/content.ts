@@ -10,6 +10,16 @@ export type RichText = {
     href?: string;
 }[];
 
+/**
+ * Banner background images of one image-based call-out color, read from the page's
+ * `<COLOR> L/M/S Banner` properties: one image per breakpoint size.
+ */
+export interface CalloutBanners {
+    large?: string;
+    medium?: string;
+    small?: string;
+}
+
 export type ContentNode = { id: string } & (
     | {
           kind: 'section';
@@ -17,6 +27,15 @@ export type ContentNode = { id: string } & (
           scheme: 'light' | 'dark';
           hero: boolean;
           implicit?: true;
+          banners?: CalloutBanners;
+          children: ContentNode[];
+      }
+    | {
+          /** A call-out nested inside another one: rendered as a card that keeps its background to itself. */
+          kind: 'callout';
+          theme: ThemeName;
+          scheme: 'light' | 'dark';
+          banners?: CalloutBanners;
           children: ContentNode[];
       }
     | { kind: 'heading'; level: 1 | 2 | 3 | 4; text: RichText }
@@ -27,6 +46,7 @@ export type ContentNode = { id: string } & (
     | { kind: 'divider' }
     | { kind: 'gallery'; views: GalleryView[] }
     | { kind: 'accordion'; items: AccordionItem[] }
+    | { kind: 'list'; ordered: boolean; items: ListItem[] }
     | { kind: 'unsupported'; blockType: string; notionUrl: string }
 );
 
@@ -56,6 +76,13 @@ export interface GalleryView {
 export interface AccordionItem {
     id: string;
     title: RichText;
+    children: ContentNode[];
+}
+
+/** One bulleted or numbered list item; nested blocks (including sublists) are its children. */
+export interface ListItem {
+    id: string;
+    text: RichText;
     children: ContentNode[];
 }
 

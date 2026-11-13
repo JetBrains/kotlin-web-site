@@ -2,13 +2,15 @@ import React from 'react';
 import type { ContentNode } from '../../utils/cms/content';
 import { CmsAccordion } from './accordion';
 import { CmsButton } from './button';
+import { CalloutCard } from './callout-blocks/callout-card';
+import { CalloutSection } from './callout-blocks/callout-section';
 import { Gallery } from './gallery';
 import { Grid } from './grid';
 import { Heading } from './heading';
+import { List } from './list';
 import { Paragraph } from './paragraph';
 import { Placeholder } from './placeholder';
 import { RichTextView } from './rich-text';
-import { Section } from './section';
 
 /** Renders the normalized CMS content tree. Every element keeps its Notion block id as `b-<id>` for custom CSS. */
 export function Blocks({ nodes, hero = false }: { nodes: ContentNode[]; hero?: boolean }) {
@@ -18,14 +20,22 @@ export function Blocks({ nodes, hero = false }: { nodes: ContentNode[]; hero?: b
                 switch (node.kind) {
                     case 'section':
                         return (
-                            <Section key={node.id} node={node}>
+                            <CalloutSection key={node.id} node={node}>
                                 <Blocks nodes={node.children} hero={node.hero} />
-                            </Section>
+                            </CalloutSection>
+                        );
+                    case 'callout':
+                        return (
+                            <CalloutCard key={node.id} node={node}>
+                                <Blocks nodes={node.children} hero={hero} />
+                            </CalloutCard>
                         );
                     case 'heading':
                         return <Heading key={node.id} node={node} hero={hero} />;
                     case 'paragraph':
                         return <Paragraph key={node.id} node={node} />;
+                    case 'list':
+                        return <List key={node.id} node={node} hero={hero} />;
                     case 'grid':
                         return <Grid key={node.id} node={node} hero={hero} />;
                     case 'button':

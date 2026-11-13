@@ -7,17 +7,18 @@ import { Blocks } from '../../components/cms/blocks';
 import { DevProvider } from '../../components/cms/dev-context';
 import type { NormalizedPage } from '../../utils/cms/content';
 import { stylesheetFor } from '../../utils/cms/custom-css';
-import { mockDataSource } from '../../utils/cms/data-source';
+import { localDataSource } from '../../utils/cms/data-source';
 import { buildPage, buildSiteIndex, findPageId, summarizeWarnings } from '../../utils/cms/page-data';
 import { getCanonicalUrl } from '../../utils/site-config';
 
 import '../../components/cms/styles/page.css';
 import '../../components/cms/styles/grid.css';
 import '../../components/cms/styles/themes.css';
+import '../../components/cms/styles/callouts.css';
 import '../../components/cms/styles/gallery.css';
 
-// Pages are generated from mock data in `data/pages/` until a real CMS source replaces `mockDataSource`.
-const dataSource = mockDataSource;
+// Pages are generated from the Notion sync output in `data/cms/` until a real CMS source replaces `localDataSource`.
+const dataSource = localDataSource;
 
 interface CmsPageProps {
     page: NormalizedPage;
@@ -25,14 +26,14 @@ interface CmsPageProps {
     isDev: boolean;
 }
 
-type CmsPageParams = { slug: string };
+type CmsPageParams = { slug: string[] };
 
 export const getStaticPaths: GetStaticPaths<CmsPageParams> = async () => {
     const site = await buildSiteIndex(dataSource);
-    for (const warning of site.warnings) console.warn(`[cms] ${warning.message} (${warning.notionUrl})`);
+    for (const warning of site.warnings) console.warn(`[cms] ${warning.message} (${warning.notionUrl ?? warning.pageId})`);
 
     return {
-        paths: Object.values(site.pages).map(({ slug }) => ({ params: { slug } })),
+        paths: Object.values(site.pages).map(({ segments }) => ({ params: { slug: segments } })),
         fallback: false,
     };
 };

@@ -11,14 +11,21 @@
 }
 
 .nw-page {
-    color: #19191c;
+    /* Default font colour of the Notion styling spec: dark purple. */
+    color: #180e31;
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 50vh;
 }
 
-/* Text without a rescui style (e.g. dev placeholders) must stay readable on dark sections. */
-.nw-theme-purple,
-.nw-theme-red,
-.nw-theme-pink {
-    color: #fff;
+.nw-list {
+    margin: 0;
+    padding-left: 1.5em;
+}
+
+.nw-list-item + .nw-list-item {
+    margin-top: 0.25em;
+}
+
+.nw-list-item > .nw-list {
+    margin-top: 0.25em;
 }

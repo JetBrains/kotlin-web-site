@@ -1,4 +1,5 @@
-import type { AccordionItem, ContentNode, CustomCss, NormalizedPage, RichText } from './content';
+import type { AccordionItem, CalloutBanners, ContentNode, CustomCss, ListItem, NormalizedPage, RichText } from './content';
+import { calloutBanners } from './banners';
 import { mapGallery } from './gallery';
 import { isHidden } from './notion/hidden';
 import {
@@ -11,7 +12,7 @@ import {
     unwrap,
 } from './notion/record';
 import type { SiteIndex, SitePage, Warning } from './site';
-import { themeFor } from './themes';
+import { themeFor, type ThemeName } from './themes';
 
 type NormalizeContext = {
     recordMap: NotionRecordMap;
@@ -20,6 +21,8 @@ type NormalizeContext = {
     assets: Record<string, string>;
     customCss: CustomCss[];
     warnings: Warning[];
+    /** Page-wide banner images per image-based call-out theme, from the page's `<COLOR> L/M/S Banner` properties. */
+    banners: Partial<Record<ThemeName, CalloutBanners>>;
 };
 
 const headingLevels: Record<string, 1 | 2 | 3 | 4> = {
@@ -138,11 +141,14 @@ function unsupported(
     };
 }
 
-function groupAccordions(nodes: ContentNode[]): ContentNode[] {
+/** Notion stores every toggle and list item as its own block: merge adjacent ones into one accordion / list. */
+function groupSiblings(nodes: ContentNode[]): ContentNode[] {
     const grouped: ContentNode[] = [];
     for (const node of nodes) {
         const previous = grouped[grouped.length - 1];
         if (node.kind === 'accordion' && previous?.kind === 'accordion') {
+            grouped[grouped.length - 1] = { ...previous, items: [...previous.items, ...node.items] };
+        } else if (node.kind === 'list' && previous?.kind === 'list' && previous.ordered === node.ordered) {
             grouped[grouped.length - 1] = { ...previous, items: [...previous.items, ...node.items] };
         } else {
             grouped.push(node);
@@ -152,9 +158,9 @@ function groupAccordions(nodes: ContentNode[]): ContentNode[] {
 }
 
 function mapChildren(block: Record<string, any>, context: NormalizeContext): ContentNode[] {
-    return groupAccordions(
+    return groupSiblings(
         childIds(block)
-            .map((childId) => mapBlock(childId, context, false))
+            .map((childId) => mapBlock(childId, context))
             .filter((node): node is ContentNode => node !== undefined)
     );
 }
@@ -209,10 +215,10 @@ function mapColumnList(block: Record<string, any>, blockId: string, context: Nor
                 column?.type === 'column'
                     ? mapChildren(column, context)
                     : column
-                    ? [mapBlock(column.id ?? id, context, false)].filter(
+                    ? [mapBlock(column.id ?? id, context)].filter(
                           (node): node is ContentNode => node !== undefined
                       )
-                    : [mapBlock(id, context, false)].filter((node): node is ContentNode => node !== undefined),
+                    : [mapBlock(id, context)].filter((node): node is ContentNode => node !== undefined),
         })),
     };
 }
@@ -266,6 +272,15 @@ function mapAccordionItem(block: Record<string, any>, blockId: string, context: 
     return { id: blockId, kind: 'accordion', items: [item] };
 }
 
+function mapListItem(block: Record<string, any>, blockId: string, context: NormalizeContext): ContentNode {
+    const item: ListItem = {
+        id: blockId,
+        text: richTextForBlock(block, blockId, context),
+        children: mapChildren(block, context),
+    };
+    return { id: blockId, kind: 'list', ordered: block.type === 'numbered_list', items: [item] };
+}
+
 function mapCollectionView(block: Record<string, any>, blockId: string, context: NormalizeContext): ContentNode {
     const result = mapGallery(block, blockId, {
         recordMap: context.recordMap,
@@ -290,7 +305,7 @@ function imageSource(value: unknown): string {
     return plainText(value);
 }
 
-function mapBlock(blockIdInput: string, context: NormalizeContext, topLevelCallout: boolean): ContentNode | undefined {
+function mapBlock(blockIdInput: string, context: NormalizeContext): ContentNode | undefined {
     const block = getBlock(context.recordMap, blockIdInput);
     const blockId = block?.id ?? blockIdInput;
 
@@ -331,6 +346,9 @@ function mapBlock(blockIdInput: string, context: NormalizeContext, topLevelCallo
             return { id: blockId, kind: 'divider' };
         case 'toggle':
             return mapAccordionItem(block, blockId, context);
+        case 'bulleted_list':
+        case 'numbered_list':
+            return mapListItem(block, blockId, context);
         case 'collection_view':
             return mapCollectionView(block, blockId, context);
         case 'code':
@@ -344,9 +362,20 @@ function mapBlock(blockIdInput: string, context: NormalizeContext, topLevelCallo
                 );
             }
             return unsupported(blockId, 'code', context);
-        case 'callout':
-            if (!topLevelCallout) return unsupported(blockId, 'callout', context, 'nested-callout');
-            return undefined;
+        case 'callout': {
+            // Only reached for call-outs nested inside other blocks: the background is kept to the card.
+            const theme = themeFor(block.format?.block_color);
+            if (theme.warning) warning(context, 'unknown-theme-color', theme.warning, blockId);
+            const banners = context.banners[theme.theme];
+            return {
+                id: blockId,
+                kind: 'callout',
+                theme: theme.theme,
+                scheme: theme.scheme,
+                ...(banners ? { banners } : {}),
+                children: mapChildren(block, context),
+            };
+        }
         default:
             return unsupported(blockId, typeof block.type === 'string' ? block.type : 'unknown', context);
     }
@@ -367,7 +396,16 @@ export function normalizePage(recordMap: NotionRecordMap, pageId: string, site: 
         assets: site.assets,
         customCss: [],
         warnings: [],
+        banners: {},
     };
+    for (const theme of ['red', 'orange', 'yellow', 'green'] as const) {
+        const banners = calloutBanners(theme, root, {
+            recordMap,
+            assets: site.assets,
+            warn: (code, message, blockId) => warning(context, code, message, blockId),
+        });
+        if (banners) context.banners[theme] = banners;
+    }
     const nodes: ContentNode[] = [];
     let pending: ContentNode[] = [];
     let pendingId: string | undefined;
@@ -382,7 +420,7 @@ export function normalizePage(recordMap: NotionRecordMap, pageId: string, site: 
             scheme: 'light',
             hero: false,
             implicit: true,
-            children: groupAccordions(pending),
+            children: groupSiblings(pending),
         });
         pending = [];
         pendingId = undefined;
@@ -402,6 +440,7 @@ export function normalizePage(recordMap: NotionRecordMap, pageId: string, site: 
             flushImplicitSection();
             const theme = themeFor(block.format?.block_color);
             if (theme.warning) warning(context, 'unknown-theme-color', theme.warning, blockId);
+            const banners = context.banners[theme.theme];
             const children = mapChildren(block, context);
             nodes.push({
                 id: blockId,
@@ -409,13 +448,14 @@ export function normalizePage(recordMap: NotionRecordMap, pageId: string, site: 
                 theme: theme.theme,
                 scheme: theme.scheme,
                 hero: !heroFound,
+                ...(banners ? { banners } : {}),
                 children,
             });
             heroFound = true;
             continue;
         }
 
-        const node = mapBlock(childId, context, false);
+        const node = mapBlock(childId, context);
         if (!node) continue;
         if (!pending.length) pendingId = node.id;
         pending.push(node);

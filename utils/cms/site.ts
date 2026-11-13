@@ -7,7 +7,10 @@ export interface Warning {
 }
 
 export interface SitePage {
-    slug: string;
+    /** Id of the synced root page this page belongs to. */
+    siteId: string;
+    /** Route segments below `/pages/`, e.g. `['kotlin-home', 'get-started']`. */
+    segments: string[];
     path: string;
     title: string;
     meta?: {

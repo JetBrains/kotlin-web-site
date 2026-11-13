@@ -1,0 +1,57 @@
+{
+  "rootId": "effbf306-5162-8213-a23b-81fc8a079faa",
+  "sourceUrl": "https://www.notion.so/effbf30651628213a23b81fc8a079faa",
+  "syncedAt": "2026-11-11T13:47:51.799Z",
+  "durationMs": 7231,
+  "requestCount": 23,
+  "pages": {
+    "effbf306-5162-8213-a23b-81fc8a079faa": {
+      "slug": "",
+      "path": "/",
+      "title": "Kotlin Home - Website Prototype",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    },
+    "e90bf306-5162-825e-af39-8193139d4dfa": {
+      "slug": "kot-get-started",
+      "path": "/kot-get-started/",
+      "title": "KOT-Get Started",
+      "depth": 1,
+      "reasons": [
+        "button \"Get Started\" on /",
+        "button \"Get Started\" on /kot-explore/"
+      ]
+    },
+    "fc0bf306-5162-8267-aff6-01d9d5635834": {
+      "slug": "kot-explore",
+      "path": "/kot-explore/",
+      "title": "KOT-Explore",
+      "depth": 1,
+      "reasons": [
+        "button \"Explore\" on /",
+        "button \"sdfsdf\" on /"
+      ]
+    }
+  },
+  "assets": {
+    "attachment:6b5b10e6-1e1c-49e7-82e7-5a0f0028c3c3:image_(6).png": "/notion-assets/be43d03ea774.png",
+    "attachment:f408d36b-2c6d-41b8-bc7d-6fa5234e7b61:1609-new-starling-logo.png": "/notion-assets/03ebaeadd52a.png",
+    "attachment:1eb87059-3480-4dc5-9081-6f06647f77aa:Kotlin_at.png": "/notion-assets/8b2222b213e8.png",
+    "attachment:147d53ec-a698-4265-a49a-2dbdd6ee5a48:flo-600x400.png": "/notion-assets/f9f73be34059.png",
+    "attachment:60654717-70f2-4e90-bd98-0c10ae2cffa5:Screenshot_2026-08-07_at_14.27.07.png": "/notion-assets/798741396ecb.png",
+    "attachment:8666a4b4-8498-4aa0-8df2-372f5a226f96:X-chat-built-in-Kotlin-and-Kotlin-Multiplatform.png": "/notion-assets/49c50859c2a8.png",
+    "attachment:e530a14b-af67-4234-b62e-3f20397a6856:KotlinLLM_(2).png": "/notion-assets/57dceb0ba41d.png",
+    "attachment:2075474f-366e-42ff-a3ca-83b5c3689ae9:vilnius-kotlin-meetup-community_(1).png": "/notion-assets/9f84fb448eb7.png"
+  },
+  "warnings": [
+    {
+      "code": "hidden-block-skipped",
+      "message": "Skipped hidden block and its children: 🎛 Control panel (This is hidden from our site)",
+      "pageId": "effbf306-5162-8213-a23b-81fc8a079faa",
+      "blockId": "3e3bf306-5162-8247-8109-819f399ef99a",
+      "notionUrl": "https://www.notion.so/3e3bf306516282478109819f399ef99a"
+    }
+  ]
+}

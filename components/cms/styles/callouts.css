@@ -1,0 +1,128 @@
+/*
+ * Call-out templates of the CMS pages: pairs 1–4 of the Notion styling spec.
+ * Global (not CSS Modules) on purpose: the `nw-*` class names are a contract that
+ * custom CSS authored in Notion targets, so they must not be hashed.
+ */
+
+.nw-page {
+    /* 2a-white-callout-highlight-bg-colour */
+    --nw-callout-gray-bg: #fefefe;
+    /* 2b-purple-callout-highlight-bg-colour */
+    --nw-callout-purple-bg: linear-gradient(to bottom, rgba(246, 243, 254, 1) 0%, rgba(246, 243, 254, 0.4) 100%);
+    /* 3-callout-highlight-bg-colour — shown when a page sets no YELLOW/GREEN banners; provisional value
+       until the spec details this token. */
+    --nw-callout-highlight-bg: #f6f3fe;
+    /* 4-callout-highlight-bg-colour — default background of BLUE/PINK custom sections; provisional
+       value until the spec details this token. */
+    --nw-callout-custom-bg: #f6f3fe;
+    /* Default hero banner shown while a page sets no `<COLOR> L/M/S Banner` properties:
+       the hero graphics of the /backend/ landing page, on a transparent background. */
+    --nw-hero-default-banner: url('/images/cms/banners/hero-graphics.webp');
+    /* Light readability shade over the page's `<COLOR> L/M/S Banner` images: strongest where the
+       copy sits, letting the banner show through at the other edge so dark copy stays readable in
+       light mode. The default hero graphic does not use it — see the placement rule below. */
+    --nw-hero-shade: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.55) 100%);
+}
+
+/*
+ * Banner images from the page's `<COLOR> L/M/S Banner` properties. The components set them per
+ * element as `--nw-banner-l/m/s`; these rules pick the image per breakpoint. Sizes that the page
+ * does not set already fell back to the next one in `banner-style.ts`.
+ */
+.nw-callout-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nw-hero-callout.nw-callout-banner,
+.nw-callout-card.nw-hero-shade.nw-callout-banner {
+    background-image: var(--nw-hero-shade), var(--nw-banner-m);
+}
+
+.nw-highlight-callout.nw-callout-banner,
+.nw-callout-card.nw-callout-banner {
+    background-image: var(--nw-banner-m);
+}
+
+@media (min-width: 1920px) {
+    .nw-hero-callout.nw-callout-banner,
+    .nw-callout-card.nw-hero-shade.nw-callout-banner {
+        background-image: var(--nw-hero-shade), var(--nw-banner-l, var(--nw-banner-m));
+    }
+
+    .nw-highlight-callout.nw-callout-banner,
+    .nw-callout-card.nw-callout-banner {
+        background-image: var(--nw-banner-l, var(--nw-banner-m));
+    }
+}
+
+@media (max-width: 768px) {
+    .nw-hero-callout.nw-callout-banner,
+    .nw-callout-card.nw-hero-shade.nw-callout-banner {
+        background-image: var(--nw-hero-shade), var(--nw-banner-s, var(--nw-banner-m));
+    }
+
+    .nw-highlight-callout.nw-callout-banner,
+    .nw-callout-card.nw-callout-banner {
+        background-image: var(--nw-banner-s, var(--nw-banner-m));
+    }
+}
+
+/* Hero call-outs keep dark copy over their light shade; so do red/orange cards. */
+.nw-hero-callout,
+.nw-callout-card.nw-hero-shade {
+    color: #180e31;
+}
+
+/* A nested red/orange call-out without page banners keeps the default hero banner inside the card. */
+.nw-callout-card.nw-hero-shade:not(.nw-callout-banner) {
+    background-color: #f6f3fe;
+    background-image: var(--nw-hero-shade), var(--nw-hero-default-banner);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
+ * The default hero banner is placed like its source, the /backend/ page hero — a 1000px square,
+ * horizontally centered and shifted right, with its top edge 140px above the section; the
+ * section clips it — then moved 250px further right: 450px below 768px, 640px above. Its
+ * transparent background composites straight onto the white section without the readability
+ * shade, so the graphic keeps its full contrast. Page-set banners keep the cover fit and
+ * the shade above.
+ */
+.nw-hero-callout:not(.nw-callout-banner) {
+    background-image: var(--nw-hero-default-banner);
+    background-position: calc(50% + 450px) -140px;
+    background-size: 1000px 1000px;
+}
+
+@media (min-width: 768px) {
+    .nw-hero-callout:not(.nw-callout-banner) {
+        background-position: calc(50% + 640px) -140px;
+    }
+}
+
+/* Call-out copy is left-aligned unless the color's template centers it (ORANGE and GREEN). */
+.nw-callout {
+    text-align: left;
+}
+
+.nw-align-center {
+    text-align: center;
+}
+
+/* A call-out nested inside another one renders as a card: its background is kept to the card. */
+.nw-callout-card {
+    border-radius: 16px;
+    margin: 24px 0;
+    padding: 32px;
+}
+
+@media (max-width: 640px) {
+    .nw-callout-card {
+        border-radius: 12px;
+        padding: 24px;
+    }
+}

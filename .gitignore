@@ -52,6 +52,7 @@ generated
 /playwright-report
 
 public/data
+public/cms
 test/storage-state.json
 
 

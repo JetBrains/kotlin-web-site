@@ -2,7 +2,7 @@ import { type NotionRecordMap, unwrap } from './record';
 
 // Reading database-row properties by their schema name (e.g. `meta:canonical:url`).
 
-function collectionSchema(block: Record<string, any>, recordMap: NotionRecordMap): Record<string, any> {
+export function collectionSchema(block: Record<string, any>, recordMap: NotionRecordMap): Record<string, any> {
     if (block.parent_table !== 'collection' || !block.parent_id) return {};
     return unwrap<Record<string, any>>(recordMap.collection?.[block.parent_id])?.schema ?? {};
 }

@@ -7,27 +7,46 @@
     background: #fff;
 }
 
+/* Pair 2 — common core sections. */
 .nw-theme-gray {
-    background: #f5f5f7;
+    background: var(--nw-callout-gray-bg);
 }
 
 .nw-theme-purple {
-    background: linear-gradient(120deg, #19133f 0%, #25145c 48%, #5426a8 100%);
+    background: var(--nw-callout-purple-bg);
 }
 
-.nw-theme-red {
-    background: #e7445f;
+/* Pair 3 — highlight sections: the page's banner images when set (see callouts.css), otherwise this colour. */
+.nw-theme-yellow,
+.nw-theme-green {
+    background: var(--nw-callout-highlight-bg);
 }
 
+/* Pair 4 — custom sections: styled per request, this default background until then. */
+.nw-theme-blue,
 .nw-theme-pink {
-    background: #d92f83;
+    background: var(--nw-callout-custom-bg);
+}
+
+/* Pair 1 — hero sections: the page's banner images when set (see callouts.css), laid under the
+   light readability shade so the dark copy stays readable; otherwise the default hero graphic
+   at full strength on a white background (see the placement rule in callouts.css). */
+.nw-theme-red,
+.nw-theme-orange {
+    background-color: #fff;
+    background-image: var(--nw-hero-shade), var(--nw-hero-default-banner);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #180e31;
 }
 
 .nw-theme-fallback {
     background: #fff;
 }
 
-.nw-hero {
+.nw-hero,
+.nw-hero-callout {
     padding: 112px 0 96px;
 }
 
@@ -100,7 +119,8 @@
         padding: 48px 0;
     }
 
-    .nw-hero {
+    .nw-hero,
+    .nw-hero-callout {
         padding: 72px 0 56px;
     }
 
