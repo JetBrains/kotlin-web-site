@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-objects/FlyingSkateboardTest.kt
+  - type: not-and
+    title: "Complete the FlyingSkateboard object declaration"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'FlyingSkateboard'"
+      - type: source-not-matches
+        value: '\bobject\s+FlyingSkateboard\b'
+    message: "The starter starts the declaration with `object // Write your code here`, so `FlyingSkateboard` doesn't exist yet: implement the `name` property and the `move()` function of the `Vehicle` interface, and add the extra `fly()` function, like `object FlyingSkateboard : Vehicle { ... }`. See [Object declarations](https://kotlinlang.org/docs/kotlin-tour-intermediate-objects.html#object-declarations)."

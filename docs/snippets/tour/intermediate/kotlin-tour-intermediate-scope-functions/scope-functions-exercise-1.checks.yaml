@@ -1,0 +1,13 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-scope-functions/GetPriceInEurosTest.kt
+  - type: and
+    title: "Rewrite the function as a single expression with let"
+    checks:
+      - type: source-matches
+        value: '\?\.'
+      - type: source-matches
+        value: '\blet\s*[\({]'
+      - type: source-matches
+        value: '\bfun\s+[\w.]*getPriceInEuros\s*\([^)]*\)\s*(:\s*[\w?.\s]+)?='
+    message: "Rewrite the function as a single expression with an `=` body: chain safe calls and [`let`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#let) instead of `if` checks, like `fun greeting(): String? = getName()?.let { it.uppercase() }`."

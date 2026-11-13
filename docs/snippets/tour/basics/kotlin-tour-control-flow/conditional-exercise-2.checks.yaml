@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-control-flow/ControlFlowConditionalExercise2Test.kt
+  - type: source-matches
+    title: "Map the buttons with a when expression"
+    value: '\bwhen\s*[\({]'
+    message: "Map the buttons with a [`when` expression](https://kotlinlang.org/docs/kotlin-tour-control-flow.html#when) on `button`, with an `else` branch for the unknown buttons, like `when (hour) { 9 -> \"open\"; else -> \"closed\" }`."

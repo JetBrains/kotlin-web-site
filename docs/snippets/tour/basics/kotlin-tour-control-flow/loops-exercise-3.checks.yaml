@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise3Test.kt
+  - type: and
+    title: "Pick the words with a for loop and an if condition"
+    checks:
+      - type: source-matches
+        value: '\bfor\s*\('
+      - type: source-matches
+        value: '\bif\s*\('
+    message: "Pick the words with a [`for` loop](https://kotlinlang.org/docs/kotlin-tour-control-flow.html#for) over the list and an `if` condition inside it, like `for (city in cities) if (city.length > 5) println(city)`."

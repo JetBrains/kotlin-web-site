@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-objects/UserTest.kt
+  - type: not-and
+    title: "Add a companion object with isValidEmail"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'isValidEmail'"
+      - type: source-not-matches
+        value: '\bcompanion\s+object\b'
+    message: "`main()` calls `User.isValidEmail(email)` directly on the class, but the `User` class has no such member: declare the function in a [companion object](https://kotlinlang.org/docs/kotlin-tour-intermediate-objects.html#companion-objects), like `companion object { fun isValidEmail(email: String): Boolean = email.contains('@') && email.contains('.') }`."

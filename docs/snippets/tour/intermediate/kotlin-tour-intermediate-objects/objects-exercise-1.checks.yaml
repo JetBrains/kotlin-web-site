@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-objects/OrderTwoTest.kt
+  - type: not-and
+    title: "Complete the OrderTwo data object"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'OrderTwo'"
+      - type: source-not-matches
+        value: '\bobject\s+OrderTwo\b'
+    message: "The starter starts the second declaration with `data object // Write your code here`, so `OrderTwo` doesn't exist yet: declare it the way `OrderOne` is declared, implementing the `Order` interface, like `data object OrderTwo : Order { override val orderId = \"002\" ... }`. See [Object declarations](https://kotlinlang.org/docs/kotlin-tour-intermediate-objects.html#object-declarations)."

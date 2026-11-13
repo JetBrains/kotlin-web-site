@@ -196,7 +196,7 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" validate="false" id="kotlin-tour-objects-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-objects/objects-exercise-1.checks.yaml" id="kotlin-tour-objects-exercise-1"}
 
 ```kotlin
 interface Order {
@@ -239,7 +239,7 @@ fun main() {
     // Do the orders have the same customer name? false
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/OrderTwoTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
+{solution="true" id="kotlin-tour-objects-solution-1"}
 
 </def>
 <def title="Create an object declaration" id="objects-exercise-2">
@@ -263,7 +263,7 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" validate="false" id="kotlin-tour-objects-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-objects/objects-exercise-2.checks.yaml" id="kotlin-tour-objects-exercise-2"}
 
 ```kotlin
 interface Vehicle {
@@ -285,7 +285,7 @@ fun main() {
     // Flying Skateboard: Woooooooo
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/FlyingSkateboardTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
+{solution="true" id="kotlin-tour-objects-solution-2"}
 
 </def>
 <def title="Validate an email address before creating a user" id="objects-exercise-3">
@@ -295,12 +295,6 @@ class but don't want to create an unnecessary `User` instance if the email addre
 
 For this exercise, consider an email address valid if it contains both `@` and `.`. Complete the data class so that the
 following code in the `main()` function runs successfully:
-
-<deflist collapsible="true">
-    <def title="Hint">
-        Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
-    </def>
-</deflist>
 
 ```kotlin
 data class User(val name: String, val email: String) {
@@ -325,7 +319,10 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" validate="false" id="kotlin-tour-objects-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-objects/objects-exercise-3.checks.yaml" id="kotlin-tour-objects-exercise-3"}
+
+> Add an email validation function in a companion object for the `User` class so that you can call the function directly on `User`.
+{style="hint"}
 
 ```kotlin
 data class User(val name: String, val email: String) {
@@ -353,7 +350,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/UserTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
+{solution="true" id="kotlin-tour-objects-solution-3"}
 
 > As an extension of this exercise, try using functions in companion objects as factory methods to construct
 > instances of a class. For an example and more information about this pattern, see [](object-declarations.md#companion-objects).

@@ -123,7 +123,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IsPositiveTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-extension-functions/extension-functions-exercise-1.checks.yaml" id="kotlin-tour-extension-functions-exercise-1"}
 
 ```kotlin
 fun Int.isPositive(): Boolean = this > 0
@@ -133,19 +133,12 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/IsPositiveTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
+{solution="true" id="kotlin-tour-extension-functions-solution-1"}
 
 </def>
 <def title="Convert a string to lowercase" id="extension-functions-exercise-2">
 
 Write an extension function called `toLowercaseString` that takes a string and returns a lowercase version.
-
-<deflist collapsible="true">
-    <def title="Hint">
-        Use the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html"> <code>.lowercase()</code>
-        </a> function for the <code>String</code> type. 
-    </def>
-</deflist>
 
 ```kotlin
 fun // Write your code here
@@ -155,7 +148,10 @@ fun main() {
     // hello world!
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ToLowercaseStringTest.kt" validate="false" id="kotlin-tour-extension-functions-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/intermediate/kotlin-tour-intermediate-extension-functions/extension-functions-exercise-2.checks.yaml" id="kotlin-tour-extension-functions-exercise-2"}
+
+> Use the [`.lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function for the `String` type.
+{style="hint"}
 
 ```kotlin
 fun String.toLowercaseString(): String = this.lowercase()
@@ -165,7 +161,7 @@ fun main() {
     // hello world!
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/intermediate/ToLowercaseStringTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
+{solution="true" id="kotlin-tour-extension-functions-solution-2"}
 
 </def>
 </deflist>

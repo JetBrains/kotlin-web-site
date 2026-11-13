@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-open-special-classes/DeliveryStatusTest.kt
+  - type: not-and
+    title: "Complete the DeliveryStatus sealed class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'DeliveryStatus'"
+      - type: source-not-matches
+        value: '\bclass\s+DeliveryStatus\b'
+    message: "The starter starts the declaration with `sealed class // Write your code here`, so `DeliveryStatus` doesn't exist yet: declare the nested data classes the `when` in `printDeliveryStatus` expects, like `sealed class DeliveryStatus { data class Pending(val sender: String) : DeliveryStatus() ... }`. See [Sealed classes](https://kotlinlang.org/docs/kotlin-tour-intermediate-open-special-classes.html#sealed-classes)."
