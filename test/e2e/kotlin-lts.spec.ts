@@ -122,7 +122,7 @@ for (const viewport of [
             await expect(included).toHaveAttribute('href', '#benefits');
             await included.click();
             await expect(lts.benefits.getByRole('heading', { level: 2 })).toBeInViewport({ ratio: 1 });
-            await expect(lts.newsletter.getByRole('link', { name: 'Subscribe to updates' })).toHaveAttribute(
+            await expect(lts.newsletter.getByRole('link', { name: 'Sign up' })).toHaveAttribute(
                 'href',
                 NEWSLETTER_URL
             );
@@ -248,7 +248,7 @@ for (const viewport of [
         test('requires a newsletter topic, permits every combination, and never creates a subscription', async ({
             page,
         }) => {
-            await lts.newsletter.getByRole('link', { name: 'Subscribe to updates' }).click();
+            await lts.newsletter.getByRole('link', { name: 'Sign up' }).click();
             await expect(page).toHaveURL(new RegExp(`${NEWSLETTER_URL}$`));
             const form = page.getByRole('form', { name: 'Security newsletter signup preview' });
             const topics = form.getByRole('checkbox');

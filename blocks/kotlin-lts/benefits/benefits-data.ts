@@ -14,7 +14,6 @@ export const SUPPORT_OPTIONS = [
         points: [
             'Targeted patches for covered components and release lines.',
             'Private patch delivery and engineering validation.',
-            'Priority access for eligible security patches.',
             'Agreed support terms and communication.',
         ],
     },

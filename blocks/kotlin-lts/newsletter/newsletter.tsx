@@ -21,9 +21,11 @@ export const Newsletter: FC = () => {
                 </div>
                 <div className={styles.copy}>
                     <div className={styles.intro}>
-                        <p className={cn(textCn('rs-text-2'), shared.eyebrow, styles.eyebrow)}>Stay in touch</p>
-                        <h2 id="lts-newsletter-title" className={cn(textCn('rs-h3'), styles.title)}>
+                        <p className={cn(textCn('rs-text-2'), shared.eyebrow, styles.eyebrow)}>
                             Kotlin Security Newsletter
+                        </p>
+                        <h2 id="lts-newsletter-title" className={cn(textCn('rs-h3'), styles.title)}>
+                            Stay in touch
                         </h2>
                     </div>
                     <p className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.description)}>
@@ -32,13 +34,13 @@ export const Newsletter: FC = () => {
                     </p>
                 </div>
                 <Button
-                    mode="outline"
+                    mode="classic"
                     href={NEWSLETTER_URL}
                     icon={<ArrowRightIcon />}
                     iconPosition="right"
                     className={styles.action}
                 >
-                    Subscribe to updates
+                    Sign up
                 </Button>
             </div>
         </section>

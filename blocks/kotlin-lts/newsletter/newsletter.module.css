@@ -2,7 +2,7 @@
 
 .banner {
     padding: 32px 0;
-    background: #ede6fc;
+    background: radial-gradient(ellipse at 10% 20%, #cbb8f7 0%, #ded2fc 45%, #eee7ff 100%);
 }
 
 .content {
