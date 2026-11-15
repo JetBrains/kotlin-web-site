@@ -1,4 +1,4 @@
-[//]: # (title: Welcome to our tour of Kotlin!)
+ [//]: # (title: Welcome to our tour of Kotlin!)
 
 <web-summary>Take the Kotlin tour to quickly grasp the fundamentals of the Kotlin programming language.</web-summary>
 
