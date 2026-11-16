@@ -24,6 +24,8 @@ Current Swift export features are:
   Kotlin project.
 * **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`
   flows as Swift's `AsyncSequence` out of the box.
+* **Swift package generation**. You can generate a self-contained Swift package from your Kotlin module and consume it
+  with SwiftPM, without adding a build phase to Xcode.
 
 ## Enable Swift export
 
@@ -76,7 +78,23 @@ access from Xcode.
 
 ### Configure Xcode project
 
-To configure Xcode to integrate Swift export into your project:
+You can connect the Swift export output to Xcode in two ways:
+
+* With [direct integration](#direct-integration), Gradle runs as a build phase of the Xcode build and puts the generated
+  Swift modules into the app's build directory.
+* With [Swift package generation](#generate-a-swift-package), Gradle produces a self-contained Swift package that you add
+  to an Xcode project or another Swift package as a local dependency, without a build phase in Xcode.
+
+Both integrations can be active in the same project at the same time. They don't share configuration: the settings and
+dependency overrides you declare for one of them don't apply to the other.
+
+#### Direct integration
+
+The [direct integration approach](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html)
+connects the iOS framework to the Xcode project is a standard configuration for Kotlin Multiplatform projects created
+with the Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
+
+To configure Xcode to run Swift export as part of the build:
 
 1. In Xcode, open the project settings.
 2. On the **Build Phases** tab, locate the **Run Script** phase with the `embedAndSignAppleFrameworkForXcode` task.
@@ -90,16 +108,81 @@ To configure Xcode to integrate Swift export into your project:
 
 4. Build the project. The build generates Swift modules in the output directory.
 
+#### Generate a Swift package
+
+Instead of integrating Swift export into the Xcode build, you can generate a self-contained Swift package from your
+Kotlin module and add it to an Xcode project or another Swift package as a local dependency. This approach doesn't
+require a run script phase in Xcode: you run a Gradle task and get a ready-to-use package directory.
+
+The generated package contains:
+
+* Swift sources with the API generated from your Kotlin code.
+* C bridge targets and Kotlin runtime headers.
+* A `<ModuleName>Kotlin.xcframework` binary with the Kotlin static libraries for all configured Apple targets.
+
+The consuming toolchain compiles the Swift sources itself and links the appropriate binary slice through SwiftPM.
+
+To generate a Swift package, declare the `swiftPackageIntegration {}` block in the Swift export configuration of your
+module and set the directory for the resulting package:
+
+```kotlin
+// shared/build.gradle.kts
+kotlin {
+
+    iosArm64()
+    iosSimulatorArm64()
+    macosArm64()
+
+    export.swift {
+        moduleName = "Shared"
+        rootPackage = "com.github.jetbrains.example"
+
+        // Enables Swift package generation for this module
+        swiftPackageIntegration {
+            // Sets the directory for the generated package
+            outputDirectory.set(
+                layout.projectDirectory.dir("../iosApp/SharedPackage")
+            )
+        }
+    }
+}
+```
+
+To generate the package, run one of the following tasks:
+
+```bash
+./gradlew :shared:exportDebugSwiftPackage
+./gradlew :shared:exportReleaseSwiftPackage
+```
+
+The tasks write the packages to the `Debug` and `Release` subdirectories of the configured output directory.
+Each task synchronizes its subdirectory, removing files that are no longer generated, except for the `.swiftpm` and
+`.build` directories. On non-macOS hosts, the tasks are skipped.
+
+To use the generated package in Xcode:
+
+1. In Xcode, select **File** | **Add Package Dependencies** | **Add Local**.
+2. Choose the `Debug` or `Release` directory inside the configured output directory.
+3. Add the `<ModuleName>Library` product to your app target, for example, `SharedLibrary`.
+
+The generated manifest declares `<ModuleName>Kotlin.xcframework` as a binary target. The `KotlinRuntime` target depends
+on it, so the Kotlin binary is transitively available to the generated Swift modules.
+
+The manifest also sets the following minimum platform versions:
+
+| Platform | Minimum versions |
+| -------- | ---------------- |
+| iOS | 18.0|
+| tvOS | 18.0 |
+| macOS | 15.0 | 
+| watchOS | 11.0 |
+
 ## Current limitations
 
-Swift export currently works only in projects that use
-[direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html) to
-connect the iOS framework to the Xcode project.
-This is a standard configuration for Kotlin Multiplatform projects created with the Kotlin Multiplatform plugin in IntelliJ
-IDEA or through the [web wizard](https://kmp.jetbrains.com/).
-
-Other known issues:
-
+* The generated Swift package can't consume SwiftPM dependencies of the exported module yet
+  ([KT-90005](https://youtrack.jetbrains.com/issue/KT-90005)).
+* All configured Apple targets must export the same set of modules and dependencies. Otherwise, the build fails with
+  the `SwiftExportPackageModulesMismatch` error.
 * Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
 * Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
