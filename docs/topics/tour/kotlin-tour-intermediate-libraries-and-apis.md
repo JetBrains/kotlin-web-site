@@ -301,7 +301,7 @@ As a next step, check out our tutorials for popular Kotlin applications:
     <panel>
         <title>Kotlin Multiplatform</title>
         <p>Create a cross-platform application from scratch and share business logic and UI.</p>
-        <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-cmp-tutorial">Start</a>
+        <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-new-project.html" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-cmp-tutorial">Start</a>
     </panel>
 </panels>
 
