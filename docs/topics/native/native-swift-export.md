@@ -26,6 +26,9 @@ Current Swift export features are:
 * **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`
   flows as Swift's `AsyncSequence` out of the box.
 
+If your project already exposes Kotlin code to Swift through an Objective-C framework, see
+[](native-swift-export-migration-guide.md).
+
 ## Current limitations
 
 Known issues general to Swift export:
