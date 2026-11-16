@@ -18,8 +18,8 @@ Current Swift export features are:
 * **Enhanced nullability for primitives**. Unlike Objective-C interop, which required boxing types like `Int?` into
   wrapper classes like `KotlinInt` to preserve nullability, Swift export converts nullability information directly.
 * **Overloads**. You can call Kotlin's overloaded functions in Swift without ambiguity.
-* **Flattened package structure**. You can translate Kotlin packages into Swift enums, removing the package prefix from
-  generated Swift code.
+* **Collapse rule**. You can remove a common package prefix from the generated Swift code with the `rootPackage`
+  property.
 * **Module name customization**. You can customize the resulting Swift module names in the Gradle configuration of your
   Kotlin project.
 * **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`
@@ -31,6 +31,10 @@ Swift export is currently in [Beta](components-stability.md#stability-levels-exp
 To try it out, [configure the build file](#configure-kotlin-project) in your Kotlin project and [set up Xcode](#configure-xcode-project)
 to integrate Swift export.
 
+> You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set up.
+>
+{style="tip"}
+
 ### Configure Kotlin project
 
 You configure Swift export in the `export { swift {} }` block of your build file.
@@ -40,14 +44,6 @@ The declared dependencies of an exported module are exported automatically:
 * Direct `api` dependencies are exported fully, meaning that their entire API surface is available in Swift.
 * Direct `implementation` dependencies and transitive dependencies are exported transitively, meaning that only the API
   that leaks into the public API of the exported module is available in Swift.
-
-To override the default `moduleName` and `rootPackage` values of an exported dependency:
-
-* For project dependencies, declare the overrides in the `export { swift {} }` block of that project's own build file.
-* For external dependencies, use the `configure()` function inside the `xcodeIntegration {}` block.
-
-Swift export configuration is also publishable: if a library author supplies option overrides for the library,
-Gradle automatically consumes and applies them during Swift export.
 
 You can use the following build files in your project as a starting point for setting up Swift export:
 
@@ -119,9 +115,27 @@ The Kotlin compiler automatically generates all the necessary files (including `
 static `.a` library, a header file, and a `modulemap` file) and copies them into the app's build directory, which you can
 access from Xcode.
 
-> You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set up.
+You can override the default `moduleName` and `rootPackage` values of an exported dependency in two ways:
+
+* In the `export { swift {} }` block of the dependency's own build file.
+* In the build file of the module that consumes the dependency, with the `configure()` function inside the
+  `xcodeIntegration {}` block. The function accepts project dependencies, external dependencies, and version catalog
+  accessors.
+
+If several values are present, Swift export applies the first available value in this order:
+
+1. The value set by the consuming module in the `xcodeIntegration {}` block.
+2. The value declared by the dependency in its own build file.
+3. The default value derived from the dependency's coordinates.
+
+The configuration declared by a dependency is publishable: if a library author supplies option overrides for the library,
+Gradle automatically consumes and applies them during Swift export. The overrides declared in the `xcodeIntegration {}`
+block apply to the local build only and are never published.
+
+> The build fails if you call `configure()` for a dependency that isn't part of the export graph or if two exported
+> dependencies have the same Swift module name.
 >
-{style="tip"}
+{style="note"}
 
 ### Configure Xcode project
 
@@ -152,9 +166,9 @@ Other known issues:
 * Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
 * Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
-* No IDE migration tips or automation are available.
-* Currently, there's no API for passing compiler arguments to link tasks. If your project requires it, describe your use
-  case in [YouTrack](https://kotl.in/issue).
+* The Swift export DSL has no API for passing compiler arguments, including arguments for link tasks. Set the options
+  you need at the _module level_ in the `compilerOptions {}` block instead. If your project
+  requires passing compiler arguments through the Swift export DSL, describe your use case in [YouTrack](https://kotl.in/issue).
 * When using declarations that require opt-in, you must add an explicit `optIn` compiler option at the _module
   level_ to your Gradle build file. For example, for the `kotlinx.datetime` library:
 
