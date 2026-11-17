@@ -37,12 +37,114 @@ The Kotlin Gradle plugin (KGP) uses the BTA by default when compiling:
 
 ### Configure different compiler versions
 
-With the BTA, you can now use a different Kotlin compiler version than the version used by the KGP. This is useful when:
+With the BTA, you can now use a different Kotlin compiler version than the version used by the KGP. This is useful when you:
 
-* You want to try new Kotlin features but haven't updated your build scripts yet.
-* You need the latest plugin fixes but want to stay on an older compiler version for now.
+* Want to try new Kotlin features but haven't updated your build scripts yet.
+* Need the latest plugin fixes but want to stay on an older compiler version for now.
 
-Here's an example of how to configure this in your `build.gradle.kts` file:
+#### Compatible Kotlin compiler and KGP versions
+
+The BTA supports:
+
+* The three previous Kotlin release lines.
+* One Kotlin release line forward.
+
+For example, with KGP 2.4.0, the supported Kotlin release lines are:
+
+* 2.1.x
+* 2.2.x
+* 2.3.x
+* 2.4.x
+* 2.5.x
+
+#### Configure the Kotlin compiler version
+
+<tabs group="kotlin-projects">
+<tab title="Kotlin/JVM" group-key="kotlin-jvm">
+
+For a Kotlin/JVM project, set the `compilerVersion` property in your `build.gradle.kts`:
+
+```kotlin
+import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+plugins {
+    kotlin("jvm") version "2.5.0"
+}
+
+group = "org.jetbrains.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvmToolchain(17)
+    @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+    compilerVersion.set("2.4.21") // different version than 2.5.0
+}
+```
+
+</tab>
+<tab title="Kotlin/JS and Kotlin/Wasm" group-key="kotlin-js-wasm">
+
+For projects with Kotlin/JS or Kotlin/Wasm targets, set the `compilerVersion` and [`coreLibrariesVersion`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.dsl/-kotlin-top-level-extension-config/core-libraries-version.html)
+properties to the same version in your `build.gradle.kts`. This example has only the Kotlin/JS target, but the same configuration applies
+to Kotlin/Wasm targets:
+
+```kotlin
+import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+plugins {
+    kotlin("multiplatform") version "2.5.0"
+}
+
+group = "org.jetbrains.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+// Keep the compiler and core libraries on the same version
+val kotlinCompilerVersion = "2.4.21"
+
+kotlin {
+    js {
+        browser()
+    }
+
+    @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+    compilerVersion.set(kotlinCompilerVersion) // different version
+                                               // than 2.5.0
+
+    // Aligns kotlin-stdlib and dependencies declared with kotlin()
+    coreLibrariesVersion = kotlinCompilerVersion
+
+    sourceSets {
+        commonTest.dependencies {
+            // coreLibrariesVersion sets the version for kotlin("test")
+            implementation(kotlin("test"))
+        }
+    }
+}
+```
+
+> The `coreLibrariesVersion` property doesn't override dependencies with explicitly declared versions, such as in a
+> version catalog. Set these dependencies to the same version as `compilerVersion`.
+>
+{style="note"}
+
+</tab>
+</tabs>
+
+#### Limitations
+
+Using different compiler versions together with compiler plugins may lead to Kotlin compiler exceptions. You may need to
+align their versions separately. The following example configures all `org.jetbrains.kotlin` dependencies in configurations
+whose names start with `kotlinCompilerPluginClasspath` to use the same version as `compilerVersion`:
 
 ```kotlin
 import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
@@ -62,29 +164,24 @@ repositories {
 kotlin {
     jvmToolchain(17)
     @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
-    compilerVersion.set("2.3.21") // <-- different version than 2.4.20
+    compilerVersion.set("2.3.21") // different version 
+                                  // than 2.4.20
 }
+
+@OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+configurations
+    .matching { it.name.startsWith("kotlinCompilerPluginClasspath") }
+    .configureEach {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(kotlin.compilerVersion.get())
+            }
+        }
+    }
 ```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example"}
 
-#### Compatible Kotlin compiler and KGP versions
-
-The BTA supports:
-
-* The three previous major Kotlin compiler versions.
-* One major version forward.
-
-For example, in KGP 2.2.0, the supported Kotlin compiler versions are:
-
-* 1.9.25
-* 2.0.x
-* 2.1.x
-* 2.2.x
-* 2.3.x
-
-#### Limitations
-
-Using different compiler versions together with compiler plugins may lead to Kotlin compiler exceptions. The Kotlin team
-plans to address this in future Kotlin releases.
+The Kotlin team plans to address this in future Kotlin releases.
 
 ### Enable incremental compilation with "in process" strategy
 
