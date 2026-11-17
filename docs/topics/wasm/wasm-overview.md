@@ -13,8 +13,8 @@ web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp
 browser in standalone Wasm virtual machines. In the outside-of-browser case,
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
-Kotlin/Wasm provides Tier 1 support for `wasm-js` and Tier 2 support for `wasm-wasi`.
-For CI coverage, tooling support, and recommendations for library authors, see [Kotlin/Wasm target support](wasm-configuration.md).
+Kotlin/Wasm provides Tier 1 support for `wasmJs` and Tier 2 support for `wasmWasi`.
+For information about the CI coverage, tooling support, and recommendations for library authors, see [Kotlin/Wasm target support](wasm-configuration.md).
 
 > To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-configuration.md#which-browsers-support-kotlin-wasm) that supports 
 > WebAssembly's garbage collection
@@ -27,13 +27,13 @@ For CI coverage, tooling support, and recommendations for library authors, see [
 
 ## UI frameworks for Kotlin/Wasm
 
-Kotlin/Wasm supports different frameworks to build user interfaces. Choose a framework based on your UI requirements, 
-preferred rendering approach, and whether you need to share the UI with other platforms.
+With Kotlin/Wasm, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your 
+web projects through different UI frameworks, such as Compose Multiplatform. 
+
+Choose a framework based on your UI requirements, preferred rendering approach, and whether you need to share the UI
+with other platforms.
 
 ### Compose Multiplatform
-
-With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
-Compose Multiplatform and Kotlin/Wasm.
 
 [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) is a declarative framework based on Kotlin
 and [Jetpack Compose](https://developer.android.com/jetpack/compose) that allows you to implement the UI

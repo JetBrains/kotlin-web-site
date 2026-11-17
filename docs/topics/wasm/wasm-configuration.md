@@ -3,27 +3,26 @@
 
 ## What are the Kotlin/Wasm target support tiers?
 
-Kotlin/Wasm targets belong to two support tiers that describe how the Kotlin team tests the targets and their tooling. 
+Kotlin/Wasm targets belong to two support tiers that describe the Kotlin team test coverage for targets and their tooling. 
 The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
 
 | Target     | Tier   | Automated testing                                                                   | 
 |------------|--------|-------------------------------------------------------------------------------------|
-| `wasmJs`   | Tier 1 | Broader QA coverage, including Kotlin Gradle plugin integration tests and IDE tests |
-| `wasmWasi` | Tier 2 | More limited QA and Kotlin Gradle plugin test coverage, with no dedicated IDE tests |
+| `wasmJs`   | 1 | Broad QA coverage, including Kotlin Gradle plugin integration tests and IntelliJ IDEA tests |
+| `wasmWasi` | 2 | Limited QA and Kotlin Gradle plugin test coverage, with no dedicated IntelliJ IDEA tests |
 
-Tooling support also differs between the targets:
-
-* **Kotlin Gradle plugin:** support for `wasmWasi` is more limited, and WASI-specific functionality requires opt-in.
-* **IDE:** `wasmWasi` has more limited support. For example, debugging and gutter icons for running code aren't available.
+Compared to `wasmJs`, `wasmWasi` has more limited tooling support. In the Kotlin Gradle plugin, you need to opt in to use
+WASI-specific features. IDE debugging and running code from the editor gutter are also unavailable for `wasmWasi`.
 
 ## Which Kotlin/Wasm targets should my library support?
 
 Prefer supporting both `wasmJs` and `wasmWasi` where your library's functionality and dependencies allow it. 
 This makes your library available both in JavaScript environments and in WASI-compatible runtimes.
 
-* Prioritize `wasmJs` when introducing Kotlin/Wasm support, as it is the more mature target and receives broader tooling
-and QA coverage.
-* Add `wasmWasi` support to make platform-independent functionality available outside JavaScript environments.
+To add Kotlin/Wasm support one target at a time, use the following order:
+
+1. Add `wasmJs`, which is the more mature target and has broader tooling support. 
+2. Add `wasmWasi` support to make platform-independent functionality available outside JavaScript environments.
 
 Test your library on each target you support, since their available APIs and runtime environments may differ.
 
@@ -50,8 +49,7 @@ Applications work without additional browser configuration in the following vers
 
 Kotlin/Wasm relies on [WebAssembly features](https://webassembly.org/features/), including:
 
-* [Garbage collection (WasmGC)](https://github.com/WebAssembly/gc), which supports managed objects in WebAssembly. Starting with Kotlin 1.9.20, the
-  toolchain uses the updated WasmGC version.
+* [Garbage collection (WasmGC)](https://github.com/WebAssembly/gc), which supports managed objects in WebAssembly.
 * Exception handling, for which the toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/legacy/Exceptions.md) and [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) versions.
 
 > Use the latest Kotlin version and a compatible browser or runtime to benefit from current support.

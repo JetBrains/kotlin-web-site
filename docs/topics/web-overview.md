@@ -59,8 +59,8 @@ the browser in runtimes that support the Wasm features Kotlin requires.
 Kotlin/Wasm supports two targets: 
 
 * **`wasmJs`**: for running in browsers or Node.js.
-* **`wasmWasi`**: for running in Wasm environments supporting WASI, such as Wasmtime, WasmEdge, and so on. It uses the
-  [WebAssembly System Interface (WASI)](https://wasi.dev/) to access system resources, such as files and standard input and output.
+* **`wasmWasi`**: for running in Wasm environments that support the [WebAssembly System Interface (WASI)](https://wasi.dev/), such as Wasmtime,
+  WasmEdge, and others. It uses WASI to access system resources, such as files and standard input and output.
   
   Learn more in [](wasm-wasi.md).
 
@@ -86,7 +86,7 @@ Kotlin/Wasm with [Compose Multiplatform](https://kotlinlang.org/compose-multipla
 
 #### Build web UIs
 
-Kotlin/Wasm supports several UI frameworks:
+If you want to build web UIs with Kotlin/Wasm, you can choose from several UI frameworks:
 
 * [Doodle](https://nacular.github.io/doodle/) lets you share UIs between web and desktop applications. The vector-based
   rendering gives you control over custom components, shapes, and visualizations.
