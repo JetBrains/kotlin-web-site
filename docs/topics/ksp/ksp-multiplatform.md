@@ -1,5 +1,5 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
-[//]: # (description: Add KSP to a Kotlin multiplatform project)
+<web-summary>Add KSP to a Kotlin multiplatform project</web-summary>
 
 Here you'll learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project. For a quick start, see 
 an example of a multiplatform project with several targets using KSP in the 

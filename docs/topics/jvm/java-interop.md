@@ -1,5 +1,5 @@
 [//]: # (title: Calling Java from Kotlin)
-[//]: # (description: Learn how to call Java code from Kotlin, including getters and setters, null-safety and platform types, nullability annotations, mapped types, and SAM conversions.)
+<web-summary>Learn how to call Java code from Kotlin, including getters and setters, null-safety and platform types, nullability annotations, mapped types, and SAM conversions.</web-summary>
 
 Kotlin is designed with Java interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
 and Kotlin code can be used from Java as well.
