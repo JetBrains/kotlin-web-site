@@ -46,8 +46,8 @@ type resolution one of the most expensive operations in the KSP API.
 ## Type resolution
 
 Properties that refer to types, such as `KSAnnotation.annotationType` and `KSFunctionDeclaration.returnType`, return a
-`KSTypeReference`. Some of these properties are nullable. For example, `returnType` has the `KSTypeReference?` type.
-Processors can inspect these references directly or resolve them to access more information about the underlying type:
+`KSTypeReference`. Depending on the property, it can be nullable, as with `returnType`. Processors can inspect these
+references directly or resolve them to access more information about the underlying type:
 
 ```kotlin
 interface KSFunctionDeclaration : ... {
