@@ -37,7 +37,16 @@ to integrate Swift export.
 
 ### Configure Kotlin project
 
-You configure Swift export in the `export { swift {} }` block of your build file.
+You configure Swift export in the `export { swift {} }` block of your build file. It describes how the module is exported
+to Swift, for example a Swift module name and a collapse rule.
+
+The module that your Xcode project connects to with [direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html),
+usually the `shared` module, must also call `xcodeIntegration()`. This call enables Xcode as a consumer of Swift export
+and sets up the integration:
+
+* Registers the [`embedSwiftExportForXcode` task](#configure-xcode-project) that Xcode runs in the **Run Script** build phase.
+* Adds the Gradle configurations and tasks that resolve the export graph, generate the Swift code for the module and
+  its dependencies, and compile it for Xcode.
 
 The declared dependencies of an exported module are exported automatically:
 
