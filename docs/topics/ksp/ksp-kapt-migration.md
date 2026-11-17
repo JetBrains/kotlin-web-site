@@ -2,18 +2,20 @@
 
 <web-summary>Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.</web-summary>
 
-This guide explains how to migrate your annotation processors from [kapt](kapt.md) to
-[Kotlin Symbol Processing (KSP)](ksp-overview.md). Your project can take full advantage of Kotlin features and
+This guide explains how to migrate your annotation processors from [Kotlin Annotation Processing Tool (kapt)](kapt.md)
+to [Kotlin Symbol Processing (KSP)](ksp-overview.md). Your project can take full advantage of Kotlin features and
 improve build performance.
 
-kapt (Kotlin Annotation Processing Tool) lets you use Java annotation processors in Kotlin.
-It translates Kotlin source code into Java "stubs" and then runs the annotation processors on those stubs.
-However, this process is expensive, significantly increases build time, and loses some Kotlin-specific features in
-translation.
+kapt lets you use Java annotation processors in Kotlin. It translates Kotlin source code into Java "stubs" and then runs
+the annotation processors on those stubs. However, this process is expensive, significantly increases build time, and
+loses some Kotlin-specific features in translation.
 
-In contrast, KSP is an alternative to kapt designed specifically for Kotlin. KSP reduces build type by analyzing Kotlin source directly and exposing Kotlin-specific information like nullability.
+In contrast, KSP is an alternative to kapt designed specifically for Kotlin. KSP reduces build time by analyzing Kotlin
+source directly and exposing Kotlin-specific information like nullability.
 
-Before you begin, check whether the processors in your project support KSP. See the list of
+## Before you start
+
+Check whether the processors in your project support KSP. See the list of
 [supported libraries](ksp-overview.md#supported-libraries) or consult their documentation.
 
 > KSP and kapt can run alongside each other, so you can migrate your project in stages, one library or module at a time.
@@ -115,10 +117,8 @@ Find the module that uses the processor you want to migrate. In the module's `bu
     </tab>
     </tabs>
 
-> For most libraries, this replacement is enough. Check each library's documentation to see if you need to make any
-> additional changes.
->
-{style="note"}
+For most libraries, this replacement is enough. Check each library's documentation to see if you need to make any
+additional changes.
 
 ## Remove the kapt plugin
 
@@ -155,7 +155,8 @@ Delete any leftover kapt configuration, such as the `kapt {}` block, if you have
 
 ## See also
 
-* [Create your own processor](ksp-quickstart.md#create-your-own-processor)
-* [Java annotation processing to KSP reference](ksp-reference.md)
-* [Kotlin Symbol Processing API](ksp-overview.md)
-* [Example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository
+* Learn how to [create your own processor](ksp-quickstart.md#create-your-own-processor) with the KSP API.
+* Find the KSP equivalents of Java annotation processing APIs in the
+  [Java annotation processing to KSP reference](ksp-reference.md).
+* Learn how KSP works during compilation in the [Kotlin Symbol Processing API](ksp-overview.md) overview.
+* Explore the [example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository.

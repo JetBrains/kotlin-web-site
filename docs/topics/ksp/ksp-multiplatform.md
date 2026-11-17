@@ -1,73 +1,74 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
 
-<web-summary>Learn how to use KSP in a Kotlin Multiplatform project: apply the KSP plugin and add processors to 
-targets and test compilations.</web-summary>
+<web-summary>Learn how to use KSP in a Kotlin Multiplatform project.</web-summary>
 
 This guide explains how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project.
-For a quick start, see the [example multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform)
-. It uses KSP with several targets, and its processor generates a `Foo` class used by the project.
+For a quick start, see the [example multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform).
+It uses KSP with several targets, and its processor generates a `Foo` class used by the project.
 
 ## Add KSP to a multiplatform project
 
-Apply the KSP plugin to the client module (the module that uses the processor). In the module's `build.gradle(.kts)`
-file, add the plugin to the `plugins {}` block:
+To add KSP to the client module (the module that uses the processor):
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+1. Open the module's `build.gradle(.kts)` file.
+2. Add the KSP plugin to the `plugins {}` block:
 
-```kotlin
-// build.gradle.kts
-
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-    id("com.google.devtools.ksp") version "%kspVersion%"
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-// build.gradle
-
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-    id 'com.google.devtools.ksp' version '%kspVersion%'
-}
-```
-
-</tab>
-</tabs>
-
-In the same file, add the processor dependency for each target that requires symbol processing:
-
-```kotlin
-dependencies {
-    add("ksp<Target>", <processor>)
-}
-```
-
-* `<Target>` is the name of one of the targets used in your multiplatform project, with the first letter capitalized.
-  For example, for the `iosArm64` target, use the `kspIosArm64` configuration.
-
-  > For a full list of targets, see the [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
-  > and [Kotlin/Native supported targets and hosts](native-target-support.md).
-  >
-  {style="tip"}
-
-* `<processor>` is the processor dependency. It can be:
-
-  * A module in your project that contains the logic for your symbol processor:
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
-    add("kspJvm", project(":local-processor"))
+    // build.gradle.kts
+
+    plugins {
+        kotlin("multiplatform") version "%kotlinVersion%"
+        id("com.google.devtools.ksp") version "%kspVersion%"
+    }
     ```
 
-  * An external processor, such as Room:
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    // build.gradle
+
+    plugins {
+        id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+        id 'com.google.devtools.ksp' version '%kspVersion%'
+    }
+    ```
+
+    </tab>
+    </tabs>
+
+3. Add the processor dependency for each target that requires symbol processing:
 
     ```kotlin
-    add("kspJvm", "androidx.room3:room3-compiler:3.0.3")
+    dependencies {
+        add("ksp<Target>", <processor>)
+    }
     ```
+
+    * `<Target>` is the name of one of the targets used in your multiplatform project, with the first letter
+      capitalized. For example, for the `iosArm64` target, use the `kspIosArm64` configuration.
+
+      > For a full list of targets, see the [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
+      > and [Kotlin/Native supported targets and hosts](native-target-support.md).
+      >
+      {style="tip"}
+
+    * `<processor>` is the processor dependency. It can be:
+
+      * A module in your project that contains the logic for your symbol processor:
+
+        ```kotlin
+        add("kspJvm", project(":local-processor"))
+        ```
+
+      * An external processor, such as Room:
+
+        ```kotlin
+        add("kspJvm", "androidx.room3:room3-compiler:3.0.3")
+        ```
 
 <anchor name="avoid-the-ksp-configuration-on-ksp-1-0-1"/>
 
@@ -259,5 +260,5 @@ have corresponding KSP tasks because KSP isn't configured for them.
 
 ## See also
 
-* [Example multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform) in the KSP repository
-* The list of entry points for each platform when [running KSP from the command line](ksp-command-line.md#main-class)
+* [Example multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform) in the KSP repository.
+* The list of entry points for each platform when [running KSP from the command line](ksp-command-line.md#main-class).

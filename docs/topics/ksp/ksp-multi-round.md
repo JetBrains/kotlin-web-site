@@ -1,13 +1,11 @@
 [//]: # (title: Multiple-round processing)
 
-<web-summary>Learn how KSP runs processors in multiple rounds, how processors validate symbols and defer them to 
-later rounds, and how KSP handles errors and exceptions.</web-summary>
+<web-summary>Learn how KSP runs processors in multiple rounds and how processors defer symbols to later rounds.</web-summary>
 
 KSP runs processors in rounds. In each round, processors can use source files generated in earlier rounds.
-from each processing round is used as additional input in each subsequent round.
 
-To use multiple-round processing, return deferred symbols from `SymbolProcessor.process()` as a `List<KSAnnotated>`. KSP
-passes these symbols to the processor again in the next round.
+To defer symbols to the next round, return them from `SymbolProcessor.process()` as a `List<KSAnnotated>`. KSP passes
+these symbols to the processor again in the next round.
 
 To defer invalid symbols, filter them with `KSAnnotated.validate()`, for example:
 
@@ -22,7 +20,7 @@ override fun process(resolver: Resolver): List<KSAnnotated> {
 }
 ```
 
-> See the full example with [multi-round processing](https://github.com/google/ksp/blob/main/examples/playground/processors/src/main/kotlin/BuilderProcessor.kt) 
+> See the full example with [multi-round processing](https://github.com/google/ksp/blob/main/examples/playground/processors/src/main/kotlin/BuilderProcessor.kt)
 > in the KSP repository.
 >
 {style="note"}
@@ -41,7 +39,7 @@ Defer symbols only when:
 * Additional information is required before the symbol can be processed.
 * The symbol originates from source code.
 
-    > Don't defer symbols from the classpath. KSP filters out them automatically.
+    > Don't defer symbols from the classpath. KSP filters them out automatically.
     >
     {style="note"}
 
@@ -108,10 +106,8 @@ the current round.
 KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Both types terminate processing
 immediately and are logged as errors through `KSPLogger`.
 
-> Report exceptions thrown by KSP to the KSP developers for investigation. Create an issue in the
-> [KSP issue tracker](https://github.com/google/ksp/issues).
->
-{style="note"}
+Report exceptions thrown by KSP to the KSP developers for investigation. Create an issue in the
+[KSP issue tracker](https://github.com/google/ksp/issues).
 
 At the end of a round in which an error or exception occurs, KSP calls `SymbolProcessor.onError()` on all processors.
 `SymbolProcessor` provides a default no-op implementation of `onError()`. Override this method to implement custom
@@ -119,5 +115,5 @@ error-handling logic.
 
 ## See also
 
-* [Incremental processing](ksp-incremental.md)
-* [How KSP models Kotlin code](ksp-kotlin-model.md)
+* Learn how KSP [decides which files to reprocess](ksp-incremental.md) when the source code changes.
+* Learn how KSP models Kotlin code and [when to resolve types](ksp-kotlin-model.md#when-to-resolve-types).

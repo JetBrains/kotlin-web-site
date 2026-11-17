@@ -3,8 +3,8 @@
 <web-summary>Learn how the KSP API models Kotlin source code as a hierarchy of symbols, and
 how to avoid expensive analysis.</web-summary>
 
-Kotlin Symbol Processing (KSP) represents source code as a hierarchy of symbols. Processors can navigate this hierarchy
-to inspect declarations, types, annotations, and other elements of the source code.
+KSP represents source code as a hierarchy of symbols. Processors can navigate this hierarchy to inspect declarations,
+types, annotations, and other elements of the source code.
 Consider the following top-level function:
 
 ```kotlin
@@ -41,14 +41,13 @@ KSFile: packageName = "" (root package)
 
 The `resolve()` calls in the hierarchy represent full type resolution. Unlike inspecting a type reference as written,
 resolving it requires KSP to analyze its context and determine the type it refers to. This additional analysis makes
-type resolution one of the most expensive operations in the KSP API. Read on to learn how type resolution works and
-when to use it.
+type resolution one of the most expensive operations in the KSP API.
 
 ## Type resolution
 
-Properties that refer to types, such as `KSFunctionDeclaration.returnType` and `KSAnnotation.annotationType`, return a
-`KSTypeReference`. Processors can inspect these references directly or resolve them to access more information about
-the underlying type:
+Properties that refer to types, such as `KSAnnotation.annotationType` and `KSFunctionDeclaration.returnType`, return a
+`KSTypeReference`. Some of these properties are nullable. For example, `returnType` has the `KSTypeReference?` type.
+Processors can inspect these references directly or resolve them to access more information about the underlying type:
 
 ```kotlin
 interface KSFunctionDeclaration : ... {
@@ -92,8 +91,8 @@ resolution can provide additional information, such as the identity of the funct
 ### When to resolve types
 
 Type resolution is one of the most expensive operations in the KSP API. To avoid unnecessary resolutions, KSP generally
-doesn't resolve type references implicitly. Instead, call `KSTypeReference.resolve()` explicitly when your processor
-needs the resolved type.
+doesn't resolve type references implicitly. If your processor needs the resolved type, call `KSTypeReference.resolve()`
+explicitly instead.
 
 When possible, inspect the `KSReferenceElement` before resolving the type. For example, use
 `KSClassifierReference.referencedName()` to filter references that aren't relevant to your processor.
@@ -164,14 +163,14 @@ class TypeInventoryProcessor(
 }
 ```
 
-If`resolveTypes = false`, the output is the following:
+If `resolveTypes = false`, the output is the following:
 
 ```text
 birthday: writtenName=SqlDate, arguments=0
 names: writtenName=List, arguments=1
 ```
 
-With `resolveTypes = true`, the output is:
+If `resolveTypes = true`, the output is the following:
 
 ```text
 birthday: declaration=java.sql.Date, nullability=NULLABLE
@@ -184,8 +183,7 @@ semantic information about the type, such as the fully qualified declaration nam
 
 ## KSP model reference
 
-The following diagram illustrates the relationships between the main KSP API types. The diagram is generated from the
-KSP API source using the class diagram feature in IntelliJ IDEA.
+The following diagram illustrates the relationships between the main KSP API types.
 
 ![The full class diagram of the KSP 2 model.](ksp-class-diagram.svg){thumbnail="true" width="700" thumbnail-same-file="true"}
 
@@ -198,8 +196,10 @@ in the KSP GitHub repository.
 
 ## See also
 
-* [Getting started with KSP](ksp-quickstart.md)
-* [Java annotation processing to KSP reference](ksp-reference.md)
-* [Incremental processing](ksp-incremental.md)
-* [Example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository
-* [Kotlin Symbol Processing (KSP)](https://www.youtube.com/watch?v=bv-VyGM3HCY) video on the Kotlin by JetBrains YouTube channel
+* Learn how to add a processor to your project or create your own in [Getting started with KSP](ksp-quickstart.md).
+* Find the KSP equivalents of Java annotation processing APIs in the
+  [Java annotation processing to KSP reference](ksp-reference.md).
+* Learn how KSP tracks type resolution to [decide which files to reprocess](ksp-incremental.md#dirtiness-propagation).
+* Explore the [example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository.
+* Watch the [Kotlin Symbol Processing (KSP)](https://www.youtube.com/watch?v=bv-VyGM3HCY) video on the Kotlin by JetBrains
+  YouTube channel.

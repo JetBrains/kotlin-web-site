@@ -1,10 +1,9 @@
 [//]: # (title: Incremental processing)
 
-<web-summary>Learn how KSP incremental processing decides which files to reprocess and how processors declare aggregating 
-and isolating outputs.</web-summary>
+<web-summary>Learn how incremental processing in KSP works and how it reduces build time.</web-summary>
 
-Kotlin Symbol Processing (KSP) supports incremental processing. It reprocesses a file only when one or more of its
-dependencies change. This reduces compilation time by avoiding unnecessary reprocessing.
+KSP supports incremental processing. It reprocesses a file only when one or more of its dependencies change. This
+reduces compilation time by avoiding unnecessary reprocessing.
 
 Incremental processing is enabled by default. You can disable it when troubleshooting or to force a full
 rebuild. To disable incremental processing, add the following line to the `gradle.properties` file:
@@ -15,8 +14,8 @@ ksp.incremental=false
 
 ## Dirty files
 
-A file is considered _dirty_ (needing to be reprocessed) if it is either directly modified by a developer or indirectly
-affected by changes in other dirty files.
+A _dirty_ file is a file that KSP needs to reprocess. A file becomes dirty if a developer modifies it directly or if
+changes in other dirty files affect it indirectly.
 
 To determine which sources are dirty, KSP relies on processors, which associate generated outputs with their
 corresponding input sources. KSP uses these associations to identify the sources that must be reprocessed when a change
@@ -55,10 +54,10 @@ KSP classifies generated outputs into two types: aggregating and isolating.
 <deflist collapsible="true">
 <def title="Aggregating">
 
-Aggregating outputs can be affected by changes in any source file, except for removals that don't impact other files.
+Aggregating outputs can be affected by changes in any source file.
 For example, an output that collects all symbols with a particular annotation.
 
-Any input change triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new,
+Any input change, including a file removal, triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new,
 or modified source files.
 
 </def>
@@ -87,33 +86,24 @@ When a file becomes dirty, KSP propagates dirtiness in the following ways:
 * **Shared outputs**: if a dirty file contributes to a generated output, all other files that contribute to the same
   output also become dirty. This groups the related files into equivalence classes based on shared outputs.
 
-> KSP applies both rules repeatedly until no new dirty files appear. For example, a file that becomes dirty
-> through resolution tracing can make other files dirty through shared outputs. Those files can then make more files
-> dirty through resolution tracing.
->
-{style="note"}
+KSP applies both rules repeatedly until no new dirty files appear. For example, a file that becomes dirty through
+resolution tracing can make other files dirty through shared outputs. Those files can then make more files dirty
+through resolution tracing.
 
 ## Implementation
 
 Dependencies are determined by the many-to-many relationship between input and output files.
 
-This is how KSP determines which files need to be reprocessed:
+KSP uses the following rules to determine which files to reprocess:
 
-* If an input file is changed, it's always reprocessed.
+* If an input file is changed, it's always reprocessed, because the change can introduce new information for processors.
+* If a changed input file is associated with an output, KSP also reprocesses all other input files associated with
+  the same output. This happens because processors may need all the inputs to regenerate the output.
+  KSP repeats this until no new dirty files appear.
+* Unless one of the previous rules applies, KSP doesn't reprocess an unchanged input file that isn't associated with
+  any aggregating outputs. Such a file can't affect any outputs.
 
-  **Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
-
-* If an input file is changed and is associated with an output, then all other input files associated with the same
-  output are also reprocessed. This happens repeatedly until no new dirty files appear.
-
-  **Why?** An output is generated from a set of inputs. Processors may need all the inputs to regenerate the output.
-
-* If an unchanged input file isn't associated with any aggregating outputs, it isn't reprocessed.
-
-  **Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output.
-  It isn't reprocessed unless one of the above rules applies.
-
-For example, consider a project with the following structure, where `sourceA` and `sourceB` are independent of each 
+For example, consider a project with the following structure, where `sourceA` and `sourceB` are independent of each
 other, and `outputA` is isolating:
 
 ```text
@@ -128,7 +118,7 @@ other, and `outputA` is isolating:
 
 A processor:
 
-* Reads `sourceA` and generates `outputA`. 
+* Reads `sourceA` and generates `outputA`.
 * Reads `sourceB` and generates `outputB`.
 
 If `sourceA` changes:
@@ -139,8 +129,12 @@ If `sourceC` is added:
 * If `outputB` is aggregating, KSP reprocesses `sourceC` and `sourceB`.
 * If `outputB` is isolating, KSP reprocesses only `sourceC`.
 
-If either `sourceA` or `sourceB` is removed, KSP doesn't need to reprocess any files, because neither source 
-contributes to the other's output.
+If `sourceA` is removed:
+* If `outputB` is aggregating, KSP reprocesses `sourceB`.
+* If `outputB` is isolating, KSP doesn't need to reprocess any files.
+
+If `sourceB` is removed, KSP doesn't need to reprocess any files in either case, because `sourceB` was the only source
+of `outputB`.
 
 ## Example processor
 
@@ -157,9 +151,10 @@ open class B
 // Example1Processor.kt
 class Example1Processor(private val codeGenerator: CodeGenerator) : SymbolProcessor {
     override fun process(resolver: Resolver): List<KSAnnotated> {
-        // Returns early in later rounds, when no new annotated symbols are found
         val declA = resolver.getSymbolsWithAnnotation("Interesting")
-            .firstOrNull() as? KSClassDeclaration ?: return emptyList()
+            .firstOrNull() as? KSClassDeclaration
+            // Returns early in later rounds, when no new annotated symbols are found
+            ?: return emptyList()
         val declB = declA.superTypes.first().resolve().declaration
         // B.kt isn't required, because it can be deduced as a dependency by KSP
         val dependencies = Dependencies(aggregating = true, declA.containingFile!!)
@@ -188,14 +183,16 @@ you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 If you encounter any error that occurs only when incremental processing is enabled, create an issue in
 the [KSP GitHub repository](https://github.com/google/ksp/issues) and attach the relevant log files.
 
-1. To capture incremental processing logs, add the following line to the `gradle.properties` file:
+To collect the log files and attach them to the issue:
+
+1. Capture incremental processing logs by adding the following line to the `gradle.properties` file:
 
    ```properties
    ksp.incremental.log=true
    ```
 
 2. Perform a clean build that completes successfully.
-3. Copy the generated log files to another location to save them:
+3. Save the generated log files by copying them to another location:
 
    * `build/kspCaches/<source set>/logs/kspDirtySet.log`
    * `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
@@ -227,7 +224,7 @@ processing logs.
 
 ## See also
 
-* [How a processor declares the dependencies of its output](ksp-quickstart.md#create-and-register-a-processor)
-* [Multiple-round processing](ksp-multi-round.md)
-* [How KSP models Kotlin code](ksp-kotlin-model.md)
-* [Running KSP from the command line](ksp-command-line.md)
+* Learn how a processor [declares the dependencies of its output](ksp-quickstart.md#create-and-register-a-processor).
+* Learn how KSP [runs processors in multiple rounds](ksp-multi-round.md).
+* Learn how [KSP models Kotlin code](ksp-kotlin-model.md) and when to resolve types.
+* Learn how to [run KSP from the command line](ksp-command-line.md) without the KSP plugin for Gradle.
