@@ -1,5 +1,6 @@
 [//]: # (title: Kotlin/Wasm FAQ)
-[//]: # (description: Find answers to common questions about browser compatibility, WebAssembly features, compiler configuration, and troubleshooting in Kotlin/Wasm.)
+
+<web-summary>Find answers to common questions about browser compatibility, WebAssembly features, compiler configuration, and troubleshooting in Kotlin/Wasm.</web-summary>
 
 ## What are the Kotlin/Wasm target support tiers?
 

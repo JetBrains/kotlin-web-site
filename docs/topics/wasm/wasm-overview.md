@@ -1,5 +1,7 @@
 [//]: # (title: Kotlin/Wasm)
 
+<web-summary>Learn how Kotlin/Wasm brings Kotlin to the browser and to WASI runtimes. Explore web UI frameworks, browser APIs, and performance benchmarks.</web-summary>
+
 Kotlin/Wasm has the power to compile your Kotlin code into [WebAssembly (Wasm)](https://webassembly.org/) format. 
 With Kotlin/Wasm, you can create applications that run on
 different environments and devices, which support Wasm and meet Kotlin's requirements.

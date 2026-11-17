@@ -1,5 +1,7 @@
 [//]: # (title: Stability of Kotlin components)
 
+<web-summary>Learn what Experimental, Alpha, Beta, and Stable mean in Kotlin, and check the stability of compilers, libraries, and build tools.</web-summary>
+
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
 the Standard Library, various accompanying tools, and so on.
 Many of these components were officially released as **Stable**, which means that they were evolved

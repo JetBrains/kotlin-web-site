@@ -1,5 +1,7 @@
 [//]: # (title: Overview)
 
+<web-summary>Learn how Kotlin/Wasm brings Kotlin to the browser and to WASI runtimes. Explore web UI frameworks, browser APIs, and performance benchmarks.</web-summary>
+
 Kotlin, through Kotlin Multiplatform, offers two approaches for web development:
 
 * [JavaScript-based (using the Kotlin/JS compiler)](#kotlin-js)

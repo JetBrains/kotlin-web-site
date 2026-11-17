@@ -1,5 +1,7 @@
 [//]: # (title: Interoperability with JavaScript)
 
+<web-summary>Call JavaScript from Kotlin/Wasm and export Kotlin functions to JavaScript. Learn how types map and how exceptions cross the language boundary.</web-summary>
+
 Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in JavaScript.
 
 As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoperability with JavaScript. If you are 

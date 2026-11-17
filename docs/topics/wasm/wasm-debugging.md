@@ -1,5 +1,7 @@
 [//]: # (title: Debug Kotlin/Wasm code)
 
+<web-summary>Debug a Kotlin/Wasm app in IntelliJ IDEA or browser. Set breakpoints, step through Kotlin code, and inspect variables.</web-summary>
+
 This tutorial demonstrates how to use IntelliJ IDEA and the browser 
 to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application built with Kotlin/Wasm.
