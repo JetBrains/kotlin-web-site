@@ -91,6 +91,37 @@ methods and properties, and supports all the current Gradle features.
 | 1.7.0–1.7.10  | 6.7.1–7.0.2                           | 3.4.3–7.0.2                                         |
 | 1.6.20–1.6.21 | 6.1.1–7.0.2                           | 3.4.3–7.0.2                                         |
 
+### Apply the Kotlin settings plugin
+
+The Kotlin settings plugin for Gradle helps you configure settings across your root Gradle project and its subprojects 
+from a single location.
+
+The plugin currently only supports configuring the experimental Node.js toolchain service. For more information, see [Configure the Node.js
+toolchain](TODO).
+
+To apply the Kotlin settings plugin, add the following to your `settings.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+   id("org.jetbrains.kotlin.ecosystem") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```kotlin
+plugins {
+   id('org.jetbrains.kotlin.ecosystem') version '%kotlinVersion%'
+}
+```
+
+</tab>
+</tabs>
+
 ### Kotlin Gradle plugin data in a project
 
 By default, the Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
