@@ -1,0 +1,102 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    position: relative;
+    z-index: 1;
+    padding: var(--ktl-box-page-l, 96px) 0;
+}
+
+.content {
+    box-sizing: border-box;
+}
+
+/* Columns and gutter follow the design context: 536px + 8px + 600px. */
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 536fr) minmax(0, 600fr);
+    column-gap: 8px;
+    align-items: start;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-right: 72px;
+}
+
+.title {
+    margin: 0;
+}
+
+.description {
+    margin: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 32px 32px;
+    border-radius: 32px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.cardTitle {
+    margin: 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.listItem {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    column-gap: 24px;
+}
+
+.itemTitle {
+    margin: 0;
+}
+
+.itemText {
+    margin: 0;
+}
+
+@media (--ktl-tl-down) {
+    .grid {
+        grid-template-columns: 1fr;
+        row-gap: 48px;
+    }
+
+    /* On tablets and phones the heading block is centered, per the mobile design. */
+    .left {
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .section {
+        padding: var(--ktl-box-page-m, 72px) 0;
+    }
+
+    .card {
+        padding: 0 24px 24px;
+        border-radius: 24px;
+    }
+
+    .listItem {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+}

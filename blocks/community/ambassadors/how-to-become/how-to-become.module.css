@@ -1,0 +1,74 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/*
+ * The section sits on the page gradient (see pages/community/ambassadors),
+ * so it has no own background: the gradient stays continuous across it.
+ */
+
+.section {
+    position: relative;
+    z-index: 1;
+    padding: var(--ktl-box-page-l, 96px) 0;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    box-sizing: border-box;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 752px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+    color: #ffffff;
+}
+
+.text {
+    margin: 0;
+    color: #ffffff;
+}
+
+.paragraph + .paragraph {
+    margin-top: 24px;
+}
+
+.quoteCard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 752px;
+    width: 100%;
+    margin: 0;
+    padding: 32px;
+    border-radius: 32px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.quoteText {
+    margin: 0;
+    color: var(--rs-text-color-hard, #19191c);
+    text-align: center;
+}
+
+@media (--ktl-ms-down) {
+    .section {
+        padding: var(--ktl-box-page-m, 72px) 0;
+    }
+
+    .quoteCard {
+        padding: 24px;
+        border-radius: 24px;
+    }
+}

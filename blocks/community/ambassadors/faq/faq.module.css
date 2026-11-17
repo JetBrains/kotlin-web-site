@@ -1,0 +1,35 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/*
+ * The FAQ sits on the solid navy background that ends the page gradient.
+ * The accordion itself is wrapped in ThemeProvider theme="dark" in the tsx,
+ * so rescui components render their dark variants here.
+ */
+
+.section {
+    padding: var(--ktl-box-page-l, 96px) 0;
+    background: var(--amb-color-navy, #160286);
+}
+
+.content {
+    max-width: 752px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0 0 32px;
+    color: #ffffff;
+    text-align: right;
+}
+
+.link {
+    color: #ffffff;
+}
+
+@media (--ktl-ml-down) {
+    .content {
+        padding: 0 24px;
+    }
+}
