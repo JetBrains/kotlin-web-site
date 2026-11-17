@@ -131,49 +131,54 @@ kotlin {
 The package includes the configured Apple targets, in this example, iOS devices and simulators.
 To customize dependency exports, place `configure()` calls inside `swiftPackageIntegration`, as in the direct-integration example.
 
-For example, declare a function in `shared/src/commonMain/kotlin/Greeting.kt`:
+An example sequence:
 
-```kotlin
-package com.example.sandbox
+1. Declare a function in `shared/src/commonMain/kotlin/Greeting.kt`:
 
-fun greeting(): String = "Hello from Kotlin"
-```
+    ```kotlin
+    package com.example.sandbox
+    
+    fun greeting(): String = "Hello from Kotlin"
+    ```
 
-Run the export task for the Kotlin binary configuration you need:
+2. Run the export task for the Kotlin binary configuration you need:
 
-```bash
-# Generates shared/SwiftPackage/Debug
-./gradlew :shared:exportDebugSwiftPackage
+    ```bash
+    # Generates shared/SwiftPackage/Debug
+    ./gradlew :shared:exportDebugSwiftPackage
+    
+    # Generates shared/SwiftPackage/Release
+    ./gradlew :shared:exportReleaseSwiftPackage
+    ```
 
-# Generates shared/SwiftPackage/Release
-./gradlew :shared:exportReleaseSwiftPackage
-```
+3. In Xcode, choose **File | Add Package Dependencies | Add Local** and select `shared/SwiftPackage/Debug` or
+   `shared/SwiftPackage/Release` (not their parent directory).
 
-In Xcode, choose **File | Add Package Dependencies | Add Local** and select `shared/SwiftPackage/Debug` or
-`shared/SwiftPackage/Release`, not their parent directory.
-Add the **SharedLibrary** product to your app target. Its name is the configured `moduleName` followed by `Library`.
-The Swift `import` uses `Shared` alone.
+4. Add the **SharedLibrary** product to your app target. Its name is the configured `moduleName` followed by `Library`.
+   The Swift `import` uses `Shared` alone.
 
-After adding the package dependency, call it from Swift. The package is specified in `rootPackage`,
-so you can call `greeting()` directly:
+5. Import the module and call the exported function from Swift.
+   The package is specified in `rootPackage`, so you can call `greeting()` directly:
 
-```swift
-import Shared
+    ```swift
+    import Shared
+    
+    print(greeting())
+    ```
 
-print(greeting())
-```
-
-Rerun the export task after changing Kotlin code or export configuration, then rebuild your app.
+When changing Kotlin code or export configuration, rerun the export task, then rebuild your app.
 Switching Xcode's build configuration does not switch the package directory: a dependency on `Debug` still uses the Debug
-Kotlin binary. Select the `Release` package when you want the Release binary.
+Kotlin binary. Select the `Release` package when you want the release binary.
 
-Swift package generation currently does not support dependencies imported through `swiftPMDependencies`.
-If SwiftUI previews crash with the generated package, try **Editor | Canvas | Use Legacy Previews Execution**
+Known issues with Swift package generation:
+
+* Dependencies imported through `swiftPMDependencies` are not supported currently.
+* If SwiftUI previews crash with the generated package, try **Editor | Canvas | Use Legacy Previews Execution**
 or make the package product dynamic (see [KT-91412](https://youtrack.jetbrains.com/issue/KT-91412)).
 
 ## Current limitations
 
-Known issues:
+Known issues general to Swift export:
 
 * Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
 * Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
