@@ -76,6 +76,8 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
             <Head>
                 <title>{title}</title>
 
+                {description && <meta name="description" content={description} />}
+
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />

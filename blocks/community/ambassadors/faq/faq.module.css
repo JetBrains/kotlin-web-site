@@ -19,7 +19,7 @@
 }
 
 .title {
-    margin: 0 0 32px;
+    margin: 0 0 var(--ktl-box-section-m, 32px);
     color: #ffffff;
     text-align: right;
 }
@@ -30,6 +30,6 @@
 
 @media (--ktl-ml-down) {
     .content {
-        padding: 0 24px;
+        padding: 0 var(--ktl-box-section-s, 24px);
     }
 }

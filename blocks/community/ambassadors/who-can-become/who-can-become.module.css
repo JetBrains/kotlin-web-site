@@ -14,15 +14,15 @@
 .grid {
     display: grid;
     grid-template-columns: minmax(0, 536fr) minmax(0, 600fr);
-    column-gap: 8px;
+    column-gap: var(--ktl-box-block-m, 8px);
     align-items: start;
 }
 
 .left {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding-right: 72px;
+    gap: var(--ktl-box-section-s, 24px);
+    padding-right: var(--ktl-box-page-m, 72px);
 }
 
 .title {
@@ -36,8 +36,8 @@
 .card {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding: 0 32px 32px;
+    gap: var(--ktl-box-section-s, 24px);
+    padding: 0 var(--ktl-box-section-m, 32px) var(--ktl-box-section-m, 32px);
     border-radius: 32px;
     background: #ffffff;
     box-sizing: border-box;
@@ -50,7 +50,7 @@
 .list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--ktl-box-section-s, 24px);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -60,7 +60,7 @@
 .listItem {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    column-gap: 24px;
+    column-gap: var(--ktl-box-section-s, 24px);
 }
 
 .itemTitle {
@@ -74,7 +74,7 @@
 @media (--ktl-tl-down) {
     .grid {
         grid-template-columns: 1fr;
-        row-gap: 48px;
+        row-gap: var(--ktl-box-section-l, 48px);
     }
 
     /* On tablets and phones the heading block is centered, per the mobile design. */
@@ -91,12 +91,12 @@
     }
 
     .card {
-        padding: 0 24px 24px;
+        padding: 0 var(--ktl-box-section-s, 24px) var(--ktl-box-section-s, 24px);
         border-radius: 24px;
     }
 
     .listItem {
         grid-template-columns: 1fr;
-        row-gap: 8px;
+        row-gap: var(--ktl-box-block-m, 8px);
     }
 }
