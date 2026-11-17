@@ -1,4 +1,4 @@
-[//]: # (title: Constructing collections)
+[//]: # (title: Create collections)
 
 ## Construct from elements
 

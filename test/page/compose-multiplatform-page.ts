@@ -30,6 +30,7 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly playgroundOutput: Locator;
     readonly playgroundOpenButton: Locator;
     readonly playgroundRunButton: Locator;
+    readonly playgroundEditButton: Locator;
 
     readonly quoteSection: Locator;
     readonly quoteCards: Locator;
@@ -76,6 +77,7 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.playgroundOutput = this.playgroundEditor.locator('iframe');
         this.playgroundOpenButton = this.playgroundBlock.getByRole('button', { name: 'Open in Playground' });
         this.playgroundRunButton = this.playgroundBlock.getByRole('button', { name: 'Run' });
+        this.playgroundEditButton = this.playgroundBlock.getByRole('button', { name: 'Edit code example' });
 
         this.quoteSection = page.getByTestId('quote-section');
         this.quoteCards = page.getByTestId('quote-card');

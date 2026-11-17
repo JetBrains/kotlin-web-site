@@ -28,12 +28,12 @@ collection processing functions.
 
 ## Common operations
 
-Common operations are available for both [read-only and mutable collections](collections-overview.md#collection-types).
+Common operations are available for both [read-only and mutable collections](collections-overview.md#read-only-and-mutable-collections).
 Common operations fall into these groups:
 
 * [Transformations](collection-transformations.md)
 * [Filtering](collection-filtering.md)
-* [`plus` and `minus` operators](collection-plus-minus.md)
+* [`plus` and `minus` operators](collection-combine.md)
 * [Grouping](collection-grouping.md)
 * [Retrieving collection parts](collection-parts.md)
 * [Retrieving single elements](collection-elements.md)
