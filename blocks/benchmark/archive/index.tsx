@@ -9,7 +9,8 @@ import { parseEnum } from '@/utils/queryParser';
 import styles from './archive.module.css';
 import { Leaderboard } from '../leaderboard';
 import { BenchPageHeader } from '../page-header';
-import { BenchEdition, formatBenchDate } from '../leaderboard/leaderboard-data';
+import { BenchEdition, formatBenchDate, isGroupedEdition } from '../leaderboard/leaderboard-data';
+import { useTaskGroup } from '../leaderboard/views/use-task-group';
 import { findMethodology, methodologyTitle, methodologyUrl } from '../methodology/versions';
 
 function MethodologyLink({ version }: { version: number }) {
@@ -50,6 +51,7 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
     const serialize = useCallback((value: string) => (value === defaultDate ? undefined : value), [defaultDate]);
 
     const [selectedDate, setSelectedDate] = useQueryState<string>('date', parse, serialize);
+    const [taskGroup, setTaskGroup] = useTaskGroup();
 
     const options = useMemo(
         () => editions.map((edition) => ({ label: formatBenchDate(edition.date), value: edition.date })),
@@ -57,6 +59,16 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
     );
     const selectedOption = options.find((option) => option.value === selectedDate) ?? options[0] ?? null;
     const selectedEdition = editions.find((edition) => edition.date === selectedOption?.value);
+
+    const selectEdition = useCallback(
+        (date: string) => {
+            const edition = editions.find((candidate) => candidate.date === date);
+
+            const resetTasks = edition && !isGroupedEdition(edition) ? () => setTaskGroup('all') : undefined;
+            setSelectedDate(date, resetTasks);
+        },
+        [editions, setSelectedDate, setTaskGroup]
+    );
 
     return (
         <>
@@ -70,8 +82,6 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                 testId="bench-archive"
                 titleTestId="bench-archive-title"
             >
-                {/* The same "date · links" line as on the current leaderboard. The date is either plain
-                    text or, once there is a choice, the edition selector itself — never both. */}
                 {selectedEdition && (
                     <div
                         className={cn(styles.meta, textCn('rs-text-1', { hardness: 'hard' }))}
@@ -82,12 +92,12 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                                 Published
                                 <span className={styles.select} data-testid="bench-archive-select">
                                     <Select
-                                        theme="dark"
+                                        theme="light"
                                         size="m"
                                         aria-label="Archived edition"
                                         options={options}
                                         value={selectedOption}
-                                        onChange={(option) => option?.value && setSelectedDate(String(option.value))}
+                                        onChange={(option) => option?.value && selectEdition(String(option.value))}
                                     />
                                 </span>
                             </span>
@@ -104,8 +114,6 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                 )}
             </BenchPageHeader>
 
-            {/* Every edition is rendered so the archive stays complete in the static HTML;
-                the selector only controls which one is on screen. */}
             {editions.map((edition) => (
                 <section
                     key={edition.date}
@@ -113,7 +121,7 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                     data-testid="bench-archive-edition"
                     data-date={edition.date}
                 >
-                    <Leaderboard rows={edition.rows} />
+                    <Leaderboard edition={edition} taskGroup={taskGroup} onTaskGroupChange={setTaskGroup} />
                 </section>
             ))}
         </>

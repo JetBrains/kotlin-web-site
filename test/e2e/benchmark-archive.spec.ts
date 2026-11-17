@@ -8,7 +8,7 @@ const ARCHIVED_DATE_TEXT = '04.10.2026';
 const OLDER_ARCHIVED_DATE = '2026-05-07';
 
 // Publication date of the current leaderboard; see data/benchmark/leaderboard.yml.
-const CURRENT_DATE_TEXT = '14.10.2026';
+const CURRENT_DATE_TEXT = '17.11.2026';
 
 test.describe('Kotlin Benchmark archive page', () => {
     let archive: KotlinBenchmarkArchivePage;
@@ -57,6 +57,10 @@ test.describe('Kotlin Benchmark archive page', () => {
         const edition = archive.visibleEdition();
         await expect(edition.locator('[data-testid="bench-col-header"][data-col="cost"]')).toHaveCount(0);
         await expect(edition.locator('[data-testid="bench-col-header"][data-col="date"]')).toHaveCount(1);
+    });
+
+    test('methodology-1 editions have no task switcher', async () => {
+        await expect(archive.visibleEdition().getByTestId('bench-task-switcher')).toHaveCount(0);
     });
 
     test('the methodology version links to its page', async () => {

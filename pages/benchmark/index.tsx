@@ -21,7 +21,7 @@ export default function KotlinBenchmarkLanding() {
             <BenchHero>
                 <ArchiveLink date={currentEdition.date} />
             </BenchHero>
-            <Leaderboard rows={currentEdition.rows} notice={currentEdition.notice} />
+            <Leaderboard edition={currentEdition} />
             <BenchCta methodologyUrl={METHODOLOGY_URL} githubUrl={GITHUB_URL} />
         </BenchmarkLayout>
     );
