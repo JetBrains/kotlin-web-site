@@ -17,6 +17,10 @@ type ColumnedFaqProps = {
     title?: ReactNode;
     columnsCount?: number;
     className?: string;
+    /** Collapse items icon type, passed to the Accordion. Defaults to the rescui 'left-plus'. */
+    icon?: 'arrow' | 'left-plus' | 'right-plus';
+    /** Renders a bottom border on every Collapse item. */
+    borderBottom?: boolean;
 };
 
 const splitIntoColumns = (items: ColumnedFaqItem[], columnsCount: number) => {
@@ -40,7 +44,7 @@ const createFaqSchema = (items: ColumnedFaqItem[]) => ({
     })),
 });
 
-export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount = 2, className }) => {
+export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount = 2, className, icon, borderBottom }) => {
     const textCn = useTextStyles();
     const columns = splitIntoColumns(items, columnsCount);
 
@@ -58,12 +62,12 @@ export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount =
                     {title}
                 </h2>
             )}
-            <Accordion>
+            <Accordion icon={icon}>
                 <div className={styles.columns}>
                     {columns.map((column, index) => (
                         <div key={index} className={styles.column}>
                             {column.map(({ question, answer }) => (
-                                <Collapse key={question} title={question}>
+                                <Collapse key={question} title={question} borderBottom={borderBottom}>
                                     {answer}
                                 </Collapse>
                             ))}

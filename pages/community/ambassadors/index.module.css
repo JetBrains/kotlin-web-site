@@ -1,0 +1,52 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+/*
+ * Page-scoped design tokens of the Kotlin Ambassadors Program (DSGN-27776).
+ * Colors come from the Figma variables: Ambassadors/Magenta-100, Orange-100, Navy-100.
+ * --amb-shape-scale follows the --sok-shape-scale pattern from state-of-kotlin-2026.
+ */
+.page {
+    --amb-color-magenta: #cd2be1;
+    --amb-color-orange: #dc5028;
+    --amb-color-navy: #160286;
+
+    --amb-shape-scale: 1;
+
+    overflow-x: clip;
+    position: relative;
+}
+
+@media (--ktl-ml-down) {
+    .page {
+        --amb-shape-scale: 0.5;
+    }
+}
+
+/* Mobile text scale, the same override state-of-kotlin-2026 uses. */
+@media (--ktl-ms-down) {
+    .page {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+
+        :global(.ktl-layout-v2) {
+            --ktl-layout-width: 360px;
+        }
+    }
+}
+
+/*
+ * One vertical gradient covers both program sections, like in the design:
+ * white -> orange -> magenta -> navy (stops are page-level, so the gradient
+ * stretches with the content height and keeps working when texts change).
+ */
+.programSection {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        #ffffff 20.5%,
+        var(--amb-color-orange) 51.2%,
+        var(--amb-color-magenta) 72%,
+        var(--amb-color-navy) 100%
+    );
+}
