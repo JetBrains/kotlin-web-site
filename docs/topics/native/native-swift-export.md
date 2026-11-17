@@ -5,10 +5,6 @@
 Kotlin's interoperability with Swift through Swift export is in Beta. Swift export allows you to export Kotlin sources
 directly and call Kotlin code from Swift idiomatically, eliminating the need for Objective-C headers.
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L5-L13
--->
-
 Swift export makes multiplatform development for Apple targets more streamlined. For example, if you have a Kotlin module
 with top-level functions, Swift export enables clean, module-specific imports, removing the confusing Objective-C
 underscores and mangled names.
@@ -18,6 +14,7 @@ Current Swift export features are:
 * **Multi-module support**. Each Kotlin module is exported as a separate Swift module, simplifying function calls.
 * **Package support**. Kotlin packages are explicitly preserved during export, avoiding naming conflicts in the
   generated Swift code.
+* **SwiftPM support**. Swift Export allows generating Swift packages to be consumed by iOS projects.
 * **Type aliases**. Kotlin type aliases are exported and preserved in Swift, improving readability.
 * **Enhanced nullability for primitives**. Unlike Objective-C interop, which required boxing types like `Int?` into
   wrapper classes like `KotlinInt` to preserve nullability, Swift export converts nullability information directly.
@@ -31,25 +28,18 @@ Current Swift export features are:
 
 ## Enable Swift export
 
-Starting with Kotlin 2.5.0, you can use the `export { swift {} }` DSL to configure either
-[direct Xcode integration](#configure-kotlin-project) or [Swift package generation](#generate-a-swift-package).
+You can use the `export { swift {} }` DSL to configure either
+[direct Xcode integration](#configure-kotlin-project-for-direct-integration) or [Swift package generation](#generate-and-consume-a-swift-package).
 Opt in to the DSL with `@OptIn(ExperimentalSwiftExportDsl::class)`.
 
-<!-- Sources:
-https://youtrack.jetbrains.com/issue/KT-89803
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L9-L13
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L103-L169
--->
+See the [Swift export sample](https://github.com/Kotlin/swift-export-sample)
+for configuration examples and a working package consumer.
+It includes AGENTS.md that lists common pitfalls of working with the EAP version of Swift export.
 
-### Configure Kotlin project
+### Configure Kotlin project for direct integration
 
 For direct Xcode integration, configure your shared module's `build.gradle.kts` as follows.
 Direct `api` dependencies are exported automatically; `configure()` customizes their Swift names and packages.
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/SwiftExportVisibility.kt#L9-L13
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L311-L330
--->
 
 ```kotlin
 // shared/build.gradle.kts
@@ -81,53 +71,38 @@ kotlin {
 }
 ```
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/shared/build.gradle.kts
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L183-L215
--->
+The direct integration builds the Swift modules and a static library and copies them into Xcode's build directory.
 
-The direct integration builds the Swift modules and static library and copies them into Xcode's build directory.
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftExport.kt#L147-L193
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/tasks/CopySwiftExportIntermediatesForConsumer.kt#L33-L89
--->
-
-### Configure Xcode project
+#### Configure Xcode project for direct integration
 
 To configure Xcode to integrate Swift export into your project:
 
 1. In Xcode, open the project settings.
 2. On the **Build Phases** tab, locate the **Run Script** phase with the `embedAndSignAppleFrameworkForXcode` task.
-3. Replace the script with the `embedSwiftExportForXcode` task in the run script phase:
+3. Replace the script with the `embedSwiftExportForXcode` task in the run script phase.
+   Using the [example above](#configure-kotlin-project-for-direct-integration):
 
    ```bash
-   ./gradlew :<Shared module name>:embedSwiftExportForXcode
+   ./gradlew :shared:embedSwiftExportForXcode
    ```
 
    ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
 
-4. Build the project. The build generates Swift modules in the output directory.
+4. Build the project.
 
-### Generate a Swift package
+The build generates Swift modules in the output directory.
 
-Swift package integration generates a package containing Swift API sources, bridge and runtime headers, and an XCFramework
-with compiled Kotlin libraries. Xcode compiles the Swift sources when consuming the package; no Gradle build phase is needed.
+### Generate and consume a Swift package
+
+As an alternative to direct integration, Swift Export can generate a Swift package containing Swift API sources,
+bridge and runtime headers, and an XCFramework with compiled Kotlin libraries.
+
+In this case, you can simply consume the Swift package in the Xcode project.
+Xcode compiles the Swift sources and no Gradle build phase is needed.
 Generate the package on macOS with Xcode installed, and set your iOS app's deployment target to **iOS 18.0** or later.
 
-<!-- Sources:
-https://youtrack.jetbrains.com/issue/KT-89803
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftPackageExport.kt#L117-L154
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftExport.kt#L50-L59
--->
-
-In your shared module, enable `swiftPackageIntegration` instead of `xcodeIntegration`.
+In your shared module, enable `swiftPackageIntegration` instead of `xcodeIntegration` used for [direct integration](#configure-kotlin-project-for-direct-integration).
 If switching from direct integration, also remove the `embedSwiftExportForXcode` run script from Xcode:
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L128-L169
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L174-L190
--->
 
 ```kotlin
 // shared/build.gradle.kts
@@ -153,25 +128,11 @@ kotlin {
 }
 ```
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/shared/build.gradle.kts
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L367-L378
--->
-
 `outputDirectory` is optional and defaults to `SwiftPackage` beside the module's build script.
-The package includes the configured Apple targets: here, iOS devices and ARM64 simulators.
+The package includes the configured Apple targets, in this example, iOS devices and simulators.
 To customize dependency exports, place `configure()` calls inside `swiftPackageIntegration`, as in the direct-integration example.
 
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L305-L378
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftPackageExport.kt#L69-L85
--->
-
 For example, declare a function in `shared/src/commonMain/kotlin/Greeting.kt`:
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L191-L212
--->
 
 ```kotlin
 package com.example.sandbox
@@ -179,15 +140,7 @@ package com.example.sandbox
 fun greeting(): String = "Hello from Kotlin"
 ```
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt
--->
-
 Run the export task for the Kotlin binary configuration you need:
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L367-L374
--->
 
 ```bash
 # Generates shared/SwiftPackage/Debug
@@ -197,24 +150,13 @@ https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70
 ./gradlew :shared:exportReleaseSwiftPackage
 ```
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L193-L200
--->
-
 In Xcode, choose **File | Add Package Dependencies | Add Local** and select `shared/SwiftPackage/Debug` or
-`shared/SwiftPackage/Release`, not their parent directory. Add the **SharedLibrary** product to your app target.
-The product name is your `moduleName` followed by `Library`; the Swift import uses `moduleName` alone.
+`shared/SwiftPackage/Release`, not their parent directory.
+Add the **SharedLibrary** product to your app target. It is the capitalized module name (`shared`) followed by `Library`.
+The Swift `import` uses `Shared` alone.
 
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L202-L220
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftPackageExport.kt#L95-L108
--->
-
-After exporting the package, call it from Swift without the Kotlin package prefix, thanks to `rootPackage`:
-
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L191-L212
--->
+After adding the package dependency, call it from Swift. The package is specified in `rootPackage`,
+so you can call `greeting()` directly:
 
 ```swift
 import Shared
@@ -222,37 +164,13 @@ import Shared
 print(greeting())
 ```
 
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L191-L212
--->
-
 Rerun the export task after changing Kotlin code or export configuration, then rebuild your app.
 Switching Xcode's build configuration does not switch the package directory: a dependency on `Debug` still uses the Debug
 Kotlin binary. Select the `Release` package when you want the Release binary.
 
-<!-- Sources:
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/apple/swiftexport/SwiftPackageExport.kt#L81-L85
-https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/mpp/export/ExportExtension.kt#L367-L374
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/spm-consumer/Package.swift
--->
-
-In Kotlin 2.5.0, Swift package generation does not support dependencies imported through `swiftPMDependencies`.
+Swift package generation currently does not support dependencies imported through `swiftPMDependencies`.
 If SwiftUI previews crash with the generated package, try **Editor | Canvas | Use Legacy Previews Execution**
-(see [KT-91412](https://youtrack.jetbrains.com/issue/KT-91412)).
-
-<!-- Sources:
-https://youtrack.jetbrains.com/issue/KT-90005
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L222
-https://youtrack.jetbrains.com/issue/KT-91412#focus=Comments-27-14650121.0-0
--->
-
-See the [Swift export sample](https://github.com/Kotlin/swift-export-sample#swift-package-export) for a working package
-consumer and additional configuration examples.
-
-<!-- Sources:
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/README.md#L193-L222
-https://github.com/Kotlin/swift-export-sample/blob/654a686070c07e293679f1c24136be73562df7a1/spm-consumer/Package.swift
--->
+or make the package product dynamic (see [KT-91412](https://youtrack.jetbrains.com/issue/KT-91412)).
 
 ## Current limitations
 
@@ -264,10 +182,6 @@ Known issues:
 * No IDE migration tips or automation are available.
 * When using declarations that require opt-in, add the opt-in annotation's fully qualified name to
   `kotlin.compilerOptions.optIn` in the exporting module.
-
-  <!-- Sources:
-  https://github.com/JetBrains/kotlin/blob/5cfff75aa6c9da4f473a20aa9235e4971c3af70a/libraries/tools/kotlin-gradle-plugin-api/src/common/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinCommonCompilerOptions.kt#L35-L41
-  -->
 
 ## Mappings
 
