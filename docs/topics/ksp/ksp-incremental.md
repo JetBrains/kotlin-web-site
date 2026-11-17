@@ -3,10 +3,10 @@
 <web-summary>Learn how KSP incremental processing decides which files to reprocess and how processors declare aggregating 
 and isolating outputs.</web-summary>
 
-Kotlin Symbol Processing (KSP) supports incremental processing: KSP reprocesses a file only when one or more of its
+Kotlin Symbol Processing (KSP) supports incremental processing. It reprocesses a file only when one or more of its
 dependencies change. This reduces compilation time by avoiding unnecessary reprocessing.
 
-Incremental processing is enabled by default. You can disable it when troubleshooting or when you need to force a full
+Incremental processing is enabled by default. You can disable it when troubleshooting or to force a full
 rebuild. To disable incremental processing, add the following line to the `gradle.properties` file:
 
 ```properties
@@ -22,7 +22,7 @@ To determine which sources are dirty, KSP relies on processors, which associate 
 corresponding input sources. KSP uses these associations to identify the sources that must be reprocessed when a change
 occurs.
 
-KSP requires processors to declare only a minimal set of _root sources_. Processors use root sources as entry points to
+KSP requires processors to declare only a minimal set of _root sources_. Processors use them as entry points to
 navigate the code structure.
 
 A root source is a source file whose symbols are obtained directly from any of the following methods:
@@ -56,7 +56,7 @@ KSP classifies generated outputs into two types: aggregating and isolating.
 <def title="Aggregating">
 
 Aggregating outputs can be affected by changes in any source file, except for removals that don't impact other files.
-For example, an output that collects all symbols with a particular annotation is aggregating.
+For example, an output that collects all symbols with a particular annotation.
 
 Any input change triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new,
 or modified source files.
@@ -85,7 +85,7 @@ When a file becomes dirty, KSP propagates dirtiness in the following ways:
   that KSP needs to track.
 
 * **Shared outputs**: if a dirty file contributes to a generated output, all other files that contribute to the same
-  output also become dirty. This groups related files into equivalence classes based on shared outputs.
+  output also become dirty. This groups the related files into equivalence classes based on shared outputs.
 
 > KSP applies both rules repeatedly until no new dirty files appear. For example, a file that becomes dirty
 > through resolution tracing can make other files dirty through shared outputs. Those files can then make more files
@@ -99,7 +99,7 @@ Dependencies are determined by the many-to-many relationship between input and o
 
 This is how KSP determines which files need to be reprocessed:
 
-* If an input file is changed, it is always reprocessed.
+* If an input file is changed, it's always reprocessed.
 
   **Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
 

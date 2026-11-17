@@ -3,9 +3,9 @@
 <web-summary>Learn how to use KSP in a Kotlin Multiplatform project: apply the KSP plugin and add processors to 
 targets and test compilations.</web-summary>
 
-In this guide, you will learn how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project.
+This guide explains how to use Kotlin Symbol Processing (KSP) in a Kotlin Multiplatform project.
 For a quick start, see the [example multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform)
-in the KSP repository. It uses KSP with several targets, and its processor generates a `Foo` class used by the project.
+. It uses KSP with several targets, and its processor generates a `Foo` class used by the project.
 
 ## Add KSP to a multiplatform project
 

@@ -1,7 +1,7 @@
 [//]: # (title: How KSP models Kotlin code)
 
-<web-summary>Learn how the KSP API models Kotlin source code as a hierarchy of symbols, and when your processor 
-should resolve type references to avoid expensive analysis.</web-summary>
+<web-summary>Learn how the KSP API models Kotlin source code as a hierarchy of symbols, and
+how to avoid expensive analysis.</web-summary>
 
 Kotlin Symbol Processing (KSP) represents source code as a hierarchy of symbols. Processors can navigate this hierarchy
 to inspect declarations, types, annotations, and other elements of the source code.
@@ -62,11 +62,11 @@ interface KSTypeReference : KSAnnotated, KSModifierListOwner {
 }
 ```
 
-A `KSTypeReference` represents an unresolved type and preserves the syntactic representation of the type as it appears
+A `KSTypeReference` represents an unresolved type. It preserves the syntactic representation of the type as it appears
 in the source code, including its annotations and modifiers. Its `element` property holds a `KSReferenceElement`, which
 models the corresponding type element in Kotlin's grammar.
 
-You can inspect a `KSReferenceElement` without resolving it. The most common kinds of reference elements are:
+You can inspect a `KSReferenceElement` without resolving it. The most common kinds of reference elements are the following:
 
 * `KSClassifierReference`, which provides information such as `referencedName()`.
 * `KSCallableReference`, which provides information such as `receiverType`, `functionParameters`, and `returnType`.
@@ -164,7 +164,7 @@ class TypeInventoryProcessor(
 }
 ```
 
-With `resolveTypes = false`, the relevant output is:
+If`resolveTypes = false`, the output is the following:
 
 ```text
 birthday: writtenName=SqlDate, arguments=0
@@ -178,13 +178,13 @@ birthday: declaration=java.sql.Date, nullability=NULLABLE
 names: declaration=kotlin.collections.List, nullability=NOT_NULL
 ```
 
-Without resolution, the processor can inspect syntactic information such as the type name and type arguments. For
-example, it sees the imported alias `SqlDate` as written in the source code. After resolution, the processor can access
+Without resolution, the processor can inspect syntactic information like type name and type arguments. For
+example, it handles the imported alias `SqlDate` as written in the source code. After resolution, the processor can access
 semantic information about the type, such as the fully qualified declaration name and nullability.
 
 ## KSP model reference
 
-The following diagram illustrates the relationships between the main KSP API types. The diagram was generated from the
+The following diagram illustrates the relationships between the main KSP API types. The diagram is generated from the
 KSP API source using the class diagram feature in IntelliJ IDEA.
 
 ![The full class diagram of the KSP 2 model.](ksp-class-diagram.svg){thumbnail="true" width="700" thumbnail-same-file="true"}

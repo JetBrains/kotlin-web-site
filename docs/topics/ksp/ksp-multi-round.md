@@ -3,7 +3,7 @@
 <web-summary>Learn how KSP runs processors in multiple rounds, how processors validate symbols and defer them to 
 later rounds, and how KSP handles errors and exceptions.</web-summary>
 
-Kotlin Symbol Processing (KSP) supports multiple-round processing, or processing files over multiple rounds. The output
+KSP runs processors in rounds. In each round, processors can use source files generated in earlier rounds.
 from each processing round is used as additional input in each subsequent round.
 
 To use multiple-round processing, return deferred symbols from `SymbolProcessor.process()` as a `List<KSAnnotated>`. KSP
@@ -30,10 +30,10 @@ override fun process(resolver: Resolver): List<KSAnnotated> {
 Multiple-round processing ends when an entire round generates no new files. If deferred symbols remain unprocessed, KSP
 logs an error for each processor with remaining deferred symbols.
 
-## Deferring symbols to the next round
+## Defer symbols to the next round
 
 Processors can defer symbols to a later round when additional information is required from other processors. A processor
-can continue deferring a symbol across multiple rounds until the required information becomes available. Once the
+can continue deferring a symbol across multiple rounds until the required information is available. Once the
 information is available, the processor can process the symbol.
 
 Defer symbols only when:
@@ -41,7 +41,7 @@ Defer symbols only when:
 * Additional information is required before the symbol can be processed.
 * The symbol originates from source code.
 
-    > Never defer symbols from the classpath. KSP filters out classpath symbols automatically.
+    > Don't defer symbols from the classpath. KSP filters out them automatically.
     >
     {style="note"}
 
@@ -49,9 +49,9 @@ For example, a processor that generates a builder for an annotated class might r
 to resolve to concrete types. In the first round, one of the parameter types might not be resolvable. In a later round,
 it can become resolvable because of files generated in the meantime. The processor can then process the class.
 
-## Validating symbols
+## Validate symbols
 
-Validation is a convenient way to determine whether to defer a symbol to a later round. A processor should define the
+Validation helps you determine whether to defer a symbol to a later round. A processor should define the
 information required to process a symbol correctly.
 
 > Validation often requires type resolution, which can be expensive. Check only the information required to process the symbol.

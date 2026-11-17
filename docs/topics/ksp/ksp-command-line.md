@@ -3,9 +3,9 @@
 <web-summary>Learn how to run KSP from the command line: which JAR files to add to the classpath, which entry 
 point to use for each platform, and which options KSP requires.</web-summary>
 
-Most projects use KSP through the KSP plugin for Gradle, which runs KSP automatically during compilation. You can also
-run KSP from the command line, which is typically useful when you're integrating KSP with other build systems,
-developing processors, testing, or debugging.
+Most projects use KSP through the KSP plugin for Gradle that runs KSP automatically during compilation. As an alternative, you can also
+run KSP from the command line. This is useful if you integrate KSP with other build systems,
+develop processors, or test and debug the code.
 
 Since KSP is a JVM application, use the `java` command to launch KSP from the command line. Provide the classpath 
 and any necessary arguments:
@@ -16,10 +16,10 @@ java -cp <classpath> <mainclass> <options> <processor>
 
 | Argument        | Description                                                         |
 |:----------------| --------------------------------------------------------------------|
-| `<classpath>`   | Path to [KSP runtime JAR files](#classpath) and their dependencies. |
-| `<mainclass>`   | One of the platform-specific KSP [entry points](#entry-points).     |
+| `<classpath>`   | A path to the [KSP runtime JAR files](#classpath) and their dependencies. |
+| `<mainclass>`   | A platform-specific KSP [entry points](#entry-points).     |
 | `<options>`     | Command-line [options](#options) for KSP.                           |
-| `<processor>`   | Path to the processor JAR.                                          |
+| `<processor>`   | A path to the processor JAR.                                          |
 
 ## Classpath
 
@@ -103,16 +103,15 @@ KSP requires the following options when running from the command line:
 
 ### Other useful options
 
-* `-libraries=<path>` – the classpath used to resolve dependencies referenced by the source files. Typically the
-  module's compile classpath.
+* `-libraries=<path>` – the classpath used to resolve dependencies referenced by the source files. This is typically the module’s compile classpath.
 * `-jdk-home=<path>` – the JDK home directory. Use when the processor resolves Java symbols and
   requires access to the Java standard library.
 * `-friends=<path>` – the classpath of the current module's friend modules. For more information, see the
   [`friendPaths` property](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kotlin-compile/friend-paths.html)
   in the Kotlin Gradle plugin API reference.
 
-> KSP also supports the `-Dksp.logging` JVM system property, which sets the logging level. Valid values are `error`,
-> `warn` or `warning`, `info`, and `debug`. The default value is `warn`. KSP treats unsupported values as `warn`.
+> You can also use the `-Dksp.logging` JVM system property to set the logging level. Valid values are `error`,
+> `warn` or `warning`, `info`, and `debug`. The default value is `warn`; unsupported values are `warn`.
 >
 {style="note"}
 
