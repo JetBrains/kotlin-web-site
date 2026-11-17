@@ -60,12 +60,6 @@
     width: auto;
 }
 
-.table col[data-col='submitted'],
-.table col[data-col='resolved'],
-.table col[data-col='date'] {
-    width: 100px;
-}
-
 .table col[data-col='resolutionRate'] {
     width: var(--sok-lb-col-rate);
 }
@@ -74,8 +68,9 @@
     width: var(--sok-lb-col-tokens);
 }
 
+.table col[data-col='cost'],
 .table col[data-col='latency'] {
-    width: 110px;
+    width: 140px;
 }
 
 .th {

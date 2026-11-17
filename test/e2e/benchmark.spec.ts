@@ -1,8 +1,15 @@
-import { expect, Locator, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
-// Becomes 7 once the current edition carries the optional `cost` column.
-const EXPECTED_DATA_COLUMNS = 6;
+// The current edition is methodology 2: resolution rate, cost, tokens and latency per task.
+const EXPECTED_DATA_COLUMNS = 4;
+
+// Task counts and leaders per view; see data/benchmark/leaderboard.yml.
+const TASK_VIEWS = [
+    { name: 'All tasks', query: '', count: 100, leader: 'Claude Code + Opus 5.5 high' },
+    { name: 'Open tasks', query: 'open', count: 70, leader: 'Claude Code + Opus 5.5 high' },
+    { name: 'Closed tasks', query: 'closed', count: 30, leader: 'Antigravity CLI + Gemini 3.8 Flash high' },
+] as const;
 
 test.describe('Kotlin Benchmark landing page', () => {
     let benchmark: KotlinBenchmarkPage;
@@ -44,28 +51,17 @@ test.describe('Kotlin Benchmark landing page', () => {
         }
     });
 
-    test('resolution rate and tokens are shown with at least two decimals', async () => {
+    test('values are shown in their column formats', async () => {
         const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => text.trim());
+        const costs = (await benchmark.costCells().allInnerTexts()).map((text) => text.trim());
         const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => text.trim());
-
-        expect(rates.length).toBeGreaterThan(0);
-        expect(tokens.length).toBeGreaterThan(0);
-
-        // Each value keeps at least two decimal places (trailing zeros, no rounding to one decimal).
-        for (const value of [...rates, ...tokens]) {
-            expect(value).toMatch(/^\d+\.\d{2,}$/);
-        }
-    });
-
-    test('latency is shown as hours and minutes', async () => {
         const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
 
-        expect(latencies.length).toBeGreaterThan(0);
+        expect(rates.length).toBeGreaterThan(0);
 
-        // Every cell follows the "Hh Mm" shape (no seconds); minutes are not zero-padded in the data.
-        for (const latency of latencies) {
-            expect(latency).toMatch(/^\d+h \d{1,2}m$/);
-        }
+        // Units live in the column headers; numbers keep at least two decimals.
+        for (const value of [...rates, ...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
+        for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?m$/);
     });
 
     test('ranks are sequential starting from 1', async () => {
@@ -78,7 +74,13 @@ test.describe('Kotlin Benchmark landing page', () => {
         await expect(benchmark.colHeaders).toHaveCount(EXPECTED_DATA_COLUMNS);
 
         await benchmark.colHeaders.first().hover();
-        await expect(benchmark.page.getByText('Total tasks submitted for evaluation')).toBeVisible();
+        await expect(benchmark.page.getByText('Percentage of tasks that were resolved')).toBeVisible();
+    });
+
+    test('methodology-1 columns are not shown', async () => {
+        for (const key of ['submitted', 'resolved', 'date']) {
+            await expect(benchmark.page.locator(`[data-testid="bench-col-header"][data-col="${key}"]`)).toHaveCount(0);
+        }
     });
 
     test('the top three rank numbers use a distinct highlight colour', async () => {
@@ -116,14 +118,45 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(result.headerTop).toBeLessThanOrEqual(4);
     });
 
-    test('notice banner is visible when set in data', async () => {
-        const notice = benchmark.page.getByTestId('bench-notice');
+    test('methodology-2 editions carry no in-progress notice', async () => {
+        await expect(benchmark.page.getByTestId('bench-notice')).toHaveCount(0);
+    });
 
-        // The notice is optional: leaderboard.yml only carries one while a run is in progress.
-        test.skip((await notice.count()) === 0, 'no notice set in leaderboard.yml');
+    test('the task switcher sits above the table and labels each view with its task count', async () => {
+        await expect(benchmark.taskSwitcher).toBeVisible();
 
-        await expect(notice).toBeVisible();
-        await expect(notice).not.toBeEmpty();
+        for (const view of TASK_VIEWS) {
+            await expect(benchmark.taskOption(view.name)).toHaveText(`${view.name} (${view.count})`);
+        }
+
+        const switcherBox = (await benchmark.taskSwitcher.getByRole('button').first().locator('..').boundingBox())!;
+        const scrollBox = (await benchmark.tableScroll.boundingBox())!;
+        expect(switcherBox.y + switcherBox.height).toBeLessThanOrEqual(scrollBox.y);
+
+        // Centred on the table card.
+        const centre = (box: { x: number; width: number }) => box.x + box.width / 2;
+        expect(Math.abs(centre(switcherBox) - centre(scrollBox))).toBeLessThanOrEqual(2);
+    });
+
+    for (const view of TASK_VIEWS) {
+        test(`"${view.name}" shows its own ranking and keeps it in the URL`, async ({ page }) => {
+            await benchmark.taskOption(view.name).click();
+
+            if (view.query) await expect(page).toHaveURL(new RegExp(`[?&]tasks=${view.query}`));
+            else await expect(page).not.toHaveURL(/[?&]tasks=/);
+
+            await expect(benchmark.rows.first().getByTestId('bench-setup')).toHaveText(view.leader);
+
+            const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => parseFloat(text));
+            expect(rates).toEqual([...rates].sort((a, b) => b - a));
+        });
+    }
+
+    test('a task view in the URL is selected on load', async ({ page }) => {
+        const deepLinked = new KotlinBenchmarkPage(page);
+        await deepLinked.init('?tasks=closed');
+
+        await expect(deepLinked.rows.first().getByTestId('bench-setup')).toHaveText(TASK_VIEWS[2].leader);
     });
 
     test('the secondary navigation shows the leaderboard as the current page', async () => {

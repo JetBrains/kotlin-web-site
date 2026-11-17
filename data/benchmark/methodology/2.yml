@@ -3,7 +3,7 @@ label: "2.0"
 repositories:
   - name: "ktlint/ktlint"
     url: "https://github.com/ktlint/ktlint"
-    tasks: 50
+    tasks: 31
   - name: "detekt/detekt"
     url: "https://github.com/detekt/detekt"
     tasks: 28
