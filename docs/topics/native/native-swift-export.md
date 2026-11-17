@@ -33,8 +33,7 @@ You can use the `export { swift {} }` DSL to configure either
 Opt in to the DSL with `@OptIn(ExperimentalSwiftExportDsl::class)`.
 
 See the [Swift export sample](https://github.com/Kotlin/swift-export-sample)
-for configuration examples and a working package consumer.
-It includes AGENTS.md that lists common pitfalls of working with the EAP version of Swift export.
+for configuration examples, a working package consumer, and known limitations.
 
 ### Configure Kotlin project for direct integration
 
@@ -152,7 +151,7 @@ Run the export task for the Kotlin binary configuration you need:
 
 In Xcode, choose **File | Add Package Dependencies | Add Local** and select `shared/SwiftPackage/Debug` or
 `shared/SwiftPackage/Release`, not their parent directory.
-Add the **SharedLibrary** product to your app target. It is the capitalized module name (`shared`) followed by `Library`.
+Add the **SharedLibrary** product to your app target. Its name is the configured `moduleName` followed by `Library`.
 The Swift `import` uses `Shared` alone.
 
 After adding the package dependency, call it from Swift. The package is specified in `rootPackage`,
