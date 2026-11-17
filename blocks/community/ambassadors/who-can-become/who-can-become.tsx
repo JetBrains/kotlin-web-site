@@ -3,7 +3,6 @@ import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
 import styles from './who-can-become.module.css';
-import { HeroDecoration } from '@/blocks/community/ambassadors/decoration/decoration';
 
 type Contribution = {
     title: string;
@@ -39,11 +38,10 @@ export const WhoCanBecome: FC = () => {
     return (
         <section className={styles.section} data-testid="ambassadors-who-can-become">
             <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
-                <HeroDecoration />
                 <div className={styles.grid}>
                     <div className={styles.left}>
                         <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-who-title">
-                            Who can become a Kotlin Ambassador?
+                            Who can become a&nbsp;Kotlin Ambassador?
                         </h2>
                         <p className={cn(textCn('rs-text-1'), styles.description)}>
                             Kotlin Ambassadors are experienced developers, community contributors, creators who have

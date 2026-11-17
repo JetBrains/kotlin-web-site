@@ -1,50 +1,51 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
-import { useTextStyles } from '@rescui/typography';
 
-import { GradientBlockDecoration } from '../decoration/decoration';
+import { useTextStyles } from '@rescui/typography';
 
 import styles from './hero.module.css';
 
-type Benefit = {
-    title: ReactNode;
-    description: string;
-};
-
-const BENEFITS: Benefit[] = [
+const BENEFITS = [
     {
+        id: 'visibility',
         title: (
             <>
-                Visibility for <br className={styles.signBreak} />Ambassadors' work
+                Visibility for <br className={styles.signBreak} />
+                Ambassadors' work
             </>
         ),
         description:
             'Articles, talks, videos, projects, and other contributions can be featured through official Kotlin channels.',
     },
     {
+        id: 'talk-to-kotlin',
         title: 'Straight talk with the Kotlin team',
         description:
             'Ambassadors join quarterly sessions with the Kotlin team to explore the direction of the ecosystem, exchange ideas, and share feedback.',
     },
     {
+        id: 'global-circle',
         title: 'A global circle of Kotlin experts',
         description:
             'Creators, educators, and community leaders from around the world in one place. A space to swap ideas, share experience, and collaborations.',
     },
     {
+        id: 'community-activities',
         title: 'Support for community activities',
         description:
             'Ambassadors get access to Kotlin and JetBrains swag, subscription giveaways to support their meetups, workshops, and other initiatives.',
     },
     {
+        id: 'jetbrains-subscription',
         title: 'Complimentary JetBrains subscription',
         description: 'Every Ambassador receives a free annual personal JetBrains subscription.',
     },
     {
+        id: 'kotlinconf-tickets',
         title: 'KotlinConf tickets',
         description: 'Ambassadors attend KotlinConf with free tickets.',
     },
-];
+] as const;
 
 export const Hero: FC = () => {
     const textCn = useTextStyles();
@@ -55,10 +56,9 @@ export const Hero: FC = () => {
                 <div className={styles.heading}>
                     <img
                         className={styles.sign}
-                        src="/images/community/ambassadors/sign.svg"
-                        alt=""
-                        aria-hidden="true"
                         data-testid="ambassadors-sign"
+                        src="/images/community/ambassadors/sign.svg"
+                        alt="ambassadors sign"
                     />
                     <h1 className={cn(textCn('rs-hero'), styles.title)} data-testid="ambassadors-hero-title">
                         Kotlin Ambassadors Program
@@ -68,16 +68,33 @@ export const Hero: FC = () => {
                         ecosystem.
                     </p>
                 </div>
-
                 <div className={styles.gradientBlock} data-testid="ambassadors-gradient-block">
-                    <GradientBlockDecoration />
+                    <div className={styles.layer} data-testid="ambassadors-hero-decoration">
+                        <img
+                            className={styles.seal}
+                            src="/images/community/ambassadors/seal.webp"
+                            alt="ambassador seal"
+                        />
+                        <img
+                            aria-hidden="true"
+                            className={styles.kElement}
+                            src="/images/community/ambassadors/k-element.webp"
+                            alt=""
+                        />
+                        <img
+                            aria-hidden="true"
+                            className={styles.contributorBadge}
+                            src="/images/community/ambassadors/badge-contributor.webp"
+                            alt=""
+                        />
+                    </div>
                     <p className={cn(textCn('rs-subtitle-2'), styles.intro)} data-testid="ambassadors-intro">
                         Great contributions deserve recognition and support. <br className={styles.break} />
                         Here is what comes with being a&nbsp;Kotlin Ambassador.
                     </p>
                     <div className={styles.grid} data-testid="ambassadors-benefits">
                         {BENEFITS.map((benefit) => (
-                            <div className={styles.card} key={benefit.title} data-testid="ambassadors-benefit-card">
+                            <div className={styles.card} key={benefit.id} data-testid="ambassadors-benefit-card">
                                 <h3 className={cn(textCn('rs-h3'), styles.cardTitle)}>{benefit.title}</h3>
                                 <p className={cn(textCn('rs-text-1'), styles.cardText)}>{benefit.description}</p>
                             </div>

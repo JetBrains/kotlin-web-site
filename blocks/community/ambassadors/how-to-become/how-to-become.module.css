@@ -72,3 +72,44 @@
         border-radius: 24px;
     }
 }
+
+/* --- 3D decorations of the section (part of the block) --- */
+
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.item {
+    position: absolute;
+    max-width: none;
+}
+
+.creatorBadge {
+    width: calc(162px * var(--amb-shape-scale, 1));
+    height: calc(179px * var(--amb-shape-scale, 1));
+    top: calc(182px * var(--amb-shape-scale, 1));
+    left: calc(977px * var(--amb-shape-scale, 1));
+    transform: rotate(-25.38deg);
+}
+
+.educatorBadge {
+    width: calc(199px * var(--amb-shape-scale, 1));
+    height: calc(126px * var(--amb-shape-scale, 1));
+    left: calc(-157px * var(--amb-shape-scale, 1));
+    bottom: calc(-20px * var(--amb-shape-scale, 1));
+    transform: rotate(28.62deg);
+}
+
+.ambassadorPlate {
+    width: calc(269px * var(--amb-shape-scale, 1));
+    height: calc(74px * var(--amb-shape-scale, 1));
+    left: calc(613px * var(--amb-shape-scale, 1));
+    bottom: calc(-37px * var(--amb-shape-scale, 1));
+    transform: rotate(-21.14deg);
+}
