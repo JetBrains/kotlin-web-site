@@ -17,9 +17,25 @@ test.describe('Kotlin Benchmark methodology page', () => {
         await expect(methodology.title).toContainText('Kotlin Benchmark');
     });
 
-    test('shows all four content sections', async () => {
-        for (const name of ['What we built', 'The Dataset', 'Methodology', 'Future outlook']) {
+    test('shows the methodology 2.0 sections', async () => {
+        for (const name of [
+            'The dataset',
+            'Evaluation design',
+            'Reward-hacking prevention',
+            'Future outlook',
+            'References',
+        ]) {
             await expect(methodology.sectionHeading(name)).toBeVisible();
+        }
+    });
+
+
+    test('footnote markers point at existing references', async () => {
+        const hrefs = await methodology.refMarkers.evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+        expect(hrefs.length).toBeGreaterThan(0);
+
+        for (const href of hrefs) {
+            await expect(methodology.references.locator(href!)).toHaveCount(1);
         }
     });
 
@@ -30,32 +46,12 @@ test.describe('Kotlin Benchmark methodology page', () => {
         const options = methodology.versionSwitcher.getByRole('button');
         await expect(options).not.toHaveCount(1);
 
-        // Newest first: the latest is selected on the unversioned URL.
         await options.last().click();
         await expect(page).toHaveURL(/\/benchmark\/methodology\/\d+\/$/);
         await expect(methodology.title).toBeVisible();
 
         await methodology.versionSwitcher.getByRole('button').first().click();
         await expect(page).toHaveURL(/\/benchmark\/methodology\/$/);
-    });
-
-    test('the dataset table lists every repository with its task count', async () => {
-        await expect(methodology.datasetTable).toBeVisible();
-        await expect(methodology.datasetRows.first()).toBeVisible();
-
-        // Repository names link out to GitHub.
-        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'ktlint/ktlint' });
-        await expect(ktlint).toHaveAttribute('href', 'https://github.com/ktlint/ktlint');
-    });
-
-    test('the "What we built" section links to Multi-SWE-bench', async () => {
-        await expect(methodology.multiSweBenchLink).toHaveAttribute('href', 'https://github.com/multi-swe-bench');
-        await expect(methodology.multiSweBenchLink).toHaveAttribute('target', '_blank');
-    });
-
-    test('the future outlook renders three cards', async () => {
-        await expect(methodology.futureCards).toHaveCount(EXPECTED_FUTURE_CARDS);
-        await expect(methodology.root.getByRole('heading', { name: 'Set of metrics' })).toBeVisible();
     });
 
     test('the subnavigation links back to the parent benchmark page', async () => {
@@ -84,5 +80,39 @@ test.describe('Kotlin Benchmark methodology page', () => {
 
         await methodology.benchmarkCta.click();
         await expect(page).toHaveURL(/\/benchmark\/?$/);
+    });
+});
+
+test.describe('Kotlin Benchmark methodology 1.0 page', () => {
+    let methodology: KotlinBenchmarkMethodologyPage;
+
+    test.beforeEach(async ({ page }) => {
+        methodology = new KotlinBenchmarkMethodologyPage(page);
+        await methodology.init('1/');
+    });
+
+    test('shows all four content sections', async () => {
+        for (const name of ['What we built', 'The Dataset', 'Methodology', 'Future outlook']) {
+            await expect(methodology.sectionHeading(name)).toBeVisible();
+        }
+    });
+
+    test('the dataset table lists every repository with its task count', async () => {
+        await expect(methodology.datasetTable).toBeVisible();
+        await expect(methodology.datasetRows.first()).toBeVisible();
+
+        // Repository names link out to GitHub.
+        const ktlint = methodology.datasetRows.first().getByRole('link', { name: 'ktlint/ktlint' });
+        await expect(ktlint).toHaveAttribute('href', 'https://github.com/ktlint/ktlint');
+    });
+
+    test('the "What we built" section links to Multi-SWE-bench', async () => {
+        await expect(methodology.multiSweBenchLink).toHaveAttribute('href', 'https://github.com/multi-swe-bench');
+        await expect(methodology.multiSweBenchLink).toHaveAttribute('target', '_blank');
+    });
+
+    test('the future outlook renders three cards', async () => {
+        await expect(methodology.futureCards).toHaveCount(EXPECTED_FUTURE_CARDS);
+        await expect(methodology.root.getByRole('heading', { name: 'Set of metrics' })).toBeVisible();
     });
 });

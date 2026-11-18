@@ -1,18 +1,15 @@
 import React, { ComponentType } from 'react';
 
 import { MethodologyHero } from '../hero';
-import { MethodologyContent } from '../content';
-import { findMethodology, latestMethodology, MethodologyVersion, methodologyTitle } from '../versions';
+import { MethodologyContentV1 } from '../content/v1';
+import { MethodologyContentV2 } from '../content/v2';
+import { findMethodology, latestMethodology, methodologyTitle } from '../versions';
 import { BenchmarkLayout } from '../../layout';
 import { METHODOLOGY_TITLE, METHODOLOGY_URL } from '../../constants';
 
-/**
- * The prose of each methodology version. Every version registered in ../versions.ts needs an entry here.
- * Versions can share a component until their text diverges; the dataset table always comes from the version's yml.
- */
-const CONTENT: Record<number, ComponentType<{ methodology: MethodologyVersion }>> = {
-    1: MethodologyContent,
-    2: MethodologyContent,
+const CONTENT: Record<number, ComponentType> = {
+    1: MethodologyContentV1,
+    2: MethodologyContentV2,
 };
 
 interface MethodologyPageProps {
@@ -25,8 +22,7 @@ export function MethodologyPage({ version }: MethodologyPageProps) {
 
     if (!methodology) {
         throw new Error(
-            `Benchmark methodology ${version} has no data: add data/benchmark/methodology/${version}.yml ` +
-                `and register it in blocks/benchmark/methodology/versions.ts.`
+            `Benchmark methodology ${version} is not published: register it in blocks/benchmark/methodology/versions.ts.`
         );
     }
 
@@ -43,12 +39,12 @@ export function MethodologyPage({ version }: MethodologyPageProps) {
         <BenchmarkLayout
             dataTestId={'benchmark-methodology'}
             title={`The Kotlin Benchmark — ${isLatest ? METHODOLOGY_TITLE : methodologyTitle(methodology)} and Outlook`}
-            description={`See how the Kotlin Benchmark is built: ${methodology.totalTasks} tasks from ${methodology.repositoryCountWord} open-source Kotlin repositories, SWE-bench-based methodology, and future plans.`}
+            description={methodology.summary}
             currentUrl={METHODOLOGY_URL}
             activeTopMenuUrl={METHODOLOGY_URL}
         >
             <MethodologyHero methodology={methodology} />
-            <Content methodology={methodology} />
+            <Content />
         </BenchmarkLayout>
     );
 }

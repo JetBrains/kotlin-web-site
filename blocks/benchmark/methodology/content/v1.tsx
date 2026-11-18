@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
 import styles from './content.module.css';
-import { MethodologyVersion } from '../versions';
+import { V1_REPOSITORIES, V1_TOTAL_TASKS } from './v1-dataset';
 import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
 
 const MULTI_SWE_BENCH_URL = 'https://github.com/multi-swe-bench' as const;
@@ -33,11 +33,8 @@ const FUTURE_ITEMS: FutureItem[] = [
     },
 ];
 
-interface MethodologyContentProps {
-    methodology: MethodologyVersion;
-}
-
-export function MethodologyContent({ methodology }: MethodologyContentProps) {
+/** Methodology 1.0: Multi-SWE-bench harness, open-source repositories only. */
+export function MethodologyContentV1() {
     const textCn = useTextStyles();
 
     return (
@@ -78,7 +75,7 @@ export function MethodologyContent({ methodology }: MethodologyContentProps) {
                     <p className={cn(styles.text, textCn('rs-text-2'))}>
                         The Kotlin Benchmark{' '}
                         <span className={cn(styles.span, textCn('rs-text-2', { hardness: 'hard' }))}>
-                            contains {methodology.totalTasks}&nbsp;tasks across {methodology.repositoryCountWord}&nbsp;repositories
+                            contains {V1_TOTAL_TASKS}&nbsp;tasks across eight&nbsp;repositories
                         </span>
                         , drawn from open production Kotlin codebases. We selected repositories based on popularity
                         (number of stars) and contributor activity. Each task is a real, merged GitHub pull request that
@@ -109,7 +106,7 @@ export function MethodologyContent({ methodology }: MethodologyContentProps) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {methodology.repositories.map((repo) => (
+                                {V1_REPOSITORIES.map((repo) => (
                                     <tr key={repo.name} className={styles.row} data-testid="methodology-dataset-row">
                                         <td className={cn(styles.td, textCn('rs-text-2', { hardness: 'hard' }))}>
                                             <a
