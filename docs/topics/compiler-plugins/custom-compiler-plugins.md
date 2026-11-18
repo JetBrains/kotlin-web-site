@@ -87,8 +87,8 @@ community plugins aren't loaded by default.
 To ensure that your custom compiler plugin works with different IDE versions, test it against each IDE version and fix 
 any issues you find.
 
-Supporting multiple IDE versions could become easier if a devkit for Kotlin compiler plugins were available. If you're 
-interested in this feature, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-82617).
+To make supporting multiple IDE versions easier, we're developing an [experimental devkit for Kotlin compiler plugins](https://github.com/Kotlin/compiler-plugin-dev-kit).
+You can now try the devkit and share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-82617).
 
 ### Backend plugin API
 
