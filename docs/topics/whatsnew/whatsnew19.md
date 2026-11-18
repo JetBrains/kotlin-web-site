@@ -567,7 +567,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 
 > Using Kotlin/Wasm requires enabling experimental features in your browser.
 >
-> [Learn more about how to enable these features](wasm-configuration.md).
+> [Learn more about how to enable these features](wasm-faq.md).
 >
 {style="note"}
 

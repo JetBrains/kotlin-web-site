@@ -1,6 +1,6 @@
-[//]: # (title: Interoperability with JavaScript)
+[//]: # (title: Kotlin/Wasm interoperability with JavaScript)
 
-<primary-label ref="beta"/> 
+<web-summary>Call JavaScript from Kotlin/Wasm and export Kotlin functions to JavaScript. Learn how types map and how exceptions cross the language boundary.</web-summary>
 
 Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in JavaScript.
 
@@ -8,10 +8,11 @@ As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoper
 familiar with Kotlin/JS interoperability, you can notice that Kotlin/Wasm interoperability is similar. However,
 there are key differences to consider.
 
-> Kotlin/Wasm is [Beta](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
-> We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+> Kotlin/Wasm is [Stable](components-stability.md), but the design of its JavaScript interoperability is still evolving and may change in
+> future releases. If changes are needed, we'll provide a smooth migration path, giving you time to update your code
+> before changes affect compatibility.
 >
-{style="note"}
+{style="warning"} 
 
 ## Use JavaScript code in Kotlin
 

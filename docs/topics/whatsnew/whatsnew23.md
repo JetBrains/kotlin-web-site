@@ -521,7 +521,7 @@ For the `wasmWasi` target, the change is safe to introduce early because applica
 diverse runtime environment (often running on a single specific VM), which is typically controlled by the user, reducing
 the risk of compatibility issues.
 
-The new exception handling proposal remains off by default for the [`wasmJs` target](wasm-overview.md#kotlin-wasm-and-compose-multiplatform).
+The new exception handling proposal remains off by default for the [`wasmJs` target](wasm-overview.md#compose-multiplatform).
 You can enable it manually by using the `-Xwasm-use-new-exception-proposal` compiler option.
 
 ## Kotlin/JS
