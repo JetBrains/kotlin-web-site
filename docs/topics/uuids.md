@@ -1,5 +1,5 @@
 [//]: # (title: UUIDs)
-[//]: # (description: Learn how to use UUIDs in Kotlin, including creating, parsing, formatting, serializing, and working with UUID values across multiplatform and JVM code.)
+<web-summary>Learn how to use UUIDs in Kotlin, including creating, parsing, formatting, serializing, and working with UUID values across multiplatform and JVM code.</web-summary>
 
 The [`Uuid`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/)
 class represents Universally Unique Identifiers (UUIDs),

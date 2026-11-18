@@ -1,5 +1,5 @@
 [//]: # (title: Connect and retrieve data from databases)
-[//]: # (description: Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.)
+<web-summary>Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.</web-summary>
 
 [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) provides support for the most common SQL databases:
 
