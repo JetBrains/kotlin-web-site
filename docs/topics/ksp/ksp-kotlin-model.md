@@ -1,6 +1,6 @@
 [//]: # (title: How KSP models Kotlin code)
 
-<web-summary>Learn how the KSP API models Kotlin source code as a hierarchy of symbols, and
+<web-summary>Learn how the KSP API models Kotlin source code as a hierarchy of symbols and
 how to avoid expensive analysis.</web-summary>
 
 KSP represents source code as a hierarchy of symbols. Processors can navigate this hierarchy to inspect declarations,

@@ -107,7 +107,7 @@ the following command:
 java -cp <classpath> <mainclass> -h
 ```
 
-### Other useful options
+### Other options
 
 * `-libraries=<path>`: the classpath used to resolve dependencies referenced by the source files. This is typically the
   module's compile classpath.
@@ -118,7 +118,7 @@ java -cp <classpath> <mainclass> -h
   in the Kotlin Gradle plugin API reference.
 
 > You can also use the `-Dksp.logging` JVM system property to set the logging level. Valid values are `error`,
-> `warn` or `warning`, `info`, and `debug`. The default value is `warn`; unsupported values are `warn`.
+> `warn` (or `warning`), `info`, and `debug`. Any other value is treated as `warn`. The default value is `warn`.
 >
 {style="note"}
 
