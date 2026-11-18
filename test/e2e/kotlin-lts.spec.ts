@@ -33,7 +33,9 @@ for (const viewport of [
         });
 
         test('keeps the section order, compact coverage, and restored Gradle workflow', async () => {
-            await expect(lts.main.getByRole('heading', { level: 1 })).toHaveText('Kotlin Targeted Security Patches');
+            await expect(lts.main.getByRole('heading', { level: 1 })).toHaveText(
+                'Kotlin Long-Term Security Support'
+            );
             expect(
                 await lts.main
                     .locator(':scope > section')

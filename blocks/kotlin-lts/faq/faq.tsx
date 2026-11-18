@@ -11,7 +11,7 @@ import styles from './faq.module.css';
 const FAQ_ITEMS = [
     {
         question: 'What does paid support add to public Kotlin security support?',
-        answer: 'Public security support covers the JVM standard library under the published policy. A commercial subscription defines an agreed scope for targeted patches, private delivery, and support terms. Discuss the additional support your team needs with us.',
+        answer: 'Public security support covers the Kotlin standard library for the JVM under the published policy. A commercial subscription defines an agreed scope for targeted patches, private delivery, and support terms. Discuss the additional support your team needs with us.',
     },
     {
         question: 'Which components, platforms, and release lines are covered?',

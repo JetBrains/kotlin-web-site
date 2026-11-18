@@ -3,7 +3,7 @@ export const SUPPORT_OPTIONS = [
         id: 'public',
         title: 'Public security support',
         points: [
-            'JVM standard library, starting with Kotlin 2.4.0.',
+            'Kotlin standard library for the JVM, starting with Kotlin 2.4.0.',
             'An 18-month support window per release line.',
             'Security fixes published through public release channels.',
         ],

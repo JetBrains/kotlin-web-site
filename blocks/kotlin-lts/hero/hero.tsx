@@ -22,11 +22,10 @@ export const Hero: FC = () => {
             <div className={cn('ktl-layout', 'ktl-layout--center', styles.content)}>
                 <div className={styles.copy}>
                     <h1 id="lts-title" className={cn(textCn('rs-hero'), styles.title)} data-testid="lts-hero-title">
-                        Kotlin <span className={styles.titleLine}>Targeted Security Patches</span>
+                        Kotlin <span className={styles.titleLine}>Long-Term Security Support</span>
                     </h1>
                     <p className={cn(textCn('rs-text-1', { hardness: 'average' }), styles.description)}>
-                        Commercial security support to address vulnerabilities in components and release lines of your
-                        Kotlin stack with less upgrade effort.
+                        Commercial long-term security support for your Kotlin stack, with minimal upgrade effort.
                     </p>
                     <div className={styles.actions}>
                         <Button

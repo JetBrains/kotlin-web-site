@@ -32,7 +32,7 @@ export const Benefits: FC = () => {
         >
             <div className="ktl-layout ktl-layout--center">
                 <h2 id="lts-benefits-title" className={cn(textCn('rs-h1'), shared.title)}>
-                    Understand what paid support adds
+                    What commercial LTS includes
                 </h2>
                 <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
                     Start with the public update path, then assess any additional support your team needs.

@@ -36,11 +36,11 @@ export const Constraints: FC = () => {
         >
             <div className="ktl-layout ktl-layout--center">
                 <h2 id="lts-constraints-title" className={cn(textCn('rs-h1'), shared.title)}>
-                    When support can help
+                    When LTS can help
                 </h2>
                 <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
-                    When updates need to fit your release process and addressing a vulnerability can involve more than
-                    updating a dependency.
+                    When you need security fixes but want to stay on your current Kotlin stack because upgrading would
+                    require additional development, testing, or migration effort.
                 </p>
                 <div className={styles.grid}>
                     {CONSTRAINTS.map(({ icon: Icon, title, text }) => (

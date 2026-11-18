@@ -22,8 +22,8 @@ export default function KotlinLtsLanding() {
     return (
         <LandingLayout
             dataTestId="kotlin-lts-landing"
-            title="Kotlin Targeted Security Patches"
-            description="Targeted security patches for agreed components and release lines of your Kotlin stack. Discuss coverage and commercial support with the Kotlin team."
+            title="Kotlin Long-Term Security Support"
+            description="Long-term security support for your Kotlin stack, with minimal upgrade effort. Discuss coverage and commercial support with the Kotlin team."
             theme="light"
             footerTheme="light"
             topMenuTitle={KOTLIN_LTS_TITLE}
