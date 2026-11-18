@@ -3154,6 +3154,14 @@
     "@webteam/bem-cn-fast" "~1.1.7"
     classnames "~2.2.6"
 
+"@webteam/pie-chart@3.0.12":
+  version "3.0.12"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/pie-chart/-/pie-chart-3.0.12.tgz#68b5fb1fbc5ae08972712d965d6f2d01190f9cde"
+  integrity sha512-t3AqxVVg+SPJUSuUd1MZHVz2y6pFAie26O3QrUe2XWIR7TkkGq7sEAXxW+cGQtZuh+Mo05Q/0olxm6+gA3l2fA==
+  dependencies:
+    "@swc/helpers" "~0.5.23"
+    classnames "~2.2.6"
+
 "@webteam/postcard-section@^0.1.2":
   version "0.1.2"
   resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/postcard-section/-/postcard-section-0.1.2.tgz#c2a036226e9b4e63e5aefd27c407f6347b955099"
