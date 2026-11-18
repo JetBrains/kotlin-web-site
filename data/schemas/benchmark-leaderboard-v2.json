@@ -15,7 +15,7 @@
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "methodology": {
-      "description": "Methodology version (see data/benchmark/methodology/<N>.yml) the results were produced with.",
+      "description": "Methodology version the results were produced with.",
       "type": "integer",
       "enum": [2]
     },

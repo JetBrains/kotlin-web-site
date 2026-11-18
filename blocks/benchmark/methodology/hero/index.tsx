@@ -11,13 +11,7 @@ export function MethodologyHero({ methodology }: MethodologyHeroProps) {
     return (
         <BenchPageHeader
             title={<>The Kotlin Benchmark&nbsp;— Methodology &&nbsp;Outlook</>}
-            intro={
-                <>
-                    See how the Kotlin Benchmark is&nbsp;built: {methodology.totalTasks}&nbsp;tasks from{' '}
-                    {methodology.repositoryCountWord} open-source Kotlin repositories, SWE-bench-based methodology,
-                    and&nbsp;future plans.
-                </>
-            }
+            intro={methodology.summary}
             testId="methodology-hero"
             titleTestId="methodology-title"
         >
