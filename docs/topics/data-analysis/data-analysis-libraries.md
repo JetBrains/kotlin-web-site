@@ -11,35 +11,30 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
 
 ### Kotlin DataFrame
 
-The [Kotlin DataFrame](https://kotlin.github.io/dataframe/overview.html) library lets you manipulate structured data in your Kotlin projects. From data creation and
+The [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) library lets you manipulate structured data in your Kotlin projects. From data creation and
 cleaning to in-depth analysis and feature engineering, this library has you covered.
 
 With the Kotlin DataFrame library, you can work with different file formats and databases:
 
-<tabs>
+- **File formats**
+- **Databases**
+- - [JSON](https://kotlin.github.io/dataframe/json.html)
+- - [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
+- - [CSV / TSV](https://kotlin.github.io/dataframe/csv-tsv.html)
+- - [MySQL](https://kotlin.github.io/dataframe/mysql.html)
+- - [Excel](https://kotlin.github.io/dataframe/excel.html)
+- - [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
+- - [Apache Arrow](https://kotlin.github.io/dataframe/apachearrow.html)
+- - [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
+- - [Parquet](https://kotlin.github.io/dataframe/parquet.html)
+- - [H2](https://kotlin.github.io/dataframe/h2.html)
+- 
+- - [MariaDB](https://kotlin.github.io/dataframe/mariadb.html)
+-
+- - [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
 
-<tab id="dataframe-files" title="Files">
+{columns="2"}
 
-* [JSON](https://kotlin.github.io/dataframe/json.html)
-* [CSV / TSV](https://kotlin.github.io/dataframe/csv-tsv.html)
-* [Excel](https://kotlin.github.io/dataframe/excel.html)
-* [Apache Arrow](https://kotlin.github.io/dataframe/apachearrow.html)
-* [Parquet](https://kotlin.github.io/dataframe/parquet.html)
-
-</tab>
-
-<tab id="dataframe-db" title="Databases">
-
-* [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
-* [MySQL](https://kotlin.github.io/dataframe/mysql.html)
-* [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
-* [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
-* [H2](https://kotlin.github.io/dataframe/h2.html)
-* [MariaDB](https://kotlin.github.io/dataframe/mariadb.html)
-* [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
-
-</tab>
-</tabs>
 
 Use Kotlin DataFrame to select columns, filter and sort rows, convert values, add calculated columns, and group and
 aggregate data. Transformations return new dataframes, preserving the original dataframe and reusing underlying
@@ -56,7 +51,7 @@ in your application.
 one plot, map data to properties such as position and color, and customize axes, legends, titles, and tooltips.
 
 This library is a simple, idiomatic, readable, and type-safe tool to visualize data. You can also easily combine Kandy
-with [Kotlin DataFrame](https://kotlin.github.io/dataframe/overview.html) to prepare and visualize data in the same Kotlin workflow.
+with [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) to prepare and visualize data in the same Kotlin workflow.
 
 ![Kandy](data-analysis-kandy-example.png){width=700}
 
