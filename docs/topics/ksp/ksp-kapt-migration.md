@@ -1,5 +1,5 @@
 [//]: # (title: Migrate from kapt to KSP)
-[//]: # (description: Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.)
+<web-summary>Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.</web-summary>
 
 In this guide, you will learn how to migrate your annotation processors from [kapt](kapt.md) to [KSP](ksp-overview.md)
 so that your project can take full advantage of Kotlin features and improve build performance.

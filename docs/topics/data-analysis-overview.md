@@ -1,5 +1,5 @@
 [//]: # (title: Kotlin for data analysis)
-[//]: # (description: Learn how to use Kotlin for data analysis with Kotlin DataFrame and Kandy to retrieve, transform, analyze, and visualize data.)
+<web-summary>Learn how to use Kotlin for data analysis with Kotlin DataFrame and Kandy to retrieve, transform, analyze, and visualize data.</web-summary>
 
 Exploring and analyzing data is something you may not do every day, but it's a crucial skill you need as a software developer. 
 
