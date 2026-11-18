@@ -1,0 +1,20 @@
+{
+  "rootId": "ed0a6c94-54f8-8227-b0b5-81efbd82744a",
+  "sourceUrl": "https://www.notion.so/ed0a6c9454f88227b0b581efbd82744a",
+  "syncedAt": "2026-11-18T12:28:46.059Z",
+  "durationMs": 900,
+  "requestCount": 2,
+  "pages": {
+    "ed0a6c94-54f8-8227-b0b5-81efbd82744a": {
+      "slug": "",
+      "path": "/",
+      "title": "REF - Kotlin with Spring WebFlux",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    }
+  },
+  "assets": {},
+  "warnings": []
+}

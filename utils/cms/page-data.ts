@@ -1,7 +1,7 @@
 import { CMS_BASE_PATH } from './constants';
 import type { NormalizedPage } from './content';
 import type { CmsDataSource } from './data-source';
-import { normalizePage } from './normalize';
+import { hasRenderableContent, normalizePage } from './normalize';
 import { canonicalId, getBlock, getText, notionUrlForId } from './notion/record';
 import type { SiteIndex, Warning } from './site';
 import { pageMeta, pageSlug, slugify } from './slug';
@@ -35,6 +35,8 @@ function missingPage(pageId: string, reason: string): Warning {
  * `/pages/<site slug>/`; its subpages keep the paths assigned by the sync, below that prefix.
  * Sites are processed in root id order, so a duplicate site slug deterministically gets a `-2`, `-3`… suffix.
  * All sites share one index, so links between pages of different sites resolve to site URLs too.
+ * Pages that would render nothing (e.g. an empty database row followed from a mention) are skipped
+ * with a `page-empty` warning, so links to them fall back to their Notion URL.
  */
 export async function buildSiteIndex(source: CmsDataSource): Promise<SiteIndex> {
     const index: SiteIndex = { pages: {}, assets: {}, warnings: [] };
@@ -83,6 +85,15 @@ export async function buildSiteIndex(source: CmsDataSource): Promise<SiteIndex> 
             const block = recordMap && getBlock(recordMap, id);
             if (!recordMap || !block) {
                 index.warnings.push(missingPage(id, `No synced page block found for ${id}`));
+                continue;
+            }
+            if (!hasRenderableContent(block, recordMap)) {
+                index.warnings.push({
+                    code: 'page-empty',
+                    message: `Page "${getText(block) || manifestPage.title || id}" has no content blocks; the page is skipped.`,
+                    pageId: id,
+                    notionUrl: notionUrlForId(id),
+                });
                 continue;
             }
 

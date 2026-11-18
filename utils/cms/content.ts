@@ -12,12 +12,15 @@ export type RichText = {
 
 /**
  * Banner background images of one image-based call-out color, read from the page's
- * `<COLOR> L/M/S Banner` properties: one image per breakpoint size.
+ * `<COLOR> XL/L/M Banner` properties: one image per breakpoint tier of the styling spec.
  */
 export interface CalloutBanners {
+    /** `<COLOR> XL Banner` — viewport 1440px and above. */
+    xlarge?: string;
+    /** `<COLOR> L Banner` — viewport from 768px to below 1440px. */
     large?: string;
+    /** `<COLOR> M Banner` — viewport below 768px. */
     medium?: string;
-    small?: string;
 }
 
 export type ContentNode = { id: string } & (

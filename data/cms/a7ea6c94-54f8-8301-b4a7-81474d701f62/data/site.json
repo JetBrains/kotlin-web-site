@@ -1,0 +1,143 @@
+{
+  "rootId": "a7ea6c94-54f8-8301-b4a7-81474d701f62",
+  "sourceUrl": "https://www.notion.so/a7ea6c9454f88301b4a781474d701f62",
+  "syncedAt": "2026-11-18T14:59:10.679Z",
+  "durationMs": 35048,
+  "requestCount": 69,
+  "pages": {
+    "a7ea6c94-54f8-8301-b4a7-81474d701f62": {
+      "slug": "",
+      "path": "/",
+      "title": "REF-Notion Call Outs WITH BG Images",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    },
+    "1a3a6c94-54f8-8268-919c-8172386c28f0": {
+      "slug": "ref-home-lp",
+      "path": "/ref-home-lp/",
+      "title": "REF-HOME LP",
+      "depth": 1,
+      "reasons": [
+        "button \"Negative button - internal destination\" on /",
+        "button \"Systems button\" on /"
+      ]
+    },
+    "413c5197-1d4f-806b-b77d-e00e5f4795ac": {
+      "slug": "initial-global-styling-conventions",
+      "path": "/initial-global-styling-conventions/",
+      "title": "Initial Global Styling Conventions",
+      "depth": 1,
+      "reasons": [
+        "link on /"
+      ]
+    },
+    "c79a6c94-54f8-8351-887a-817e70cdd94e": {
+      "slug": "kotlinLLM-is-going-open-source",
+      "path": "/kotlinLLM-is-going-open-source/",
+      "title": "KotlinLLM is Going Open Source",
+      "depth": 2,
+      "reasons": [
+        "button \"Explore\" on /ref-home-lp/"
+      ],
+      "meta": {
+        "title": "KotlinLLM is Going Open Source | Kotlin by JetBrains",
+        "description": "KotlinLLM is now public. It’s a research prototype for delegating runtime logic to an LLM from Kotlin code."
+      }
+    },
+    "40fc5197-1d4f-8036-8a32-d40bb9181e28": {
+      "slug": "ui-for-notion-call-outs",
+      "path": "/ui-for-notion-call-outs/",
+      "title": "UI for Notion Call-Outs ",
+      "depth": 2,
+      "reasons": [
+        "link on /initial-global-styling-conventions/"
+      ]
+    }
+  },
+  "assets": {
+    "attachment:5940f1b7-f72d-4589-8b4b-fe2204d19578:red-L-banner-test_1920x1080.png": "/notion-assets/b9660b40d99e.png",
+    "attachment:6bf352db-643a-41ee-a460-b1be9cbcce3f:res-XL-Banner-Test_2560x1440.png": "/notion-assets/1437845f1879.png",
+    "attachment:6191564e-5c0c-4752-aa3f-c7180ce8a154:red-M-Banner-1080x1080.png": "/notion-assets/b9aa9affb7da.png",
+    "attachment:674562c1-4688-45ea-9460-772cd9aae3c6:k-home-2_egofxs-Banner_169.png": "/notion-assets/b2eea7b2ebfa.png",
+    "attachment:7d94e40b-c713-42f4-a698-b3e5cd299bcc:k-home-2_egofxs-Banner_169.png": "/notion-assets/b2eea7b2ebfa.png",
+    "attachment:c8a1383b-d9cb-4f70-859f-df64d717516b:block.png": "/notion-assets/57430043732f.png",
+    "attachment:a5fe80de-62ff-4ef5-b6c8-5d47b0369993:kotzilla-logo.png": "/notion-assets/18d3476993da.png",
+    "attachment:1025f187-5166-4124-9960-940f300afb04:uber.png": "/notion-assets/cf1d207a1c8e.png",
+    "attachment:1e134cb8-8231-4d32-9be2-74b249243250:touchlab-logo.png": "/notion-assets/1523750d66cc.png",
+    "attachment:06906f00-8e49-4dcf-82d7-7b839380364a:logo-stacked-color.png": "/notion-assets/1c97f7c4240c.png",
+    "attachment:11868ef0-69fd-4e29-94db-752607aa9fd1:philips-logo.png": "/notion-assets/9d353b563ced.png",
+    "attachment:6f95580e-5c59-47ff-8e4d-6937be8de3e8:aws-logo.png": "/notion-assets/e70c26b85a6f.png",
+    "attachment:2bd6bd5a-7628-4e65-8650-b52bd179845f:meta.png": "/notion-assets/60fe95200ecd.png",
+    "attachment:caa9023a-e5c5-4928-915c-d7e016b6891b:google-logo.png": "/notion-assets/e976b03970e7.png",
+    "attachment:1d024ed6-afd7-42c7-913a-1ce148137a2e:mcdonalds-logo.png": "/notion-assets/3094dc8d7277.png",
+    "attachment:26274794-dd22-422c-a1af-50900ccb4aab:Monzo-review-logo.webp": "/notion-assets/94d937bd1f37.webp",
+    "attachment:d6c5dde5-cd29-445f-b3bf-61599c5d62ab:forbes-logo.png": "/notion-assets/4e189ec85aef.png",
+    "attachment:147d53ec-a698-4265-a49a-2dbdd6ee5a48:flo-600x400.png": "/notion-assets/f9f73be34059.png",
+    "attachment:6b5b10e6-1e1c-49e7-82e7-5a0f0028c3c3:image_(6).png": "/notion-assets/be43d03ea774.png",
+    "attachment:1eb87059-3480-4dc5-9081-6f06647f77aa:Kotlin_at.png": "/notion-assets/8b2222b213e8.png",
+    "attachment:bea48c3b-9650-4a3f-a98f-cab2eb7a8195:x-logo_1920.png": "/notion-assets/300171ff0da3.png",
+    "attachment:c9bf05e7-6bf7-43a9-b896-a7f449ab2078:1609-new-starling-logo.png": "/notion-assets/03ebaeadd52a.png",
+    "attachment:9aea9f83-544a-4007-97e1-bd47eac5521f:Adobe_resized.png": "/notion-assets/2b0e55edf092.png",
+    "attachment:9534aac4-09c3-4a49-8c68-d7d979a0d337:6.png": "/notion-assets/9af4d91ccf56.png",
+    "attachment:fc91507e-a16f-4165-ad10-8532914292b5:3.png": "/notion-assets/a393cef73f3a.png",
+    "attachment:33c14b3b-f90a-4629-b048-a77714c410a8:4.png": "/notion-assets/c6dcab03f7e4.png",
+    "attachment:108dddc5-02df-4749-a00b-eb61a18cda3d:2.png": "/notion-assets/b24600ca476c.png",
+    "attachment:72492c3c-dd65-448f-ae44-c67a0b6baea2:kotlin-gradient-S-1080x1080.png": "/notion-assets/b62a44f6a3d4.png",
+    "attachment:2075474f-366e-42ff-a3ca-83b5c3689ae9:vilnius-kotlin-meetup-community_(1).png": "/notion-assets/9f84fb448eb7.png",
+    "attachment:60654717-70f2-4e90-bd98-0c10ae2cffa5:Screenshot_2026-08-07_at_14.27.07.png": "/notion-assets/798741396ecb.png",
+    "attachment:8666a4b4-8498-4aa0-8df2-372f5a226f96:X-chat-built-in-Kotlin-and-Kotlin-Multiplatform.png": "/notion-assets/49c50859c2a8.png",
+    "attachment:eb382fe0-31b5-474b-b59e-2876bfabbe77:2503-starling-engineers-london.jpg": "/notion-assets/71bec56d3d54.jpg",
+    "attachment:04f6c98b-58b8-46c9-a414-edae192cc3d1:5.png": "/notion-assets/f044edf16010.png",
+    "attachment:8009f7f8-2ab2-4289-86bb-88759c2c83a2:1.png": "/notion-assets/d371b06518ea.png",
+    "attachment:97f44568-761a-40f0-acfb-11a3ec82163d:KotlinLLM.png": "/notion-assets/24354d7a9d95.png",
+    "attachment:a4e19499-8035-4455-a479-95b7dcc70bee:timofey-bryskin_(1).png": "/notion-assets/0cb74395bf51.png",
+    "attachment:fe1f7ed7-f84a-4ac9-819e-c9297b58365a:lukas-samuolis.png": "/notion-assets/66a71183c855.png",
+    "attachment:0ad858ac-3c59-4fc0-a220-036c4c66f041:Vinted-Rectang.png": "/notion-assets/43b0f2270071.png",
+    "attachment:82c567c1-8dcc-4814-ad9f-7f437aed94df:vinted-at-devtalksromania.png": "/notion-assets/a271bf6fd229.png",
+    "attachment:2f181bc3-1fb4-4fd8-8892-ab1ca05b1bc5:Vinted_1-2.png": "/notion-assets/4c482576886a.png",
+    "attachment:55898289-0faf-4f7c-9b4a-43059477c2d5:Andrius_Semionovas_meta.png": "/notion-assets/ba79761face6.png"
+  },
+  "warnings": [
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "c79a6c94-54f8-8351-887a-817e70cdd94e",
+      "blockId": "c79a6c94-54f8-8351-887a-817e70cdd94e",
+      "notionUrl": "https://www.notion.so/3b1c51971d4f8032a494dfb73f78f49f"
+    },
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"40fc51971d4f80c3a4a4f2126966bdcd\"",
+      "pageId": "40fc5197-1d4f-80c3-a4a4-f2126966bdcd",
+      "notionUrl": "https://www.notion.so/40fc51971d4f80c3a4a4f2126966bdcd"
+    },
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"414c51971d4f801d8549fd2aee92eb10\"",
+      "pageId": "414c5197-1d4f-801d-8549-fd2aee92eb10",
+      "notionUrl": "https://www.notion.so/414c51971d4f801d8549fd2aee92eb10"
+    },
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"40fc51971d4f800190c3c154f233fccf\"",
+      "pageId": "40fc5197-1d4f-8001-90c3-c154f233fccf",
+      "notionUrl": "https://www.notion.so/40fc51971d4f800190c3c154f233fccf"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "blockId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "notionUrl": "https://www.notion.so/40fc51971d4f80c3a4a4f2126966bdcd"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "blockId": "413c5197-1d4f-80cd-9543-d5a02f5d7f97",
+      "notionUrl": "https://www.notion.so/413c51971d4f806bb77de00e5f4795ac"
+    }
+  ]
+}

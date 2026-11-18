@@ -11,6 +11,8 @@
 }
 
 .nw-page {
+    /* Default background colour of the Notion styling spec: near white. */
+    --nw-canvas-bg: #fefefe;
     /* Default font colour of the Notion styling spec: dark purple. */
     color: #180e31;
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

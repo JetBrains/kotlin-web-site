@@ -25,6 +25,9 @@ type NormalizeContext = {
     banners: Partial<Record<ThemeName, CalloutBanners>>;
 };
 
+/** Pair 1 of the call-out styling spec: colors reserved for landing-page hero sections. */
+const HERO_THEMES: ReadonlySet<ThemeName> = new Set(['red', 'orange']);
+
 const headingLevels: Record<string, 1 | 2 | 3 | 4> = {
     header: 1,
     sub_header: 2,
@@ -123,6 +126,20 @@ function childIds(block: Record<string, any>): string[] {
     return Array.isArray(block.content)
         ? block.content.filter((id: unknown): id is string => typeof id === 'string')
         : [];
+}
+
+/**
+ * Whether at least one child block of the page would be rendered by `normalizePage`.
+ * Mirrors the skip rules of the page loop there: hidden blocks and empty paragraphs render nothing,
+ * while every other child renders at least an "unsupported block" placeholder.
+ * Pages where this is false render an empty body, so `buildSiteIndex` skips them entirely.
+ */
+export function hasRenderableContent(root: Record<string, any>, recordMap: NotionRecordMap): boolean {
+    return childIds(root).some((childId) => {
+        const child = getBlock(recordMap, childId);
+        if (!child) return true; // a block missing from the record map still renders a placeholder
+        return !isHidden(child) && !(child.type === 'text' && !getText(child).trim());
+    });
 }
 
 function unsupported(
@@ -447,7 +464,9 @@ export function normalizePage(recordMap: NotionRecordMap, pageId: string, site: 
                 kind: 'section',
                 theme: theme.theme,
                 scheme: theme.scheme,
-                hero: !heroFound,
+                // The first call-out opens the page; RED and ORANGE are reserved for hero sections
+                // wherever they sit, so they always get the hero typography.
+                hero: !heroFound || HERO_THEMES.has(theme.theme),
                 ...(banners ? { banners } : {}),
                 children,
             });

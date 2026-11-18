@@ -12,12 +12,35 @@ import { Paragraph } from './paragraph';
 import { Placeholder } from './placeholder';
 import { RichTextView } from './rich-text';
 
+type ButtonNode = Extract<ContentNode, { kind: 'button' }>;
+type Run = ContentNode | { kind: 'buttons'; id: string; items: ButtonNode[] };
+
+/** Notion stores every button as its own block: adjacent ones are laid out together as one wrapping row. */
+function groupButtons(nodes: ContentNode[]): Run[] {
+    const runs: Run[] = [];
+    for (const node of nodes) {
+        const previous = runs[runs.length - 1];
+        if (node.kind !== 'button') runs.push(node);
+        else if (previous?.kind === 'buttons') previous.items.push(node);
+        else runs.push({ kind: 'buttons', id: node.id, items: [node] });
+    }
+    return runs;
+}
+
 /** Renders the normalized CMS content tree. Every element keeps its Notion block id as `b-<id>` for custom CSS. */
 export function Blocks({ nodes, hero = false }: { nodes: ContentNode[]; hero?: boolean }) {
     return (
         <>
-            {nodes.map((node) => {
+            {groupButtons(nodes).map((node) => {
                 switch (node.kind) {
+                    case 'buttons':
+                        return (
+                            <div key={`${node.id}-buttons`} className="nw-buttons">
+                                {node.items.map((item) => (
+                                    <CmsButton key={item.id} node={item} hero={hero} />
+                                ))}
+                            </div>
+                        );
                     case 'section':
                         return (
                             <CalloutSection key={node.id} node={node}>
@@ -38,8 +61,6 @@ export function Blocks({ nodes, hero = false }: { nodes: ContentNode[]; hero?: b
                         return <List key={node.id} node={node} hero={hero} />;
                     case 'grid':
                         return <Grid key={node.id} node={node} hero={hero} />;
-                    case 'button':
-                        return <CmsButton key={node.id} node={node} hero={hero} />;
                     case 'image':
                         return (
                             <figure key={node.id} id={`b-${node.id}`} className="nw-image">

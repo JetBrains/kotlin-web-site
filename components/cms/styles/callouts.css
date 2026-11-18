@@ -9,63 +9,86 @@
     --nw-callout-gray-bg: #fefefe;
     /* 2b-purple-callout-highlight-bg-colour */
     --nw-callout-purple-bg: linear-gradient(to bottom, rgba(246, 243, 254, 1) 0%, rgba(246, 243, 254, 0.4) 100%);
-    /* 3-callout-highlight-bg-colour — shown when a page sets no YELLOW/GREEN banners; provisional value
-       until the spec details this token. */
-    --nw-callout-highlight-bg: #f6f3fe;
-    /* 4-callout-highlight-bg-colour — default background of BLUE/PINK custom sections; provisional
-       value until the spec details this token. */
-    --nw-callout-custom-bg: #f6f3fe;
-    /* Default hero banner shown while a page sets no `<COLOR> L/M/S Banner` properties:
+    /* 3-callout-highlight-bg-colour — shown when a page sets no YELLOW/GREEN banners; the spec keeps
+       it the same lavender gradient as 2b for now, as its own token so it can be retuned separately. */
+    --nw-callout-highlight-bg: linear-gradient(to bottom, rgba(246, 243, 254, 1) 0%, rgba(246, 243, 254, 0.4) 100%);
+    /* 4-callout-highlight-bg-colour — default background of BLUE/PINK custom sections; the spec keeps
+       it the same near-white as 2a for now, as its own token so it can be retuned separately. */
+    --nw-callout-custom-bg: #fefefe;
+    /* Default hero banner shown while a page sets no `<COLOR> XL/L/M Banner` properties:
        the hero graphics of the /backend/ landing page, on a transparent background. */
     --nw-hero-default-banner: url('/images/cms/banners/hero-graphics.webp');
-    /* Light readability shade over the page's `<COLOR> L/M/S Banner` images: strongest where the
-       copy sits, letting the banner show through at the other edge so dark copy stays readable in
-       light mode. The default hero graphic does not use it — see the placement rule below. */
-    --nw-hero-shade: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.55) 100%);
+    /* Light readability shade over the page's `<COLOR> XL/L/M Banner` images, so dark copy stays
+       readable in light mode. Below 768px the copy spans the full width, so the shade covers the
+       whole banner; from 768px it is strongest under the copy and fades out towards the right,
+       keeping the bottom-right focal point of the banner at full strength. The default hero
+       graphic does not use it — see the placement rule below. */
+    --nw-hero-shade: linear-gradient(90deg, rgba(254, 254, 254, 0.92) 0%, rgba(254, 254, 254, 0.55) 100%);
+}
+
+@media (min-width: 768px) {
+    .nw-page {
+        --nw-hero-shade: linear-gradient(
+            90deg,
+            rgba(254, 254, 254, 0.92) 0%,
+            rgba(254, 254, 254, 0.8) 45%,
+            rgba(254, 254, 254, 0) 75%
+        );
+    }
+
+    /* Centred copy (ORANGE) sits over the middle of the banner, so it keeps an even shade. */
+    .nw-hero-shade.nw-align-center {
+        --nw-hero-shade: linear-gradient(rgba(254, 254, 254, 0.8), rgba(254, 254, 254, 0.8));
+    }
 }
 
 /*
- * Banner images from the page's `<COLOR> L/M/S Banner` properties. The components set them per
- * element as `--nw-banner-l/m/s`; these rules pick the image per breakpoint. Sizes that the page
- * does not set already fell back to the next one in `banner-style.ts`.
+ * Banner images from the page's `<COLOR> XL/L/M Banner` properties. The components set them per
+ * element as `--nw-banner-xl/l/m`; these rules pick the image per breakpoint tier of the styling
+ * spec: the L banner from 768px, the XL banner from 1440px and the M banner below 768px. Tiers the
+ * page does not set already fell back to the next one in `banner-style.ts`.
  */
 .nw-callout-banner {
-    background-position: center;
+    /* The styling spec anchors the banner's focal point to the bottom-right corner and lets cover
+       crop the overflow from the top and left. */
+    background-position: right bottom;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .nw-hero-callout.nw-callout-banner,
 .nw-callout-card.nw-hero-shade.nw-callout-banner {
-    background-image: var(--nw-hero-shade), var(--nw-banner-m);
+    background-image: var(--nw-hero-shade), var(--nw-banner-l);
 }
 
 .nw-highlight-callout.nw-callout-banner,
 .nw-callout-card.nw-callout-banner {
-    background-image: var(--nw-banner-m);
+    background-image: var(--nw-banner-l);
 }
 
-@media (min-width: 1920px) {
+/* 1440px and above: the XL banner. */
+@media (min-width: 1440px) {
     .nw-hero-callout.nw-callout-banner,
     .nw-callout-card.nw-hero-shade.nw-callout-banner {
-        background-image: var(--nw-hero-shade), var(--nw-banner-l, var(--nw-banner-m));
+        background-image: var(--nw-hero-shade), var(--nw-banner-xl, var(--nw-banner-l));
     }
 
     .nw-highlight-callout.nw-callout-banner,
     .nw-callout-card.nw-callout-banner {
-        background-image: var(--nw-banner-l, var(--nw-banner-m));
+        background-image: var(--nw-banner-xl, var(--nw-banner-l));
     }
 }
 
-@media (max-width: 768px) {
+/* Below 768px: the M banner. */
+@media (max-width: 767px) {
     .nw-hero-callout.nw-callout-banner,
     .nw-callout-card.nw-hero-shade.nw-callout-banner {
-        background-image: var(--nw-hero-shade), var(--nw-banner-s, var(--nw-banner-m));
+        background-image: var(--nw-hero-shade), var(--nw-banner-m, var(--nw-banner-l));
     }
 
     .nw-highlight-callout.nw-callout-banner,
     .nw-callout-card.nw-callout-banner {
-        background-image: var(--nw-banner-s, var(--nw-banner-m));
+        background-image: var(--nw-banner-m, var(--nw-banner-l));
     }
 }
 
@@ -85,22 +108,41 @@
 }
 
 /*
- * The default hero banner is placed like its source, the /backend/ page hero — a 1000px square,
- * horizontally centered and shifted right, with its top edge 140px above the section; the
- * section clips it — then moved 250px further right: 450px below 768px, 640px above. Its
- * transparent background composites straight onto the white section without the readability
- * shade, so the graphic keeps its full contrast. Page-set banners keep the cover fit and
- * the shade above.
+ * The default hero banner keeps the graphic to the right third of the section. From 768px it is
+ * placed like its source, the /backend/ page hero — a 1000px square, horizontally centered and
+ * shifted 640px right, with its top edge 140px above the section; the section clips it. Below
+ * 768px the copy takes the full width, so the graphic moves out of its way into the bottom-right
+ * corner, below the copy. Its transparent background composites straight onto the section.
+ * RED (left-aligned) keeps its copy on the white left two thirds, so the graphic needs no shade
+ * and keeps its full contrast. ORANGE centres its copy on the page, across the graphic, so from
+ * 768px it lays the even readability shade over the graphic. Page-set banners keep the cover
+ * fit and the shade above.
  */
 .nw-hero-callout:not(.nw-callout-banner) {
     background-image: var(--nw-hero-default-banner);
-    background-position: calc(50% + 450px) -140px;
-    background-size: 1000px 1000px;
+    background-position: right -40px bottom -40px;
+    background-size: 320px 320px;
+    padding-bottom: 264px;
 }
 
 @media (min-width: 768px) {
     .nw-hero-callout:not(.nw-callout-banner) {
         background-position: calc(50% + 640px) -140px;
+        background-size: 1000px 1000px;
+        padding-bottom: 96px;
+    }
+
+    /* Left-aligned copy stays on the white left two thirds, clear of the graphic. Notion columns
+       are left alone: their own layout already decides where the copy sits. */
+    .nw-hero-callout:not(.nw-callout-banner):not(.nw-align-center) .nw-container > :not(.ktl-row) {
+        max-width: calc(200% / 3);
+    }
+
+    /* Centred copy spans the page and crosses the graphic, so the graphic sits under the shade. */
+    .nw-hero-callout.nw-align-center:not(.nw-callout-banner) {
+        background-image: var(--nw-hero-shade), var(--nw-hero-default-banner);
+        background-position: center, calc(50% + 640px) -140px;
+        background-size: cover, 1000px 1000px;
     }
 }
 
@@ -111,6 +153,40 @@
 
 .nw-align-center {
     text-align: center;
+}
+
+/* Centred hero (ORANGE): Notion columns left empty only reserve space, so they are dropped and the
+   remaining columns are centred on the page, keeping their width as the copy's measure. */
+.nw-hero-callout.nw-align-center .ktl-row {
+    justify-content: center;
+}
+
+.nw-hero-callout.nw-align-center .ktl-row > :empty {
+    display: none;
+}
+
+/* Centred lists keep their markers next to the copy instead of at the column's left edge. */
+.nw-align-center .nw-list {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+/* Adjacent buttons: one row that wraps, aligned like the call-out copy. */
+.nw-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.nw-align-center .nw-buttons {
+    justify-content: center;
+}
+
+/* Long labels wrap rather than overflow narrow viewports. */
+.nw-buttons .nw-button {
+    max-width: 100%;
+    white-space: normal;
 }
 
 /* A call-out nested inside another one renders as a card: its background is kept to the card. */

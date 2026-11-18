@@ -1,0 +1,71 @@
+{
+  "rootId": "72ba6c94-54f8-82fa-8959-0193c396b346",
+  "sourceUrl": "https://www.notion.so/72ba6c9454f882fa89590193c396b346",
+  "syncedAt": "2026-11-18T12:28:44.454Z",
+  "durationMs": 3841,
+  "requestCount": 14,
+  "pages": {
+    "72ba6c94-54f8-82fa-8959-0193c396b346": {
+      "slug": "",
+      "path": "/",
+      "title": "REF-Notion Call Outs NO bg images",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    },
+    "413c5197-1d4f-806b-b77d-e00e5f4795ac": {
+      "slug": "initial-global-styling-conventions",
+      "path": "/initial-global-styling-conventions/",
+      "title": "Initial Global Styling Conventions",
+      "depth": 1,
+      "reasons": [
+        "link on /"
+      ]
+    },
+    "40fc5197-1d4f-8036-8a32-d40bb9181e28": {
+      "slug": "ui-for-notion-call-outs",
+      "path": "/ui-for-notion-call-outs/",
+      "title": "UI for Notion Call-Outs ",
+      "depth": 2,
+      "reasons": [
+        "link on /initial-global-styling-conventions/"
+      ]
+    }
+  },
+  "assets": {},
+  "warnings": [
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"40fc51971d4f80c3a4a4f2126966bdcd\"",
+      "pageId": "40fc5197-1d4f-80c3-a4a4-f2126966bdcd",
+      "notionUrl": "https://www.notion.so/40fc51971d4f80c3a4a4f2126966bdcd"
+    },
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"414c51971d4f801d8549fd2aee92eb10\"",
+      "pageId": "414c5197-1d4f-801d-8549-fd2aee92eb10",
+      "notionUrl": "https://www.notion.so/414c51971d4f801d8549fd2aee92eb10"
+    },
+    {
+      "code": "page-fetch-failed",
+      "message": "Could not fetch discovered page: Error: Notion page not found \"40fc51971d4f800190c3c154f233fccf\"",
+      "pageId": "40fc5197-1d4f-8001-90c3-c154f233fccf",
+      "notionUrl": "https://www.notion.so/40fc51971d4f800190c3c154f233fccf"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "blockId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "notionUrl": "https://www.notion.so/40fc51971d4f80c3a4a4f2126966bdcd"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "40fc5197-1d4f-8036-8a32-d40bb9181e28",
+      "blockId": "413c5197-1d4f-80cd-9543-d5a02f5d7f97",
+      "notionUrl": "https://www.notion.so/413c51971d4f806bb77de00e5f4795ac"
+    }
+  ]
+}

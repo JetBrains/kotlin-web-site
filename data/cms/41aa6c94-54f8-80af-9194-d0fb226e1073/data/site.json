@@ -1,0 +1,29 @@
+{
+  "rootId": "41aa6c94-54f8-80af-9194-d0fb226e1073",
+  "sourceUrl": "https://www.notion.so/41aa6c9454f880af9194d0fb226e1073",
+  "syncedAt": "2026-11-18T12:28:47.519Z",
+  "durationMs": 799,
+  "requestCount": 3,
+  "pages": {
+    "41aa6c94-54f8-80af-9194-d0fb226e1073": {
+      "slug": "",
+      "path": "/",
+      "title": "REF - Get Started Page",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    },
+    "ed0a6c94-54f8-8227-b0b5-81efbd82744a": {
+      "slug": "ref-kotlin-with-spring-webflux",
+      "path": "/ref-kotlin-with-spring-webflux/",
+      "title": "REF - Kotlin with Spring WebFlux",
+      "depth": 1,
+      "reasons": [
+        "button \"Back to Spring WebFlux\" on /"
+      ]
+    }
+  },
+  "assets": {},
+  "warnings": []
+}

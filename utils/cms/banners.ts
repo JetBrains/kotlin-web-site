@@ -4,15 +4,22 @@ import { collectionSchema } from './notion/properties';
 import type { NotionRecordMap } from './notion/record';
 import type { ThemeName } from './themes';
 
-/** Page properties that carry the banner images of each image-based call-out color, per breakpoint size. */
-const BANNER_PROPERTIES: Record<'red' | 'orange' | 'yellow' | 'green', [string, string, string]> = {
-    red: ['RED L Banner', 'RED M Banner', 'RED S Banner'],
-    orange: ['ORANGE L Banner', 'ORANGE M Banner', 'ORANGE S Banner'],
-    yellow: ['YELLOW L Banner', 'YELLOW M Banner', 'YELLOW S Banner'],
-    green: ['GREEN L Banner', 'GREEN M Banner', 'GREEN S Banner'],
+/**
+ * Page properties that carry the banner images of each image-based call-out color, per breakpoint
+ * tier of the styling spec: `XL Banner` for viewports 1440px and above, `L Banner` for 768px to
+ * below 1440px and `M Banner` below 768px. The `S Banner` spelling is accepted as a mobile alias,
+ * as the authoring guidelines also refer to the mobile banner that way.
+ */
+const BANNER_PROPERTIES: Record<'red' | 'orange' | 'yellow' | 'green', Record<BannerTier, string[]>> = {
+    red: { xlarge: ['RED XL Banner'], large: ['RED L Banner'], medium: ['RED M Banner', 'RED S Banner'] },
+    orange: { xlarge: ['ORANGE XL Banner'], large: ['ORANGE L Banner'], medium: ['ORANGE M Banner', 'ORANGE S Banner'] },
+    yellow: { xlarge: ['YELLOW XL Banner'], large: ['YELLOW L Banner'], medium: ['YELLOW M Banner', 'YELLOW S Banner'] },
+    green: { xlarge: ['GREEN XL Banner'], large: ['GREEN L Banner'], medium: ['GREEN M Banner', 'GREEN S Banner'] },
 };
 
-const SIZES = ['large', 'medium', 'small'] as const;
+const TIERS = ['xlarge', 'large', 'medium'] as const;
+
+type BannerTier = (typeof TIERS)[number];
 
 /** Property names are matched case-insensitively, so "red l banner" also finds "RED L Banner". */
 function normalizeName(name: string): string {
@@ -40,37 +47,40 @@ export interface BannerContext {
 }
 
 /**
- * The `<COLOR> L/M/S Banner` images of one call-out color, resolved to the copies downloaded by the sync.
- * The page sets them once and every call-out of that color on the page shows them; a size that is not set
- * is simply left out and the renderer falls back to the next size or the default background.
+ * The `<COLOR> XL/L/M Banner` images of one call-out color, resolved to the copies downloaded by the sync.
+ * The page sets them once and every call-out of that color on the page shows them; a tier that is not set
+ * is simply left out and the renderer falls back to the next tier or the default background.
  */
 export function calloutBanners(theme: ThemeName, pageBlock: Record<string, any>, context: BannerContext): CalloutBanners | undefined {
-    const names = BANNER_PROPERTIES[theme as keyof typeof BANNER_PROPERTIES];
-    if (!names || !pageBlock?.properties) return undefined;
+    const tiers = BANNER_PROPERTIES[theme as keyof typeof BANNER_PROPERTIES];
+    if (!tiers || !pageBlock?.properties) return undefined;
 
     const ids = propertyIdsByName(pageBlock, context.recordMap);
     const banners: CalloutBanners = {};
 
-    for (const [index, size] of SIZES.entries()) {
-        const propertyId = ids.get(normalizeName(names[index]));
-        if (!propertyId) continue;
+    for (const tier of TIERS) {
+        for (const name of tiers[tier]) {
+            const propertyId = ids.get(normalizeName(name));
+            if (!propertyId) continue;
 
-        const url = fileUrls(pageBlock.properties[propertyId])[0];
-        if (!url) continue;
+            const url = fileUrls(pageBlock.properties[propertyId])[0];
+            if (!url) continue;
 
-        const local = context.assets[url];
-        if (local) {
-            banners[size] = local;
-        } else if (/^attachment:/i.test(url)) {
-            context.warn(
-                'banner-asset-missing',
-                `Banner image of ${names[index]} was not downloaded by the sync, so the default background is shown.`,
-                pageBlock.id ?? ''
-            );
-        } else {
-            banners[size] = url;
+            const local = context.assets[url];
+            if (local) {
+                banners[tier] = local;
+            } else if (/^attachment:/i.test(url)) {
+                context.warn(
+                    'banner-asset-missing',
+                    `Banner image of ${name} was not downloaded by the sync, so the default background is shown.`,
+                    pageBlock.id ?? ''
+                );
+            } else {
+                banners[tier] = url;
+            }
+            break;
         }
     }
 
-    return banners.large ?? banners.medium ?? banners.small ? banners : undefined;
+    return banners.xlarge ?? banners.large ?? banners.medium ? banners : undefined;
 }

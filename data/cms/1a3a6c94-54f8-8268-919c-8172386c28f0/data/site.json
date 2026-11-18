@@ -1,0 +1,291 @@
+{
+  "rootId": "1a3a6c94-54f8-8268-919c-8172386c28f0",
+  "sourceUrl": "https://www.notion.so/1a3a6c9454f88268919c8172386c28f0",
+  "syncedAt": "2026-11-18T12:28:20.268Z",
+  "durationMs": 45453,
+  "requestCount": 184,
+  "pages": {
+    "1a3a6c94-54f8-8268-919c-8172386c28f0": {
+      "slug": "",
+      "path": "/",
+      "title": "REF-HOME LP",
+      "depth": 0,
+      "reasons": [
+        "root"
+      ]
+    },
+    "c79a6c94-54f8-8351-887a-817e70cdd94e": {
+      "slug": "kotlinLLM-is-going-open-source",
+      "path": "/kotlinLLM-is-going-open-source/",
+      "title": "KotlinLLM is Going Open Source",
+      "depth": 1,
+      "reasons": [
+        "button \"Explore\" on /"
+      ],
+      "meta": {
+        "title": "KotlinLLM is Going Open Source | Kotlin by JetBrains",
+        "description": "KotlinLLM is now public. It’s a research prototype for delegating runtime logic to an LLM from Kotlin code."
+      }
+    },
+    "3b1c5197-1d4f-8032-a494-dfb73f78f49f": {
+      "slug": "kotlinllm",
+      "path": "/kotlinllm/",
+      "title": "KotlinLLM",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3adc5197-1d4f-80a2-9203-c0b86d08e1cd": {
+      "slug": "timofey-bryskin-bio",
+      "path": "/timofey-bryskin-bio/",
+      "title": "Timofey Bryksin",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ],
+      "meta": {
+        "title": "Timofey Bryskin | Bio | Kotlin Community",
+        "description": "Head of JetBrains Research specialising in AI, software engineering, code analysis and developer tools."
+      }
+    },
+    "3b4c5197-1d4f-8014-8750-cef8fc4ee5f5": {
+      "slug": "anastasia-birillo",
+      "path": "/anastasia-birillo/",
+      "title": "Anastasia Birillo",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3b1c5197-1d4f-8029-a8eb-eacb7563b07d": {
+      "slug": "jetbrains",
+      "path": "/jetbrains/",
+      "title": "JetBrains",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3acc5197-1d4f-806a-870d-d093f0b36628": {
+      "slug": "ai",
+      "path": "/ai/",
+      "title": "AI",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3aec5197-1d4f-803b-99f7-e3e777f18597": {
+      "slug": "kotlin",
+      "path": "/kotlin/",
+      "title": "kotlin",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3aec5197-1d4f-8070-90ea-f418698d32b8": {
+      "slug": "llm",
+      "path": "/llm/",
+      "title": "LLM",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3b5c5197-1d4f-80a0-a599-efa97aece473": {
+      "slug": "kotlinllm-2",
+      "path": "/kotlinllm-2/",
+      "title": "kotlinLLM",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "410c5197-1d4f-80f6-ba90-d5a5d5c1c4e2": {
+      "slug": "haskell",
+      "path": "/haskell/",
+      "title": "haskell",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3aec5197-1d4f-800b-ba95-f2d1b60dad63": {
+      "slug": "embabel-agent-starter-dockermodels",
+      "path": "/embabel-agent-starter-dockermodels/",
+      "title": "embabel-agent-starter-dockermodels",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3aec5197-1d4f-807f-9e79-c5b788d57f9b": {
+      "slug": "java",
+      "path": "/java/",
+      "title": "java",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    },
+    "3b1c5197-1d4f-80a6-9b35-dff97d9465a9": {
+      "slug": "research-at-jetbrains",
+      "path": "/research-at-jetbrains/",
+      "title": "Research at JetBrains",
+      "depth": 2,
+      "reasons": [
+        "link on /kotlinLLM-is-going-open-source/"
+      ]
+    }
+  },
+  "assets": {
+    "attachment:c8a1383b-d9cb-4f70-859f-df64d717516b:block.png": "/notion-assets/57430043732f.png",
+    "attachment:a5fe80de-62ff-4ef5-b6c8-5d47b0369993:kotzilla-logo.png": "/notion-assets/18d3476993da.png",
+    "attachment:1025f187-5166-4124-9960-940f300afb04:uber.png": "/notion-assets/cf1d207a1c8e.png",
+    "attachment:1e134cb8-8231-4d32-9be2-74b249243250:touchlab-logo.png": "/notion-assets/1523750d66cc.png",
+    "attachment:06906f00-8e49-4dcf-82d7-7b839380364a:logo-stacked-color.png": "/notion-assets/1c97f7c4240c.png",
+    "attachment:11868ef0-69fd-4e29-94db-752607aa9fd1:philips-logo.png": "/notion-assets/9d353b563ced.png",
+    "attachment:6f95580e-5c59-47ff-8e4d-6937be8de3e8:aws-logo.png": "/notion-assets/e70c26b85a6f.png",
+    "attachment:2bd6bd5a-7628-4e65-8650-b52bd179845f:meta.png": "/notion-assets/60fe95200ecd.png",
+    "attachment:caa9023a-e5c5-4928-915c-d7e016b6891b:google-logo.png": "/notion-assets/e976b03970e7.png",
+    "attachment:1d024ed6-afd7-42c7-913a-1ce148137a2e:mcdonalds-logo.png": "/notion-assets/3094dc8d7277.png",
+    "attachment:26274794-dd22-422c-a1af-50900ccb4aab:Monzo-review-logo.webp": "/notion-assets/94d937bd1f37.webp",
+    "attachment:d6c5dde5-cd29-445f-b3bf-61599c5d62ab:forbes-logo.png": "/notion-assets/4e189ec85aef.png",
+    "attachment:147d53ec-a698-4265-a49a-2dbdd6ee5a48:flo-600x400.png": "/notion-assets/f9f73be34059.png",
+    "attachment:6b5b10e6-1e1c-49e7-82e7-5a0f0028c3c3:image_(6).png": "/notion-assets/be43d03ea774.png",
+    "attachment:1eb87059-3480-4dc5-9081-6f06647f77aa:Kotlin_at.png": "/notion-assets/8b2222b213e8.png",
+    "attachment:c9bf05e7-6bf7-43a9-b896-a7f449ab2078:1609-new-starling-logo.png": "/notion-assets/03ebaeadd52a.png",
+    "attachment:9aea9f83-544a-4007-97e1-bd47eac5521f:Adobe_resized.png": "/notion-assets/2b0e55edf092.png",
+    "attachment:9534aac4-09c3-4a49-8c68-d7d979a0d337:6.png": "/notion-assets/9af4d91ccf56.png",
+    "attachment:fc91507e-a16f-4165-ad10-8532914292b5:3.png": "/notion-assets/a393cef73f3a.png",
+    "attachment:33c14b3b-f90a-4629-b048-a77714c410a8:4.png": "/notion-assets/c6dcab03f7e4.png",
+    "attachment:108dddc5-02df-4749-a00b-eb61a18cda3d:2.png": "/notion-assets/b24600ca476c.png",
+    "attachment:72492c3c-dd65-448f-ae44-c67a0b6baea2:kotlin-gradient-S-1080x1080.png": "/notion-assets/b62a44f6a3d4.png",
+    "attachment:2075474f-366e-42ff-a3ca-83b5c3689ae9:vilnius-kotlin-meetup-community_(1).png": "/notion-assets/9f84fb448eb7.png",
+    "attachment:60654717-70f2-4e90-bd98-0c10ae2cffa5:Screenshot_2026-08-07_at_14.27.07.png": "/notion-assets/798741396ecb.png",
+    "attachment:8666a4b4-8498-4aa0-8df2-372f5a226f96:X-chat-built-in-Kotlin-and-Kotlin-Multiplatform.png": "/notion-assets/49c50859c2a8.png",
+    "attachment:eb382fe0-31b5-474b-b59e-2876bfabbe77:2503-starling-engineers-london.jpg": "/notion-assets/71bec56d3d54.jpg",
+    "attachment:04f6c98b-58b8-46c9-a414-edae192cc3d1:5.png": "/notion-assets/f044edf16010.png",
+    "attachment:8009f7f8-2ab2-4289-86bb-88759c2c83a2:1.png": "/notion-assets/d371b06518ea.png",
+    "attachment:97f44568-761a-40f0-acfb-11a3ec82163d:KotlinLLM.png": "/notion-assets/24354d7a9d95.png",
+    "attachment:07387c3a-2341-4ca6-bc41-61def461bdac:timofey-bryskin_(1).png": "/notion-assets/0cb74395bf51.png",
+    "attachment:07902556-cb39-4c1b-abe7-19df4568e7bc:linkedin-in-brands-solid-full.svg": "/notion-assets/37a98a99d33c.svg",
+    "attachment:4b899cdb-9812-4a9b-9d6f-41716b1d7afc:globe-regular-full.svg": "/notion-assets/2e5a2ce70c8e.svg",
+    "attachment:e70bde21-24e4-4107-8973-a2af4053c1f1:github-brands-solid.svg": "/notion-assets/61836f42da9f.svg",
+    "attachment:7c9c4f8e-647c-4c0d-9281-7b2c0d2b9409:linkedin-in-brands-solid.svg": "/notion-assets/9c49fd4db453.svg",
+    "attachment:4fc40534-a03a-4793-8519-267a4dafd5cb:anastasia_(1).png": "/notion-assets/79697624ddeb.png",
+    "attachment:a4e19499-8035-4455-a479-95b7dcc70bee:timofey-bryskin_(1).png": "/notion-assets/0cb74395bf51.png",
+    "attachment:d332a8ae-6f98-4d4d-a62a-bb005ea19467:Mohamed-Gamal_meta.png": "/notion-assets/28579860151f.png",
+    "attachment:866d6c6e-992c-4a98-a533-088074cb9bf1:Heorhii_Popov_(rectang).png": "/notion-assets/ceff90d75e2c.png",
+    "attachment:55898289-0faf-4f7c-9b4a-43059477c2d5:Andrius_Semionovas_meta.png": "/notion-assets/ba79761face6.png",
+    "attachment:fe1f7ed7-f84a-4ac9-819e-c9297b58365a:lukas-samuolis.png": "/notion-assets/66a71183c855.png"
+  },
+  "warnings": [
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b1c5197-1d4f-8032-a494-dfb73f78f49f",
+      "blockId": "c81c5197-1d4f-8271-9201-8123c95e6cf3",
+      "notionUrl": "https://www.notion.so/399c51971d4f80c19b5ffe81c7e87555"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b1c5197-1d4f-8032-a494-dfb73f78f49f",
+      "blockId": "3b1c5197-1d4f-8032-a494-dfb73f78f49f",
+      "notionUrl": "https://www.notion.so/3adc51971d4f80a29203c0b86d08e1cd"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3adc5197-1d4f-80a2-9203-c0b86d08e1cd",
+      "blockId": "3adc5197-1d4f-80a2-9203-c0b86d08e1cd",
+      "notionUrl": "https://www.notion.so/3adc51971d4f8010ac3ff17e727a96df"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b4c5197-1d4f-8014-8750-cef8fc4ee5f5",
+      "blockId": "3b4c5197-1d4f-8014-8750-cef8fc4ee5f5",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b1c5197-1d4f-8029-a8eb-eacb7563b07d",
+      "blockId": "3b1c5197-1d4f-8029-a8eb-eacb7563b07d",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3acc5197-1d4f-806a-870d-d093f0b36628",
+      "blockId": "747c5197-1d4f-8328-9ef7-01631e37270e",
+      "notionUrl": "https://www.notion.so/399c51971d4f80c19b5ffe81c7e87555"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3acc5197-1d4f-806a-870d-d093f0b36628",
+      "blockId": "3acc5197-1d4f-806a-870d-d093f0b36628",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3aec5197-1d4f-803b-99f7-e3e777f18597",
+      "blockId": "3aec5197-1d4f-803b-99f7-e3e777f18597",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3aec5197-1d4f-8070-90ea-f418698d32b8",
+      "blockId": "3aec5197-1d4f-8070-90ea-f418698d32b8",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b5c5197-1d4f-80a0-a599-efa97aece473",
+      "blockId": "3b5c5197-1d4f-80a0-a599-efa97aece473",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "410c5197-1d4f-80f6-ba90-d5a5d5c1c4e2",
+      "blockId": "410c5197-1d4f-80f6-ba90-d5a5d5c1c4e2",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3aec5197-1d4f-800b-ba95-f2d1b60dad63",
+      "blockId": "3aec5197-1d4f-800b-ba95-f2d1b60dad63",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3aec5197-1d4f-807f-9e79-c5b788d57f9b",
+      "blockId": "3aec5197-1d4f-807f-9e79-c5b788d57f9b",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "page-depth-limit",
+      "message": "Page link was not followed because it exceeds the depth limit (2).",
+      "pageId": "3b1c5197-1d4f-80a6-9b35-dff97d9465a9",
+      "blockId": "3b1c5197-1d4f-80a6-9b35-dff97d9465a9",
+      "notionUrl": "https://www.notion.so/395c51971d4f808bb0badbce156422b3"
+    },
+    {
+      "code": "duplicate-slug",
+      "message": "Duplicate slug \"kotlinllm\" renamed to \"kotlinllm-2\".",
+      "pageId": "3b5c5197-1d4f-80a0-a599-efa97aece473",
+      "notionUrl": "https://www.notion.so/3b5c51971d4f80a0a599efa97aece473"
+    }
+  ]
+}

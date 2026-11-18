@@ -1,10 +1,10 @@
 .nw-section {
-    background: #fff;
+    background: var(--nw-canvas-bg);
     padding: 64px 0;
 }
 
 .nw-theme-default {
-    background: #fff;
+    background: var(--nw-canvas-bg);
 }
 
 /* Pair 2 — common core sections. */
@@ -30,10 +30,10 @@
 
 /* Pair 1 — hero sections: the page's banner images when set (see callouts.css), laid under the
    light readability shade so the dark copy stays readable; otherwise the default hero graphic
-   at full strength on a white background (see the placement rule in callouts.css). */
+   at full strength on the near-white canvas (see the placement rule in callouts.css). */
 .nw-theme-red,
 .nw-theme-orange {
-    background-color: #fff;
+    background-color: var(--nw-canvas-bg);
     background-image: var(--nw-hero-shade), var(--nw-hero-default-banner);
     background-position: center;
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@
 }
 
 .nw-theme-fallback {
-    background: #fff;
+    background: var(--nw-canvas-bg);
 }
 
 .nw-hero,
