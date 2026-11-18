@@ -151,10 +151,6 @@ Allows using the `returnsNotNull()` function in contracts to assume a non-null r
 
 Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
-#### -Xallow-returns-result-of
-
-Allows using the `returnsResultOf()` contract so that the unused return value checker can distinguish between results that can be ignored and meaningful results from higher-order functions.
-
 ### -Xallow-pre-17-runtime-jdk
 <primary-label ref="experimental-general"/>
 
@@ -258,13 +254,12 @@ kotlinc -Xrepl
 ```
 
 ### -Xreturn-value-checker
-<primary-label ref="experimental-general"/>
 
 Configure how the compiler [reports ignored results](unused-return-value-checker.md):
 
-* `disable`: disables the unused return value checker (default).
-* `check`: enables the checker and reports warnings for ignored results from marked functions.
+* `check`: enables the checker and reports warnings for ignored results from marked functions (default).
 * `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
+* `disable`: disables the unused return value checker.
 
 ### Warning management
 
