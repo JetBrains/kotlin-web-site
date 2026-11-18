@@ -83,8 +83,9 @@ use newer language features, but you also don't see new errors and deprecations 
 This approach is especially useful for library authors who need to preserve compatibility with older Kotlin versions. 
 For more information, see [Backward compatibility guidelines for library authors](api-guidelines-backward-compatibility.md#choose-compatible-language-and-api-versions).
 
-You can configure one of the latest three stable versions of Kotlin as the language version. For example, Kotlin 2.5.0
-supports language versions as old as 2.2.
+You can configure the latest stable Kotlin version or any of the three previous versions as the language version. 
+For example, Kotlin 2.5.0 supports language versions 2.2 through 2.5. The oldest supported version usually produces
+a deprecation warning. For more information, see [Compatibility options](kotlin-evolution-principles.md#compatibility-options).
 
 If you use an older language version, you also need to use an older API version.
 For more information, see [](#api-version-version).
