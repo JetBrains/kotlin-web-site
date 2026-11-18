@@ -16,6 +16,7 @@ function Index() {
             title={'Kotlin Ambassadors Program'}
             description="A program for creators, educators, and community leaders making a lasting impact on the Kotlin ecosystem."
             ogImageName="general.png"
+            hideCta
         >
             <div className={styles.page} data-testid="ambassadors-content">
                 <Hero />

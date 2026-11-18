@@ -31,19 +31,17 @@ interface CommunityLayoutProps {
     description?: string;
     ogImageName?: string;
     children: React.ReactNode;
+    hideCta?: boolean;
 }
 
-export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children }) => {
+export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, hideCta = false }) => {
     const theme = 'dark';
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
 
     let items = TOP_MENU_ITEMS;
 
-    let activeIndex = useMemo(
-        () => items.map((item) => item.url).indexOf(pathname),
-        [pathname, items]
-    );
+    let activeIndex = useMemo(() => items.map((item) => item.url).indexOf(pathname), [pathname, items]);
 
     const linkHandler = useCallback(
         (event, url) => {
@@ -117,22 +115,23 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
 
             {children}
 
-            <CtaBlock
-                topTitle={'Help us improve'}
-                buttons={
-                    <Button size="l" mode="rock" href="mailto:kug@jetbrains.com">
-                        Write to us
-                    </Button>
-                }
-                mainTitle={
-                    <>
-                        Give us your feedback or ask any questions
-                        <br />
-                        you have about the Kotlin community
-                    </>
-                }
-            />
-
+            {!hideCta && (
+                <CtaBlock
+                    topTitle={'Help us improve'}
+                    buttons={
+                        <Button size="l" mode="rock" href="mailto:kug@jetbrains.com">
+                            Write to us
+                        </Button>
+                    }
+                    mainTitle={
+                        <>
+                            Give us your feedback or ask any questions
+                            <br />
+                            you have about the Kotlin community
+                        </>
+                    }
+                />
+            )}
 
             <ThemeProvider theme={theme}>
                 <GlobalFooter />
