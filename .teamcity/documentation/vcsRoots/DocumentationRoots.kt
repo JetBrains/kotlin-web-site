@@ -74,7 +74,7 @@ object APIGuidelinesRoot: GitVcsRoot ({
 object KotlinxSerializationRoot: GitVcsRoot({
     name = "Kotlinx Serialization"
     url = "git@github.com:Kotlin/kotlinx.serialization.git"
-    branch = "refs/heads/doc-restructuring-master"
+    branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {

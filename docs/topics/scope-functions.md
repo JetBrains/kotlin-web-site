@@ -29,7 +29,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If you write the same without `let`, you'll have to introduce a new variable and repeat its name whenever you use it. 
 
@@ -49,7 +49,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Scope functions don't introduce any new technical capabilities, but they can make your code more concise and readable.
 
@@ -119,7 +119,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 #### this
 
@@ -144,7 +144,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 #### it
 
@@ -176,7 +176,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 The example below demonstrates referencing the context object as a lambda argument with argument name: `value`.
 
@@ -200,7 +200,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### Return value
 
@@ -232,7 +232,7 @@ fun main() {
     println(numberList)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 They also can be used in return statements of functions returning the context object.
 
@@ -255,7 +255,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 #### Lambda result
 
@@ -275,7 +275,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Additionally, you can ignore the return value and use a scope function to create a temporary scope for local variables. 
 
@@ -291,7 +291,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Functions
 
@@ -316,7 +316,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 With `let`, you can rewrite the above example so that you're not assigning the result of the list
 operations to a variable:
@@ -332,7 +332,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 If the code block passed to `let` contains a single function with `it` as an argument, you can use the method reference 
 (`::`) instead of the lambda argument:
@@ -345,7 +345,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 `let` is often used to execute a code block containing non-null values. To perform actions on a nullable object, use
 the [safe call operator `?.`](null-safety.md#safe-call-operator) on it and call `let` with the actions in its lambda.
@@ -365,7 +365,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also use `let` to introduce local variables with a limited scope to make your code easier to read.
 To define a new variable for the context object, provide its name as the lambda argument so that it can be used instead of
@@ -383,7 +383,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### with
 
@@ -407,7 +407,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also use `with` to introduce a helper object whose properties or functions are used for calculating a value.
 
@@ -423,7 +423,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### run
 
@@ -460,7 +460,7 @@ fun main() {
     println(letResult)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 You can also invoke `run` as a non-extension function. The non-extension variant of `run` has no context object, but it
 still returns the lambda result. Non-extension `run` lets you execute a block of several statements where an expression 
@@ -483,7 +483,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ### apply
 
@@ -508,7 +508,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 Another use case for `apply` is to include `apply` in multiple call chains for more complex processing.
 
@@ -533,7 +533,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## takeIf and takeUnless
 
@@ -562,7 +562,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 > When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform a null check or use a safe call
 > (`?.`) because their return value is nullable.
@@ -579,7 +579,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 `takeIf` and `takeUnless` are especially useful in combination with scope functions. For example, you can chain 
 `takeIf` and `takeUnless` with `let` to run a code block on objects that match the given predicate. To do this, 
@@ -601,7 +601,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 For comparison, below is an example of how the same function can be written without using `takeIf` or scope functions:
 
@@ -621,5 +621,5 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 

@@ -1,5 +1,5 @@
 [//]: # (title: Kotlin Notebook)
-[//]: # (description: Create and edit interactive Kotlin notebooks in IntelliJ IDEA to run code, visualize data, prototype ideas, and share results.)
+<web-summary>Create and edit interactive Kotlin notebooks in IntelliJ IDEA to run code, visualize data, prototype ideas, and share results.</web-summary>
 
 > Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
 > The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).

@@ -40,7 +40,7 @@ val isEven = object : IntPredicate {
 }
 ```
 
-By leveraging Kotlin's SAM conversion, you can write the following equivalent code instead:
+By leveraging Kotlin's SAM conversion, you can write the following code instead:
 
 ```kotlin
 // Creating an instance using lambda
@@ -61,6 +61,13 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
+Replacing an [object expression](object-declarations.md#object-expressions) with a SAM conversion can change object identity. An object expression creates a new instance 
+each time it's evaluated, while a SAM conversion may create a new instance or reuse an existing one. Therefore:
+
+* If you need a distinct instance each time, for example for each registration, use an object expression or create an
+  instance of a class explicitly.
+* If you need to refer to the same instance later, for example to remove a listener, store it in a variable.
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 

@@ -1,0 +1,88 @@
+name: Sync Kotlin AI skills page
+
+on:
+  # Fired instantly by Kotlin/kotlin-agent-skills when something under skills/ changes on main
+  repository_dispatch:
+    types: [kotlin-agent-skills-updated]
+  # Safety net in case a dispatch is missed
+  schedule:
+    - cron: "0 6 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-kotlin-ai-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'JetBrains/kotlin-web-site'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out kotlin-web-site
+        uses: actions/checkout@v4
+
+      - name: Check out kotlin-agent-skills
+        uses: actions/checkout@v4
+        with:
+          repository: Kotlin/kotlin-agent-skills
+          ref: main
+          path: .kotlin-agent-skills
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml==6.0.3
+
+      - name: Update kotlin-ai-skills.md
+        id: sync
+        run: |
+          python scripts/sync_kotlin_ai_skills.py \
+            --skills-dir .kotlin-agent-skills/skills \
+            --doc docs/topics/ai/kotlin-ai-skills.md \
+            --pr-body "$RUNNER_TEMP/pr-body.md"
+
+      # Opens a PR, or updates the bot's PR if one is already open.
+      # If the page is already in sync, closes the bot's open PR (if any) and deletes its branch.
+      - name: Open or update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          CHANGED: ${{ steps.sync.outputs.changed }}
+          BRANCH: bot/sync-kotlin-ai-skills
+          BASE: master
+          DOC: docs/topics/ai/kotlin-ai-skills.md
+          TITLE: "update: Kotlin AI skills (sync panels with kotlin-agent-skills)"
+        run: |
+          set -euo pipefail
+
+          EXISTING=$(gh pr list --head "$BRANCH" --base "$BASE" --state open \
+                       --json number --jq '.[0].number // empty')
+
+          if [ "$CHANGED" != "true" ]; then
+            if [ -n "$EXISTING" ]; then
+              gh pr close "$EXISTING" --delete-branch \
+                --comment "The page is already in sync with kotlin-agent-skills, closing."
+            fi
+            echo "Nothing to do."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add "$DOC"
+          git commit -m "$TITLE"
+          git push --force origin "$BRANCH"
+
+          if [ -n "$EXISTING" ]; then
+            gh pr edit "$EXISTING" --body-file "$RUNNER_TEMP/pr-body.md"
+          else
+            gh pr create --base "$BASE" --head "$BRANCH" \
+              --title "$TITLE" --body-file "$RUNNER_TEMP/pr-body.md"
+          fi

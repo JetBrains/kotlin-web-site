@@ -863,6 +863,11 @@
   to: /docs/web-overview.html
 
 - from:
+    - /docs/set-operations.html
+    - /docs/collection-plus-minus.html
+  to: /docs/collection-combine.html
+
+- from:
     - /docs/data-analysis-overview.html
     - /docs/data-analysis-work-with-data-sources.html
     - /docs/data-analysis-work-with-api.html

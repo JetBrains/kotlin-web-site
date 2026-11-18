@@ -132,7 +132,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Tables
 
@@ -426,7 +426,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-1"}
+{validate="false" kotlin-runnable="true" id="test-page-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -459,7 +459,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-2"}
+{validate="false" kotlin-runnable="true" id="test-page-exercise-2"}
 
 ```kotlin
 fun main() {
@@ -485,7 +485,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="test-page-exercise-3"}
+{validate="false" kotlin-runnable="true" id="test-page-exercise-3"}
 
 ```kotlin
 fun main() {

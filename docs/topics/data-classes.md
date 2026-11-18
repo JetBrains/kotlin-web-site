@@ -81,7 +81,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 ## Copying
 
@@ -120,7 +120,7 @@ fun main() {
     // Employee(name=Jamie, roles=[developer, team lead])
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
 As you can see, modifying the `duplicate.roles` property also changes the `original.roles` property because both properties share the same list reference.
 

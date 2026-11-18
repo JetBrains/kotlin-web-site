@@ -1,42 +1,37 @@
+export type PlatformId = 'android' | 'ios' | 'desktop' | 'web';
+
 export type PlatformData = {
-    id: string;
-    icon: string;
+    id: PlatformId;
     title: string;
     titleLink: string;
-    text?: string;
-    tagText?: string;
+    text: string;
+    isBeta?: boolean;
 }
 
 export const platformsData: PlatformData[] = [
     {
-        id: 'iOS',
-        icon: 'ios',
-        title: 'iOS',
-        titleLink:
-            '/docs/multiplatform/compose-multiplatform-create-first-app.html',
-        tagText: 'Stable'
-    },
-    {
-        id: 'Android',
-        icon: 'android',
+        id: 'android',
         title: 'Android',
-        titleLink:
-            '/docs/multiplatform/compose-multiplatform-create-first-app.html',
-        text: 'via Jetpack Compose'
+        titleLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
+        text: 'Modern Android development with Jetpack Compose plus the flexibility to share your UI across platforms.'
     },
     {
-        id: 'Desktop',
-        icon: 'desktop',
+        id: 'ios',
+        title: 'iOS',
+        titleLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
+        text: 'Bring Kotlin to iOS to build native apps with a familiar development experience and native performance.'
+    },
+    {
+        id: 'desktop',
         title: 'Desktop',
-        titleLink:
-            '/docs/multiplatform/compose-multiplatform-create-first-app.html',
-        text: 'Windows,\u00A0MacOS,\u00A0Linux'
+        titleLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
+        text: 'Build powerful desktop apps for Windows, macOS, and Linux from one codebase.'
     },
     {
-        id: 'Web',
-        icon: 'web',
+        id: 'web',
         title: 'Web',
         titleLink: 'https://kotl.in/wasm-compose-example',
-        tagText: 'Beta'
+        text: 'Bring your Compose UI to the browser with Kotlin and WebAssembly.',
+        isBeta: true
     }
 ];

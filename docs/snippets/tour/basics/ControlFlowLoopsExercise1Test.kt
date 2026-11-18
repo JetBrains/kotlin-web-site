@@ -1,0 +1,114 @@
+import org.junit.FixMethodOrder
+import org.junit.runners.MethodSorters
+import kotlin.test.Test
+
+private val EXPECTED_LINES =
+    (1..7).map { "There's only $it slice/s of pizza :(" } +
+            "There are 8 slices of pizza. Hooray! We have a whole pizza! :D"
+
+private val outputLines: List<String> by lazy {
+    output.lines().map { it.trim() }.filter { it.isNotEmpty() }
+}
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+class ControlFlowLoopsExercise1Test {
+
+    @Test
+    fun `print a line for every pizza slice`() {
+        val lines = outputLines
+        when {
+            lines == EXPECTED_LINES -> {
+                // The last println() prints the final line, so the slice lines are all calls before it
+                val sliceCallLines = printCallLines.dropLast(1)
+                if (sliceCallLines.distinct().size > 1) {
+                    hint(
+                        "Use a loop, so one println() prints every slice. Your output is correct, " +
+                                "but your program still has a separate println() for each slice.",
+                        shownOutput = ""
+                    )
+                }
+                return passed(
+                    "Checked: the printed lines, and that the slice lines come from one " +
+                            "println() call inside a loop. The test can't tell while from " +
+                            "do-while, so make sure you try both.",
+                    showOutput = true
+                )
+            }
+
+            actualOutput.isEmpty() ->
+                hint(
+                    "Refactor the repeated code into a loop that counts the slices, " +
+                            "Your program doesn't print anything yet."
+                )
+
+            output.isEmpty() ->
+                hint(
+                    "Print how many slices of pizza there are. " +
+                            "Your program calls println(), but doesn't pass it a value."
+                )
+
+            lines.size == 1 ->
+                hint(
+                    "Use println() instead of print() to put each message on its " +
+                            "own line. Everything is printed on a single line so far."
+                )
+
+            lines.first().startsWith("There's only 0") ->
+                hint(
+                    "Increment pizzaSlices before printing it, so the first line " +
+                            "says 1. Right now the code starts at 0 slices."
+                )
+
+            lines.size < 8 ->
+                hint(
+                    "Check the loop condition. Only ${lines.size} lines are printed, " +
+                            "but it should print 8, so the loop stops too early."
+                )
+
+            lines.size > 8 ->
+                hint(
+                    "Check the loop condition. ${lines.size} lines are printed, " +
+                            "but it should print only 8, so the loop runs too many times."
+                )
+
+            else -> {}
+        }
+
+        val mismatch = EXPECTED_LINES.indices.firstOrNull { lines[it] != EXPECTED_LINES[it] }
+            ?: return
+        val expected = EXPECTED_LINES[mismatch]
+        val actual = lines[mismatch]
+        val details = "Line ${mismatch + 1}: the output is \"${escapeHtml(actual)}\", " +
+                "but it should be \"${escapeHtml(expected)}\"."
+        when {
+            mismatch == 7 && "There's only" in actual ->
+                hint(
+                    "Stop the loop before the 8th slice so the final println() can " +
+                            "run after it. The last line should celebrate the whole " +
+                            "pizza. " + details
+                )
+
+            mismatch == 7 && "There are" in actual && "There are 8" !in actual ->
+                hint(
+                    "Add the last pizzaSlices++ after the loop. " +
+                            "By the final line, pizzaSlices is 8. " + details
+                )
+
+            "There's only" in actual && "$mismatch " in actual ->
+                hint(
+                    "Increment pizzaSlices before printing it. " +
+                            "The count is one behind. " + details
+                )
+
+            "There's only" in actual ->
+                hint(
+                    "Check where you increment pizzaSlices inside the loop. " +
+                            "Line ${mismatch + 1} should say there are ${mismatch + 1} " +
+                            "slice/s. " + details
+                )
+
+            else ->
+                hint("Check the line carefully. Every character counts. " + details)
+        }
+    }
+}
