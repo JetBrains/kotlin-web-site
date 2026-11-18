@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
@@ -39,7 +39,7 @@ export const WhoCanBecome: FC = () => {
         <section className={styles.section} data-testid="ambassadors-who-can-become">
             <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
                 <div className={styles.grid}>
-                    <div className={styles.left}>
+                    <div className={styles.info}>
                         <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-who-title">
                             Who can become a&nbsp;Kotlin Ambassador?
                         </h2>
@@ -50,16 +50,16 @@ export const WhoCanBecome: FC = () => {
                     </div>
                     <div className={styles.card} data-testid="ambassadors-contributions-card">
                         <p className={cn(textCn('rs-subtitle-2'), styles.cardTitle)}>Community contributions</p>
-                        <ul className={styles.list}>
+                        <dl className={styles.list}>
                             {CONTRIBUTIONS.map((contribution) => (
-                                <li className={styles.listItem} key={contribution.title}>
-                                    <h3 className={cn(textCn('rs-h4'), styles.itemTitle)}>{contribution.title}</h3>
-                                    <p className={cn(textCn('rs-text-2'), styles.itemText)}>
+                                <Fragment key={contribution.title}>
+                                    <dt className={cn(textCn('rs-h4'), styles.itemTitle)}>{contribution.title}</dt>
+                                    <dd className={cn(textCn('rs-text-2'), styles.itemText)}>
                                         {contribution.description}
-                                    </p>
-                                </li>
+                                    </dd>
+                                </Fragment>
                             ))}
-                        </ul>
+                        </dl>
                     </div>
                 </div>
             </div>

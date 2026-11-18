@@ -57,7 +57,7 @@ test.describe('Kotlin Ambassadors page', () => {
     });
 
     test('lists five community contribution types', async ({ page }) => {
-        const items = page.getByTestId('ambassadors-contributions-card').locator('li');
+        const items = page.getByTestId('ambassadors-contributions-card').locator('dt');
 
         await expect(items).toHaveCount(5);
         await expect(items.filter({ hasText: 'Mentorship' })).toHaveCount(1);

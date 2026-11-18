@@ -173,6 +173,7 @@
     }
     .gradientBlock {
         margin-block-start: 225px;
+        margin-inline: -24px;
     }
     .intro {
         max-width: 299px;

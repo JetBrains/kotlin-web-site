@@ -21,18 +21,9 @@
     .page {
         --rs-text-1-font-size: 16px;
         --rs-text-1-line-height: 24px;
-
-        :global(.ktl-layout-v2) {
-            --ktl-layout-width: 360px;
-        }
     }
 }
 
-/*
- * One vertical gradient covers both program sections, like in the design:
- * white -> orange -> magenta -> navy (stops are page-level, so the gradient
- * stretches with the content height and keeps working when texts change).
- */
 .programSection {
     position: relative;
     z-index: 1;
