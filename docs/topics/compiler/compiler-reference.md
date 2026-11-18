@@ -234,13 +234,13 @@ The option supports the following modes:
 ### -Xname-based-destructuring
 <primary-label ref="experimental-opt-in"/>
 
-Configure how the compiler interprets [destructuring declarations](destructuring-declarations.md#name-based-destructuring) based on property names.
+Configure the compiler to use position-based or name-based destructuring for parenthesized short-form [destructuring declarations](destructuring-declarations.md#name-based-destructuring).
 
 The option supports the following modes:
 
-* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations. (default)
-* `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
-* `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+* `only-syntax`: uses position-based destructuring for parenthesized short-form declarations. (default)
+* `name-mismatch`: uses position-based destructuring for parenthesized short-form declarations and reports warnings when variable names used for data classes don't match their property names.
+* `complete`: uses name-based destructuring for parenthesized short-form declarations.
 
 Name-based destructuring is [Stable](components-stability.md#stability-levels-explained) in the default `only-syntax` mode.
 The `name-mismatch` and `complete` modes are [Experimental](components-stability.md#stability-levels-explained) and require opt-in.
