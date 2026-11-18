@@ -1,4 +1,4 @@
-[//]: # (title: Interoperability with JavaScript)
+[//]: # (title: Wasm interoperability with JavaScript)
 
 <web-summary>Call JavaScript from Kotlin/Wasm and export Kotlin functions to JavaScript. Learn how types map and how exceptions cross the language boundary.</web-summary>
 
