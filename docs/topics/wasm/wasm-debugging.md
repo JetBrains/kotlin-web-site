@@ -79,7 +79,7 @@ If you previously added this configuration
 to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 
 > This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
-> see [Browser versions](wasm-configuration.md#which-browsers-support-kotlin-wasm).
+> see [Browser versions](wasm-faq.md#which-browsers-support-kotlin-wasm).
 >
 {style="tip"}
 
