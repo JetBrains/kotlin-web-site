@@ -143,6 +143,7 @@
                 <toc-element topic="wasm-get-started.md"/>
                 <toc-element topic="wasm-wasi.md"/>
                 <toc-element topic="wasm-debugging.md"/>
+                <toc-element topic="wasm-run-tests.md"/>
                 <toc-element topic="wasm-js-interop.md"/>
                 <toc-element accepts-web-file-names="wasm-troubleshooting.html" topic="wasm-configuration.md"/>
             </toc-element>
