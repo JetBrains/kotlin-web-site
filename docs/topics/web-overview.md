@@ -55,8 +55,8 @@ For HTML-based solutions, Kotlin/JS supports multiple approaches:
 
 ## Kotlin/Wasm
 
-[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm). Use it to build web UIs and run applications outside
-the browser in runtimes that support the Wasm features Kotlin requires.
+[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm). You can use it to build web UIs and run applications
+outside the browser in compatible Wasm runtimes.
 
 Kotlin/Wasm supports two targets: 
 

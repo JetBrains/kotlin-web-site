@@ -2,10 +2,8 @@
 
 <web-summary>Build, run, and test a Kotlin/Wasm application that uses the WebAssembly System Interface (WASI), with examples for Node.js, Wasmtime, Deno, and WasmEdge.</web-summary>
 
-This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/) 
-in various WebAssembly virtual machines.
-
-You can find examples of an application running on [Node.js](https://nodejs.org/en), [Wasmtime](https://docs.wasmtime.dev) [Deno](https://deno.com/),
+This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/)
+in different environments, including  [Node.js](https://nodejs.org/en), [Wasmtime](https://docs.wasmtime.dev), [Deno](https://deno.com/),
 and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that uses the standard WASI API.
 
 Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1. Support for WASI 0.2 is planned for future releases.

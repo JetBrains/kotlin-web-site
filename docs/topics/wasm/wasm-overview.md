@@ -12,7 +12,7 @@ a compilation target.
 
 You can use Kotlin/Wasm in different target environments, such as browsers, for developing 
 web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), or outside the 
-browser in standalone Wasm virtual machines. In the outside-of-browser case,
+browser in standalone Wasm virtual machines. In the outside-of-browser case, the
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
 Kotlin/Wasm provides Tier 1 support for `wasmJs` and Tier 2 support for `wasmWasi`.
@@ -43,7 +43,7 @@ once and share it across all the platforms you target.
 
 For web platforms, Compose Multiplatform uses 
 Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and Compose Multiplatform use a 
-`wasm-js` target and run in browsers.
+`wasmJs` target and run in browsers.
 
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
@@ -62,7 +62,7 @@ Doodle uses vector-based rendering, giving you control over custom UI components
 
 ### Kilua
 
-[Kilua](https://kilua.dev/) is a web framework based on [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime. It uses standard HTML elements to render
+[Kilua](https://kilua.dev/) is a web framework based on the [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime. It uses standard HTML elements to render
 UIs.
 
 Kilua provides declarative components, reactive state management, routing, and integration with CSS frameworks such as
@@ -113,7 +113,7 @@ JVM performance in the measured workloads:
 
 We regularly run benchmarks on Kotlin/Wasm, and these results come from our testing in a recent version of Google Chrome.
 
-For more framework's results, see Summon's [performance comparison](https://github.com/codeyousef/summon#performance-comparison).
+For results from more frameworks, see Summon's [performance comparison](https://github.com/codeyousef/summon#performance-comparison).
 
 ## Browser API support
 
