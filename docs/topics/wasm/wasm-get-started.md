@@ -75,6 +75,12 @@ directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}
 
+> The default browser configuration uses webpack. Starting with Kotlin 2.5.0, you can also build and run a 
+> `wasmJs` application without a bundler. This functionality is [Experimental](components-stability.md#stability-levels-explained).
+> 
+> Learn how to [build Kotlin/Wasm applications without a bundler](whatsnew25.md#build-kotlin-wasm-applications-without-a-bundler).
+{style="note"}
+
 ## Publish the application
 
 Use the generated artifacts to deploy your Kotlin/Wasm application. 
