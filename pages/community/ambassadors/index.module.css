@@ -11,6 +11,18 @@
     position: relative;
 }
 
+@media (--ktl-dl-only) {
+    .page {
+        --amb-subblocks-width: 752px;
+    }
+}
+
+@media (--ktl-ds-only) {
+    .page {
+        --amb-subblocks-width: 616px;
+    }
+}
+
 @media (--ktl-ts-down) {
     .page {
         --amb-shape-scale: .75;

@@ -65,7 +65,7 @@ export const Faq: FC = () => {
 
     return (
         <section className={styles.section} data-testid="ambassadors-faq">
-            <div className={styles.content}>
+            <div className={cn(styles.content, 'ktl-layout-v2 ktl-layout--center')}>
                 <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-faq-title">
                     Frequently asked questions
                 </h2>

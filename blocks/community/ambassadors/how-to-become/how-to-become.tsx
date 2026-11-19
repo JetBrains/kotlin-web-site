@@ -10,13 +10,6 @@ export const HowToBecome: FC = () => {
     return (
         <section className={styles.section} data-testid="ambassadors-how-to-become">
             <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
-                <div className={styles.layer} aria-hidden="true" data-testid="ambassadors-program-decoration">
-                    <img
-                        className={cn(styles.item, styles.creatorBadge)}
-                        src="/images/community/ambassadors/badge-creator.webp"
-                        alt=""
-                    />
-                </div>
                 <div className={styles.heading}>
                     <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-how-title">
                         How to become a Kotlin Ambassador
@@ -35,13 +28,21 @@ export const HowToBecome: FC = () => {
                 <blockquote className={styles.quoteCard} data-testid="ambassadors-quote-card">
                     <div className={styles.layer} aria-hidden="true" data-testid="ambassadors-quote-decoration">
                         <img
-                            className={cn(styles.item, styles.educatorBadge)}
-                            src="/images/community/ambassadors/badge-educator.webp"
+                            className={styles.creatorBadge}
+                            src="/images/community/ambassadors/badge-creator.webp"
+                            srcSet="/images/community/ambassadors/badge-creator.webp 1x, /images/community/ambassadors/badge-creator@2x.webp 2x, /images/community/ambassadors/badge-creator@3x.webp 3x"
                             alt=""
                         />
                         <img
-                            className={cn(styles.item, styles.ambassadorPlate)}
+                            className={styles.educatorBadge}
+                            src="/images/community/ambassadors/badge-educator.webp"
+                            srcSet="/images/community/ambassadors/badge-educator.webp 1x, /images/community/ambassadors/badge-educator@2x.webp 2x, /images/community/ambassadors/badge-educator@3x.webp 3x"
+                            alt=""
+                        />
+                        <img
+                            className={styles.ambassadorPlate}
                             src="/images/community/ambassadors/plate-ambassador.webp"
+                            srcSet="/images/community/ambassadors/plate-ambassador.webp 1x, /images/community/ambassadors/plate-ambassador@2x.webp 2x, /images/community/ambassadors/plate-ambassador@3x.webp 3x"
                             alt=""
                         />
                     </div>
