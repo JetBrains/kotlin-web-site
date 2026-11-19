@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import Head from 'next/head';
 import cn from 'classnames';
 import { Accordion, Collapse } from '@rescui/collapse';
+import type { CollapseIcon } from '@rescui/collapse/lib/types';
 import { useTextStyles } from '@rescui/typography';
 
 import styles from './columned-faq.module.css';
@@ -18,7 +19,7 @@ type ColumnedFaqProps = {
     columnsCount?: number;
     className?: string;
     /** Collapse items icon type, passed to the Accordion. Defaults to the rescui 'left-plus'. */
-    icon?: 'arrow' | 'left-plus' | 'right-plus';
+    icon?: CollapseIcon;
     /** Renders a bottom border on every Collapse item. */
     borderBottom?: boolean;
 };
