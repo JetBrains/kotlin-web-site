@@ -46,7 +46,7 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
 
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={siteUrl + router.pathname} />
+                <meta property="og:url" content={canonicalUrl} />
 
                 <meta property="og:image" content={ogImagePath} />
 

@@ -15,7 +15,13 @@ import '@jetbrains/kotlin-web-site-ui/out/components/grid';
 function WhyTeachKotlinPage() {
     const textCn = useTextStyles();
     return (
-        <EducationLayout title="Why teach Kotlin" dataTestId="teach-why-teach-page">
+        <EducationLayout
+            title="Why teach Kotlin"
+            description={
+                'Learn why educators choose Kotlin: over 300 universities teach it, top companies use it, and it gives students a modern, safe language with great tooling.'
+            }
+            dataTestId="teach-why-teach-page"
+        >
             <div className="ktl-layout ktl-layout--center">
                 <div className={cn(styles.grid, 'ktl-offset-top-xl')}>
                     <div className={styles.gridContent}>
