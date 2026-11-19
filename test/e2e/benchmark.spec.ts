@@ -5,7 +5,7 @@ const EXPECTED_DATA_COLUMNS = 5;
 
 const TASK_VIEWS = [
     { name: 'All tasks', query: '', count: 100, leader: 'Claude Code + Opus 5.5 high' },
-    { name: 'Open tasks', query: 'open', count: 70, leader: 'Claude Code + Opus 5.5 high' },
+    { name: 'Open tasks', query: 'open', count: 70, leader: 'Claude Code + Fable 5.1 high' },
     { name: 'Closed tasks', query: 'closed', count: 30, leader: 'Antigravity CLI + Gemini 3.8 Flash high' },
 ] as const;
 
