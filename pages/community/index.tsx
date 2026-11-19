@@ -18,7 +18,13 @@ import { DesktopBreak } from '../../components/desktop-break/desktop-break';
 
 function Index() {
     return (
-        <CommunityLayout title={'Community'} ogImageName={'community.png'}>
+        <CommunityLayout
+            title={'Community'}
+            ogImageName={'community.png'}
+            description={
+                'Get involved in the Kotlin community: chat on the Kotlin Slack, follow Kotlin on social media, and join or start a Kotlin User Group.'
+            }
+        >
             <CommunityBanner title="Get involved&nbsp;in<br/> the&nbsp;community">
                 Find online resources and information about community activities. Can&rsquo;t find any? Organize your
                 own &mdash; JetBrains is&nbsp;always here to&nbsp;support you!

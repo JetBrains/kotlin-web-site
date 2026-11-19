@@ -94,7 +94,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
 
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={siteUrl + router.pathname} />
+                <meta property="og:url" content={canonicalUrl} />
 
                 {description && <meta name="description" content={description} />}
 

@@ -39,7 +39,13 @@ function CoursesPage() {
     }, [universitiesData]);
 
     return (
-        <EducationLayout title="List of Courses" dataTestId="teach-courses">
+        <EducationLayout
+            title="List of Courses"
+            description={
+                'Browse universities that teach Kotlin: view the Kotlin courses they offer in a table or on a map, and see where Kotlin is taught worldwide.'
+            }
+            dataTestId="teach-courses"
+        >
             <section className="ktl-layout ktl-layout--center">
                 <h1 className={cn(textCn('rs-h1'), 'ktl-offset-top-xl')}>Universities That Teach Kotlin</h1>
 

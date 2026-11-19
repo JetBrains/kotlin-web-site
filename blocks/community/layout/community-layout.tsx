@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
 import releasesDataRaw from '../../../data/releases.yml';
 import searchConfig from '../../../search-config.json';
+import { getCanonicalUrl, getSiteUrl } from '../../../utils/site-config';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -32,12 +33,21 @@ interface CommunityLayoutProps {
     ogImageName?: string;
     children: React.ReactNode;
     hideCta?: boolean;
+    canonical?: string;
 }
 
-export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, hideCta = false }) => {
+export const CommunityLayout: FC<CommunityLayoutProps> = ({
+    title,
+    ogImageName,
+    description,
+    children,
+    hideCta = false,
+    canonical
+}) => {
     const theme = 'dark';
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
+    const siteUrl = getSiteUrl();
 
     let items = TOP_MENU_ITEMS;
 
@@ -52,14 +62,16 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
     );
 
     const ogImagePath = useMemo(
-        () => `https://kotlinlang.org/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
-        [ogImageName]
+        () => `${siteUrl}/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
+        [ogImageName, siteUrl]
     );
 
     const ogImageTwitterPath = useMemo(
-        () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
-        [ogImageName, ogImagePath]
+        () => (ogImageName ? ogImagePath : `${siteUrl}/assets/images/twitter/general.png`),
+        [ogImageName, ogImagePath, siteUrl]
     );
+
+    const canonicalUrl = canonical ?? getCanonicalUrl(router.pathname);
 
     if (activeIndex === -1) {
         activeIndex = items.length;
@@ -78,7 +90,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
 
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />
+                <meta property="og:url" content={canonicalUrl} />
 
                 <meta property="og:image" content={ogImagePath} />
 
@@ -90,6 +102,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
 
             <GlobalHeader
