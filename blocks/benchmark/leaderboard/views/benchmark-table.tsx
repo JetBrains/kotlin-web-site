@@ -36,7 +36,14 @@ export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, notic
                                             data-testid="bench-col-header"
                                             data-col={column.key}
                                         >
-                                            {column.label}
+                                            <span className={styles.thTitle}>
+                                                {column.label}
+                                                {column.sublabel && (
+                                                    <span className={styles.thSub} data-testid="bench-col-sublabel">
+                                                        {column.sublabel}
+                                                    </span>
+                                                )}
+                                            </span>
                                             <InfoOutlineIcon className={styles.infoIcon} size="s" />
                                         </span>
                                     </Tooltip>
