@@ -1,4 +1,4 @@
-date: "2026-11-19"
+date: "2026-11-20"
 methodology: 2
 tasks:
   all: 100
@@ -6,50 +6,54 @@ tasks:
   closed: 30
 rows:
   - setup: "Claude Code + Opus 5.5 high"
-    all: { resolutionRate: 75, cost: 0.87, tokens: 1.5, latency: 8.5, steps: 24 }
-    open: { resolutionRate: 84, cost: 0.70, tokens: 1.1, latency: 8.6, steps: 21 }
-    closed: { resolutionRate: 53, cost: 1.25, tokens: 2.42, latency: 8.2, steps: 30 }
+    all: { resolutionRate: 75, cost: 0.84, tokens: 1.42, latency: 9.2, steps: 24 }
+    open: { resolutionRate: 85, cost: 0.68, tokens: 1.05, latency: 9.5, steps: 21 }
+    closed: { resolutionRate: 53, cost: 1.21, tokens: 2.29, latency: 8.4, steps: 30 }
   - setup: "Claude Code + Fable 5.1 high"
-    all: { resolutionRate: 72, cost: 2.58, tokens: 1.8, latency: 11.1, steps: 25 }
-    open: { resolutionRate: 84, cost: 2.39, tokens: 1.51, latency: 11.7, steps: 24 }
-    closed: { resolutionRate: 43, cost: 3.02, tokens: 2.47, latency: 9.7, steps: 28 }
-  - setup: "OpenCode + Kimi K3 max"
-    all: { resolutionRate: 70, cost: 1.78, tokens: 3.74, latency: 17, steps: 64 }
-    open: { resolutionRate: 79, cost: 1.69, tokens: 3.46, latency: 18.3, steps: 65 }
-    closed: { resolutionRate: 50, cost: 1.98, tokens: 4.37, latency: 13.7, steps: 62 }
+    all: { resolutionRate: 74, cost: 2.64, tokens: 1.84, latency: 11.4, steps: 26 }
+    open: { resolutionRate: 86, cost: 2.38, tokens: 1.5, latency: 12, steps: 24 }
+    closed: { resolutionRate: 44, cost: 3.27, tokens: 2.65, latency: 10, steps: 29 }
   - setup: "Codex + GPT 6 Astra high"
-    all: { resolutionRate: 70, cost: 3.14, tokens: 1.77, latency: 6.2, steps: 29 }
-    open: { resolutionRate: 79, cost: 2.90, tokens: 1.59, latency: 6.4, steps: 28 }
-    closed: { resolutionRate: 50, cost: 3.71, tokens: 2.18, latency: 5.7, steps: 31 }
-  - setup: "Claude Code + Haiku 5.5 high"
-    all: { resolutionRate: 68, cost: 0.10, tokens: 2.22, latency: 8.8, steps: 33 }
-    open: { resolutionRate: 79, cost: 0.10, tokens: 2.34, latency: 10.2, steps: 35 }
-    closed: { resolutionRate: 43, cost: 0.09, tokens: 1.95, latency: 5.5, steps: 28 }
-  - setup: "Codex + GPT 6.1 Terra high"
-    all: { resolutionRate: 68, cost: 0.36, tokens: 3.97, latency: 6.9, steps: 54 }
-    open: { resolutionRate: 80, cost: 0.34, tokens: 3.48, latency: 7.5, steps: 54 }
-    closed: { resolutionRate: 40, cost: 0.43, tokens: 5.12, latency: 5.7, steps: 53 }
+    all: { resolutionRate: 71, cost: 3.13, tokens: 1.77, latency: 6.2, steps: 29 }
+    open: { resolutionRate: 79, cost: 2.94, tokens: 1.63, latency: 6.4, steps: 29 }
+    closed: { resolutionRate: 51, cost: 3.57, tokens: 2.09, latency: 5.5, steps: 30 }
+  - setup: "Junie hard (Opus 5.5 + GPT 6 Luna, eco)"
+    all: { resolutionRate: 70, cost: 0.35, tokens: 1.13, latency: 9.3, steps: 82 }
+    open: { resolutionRate: 80, cost: 0.33, tokens: 1, latency: 10.7, steps: 76 }
+    closed: { resolutionRate: 47, cost: 0.4, tokens: 1.43, latency: 5.9, steps: 95 }
   - setup: "Codex + GPT 6.1 Sol high"
-    all: { resolutionRate: 68, cost: 0.57, tokens: 2.36, latency: 6.2, steps: 33 }
-    open: { resolutionRate: 79, cost: 0.52, tokens: 1.98, latency: 6.0, steps: 32 }
-    closed: { resolutionRate: 43, cost: 0.71, tokens: 3.26, latency: 6.7, steps: 34 }
-  - setup: "Claude Code + Sonnet 5.5 high"
-    all: { resolutionRate: 66, cost: 0.22, tokens: 0.58, latency: 3.5, steps: 13 }
-    open: { resolutionRate: 73, cost: 0.17, tokens: 0.41, latency: 3.6, steps: 11 }
-    closed: { resolutionRate: 50, cost: 0.34, tokens: 0.98, latency: 3.3, steps: 17 }
-  - setup: "Antigravity CLI + Gemini 3.8 Flash high"
-    all: { resolutionRate: 66, cost: 1.80, tokens: 15.35, latency: 21.0, steps: 147 }
-    open: { resolutionRate: 69, cost: 1.78, tokens: 15.35, latency: 21.6, steps: 147 }
-    closed: { resolutionRate: 60, cost: 1.85, tokens: 15.37, latency: 19.6, steps: 147 }
+    all: { resolutionRate: 70, cost: 0.55, tokens: 2.21, latency: 6.2, steps: 33 }
+    open: { resolutionRate: 79, cost: 0.51, tokens: 2.01, latency: 6.2, steps: 32 }
+    closed: { resolutionRate: 49, cost: 0.62, tokens: 2.7, latency: 6.1, steps: 34 }
   - setup: "OpenCode + DeepSeek V4.1 Flash high"
-    all: { resolutionRate: 63, cost: 0.10, tokens: 4.74, latency: 8.8, steps: 54 }
-    open: { resolutionRate: 69, cost: 0.10, tokens: 4.4, latency: 9.9, steps: 52 }
-    closed: { resolutionRate: 50, cost: 0.10, tokens: 5.54, latency: 6.2, steps: 58 }
-  - setup: "Codex + GPT 6 Luna high"
-    all: { resolutionRate: 54, cost: 0.02, tokens: 1.01, latency: 2.7, steps: 21 }
-    open: { resolutionRate: 61, cost: 0.02, tokens: 0.87, latency: 2.7, steps: 20 }
-    closed: { resolutionRate: 37, cost: 0.02, tokens: 1.32, latency: 2.8, steps: 23 }
+    all: { resolutionRate: 68, cost: 0.08, tokens: 5.01, latency: 9.2, steps: 57 }
+    open: { resolutionRate: 71, cost: 0.08, tokens: 4.81, latency: 10.5, steps: 56 }
+    closed: { resolutionRate: 59, cost: 0.08, tokens: 5.48, latency: 6.1, steps: 59 }
+  - setup: "Claude Code + Sonnet 5.5 high"
+    all: { resolutionRate: 68, cost: 0.22, tokens: 0.58, latency: 3.8, steps: 13 }
+    open: { resolutionRate: 75, cost: 0.17, tokens: 0.4, latency: 4, steps: 11 }
+    closed: { resolutionRate: 51, cost: 0.33, tokens: 1, latency: 3.5, steps: 18 }
+  - setup: "Codex + GPT 6.1 Terra high"
+    all: { resolutionRate: 68, cost: 0.36, tokens: 3.83, latency: 7, steps: 54 }
+    open: { resolutionRate: 79, cost: 0.34, tokens: 3.56, latency: 7.5, steps: 54 }
+    closed: { resolutionRate: 44, cost: 0.39, tokens: 4.48, latency: 5.8, steps: 53 }
+  - setup: "OpenCode + Kimi K3 max"
+    all: { resolutionRate: 67, cost: 1.75, tokens: 3.66, latency: 16.6, steps: 63 }
+    open: { resolutionRate: 76, cost: 1.66, tokens: 3.4, latency: 18, steps: 64 }
+    closed: { resolutionRate: 46, cost: 1.97, tokens: 4.28, latency: 13.3, steps: 62 }
+  - setup: "Claude Code + Haiku 5.5 high"
+    all: { resolutionRate: 66, cost: 0.1, tokens: 2.57, latency: 9.1, steps: 33 }
+    open: { resolutionRate: 75, cost: 0.1, tokens: 2.7, latency: 10.2, steps: 36 }
+    closed: { resolutionRate: 44, cost: 0.11, tokens: 2.27, latency: 6.5, steps: 28 }
+  - setup: "Antigravity CLI + Gemini 3.8 Flash high"
+    all: { resolutionRate: 63, cost: 1.68, tokens: 13.99, latency: 21.3, steps: 140 }
+    open: { resolutionRate: 64, cost: 1.65, tokens: 13.88, latency: 22.5, steps: 139 }
+    closed: { resolutionRate: 60, cost: 1.74, tokens: 14.26, latency: 18.4, steps: 141 }
   - setup: "Antigravity CLI + Gemini 4 Argon high"
-    all: { resolutionRate: 53, cost: 2.16, tokens: 6.68, latency: 27.3, steps: 58 }
-    open: { resolutionRate: 59, cost: 2.08, tokens: 6.53, latency: 27.2, steps: 57 }
-    closed: { resolutionRate: 40, cost: 2.36, tokens: 7.01, latency: 27.5, steps: 62 }
+    all: { resolutionRate: 55, cost: 2.23, tokens: 7.01, latency: 27.2, steps: 53 }
+    open: { resolutionRate: 60, cost: 2.1, tokens: 6.74, latency: 27, steps: 53 }
+    closed: { resolutionRate: 44, cost: 2.54, tokens: 7.66, latency: 27.6, steps: 53 }
+  - setup: "Codex + GPT 6 Luna high"
+    all: { resolutionRate: 54, cost: 0.02, tokens: 1.01, latency: 3, steps: 21 }
+    open: { resolutionRate: 61, cost: 0.02, tokens: 0.87, latency: 2.7, steps: 20 }
+    closed: { resolutionRate: 39, cost: 0.03, tokens: 1.32, latency: 3.4, steps: 24 }
