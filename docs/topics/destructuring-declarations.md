@@ -48,7 +48,13 @@ var age = person.age
 ```
 
 The variable and property names don't have to match.
-You can declare a variable with a different name by specifying the variable name before `=` and the property name after it.
+You can declare a variable with a different name in the explicit form by specifying the variable name before `=` and the property name after it:
+
+```kotlin
+(val personName = name, var personAge = age) = person
+```
+
+This is useful, for example, when migrating from position-based to name-based destructuring.
 
 Because variables match properties by name, their order in the declaration doesn't affect which values are extracted:
 
