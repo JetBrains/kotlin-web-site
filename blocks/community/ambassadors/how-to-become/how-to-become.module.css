@@ -16,27 +16,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--ktl-box-section-l, 48px);
     box-sizing: border-box;
 }
 
 .heading {
     display: flex;
     flex-direction: column;
-    gap: var(--ktl-box-section-s, 24px);
-    max-width: 752px;
+    max-width: var(--amb-subblocks-width, none);
     color: #ffffff;
     text-align: center;
+    margin-block-end: var(--ktl-box-section-l, 48px);
 }
 
 .title {
     margin: 0;
     color: #ffffff;
+    margin-block-end: 4px;
 }
 
 .text {
     margin: 0;
     color: #ffffff;
+}
+
+.paragraph {
+    margin-block-end: 0;
 }
 
 .paragraph + .paragraph {
@@ -47,7 +51,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: 752px;
+    max-width: var(--amb-subblocks-width, none);
     width: 100%;
     margin: 0;
     padding: var(--ktl-box-section-m, 32px);
@@ -62,19 +66,6 @@
     text-align: center;
 }
 
-@media (--ktl-ms-down) {
-    .section {
-        padding: var(--ktl-box-page-m, 72px) 0;
-    }
-
-    .quoteCard {
-        padding: var(--ktl-box-section-s, 24px);
-        border-radius: 24px;
-    }
-}
-
-/* --- 3D decorations of the section (part of the block) --- */
-
 .layer {
     position: absolute;
     top: 0;
@@ -85,31 +76,118 @@
     pointer-events: none;
 }
 
-.item {
-    position: absolute;
-    max-width: none;
-}
-
 .creatorBadge {
+    position: absolute;
+    top: -76px;
+    right: -46px;
+    transform: rotate(-25.38deg) translateX(100%);
+
     width: calc(162px * var(--amb-shape-scale, 1));
     height: calc(179px * var(--amb-shape-scale, 1));
-    top: calc(182px * var(--amb-shape-scale, 1));
-    left: calc(977px * var(--amb-shape-scale, 1));
-    transform: rotate(-25.38deg);
 }
 
 .educatorBadge {
+    position: absolute;
     width: calc(199px * var(--amb-shape-scale, 1));
     height: calc(126px * var(--amb-shape-scale, 1));
-    left: calc(-157px * var(--amb-shape-scale, 1));
-    bottom: calc(-20px * var(--amb-shape-scale, 1));
+    left: -139px;
+    bottom: -14px;
     transform: rotate(28.62deg);
 }
 
 .ambassadorPlate {
-    width: calc(269px * var(--amb-shape-scale, 1));
-    height: calc(74px * var(--amb-shape-scale, 1));
-    left: calc(613px * var(--amb-shape-scale, 1));
-    bottom: calc(-37px * var(--amb-shape-scale, 1));
-    transform: rotate(-21.14deg);
+    position: absolute;
+    width: calc(278px * var(--amb-shape-scale, 1));
+    height: calc(166px * var(--amb-shape-scale, 1));
+    right: -139px;
+    bottom: -83px;
+}
+
+@media (--ktl-ds-down) {
+    .creatorBadge {
+        top: 12px;
+        right: -52px;
+    }
+    .educatorBadge {
+        left: -124px;
+        bottom: -22px;
+    }
+    .ambassadorPlate {
+        right: -126px;
+        bottom: -84px;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .creatorBadge {
+        top: 12px;
+        right: 14px;
+    }
+    .educatorBadge {
+        left: -64px;
+        bottom: -56px;
+    }
+    .ambassadorPlate {
+        right: -97px;
+        bottom: -110px;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .creatorBadge {
+        top: 38px;
+        right: 22px;
+    }
+    .educatorBadge {
+        left: -74px;
+        bottom: -33px;
+    }
+    .ambassadorPlate {
+        right: -54px;
+        bottom: -62px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .section {
+        padding: var(--ktl-box-page-m, 72px) 0;
+    }
+    .title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .quoteCard {
+        border-radius: 24px;
+    }
+    .creatorBadge {
+        top: 41px;
+        right: 7px;
+    }
+    .educatorBadge {
+        left: -83px;
+        bottom: -42px;
+    }
+    .ambassadorPlate {
+        right: -80px;
+        bottom: -60px;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .title {
+        margin-block-end: 0;
+    }
+    .paragraph {
+        margin-block-start: var(--ktl-box-section-s, 24px);
+    }
+    .paragraph + .paragraph {
+        margin-block-start: var(--ktl-box-block-l, 16px);
+    }
+    .educatorBadge, .creatorBadge {
+        display: none;
+    }
+    .ambassadorPlate {
+        right: 6px;
+        bottom: -65px;
+    }
 }

@@ -73,18 +73,21 @@ export const Hero: FC = () => {
                         <img
                             className={styles.seal}
                             src="/images/community/ambassadors/seal.webp"
+                            srcSet="/images/community/ambassadors/seal.webp 1x, /images/community/ambassadors/seal@2x.webp 2x, /images/community/ambassadors/seal@3x.webp 3x"
                             alt="ambassador seal"
                         />
                         <img
                             aria-hidden="true"
                             className={styles.kElement}
                             src="/images/community/ambassadors/k-element.webp"
+                            srcSet="/images/community/ambassadors/k-element.webp 1x, /images/community/ambassadors/k-element@2x.webp 2x, /images/community/ambassadors/k-element@3x.webp 3x"
                             alt=""
                         />
                         <img
                             aria-hidden="true"
                             className={styles.contributorBadge}
                             src="/images/community/ambassadors/badge-contributor.webp"
+                            srcSet="/images/community/ambassadors/badge-contributor.webp 1x, /images/community/ambassadors/badge-contributor@2x.webp 2x, /images/community/ambassadors/badge-contributor@3x.webp 3x"
                             alt=""
                         />
                     </div>

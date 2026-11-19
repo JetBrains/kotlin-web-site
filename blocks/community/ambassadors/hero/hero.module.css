@@ -29,6 +29,11 @@
         width: calc(144px * var(--amb-shape-scale, 1));
 
         background: url("/images/community/ambassadors/hero-badge.webp") no-repeat center center;
+        background-image: image-set(
+            url("/images/community/ambassadors/hero-badge.webp") 1x,
+            url("/images/community/ambassadors/hero-badge@2x.webp") 2x,
+            url("/images/community/ambassadors/hero-badge@3x.webp") 3x
+        );
         background-size: contain;
     }
 }
