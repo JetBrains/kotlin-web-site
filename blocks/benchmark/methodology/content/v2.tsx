@@ -137,9 +137,10 @@ export function MethodologyContentV2() {
 
                             <Chart title="Tasks by source availability (n=100)" testId="methodology-source-chart">
                                 <PieChart model={SOURCE_CHART_MODEL} />
-                                <p className={textCn('rs-text-3')}>* All closed source tasks are backend.</p>
                             </Chart>
                         </div>
+
+                        <p className={textCn('rs-text-3')}>* All closed source tasks are backend.</p>
                     </div>
                 </Section>
 

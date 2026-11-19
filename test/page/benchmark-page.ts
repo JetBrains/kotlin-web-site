@@ -62,6 +62,10 @@ export class KotlinBenchmarkPage implements BasePage {
         return this.rows.locator('td[data-col="latency"]');
     }
 
+    stepsCells(): Locator {
+        return this.rows.locator('td[data-col="steps"]');
+    }
+
     async init(query = '') {
         await this.page.goto(`${KOTLIN_BENCHMARK_URL}${query}`);
 

@@ -38,6 +38,11 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         hint: 'Average time to solve a single task, in minutes',
         format: (value) => `${value}m`,
     },
+    {
+        key: 'steps',
+        label: 'Avg. steps / task',
+        hint: 'Average number of agent steps for a single task',
+    },
 ];
 
 export interface LeaderboardV2Props {
