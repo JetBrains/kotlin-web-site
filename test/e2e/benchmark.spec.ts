@@ -1,10 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
-// The current edition is methodology 2: resolution rate, cost, tokens and latency per task.
-const EXPECTED_DATA_COLUMNS = 4;
+const EXPECTED_DATA_COLUMNS = 5;
 
-// Task counts and leaders per view; see data/benchmark/leaderboard.yml.
 const TASK_VIEWS = [
     { name: 'All tasks', query: '', count: 100, leader: 'Claude Code + Opus 5.5 high' },
     { name: 'Open tasks', query: 'open', count: 70, leader: 'Claude Code + Opus 5.5 high' },
@@ -39,14 +37,14 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(rates).toEqual(sorted);
     });
 
-    test('tied resolution rates are ordered by fewer tokens first', async () => {
+    test('tied resolution rates are ordered by lower cost first', async () => {
         const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => parseFloat(text));
-        const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => parseFloat(text));
+        const costs = (await benchmark.costCells().allInnerTexts()).map((text) => parseFloat(text));
 
-        // Within each run of equal resolution rates, tokens must be non-decreasing.
+        // Within each run of equal resolution rates, costs must be non-decreasing.
         for (let i = 1; i < rates.length; i++) {
             if (rates[i] === rates[i - 1]) {
-                expect(tokens[i]).toBeGreaterThanOrEqual(tokens[i - 1]);
+                expect(costs[i]).toBeGreaterThanOrEqual(costs[i - 1]);
             }
         }
     });
@@ -56,12 +54,15 @@ test.describe('Kotlin Benchmark landing page', () => {
         const costs = (await benchmark.costCells().allInnerTexts()).map((text) => text.trim());
         const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => text.trim());
         const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
+        const steps = (await benchmark.stepsCells().allInnerTexts()).map((text) => text.trim());
 
         expect(rates.length).toBeGreaterThan(0);
 
         // Units live in the column headers; numbers keep at least two decimals.
         for (const value of [...rates, ...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
         for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?m$/);
+        // Step counts are whole numbers.
+        for (const step of steps) expect(step).toMatch(/^\d+$/);
     });
 
     test('ranks are sequential starting from 1', async () => {

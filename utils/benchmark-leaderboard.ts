@@ -22,6 +22,7 @@ export interface BenchMetrics {
     cost: number;
     tokens: number;
     latency: number;
+    steps?: number;
 }
 
 export type BenchTaskGroup = 'all' | 'open' | 'closed';
@@ -76,6 +77,9 @@ export const formatBenchDate = (value: unknown): string => {
 const byRanking = (a: { resolutionRate: number; tokens: number }, b: { resolutionRate: number; tokens: number }) =>
     b.resolutionRate - a.resolutionRate || a.tokens - b.tokens;
 
+const byGroupRanking = (a: BenchMetrics, b: BenchMetrics) =>
+    b.resolutionRate - a.resolutionRate || a.cost - b.cost;
+
 /**
  * Ranked methodology-1 rows. Row dates are normalised because a YAML loader may hand back a Date object.
  */
@@ -84,7 +88,7 @@ export const prepareRows = (rawRows: BenchRow[] | undefined): BenchRow[] =>
 
 /** The rows of a methodology-2+ edition for one task group, ranked. */
 export const groupRows = (edition: BenchEditionV2, group: BenchTaskGroup): BenchGroupRow[] =>
-    edition.rows.map((row) => ({ setup: row.setup, ...row[group] })).sort(byRanking);
+    edition.rows.map((row) => ({ setup: row.setup, ...row[group] })).sort(byGroupRanking);
 
 /**
  * Normalise a parsed YAML edition, whatever loaded it (webpack or fs).
