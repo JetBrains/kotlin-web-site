@@ -8,4 +8,4 @@ checks:
         value: "Unresolved reference 'isPositive'"
       - type: source-not-matches
         value: '\bfun\s+Int\s*\.\s*isPositive\b'
-    message: "The starter truncates the declaration after `fun Int.`, so `isPositive` doesn't exist yet: finish the extension function of `Int`, like `fun Int.isPositive(): Boolean = this > 0`. See [Extension functions](https://kotlinlang.org/docs/kotlin-tour-intermediate-extension-functions.html#extension-functions)."
+    message: "Finish declaring the extension function of `Int`."

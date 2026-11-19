@@ -8,4 +8,4 @@ checks:
         value: "Property must be initialized or be abstract"
       - type: source-not-matches
         value: '\bby\s+observable\s*\('
-    message: "`remainingBudget` is declared but never initialized: give it the observable delegate with the initial budget, like `var remainingBudget: Int by observable(totalBudget) { _, oldValue, newValue -> ... }`. See [Standard delegates](https://kotlinlang.org/docs/kotlin-tour-intermediate-properties.html#standard-delegates)."
+    message: "Give the `remainingBudget` an observable delegate with the initial budget."

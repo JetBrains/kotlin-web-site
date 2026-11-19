@@ -8,4 +8,4 @@ checks:
         value: "Unresolved reference '(Name|Address|City)'"
       - type: source-not-matches
         value: '\bclass\s+Address\b'
-    message: "`Person` mentions the `Name`, `Address`, and `City` types, but they aren't declared yet: follow the comment in the code, like `data class Name(val first: String, val last: String)`, `data class Address(val street: String, val city: City)`, `data class City(val name: String, val countryCode: String)`. See [Data classes](https://kotlinlang.org/docs/kotlin-tour-classes.html#data-classes)."
+    message: "The `Person` data class uses`Name`, `Address`, and `City` types, but they aren't declared yet. Complete the data class declaration in the code comments and follow the same approach for the other types."

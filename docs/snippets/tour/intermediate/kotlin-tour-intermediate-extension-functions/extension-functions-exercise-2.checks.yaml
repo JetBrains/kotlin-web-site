@@ -8,4 +8,4 @@ checks:
         value: "Unresolved reference 'toLowercaseString'"
       - type: source-not-matches
         value: '\bfun\s+String\s*\.\s*toLowercaseString\b'
-    message: "The starter truncates the declaration after `fun`, so `toLowercaseString` doesn't exist yet: write it as an extension function of `String`, like `fun String.toLowercaseString(): String = this.lowercase()`. See [Extension functions](https://kotlinlang.org/docs/kotlin-tour-intermediate-extension-functions.html#extension-functions)."
+    message: "Finish the function declaration of `toLowercaseString` as an extension of `String`."

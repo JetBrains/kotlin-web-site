@@ -8,8 +8,8 @@ checks:
         value: "Unresolved reference 'circleArea'"
       - type: source-not-matches
         value: '\bfun\s+circleArea\b'
-    message: "This exercise starts from no code at all: declare `circleArea` again, this time as a single expression, like `fun circleArea(radius: Int): Double = PI * radius * radius`. See [Single-expression functions](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions)."
+    message: "This exercise starts with no code at all. Declare the `circleArea` function again but as a [single-expression](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions)."
   - type: source-matches
-    title: "Rewrite circleArea with an expression body"
+    title: "Rewrite circleArea"
     value: 'fun\s+circleArea\s*\([^)]*\)[^{;]*='
-    message: "Rewrite the function with an [expression body](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions): replace the block body with `=` and the expression, like `fun double(x: Int) = x * 2`."
+    message: "Rewrite the function with an [expression body](https://kotlinlang.org/docs/kotlin-tour-functions.html#single-expression-functions)."

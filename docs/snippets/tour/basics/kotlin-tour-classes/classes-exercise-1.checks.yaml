@@ -8,4 +8,4 @@ checks:
         value: "Unresolved reference 'Employee'"
       - type: source-not-matches
         value: '\bclass\s+Employee\b'
-    message: "`main()` creates an `Employee(\"Mary\", 20)`, but the class isn't declared yet: write a `data class` with an immutable `name` and a mutable `salary`, like `data class Employee(val name: String, var salary: Int)`. See [Data classes](https://kotlinlang.org/docs/kotlin-tour-classes.html#data-classes)."
+    message: "`main()` creates an `Employee(\"Mary\", 20)` but the class isn't declared yet. Declare a `data class` with an immutable `name` and a mutable `salary`."

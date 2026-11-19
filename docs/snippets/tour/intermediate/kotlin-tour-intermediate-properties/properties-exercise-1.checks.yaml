@@ -8,4 +8,4 @@ checks:
         value: "Missing return statement"
       - type: source-not-matches
         value: '\breturn\b|=\s*buildList\b'
-    message: "`findOutOfStockBooks` declares a `List<Int>` return type, but its body never returns one: collect the indices of the out-of-stock books and return the list, like `val outOfStock = mutableListOf<Int>(); for (index in inventory.indices) { if (inventory[index] == 0) outOfStock.add(index) }; return outOfStock`. See [Functions](https://kotlinlang.org/docs/kotlin-tour-functions.html)."
+    message: "`findOutOfStockBooks` declares a `List<Int>` return type but its body never returns one. Collect the indices of the out-of-stock books and return the list."

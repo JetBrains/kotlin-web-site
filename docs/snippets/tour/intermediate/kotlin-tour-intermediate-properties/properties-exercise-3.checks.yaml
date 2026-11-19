@@ -8,7 +8,7 @@ checks:
         value: "Unresolved reference 'isAppServerHealthy'"
       - type: source-not-matches
         value: '\b(?:val|var)\s+isAppServerHealthy\b'
-    message: "`main()` reads `isAppServerHealthy` and `isDatabaseHealthy`, but neither property is declared: declare both inside `main()` with `by lazy`, like `val isAppServerHealthy by lazy { checkAppServer() }`, so the checks run only when they are read. See [Standard delegates](https://kotlinlang.org/docs/kotlin-tour-intermediate-properties.html#standard-delegates)."
+    message: "`main()` reads `isAppServerHealthy` and `isDatabaseHealthy`, but neither property is declared. Declare both inside `main()` with `by lazy` so the checks run only when they are read."
   - type: source-matches
     title: "Initialize the health checks with by lazy"
     value: '\bby\s+lazy\s*[\({]'

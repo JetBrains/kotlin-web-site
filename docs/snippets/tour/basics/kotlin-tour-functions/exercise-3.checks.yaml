@@ -8,4 +8,4 @@ checks:
         value: "No value passed for parameter 'hours'"
       - type: source-not-matches
         value: '\bInt\s*=\s*0\b'
-    message: "The hidden tests call `intervalInSeconds` with only some of the parameters: every parameter needs a default value of `0`, like `fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0)`. See [Default parameter values](https://kotlinlang.org/docs/kotlin-tour-functions.html#default-parameter-values)."
+    message: "The validation calls the `intervalInSeconds()` function with only some of the parameters: every parameter needs a default value of `0` for validation to pass."
