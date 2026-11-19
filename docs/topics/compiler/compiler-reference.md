@@ -537,6 +537,14 @@ exported with the `@JsExport` annotation from JavaScript/TypeScript.
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 This option is required for the `es5` and `es2015` targets only. The `es2020` target enables this option by default.
 
+### -Xinteger-division-check
+<primary-label ref="experimental-general"/>
+
+Enable a runtime check for integer division by zero, so that the operation throws an `ArithmeticException` error
+instead of silently returning `0`.
+
+The check adds a comparison to every integer division, so it comes with a small runtime overhead.
+
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>
 
