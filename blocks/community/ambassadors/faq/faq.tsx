@@ -31,16 +31,6 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
         ),
     },
     {
-        question: 'How long does the membership last?',
-        answer: (
-            <>
-                Kotlin Ambassador membership has no fixed expiration date. As long as an Ambassador remains actively
-                involved in the Kotlin ecosystem and continues to uphold the program&apos;s values, they can remain part
-                of the program.
-            </>
-        ),
-    },
-    {
         question: 'Is there a Code of Conduct?',
         answer: (
             <>
@@ -58,7 +48,17 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
             </>
         ),
     },
-];
+    {
+        question: 'How long does the membership last?',
+        answer: (
+            <>
+                Kotlin Ambassador membership has no fixed expiration date. As long as an Ambassador remains actively
+                involved in the Kotlin ecosystem and continues to uphold the program&apos;s values, they can remain part
+                of the program.
+            </>
+        ),
+    },
+] as const;
 
 export const Faq: FC = () => {
     const textCn = useTextStyles();

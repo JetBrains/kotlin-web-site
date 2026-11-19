@@ -1,10 +1,5 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
-/*
- * The section sits on the page gradient (see pages/community/ambassadors),
- * so it has no own background: the gradient stays continuous across it.
- */
-
 .section {
     position: relative;
     z-index: 1;

@@ -5,19 +5,19 @@
     background: var(--amb-color-navy, #160286);
 }
 
-.content :global [data-testid="columned-faq"] {
-    max-width: var(--amb-subblocks-width, none);
-    margin-inline: auto;
-}
-
 .content {
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
 }
 
+.content :global [data-testid="columned-faq"] {
+    max-width: var(--amb-subblocks-width, none);
+    margin-inline: auto;
+}
+
 .title {
-    margin: 0 0 var(--ktl-box-section-m, 32px);
+    margin: 0 0 calc(var(--ktl-box-section-m, 32px) - 8px);
     color: #ffffff;
     text-align: center;
 }
@@ -27,7 +27,7 @@
 }
 
 @media (--ktl-ml-down) {
-    .content {
-        padding: 0 var(--ktl-box-section-s, 24px);
+    .section {
+        padding: var(--ktl-box-page-m, 72px) 0;
     }
 }

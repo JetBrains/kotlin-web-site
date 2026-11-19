@@ -4,12 +4,7 @@ import { useTextStyles } from '@rescui/typography';
 
 import styles from './who-can-become.module.css';
 
-type Contribution = {
-    title: string;
-    description: string;
-};
-
-const CONTRIBUTIONS: Contribution[] = [
+const CONTRIBUTIONS = [
     {
         title: 'Content creation',
         description: 'Writing articles, producing videos or podcasts, creating courses, or publishing other educational materials.',
@@ -30,7 +25,7 @@ const CONTRIBUTIONS: Contribution[] = [
         title: 'Mentorship',
         description: 'Helping individual developers and teams learn, adopt, and make the most of Kotlin.',
     },
-];
+] as const;
 
 export const WhoCanBecome: FC = () => {
     const textCn = useTextStyles();
