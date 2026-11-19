@@ -8,7 +8,7 @@ checks:
         value: "Argument type mismatch: actual type is '(User) -> Unit'"
       - type: source-not-matches
         value: '\.isActive\b'
-    message: "The `mapNotNull { /* Write your code here */ }` lambda is empty, so there is nothing to return for each user: return the username of the active users and `null` otherwise, like `users.mapNotNull { user -> if (user.isActive) user.username else null }`. See [Null values and collections](https://kotlinlang.org/docs/kotlin-tour-intermediate-null-safety.html#null-values-and-collections)."
+    message: "Return the username of the active users and `null` otherwise."
   - type: source-matches
     title: "Return the usernames with mapNotNull"
     value: '\bmapNotNull\s*[\({]'

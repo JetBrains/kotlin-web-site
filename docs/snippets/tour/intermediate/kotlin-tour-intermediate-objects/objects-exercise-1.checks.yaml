@@ -8,4 +8,4 @@ checks:
         value: "Unresolved reference 'OrderTwo'"
       - type: source-not-matches
         value: '\bobject\s+OrderTwo\b'
-    message: "The starter starts the second declaration with `data object // Write your code here`, so `OrderTwo` doesn't exist yet: declare it the way `OrderOne` is declared, implementing the `Order` interface, like `data object OrderTwo : Order { override val orderId = \"002\" ... }`. See [Object declarations](https://kotlinlang.org/docs/kotlin-tour-intermediate-objects.html#object-declarations)."
+    message: "Take inspiration from the `OrderOne` data object."

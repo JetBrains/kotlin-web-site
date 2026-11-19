@@ -4,4 +4,4 @@ checks:
   - type: source-matches
     title: "Build the sentence with a string template"
     value: '\$[a-zA-Z{]'
-    message: "Build the sentence with a [string template](https://kotlinlang.org/docs/kotlin-tour-hello-world.html#string-templates) instead of typing the whole text: put `$` before a variable to insert its value, like `\"There are $customers customers\"`."
+    message: "Instead of typing out the whole text: use `$` before a variable to insert its value."
