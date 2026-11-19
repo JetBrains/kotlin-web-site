@@ -1,5 +1,6 @@
 [//]: # (title: Getting started with KSP)
-<web-summary>Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the KSP API to create your own.</web-summary>
+<web-summary>Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the KSP API to
+create your own.</web-summary>
 
 In this guide, you will learn:
 
