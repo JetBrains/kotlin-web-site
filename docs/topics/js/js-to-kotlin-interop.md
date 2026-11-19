@@ -378,6 +378,45 @@ kotlin {
 This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker,
 [YouTrack](https://youtrack.jetbrains.com/issue/KT-79284/Use-BigInt64Array-for-LongArray).
 
+## Implement suspend function interfaces
+
+Kotlin/JS doesn't fully support classes that implement a suspend function interface, such as `suspend () -> Unit`.
+The compiler reports a warning for all such classes.
+
+Calling the instance directly works as expected, but upcasting it to the suspend function interface makes JavaScript
+treat the value as a plain function, and the call throws a `TypeError` error at runtime:
+
+```kotlin
+class BackgroundTask : suspend () -> Unit {
+    override suspend fun invoke() {
+        println("Running")
+    }
+}
+
+suspend fun execute(task: suspend () -> Unit) {
+    // Throws TypeError: task is not a function
+    task()
+}
+
+suspend fun main() {
+    val task = BackgroundTask()
+    task()                     // Works correctly
+    execute(BackgroundTask())  // Fails, upcasts to suspend () -> Unit
+}
+```
+
+Use an ordinary class with a regular method or a suspend lambda instead. If your code never upcasts the instance,
+suppress the warning:
+
+```kotlin
+@Suppress("IMPLEMENTING_SUSPEND_FUNCTION_INTERFACE")
+class BackgroundTask : suspend () -> Unit {
+    override suspend fun invoke() {
+        println("Running")
+    }
+}
+```
+
 ## Kotlin types in JavaScript
 
 See how Kotlin types are mapped to JavaScript ones:
