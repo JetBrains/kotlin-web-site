@@ -28,6 +28,7 @@ export interface BenchTableRow {
 export interface BenchColumn<Row extends BenchTableRow> {
     key: Exclude<keyof Row, 'setup'> & string;
     label: string;
+    sublabel?: string;
     hint: string;
     format?: (value: Row[keyof Row]) => string;
     /** Rendered as the headline value of the row (bold, white). */
