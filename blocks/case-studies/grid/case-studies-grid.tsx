@@ -4,6 +4,7 @@ import { CaseStudyCard, CaseStudyCardProps } from '../card/case-studies-card';
 import { useFilteredCases } from '../filter/use-filtered-cases';
 import { MasonryGrid } from '../../../components/masonry-grid/masonry-grid';
 import { EmptyState } from '../../../components/empty-state/empry-state';
+import { useCaseCardHeights } from '../card/use-case-card-heights';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import styles from './case-studies-grid.module.css';
@@ -23,6 +24,7 @@ export const CaseStudiesSection: FC<CaseStudiesGridProps> = ({ className, ...pro
 
 export const CaseStudiesGrid: FC<CaseStudiesGridProps> = ({ className, mode, showCopyLinkButton }) => {
     const cases = useFilteredCases();
+    const { getItemHeight } = useCaseCardHeights(cases, mode);
     const theme = 'light';
     const [isLayoutReady, setIsLayoutReady] = useState(false);
 
@@ -38,6 +40,7 @@ export const CaseStudiesGrid: FC<CaseStudiesGridProps> = ({ className, mode, sho
                         items={cases}
                         columnCount={2}
                         gap={32}
+                        getItemHeight={getItemHeight}
                         renderItem={(caseItem) => (
                             <CaseStudyCard mode={mode} showCopyLinkButton={showCopyLinkButton} {...caseItem} />
                         )}

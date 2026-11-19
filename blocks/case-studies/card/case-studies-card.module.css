@@ -3,6 +3,8 @@
 .card {
   border-radius: 16px;
   overflow: hidden;
+  /* pretext (masonry height model) assumes break-word line wrapping */
+  overflow-wrap: break-word;
 
   border: 1px solid;
 

@@ -100,4 +100,15 @@ test.describe('Case-studies landing page', async () => {
         const lastCard = caseStudiesPage.gridBlock.locator(`#${lastCaseCardId}`).first();
         await expect(lastCard).toBeInViewport();
     });
+
+    test('Case-studies: cards are rendered once with unique ids', async ({ page }) => {
+        const caseStudiesPage = new CaseStudiesPage(page);
+        await caseStudiesPage.init();
+
+        const cardCount = await caseStudiesPage.gridItem.count();
+        expect(cardCount).toBeGreaterThan(50);
+
+        const ids = await caseStudiesPage.gridItem.evaluateAll(elements => elements.map(el => el.id));
+        expect(new Set(ids).size).toBe(cardCount);
+    });
 });

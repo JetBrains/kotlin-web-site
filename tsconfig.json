@@ -21,7 +21,9 @@
     "paths": {
       "@/*": ["./*"],
       // ships types only via the "exports" field, which moduleResolution "node" cannot read
-      "@webteam/horizontal-barchart": ["./node_modules/@webteam/horizontal-barchart/lib/index.d.ts"]
+      "@webteam/horizontal-barchart": ["./node_modules/@webteam/horizontal-barchart/lib/index.d.ts"],
+      "@chenglou/pretext": ["./node_modules/@chenglou/pretext/dist/layout.d.ts"],
+      "@chenglou/pretext/rich-inline": ["./node_modules/@chenglou/pretext/dist/rich-inline.d.ts"]
     },
   },
   "include": [
