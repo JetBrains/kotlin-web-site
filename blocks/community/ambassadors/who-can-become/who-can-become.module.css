@@ -10,7 +10,6 @@
     box-sizing: border-box;
 }
 
-/* Columns and gutter follow the design context: 536px + 8px + 600px. */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -89,7 +88,6 @@
         padding-right: 0;
     }
 }
-
 
 @media (--ktl-ts-up) {
     .itemText {
