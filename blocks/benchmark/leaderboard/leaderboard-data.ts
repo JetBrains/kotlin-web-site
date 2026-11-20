@@ -1,23 +1,3 @@
-export {
-    BENCH_TASK_GROUPS,
-    currentEdition,
-    formatBenchDate,
-    groupRows,
-    isGroupedEdition,
-    toEdition,
-    twoDecimals,
-    TOP_SCORE_COUNT,
-} from '@/utils/benchmark-leaderboard';
-export type {
-    BenchColumnKey,
-    BenchEdition,
-    BenchEditionV1,
-    BenchEditionV2,
-    BenchGroupRow,
-    BenchRow,
-    BenchTaskGroup,
-} from '@/utils/benchmark-leaderboard';
-
 /** Any row the common table can render: a named setup ranked by resolution rate. */
 export interface BenchTableRow {
     setup: string;

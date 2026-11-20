@@ -1,7 +1,7 @@
 import leaderboardRaw from '../data/benchmark/leaderboard.yml';
 
 /**
- * A single methodology-1 leaderboard entrн
+ * A single methodology-1 leaderboard entry
  */
 export interface BenchRow {
     setup: string;
@@ -57,8 +57,6 @@ export const isGroupedEdition = (edition: BenchEdition): edition is BenchEdition
 
 export const TOP_SCORE_COUNT = 3;
 
-export type BenchColumnKey = Exclude<keyof BenchRow, 'setup'>;
-
 /**
  * Show at least two decimal places without rounding
  */
@@ -71,6 +69,14 @@ export const twoDecimals = (value: unknown): string => {
 export const formatBenchDate = (value: unknown): string => {
     const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value));
     return match ? `${match[3]}.${match[2]}.${match[1]}` : String(value);
+};
+
+/** `2026-11-20` -> `November 20, 2026`; for prose such as "snapshot as of …". */
+export const formatBenchLongDate = (value: string): string => {
+    const parsed = new Date(`${value}T00:00:00Z`);
+    return isNaN(parsed.getTime())
+        ? value
+        : parsed.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 };
 
 /** Ranking order for every edition and view: resolution rate first, fewer tokens on a tie. */

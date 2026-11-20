@@ -4,8 +4,10 @@ import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 
+import { TOP_SCORE_COUNT } from '@/utils/benchmark-leaderboard';
+
 import styles from '../leaderboard.module.css';
-import { BenchColumn, BenchTableRow, MISSING_VALUE, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT } from '../leaderboard-data';
+import { BenchColumn, BenchTableRow, MISSING_VALUE, SETUP_COLUMN_LABEL } from '../leaderboard-data';
 
 export interface BenchmarkTableProps<Row extends BenchTableRow> {
     columns: BenchColumn<Row>[];

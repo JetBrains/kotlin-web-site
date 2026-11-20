@@ -3,11 +3,11 @@ import React, { ComponentType } from 'react';
 import { MethodologyHero } from '../hero';
 import { MethodologyContentV1 } from '../content/v1';
 import { MethodologyContentV2 } from '../content/v2';
-import { findMethodology, latestMethodology, methodologyTitle } from '../versions';
+import { findMethodology, latestMethodology, methodologyTitle, MethodologyVersionNumber } from '../versions';
 import { BenchmarkLayout } from '../../layout';
 import { METHODOLOGY_TITLE, METHODOLOGY_URL } from '../../constants';
 
-const CONTENT: Record<number, ComponentType> = {
+const CONTENT: Record<MethodologyVersionNumber, ComponentType> = {
     1: MethodologyContentV1,
     2: MethodologyContentV2,
 };
@@ -18,7 +18,6 @@ interface MethodologyPageProps {
 
 export function MethodologyPage({ version }: MethodologyPageProps) {
     const methodology = findMethodology(version);
-    const Content = CONTENT[version];
 
     if (!methodology) {
         throw new Error(
@@ -26,13 +25,7 @@ export function MethodologyPage({ version }: MethodologyPageProps) {
         );
     }
 
-    if (!Content) {
-        throw new Error(
-            `Benchmark methodology ${version} has no content component: add \`${version}: <Component>\` ` +
-                `to CONTENT in blocks/benchmark/methodology/page/index.tsx.`
-        );
-    }
-
+    const Content = CONTENT[methodology.version];
     const isLatest = methodology.version === latestMethodology.version;
 
     return (

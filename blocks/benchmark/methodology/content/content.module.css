@@ -122,18 +122,15 @@
     padding: 32px;
     border-radius: 24px;
     background: #6B3FD0;
-
-    @media (--ktl-ms-down) {
-        padding: 20px;
-    }
-}
-
-.chartsCard {
     --rs-color-primary-dark-theme: #fff;
     --rs-color-primary-t-dim-dark-theme: rgba(255, 255, 255, 0.8);
     --rs-color-primary-t-fog-dark-theme: rgba(255, 255, 255, 0.35);
     --rs-color-white-t30: rgba(255, 255, 255, 0.55);
     --rs-color-white-t5: rgba(255, 255, 255, 0.08);
+
+    @media (--ktl-ms-down) {
+        padding: 20px;
+    }
 }
 
 .chart :global([data-test='pie-chart']) {
@@ -144,7 +141,7 @@
         zoom: 0.7;
     }
 
-    @media screen and (min-width: 641px) {
+    @media (--ktl-ts-up) {
         & > div {
             margin-left: 16px;
         }

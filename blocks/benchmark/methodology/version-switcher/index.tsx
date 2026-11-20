@@ -30,7 +30,11 @@ export function MethodologyVersionSwitcher({ version }: MethodologyVersionSwitch
     if (OPTIONS.length < 2) return null;
 
     return (
-        <div className={styles.versionSwitcher} data-testid="methodology-version-switcher">
+        <nav
+            className={styles.versionSwitcher}
+            aria-label="Methodology version"
+            data-testid="methodology-version-switcher"
+        >
             <Switcher
                 mode="rock"
                 theme="dark"
@@ -40,6 +44,6 @@ export function MethodologyVersionSwitcher({ version }: MethodologyVersionSwitch
                 options={OPTIONS}
                 data-e2e="methodology-version-switcher"
             />
-        </div>
+        </nav>
     );
 }
