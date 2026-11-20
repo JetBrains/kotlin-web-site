@@ -5,8 +5,8 @@ const EXPECTED_DATA_COLUMNS = 5;
 
 const TASK_VIEWS = [
     { name: 'All tasks', query: '', count: 100, leader: 'Claude Code + Opus 5.5 high' },
-    { name: 'Open tasks', query: 'open', count: 70, leader: 'Claude Code + Fable 5.1 high' },
-    { name: 'Closed tasks', query: 'closed', count: 30, leader: 'Antigravity CLI + Gemini 3.8 Flash high' },
+    { name: 'Open-source tasks', query: 'open', count: 70, leader: 'Claude Code + Fable 5.1 high' },
+    { name: 'Closed-source tasks', query: 'closed', count: 30, leader: 'Antigravity CLI + Gemini 3.8 Flash high' },
 ] as const;
 
 test.describe('Kotlin Benchmark landing page', () => {
@@ -58,9 +58,11 @@ test.describe('Kotlin Benchmark landing page', () => {
 
         expect(rates.length).toBeGreaterThan(0);
 
-        // Units live in the column headers; numbers keep at least two decimals.
-        for (const value of [...rates, ...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
-        for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?m$/);
+        // Units live in the column headers; resolution rates are shown as-is (no `.00` padding).
+        for (const rate of rates) expect(rate).toMatch(/^\d+(\.\d+)?$/);
+        // Cost and tokens keep at least two decimals.
+        for (const value of [...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
+        for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?$/);
         // Step counts are whole numbers.
         for (const step of steps) expect(step).toMatch(/^\d+$/);
     });

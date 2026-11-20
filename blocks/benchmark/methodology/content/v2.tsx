@@ -24,7 +24,7 @@ const REFERENCES: Reference[] = [
         text: 'OpenAI Developers. Reasoning models.',
         url: 'https://developers.openai.com/api/docs/guides/reasoning?api-mode=responses',
     },
-    { text: 'z.ai. GLM 5.3.', url: 'https://docs.z.ai/guides/llm/glm-5.3' },
+    { text: 'Kimi. Reasoning effort.', url: 'https://platform.kimi.ai/docs/guide/use-reasoning-effort' },
     { text: 'Gemini API Documentation. Gemini Thinking.', url: 'https://aistudio.google.com/docs/thinking' },
 ];
 
@@ -155,7 +155,7 @@ export function MethodologyContentV2() {
                         We evaluated 13 agentic setups, including widely used models and coding harnesses such as Claude
                         Code, OpenAI Codex, and OpenCode. To keep configurations representative of typical usage
                         scenarios, we used the recommended settings for most parameters. Reasoning effort was set to
-                        “high” for each setup, with two exceptions: Kimi and GLM 5.3, for which the provider’s
+                        “high” for each setup, with one exception: Kimi, for which the provider’s
                         recommended setting is “max”.
                         <Ref n={5} /> We selected “high” based on provider recommendations, which commonly cite it as a
                         balanced choice for complex coding tasks.
