@@ -32,7 +32,10 @@ export const WhoCanBecome: FC = () => {
 
     return (
         <section className={styles.section} data-testid="ambassadors-who-can-become">
-            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
+            <div
+                className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}
+                data-testid="ambassadors-who-content"
+            >
                 <div className={styles.grid}>
                     <div className={styles.info}>
                         <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-who-title">

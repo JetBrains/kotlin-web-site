@@ -52,7 +52,10 @@ export const Hero: FC = () => {
 
     return (
         <section className={styles.hero} data-testid="ambassadors-hero">
-            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
+            <div
+                className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}
+                data-testid="ambassadors-hero-content"
+            >
                 <div className={styles.heading}>
                     <img
                         className={styles.sign}

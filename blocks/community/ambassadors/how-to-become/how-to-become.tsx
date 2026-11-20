@@ -9,7 +9,10 @@ export const HowToBecome: FC = () => {
 
     return (
         <section className={styles.section} data-testid="ambassadors-how-to-become">
-            <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}>
+            <div
+                className={cn('ktl-layout-v2', 'ktl-layout--center', styles.content)}
+                data-testid="ambassadors-how-content"
+            >
                 <div className={styles.heading}>
                     <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-how-title">
                         How to become a Kotlin Ambassador

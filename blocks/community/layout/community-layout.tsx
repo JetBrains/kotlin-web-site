@@ -114,7 +114,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({
             />
 
             <StickyHeader>
-                <div>
+                <div data-testid="top-menu">
                     <TopMenu
                         homeUrl={COMMUNITY_URL}
                         title={COMMUNITY_TITLE}
