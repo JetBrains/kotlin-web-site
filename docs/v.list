@@ -29,7 +29,7 @@
 
     <var name="ktorVersion" value="3.5.2"/>
 
-    <var name="lombokVersion" value="9.5.0"/>
+    <var name="lombokVersion" value="9.8.3"/>
 
     <var name="kotlinxBrowserVersion" value="0.5.0"/>
 
