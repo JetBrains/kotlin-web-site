@@ -221,8 +221,9 @@ For enum constants, it's OK to use either all uppercase, underscore-separated ([
    
 ### Names for backing properties
 
-If a class has two properties which are conceptually the same but one is part of a public API and another is an implementation
-detail, use an underscore as the prefix for the name of the private property:
+If a class has two properties that represent the same concept, but one is part of a non-private API
+(`public`, `internal`, or `protected`) and the other is an implementation detail,
+use the underscore prefix for the private property name:
 
 ```kotlin
 class C {
