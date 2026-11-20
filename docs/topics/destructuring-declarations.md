@@ -126,7 +126,7 @@ If you don't need a variable in a position-based destructuring declaration, repl
 val (_, status) = getResult()
 ```
 
-The `componentN()` function isn't called for a component skipped in this way.
+When you skip a variable this way, Kotlin doesn’t call the corresponding `componentN()` function.
 
 ## Destructuring declarations in `for` loops
 
