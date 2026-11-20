@@ -136,7 +136,7 @@ the files affected by recent changes. This helps reduce compilation time.
 Incremental compilation for the Wasm targets is enabled by default.
 To disable it, add the following line to your project's `local.properties` or `gradle.properties` file:
 
-```text
+```properties
 kotlin.incremental.wasm=false
 ```
 
@@ -239,4 +239,3 @@ if (config.devServer) {
     })
 }
 ```
-

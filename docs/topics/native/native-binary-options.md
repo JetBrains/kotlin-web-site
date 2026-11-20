@@ -11,7 +11,7 @@ You can enable binary options in the `gradle.properties` file, your build file, 
 
 You can set binary options in your project's `gradle.properties` file using the `kotlin.native.binary` property. For example:
 
-```none
+```properties
 kotlin.native.binary.latin1Strings=true
 ```
 

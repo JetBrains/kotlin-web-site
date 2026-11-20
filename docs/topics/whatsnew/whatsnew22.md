@@ -704,7 +704,7 @@ instead of the default one. Now, you can disable buffering (paging of allocation
 The feature is currently [Experimental](components-stability.md#stability-levels-explained).
 To enable it, set the following option in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.pagedAllocator=false
 ```
 
@@ -729,9 +729,10 @@ long as all the characters fall within its range. Otherwise, the default UTF-16 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained).
 To enable it, set the following option in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.latin1Strings=true
 ```
+
 #### Known issues
 
 As long as the feature is Experimental, the cinterop extension functions [`String.pin`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/pin.html), [`String.usePinned`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-pinned.html), and [`String.refTo`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/ref-to.html) become less efficient. Each call to them may trigger automatic string conversion to UTF-16.
@@ -1053,7 +1054,7 @@ Rich output is available in supported terminal emulators for Linux and macOS, an
 
 This feature is enabled by default, but if you want to override it, add the following Gradle property to your `gradle.properties` file:
 
-```
+```properties
 org.gradle.console=plain
 ```
 
@@ -1088,7 +1089,7 @@ This behavior is enabled by default starting with 2.2.0.
 
 To ignore the `--warning-mode` option, set the following Gradle property to your `gradle.properties` file:
 
-```
+```properties
 kotlin.internal.diagnostics.ignoreWarningMode=true
 ```
 
@@ -1112,9 +1113,9 @@ To try the BTA in:
 
 * The KGP, add the following property to your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.compiler.runViaBuildToolsApi=true
-```   
+```
 
 * Maven, you don't need to do anything. It's enabled by default.
 
@@ -1135,7 +1136,7 @@ inside the Gradle daemon process, previously didn't support incremental compilat
 Now, using the BTA, the "in-process" strategy **does** support incremental compilation. To use it, add the following 
 property to your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.compiler.execution.strategy=in-process
 ```
 

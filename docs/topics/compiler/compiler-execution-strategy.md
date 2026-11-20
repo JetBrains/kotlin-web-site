@@ -26,7 +26,7 @@ The possible values for the `kotlin.compiler.execution.strategy` property are:
 
 Set the `kotlin.compiler.execution.strategy` property in `gradle.properties`:
 
-```none
+```properties
 kotlin.compiler.execution.strategy=in-process
 ```
 
@@ -94,7 +94,7 @@ To prevent fallback, use the `kotlin.daemon.useFallbackStrategy` Gradle property
 When set to `false`, builds fail if there are problems with the daemon's startup or communication.
 Declare this property in `gradle.properties`:
 
-```none
+```properties
 kotlin.daemon.useFallbackStrategy=false
 ```
 

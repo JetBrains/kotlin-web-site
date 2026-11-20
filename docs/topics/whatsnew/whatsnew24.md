@@ -671,7 +671,7 @@ latency-critical applications. CMS has already demonstrated its effectiveness in
 If you face problems, you can switch back to PMCS. To do that, set the following [binary option](native-binary-options.md)
 in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.gc=pmcs
 ```
 
@@ -818,7 +818,7 @@ With this feature, the compiler rebuilds only the files affected by recent chang
 
 To disable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
 
-```none
+```properties
 # gradle.properties
 kotlin.incremental.wasm=false
 ```

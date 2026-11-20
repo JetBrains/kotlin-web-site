@@ -51,7 +51,7 @@ you can temporarily revert to the previous plugin implementation.
 
 To do this, add the following option to the `gradle.properties` file of your project:
 
-```kotlin
+```properties
 kapt.use.k2=false
 ```
 
@@ -281,7 +281,7 @@ that contain only the JVM or Android target.
 Specifically for multiplatform projects, if you notice problems with your Gradle build after upgrading, you can opt out
 of the new Kotlin Gradle plugin behavior by adding:
 
-```none
+```properties
 kotlin.kmp.isolated-projects.support=disable
 ```
 
