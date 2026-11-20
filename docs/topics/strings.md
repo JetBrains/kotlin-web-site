@@ -1,5 +1,5 @@
 [//]: # (title: Strings)
-[//]: # (description: Learn how to work with strings in Kotlin, including string literals, string templates, multiline strings, and common text operations.)
+<web-summary>Learn how to work with strings in Kotlin, including string literals, string templates, multiline strings, and common text operations.</web-summary>
 
 The [`String`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/) type represents a sequence of
 [characters](characters.md). You can use it for text values, such as words, sentences, messages, or structured text.

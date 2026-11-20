@@ -1,5 +1,5 @@
 [//]: # (title: Arrays)
-[//]: # (description: Learn how to create, access, modify, compare, and convert arrays in Kotlin.)
+<web-summary>Learn how to create, access, modify, compare, and convert arrays in Kotlin.</web-summary>
 
 An array is a data structure that holds a fixed number of values of the same type or its subtypes.
 Array elements are ordered and accessed by index.
@@ -336,7 +336,7 @@ you need to create a new array. For that, you can use one of the following optio
   {kotlin-runnable="true"}
 
 > If you need to frequently add or remove elements,
-> use [mutable collections](collections-overview.md#collection-types) instead.
+> use [mutable collections](collections-overview.md#read-only-and-mutable-collections) instead.
 >
 {style="tip"}
 

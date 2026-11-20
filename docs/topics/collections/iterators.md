@@ -1,4 +1,4 @@
-[//]: # (title: Iterators)
+[//]: # (title: Iterate collections)
 
 For traversing collection elements, the Kotlin standard library supports the commonly used mechanism of _iterators_ –
 objects that provide access to the elements sequentially without exposing the underlying structure of the collection.
