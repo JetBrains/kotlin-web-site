@@ -1,6 +1,6 @@
 [//]: # (title: Java annotation processing to KSP reference)
 
-<web-summary>See how the Java annotation processing API maps to KSP, with KSP equivalents 
+<web-summary>Learn how the Java annotation processing API maps to KSP, with KSP equivalents 
 for program elements, types, and common operations.</web-summary>
 
 The following tables map the Java annotation processing API to its equivalents in Kotlin Symbol Processing (KSP).
@@ -22,56 +22,58 @@ The following tables map the Java annotation processing API to its equivalents i
 
 ## Types
 
-KSP requires explicit type resolution, so some functionality in Java can only be carried out by `KSType` and
-the corresponding elements before resolution.
+KSP represents unresolved types as `KSTypeReference` and requires explicit type resolution.
+Call `KSTypeReference.resolve()`when you need the underlying `KSType`, for example, to inspect its declaration or
+nullability. For more information, see [When to resolve types](ksp-kotlin-model.md#when-to-resolve-types).
 
-| **Java**           | **Closest facility in KSP**        | **Notes**                                                                                                       |
-| ------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `ArrayType`        | `KSBuiltIns.arrayType`             |                                                                                                                 |
-| `DeclaredType`     | `KSType` / `KSClassifierReference` |                                                                                                                 |
-| `ErrorType`        | `KSType.isError`                   |                                                                                                                 |
-| `ExecutableType`   | `KSType` / `KSCallableReference`   |                                                                                                                 |
-| `IntersectionType` | `KSType` / `KSTypeParameter`       |                                                                                                                 |
-| `NoType`           | `KSBuiltIns.unitType`              | Kotlin uses `Unit` instead of `void`. Other `NoType` kinds have no equivalent in KSP.                           |
-| `NullType`         |                                    | N/A in KSP                                                                                                      |
-| `PrimitiveType`    | `KSBuiltIns`                       | Not exactly the same as primitive type in Java                                                                  |
-| `ReferenceType`    | `KSTypeReference`                  |                                                                                                                 |
-| `TypeMirror`       | `KSType`                           |                                                                                                                 |
-| `TypeVariable`     | `KSTypeParameter`                  |                                                                                                                 |
-| `UnionType`        | N/A                                | Kotlin has only one type per catch block. `UnionType` is not observable even by Java annotation processors.     |
-| `WildcardType`     | `KSType` / `KSTypeArgument`        |                                                                                                                 |
+| **Java**           | **Closest facility in KSP**        | **Notes**                                                                                                                      |
+| ------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `ArrayType`        | `KSBuiltIns.arrayType`             | Covers only `Array<T>`. Primitive arrays map to dedicated classes, for example, `int[]` maps to `IntArray`.                    |
+| `DeclaredType`     | `KSType` / `KSClassifierReference` |                                                                                                                                |
+| `ErrorType`        | `KSType.isError`                   |                                                                                                                                |
+| `ExecutableType`   | `KSType` / `KSCallableReference`   |                                                                                                                                |
+| `IntersectionType` | `KSType` / `KSTypeParameter`       |                                                                                                                                |
+| `NoType`           | `KSBuiltIns.unitType`              | Kotlin uses [`Unit`](functions.md#unit-returning-functions) instead of `void`. Other `NoType` kinds have no equivalent in KSP. |
+| `NullType`         |                                    | N/A in KSP                                                                                                                     |
+| `PrimitiveType`    | `KSBuiltIns`                       | Kotlin built-in types can be boxed on the JVM                                                                                  |
+| `ReferenceType`    | `KSTypeReference`                  |                                                                                                                                |
+| `TypeMirror`       | `KSType`                           |                                                                                                                                |
+| `TypeVariable`     | `KSTypeParameter`                  |                                                                                                                                |
+| `UnionType`        | N/A                                | Kotlin has only one type per catch block. `UnionType` isn't observable even by Java annotation processors.                     |
+| `WildcardType`     | `KSType` / `KSTypeArgument`        |                                                                                                                                |
 
 ## Miscellaneous
 
-| **Java**                       | **Closest facility in KSP**     | **Notes**                                                                              |
-| ------------------------------ | ------------------------------- | -------------------------------------------------------------------------------------- |
-| `Name`                         | `KSName`                        |                                                                                        |
-| `ElementKind`                  | `ClassKind` / `FunctionKind`    |                                                                                        |
-| `Modifier`                     | `Modifier`                      |                                                                                        |
-| `NestingKind`                  | `ClassKind` / `FunctionKind`    |                                                                                        |
-| `AnnotationValueVisitor`       |                                 |                                                                                        |
-| `ElementVisitor`               | `KSVisitor`                     |                                                                                        |
-| `AnnotatedConstruct`           | `KSAnnotated`                   |                                                                                        |
-| `TypeVisitor`                  |                                 |                                                                                        |
-| `TypeKind`                     | `KSBuiltIns`                    | Some can be found in builtins, otherwise check `KSClassDeclaration` for `DeclaredType` |
-| `ElementFilter`                | `Collection.filterIsInstance()` |                                                                                        |
-| `ElementKindVisitor`           | `KSVisitor`                     |                                                                                        |
-| `ElementScanner`               | `KSTopDownVisitor`              |                                                                                        |
-| `SimpleAnnotationValueVisitor` |                                 | Not needed in KSP                                                                      |
-| `SimpleElementVisitor`         | `KSVisitor`                     |                                                                                        |
-| `SimpleTypeVisitor`            |                                 |                                                                                        |
-| `TypeKindVisitor`              |                                 |                                                                                        |
-| `Types`                        | `Resolver` / `utils`            | Some of the `utils` are also integrated into symbol interfaces                         |
-| `Elements`                     | `Resolver` / `utils`            |                                                                                        |
+| **Java**                       | **Closest facility in KSP**     | **Notes**                                                                                  |
+| ------------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------ |
+| `Name`                         | `KSName`                        |                                                                                            |
+| `ElementKind`                  | `ClassKind` / `FunctionKind`    |                                                                                            |
+| `Modifier`                     | `Modifier`                      |                                                                                            |
+| `NestingKind`                  | `ClassKind` / `FunctionKind`    |                                                                                            |
+| `AnnotationValueVisitor`       |                                 |                                                                                            |
+| `ElementVisitor`               | `KSVisitor`                     |                                                                                            |
+| `AnnotatedConstruct`           | `KSAnnotated`                   |                                                                                            |
+| `TypeVisitor`                  |                                 |                                                                                            |
+| `TypeKind`                     | `KSBuiltIns`                    | You can find some in `KSBuiltIns`, otherwise check `KSClassDeclaration` for `DeclaredType` |
+| `ElementFilter`                | `Collection.filterIsInstance()` |                                                                                            |
+| `ElementKindVisitor`           | `KSVisitor`                     |                                                                                            |
+| `ElementScanner`               | `KSTopDownVisitor`              |                                                                                            |
+| `SimpleAnnotationValueVisitor` |                                 | Not needed in KSP                                                                          |
+| `SimpleElementVisitor`         | `KSVisitor`                     |                                                                                            |
+| `SimpleTypeVisitor`            |                                 |                                                                                            |
+| `TypeKindVisitor`              |                                 |                                                                                            |
+| `Types`                        | `Resolver` / `utils`            | Some of the `utils` are also integrated into symbol interfaces                             |
+| `Elements`                     | `Resolver` / `utils`            |                                                                                            |
 
 ## Details
 
 The following tables show how to carry out individual operations of the Java annotation processing API with KSP.
 
-> Some of the listed KSP functions, such as `getAnnotationsByType()`, `mapToJvmSignature()`, and
-> `getDeclarationsFromPackage()`, are experimental. To use them, opt in with `@OptIn(KspExperimental::class)`.
+> Some of the listed KSP functions, such as `getAnnotationsByType()`, `getJvmCheckedException()`,
+> `mapToJvmSignature()`, and `getDeclarationsFromPackage()`, are experimental. To use them, opt in with
+> `@OptIn(KspExperimental::class)`.
 >
-{style="note"}
+{style="warning"}
 
 ### `AnnotationMirror`
 
@@ -101,17 +103,17 @@ The following tables show how to carry out individual operations of the Java ann
 
 ### `ExecutableElement`
 
-| **Java**            | **KSP equivalent**                                                                                                                |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `getDefaultValue`   | `ksAnnotation.defaultArguments` for annotation members                                                                            |
-| `getParameters`     | `ksFunctionDeclaration.parameters`                                                                                                |
-| `getReceiverType`   | `ksFunctionDeclaration.parentDeclaration` for member functions, `ksFunctionDeclaration.extensionReceiver` for extension functions |
-| `getReturnType`     | `ksFunctionDeclaration.returnType`                                                                                                |
-| `getSimpleName`     | `ksFunctionDeclaration.simpleName`                                                                                                |
-| `getThrownTypes`    | Not needed in Kotlin                                                                                                              |
-| `getTypeParameters` | `ksFunctionDeclaration.typeParameters`                                                                                            |
-| `isDefault`         | Check whether the parent declaration is an interface                                                                              |
-| `isVarArgs`         | `ksFunctionDeclaration.parameters.any { it.isVararg }`                                                                            |
+| **Java**            | **KSP equivalent**                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getDefaultValue`   | `ksAnnotation.defaultArguments` for annotation members                                                                                                     |
+| `getParameters`     | `ksFunctionDeclaration.parameters`                                                                                                                         |
+| `getReceiverType`   | `ksFunctionDeclaration.parentDeclaration` for member functions, `ksFunctionDeclaration.extensionReceiver` for extension functions                          |
+| `getReturnType`     | `ksFunctionDeclaration.returnType`                                                                                                                         |
+| `getSimpleName`     | `ksFunctionDeclaration.simpleName`                                                                                                                         |
+| `getThrownTypes`    | `resolver.getJvmCheckedException(ksFunctionDeclaration)`                                                                                                   |
+| `getTypeParameters` | `ksFunctionDeclaration.typeParameters`                                                                                                                     |
+| `isDefault`         | Check that the parent declaration is an interface and that the function isn't abstract (`isAbstract`), static (`functionKind`), or private (`isPrivate()`) |
+| `isVarArgs`         | `ksFunctionDeclaration.parameters.any { it.isVararg }`                                                                                                     |
 
 ### `Parameterizable`
 
@@ -202,9 +204,9 @@ ksClassDeclaration.superTypes
 
 ### `ArrayType`
 
-| **Java**           | **KSP equivalent**         |
-| ------------------ | -------------------------- |
-| `getComponentType` | `ksType.arguments.first()` |
+| **Java**           | **KSP equivalent**                                                                                                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getComponentType` | `ksType.arguments.first().type?.resolve()` for `Array<T>`. For primitive arrays `ksType.arguments` is empty, so use the matching type from `KSBuiltIns`. |
 
 ### `DeclaredType`
 
@@ -225,7 +227,7 @@ ksClassDeclaration.superTypes
 | `getParameterTypes` | `ksType.declaration.typeParameters`, `ksFunctionDeclaration.parameters.map { it.type }` |
 | `getReceiverType`   | `ksFunctionDeclaration.parentDeclaration.asType(...)`                                   |
 | `getReturnType`     | `ksType.declaration.typeParameters.last()`                                              |
-| `getThrownTypes`    | Not needed in Kotlin                                                                    |
+| `getThrownTypes`    | `resolver.getJvmCheckedException(ksFunctionDeclaration)`                                |
 | `getTypeVariables`  | `ksFunctionDeclaration.typeParameters`                                                  |
 
 ### `IntersectionType`
@@ -360,7 +362,7 @@ ksDeclaration.annotations.any {
 | `boxedClass`       | Not needed                                                                           |
 | `capture`          | Not supported                                                                        |
 | `contains`         | `KSType.isAssignableFrom()`                                                          |
-| `directSuperTypes` | `(ksType.declaration as KSClassDeclaration).superTypes`                              |
+| `directSupertypes` | `(ksType.declaration as KSClassDeclaration).superTypes`                              |
 | `erasure`          | `ksType.starProjection()`                                                            |
 | `getArrayType`     | `ksBuiltIns.arrayType.replace(...)`                                                  |
 | `getDeclaredType`  | `ksClassDeclaration.asType(...)`                                                     |

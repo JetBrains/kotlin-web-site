@@ -3,7 +3,7 @@
 <web-summary>Learn what Kotlin Symbol Processing (KSP) is, how KSP runs symbol processors that generate code during 
 compilation, and which popular libraries support KSP.</web-summary>
 
-Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create
+Kotlin Symbol Processing (KSP) is a framework for Kotlin source code generation. With the KSP API, you can create
 processors that inspect static information about your source code and generate new code from it. The most common use case
 is generating code based on [annotations](annotations.md).
 
@@ -24,12 +24,12 @@ To learn how to create your first KSP-based processor, see [Getting started with
 
 The latest KSP version, %kspVersion%, supports the following dependency versions:
 
-| Dependency                      | Min and max versions                                   |
-| ------------------------------- | ------------------------------------------------------ |
-| Kotlin Gradle plugin (KGP)      | 2.3.20–2.4.x                                           |
-| Android Gradle plugin (AGP)     | 8.13.0 or later                                        |
-| Gradle                          | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.   |
-| JDK                             | 17 or later                                            |
+| Dependency                  | Supported versions                                                                                                                                                |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Kotlin Gradle plugin (KGP)  | 2.3.20–2.4.x                                                                                                                                                      |
+| Android Gradle plugin (AGP) | 8.13.0 or later                                                                                                                                                   |
+| Gradle                      | 8.13 or later. For Android projects, also check the [AGP and Gradle compatibility table](https://developer.android.com/build/releases/about-agp#updating-gradle). |
+| JDK                         | 17 or later                                                                                                                                                       |
 
 ## How KSP works during compilation
 
@@ -77,33 +77,34 @@ For a step-by-step guide on how to implement and register a processor, see [Gett
 
 ## Supported libraries
 
-This table lists popular libraries and their various stages of support for KSP:
+The following table lists popular libraries and their various stages of support for KSP:
 
-| Library          | Status                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------- |
-| Room             | [Officially supported](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0)       |
-| Moshi            | [Officially supported](https://github.com/square/moshi/)                                          |
-| RxHttp           | [Officially supported](https://github.com/liujingxing/rxhttp)                                     |
-| Kotshi           | [Officially supported](https://github.com/ansman/kotshi)                                          |
-| Lyricist         | [Officially supported](https://github.com/adrielcafe/lyricist)                                    |
-| Lich SavedState  | [Officially supported](https://github.com/line/lich/tree/master/savedstate)                       |
-| gRPC Dekorator   | [Officially supported](https://github.com/mottljan/grpc-dekorator)                                |
-| EasyAdapter      | [Officially supported](https://github.com/AmrDeveloper/EasyAdapter)                               |
-| Koin Annotations | [Officially supported](https://github.com/InsertKoinIO/koin-annotations)                          |
-| Glide            | [Officially supported](https://github.com/bumptech/glide)                                         | 
-| Micronaut        | [Officially supported](https://docs.micronaut.io/5.2.x/core/#core-ksp)                            |
-| Epoxy            | [Officially supported](https://github.com/airbnb/epoxy)                                           |
-| Paris            | [Officially supported](https://github.com/airbnb/paris)                                           |
-| Auto Dagger      | [Officially supported](https://github.com/ansman/auto-dagger)                                     |
-| SealedX          | [Officially supported](https://github.com/skydoves/sealedx)                                       |
-| Ktorfit          | [Officially supported](https://github.com/Foso/Ktorfit)                                           |
-| Mockative        | [Officially supported](https://github.com/mockative/mockative)                                    |
-| Kotest           | [Officially supported](https://github.com/kotest/kotest)                                          |
-| Dagger           | [Officially supported](https://dagger.dev/dev-guide/ksp)                                          |
-| Hilt             | [Officially supported](https://dagger.dev/dev-guide/ksp)                                          |
-| DeeplinkDispatch | [Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)  |
-| Motif            | [Alpha](https://github.com/uber/motif)                                                            |
-| Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                    |
+| Library          | Status                                                                                                                     |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Room 2.x         | [Officially supported](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies)                |
+| Room 3.x         | [Officially supported, KSP required](https://developer.android.com/jetpack/androidx/releases/room3#declaring_dependencies) |
+| Moshi            | [Officially supported](https://github.com/square/moshi#codegen)                                                            |
+| RxHttp           | [Officially supported](https://github.com/liujingxing/rxhttp#required)                                                     |
+| Kotshi           | [Officially supported](https://github.com/ansman/kotshi#download)                                                          |
+| Lyricist         | [Officially supported](https://github.com/adrielcafe/lyricist#import-to-your-project)                                      |
+| Lich SavedState  | [Officially supported](https://github.com/line/lich/tree/master/savedstate#set-up)                                         |
+| gRPC Dekorator   | [Officially supported](https://github.com/mottljan/grpc-dekorator#installation)                                            |
+| EasyAdapter      | [Officially supported](https://github.com/AmrDeveloper/EasyAdapter/blob/master/docs/install.md)                            |
+| Glide            | [Officially supported](https://bumptech.github.io/glide/doc/download-setup.html#kotlin---ksp)                              |
+| Micronaut        | [Officially supported](https://docs.micronaut.io/5.2.x/core/#core-ksp)                                                     |
+| Epoxy            | [Officially supported](https://github.com/airbnb/epoxy#kotlin-with-ksp-recommended)                                        |
+| Paris            | [Officially supported](https://github.com/airbnb/paris#installation)                                                       |
+| Auto Dagger      | [Officially supported](https://auto-dagger.ansman.se/latest/getting-started/#installation)                                 |
+| SealedX          | [Officially supported](https://github.com/skydoves/sealedx#1-enable-ksp-in-your-module)                                    |
+| Ktorfit          | [Officially supported](https://foso.github.io/Ktorfit/installation/#gradle-plugins)                                        |
+| Mockative        | [Officially supported](https://github.com/mockative/mockative#installation-for-multiplatform-projects)                     |
+| Kotest           | [Officially supported](https://kotest.io/docs/framework/project-setup.html)                                                |
+| Dagger           | [Officially supported](https://dagger.dev/dev-guide/ksp)                                                                   |
+| Hilt             | [Officially supported](https://dagger.dev/dev-guide/ksp)                                                                   |
+| DeeplinkDispatch | [Officially supported](https://github.com/airbnb/DeepLinkDispatch#ksp)                                                     |
+| Motif            | [Alpha](https://github.com/uber/motif/blob/main/CHANGELOG.md#040-alpha01)                                                  |
+| Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                                             |
+| Koin Annotations | [Deprecated in favor of the Koin Compiler Plugin](https://insert-koin.io/docs/setup/annotations-ksp/)                      |
 
 ## See also
 
