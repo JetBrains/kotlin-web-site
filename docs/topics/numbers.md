@@ -1,5 +1,5 @@
 [//]: # (title: Numbers)
-[//]: # (description: Learn how to use numbers in Kotlin, including numeric types, literals, conversions, arithmetic operations, overflow, and JVM-specific behavior.)
+<web-summary>Learn how to use numbers in Kotlin, including numeric types, literals, conversions, arithmetic operations, overflow, and JVM-specific behavior.</web-summary>
 
 The Kotlin number types represent:
 * Integer values ([Byte](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/),
