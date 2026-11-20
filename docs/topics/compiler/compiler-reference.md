@@ -242,7 +242,7 @@ The option supports the following modes:
 * `name-mismatch`: uses position-based destructuring for parenthesized short-form declarations and reports warnings when variable names used for data classes don't match their property names.
 * `complete`: uses name-based destructuring for parenthesized short-form declarations.
 
-The explicit syntax for name-based destructuring in the `only-syntax` mode is [Stable](components-stability.md#stability-levels-explained) and available by default.
+The default `only-syntax` mode enables the explicit form of name-based destructuring, which is [Stable](components-stability.md#stability-levels-explained).
 The `name-mismatch` and `complete` modes are [Experimental](components-stability.md#stability-levels-explained) and require opt-in.
 
 ### -Xphases-to-dump-before
