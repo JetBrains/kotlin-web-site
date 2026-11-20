@@ -1,0 +1,6 @@
+/* Sits above the leaderboard card, centred on it. */
+.taskGroupSwitcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}

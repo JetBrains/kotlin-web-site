@@ -99,3 +99,98 @@
     justify-content: center;
     margin-top: var(--ktl-box-section-l);
 }
+
+.list {
+    margin: 16px 0 0;
+    padding-left: 24px;
+
+    & li + li {
+        margin-top: 8px;
+    }
+}
+
+.ref {
+    margin-left: 1px;
+    font-size: 0.7em;
+    line-height: 0;
+    vertical-align: super;
+    color: inherit;
+}
+
+.chartsCard {
+    margin-top: 24px;
+    padding: 32px;
+    border-radius: 24px;
+    background: #6B3FD0;
+
+    @media (--ktl-ms-down) {
+        padding: 20px;
+    }
+}
+
+.chartsCard {
+    --rs-color-primary-dark-theme: #fff;
+    --rs-color-primary-t-dim-dark-theme: rgba(255, 255, 255, 0.8);
+    --rs-color-primary-t-fog-dark-theme: rgba(255, 255, 255, 0.35);
+    --rs-color-white-t30: rgba(255, 255, 255, 0.55);
+    --rs-color-white-t5: rgba(255, 255, 255, 0.08);
+}
+
+.chart :global([data-test='pie-chart']) {
+    align-items: center;
+
+    /* The pie is a fixed 160×160 side, so a workaround is needed. */
+    & > svg {
+        zoom: 0.7;
+    }
+
+    @media screen and (min-width: 641px) {
+        & > div {
+            margin-left: 16px;
+        }
+    }
+
+    & :global([data-test='chart-legend']) {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.chart :global([data-test='horizontal-barchart-single']) p {
+    margin: 0;
+}
+
+.chartsTitle {
+    margin: 0;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+    margin-top: 32px;
+
+    @media (--ktl-tl-down) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+}
+
+.chartTitle {
+    margin: 0 0 24px;
+}
+
+.references {
+    margin: 16px 0 0;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    overflow-wrap: anywhere;
+
+    & li + li {
+        margin-top: 8px;
+    }
+
+    & li:target {
+        color: #fff;
+    }
+}
