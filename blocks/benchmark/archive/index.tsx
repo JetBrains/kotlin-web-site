@@ -5,11 +5,11 @@ import { useTextStyles } from '@rescui/typography';
 
 import { useQueryState } from '@/hooks';
 import { parseEnum } from '@/utils/queryParser';
+import { BenchEdition, formatBenchDate, isGroupedEdition } from '@/utils/benchmark-leaderboard';
 
 import styles from './archive.module.css';
 import { Leaderboard } from '../leaderboard';
 import { BenchPageHeader } from '../page-header';
-import { BenchEdition, formatBenchDate, isGroupedEdition } from '../leaderboard/leaderboard-data';
 import { useTaskGroup } from '../leaderboard/views/use-task-group';
 import { findMethodology, methodologyTitle, methodologyUrl } from '../methodology/versions';
 
@@ -51,7 +51,8 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
     const serialize = useCallback((value: string) => (value === defaultDate ? undefined : value), [defaultDate]);
 
     const [selectedDate, setSelectedDate] = useQueryState<string>('date', parse, serialize);
-    const [taskGroup, setTaskGroup] = useTaskGroup();
+    // Only to drop ?tasks= when moving to an edition without task groups; each leaderboard reads it itself.
+    const [, setTaskGroup] = useTaskGroup();
 
     const options = useMemo(
         () => editions.map((edition) => ({ label: formatBenchDate(edition.date), value: edition.date })),
@@ -121,7 +122,7 @@ export function BenchArchive({ editions }: BenchArchiveProps) {
                     data-testid="bench-archive-edition"
                     data-date={edition.date}
                 >
-                    <Leaderboard edition={edition} taskGroup={taskGroup} onTaskGroupChange={setTaskGroup} />
+                    <Leaderboard edition={edition} />
                 </section>
             ))}
         </>

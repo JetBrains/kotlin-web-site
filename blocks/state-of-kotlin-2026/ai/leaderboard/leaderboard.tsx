@@ -5,6 +5,7 @@ import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
 import {
     BenchGroupRow,
     currentEdition,
+    formatBenchLongDate,
     groupRows,
     isGroupedEdition,
     TOP_SCORE_COUNT,
@@ -38,6 +39,8 @@ const topRows: BenchGroupRow[] = isGroupedEdition(currentEdition)
     ? groupRows(currentEdition, 'all').slice(0, LEADERBOARD_ROW_COUNT)
     : [];
 
+const SNAPSHOT_DATE = formatBenchLongDate(currentEdition.date);
+
 export const BenchmarkLeaderboard: FC = () => {
     const textCn = useTextStyles();
 
@@ -56,7 +59,7 @@ export const BenchmarkLeaderboard: FC = () => {
                             <col className={styles.colRank} />
                             <col className={styles.colSetup} />
                             {COLUMNS.map((column) => (
-                                <col key={column.key.toString()} data-col={column.key} />
+                                <col key={column.key} data-col={column.key} />
                             ))}
                         </colgroup>
                         <thead>
@@ -68,7 +71,7 @@ export const BenchmarkLeaderboard: FC = () => {
                                     {SETUP_COLUMN_LABEL}
                                 </th>
                                 {COLUMNS.map((column) => (
-                                    <th key={column.key.toString()} className={styles.th} scope="col">
+                                    <th key={column.key} className={styles.th} scope="col">
                                         {column.label}
                                     </th>
                                 ))}
@@ -91,7 +94,7 @@ export const BenchmarkLeaderboard: FC = () => {
                                     </td>
                                     {COLUMNS.map((column) => (
                                         <td
-                                            key={column.key.toString()}
+                                            key={column.key}
                                             className={cn(styles.td, {
                                                 [styles.rate]: column.key === 'resolutionRate',
                                             })}
@@ -107,7 +110,7 @@ export const BenchmarkLeaderboard: FC = () => {
                 </div>
             </div>
             <p className={cn(styles.caption, textCn('rs-text-3'))} data-testid="sok-ai-leaderboard-caption">
-                Leaderboard snapshot as of <span className={styles.captionDate}>November 20th, 2026</span>. For the latest
+                Leaderboard snapshot as of <span className={styles.captionDate}>{SNAPSHOT_DATE}</span>. For the latest
                 results, see{' '}
                 <a className={textCn('rs-link')} href={KOTLIN_BENCHMARK_URL}>
                     {BENCHMARK_LINK_LABEL}
