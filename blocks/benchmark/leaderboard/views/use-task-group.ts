@@ -1,7 +1,6 @@
 import { useQueryState } from '@/hooks';
 import { parseEnum } from '@/utils/queryParser';
-
-import { BENCH_TASK_GROUPS, BenchTaskGroup } from '../leaderboard-data';
+import { BENCH_TASK_GROUPS, BenchTaskGroup } from '@/utils/benchmark-leaderboard';
 
 const DEFAULT_TASK_GROUP: BenchTaskGroup = 'all';
 

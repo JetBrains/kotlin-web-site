@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 
+import { BenchEditionV1, BenchRow, formatBenchDate, twoDecimals } from '@/utils/benchmark-leaderboard';
+
 import { BenchmarkTable } from './benchmark-table';
-import { BenchColumn, BenchEditionV1, BenchRow, columnsFor, formatBenchDate, twoDecimals } from '../leaderboard-data';
+import { BenchColumn, columnsFor } from '../leaderboard-data';
 
 const COLUMNS: BenchColumn<BenchRow>[] = [
     { key: 'submitted', label: 'Submitted', hint: 'Total tasks submitted for evaluation' },

@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
+import { formatBenchDate } from '@/utils/benchmark-leaderboard';
 import styles from './archive-link.module.css';
-import { formatBenchDate } from '../leaderboard/leaderboard-data';
 import { ARCHIVE_URL } from '../constants';
 
 interface ArchiveLinkProps {
