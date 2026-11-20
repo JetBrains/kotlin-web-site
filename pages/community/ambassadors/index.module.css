@@ -1,11 +1,13 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .page {
-    --amb-color-magenta: #cd2be1;
-    --amb-color-orange: #dc5028;
-    --amb-color-navy: #160286;
+    --amb-color-accent-1: #cd2be1;
+    --amb-color-accent-2: #dc5028;
+    --amb-color-accent-3: #160286;
 
     --amb-shape-scale: 1;
+    --amb-section-padding-block: var(--ktl-box-page-l, 96px);
+    --amb-card-radius: 32px;
 
     overflow-x: clip;
     position: relative;
@@ -13,13 +15,20 @@
 
 @media (--ktl-dl-only) {
     .page {
-        --amb-subblocks-width: 752px;
+        --amb-subblock-width: 752px;
     }
 }
 
 @media (--ktl-ds-only) {
     .page {
-        --amb-subblocks-width: 616px;
+        --amb-subblock-width: 616px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .page {
+        --amb-section-padding-block: var(--ktl-box-page-m, 72px);
+        --amb-card-radius: 24px;
     }
 }
 
@@ -42,8 +51,8 @@
     background: linear-gradient(
         180deg,
         #ffffff 20.5%,
-        var(--amb-color-orange) 51.2%,
-        var(--amb-color-magenta) 72%,
-        var(--amb-color-navy) 100%
+        var(--amb-color-accent-2) 51.2%,
+        var(--amb-color-accent-1) 72%,
+        var(--amb-color-accent-3) 100%
     );
 }

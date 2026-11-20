@@ -13,11 +13,16 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
         question: 'How are Kotlin Ambassadors selected?',
         answer: (
             <>
-                Kotlin Ambassadors are invited based on their technical expertise, community contributions, and
-                established reputation within the Kotlin ecosystem. Candidates may be identified by the Kotlin team or
-                nominated by existing ambassadors. Nominations are reviewed with input from the ambassador community to
-                ensure that new members share the program&apos;s values and commitment to the Kotlin ecosystem.
-                Candidates must be at least 18 years old and not currently employed by JetBrains.
+                <p>
+                    Kotlin Ambassadors are invited based on their technical expertise, community contributions, and
+                    established reputation within the Kotlin ecosystem.
+                </p>
+                <p>Candidates may be identified by the Kotlin team or nominated by existing ambassadors.</p>
+                <p>
+                    Nominations are reviewed with input from the ambassador community to ensure that new members share
+                    the program's values and commitment to the Kotlin ecosystem.
+                </p>
+                <p>Candidates must be at least 18 years old and not currently employed by JetBrains.</p>
             </>
         ),
     },
@@ -25,8 +30,11 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
         question: 'Can I apply to become a Kotlin Ambassador?',
         answer: (
             <>
-                The program is currently invitation-based and does not accept self-nominations. However, existing
-                ambassadors can nominate other community members whose contributions they believe deserve recognition.
+                <p>The program is currently invitation-based and does not accept self-nominations.</p>
+                <p>
+                    However, existing ambassadors can nominate other community members whose contributions they believe
+                    deserve recognition.
+                </p>
             </>
         ),
     },
@@ -52,9 +60,11 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
         question: 'How long does the membership last?',
         answer: (
             <>
-                Kotlin Ambassador membership has no fixed expiration date. As long as an Ambassador remains actively
-                involved in the Kotlin ecosystem and continues to uphold the program&apos;s values, they can remain part
-                of the program.
+                <p>Kotlin Ambassador membership has no fixed expiration date.</p>
+                <p>
+                    As long as an Ambassador remains actively involved in the Kotlin ecosystem and continues to uphold
+                    the program&apos;s values, they can remain part of the program.
+                </p>
             </>
         ),
     },
@@ -65,7 +75,10 @@ export const Faq: FC = () => {
 
     return (
         <section className={styles.section} data-testid="ambassadors-faq">
-            <div className={cn(styles.content, 'ktl-layout-v2 ktl-layout--center')}>
+            <div
+                className={cn(styles.content, 'ktl-layout-v2 ktl-layout--center')}
+                data-testid="ambassadors-faq-content"
+            >
                 <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="ambassadors-faq-title">
                     Frequently asked questions
                 </h2>

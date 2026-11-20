@@ -1,6 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator } from '@playwright/test';
 
 import { checkFullPageScreenshot, checkScreenshot } from '../utils';
+import { MICRO_ANIMATION_TIMEOUT } from './visual-constants';
 
 const SECTION_TEST_IDS = [
     'ambassadors-hero',
@@ -20,12 +21,15 @@ const BENEFITS: (string | RegExp)[] = [
     'KotlinConf tickets',
 ];
 
-const FAQ_QUESTIONS = [
-    'How are Kotlin Ambassadors selected?',
-    'Can I apply to become a Kotlin Ambassador?',
-    'How long does the membership last?',
-    'Is there a Code of Conduct?',
+const FAQ_ANSWERS: [string, string][] = [
+    ['How are Kotlin Ambassadors selected?', 'not currently employed by JetBrains'],
+    ['Can I apply to become a Kotlin Ambassador?', 'does not accept self-nominations'],
+    ['Is there a Code of Conduct?', 'respectful communication'],
+    ['How long does the membership last?', 'no fixed expiration date'],
 ];
+
+const checkSectionShot = (section: Locator) =>
+    checkScreenshot(section, { stylePath: ['test/e2e/hide-top-menu.css'] });
 
 test.describe('Kotlin Ambassadors page', () => {
     test.beforeEach(async ({ page }) => {
@@ -66,35 +70,56 @@ test.describe('Kotlin Ambassadors page', () => {
     test('faq renders the four program questions and the Code of Conduct link', async ({ page }) => {
         const faq = page.getByTestId('ambassadors-faq');
 
-        for (const question of FAQ_QUESTIONS) {
+        for (const [question] of FAQ_ANSWERS) {
             await expect(faq.getByText(question, { exact: true })).toHaveCount(1);
         }
 
-        // The link lives inside the collapsed answer, so the item has to be expanded first.
-        await faq.getByText('Is there a Code of Conduct?', { exact: true }).click();
+        // Every answer starts collapsed; expand each item and read a distinctive phrase.
+        await expect(faq.getByText(FAQ_ANSWERS[0][1])).toBeHidden();
 
-        const codeOfConduct = faq.getByRole('link', { name: 'Code of Conduct' });
-        await expect(codeOfConduct).toBeVisible();
-        await expect(codeOfConduct).toHaveAttribute('href', 'https://github.com/jetbrains#code-of-conduct');
+        for (const [question, phrase] of FAQ_ANSWERS) {
+            await faq.getByText(question, { exact: true }).click();
+            await expect(faq.getByText(phrase)).toBeVisible();
+
+            // The accordion keeps a single item open, so check the link while this one is expanded.
+            if (question === 'Is there a Code of Conduct?') {
+                const codeOfConduct = faq.getByRole('link', { name: 'Code of Conduct' });
+                await expect(codeOfConduct).toBeVisible();
+                await expect(codeOfConduct).toHaveAttribute('href', 'https://github.com/jetbrains#code-of-conduct');
+            }
+        }
     });
 
     test('check full page', async ({ page }) => {
-        await checkFullPageScreenshot(page);
+        await checkFullPageScreenshot(page, {
+            stylePath: ['test/e2e/ambassadors/mask-section-contents.css']
+        });
     });
 
     test('check hero section', async ({ page }) => {
-        await checkScreenshot(page.getByTestId('ambassadors-hero'));
+        await checkSectionShot(page.getByTestId('ambassadors-hero'));
     });
 
     test('check who can become section', async ({ page }) => {
-        await checkScreenshot(page.getByTestId('ambassadors-who-can-become'));
+        await checkSectionShot(page.getByTestId('ambassadors-who-can-become'));
     });
 
     test('check how to become section', async ({ page }) => {
-        await checkScreenshot(page.getByTestId('ambassadors-how-to-become'));
+        await checkSectionShot(page.getByTestId('ambassadors-how-to-become'));
     });
 
     test('check faq section', async ({ page }) => {
-        await checkScreenshot(page.getByTestId('ambassadors-faq'));
+        await checkSectionShot(page.getByTestId('ambassadors-faq'));
+    });
+
+    test('check faq section with an expanded answer', async ({ page }) => {
+        const faq = page.getByTestId('ambassadors-faq');
+
+        // The accordion allows a single open item at a time.
+        await faq.getByText('Is there a Code of Conduct?', { exact: true }).click();
+
+        await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT);
+
+        await checkSectionShot(faq);
     });
 });

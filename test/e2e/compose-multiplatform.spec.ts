@@ -81,7 +81,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         // The video autoplays on screen, so both its frame and the fading play button vary between runs
         await checkScreenshot(platformBenefitsBlock, {
             mask: [composePage.platformBenefitsVideo, composePage.platformBenefitsPlayButton],
-            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+            stylePath: ['test/e2e/hide-top-menu.css']
         });
     });
 
@@ -127,7 +127,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(playgroundCode).not.toContainText('import androidx');
 
         await checkScreenshot(playgroundBlock, {
-            stylePath: ['test/e2e/compose-multiplatform/hide-top-menu.css']
+            stylePath: ['test/e2e/hide-top-menu.css']
         });
     });
 

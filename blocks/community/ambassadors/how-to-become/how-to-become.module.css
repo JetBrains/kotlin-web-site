@@ -3,7 +3,7 @@
 .section {
     position: relative;
     z-index: 1;
-    padding: var(--ktl-box-page-l, 96px) 0;
+    padding: var(--amb-section-padding-block, var(--ktl-box-page-l, 96px)) 0;
 }
 
 .content {
@@ -17,7 +17,7 @@
 .heading {
     display: flex;
     flex-direction: column;
-    max-width: var(--amb-subblocks-width, none);
+    max-width: var(--amb-subblock-width, none);
     color: #ffffff;
     text-align: center;
     margin-block-end: var(--ktl-box-section-l, 48px);
@@ -46,11 +46,11 @@
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: var(--amb-subblocks-width, none);
+    max-width: var(--amb-subblock-width, none);
     width: 100%;
     margin: 0;
     padding: var(--ktl-box-section-m, 32px);
-    border-radius: 32px;
+    border-radius: var(--amb-card-radius, 32px);
     background: #ffffff;
     box-sizing: border-box;
 }
@@ -144,15 +144,9 @@
 }
 
 @media (--ktl-ml-down) {
-    .section {
-        padding: var(--ktl-box-page-m, 72px) 0;
-    }
     .title {
         font-size: 28px;
         line-height: 32px;
-    }
-    .quoteCard {
-        border-radius: 24px;
     }
     .creatorBadge {
         top: 41px;
