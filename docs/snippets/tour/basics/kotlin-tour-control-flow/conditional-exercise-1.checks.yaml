@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-control-flow/ControlFlowConditionalExercise1Test.kt
+  - type: source-matches
+    title: "Print two messages from the if expression"
+    value: '\bif\s*\('
+    message: "Print one for the `if` and one for the `else` branch."

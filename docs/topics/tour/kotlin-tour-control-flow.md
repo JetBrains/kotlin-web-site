@@ -179,12 +179,6 @@ if the dice match or `You lose :(` otherwise.
 >
 {style="tip"}
 
-<deflist collapsible="true">
-    <def title="Hint">
-        Use the <a href="operator-overloading.md#equality-and-inequality-operators">equality operator</a> (<code>==</code>) to compare the dice results. 
-    </def>
-</deflist>
-
 ```kotlin
 import kotlin.random.Random
 
@@ -194,7 +188,10 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-1.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-1"}
+
+> Use the [equality operator](operator-overloading.md#equality-and-inequality-operators) (`==`) to compare the dice results.
+{style="hint"}
 
 ```kotlin
 import kotlin.random.Random
@@ -208,7 +205,7 @@ fun main() {
         println("You lose :(")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
+{solution="true" id="kotlin-tour-control-flow-conditional-solution-1"}
 
 </def>
 <def title="Print the action for a game console button" id="conditional-expressions-exercise-2">
@@ -233,7 +230,7 @@ fun main() {
     )
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-conditional-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/conditional-exercise-2.checks.yaml" id="kotlin-tour-control-flow-conditional-exercise-2"}
 
 ```kotlin
 var button = "A"
@@ -250,7 +247,7 @@ fun main() {
     )
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowConditionalExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+{solution="true" id="kotlin-tour-control-flow-conditional-solution-2"}
 
 </def>
 </deflist>
@@ -416,7 +413,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise1Test.kt" id="kotlin-tour-control-flow-loops-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -429,7 +426,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
+{solution="true" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
 
 ```kotlin
 fun main() {
@@ -442,7 +439,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise1Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
+{solution="true" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
 
 </def>
 <def title="Play the Fizz buzz game" id="loops-exercise-2">
@@ -451,26 +448,18 @@ Write a program that simulates the [Fizz buzz](https://en.wikipedia.org/wiki/Fiz
 numbers from 1 to 100 incrementally, replacing any number divisible by three with the word "fizz", and any number 
 divisible by five with the word "buzz". Any number divisible by both 3 and 5 must be replaced with the word "fizzbuzz".
 
-<deflist collapsible="true">
-    <def title="Hint 1">
-        Use a <code>for</code> loop to count numbers and a <code>when</code> expression to decide what to print at each
-        step. 
-    </def>
-</deflist>
-
-<deflist collapsible="true">
-    <def title="Hint 2">
-        Use the modulo operator (<code>%</code>) to return the remainder of a number being divided. Use the <a href="operator-overloading.md#equality-and-inequality-operators">equality operator</a> 
-        (<code>==</code>) to check if the remainder equals zero.
-    </def>
-</deflist>
-
 ```kotlin
 fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/kotlin-tour-control-flow/ControlFlowLoopsExercise2Test.kt" id="kotlin-tour-control-flow-loops-exercise-2"}
+
+> Use a `for` loop to count numbers and a `when` expression to decide what to print at each step.
+{style="hint"}
+
+> Use the modulo operator (`%`) to return the remainder of a number being divided. Use the [equality operator](operator-overloading.md#equality-and-inequality-operators) (`==`) to check if the remainder equals zero.
+{style="hint"}
 
 ```kotlin
 fun main() {
@@ -486,19 +475,12 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise2Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
+{solution="true" id="kotlin-tour-control-flow-loops-solution-2"}
 
 </def>
 <def title="Print words that start with a given letter" id="loops-exercise-3">
 
 You have a list of words. Use `for` and `if` to print only the words that start with the letter `l`.
-
-<deflist collapsible="true">
-    <def title="Hint">
-        Use the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/starts-with.html"> <code>.startsWith()</code>
-        </a> function for <code>String</code> type. 
-    </def>
-</deflist>
 
 ```kotlin
 fun main() {
@@ -506,7 +488,10 @@ fun main() {
     // Write your code here
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" validate="false" id="kotlin-tour-control-flow-loops-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-control-flow/loops-exercise-3.checks.yaml" id="kotlin-tour-control-flow-loops-exercise-3"}
+
+> Use the [`.startsWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/starts-with.html) function for `String` type.
+{style="hint"}
 
 ```kotlin
 fun main() {
@@ -517,7 +502,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/ControlFlowLoopsExercise3Test.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+{solution="true" id="kotlin-tour-control-flow-loops-solution-3"}
 
 </def>
 </deflist>

@@ -1,0 +1,19 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/CreditCardTest.kt
+  - type: not-and
+    title: "Connect CreditCard to PaymentMethod"
+    checks:
+      - type: error-contains
+        value: "Too many arguments for 'constructor(): CreditCard'"
+      - type: source-not-matches
+        value: '\bclass\s+CreditCard\s*\('
+    message: "Make sure that the `CreditCard` class implements the `Refundable` interface and `PaymentMethod` abstract class with its name property."
+  - type: and
+    title: "Declare the functions in PaymentMethod"
+    checks:
+      - type: source-matches
+        value: '\babstract\s+fun\s+processPayment'
+      - type: source-matches
+        value: 'fun\s+authorize[\s\S]*?class\s+CreditCard'
+    message: "Declare the `authorize()` and `abstract processPayment()` functions in the `PaymentMethod` class."

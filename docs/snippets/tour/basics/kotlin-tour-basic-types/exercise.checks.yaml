@@ -1,0 +1,23 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-basic-types/BasicTypesTest.kt
+  - type: source-matches
+    title: "Declare the type of b explicitly"
+    value: '\bv(?:al|ar)\s+b\b\s*:\s*String\b'
+    message: "`b` needs a type that can contain text."
+  - type: source-matches
+    title: "Declare the type of c explicitly"
+    value: '\bv(?:al|ar)\s+c\b\s*:\s*Double\b'
+    message: "Declare the type of `c` explicitly: it holds a fractional number, so use [`Double`](https://kotlinlang.org/docs/numbers.html#floating-point-types)."
+  - type: source-matches
+    title: "Declare the type of d explicitly"
+    value: '\bv(?:al|ar)\s+d\b\s*:\s*Long\b'
+    message: "`d` needs a type that can handle large numbers."
+  - type: source-matches
+    title: "Declare the type of e explicitly"
+    value: '\bv(?:al|ar)\s+e\b\s*:\s*Boolean\b'
+    message: "`e` needs a type that can hold a truth value."
+  - type: source-matches
+    title: "`f` needs a type that can hold characters."
+    value: '\bv(?:al|ar)\s+f\b\s*:\s*Char\b'
+    message: "Declare the type of `f` explicitly: it holds a single character, so use [`Char`](https://kotlinlang.org/docs/characters.html)."

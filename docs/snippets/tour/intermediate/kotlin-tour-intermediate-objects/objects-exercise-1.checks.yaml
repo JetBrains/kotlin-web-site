@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-objects/OrderTwoTest.kt
+  - type: not-and
+    title: "Complete the OrderTwo data object"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'OrderTwo'"
+      - type: source-not-matches
+        value: '\bobject\s+OrderTwo\b'
+    message: "Take inspiration from the `OrderOne` data object."

@@ -426,7 +426,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" id="test-page-exercise-1"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-1.checks.yaml" id="test-page-exercise-1"}
 
 ```kotlin
 fun main() {
@@ -435,22 +435,16 @@ fun main() {
     println("$name is $age years old")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-1"}
+{solution="true" id="test-page-solution-1"}
 
 </def>
 <def title="Check whether two results match" id="test-page-practice-2">
 
 Use `if` to print `You win :)` when both results are equal and `You lose :(` otherwise.
 
-> This exercise also carries a nested hint, so the inner collapsible list must open without collapsing the exercise itself.
+> This exercise also carries a hint, which is shown as a chip under the exercise card.
 >
 {style="tip"}
-
-<deflist collapsible="true">
-    <def title="Hint">
-        Use the equality operator (<code>==</code>) to compare the results.
-    </def>
-</deflist>
 
 ```kotlin
 fun main() {
@@ -459,7 +453,10 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" id="test-page-exercise-2"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-2.checks.yaml" id="test-page-exercise-2"}
+
+> Use the equality operator (`==`) to compare the results.
+{style="hint"}
 
 ```kotlin
 fun main() {
@@ -471,7 +468,7 @@ fun main() {
         println("You lose :(")
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-2"}
+{solution="true" id="test-page-solution-2"}
 
 </def>
 <def title="Filter a list of numbers" id="test-page-practice-3">
@@ -485,7 +482,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" id="test-page-exercise-3"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="test-page/exercise-3.checks.yaml" id="test-page-exercise-3"}
 
 ```kotlin
 fun main() {
@@ -494,7 +491,7 @@ fun main() {
     println(numbers.filter { it % 2 == 0 })
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="test-page-solution-3"}
+{solution="true" id="test-page-solution-3"}
 
 </def>
 </deflist>

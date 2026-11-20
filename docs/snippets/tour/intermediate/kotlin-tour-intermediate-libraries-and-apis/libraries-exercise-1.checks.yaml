@@ -1,0 +1,19 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/CalculateCompoundInterestTest.kt
+  - type: not-and
+    title: "Return the computed amount"
+    checks:
+      - type: error-contains
+        value: "Missing return statement"
+      - type: source-not-matches
+        value: '\breturn\b'
+    message: "`calculateCompoundInterest` declares a `Double` return type, but its body never returns one: compute the accumulated amount and return it, like `return P * (1 + r / n).pow(n * t)`. See [The standard library](https://kotlinlang.org/docs/kotlin-tour-intermediate-libraries-and-apis.html#the-standard-library)."
+  - type: not-and
+    title: "Import pow from kotlin.math"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'pow'"
+      - type: source-not-matches
+        value: 'import\s+kotlin\.math'
+    message: "The [`pow()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/pow.html) function lives in the `kotlin.math` package: import it at the top of the code, the way other library functions arrive, like `import kotlin.math.pow` (or `import kotlin.math.*`)."

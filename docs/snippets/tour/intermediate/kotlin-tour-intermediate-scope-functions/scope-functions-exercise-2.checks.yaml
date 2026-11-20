@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-scope-functions/UpdateEmailTest.kt
+  - type: and
+    title: "Update the user with apply and log with also"
+    checks:
+      - type: source-matches
+        value: '\bapply\s*[\({]'
+      - type: source-matches
+        value: '\balso\s*[\({]'
+    message: "Update the user with the [`apply`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#apply) scope function and log with [`also`](https://kotlinlang.org/docs/kotlin-tour-intermediate-scope-functions.html#also): `apply` changes its receiver and `also` observes the result, like `person.apply { age = 30 }.also { println(it.age) }`."

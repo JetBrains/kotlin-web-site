@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-functions/LambdasExercise1Test.kt
+  - type: or
+    title: "Create the URLs with a lambda"
+    checks:
+      - type: source-matches
+        value: '->'
+      - type: source-matches
+        value: '\.\w+\s*\{'
+    message: "Create the URLs with a lambda expression over the `actions`. Use the [`.map()`](https://kotlinlang.org/docs/kotlin-tour-functions.html#pass-to-another-function) function to help you."

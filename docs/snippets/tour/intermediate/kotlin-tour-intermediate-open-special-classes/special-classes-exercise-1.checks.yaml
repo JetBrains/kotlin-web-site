@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-open-special-classes/DeliveryStatusTest.kt
+  - type: not-and
+    title: "Complete the DeliveryStatus sealed class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'DeliveryStatus'"
+      - type: source-not-matches
+        value: '\bclass\s+DeliveryStatus\b'
+    message: "Add the missing data classes referred to in the `when` statement."
