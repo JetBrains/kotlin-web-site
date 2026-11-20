@@ -2,9 +2,6 @@
 <web-summary>Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the KSP API to
 create your own.</web-summary>
 
-<web-summary>Add a symbol processor based on Kotlin Symbol Processing (KSP) to your Gradle project, or use the KSP API 
-to create, register, and run a processor of your own.</web-summary>
-
 In this guide, you will learn:
 
 * How to add KSP-based annotation processors to your project.
