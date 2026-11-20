@@ -8,7 +8,7 @@ import references.scriptBuildHtml
 import references.scriptDropSnapshot
 import references.vcsRoots.KotlinxDatetime
 
-private const val DOKKA_HTML_RESULT = "core/build/dokka/html"
+private const val DOKKA_HTML_RESULT = "build/dokka/html"
 
 object KotlinxDatetimeBuildApiReference : BuildApiPages(
     apiId = KOTLINX_DATETIME_ID,
@@ -24,13 +24,13 @@ object KotlinxDatetimeBuildApiReference : BuildApiPages(
         }
     },
     stepBuildHtml = {
-        scriptBuildHtml { tasks = ":kotlinx-datetime:dokkaGenerate" }
+        scriptBuildHtml { tasks = ":dokkaGenerate" }
     },
     init = {
         vcs {
             root(KotlinxDatetime)
         }
         dependencies {
-            dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
+            dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "dokka-templates")
         }
     })
