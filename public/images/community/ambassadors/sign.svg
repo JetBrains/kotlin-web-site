@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="128" height="64" viewBox="0 0 128 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Kotlin Ambassadors Sign">
+<path id="Vector" d="M64 64H0V0H64L32 32L64 64Z" fill="url(#paint0_radial_3029_9676)"/>
+<path id="Vector_2" d="M128 64L64 2.28882e-05V64H128Z" fill="#FC5783"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_3029_9676" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(63.8133 0.266666) rotate(-180) scale(64)">
+<stop stop-color="#E44857"/>
+<stop offset="0.5" stop-color="#C711E1"/>
+<stop offset="1" stop-color="#7F52FF"/>
+</radialGradient>
+</defs>
+</svg>

@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import Head from 'next/head';
 import cn from 'classnames';
 import { Accordion, Collapse } from '@rescui/collapse';
+import type { CollapseIcon } from '@rescui/collapse/lib/types';
 import { useTextStyles } from '@rescui/typography';
 
 import styles from './columned-faq.module.css';
@@ -17,6 +18,10 @@ type ColumnedFaqProps = {
     title?: ReactNode;
     columnsCount?: number;
     className?: string;
+    /** Collapse items icon type, passed to the Accordion. Defaults to the rescui 'left-plus'. */
+    icon?: CollapseIcon;
+    /** Renders a bottom border on every Collapse item. */
+    borderBottom?: boolean;
 };
 
 const splitIntoColumns = (items: ColumnedFaqItem[], columnsCount: number) => {
@@ -40,7 +45,7 @@ const createFaqSchema = (items: ColumnedFaqItem[]) => ({
     })),
 });
 
-export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount = 2, className }) => {
+export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount = 2, className, icon, borderBottom }) => {
     const textCn = useTextStyles();
     const columns = splitIntoColumns(items, columnsCount);
 
@@ -58,12 +63,12 @@ export const ColumnedFaq: FC<ColumnedFaqProps> = ({ items, title, columnsCount =
                     {title}
                 </h2>
             )}
-            <Accordion>
+            <Accordion icon={icon}>
                 <div className={styles.columns}>
                     {columns.map((column, index) => (
                         <div key={index} className={styles.column}>
                             {column.map(({ question, answer }) => (
-                                <Collapse key={question} title={question}>
+                                <Collapse key={question} title={question} borderBottom={borderBottom}>
                                     {answer}
                                 </Collapse>
                             ))}
