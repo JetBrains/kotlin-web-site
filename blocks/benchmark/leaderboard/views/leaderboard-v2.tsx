@@ -21,7 +21,6 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Resolution rate',
         sublabel: '% of tasks',
         hint: 'Percentage of tasks that were resolved',
-        format: twoDecimals,
         emphasis: true,
     },
     {
@@ -43,7 +42,6 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Avg. latency',
         sublabel: 'min per task',
         hint: 'Average time to solve a single task, in minutes',
-        format: (value) => `${value}m`,
     },
     {
         key: 'steps',

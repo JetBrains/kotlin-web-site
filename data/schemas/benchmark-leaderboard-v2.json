@@ -77,6 +77,11 @@
           "description": "Average latency per task in minutes.",
           "type": "number",
           "minimum": 0
+        },
+        "steps": {
+          "description": "Average number of agent steps for a single task.",
+          "type": "number",
+          "minimum": 0
         }
       },
       "additionalProperties": false

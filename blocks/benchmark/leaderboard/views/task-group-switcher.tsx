@@ -7,8 +7,8 @@ import { BenchEditionV2, BenchTaskGroup } from '../leaderboard-data';
 
 const LABELS: Record<BenchTaskGroup, string> = {
     all: 'All tasks',
-    open: 'Open tasks',
-    closed: 'Closed tasks',
+    open: 'Open-source tasks',
+    closed: 'Closed-source tasks',
 };
 
 export interface TaskGroupSwitcherProps {
