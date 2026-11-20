@@ -2,8 +2,9 @@ import React, { useMemo } from 'react';
 import { Switcher } from '@rescui/switcher';
 import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
+import { BenchEditionV2, BenchTaskGroup } from '@/utils/benchmark-leaderboard';
+
 import styles from './task-group-switcher.module.css';
-import { BenchEditionV2, BenchTaskGroup } from '../leaderboard-data';
 
 const LABELS: Record<BenchTaskGroup, string> = {
     all: 'All tasks',

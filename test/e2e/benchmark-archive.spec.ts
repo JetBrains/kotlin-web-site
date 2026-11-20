@@ -2,13 +2,12 @@ import { expect, test } from '@playwright/test';
 import { KotlinBenchmarkArchivePage } from '../page/benchmark-archive-page';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
-// The newest archived edition, shown by default, and an older one; see data/benchmark/archive/.
-const ARCHIVED_DATE = '2026-10-04';
-const ARCHIVED_DATE_TEXT = '04.10.2026';
-const OLDER_ARCHIVED_DATE = '2026-05-07';
+// The newest archived edition, shown by default; see data/benchmark/archive/.
+const ARCHIVED_DATE = '2026-07-07';
+const ARCHIVED_DATE_TEXT = '07.07.2026';
 
 // Publication date of the current leaderboard; see data/benchmark/leaderboard.yml.
-const CURRENT_DATE_TEXT = '17.11.2026';
+const CURRENT_DATE_TEXT = '20.11.2026';
 
 test.describe('Kotlin Benchmark archive page', () => {
     let archive: KotlinBenchmarkArchivePage;
@@ -89,9 +88,9 @@ test.describe('Kotlin Benchmark archive page', () => {
 
     test('a date in the URL selects that edition', async ({ page }) => {
         const deepLinked = new KotlinBenchmarkArchivePage(page);
-        await deepLinked.init(`?date=${OLDER_ARCHIVED_DATE}`);
+        await deepLinked.init(`?date=${ARCHIVED_DATE}`);
 
-        await expect(deepLinked.visibleEdition()).toHaveAttribute('data-date', OLDER_ARCHIVED_DATE);
+        await expect(deepLinked.visibleEdition()).toHaveAttribute('data-date', ARCHIVED_DATE);
     });
 
     test('an unknown date in the URL falls back to the newest edition', async ({ page }) => {

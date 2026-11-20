@@ -7,8 +7,7 @@ export interface MethodologyVersion {
     summary: string;
 }
 
-
-export const methodologyVersions: MethodologyVersion[] = [
+const VERSIONS = [
     {
         version: 1,
         label: '1.0',
@@ -20,11 +19,20 @@ export const methodologyVersions: MethodologyVersion[] = [
         summary:
             'See how the Kotlin Benchmark 2.0 is built: the evaluation design, reward-hacking prevention, and future plans.',
     },
-].sort((a, b) => b.version - a.version);
+] as const satisfies readonly MethodologyVersion[];
 
-export const latestMethodology: MethodologyVersion = methodologyVersions[0];
+export type MethodologyVersionNumber = (typeof VERSIONS)[number]['version'];
 
-export const findMethodology = (version: number): MethodologyVersion | undefined =>
+type PublishedMethodology = (typeof VERSIONS)[number];
+
+/** Newest first. */
+export const methodologyVersions: readonly PublishedMethodology[] = [...VERSIONS].sort(
+    (a, b) => b.version - a.version
+);
+
+export const latestMethodology: PublishedMethodology = methodologyVersions[0];
+
+export const findMethodology = (version: number): PublishedMethodology | undefined =>
     methodologyVersions.find((methodology) => methodology.version === version);
 
 export const methodologyUrl = (version: number): string =>

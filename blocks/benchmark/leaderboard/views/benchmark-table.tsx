@@ -4,8 +4,10 @@ import { useTextStyles } from '@rescui/typography';
 import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 
+import { TOP_SCORE_COUNT } from '@/utils/benchmark-leaderboard';
+
 import styles from '../leaderboard.module.css';
-import { BenchColumn, BenchTableRow, MISSING_VALUE, TOP_SCORE_COUNT } from '../leaderboard-data';
+import { BenchColumn, BenchTableRow, MISSING_VALUE } from '../leaderboard-data';
 
 export interface BenchmarkTableProps<Row extends BenchTableRow> {
     columns: BenchColumn<Row>[];
@@ -61,7 +63,9 @@ export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, setup
                             <tr className={styles.noticeRow} data-testid="bench-notice">
                                 <td className={cn(styles.td, styles.tdSetup)}>
                                     <div className={styles.setup}>
-                                        <span className={cn(styles.rank, styles.noticeRank, textCn('rs-text-3'))}>?</span>
+                                        <span className={cn(styles.rank, styles.noticeRank, textCn('rs-text-3'))}>
+                                            ?
+                                        </span>
                                         <span className={cn(styles.noticeName, textCn('rs-text-2'))}>{notice}</span>
                                     </div>
                                 </td>
@@ -97,8 +101,8 @@ export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, setup
                                         value === undefined
                                             ? MISSING_VALUE
                                             : column.format
-                                              ? column.format(value)
-                                              : String(value);
+                                            ? column.format(value)
+                                            : String(value);
 
                                     return (
                                         <td

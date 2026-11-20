@@ -1,14 +1,12 @@
 import React, { useMemo } from 'react';
 
+import { BenchEditionV1, BenchRow, formatBenchDate, twoDecimals } from '@/utils/benchmark-leaderboard';
+
 import { BenchmarkTable } from './benchmark-table';
 import {
     BenchColumn,
-    BenchEditionV1,
-    BenchRow,
     columnsFor,
-    formatBenchDate,
-    SETUP_COLUMN_LABEL_V1,
-    twoDecimals,
+    SETUP_COLUMN_LABEL_V1
 } from '../leaderboard-data';
 
 const COLUMNS: BenchColumn<BenchRow>[] = [
