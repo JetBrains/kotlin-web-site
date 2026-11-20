@@ -1,5 +1,5 @@
 [//]: # (title: Booleans)
-[//]: # (description: Learn how to use Boolean values in Kotlin, including declaration, logical operators, and conditions.)
+<web-summary>Learn how to use Boolean values in Kotlin, including declaration, logical operators, and conditions.</web-summary>
 
 <show-structure depth="1"/>
 

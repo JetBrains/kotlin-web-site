@@ -1,5 +1,5 @@
 [//]: # (title: Arrays)
-[//]: # (description: Learn how to create, access, modify, compare, and convert arrays in Kotlin.)
+<web-summary>Learn how to create, access, modify, compare, and convert arrays in Kotlin.</web-summary>
 
 An array is a data structure that holds a fixed number of values of the same type or its subtypes.
 Array elements are ordered and accessed by index.
