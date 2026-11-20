@@ -2,26 +2,29 @@
 <primary-label ref="alpha"/>
 
 The Kotlin Lombok compiler plugin allows the generation and use of Java's Lombok declarations by Kotlin code
-in the same mixed Java/Kotlin module. Besides Java code, the plugin also processes the linked annotations when
-you apply them to Kotlin classes.
-
-The Lombok plugin supports the following annotations:
-
-* `@Getter`, `@Setter`
-* [`@NoArgsConstructor`](#constructors), `@RequiredArgsConstructor`, and `@AllArgsConstructor`
-* `@Data`
-* `@With`
-* `@Value`
-* [`@EqualsAndHashCode`](#equals-and-hash-codes)
-* [`@ToString`](#string-representations)
-* [`@Slf4j`, `@Log`, and other logger annotations from the `lombok.extern` package](#loggers)
-
-Currently, we don't have plans to support the `@Tolerate` annotation. However, we can consider this if you vote
-for it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-53564/).
+in the same mixed Java/Kotlin module. Besides Java code, the plugin also processes supported
+annotations applied to Kotlin classes.
 
 The Kotlin Lombok compiler plugin cannot replace the [Lombok](https://projectlombok.org/) library, but the plugin helps
 it work in mixed Java/Kotlin projects. You still need to [configure the Lombok library](#configure-lombok)
 as usual when using this plugin.
+
+## Supported annotations
+
+The sets of annotations supported in Java and Kotlin are different:
+
+| Kotlin | Java |
+| -------------------------------------------------------------------------------------| ------------------------------------------------------------------------|
+| [`@EqualsAndHashCode`](#equals-and-hash-codes) | `@Getter`, `@Setter` |
+| [`@ToString`](#string-representations) |  `@Builder`, `@SuperBuilder` |
+| [`@NoArgsConstructor`](#constructors) |  `@NoArgsConstructor`, `@RequiredArgsConstructor`, `@AllArgsConstructor` |
+| [`@Slf4j`, `@Log`, and other annotations from the `lombok.extern` package](#loggers)  |  `@Accessors` from the `lombok.experimental` package |
+| `@Data` | `@Data`|
+| | `@With` |
+| | `@Value` |
+
+If you apply an annotation that the plugin supports only on Java classes to a Kotlin class, the compiler reports
+a warning, and the plugin generates no declarations for it.
 
 ## Apply the plugin
 
@@ -115,7 +118,7 @@ provide a path to it to the plugin in the `pluginOptions` in your `pom.xml` file
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.42</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -189,36 +192,6 @@ Kotlin has no static members, the plugin generates them in the companion object 
 > 
 {type="note"}
 
-### Access levels
-
-Lombok annotations such as `@Log` and `@NoArgsConstructor` accept an access level that defines the visibility of the
-generated declarations. On Kotlin classes, the plugin maps `AccessLevel.PROTECTED` to Kotlin's `protected` visibility,
-so the generated declaration is only visible inside the annotated class and its subclasses:
-
-```kotlin
-import lombok.AccessLevel
-import lombok.extern.java.Log
-
-@Log(access = AccessLevel.PROTECTED)
-open class Message {
-    fun send() {
-        // Uses the logger inside the class
-        log.info("Sending a message")
-    }
-}
-
-fun main() {
-    // Error: the logger is protected and isn't visible here
-    Message.log.info("Sending a message")
-}
-```
-
-In Java, `AccessLevel.PROTECTED` also allows access from the same package. The plugin keeps this behavior for
-declarations generated for Java classes.
-
-Kotlin has no package-private visibility, so `AccessLevel.MODULE` and `AccessLevel.PACKAGE` aren't supported on Kotlin
-classes. If you use them, the compiler reports the `UNSUPPORTED_ACCESS_LEVEL` error.
-
 ### Loggers
 
 The Lombok plugin supports logger annotations from the `lombok.extern` package, namely:
@@ -255,6 +228,8 @@ import lombok.extern.java.Log
 @Log(topic = "messages")
 class Message
 ```
+
+The logger annotations also accept the [`access` argument](#access-levels) that defines the visibility of the generated property.
 
 If the annotated class already declares a property with the same name as the generated logger, the compiler reports a warning.
 You also can't apply the logger annotations to a companion object.
@@ -312,10 +287,13 @@ fun main() {
 }
 ```
 
+The `@NoArgsConstructor` annotation also accepts the [`access` argument](#access-levels) that defines the visibility of
+the generated constructor.
+
 You can't apply `@NoArgsConstructor` in the following cases:
 
-* On an interface, a value class, or an inner class. The annotation has no effect: the plugin generates nothing,
-  and the compiler reports a warning.
+* On an interface. The annotation has no effect: the plugin generates nothing, and the compiler reports a warning.
+* On a value class or an inner class. The compiler reports an error.
 * On a class that already declares a constructor without parameters. Similarly, if the name in `staticName` clashes
   with a function in the class or in its companion object.
 * On a class whose superclass has no constructor without parameters. The compiler reports an error.
@@ -419,7 +397,7 @@ reference:
 import lombok.EqualsAndHashCode
 
 @EqualsAndHashCode
-class Message(val tags: Array<String>)
+data class Message(val tags: Array<String>)
 
 fun main() {
     println(Message(arrayOf("news")) == Message(arrayOf("news"))) // true
@@ -468,8 +446,8 @@ In such cases, the `@EqualsAndHashCode.Exclude` annotation is redundant, and the
 
 You can't apply `@EqualsAndHashCode` in the following cases:
 
-* On an enum class, because `java.lang.Enum` declares `equals()` and `hashCode()` as `final`. The compiler reports an
-  error.
+* On an enum class, because `java.lang.Enum` declares `equals()` and `hashCode()` as `final`. The annotation has no
+  effect: the plugin generates nothing, and the compiler reports a warning.
 * On a class whose superclass declares `equals()` or `hashCode()` as `final`. The compiler reports an error.
 * On a named object or a companion object, which has a single instance. The annotation has no effect: the plugin
   generates nothing, and the compiler reports a warning.
@@ -480,6 +458,36 @@ You can't apply `@EqualsAndHashCode` in the following cases:
 > To write these functions yourself, remove the annotation from the class.
 > 
 {style="note"}
+
+### Access levels
+
+Lombok annotations such as `@Log` and `@NoArgsConstructor` accept an access level that defines the visibility of the
+generated declarations. On Kotlin classes, the plugin maps `AccessLevel.PROTECTED` to Kotlin's `protected` visibility,
+so the generated declaration is only visible inside the annotated class and its subclasses:
+
+```kotlin
+import lombok.AccessLevel
+import lombok.extern.java.Log
+
+@Log(access = AccessLevel.PROTECTED)
+open class Message {
+    fun send() {
+        // Uses the logger inside the class
+        log.info("Sending a message")
+    }
+}
+
+fun main() {
+    // Error: the logger is protected and isn't visible here
+    Message.log.info("Sending a message")
+}
+```
+
+In Java, `AccessLevel.PROTECTED` also allows access from the same package. The plugin keeps this behavior for
+declarations generated for Java classes.
+
+Kotlin has no package-private visibility, so `AccessLevel.MODULE` and `AccessLevel.PACKAGE` aren't supported on Kotlin
+classes. If you use them, the compiler reports the `UNSUPPORTED_ACCESS_LEVEL` error.
 
 ### Multiple annotations
 
