@@ -52,7 +52,7 @@ By default, Kotlin classes and their members are _final_, meaning they cannot be
 (for members) unless you explicitly mark them as `open`:
 
 ```kotlin
-// Base class with the `open` keyword to allow inheritance
+// Base class with the open keyword to allow inheritance
 open class Person(
     val name: String,
 ) {
@@ -62,7 +62,7 @@ open class Person(
     }
 }
 
-// Subclass inheriting from Person and overriding the introduce() function
+// Subclass that inherits from Person and overrides the introduce() function
 class Student(
     name: String,
     val school: String,
@@ -79,7 +79,7 @@ class from overriding your implementation, you can explicitly mark the overridin
 member as `final`:
 
 ```kotlin
-// Base class with the `open` keyword to allow inheritance
+// Base class with the open keyword to allow inheritance
 open class Person(
     val name: String,
 ) {
@@ -89,12 +89,12 @@ open class Person(
     }
 }
 
-// Subclass inheriting from Person and overriding the introduce() function
+// Subclass that inherits from Person and overrides the introduce() function
 class Student(
     name: String,
     val school: String,
 ) : Person(name) {
-    // The `final` keyword prevents further overrides in subclasses
+    // The final keyword prevents further overrides in subclasses
     final override fun introduce() {
         println("Hi, I'm $name, and I study at $school.")
     }
