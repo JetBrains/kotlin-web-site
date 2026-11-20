@@ -107,12 +107,9 @@ This table lists popular libraries and their various stages of support for KSP:
 
 ## See also
 
-* [Getting started with KSP](ksp-quickstart.md)
-* [How KSP models Kotlin code](ksp-kotlin-model.md)
-* [Java annotation processing to KSP reference](ksp-reference.md)
-* [Incremental processing](ksp-incremental.md)
-* [Multiple-round processing](ksp-multi-round.md)
-* [KSP with Kotlin Multiplatform](ksp-multiplatform.md)
-* [Migrate from kapt to KSP](ksp-kapt-migration.md)
-* [Running KSP from the command line](ksp-command-line.md)
-* [Example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository
+* Learn how to [add a processor to your project or create your own](ksp-quickstart.md).
+* Learn how [KSP represents source code as symbols and when to resolve types](ksp-kotlin-model.md).
+* Learn how to [use KSP in a Kotlin Multiplatform project](ksp-multiplatform.md).
+* Find the [KSP equivalents of Java annotation processing APIs](ksp-reference.md).
+* Learn how to [migrate your annotation processors from kapt to KSP](ksp-kapt-migration.md).
+* Explore the [example projects](https://github.com/google/ksp/tree/main/examples) in the KSP repository.
