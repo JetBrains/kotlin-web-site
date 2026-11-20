@@ -327,6 +327,8 @@ items:
       We're excited about CMP's potential to become a core part of Perk's mobile architecture.
     logo:
       - /images/case-studies/travelperk-logo.svg
+    alternateLogo:
+      - /images/case-studies/travelperk-logo-dark.svg
     carousel: true
     platforms:
       - android
@@ -853,6 +855,22 @@ items:
       - frontend
     isExternal: true
     link: https://engineering.memrise.com/kotlin-multiplatform-memrise-3764b5a4a0db
+  #------------------------------------------------------------------------
+  - id: babbel
+    type: multiplatform
+    description: >-
+      “Shared code paired with AI-assisted development has more than doubled our team's capacity, with no change in headcount.”
+    signature:
+      name: Antoine Lamy
+      position: Principal Mobile Engineer at Babbel
+    logo:
+      - /images/case-studies/babbel-logo.svg
+    carousel: true
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://www.babbel.com/en/magazine/how-we-brought-kotlin-multiplatform-into-babbels-mobile-apps
   #------------------------------------------------------------------------
   - id: meituan
     type: multiplatform

@@ -1,5 +1,5 @@
 [//]: # (title: AI tools for Kotlin development)
-[//]: # (description: Boost your Kotlin development with AI and learn how to use AI Assistant, Junie, JetBrains Air, Kotlin AI skills, coding agents, and IDE integrations to write, test, review, and refactor code.)
+<web-summary>Boost your Kotlin development with AI and learn how to use AI Assistant, Junie, JetBrains Air, Kotlin AI skills, coding agents, and IDE integrations to write, test, review, and refactor code.</web-summary>
 
 AI-powered tools can assist with many Kotlin development tasks. They can generate and explain code, implement
 features, create tests, review changes, refactor existing code, and automate recurring development tasks.

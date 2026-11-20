@@ -122,8 +122,9 @@ You can choose how the compiler outputs `.js` files in your project:
 * **One per project**. You can compile the whole project into a single `.js` file by adding the following line to the
   `gradle.properties` file:
 
-  ```none
-  kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+  ```properties
+  # Default: per-module
+  kotlin.js.ir.output.granularity=whole-program
   ```
 
 * **One per file**. You can set up a more granular output that generates one (or two, if the file contains exported
@@ -131,8 +132,10 @@ You can choose how the compiler outputs `.js` files in your project:
   1. Set `es2015` or `es2020` as the [compilation target](#set-an-ecmascript-target)
      to support ES2015 features in your project.
   2. Add the following line to the `gradle.properties` file:
-     ```none
-     kotlin.js.ir.output.granularity=per-file // 'per-module' is the default
+  
+     ```properties
+     # Default: per-module
+     kotlin.js.ir.output.granularity=per-file
      ```
 
 ## Generation of TypeScript declaration files (`d.ts`)

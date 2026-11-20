@@ -14,8 +14,8 @@
     <var name="apiVersion" value="2.4"/>
 
     <!-- Kotlin EAP -->
-    <var name="kotlinEapVersion" value="2.5.0-Beta2"/>
-    <var name="kotlinEapReleaseDate" value="October 21, 2026"/>
+    <var name="kotlinEapVersion" value="2.5.0-RC"/>
+    <var name="kotlinEapReleaseDate" value="November 11, 2026"/>
 
     <!-- Libraries and Frameworks -->
     <var name="coroutinesVersion" value="1.11.0"/>
@@ -54,7 +54,7 @@
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.10"/>
+    <var name="kspVersion" value="2.3.12"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.3.21"/>

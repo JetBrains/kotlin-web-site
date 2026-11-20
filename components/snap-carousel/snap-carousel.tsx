@@ -12,6 +12,7 @@ interface SnapCarouselProps {
     navigationAlign?: 'center' | 'right';
     adaptiveHeight?: boolean;
     fadeSlides?: boolean;
+    loop?: boolean;
 }
 
 export const SnapCarousel = ({
@@ -19,14 +20,18 @@ export const SnapCarousel = ({
     navigationAlign = 'center',
     adaptiveHeight = false,
     fadeSlides = false,
+    loop = false,
 }: SnapCarouselProps) => {
     // useSnapCarousel starts with no pages and only finds them by measuring the DOM on the client,
     // so the server-rendered HTML shows "1/0" and a disabled next button. Assume one slide per page until then.
     const initialPages = useMemo(() => React.Children.map(children, (_, index) => [index]) ?? [], [children]);
-    const { scrollRef, activePageIndex, prev, next, pages, hasPrevPage, hasNextPage } = useSnapCarousel({
+    const { scrollRef, activePageIndex, prev, next, goTo, pages, hasPrevPage, hasNextPage } = useSnapCarousel({
         initialPages,
     });
     const textCn = useTextStyles();
+
+    const handlePrev = () => (loop && !hasPrevPage ? goTo(Math.max(pages.length - 1, 0)) : prev());
+    const handleNext = () => (loop && !hasNextPage ? goTo(0) : next());
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const setWrapperRef = useCallback(
@@ -89,20 +94,20 @@ export const SnapCarousel = ({
 
             <div className={cn(styles.navigation, { [styles.navigationRight]: navigationAlign === 'right' })}>
                 <Button
-                    onClick={() => prev()}
+                    onClick={handlePrev}
                     mode={'outline'}
                     icon={<ArrowLeftIcon />}
-                    disabled={!hasPrevPage}
+                    disabled={!loop && !hasPrevPage}
                     aria-label="Previous slide"
                 />
                 <p className={textCn('rs-text-2')} data-testid="snap-carousel-counter">
                     {activePageIndex + 1}/{pages.length}
                 </p>
                 <Button
-                    onClick={() => next()}
+                    onClick={handleNext}
                     mode={'outline'}
                     icon={<ArrowRightIcon />}
-                    disabled={!hasNextPage}
+                    disabled={!loop && !hasNextPage}
                     aria-label="Next slide"
                 />
             </div>

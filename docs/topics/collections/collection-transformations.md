@@ -1,4 +1,4 @@
-[//]: # (title: Collection transformation operations)
+[//]: # (title: Transform collections)
 
 The Kotlin standard library provides a set of extension functions for collection _transformations_.
 These functions build new collections from existing ones based on the transformation rules provided.

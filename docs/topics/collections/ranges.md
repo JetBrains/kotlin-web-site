@@ -1,4 +1,4 @@
-[//]: # (title: Ranges and progressions)
+[//]: # (title: Ranges)
 
 Ranges and progressions define sequences of values in Kotlin, supporting range operators, iteration, custom step values, and arithmetic progressions.
 

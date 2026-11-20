@@ -1,5 +1,5 @@
 [//]: # (title: Kotlin with AI)
-[//]: # (description: Build AI-powered applications with Kotlin. Discover how to integrate AI models, use AI tools and coding agents, and leverage Kotlin AI skills to develop, test, refactor, and maintain Kotlin applications.)
+<web-summary>Build AI-powered applications with Kotlin. Discover how to integrate AI models, use AI tools and coding agents, and leverage Kotlin AI skills to develop, test, refactor, and maintain Kotlin applications.</web-summary>
 
 You can use AI with Kotlin in two ways:
 
