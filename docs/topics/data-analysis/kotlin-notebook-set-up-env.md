@@ -3,7 +3,7 @@
 > Starting with IntelliJ IDEA 2026.2, Kotlin Notebook will no longer be bundled with the IDE or officially supported by JetBrains.
 > The source code will remain available on [GitHub](https://github.com/Kotlin/kotlin-notebook).
 >
-> Learn more in the blog post.
+> Learn more in the [blog post](https://blog.jetbrains.com/idea/2026/06/kotlin-notebook-sunset/).
 >
 {style="note"}
 

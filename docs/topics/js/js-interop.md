@@ -242,7 +242,7 @@ In Kotlin/JS, the Kotlin [referential equality](equality.md#referential-equality
 The JavaScript `===` operator checks not only that two values are equal but also that
 the types of these two values are equal:
 
- ```kotlin
+```kotlin
 fun main() {
     val name = "kotlin"
     val value1 = name.substring(0, 1)
@@ -252,18 +252,18 @@ fun main() {
     // Prints 'true' on Kotlin/JS
     // Prints 'false' on other platforms
 }
- ```
+```
 
 Also, in Kotlin/JS, the [`Byte`, `Short`, `Int`, `Float`, and `Double`](js-to-kotlin-interop.md#kotlin-types-in-javascript) numeric types 
 are all represented with the `Number` JavaScript type in runtime. Therefore, the values of these five types are indistinguishable:
 
- ```kotlin
+```kotlin
 fun main() {
     println(1.0 as Any === 1 as Any)
     // Prints 'true' on Kotlin/JS
     // Prints 'false' on other platforms
 }
- ```
+```
 
 > For more information about equality in Kotlin, see the [Equality](equality.md) documentation.
 > 
