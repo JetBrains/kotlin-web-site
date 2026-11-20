@@ -69,19 +69,6 @@ To start using Kotlin for Android development, read [Google's recommendation for
 
 </tab>
 
-<tab id="data-analysis" title="Data analysis">
-
-From building data pipelines to productionizing machine learning models, Kotlin is a great choice for working with data and getting the most out of it.
-
-1. **Explore and experiment with your data:**
-
-   * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
-   * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
-
-2. **Follow Kotlin for Data Analysis on Twitter:** [KotlinForData](http://twitter.com/KotlinForData).
-
-</tab>
-
 </tabs>
 
 ## Get support
