@@ -116,10 +116,29 @@ java -cp <classpath> <mainclass> -h
 * `-friends=<path>`: the classpath of the current module's friend modules. For more information, refer to the
   [`friendPaths` property](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kotlin-compile/friend-paths.html)
   in the Kotlin Gradle plugin API reference.
-* `-processor-options=<options>`: the options to pass to processors, in the `key1=value1:key2=value2` format.
-  On Windows, separate the pairs with `;` instead of `:`.
-  Processors read them from `SymbolProcessorEnvironment.options`. This is the command-line equivalent of the `ksp {}`
-  block in Gradle. For more information, see [Pass options to processors](ksp-quickstart.md#pass-options-to-processors).
+* `-processor-options=<options>`: the options to pass to processors as `key=value` pairs. Processors read them from
+  `SymbolProcessorEnvironment.options`.
+
+  <tabs>
+  <tab title="macOS and Linux">
+
+  ```bash
+  -processor-options=key1=value1:key2=value2
+  ```
+
+  </tab>
+  <tab title="Windows">
+
+  ```none
+  "-processor-options=key1=value1;key2=value2"
+  ```
+
+  </tab>
+  </tabs>
+
+  This flag is the command-line equivalent of calling `arg()` in the Gradle `ksp {}` block. 
+  For more information, see [Pass options to processors](ksp-quickstart.md#pass-options-to-processors).
+
 
 > You can also use the `-Dksp.logging` JVM system property to set the logging level. Valid values are `error`,
 > `warn` (or `warning`), `info`, and `debug`. Any other value is treated as `warn`. The default value is `warn`.
