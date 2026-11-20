@@ -1,7 +1,13 @@
 import { expect, test } from '@playwright/test';
 import { KotlinBenchmarkPage } from '../page/benchmark-page';
 
-const EXPECTED_DATA_COLUMNS = 6;
+const EXPECTED_DATA_COLUMNS = 5;
+
+const TASK_VIEWS = [
+    { name: 'All tasks', query: '', count: 100, leader: 'Claude Code + Opus 5.5 high' },
+    { name: 'Open-source tasks', query: 'open', count: 70, leader: 'Claude Code + Fable 5.1 high' },
+    { name: 'Closed-source tasks', query: 'closed', count: 30, leader: 'Antigravity CLI + Gemini 3.8 Flash high' },
+] as const;
 
 test.describe('Kotlin Benchmark landing page', () => {
     let benchmark: KotlinBenchmarkPage;
@@ -16,7 +22,7 @@ test.describe('Kotlin Benchmark landing page', () => {
         await expect(benchmark.heroTitle).toContainText('Kotlin Benchmark');
 
         await expect(benchmark.heroIntro).toBeVisible();
-        await expect(benchmark.heroIntro).toContainText('continuous initiative');
+        await expect(benchmark.heroIntro).toContainText('realistic, idiomatic Kotlin');
     });
 
     test('leaderboard renders every row', async () => {
@@ -31,40 +37,34 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(rates).toEqual(sorted);
     });
 
-    test('tied resolution rates are ordered by fewer tokens first', async () => {
+    test('tied resolution rates are ordered by lower cost first', async () => {
         const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => parseFloat(text));
-        const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => parseFloat(text));
+        const costs = (await benchmark.costCells().allInnerTexts()).map((text) => parseFloat(text));
 
-        // Within each run of equal resolution rates, tokens must be non-decreasing.
+        // Within each run of equal resolution rates, costs must be non-decreasing.
         for (let i = 1; i < rates.length; i++) {
             if (rates[i] === rates[i - 1]) {
-                expect(tokens[i]).toBeGreaterThanOrEqual(tokens[i - 1]);
+                expect(costs[i]).toBeGreaterThanOrEqual(costs[i - 1]);
             }
         }
     });
 
-    test('resolution rate and tokens are shown with at least two decimals', async () => {
+    test('values are shown in their column formats', async () => {
         const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => text.trim());
+        const costs = (await benchmark.costCells().allInnerTexts()).map((text) => text.trim());
         const tokens = (await benchmark.tokensCells().allInnerTexts()).map((text) => text.trim());
+        const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
+        const steps = (await benchmark.stepsCells().allInnerTexts()).map((text) => text.trim());
 
         expect(rates.length).toBeGreaterThan(0);
-        expect(tokens.length).toBeGreaterThan(0);
 
-        // Each value keeps at least two decimal places (trailing zeros, no rounding to one decimal).
-        for (const value of [...rates, ...tokens]) {
-            expect(value).toMatch(/^\d+\.\d{2,}$/);
-        }
-    });
-
-    test('latency is shown as hours and minutes', async () => {
-        const latencies = (await benchmark.latencyCells().allInnerTexts()).map((text) => text.trim());
-
-        expect(latencies.length).toBeGreaterThan(0);
-
-        // Every cell follows the "Hh Mm" shape with zero-padded minutes (no seconds).
-        for (const latency of latencies) {
-            expect(latency).toMatch(/^\d+h \d{2}m$/);
-        }
+        // Units live in the column headers; resolution rates are shown as-is (no `.00` padding).
+        for (const rate of rates) expect(rate).toMatch(/^\d+(\.\d+)?$/);
+        // Cost and tokens keep at least two decimals.
+        for (const value of [...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
+        for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?$/);
+        // Step counts are whole numbers.
+        for (const step of steps) expect(step).toMatch(/^\d+$/);
     });
 
     test('ranks are sequential starting from 1', async () => {
@@ -77,7 +77,13 @@ test.describe('Kotlin Benchmark landing page', () => {
         await expect(benchmark.colHeaders).toHaveCount(EXPECTED_DATA_COLUMNS);
 
         await benchmark.colHeaders.first().hover();
-        await expect(benchmark.page.getByText('Total tasks submitted for evaluation')).toBeVisible();
+        await expect(benchmark.page.getByText('Percentage of tasks that were resolved')).toBeVisible();
+    });
+
+    test('methodology-1 columns are not shown', async () => {
+        for (const key of ['submitted', 'resolved', 'date']) {
+            await expect(benchmark.page.locator(`[data-testid="bench-col-header"][data-col="${key}"]`)).toHaveCount(0);
+        }
     });
 
     test('the top three rank numbers use a distinct highlight colour', async () => {
@@ -115,10 +121,52 @@ test.describe('Kotlin Benchmark landing page', () => {
         expect(result.headerTop).toBeLessThanOrEqual(4);
     });
 
-    test('notice banner is visible when set in data', async () => {
-        const notice = benchmark.page.getByTestId('bench-notice');
-        await expect(notice).toBeVisible();
-        await expect(notice).toContainText('Evaluating');
+    test('methodology-2 editions carry no in-progress notice', async () => {
+        await expect(benchmark.page.getByTestId('bench-notice')).toHaveCount(0);
+    });
+
+    test('the task switcher sits above the table and labels each view with its task count', async () => {
+        await expect(benchmark.taskSwitcher).toBeVisible();
+
+        for (const view of TASK_VIEWS) {
+            await expect(benchmark.taskOption(view.name)).toHaveText(`${view.name} (${view.count})`);
+        }
+
+        const switcherBox = (await benchmark.taskSwitcher.getByRole('button').first().locator('..').boundingBox())!;
+        const scrollBox = (await benchmark.tableScroll.boundingBox())!;
+        expect(switcherBox.y + switcherBox.height).toBeLessThanOrEqual(scrollBox.y);
+
+        // Centred on the table card.
+        const centre = (box: { x: number; width: number }) => box.x + box.width / 2;
+        expect(Math.abs(centre(switcherBox) - centre(scrollBox))).toBeLessThanOrEqual(2);
+    });
+
+    for (const view of TASK_VIEWS) {
+        test(`"${view.name}" shows its own ranking and keeps it in the URL`, async ({ page }) => {
+            await benchmark.taskOption(view.name).click();
+
+            if (view.query) await expect(page).toHaveURL(new RegExp(`[?&]tasks=${view.query}`));
+            else await expect(page).not.toHaveURL(/[?&]tasks=/);
+
+            await expect(benchmark.rows.first().getByTestId('bench-setup')).toHaveText(view.leader);
+
+            const rates = (await benchmark.resolutionRateCells().allInnerTexts()).map((text) => parseFloat(text));
+            expect(rates).toEqual([...rates].sort((a, b) => b - a));
+        });
+    }
+
+    test('a task view in the URL is selected on load', async ({ page }) => {
+        const deepLinked = new KotlinBenchmarkPage(page);
+        await deepLinked.init('?tasks=closed');
+
+        await expect(deepLinked.rows.first().getByTestId('bench-setup')).toHaveText(TASK_VIEWS[2].leader);
+    });
+
+    test('the secondary navigation shows the leaderboard as the current page', async () => {
+        await expect(benchmark.topMenu).toBeVisible();
+
+        await expect(benchmark.topMenu.getByText('Leaderboard', { exact: true }).first()).toBeVisible();
+        await expect(benchmark.topMenu.getByRole('link', { name: 'Leaderboard', exact: true })).toHaveCount(0);
     });
 
     test('methodology CTA links to the methodology page and GitHub', async () => {

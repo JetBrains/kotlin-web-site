@@ -14,6 +14,10 @@ export class KotlinBenchmarkPage implements BasePage {
     readonly colHeaders: Locator;
     readonly methodologyCta: Locator;
     readonly githubCta: Locator;
+    readonly updatedDate: Locator;
+    readonly archiveCta: Locator;
+    readonly topMenu: Locator;
+    readonly taskSwitcher: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -27,11 +31,25 @@ export class KotlinBenchmarkPage implements BasePage {
         this.colHeaders = page.getByTestId('bench-col-header');
         this.methodologyCta = page.getByTestId('bench-cta-methodology');
         this.githubCta = page.getByTestId('bench-cta-github');
+        this.updatedDate = page.getByTestId('bench-updated');
+        this.archiveCta = page.getByTestId('bench-archive-cta');
+        this.topMenu = page.getByTestId('top-menu');
+        this.taskSwitcher = page.getByTestId('bench-task-switcher');
     }
 
     /** Resolution-rate cells, in row order. */
     resolutionRateCells(): Locator {
         return this.rows.locator('td[data-col="resolutionRate"]');
+    }
+
+    /** Cost cells, in row order. */
+    costCells(): Locator {
+        return this.rows.locator('td[data-col="cost"]');
+    }
+
+    /** Switcher option of a task view, e.g. "Open tasks". */
+    taskOption(name: string): Locator {
+        return this.taskSwitcher.getByRole('button', { name: new RegExp(`^${name}`) });
     }
 
     /** Token cells, in row order. */
@@ -44,8 +62,12 @@ export class KotlinBenchmarkPage implements BasePage {
         return this.rows.locator('td[data-col="latency"]');
     }
 
-    async init() {
-        await this.page.goto(KOTLIN_BENCHMARK_URL);
+    stepsCells(): Locator {
+        return this.rows.locator('td[data-col="steps"]');
+    }
+
+    async init(query = '') {
+        await this.page.goto(`${KOTLIN_BENCHMARK_URL}${query}`);
 
         await Promise.all([this.root.waitFor(), this.page.locator('html.hydrated').waitFor()]);
     }
