@@ -1,14 +1,14 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useTextStyles } from '@rescui/typography';
 
-import { ColumnedFaq } from '@/components/columned-faq/columned-faq';
+import { ColumnedFaq, type ColumnedFaqItem } from '@/components/columned-faq/columned-faq';
 
 import styles from './faq.module.css';
 
-const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
+const FAQ_ITEMS: ColumnedFaqItem[] = [
     {
         question: 'How are Kotlin Ambassadors selected?',
         answer: (
@@ -68,7 +68,7 @@ const FAQ_ITEMS: { question: string; answer: ReactNode }[] = [
             </>
         ),
     },
-] as const;
+];
 
 export const Faq: FC = () => {
     const textCn = useTextStyles();
