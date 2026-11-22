@@ -1,0 +1,172 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.badge {
+    padding-block-end: var(--ktl-box-page-l, 96px);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--ktl-box-section-s, 24px);
+    background: var(--amb-card-surface, #ffffff);
+    border-radius: 32px;
+}
+
+.cardText {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 625px;
+}
+
+.textGroup {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: var(--ktl-box-section-m, 32px);
+}
+
+.title {
+    margin: 0;
+    margin-block-end: var(--ktl-box-section-s, 24px);
+}
+
+.text {
+    margin: 0;
+}
+
+.button {
+    align-self: flex-start;
+}
+
+.decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.seal,
+.plate,
+.flag {
+    position: absolute;
+}
+
+.seal {
+    top: -71px;
+    left: 734.5px;
+    width: calc(336px * var(--amb-shape-scale, 1));
+    height: calc(336px * var(--amb-shape-scale, 1));
+}
+
+/* The plate tilt is baked into the announcement asset. */
+.plate {
+    top: 193px;
+    left: 970px;
+    width: calc(241px * var(--amb-shape-scale, 1));
+    height: calc(145px * var(--amb-shape-scale, 1));
+}
+
+/* The flag is the frontal k-element render, rotated in CSS like on the announcement page. */
+.flag {
+    top: -36px;
+    left: 1022px;
+    transform: rotate(15.2deg);
+    width: calc(177px * var(--amb-shape-scale, 1));
+    height: calc(177px * var(--amb-shape-scale, 1));
+}
+
+@media (--ktl-ds-only) {
+    .cardText {
+        width: 512px;
+    }
+
+    .seal {
+        left: 575px;
+    }
+
+    .plate {
+        left: 810.5px;
+    }
+
+    .flag {
+        left: 862.5px;
+    }
+}
+
+@media (--ktl-tl-down) {
+    /* From Tablet L down the card is stacked: the decoration sits above the text. */
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cardText {
+        width: 100%;
+        margin-block-start: 280px;
+    }
+
+    .seal {
+        top: -52px;
+        left: 91px;
+    }
+
+    .plate {
+        top: 203px;
+        left: 427px;
+    }
+
+    .flag {
+        top: -24px;
+        left: 427px;
+    }
+}
+
+@media (--ktl-ts-only) {
+    .seal {
+        left: 42px;
+    }
+
+    .plate {
+        left: 378px;
+    }
+
+    .flag {
+        left: 378px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .card {
+        border-radius: 24px;
+    }
+
+    .cardText {
+        width: 264px;
+        margin-block-start: 200px;
+    }
+
+    .seal {
+        top: -44px;
+        left: -44px;
+    }
+
+    .plate {
+        top: 147.5px;
+        left: 208px;
+    }
+
+    .flag {
+        top: -23px;
+        left: 208px;
+    }
+}
+
+@media (--ktl-ms) {
+    /* On Mobile S the card text uses the Text 2 scale from the design. */
+    .text {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+    }
+}

@@ -1,0 +1,91 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.benefits {
+    padding-block-end: var(--ktl-box-page-l, 96px);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    margin-block-end: var(--ktl-box-section-s, 24px);
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--ktl-box-block-m, 8px);
+    width: 100%;
+}
+
+.card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    padding: var(--ktl-box-section-s, 24px);
+    background: var(--amb-card-surface, #ffffff);
+    border-radius: 32px;
+}
+
+/* The two last, wider cards take half of the row each. */
+.card:nth-child(4),
+.card:nth-child(5) {
+    grid-column: span 3;
+}
+
+.cardTitle {
+    margin: 0;
+    margin-block-end: var(--ktl-box-section-l, 48px);
+}
+
+.cardText {
+    margin: 0;
+}
+
+@media (--ktl-ts-down) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card,
+    .card:nth-child(4),
+    .card:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .card:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card,
+    .card:nth-child(4),
+    .card:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .card {
+        border-radius: 24px;
+    }
+
+    .cardTitle {
+        margin-block-end: var(--ktl-box-section-s, 24px);
+    }
+}
+
+@media (--ktl-ms-down) {
+    .cardText {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+    }
+}

@@ -38,6 +38,7 @@
         "@rollup/plugin-buble": "0.21.3",
         "@webteam/article": "4.2.5",
         "@webteam/chart-core-v3": "1.8.10",
+        "@webteam/data-services": "~0.26.4",
         "@webteam/forms": "0.22.3",
         "@webteam/horizontal-barchart": "3.0.13",
         "@webteam/layout": "3.1.1",

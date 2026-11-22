@@ -1,0 +1,62 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "../../../blocks/community/ambassadors/ambassador-page.css";
+
+@media (--ktl-dl-only) {
+    .page {
+        --amb-subblock-width: 752px;
+    }
+}
+
+@media (--ktl-ds-only) {
+    .page {
+        --amb-subblock-width: 752px;
+    }
+}
+
+@media (--ktl-tl-only) {
+    .page {
+        --amb-subblock-width: 632px;
+    }
+}
+
+@media (--ktl-ts-only) {
+    .page {
+        --amb-subblock-width: 472px;
+    }
+}
+
+@media (--ktl-ml-only) {
+    .page {
+        --amb-subblock-width: 360px;
+    }
+}
+
+@media (--ktl-ms) {
+    .page {
+        --amb-subblock-width: 312px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .page {
+        --amb-shape-scale: 0.75;
+    }
+}
+
+@media (--ktl-ms) {
+    .page {
+        /* The Mobile S design uses a smaller hero title than the library default (42/50). */
+        --rs-hero-font-size-mobile: 35px;
+        --rs-hero-line-height-mobile: 39px;
+    }
+}
+
+.programSection {
+    background: linear-gradient(
+        180deg,
+        #ffffff 9.5%,
+        var(--amb-color-accent-2) 46%,
+        var(--amb-color-accent-1) 73.5%,
+        var(--amb-color-accent-3) 100%
+    );
+}
