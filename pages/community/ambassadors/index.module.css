@@ -1,16 +1,9 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "../../../blocks/community/ambassadors/ambassador-page.css";
 
 .page {
-    --amb-color-accent-1: #cd2be1;
-    --amb-color-accent-2: #dc5028;
-    --amb-color-accent-3: #160286;
-
-    --amb-shape-scale: 1;
     --amb-section-padding-block: var(--ktl-box-page-l, 96px);
     --amb-card-radius: 32px;
-
-    overflow-x: clip;
-    position: relative;
 }
 
 @media (--ktl-dl-only) {
@@ -46,8 +39,6 @@
 }
 
 .programSection {
-    position: relative;
-    z-index: 1;
     background: linear-gradient(
         180deg,
         #ffffff 20.5%,

@@ -91,7 +91,7 @@
     flex-direction: column;
     padding: var(--ktl-box-section-s, 24px);
     border-radius: var(--amb-card-radius, 32px);
-    background: #ffffff;
+    background: var(--amb-card-surface, #ffffff);
     box-sizing: border-box;
 }
 
@@ -104,7 +104,6 @@
 
 .cardText {
     margin: 0;
-    color: #19191C;
     font-weight: 300;
 }
 

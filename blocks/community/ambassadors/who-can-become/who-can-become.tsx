@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import { Fragment } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
@@ -27,7 +27,7 @@ const CONTRIBUTIONS = [
     },
 ] as const;
 
-export const WhoCanBecome: FC = () => {
+export function WhoCanBecome() {
     const textCn = useTextStyles();
 
     return (
@@ -63,4 +63,4 @@ export const WhoCanBecome: FC = () => {
             </div>
         </section>
     );
-};
+}

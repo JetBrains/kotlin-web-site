@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { ThemeProvider } from '@rescui/ui-contexts';
@@ -70,7 +69,7 @@ const FAQ_ITEMS: ColumnedFaqItem[] = [
     },
 ];
 
-export const Faq: FC = () => {
+export function Faq() {
     const textCn = useTextStyles();
 
     return (
@@ -88,4 +87,4 @@ export const Faq: FC = () => {
             </div>
         </section>
     );
-};
+}
