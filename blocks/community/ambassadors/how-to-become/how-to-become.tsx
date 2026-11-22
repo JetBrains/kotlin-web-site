@@ -1,10 +1,15 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
+import {
+    AMBASSADOR_IMAGE_BADGE_CREATOR,
+    AMBASSADOR_IMAGE_BADGE_EDUCATOR,
+    AMBASSADOR_IMAGE_PLATE
+} from '@/blocks/community/ambassadors/ambassador-images';
+
 import styles from './how-to-become.module.css';
 
-export const HowToBecome: FC = () => {
+export function HowToBecome() {
     const textCn = useTextStyles();
 
     return (
@@ -32,20 +37,20 @@ export const HowToBecome: FC = () => {
                     <div className={styles.layer} aria-hidden="true" data-testid="ambassadors-quote-decoration">
                         <img
                             className={styles.creatorBadge}
-                            src="/images/community/ambassadors/badge-creator.webp"
-                            srcSet="/images/community/ambassadors/badge-creator.webp 1x, /images/community/ambassadors/badge-creator@2x.webp 2x, /images/community/ambassadors/badge-creator@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_BADGE_CREATOR.src}
+                            srcSet={AMBASSADOR_IMAGE_BADGE_CREATOR.srcSet}
                             alt=""
                         />
                         <img
                             className={styles.educatorBadge}
-                            src="/images/community/ambassadors/badge-educator.webp"
-                            srcSet="/images/community/ambassadors/badge-educator.webp 1x, /images/community/ambassadors/badge-educator@2x.webp 2x, /images/community/ambassadors/badge-educator@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_BADGE_EDUCATOR.src}
+                            srcSet={AMBASSADOR_IMAGE_BADGE_EDUCATOR.srcSet}
                             alt=""
                         />
                         <img
                             className={styles.ambassadorPlate}
-                            src="/images/community/ambassadors/plate-ambassador.webp"
-                            srcSet="/images/community/ambassadors/plate-ambassador.webp 1x, /images/community/ambassadors/plate-ambassador@2x.webp 2x, /images/community/ambassadors/plate-ambassador@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_PLATE.src}
+                            srcSet={AMBASSADOR_IMAGE_PLATE.srcSet}
                             alt=""
                         />
                     </div>
@@ -57,4 +62,4 @@ export const HowToBecome: FC = () => {
             </div>
         </section>
     );
-};
+}

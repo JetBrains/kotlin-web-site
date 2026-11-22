@@ -51,7 +51,7 @@
     margin: 0;
     padding: var(--ktl-box-section-m, 32px);
     border-radius: var(--amb-card-radius, 32px);
-    background: #ffffff;
+    background: var(--amb-card-surface, #ffffff);
     box-sizing: border-box;
 }
 

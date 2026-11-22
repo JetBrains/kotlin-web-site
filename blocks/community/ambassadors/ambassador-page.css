@@ -1,0 +1,21 @@
+.page {
+    --amb-color-accent-1: #cd2be1;
+    --amb-color-accent-2: #dc5028;
+    --amb-color-accent-3: #160286;
+
+    --amb-shape-scale: 1;
+
+    --amb-card-surface: rgb(
+        calc(255 - var(--rs-theme-dark, 0) * 207),
+        calc(255 - var(--rs-theme-dark, 0) * 207),
+        calc(255 - var(--rs-theme-dark, 0) * 204)
+    );
+
+    overflow-x: clip;
+    position: relative;
+}
+
+.programSection {
+    position: relative;
+    z-index: 1;
+}

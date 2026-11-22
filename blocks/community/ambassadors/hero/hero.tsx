@@ -1,7 +1,13 @@
-import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { useTextStyles } from '@rescui/typography';
+
+import {
+    AMBASSADOR_IMAGE_BADGE_CONTRIBUTOR,
+    AMBASSADOR_IMAGE_K_ELEMENT,
+    AMBASSADOR_IMAGE_SEAL,
+    AMBASSADOR_IMAGE_SIGN
+} from '@/blocks/community/ambassadors/ambassador-images';
 
 import styles from './hero.module.css';
 
@@ -47,7 +53,7 @@ const BENEFITS = [
     },
 ] as const;
 
-export const Hero: FC = () => {
+export function Hero() {
     const textCn = useTextStyles();
 
     return (
@@ -60,7 +66,7 @@ export const Hero: FC = () => {
                     <img
                         className={styles.sign}
                         data-testid="ambassadors-sign"
-                        src="/images/community/ambassadors/sign.svg"
+                        src={AMBASSADOR_IMAGE_SIGN.src}
                         alt="ambassadors sign"
                     />
                     <h1 className={cn(textCn('rs-hero'), styles.title)} data-testid="ambassadors-hero-title">
@@ -75,22 +81,22 @@ export const Hero: FC = () => {
                     <div className={styles.layer} data-testid="ambassadors-hero-decoration">
                         <img
                             className={styles.seal}
-                            src="/images/community/ambassadors/seal.webp"
-                            srcSet="/images/community/ambassadors/seal.webp 1x, /images/community/ambassadors/seal@2x.webp 2x, /images/community/ambassadors/seal@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_SEAL.src}
+                            srcSet={AMBASSADOR_IMAGE_SEAL.srcSet}
                             alt="ambassador seal"
                         />
                         <img
                             aria-hidden="true"
                             className={styles.kElement}
-                            src="/images/community/ambassadors/k-element.webp"
-                            srcSet="/images/community/ambassadors/k-element.webp 1x, /images/community/ambassadors/k-element@2x.webp 2x, /images/community/ambassadors/k-element@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_K_ELEMENT.src}
+                            srcSet={AMBASSADOR_IMAGE_K_ELEMENT.srcSet}
                             alt=""
                         />
                         <img
                             aria-hidden="true"
                             className={styles.contributorBadge}
-                            src="/images/community/ambassadors/badge-contributor.webp"
-                            srcSet="/images/community/ambassadors/badge-contributor.webp 1x, /images/community/ambassadors/badge-contributor@2x.webp 2x, /images/community/ambassadors/badge-contributor@3x.webp 3x"
+                            src={AMBASSADOR_IMAGE_BADGE_CONTRIBUTOR.src}
+                            srcSet={AMBASSADOR_IMAGE_BADGE_CONTRIBUTOR.srcSet}
                             alt=""
                         />
                     </div>
@@ -102,7 +108,9 @@ export const Hero: FC = () => {
                         {BENEFITS.map((benefit) => (
                             <div className={styles.card} key={benefit.id} data-testid="ambassadors-benefit-card">
                                 <h3 className={cn(textCn('rs-h3'), styles.cardTitle)}>{benefit.title}</h3>
-                                <p className={cn(textCn('rs-text-1'), styles.cardText)}>{benefit.description}</p>
+                                <p className={cn(textCn('rs-text-1', { hardness: 'hard' }), styles.cardText)}>
+                                    {benefit.description}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -110,4 +118,4 @@ export const Hero: FC = () => {
             </div>
         </section>
     );
-};
+}
