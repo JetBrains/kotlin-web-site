@@ -54,7 +54,7 @@ nullability. For more information, see [When to resolve types](ksp-kotlin-model.
 | `ElementVisitor`               | `KSVisitor`                     |                                                                                            |
 | `AnnotatedConstruct`           | `KSAnnotated`                   |                                                                                            |
 | `TypeVisitor`                  |                                 |                                                                                            |
-| `TypeKind`                     | `KSBuiltIns`                    | You can find some in `KSBuiltIns`, otherwise check `KSClassDeclaration` for `DeclaredType` |
+| `TypeKind`                     | `KSBuiltIns`                    | Use `KSBuiltIns` for built-in types. For declared types, inspect the `KSClassDeclaration`. |
 | `ElementFilter`                | `Collection.filterIsInstance()` |                                                                                            |
 | `ElementKindVisitor`           | `KSVisitor`                     |                                                                                            |
 | `ElementScanner`               | `KSTopDownVisitor`              |                                                                                            |

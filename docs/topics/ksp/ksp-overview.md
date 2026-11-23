@@ -101,10 +101,10 @@ The following table lists popular libraries and their various stages of support 
 | Kotest           | [Officially supported](https://kotest.io/docs/framework/project-setup.html)                                                |
 | Dagger           | [Officially supported](https://dagger.dev/dev-guide/ksp)                                                                   |
 | Hilt             | [Officially supported](https://dagger.dev/dev-guide/ksp)                                                                   |
-| DeeplinkDispatch | [Officially supported](https://github.com/airbnb/DeepLinkDispatch#ksp)                                                     |
+| DeepLinkDispatch | [Officially supported](https://github.com/airbnb/DeepLinkDispatch#ksp)                                                     |
 | Motif            | [Alpha](https://github.com/uber/motif/blob/main/CHANGELOG.md#040-alpha01)                                                  |
 | Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                                             |
-| Koin Annotations | [Deprecated in favor of the Koin Compiler Plugin](https://insert-koin.io/docs/setup/annotations-ksp/)                      |
+| Koin Annotations | [KSP processor is deprecated in favor of the Koin Compiler Plugin](https://insert-koin.io/docs/setup/annotations-ksp/)                      |
 
 ## See also
 
