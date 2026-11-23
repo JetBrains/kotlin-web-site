@@ -23,7 +23,7 @@ The following tables map the Java annotation processing API to its equivalents i
 ## Types
 
 KSP represents unresolved types as `KSTypeReference` and requires explicit type resolution.
-Call `KSTypeReference.resolve()`when you need the underlying `KSType`, for example, to inspect its declaration or
+Call `KSTypeReference.resolve()` when you need the underlying `KSType`, for example, to inspect its declaration or
 nullability. For more information, see [When to resolve types](ksp-kotlin-model.md#when-to-resolve-types).
 
 | **Java**           | **Closest facility in KSP**        | **Notes**                                                                                                                      |
@@ -206,7 +206,7 @@ ksClassDeclaration.superTypes
 
 | **Java**           | **KSP equivalent**                                                                                                                                       |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `getComponentType` | `ksType.arguments.first().type?.resolve()` for `Array<T>`. For primitive arrays `ksType.arguments` is empty, so use the matching type from `KSBuiltIns`. |
+| `getComponentType` | `ksType.arguments.first().type?.resolve()` for `Array<T>`. For primitive arrays, `ksType.arguments` is empty, so use the matching type from `KSBuiltIns`. |
 
 ### `DeclaredType`
 
