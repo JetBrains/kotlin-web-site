@@ -79,6 +79,7 @@ directory:
 > `wasmJs` application without a bundler. This functionality is [Experimental](components-stability.md#stability-levels-explained).
 > 
 > Learn how to [build Kotlin/Wasm applications without a bundler](whatsnew25.md#build-kotlin-wasm-applications-without-a-bundler).
+> 
 {style="note"}
 
 ## Publish the application
