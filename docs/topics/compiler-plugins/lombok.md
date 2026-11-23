@@ -15,11 +15,14 @@ The sets of annotations supported in Java and Kotlin are different:
 
 | Kotlin | Java |
 | -------------------------------------------------------------------------------------| ------------------------------------------------------------------------|
-| [`@EqualsAndHashCode`](#equals-and-hash-codes) | `@Getter`, `@Setter` |
-| [`@ToString`](#string-representations) |  `@Builder`, `@SuperBuilder` |
-| [`@NoArgsConstructor`](#constructors) |  `@NoArgsConstructor`, `@RequiredArgsConstructor`, `@AllArgsConstructor` |
-| [`@Slf4j`, `@Log`, and other annotations from the `lombok.extern` package](#loggers)  |  `@Accessors` from the `lombok.experimental` package |
+| [`@EqualsAndHashCode`](#equals-and-hash-codes) | `@EqualsAndHashCode` |
+| [`@ToString`](#string-representations) | `@ToString`|
+| [`@NoArgsConstructor`](#constructors) | `@NoArgsConstructor`, `@RequiredArgsConstructor`, `@AllArgsConstructor` |
+| [`@Slf4j`, `@Log`, and other annotations from the `lombok.extern` package](#loggers) | `@Slf4j`, `@Log`, and other annotations from the `lombok.extern` package |
 | `@Data` | `@Data`|
+| | `@Getter`, `@Setter`|
+| | `@Builder`, `@SuperBuilder`|
+| | `@Accessors` from the `lombok.experimental` package |
 | | `@With` |
 | | `@Value` |
 
