@@ -41,6 +41,7 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Avg. latency',
         sublabel: 'min per task',
         hint: 'Average time to solve a single task, in minutes',
+        format: oneDecimals,
     },
     {
         key: 'steps',
