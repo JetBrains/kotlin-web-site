@@ -5,18 +5,19 @@ import { Tooltip } from '@rescui/tooltip';
 import { InfoOutlineIcon } from '@rescui/icons';
 
 import styles from '../leaderboard.module.css';
-import { BenchColumn, BenchTableRow, MISSING_VALUE, SETUP_COLUMN_LABEL, TOP_SCORE_COUNT } from '../leaderboard-data';
+import { BenchColumn, BenchTableRow, MISSING_VALUE, TOP_SCORE_COUNT } from '../leaderboard-data';
 
 export interface BenchmarkTableProps<Row extends BenchTableRow> {
     columns: BenchColumn<Row>[];
     rows: Row[];
+    setupLabel: string;
     notice?: string;
 }
 
 /**
  * The leaderboard table shared by every methodology version
  */
-export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, notice }: BenchmarkTableProps<Row>) {
+export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, setupLabel, notice }: BenchmarkTableProps<Row>) {
     const textCn = useTextStyles();
 
     return (
@@ -25,8 +26,12 @@ export function BenchmarkTable<Row extends BenchTableRow>({ columns, rows, notic
                 <table className={styles.table} data-testid="bench-leaderboard-table">
                     <thead>
                         <tr>
-                            <th className={cn(styles.th, styles.thSetup, textCn('rs-text-3'))} scope="col">
-                                {SETUP_COLUMN_LABEL}
+                            <th
+                                className={cn(styles.th, styles.thSetup, textCn('rs-text-3'))}
+                                scope="col"
+                                data-testid="bench-setup-header"
+                            >
+                                {setupLabel}
                             </th>
                             {columns.map((column) => (
                                 <th key={column.key} className={cn(styles.th, textCn('rs-text-3'))} scope="col">
