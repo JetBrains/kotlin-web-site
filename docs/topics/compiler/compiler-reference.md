@@ -233,6 +233,13 @@ Enables explicit [context arguments](context-parameters.md#pass-context-argument
 
 This lets you resolve overload ambiguity by passing context arguments at the call site.
 
+### -Xfull-value-classes
+<primary-label ref="experimental-general"/>
+
+Enables support for full value classes, including types with multiple properties, abstract value classes, and value objects.
+
+For more information, see [Full value classes](whatsnew25.md#full-value-classes).
+
 ### -Xklib-ir-inliner
 <primary-label ref="experimental-general"/>
 
