@@ -13,6 +13,7 @@ import {
     BenchTaskGroup,
     groupRows,
     oneDecimals,
+    SETUP_COLUMN_LABEL_V2,
     twoDecimals,
 } from '../leaderboard-data';
 
@@ -70,7 +71,7 @@ function LeaderboardV2View({
     return (
         <>
             <TaskGroupSwitcher group={taskGroup} counts={edition.tasks} onChange={onTaskGroupChange} />
-            <BenchmarkTable columns={COLUMNS} rows={rows} />
+            <BenchmarkTable columns={COLUMNS} rows={rows} setupLabel={SETUP_COLUMN_LABEL_V2} />
             <p className={cn(styles.footnote, textCn('rs-text-3'))} data-testid="bench-table-note">
                 * Each configuration was executed with the time budget of 30 minutes per task.
             </p>

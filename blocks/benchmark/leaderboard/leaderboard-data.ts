@@ -38,7 +38,8 @@ export interface BenchColumn<Row extends BenchTableRow> {
     optional?: boolean;
 }
 
-export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
+export const SETUP_COLUMN_LABEL_V1 = 'Setup (Agent + LLM) proprietary' as const;
+export const SETUP_COLUMN_LABEL_V2 = 'Setup (Agent + LLM)' as const;
 
 /** Placeholder for an optional value a row doesn't have. */
 export const MISSING_VALUE = '—' as const;
