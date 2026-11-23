@@ -6,10 +6,12 @@ import { useTextStyles } from '@rescui/typography';
 
 import styles from './links.module.css';
 
-// TODO(marketing): replace placeholder URLs before the release (KTL-5273).
+// The Code of Conduct URL comes from the program doc; the terms and Brand Assets URLs are still pending (KTL-5273).
 const LINKS = [
+    // TODO(marketing): replace with the real Terms & Conditions URL before the release (KTL-5273).
     { id: 'terms', title: 'Terms and Conditions', href: '#' },
-    { id: 'conduct', title: 'Code of Conduct', href: '#' },
+    { id: 'conduct', title: 'Code of Conduct', href: 'https://github.com/jetbrains#code-of-conduct' },
+    // TODO(marketing): replace with the real Brand Assets URL before the release (KTL-5273).
     { id: 'assets', title: 'Brand Assets', href: '#' }
 ] as const;
 
@@ -23,6 +25,8 @@ function LinksList() {
                     key={link.id}
                     className={cn(textCn('rs-link', { hardness: 'hard', mode: 'clear' }), styles.link)}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     data-testid="kotlin-ambassador-link"
                 >
                     {link.title}

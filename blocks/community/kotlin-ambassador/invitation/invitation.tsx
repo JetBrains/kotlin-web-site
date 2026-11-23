@@ -74,11 +74,12 @@ export function Invitation() {
             >
                 <div className={styles.intro} data-testid="kotlin-ambassador-intro">
                     <p className={cn(textCn('rs-subtitle-2'), styles.introText)}>
-                        Your knowledge, creativity, and contributions help Kotlin grow. This invitation is our way of
-                        recognizing the difference you make.
+                        Your work makes a difference to the Kotlin community. You share your knowledge, inspire other
+                        developers, and help the ecosystem grow &ndash; and we&rsquo;d love to recognize that.
                     </p>
                     <p className={cn(textCn('rs-subtitle-2'), styles.introText)}>
-                        Join a global community of experts, creators, and leaders who share your passion for Kotlin.
+                        We&rsquo;d love to invite you to join the Kotlin Ambassadors Program: a community of experts,
+                        creators, educators, and community leaders who share your passion for Kotlin.
                     </p>
                 </div>
                 <div className={styles.formCard} data-testid="kotlin-ambassador-form-card">
@@ -123,6 +124,16 @@ export function Invitation() {
                         <SubmitButton mode="classic" size="l">
                             Accept invitation
                         </SubmitButton>
+                        <p
+                            className={cn(textCn('rs-text-3'), styles.footnote)}
+                            data-testid="kotlin-ambassador-terms-footnote"
+                        >
+                            By clicking &ldquo;Accept invitation,&rdquo; you agree to the Kotlin Ambassadors Program{' '}
+                            <a className={textCn('rs-link')} href={TERMS_URL} target="_blank" rel="noreferrer noopener">
+                                Terms &amp; Conditions
+                            </a>
+                            .
+                        </p>
                     </Form>
                 </div>
             </div>

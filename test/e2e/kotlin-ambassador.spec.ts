@@ -19,7 +19,12 @@ const BENEFITS = [
     'Complimentary JetBrains subscription'
 ];
 
-const LINKS = ['Terms and Conditions', 'Code of Conduct', 'Brand Assets'];
+const LINKS = [
+// Matches the in-code TODO placeholder until marketing provides the final URL (KTL-5273).
+    { title: 'Terms and Conditions', href: '#' },
+    { title: 'Code of Conduct', href: 'https://github.com/jetbrains#code-of-conduct' },
+    { title: 'Brand Assets', href: '#' }
+];
 
 const TEST_EMAIL = 'ambassador@example.com';
 
@@ -69,6 +74,29 @@ test.describe('Kotlin Ambassador welcome page', () => {
         );
     });
 
+    test('invitation intro matches the program doc', async ({ page }) => {
+        const intro = page.getByTestId('kotlin-ambassador-intro');
+
+        await expect(intro.locator('p').nth(0)).toHaveText(
+            'Your work makes a difference to the Kotlin community. You share your knowledge, inspire other developers, and help the ecosystem grow – and we’d love to recognize that.'
+        );
+        await expect(intro.locator('p').nth(1)).toHaveText(
+            'We’d love to invite you to join the Kotlin Ambassadors Program: a community of experts, creators, educators, and community leaders who share your passion for Kotlin.'
+        );
+    });
+
+    test('terms footnote links to the program document', async ({ page }) => {
+        const footnote = page.getByTestId('kotlin-ambassador-terms-footnote');
+
+        await expect(footnote).toHaveText(
+            'By clicking “Accept invitation,” you agree to the Kotlin Ambassadors Program Terms & Conditions.'
+        );
+
+        // The document opens in a new tab, so the entered form data is not lost.
+        await expect(footnote.getByRole('link')).toHaveAttribute('href', LINKS[0].href);
+        await expect(footnote.getByRole('link')).toHaveAttribute('target', '_blank');
+    });
+
     test('benefits list five perks', async ({ page }) => {
         const cards = page.getByTestId('kotlin-ambassador-benefit-card');
 
@@ -80,7 +108,7 @@ test.describe('Kotlin Ambassador welcome page', () => {
     });
 
     test('badge card offers the badge kit and keeps its decoration', async ({ page }) => {
-        await expect(page.getByTestId('kotlin-ambassador-badge-title')).toHaveText('Let the community know');
+        await expect(page.getByTestId('kotlin-ambassador-badge-title')).toHaveText('Let the community know.');
         await expect(page.getByTestId('kotlin-ambassador-badge-button')).toHaveText('Get your badge');
         await expect(page.getByTestId('kotlin-ambassador-badge-decoration').locator('img')).toHaveCount(3);
     });
@@ -91,7 +119,8 @@ test.describe('Kotlin Ambassador welcome page', () => {
         await expect(links).toHaveCount(3);
 
         for (const [index, link] of LINKS.entries()) {
-            await expect(links.nth(index)).toHaveText(link);
+            await expect(links.nth(index)).toHaveText(link.title);
+            await expect(links.nth(index)).toHaveAttribute('href', link.href);
         }
     });
 

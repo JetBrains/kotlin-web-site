@@ -24,7 +24,7 @@ export function Badge() {
                     <div className={styles.cardText} data-testid="kotlin-ambassador-badge-text">
                         <div className={styles.textGroup}>
                             <h2 className={cn(textCn('rs-h2'), styles.title)} data-testid="kotlin-ambassador-badge-title">
-                                Let the community know
+                                Let the community know.
                             </h2>
                             <p className={cn(textCn('rs-text-1', { hardness: 'hard' }), styles.text)}>
                                 You&rsquo;re welcome to use the Kotlin Ambassador title and badge on your website, GitHub
