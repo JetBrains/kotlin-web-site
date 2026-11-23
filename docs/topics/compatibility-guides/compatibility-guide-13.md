@@ -417,3 +417,23 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 >
 > - <1.3: annotations were shipped with the stdlib artifact
 > - &gt;=1.3: annotations ship in separate artifacts
+
+### Report an error when the Kotlin Gradle plugin is loaded multiple times
+
+> **Issue**: [KT-30276](https://youtrack.jetbrains.com/issue/KT-30276), [KT-61225](https://youtrack.jetbrains.com/issue/KT-61225)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Kotlin Gradle plugin now reports an error and fails the build when it is loaded multiple times
+> across subprojects or classloaders in a build.
+> 
+> To avoid the error, ensure the plugin is loaded once in a common parent classloader, for example, by declaring the
+> plugin with a version and `apply false` in the root project's `plugins {}` block
+> (or in `buildSrc` / convention plugins) and omitting explicit plugin versions in subprojects.
+> 
+> **Deprecation cycle**:
+>
+> - 1.3.30: report a warning when the Kotlin Gradle plugin is loaded multiple times
+> - 2.5.0: raise the warning to an error

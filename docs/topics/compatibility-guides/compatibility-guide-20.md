@@ -717,7 +717,6 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The `wasm()` target functions are deprecated. Use the `wasmJs()` target instead.
-> In Kotlin 2.5.0, the deprecated `wasm()` target functions are removed.
 >
 > **Deprecation cycle**:
 >
@@ -735,7 +734,6 @@ perspective
 >
 > **Short summary**: The properties in the `NodeJsRootExtension` extension are deprecated. Use the `NodeJsEnvSpec` and `WasmNodeJsEnvSpec`
 > extensions instead. Unlike `NodeJsRootExtension`, which is configured in the root project, these extensions are configured per project.
-> In Kotlin 2.5.0, the deprecated properties are removed.
 >
 > **Deprecation cycle**:
 >
@@ -751,9 +749,14 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Several Binaryen-related declarations in the Kotlin Gradle plugin are deprecated. Use the `BinaryenEnvSpec`
-> extension instead, which is configured per project.
-> In Kotlin 2.5.0, the deprecated declarations are removed.
+> **Short summary**: Several Binaryen-related declarations in the Kotlin Gradle plugin are deprecated, namely:
+> 
+> * `inputFileProperty`
+> * `outputFileName`
+> * `outputFileProperty`
+> * `binaryenArgs`
+> 
+> Use the `BinaryenEnvSpec`extension instead, which is configured per project.
 >
 > **Deprecation cycle**:
 >

@@ -646,11 +646,9 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source, binary
+> **Incompatible change type**: binary
 >
 > **Short summary**: The `implementationMetadataConfigurationName` property in the `KotlinSourceSet` interface is deprecated.
-> In Kotlin 2.5.0, the property is removed. Before the removal, the property was hidden and kept only for binary compatibility,
-> so the removal affects only binary compatibility.
 >
 > **Deprecation cycle**:
 >

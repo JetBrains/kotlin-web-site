@@ -204,6 +204,23 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.20: report warnings for mutability mismatches based on the `@Unmodifiable` and `@UnmodifiableView` annotations
 > - 2.5.0: raise the warnings to errors
 
+### Remove eager `GlobalData` initialization in Kotlin/Native
+
+> **Issue**: [KT-80005](https://youtrack.jetbrains.com/issue/KT-80005)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Support for eager `GlobalData` initialization in the Kotlin/Native runtime (initializing the runtime
+> at program startup instead of on first access to Kotlin) is removed, and the binary option for enabling it is deprecated.
+> To migrate, remove the option from your project configuration.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when setting the option to `true`
+> - 2.5.0: raise the warning to an error
+
 ## Standard library
 
 ### Deprecate Char-to-number conversions and introduce explicit digit and code APIs
@@ -362,7 +379,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > Starting with Kotlin 2.5.0, the Kotlin Gradle plugin reports deprecation warnings regardless of the AGP version when you apply
 > the `org.jetbrains.kotlin.android` plugin, or the `org.jetbrains.kotlin.multiplatform` plugin together with the `com.android.library` plugin.
-> To migrate, update your project to AGP 9.0 or later. For more information, see the [blog post](https://kotl.in/agp9-blog) that the warnings link to.
+> To migrate, [update your project to AGP 9.0 or later](https://kotl.in/agp9-blog).
 >
 > **Deprecation cycle**:
 >
@@ -618,12 +635,10 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary
 >
 > **Short summary**: The `create()` function in the companion object of the `NodeJsExec` DSL is deprecated. Use
 > the `register()` function instead.
->
-> In Kotlin 2.5.0, the `create()` functions are removed, which also breaks binary compatibility with code compiled against them.
 >
 > **Deprecation cycle**:
 >
@@ -829,13 +844,13 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary, behavioral
 >
-> **Short summary**: The `CleanableStore` interface and `CleanDataTask` class are deprecated since they are no longer used.
+> **Short summary**: The `CleanableStore` interface, the `CleanDataTask` class, and the `DownloadableFile` class are
+> deprecated since they are no longer used.
 >
-> In Kotlin 2.5.0, the `CleanDataTask` class, the `CleanableStore` interface, and the `DownloadableFile` class are removed.
-> As a result, the following Gradle tasks are also removed: `yarnKotlinClean`, `binaryenKotlinClean`, `d8KotlinClean`, `wasmtimeKotlinClean`, and `nodeKotlinClean`.
-> These tasks already threw an `UnsupportedOperationException` when invoked in Kotlin 2.4.20, so no migration steps are needed.
+> As a result, the following Gradle tasks are also removed: `yarnKotlinClean`, `binaryenKotlinClean`, `d8KotlinClean`,
+> `wasmtimeKotlinClean`, and `nodeKotlinClean`.
 >
 > **Deprecation cycle**:
 >

@@ -90,7 +90,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > to a non-nullable type when the other operand had a type parameter type with nullable upper bounds or a flexible type
 > from Java. These smart casts were unsound and could lead to a `NullPointerException` at runtime.
 >
-> Kotlin 2.5.0 considers that such operands can be `null`: type parameters are treated as non-nullable only if they have
+> Kotlin now considers that such operands can be `null`: type parameters are treated as non-nullable only if they have
 > a non-nullable upper bound, and flexible types are treated as nullable. As a result, code that relied on these smart casts
 > no longer compiles. To migrate, add an explicit null check, or annotate the relevant Java declarations with `@NotNull`.
 >
@@ -145,13 +145,12 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source, binary
 >
-> **Short summary**: Kotlin 2.5.0 fixes type inference for expressions with the [not-null assertion operator `!!`](null-safety.md#not-null-assertion-operator) whose type is
-> an intersection type with an upper bound. Previously, the compiler lost the upper bound,
-> so for `fun <T : Number> select(vararg t: T): T?`, the type of `select(1.0, 1L)!!` was approximated to `Any` instead of `Number`.
+> **Short summary**: Kotlin fixes type inference for expressions with the [not-null assertion operator `!!`](null-safety.md#not-null-assertion-operator) whose type is
+> an intersection type with an upper bound. Previously, the compiler lost the upper bound, so for
+> `fun <T : Number> select(vararg t: T): T?`, the type of `select(1.0, 1L)!!` was approximated to `Any` instead of `Number`.
 >
 > As a result, declarations without an explicit type can get a more precise type. This can lead to type mismatches in existing code,
-> and it can change the signatures of public declarations after recompilation.
-> To keep the previous type, specify it explicitly.
+> and it can change the signatures of public declarations after recompilation. To keep the previous type, specify it explicitly.
 >
 > **Deprecation cycle**:
 >
@@ -194,6 +193,66 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.5.0: enable the new behavior
 
+### Remove language version 2.0 and 2.1
+
+> **Issue**: [KT-86132](https://youtrack.jetbrains.com/issue/KT-86132)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.5.0 introduces language version 2.5 and removes support for language versions 2.0 and 2.1.
+>
+> **Deprecation cycle**:
+>
+> - 2.5.0: report an error
+
+> ### Deprecate language version 2.2
+
+> **Issue**: [KT-86132](https://youtrack.jetbrains.com/issue/KT-86131)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.5.0 introduces language version 2.5 and starts the deprecation cycle for the language version 2.2.
+>
+> **Deprecation cycle**:
+>
+> - 2.5.0: report a warning
+
+### Deprecate `-generate-worker-test-runner` in Kotlin/Native
+
+> **Issue**: [KT-61582](https://youtrack.jetbrains.com/issue/KT-61582)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The `-generate-worker-test-runner` (or `-trw`) Kotlin/Native compiler option, which ran
+> `kotlin.test` tests on a separate worker thread instead of the main thread, is deprecated.
+> Remove the option to run tests on the main thread by default, or use the `Worker` API directly if your tests
+> require execution on a separate thread.
+>
+> **Deprecation cycle**:
+>
+> - 2.5.0: report a warning when using `-generate-worker-test-runner` (`-trw`)
+
+### Deprecate Android NDK targets
+
+> **Issue**: [KT-87873](https://youtrack.jetbrains.com/issue/KT-87873)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Android NDK targets (`androidNativeArm32`, `androidNativeArm64`, `androidNativeX86`, and `androidNativeX64`)
+> are deprecated because they are no longer actively maintained.
+>
+> **Deprecation cycle**:
+>
+> - 2.5.0: report a warning when Android NDK targets are declared
+
 ## Standard library
 
 ### Make equality of ranges and progressions symmetric
@@ -234,22 +293,6 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.5.0: report a warning when using the `kotlin.mpp.freeCompilerArgsForSourceSet` Gradle property
 
-### Raise the minimum supported AGP version to 8.8.2
-
-> **Issue**: [KT-88619](https://youtrack.jetbrains.com/issue/KT-88619)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: behavioral
->
-> **Short summary**: The minimum supported version of the Android Gradle plugin (AGP) that you can use in the same build with
-> the Kotlin Gradle plugin 2.5.0 is 8.8.2. Previously, the minimum supported AGP version was 8.5.2.
-> To migrate, update the AGP version in your project.
->
-> **Deprecation cycle**:
->
-> - 2.5.0: raise the minimum supported AGP version to 8.8.2
-
 ### Remove the `ExperimentalWasmDsl` annotation from Wasm JS target declarations
 
 > **Issue**: [KT-87562](https://youtrack.jetbrains.com/issue/KT-87562)
@@ -258,8 +301,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: As part of making Kotlin/Wasm Stable, the Kotlin Gradle plugin declarations related to the `wasmJs` target are
-> no longer marked with the `@ExperimentalWasmDsl` annotation. You no longer need to opt in to use them.
+> **Short summary**: As part of the Kotlin/Wasm stabilization, the Kotlin Gradle plugin declarations related to the `wasmJs` target are
+> no longer marked with the `@ExperimentalWasmDsl` annotation. You don't need to opt in to use them.
 >
 > **Deprecation cycle**:
 >
@@ -281,3 +324,35 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.5.0: report a warning when using the `applyArgumentStrings()` function
+
+### Raising the minimum required runtime JDK version to JDK 17 or later
+
+> **Issue**: [KT-88174](https://youtrack.jetbrains.com/issue/KT-88174)
+>
+> **Component**: Compiler
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Starting with Kotlin 2.5.0, the minimum required runtime JDK version for running the Kotlin compiler
+> (`kotlinc`, as well as Kotlin compilations in Gradle and Maven builds) is raised from JDK 8 to JDK 17.
+>
+> To migrate, run your build tool or compiler with JDK 17 or later:
+> * Gradle: Set the `org.gradle.java.home` property (via `-Dorg.gradle.java.home` or `gradle.properties`), set `JAVA_HOME`,
+>   or add JDK 17 to your `PATH`. Note that `jvmToolchain()` only configures `-jdk-home` and the default `-jvm-target`,
+>   not the JDK used to run the Gradle daemon.
+> * Maven: Set `JAVA_HOME` or add JDK 17 to your `PATH`. Note that `jdkToolchain` and `maven-toolchains-plugin` do not
+>   change the runtime JDK used by the Maven process.
+> * Command line (`kotlinc`): Set `JAVA_HOME` or add JDK 17 to your `PATH`.
+>
+> Upgrading the runtime JDK does not affect the generated bytecode version (`jvmTarget` / `-jvm-target`) or compilation
+> classpath (`-jdk-home`).
+>
+> Running the compiler on a JDK earlier than 17 now results in a compilation error.Temporarily, you can suppress the
+> error by passing the `-Xallow-pre-17-runtime-jdk` compiler option in `compilerOptions.freeCompilerArgs`
+> for Gradle, `<args>` for Maven, or directly to `kotlinc`.
+>
+> **Deprecation cycle**:
+>
+> - 2.5.0-Beta1: report a warning when running the Kotlin compiler on a JDK earlier than 17
+> - 2.5.0-Beta2: raise the warning to an error (temporarily suppressible with `-Xallow-pre-17-runtime-jdk`)
+> - 2.5.20-Beta1: require JDK 17 or later as the minimum runtime version and deprecate `-Xallow-pre-17-runtime-jdk`
