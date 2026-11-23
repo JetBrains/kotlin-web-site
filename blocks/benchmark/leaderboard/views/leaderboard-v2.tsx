@@ -12,6 +12,7 @@ import {
     BenchGroupRow,
     BenchTaskGroup,
     groupRows,
+    oneDecimals,
     twoDecimals,
 } from '../leaderboard-data';
 
@@ -21,6 +22,7 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Resolution rate',
         sublabel: '% of tasks',
         hint: 'Percentage of tasks that were resolved',
+        format: oneDecimals,
         emphasis: true,
     },
     {

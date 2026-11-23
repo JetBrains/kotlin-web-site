@@ -4,6 +4,7 @@ export {
     formatBenchDate,
     groupRows,
     isGroupedEdition,
+    oneDecimals,
     toEdition,
     twoDecimals,
     TOP_SCORE_COUNT,
