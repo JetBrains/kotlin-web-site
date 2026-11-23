@@ -209,6 +209,18 @@ You can configure the following plugins by their IDs:
 
 This running order controls only the backend of compiler plugins and not the frontend.
 
+### -Xcompanion-blocks
+<primary-label ref="experimental-opt-in"/>
+
+Enables [companion blocks](whatsnew25.md#companion-extensions-and-blocks), allowing you to declare functions and properties accessible through a type's name without
+declaring a companion object.
+
+### -Xcompanion-blocks-and-extensions
+<primary-label ref="experimental-opt-in"/>
+
+Enables [companion extensions and blocks](whatsnew25.md#companion-extensions-and-blocks), allowing you to declare functions, properties, and extensions
+accessible through a type's name without declaring a companion object.
+
 ### -Xdata-flow-based-exhaustiveness
 <primary-label ref="experimental-general"/>
 
