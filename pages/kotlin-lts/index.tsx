@@ -33,8 +33,8 @@ export default function KotlinLtsLanding() {
         >
             <main className="ktl-layout-to-2">
                 <Hero />
-                <Newsletter />
                 <Constraints />
+                <Newsletter />
                 <Benefits />
                 <Coverage />
                 <PatchInPlace />

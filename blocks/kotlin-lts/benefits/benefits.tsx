@@ -74,6 +74,13 @@ export const Benefits: FC = () => {
                                         </a>
                                     </p>
                                 )}
+                                {id === 'commercial' && (
+                                    <p className={cn(textCn('rs-text-2'), styles.policyLink)}>
+                                        <a href={`#${SECTION_IDS.coverage}`} className={textCn('rs-link')}>
+                                            Explore commercial support coverage
+                                        </a>
+                                    </p>
+                                )}
                             </div>
                         </article>
                     ))}

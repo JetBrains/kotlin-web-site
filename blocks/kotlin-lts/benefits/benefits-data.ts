@@ -12,9 +12,10 @@ export const SUPPORT_OPTIONS = [
         id: 'commercial',
         title: 'Commercial subscription',
         points: [
-            'Targeted patches for covered components and release lines.',
+            'Targeted patches for Kotlin, kotlinx libraries, Ktor, Exposed, and Compose Multiplatform.',
             'Private patch delivery and engineering validation.',
-            'Agreed support terms and communication.',
+            'A support window agreed with your team.',
+            'Agreed support terms, direct communication, and security advisories with guidance and workarounds.',
         ],
     },
 ];

@@ -42,8 +42,8 @@ for (const viewport of [
                     .evaluateAll((sections) => sections.map((section) => section.getAttribute('data-testid')))
             ).toEqual([
                 'lts-hero',
-                'lts-newsletter',
                 'lts-constraints',
+                'lts-newsletter',
                 'lts-benefits',
                 'lts-coverage',
                 'lts-how',
@@ -72,7 +72,7 @@ for (const viewport of [
                 PUBLIC_SUPPORT_URL
             );
             await expect(lts.process.getByRole('heading', { level: 2 })).toHaveText(
-                'Targeted Patches in Your Workflow'
+                'How it works in your workflow'
             );
             await expect(lts.process).toContainText('with no migration project required');
             await expect(lts.process.getByRole('listitem')).toHaveText([

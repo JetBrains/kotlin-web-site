@@ -11,19 +11,19 @@ import styles from './faq.module.css';
 const FAQ_ITEMS = [
     {
         question: 'What does paid support add to public Kotlin security support?',
-        answer: 'Public security support covers the Kotlin standard library for the JVM under the published policy. A commercial subscription defines an agreed scope for targeted patches, private delivery, and support terms. Discuss the additional support your team needs with us.',
+        answer: 'Public security support covers the Kotlin standard library for the JVM under the published policy. Commercial support covers a broader range of Kotlin components and offers a support window agreed with your team, including support beyond the public window. It also includes private patch delivery, direct communication, and security advisories with guidance and workarounds.',
     },
     {
         question: 'Which components, platforms, and release lines are covered?',
-        answer: 'Coverage needs to be agreed for your subscription. Share the components, platforms, and release lines you use so the team can confirm available coverage and any exclusions.',
+        answer: 'Commercial support covers Kotlin, including the compiler, standard library, and build plugins; kotlinx libraries, including coroutines and serialization; Ktor; Exposed; and Compose Multiplatform. The components, platforms, release lines, and support window for your subscription are agreed with your team.',
     },
     {
         question: 'Can I stay on my exact version?',
-        answer: 'Share your current versions and upgrade constraints with the team. Support is scoped to agreed release lines; confirm which patch version you would need to use before choosing a subscription.',
+        answer: 'Yes. You can request security fixes for the specific version you use. Share your current versions and upgrade constraints with the team so we can agree the scope and provide a quote for your requirements.',
     },
     {
         question: 'How do we receive patches, and what testing is still needed?',
-        answer: 'Review subscriber repository access and build requirements with the team. Your team integrates the patched dependency and remains responsible for application testing, approval, and deployment.',
+        answer: 'We deliver patches through a private subscriber repository. Patch builds pass through JetBrains’ full testing pipeline before delivery. Your team integrates the patched dependency and remains responsible for application testing, approval, and deployment.',
     },
     {
         question: 'Which security issues qualify, and what timelines apply?',
@@ -35,7 +35,7 @@ const FAQ_ITEMS = [
     },
     {
         question: 'How is the subscription priced?',
-        answer: 'Contact the team to discuss pricing for your required coverage and support period.',
+        answer: 'Pricing depends on the components in your Kotlin stack, the versions you need to support, and your required support window. Contact the team to discuss your requirements and receive a tailored quote.',
     },
 ];
 

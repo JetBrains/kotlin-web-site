@@ -36,10 +36,11 @@ export const Coverage: FC = () => {
                     className={cn(textCn('rs-h1'), shared.title)}
                     data-testid="lts-coverage-title"
                 >
-                    Discuss coverage for your Kotlin stack
+                    What is covered by commercial support?
                 </h2>
                 <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
-                    Confirm the components, platforms, and release lines your applications depend on.
+                    Commercial support covers the broader Kotlin stack and extends security support beyond the public
+                    support window. We agree the components, platforms, release lines, and support window with your team.
                 </p>
 
                 <ul ref={gridRef} className={styles.grid}>

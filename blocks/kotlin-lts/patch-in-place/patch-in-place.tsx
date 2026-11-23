@@ -45,7 +45,7 @@ export const PatchInPlace: FC = () => {
             <div className={cn('ktl-layout', 'ktl-layout--center', styles.split)}>
                 <div>
                     <h2 id="lts-how-title" className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-how-title">
-                        Targeted Patches in Your Workflow
+                        How it works in your workflow
                     </h2>
                     <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), shared.lead)}>
                         Point your build at the subscriber repository and pick up maintenance releases of the version
