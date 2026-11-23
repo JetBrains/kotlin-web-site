@@ -183,7 +183,7 @@ export function MethodologyContentV2() {
                         Preliminary runs revealed that open-source tasks were susceptible to reward hacking by agents.
                         To mitigate this risk, following the practices recommended by Cursor,
                         <Ref n={2} /> we configured the execution environment for open-source tasks to run in{' '}
-                        <em>no-network</em> mode, allowing network traffic only for agent inference. All dependencies
+                        <em>no-network</em> mode, allowing network traffic only for environment setup and verifier. All dependencies
                         required for task execution were pre-cached. Additionally, repository history was isolated to
                         limit retrieval of published solutions. To prevent agents from spending effort on network
                         requests that would inevitably fail, we explicitly informed the agents that network access was

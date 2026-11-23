@@ -58,8 +58,8 @@ test.describe('Kotlin Benchmark landing page', () => {
 
         expect(rates.length).toBeGreaterThan(0);
 
-        // Units live in the column headers; resolution rates are shown as-is (no `.00` padding).
-        for (const rate of rates) expect(rate).toMatch(/^\d+(\.\d+)?$/);
+        // Units live in the column headers; resolution rates always show one decimal.
+        for (const rate of rates) expect(rate).toMatch(/^\d+\.\d$/);
         // Cost and tokens keep at least two decimals.
         for (const value of [...costs, ...tokens]) expect(value).toMatch(/^\d+\.\d{2,}$/);
         for (const latency of latencies) expect(latency).toMatch(/^\d+(\.\d+)?$/);

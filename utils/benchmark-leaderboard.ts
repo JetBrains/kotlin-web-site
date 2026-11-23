@@ -59,13 +59,16 @@ export const TOP_SCORE_COUNT = 3;
 
 export type BenchColumnKey = Exclude<keyof BenchRow, 'setup'>;
 
-/**
- * Show at least two decimal places without rounding
- */
-export const twoDecimals = (value: unknown): string => {
-    const [whole, fraction = ''] = String(Number(value)).split('.');
-    return `${whole}.${fraction.padEnd(2, '0')}`;
-};
+export const formatDecimals =
+    (minDecimals: number) =>
+    (value: unknown): string => {
+        const [whole, fraction = ''] = String(Number(value)).split('.');
+        return `${whole}.${fraction.padEnd(minDecimals, '0')}`;
+    };
+
+export const oneDecimals = formatDecimals(1);
+
+export const twoDecimals = formatDecimals(2);
 
 /** `2026-05-06` -> `06.05.2026 */
 export const formatBenchDate = (value: unknown): string => {
