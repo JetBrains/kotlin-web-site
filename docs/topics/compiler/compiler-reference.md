@@ -573,17 +573,6 @@ The check adds a comparison to every integer division, so it comes with a small 
 Allow [exporting suspending lambda expressions](js-to-kotlin-interop.md#export-suspending-lambdas) declared in
 `@JsExport` declarations as JavaScript `async` functions.
 
-### -Xexport-kdoc
-<primary-label ref="experimental-general"/>
-
-Copy [KDoc](kotlin-doc.md) comments from exported Kotlin declarations into the generated `.d.ts` declaration files.
-
-### -Xdts-use-unknown-instead-of-any
-<primary-label ref="experimental-general"/>
-
-Generate the TypeScript [`unknown`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#new-unknown-top-type) 
-type in `.d.ts` declaration files for `dynamic`, `Any`, and implicitly exported types.
-
 ## Kotlin/Native compiler options
 
 Kotlin/Native compiler compiles Kotlin source files into native binaries for the [supported platforms](native-overview.md#target-platforms). 
