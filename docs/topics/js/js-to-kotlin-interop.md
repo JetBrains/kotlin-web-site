@@ -381,10 +381,10 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 ## Implement suspend function interfaces
 
 Kotlin/JS doesn't fully support classes that implement a suspend function interface, such as `suspend () -> Unit`.
-The compiler reports a warning for all such classes.
+The compiler reports a warning for such classes.
 
 Calling the instance directly works as expected, but upcasting it to the suspend function interface makes JavaScript
-treat the value as a plain function, and the call throws a `TypeError` error at runtime:
+treat the value as a plain function, and the call throws a `TypeError` at runtime:
 
 ```kotlin
 class BackgroundTask : suspend () -> Unit {
