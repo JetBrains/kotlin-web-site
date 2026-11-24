@@ -330,12 +330,11 @@ kotlin {
 
 If your build script uses the older functions, update them as follows:
 
-| Deprecated| New DSL    | 
+| Deprecated| New DSL    |
 |---------------|----------------|
 | `devNpm()`| `npmDev()`|
-| `optionalNpm() | `npmOptional()|
+| `optionalNpm()`  | `npmOptional()`|
 | `peerNpm()`| `npmPeer()`     |
-
 
 Adding an npm dependency to a Gradle configuration, such as `implementation(npm(...))`, is deprecated and triggers
 a warning. The IDE offers a quick-fix that removes the configuration wrapper.
