@@ -63,10 +63,6 @@ Tier tables have the following columns:
 
 | Gradle target name      | Target triple                    | Running tests | Description                                                                              |
 |-------------------------|----------------------------------|---------------|------------------------------------------------------------------------------------------|
-| `androidNativeArm32`    | `arm-unknown-linux-androideabi`  |               | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms                      |
-| `androidNativeArm64`    | `aarch64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms                      |
-| `androidNativeX86`      | `i686-unknown-linux-android`     |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms                        |
-| `androidNativeX64`      | `x86_64-unknown-linux-android`   |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
 | `mingwX64`              | `x86_64-pc-windows-gnu`          | ✅            | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
 | Apple macOS hosts only: |                                  |               |                                                                                          |
 | `watchosDeviceArm64`    | `aarch64-apple-watchos`          |               | Apple watchOS 8.0 and later on ARM64 platforms                                           |
@@ -76,13 +72,17 @@ Tier tables have the following columns:
 
 The following targets are deprecated and scheduled for removal:
 
-| Target          | Deprecation start | Description                                        |
-|-----------------|-------------------|----------------------------------------------------|
-| `watchosArm32`  | Kotlin 2.4.20     | Apple watchOS devices on ARM32 platforms           |
-| `macosX64`      | Kotlin 2.3.20     | Apple macOS on x86_64 platforms                    |
-| `watchosX64`    | Kotlin 2.3.20     | Apple watchOS 64-bit simulator on x86_64 platforms | 
-| `tvosX64`       | Kotlin 2.3.20     | Apple tvOS simulator on x86_64 platforms           | 
-| `linuxArm32Hfp` | Kotlin 1.8.20     | Linux on ARM32 platforms                           |
+| Target               | Deprecation start | Description                                                          |
+|----------------------|-------------------|-----------------------------------------------------------------------|
+| `androidNativeArm32` | Kotlin 2.5.0      | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms  |
+| `androidNativeArm64` | Kotlin 2.5.0      | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms  |
+| `androidNativeX86`   | Kotlin 2.5.0      | [Android NDK](https://developer.android.com/ndk) on x86 platforms    |
+| `androidNativeX64`   | Kotlin 2.5.0      | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms |
+| `watchosArm32`       | Kotlin 2.4.20     | Apple watchOS devices on ARM32 platforms                             |
+| `macosX64`           | Kotlin 2.3.20     | Apple macOS on x86_64 platforms                                      |
+| `watchosX64`         | Kotlin 2.3.20     | Apple watchOS 64-bit simulator on x86_64 platforms                   |
+| `tvosX64`            | Kotlin 2.3.20     | Apple tvOS simulator on x86_64 platforms                             |
+| `linuxArm32Hfp`      | Kotlin 1.8.20     | Linux on ARM32 platforms                                             |
 
 ### Supporting lower Apple target versions
 
