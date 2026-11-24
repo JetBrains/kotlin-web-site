@@ -540,7 +540,7 @@ This option is required for the `es5` and `es2015` targets only. The `es2020` ta
 ### -Xinteger-division-check
 <primary-label ref="experimental-general"/>
 
-Enable a runtime check for integer division by zero, so that the operation throws an `ArithmeticException` error
+Enable a runtime check for integer division by zero. The operation throws an `ArithmeticException` error
 instead of silently returning `0`.
 
 The check adds a comparison to every integer division, so it comes with a small runtime overhead.
