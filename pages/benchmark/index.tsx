@@ -3,7 +3,7 @@ import React from 'react';
 import { BenchmarkLayout } from '@/blocks/benchmark/layout';
 import { BenchHero } from '@/blocks/benchmark/hero';
 import { Leaderboard } from '@/blocks/benchmark/leaderboard';
-import { currentEdition } from '@/blocks/benchmark/leaderboard/leaderboard-data';
+import { currentEdition } from '@/utils/benchmark-leaderboard';
 import { ArchiveLink } from '@/blocks/benchmark/archive-link';
 import { BenchCta } from '@/blocks/benchmark/cta';
 import { GITHUB_URL, KOTLIN_BENCHMARK_URL, METHODOLOGY_URL } from '@/blocks/benchmark/constants';

@@ -221,7 +221,7 @@ When you run development Gradle tasks (`*DevRun`), Kotlin automatically serves t
 However, serving sources by default may cause [repeated reloads of the application in the browser before Kotlin compilation and bundling are complete](https://youtrack.jetbrains.com/issue/KT-80582/Multiple-reloads-when-using-webpack-dev-server-after-2.2.20-Beta2#focus=Comments-27-12596427.0-0).
 As a workaround, adjust your webpack configuration to ignore Kotlin source files and disable watching for served static files. Add a `.js` file with the following content into the `webpack.config.d` directory at the root of your project:
 
-```kotlin
+```javascript
 config.watchOptions = config.watchOptions || {
     ignored: ["**/*.kt", "**/node_modules"]
 }
@@ -239,4 +239,3 @@ if (config.devServer) {
     })
 }
 ```
-

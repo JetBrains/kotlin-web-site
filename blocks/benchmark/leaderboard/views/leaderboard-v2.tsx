@@ -2,17 +2,15 @@ import React, { useMemo } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 
+import { BenchEditionV2, BenchGroupRow, groupRows, oneDecimals, twoDecimals } from '@/utils/benchmark-leaderboard';
+
 import styles from '../leaderboard.module.css';
 import { BenchmarkTable } from './benchmark-table';
 import { TaskGroupSwitcher } from './task-group-switcher';
 import { useTaskGroup } from './use-task-group';
 import {
-    BenchColumn,
-    BenchEditionV2,
-    BenchGroupRow,
-    BenchTaskGroup,
-    groupRows,
-    twoDecimals,
+    SETUP_COLUMN_LABEL_V2,
+    BenchColumn
 } from '../leaderboard-data';
 
 const COLUMNS: BenchColumn<BenchGroupRow>[] = [
@@ -21,6 +19,7 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Resolution rate',
         sublabel: '% of tasks',
         hint: 'Percentage of tasks that were resolved',
+        format: oneDecimals,
         emphasis: true,
     },
     {
@@ -42,6 +41,7 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
         label: 'Avg. latency',
         sublabel: 'min per task',
         hint: 'Average time to solve a single task, in minutes',
+        format: oneDecimals,
     },
     {
         key: 'steps',
@@ -53,37 +53,20 @@ const COLUMNS: BenchColumn<BenchGroupRow>[] = [
 
 export interface LeaderboardV2Props {
     edition: BenchEditionV2;
-    taskGroup?: BenchTaskGroup;
-    onTaskGroupChange?: (group: BenchTaskGroup) => void;
 }
 
-function LeaderboardV2View({
-    edition,
-    taskGroup,
-    onTaskGroupChange,
-}: Required<Pick<LeaderboardV2Props, 'taskGroup' | 'onTaskGroupChange'>> & { edition: BenchEditionV2 }) {
+export function LeaderboardV2({ edition }: LeaderboardV2Props) {
+    const [taskGroup, setTaskGroup] = useTaskGroup();
     const rows = useMemo(() => groupRows(edition, taskGroup), [edition, taskGroup]);
     const textCn = useTextStyles();
 
     return (
         <>
-            <TaskGroupSwitcher group={taskGroup} counts={edition.tasks} onChange={onTaskGroupChange} />
-            <BenchmarkTable columns={COLUMNS} rows={rows} />
+            <TaskGroupSwitcher group={taskGroup} counts={edition.tasks} onChange={setTaskGroup} />
+            <BenchmarkTable columns={COLUMNS} rows={rows} setupLabel={SETUP_COLUMN_LABEL_V2} />
             <p className={cn(styles.footnote, textCn('rs-text-3'))} data-testid="bench-table-note">
                 * Each configuration was executed with the time budget of 30 minutes per task.
             </p>
         </>
     );
-}
-
-function UncontrolledLeaderboardV2({ edition }: { edition: BenchEditionV2 }) {
-    const [taskGroup, setTaskGroup] = useTaskGroup();
-    return <LeaderboardV2View edition={edition} taskGroup={taskGroup} onTaskGroupChange={setTaskGroup} />;
-}
-
-export function LeaderboardV2({ edition, taskGroup, onTaskGroupChange }: LeaderboardV2Props) {
-    if (taskGroup !== undefined && onTaskGroupChange) {
-        return <LeaderboardV2View edition={edition} taskGroup={taskGroup} onTaskGroupChange={onTaskGroupChange} />;
-    }
-    return <UncontrolledLeaderboardV2 edition={edition} />;
 }

@@ -1,7 +1,13 @@
 import React, { useMemo } from 'react';
 
+import { BenchEditionV1, BenchRow, formatBenchDate, twoDecimals } from '@/utils/benchmark-leaderboard';
+
 import { BenchmarkTable } from './benchmark-table';
-import { BenchColumn, BenchEditionV1, BenchRow, columnsFor, formatBenchDate, twoDecimals } from '../leaderboard-data';
+import {
+    BenchColumn,
+    columnsFor,
+    SETUP_COLUMN_LABEL_V1
+} from '../leaderboard-data';
 
 const COLUMNS: BenchColumn<BenchRow>[] = [
     { key: 'submitted', label: 'Submitted', hint: 'Total tasks submitted for evaluation' },
@@ -32,5 +38,12 @@ export interface LeaderboardV1Props {
 export function LeaderboardV1({ edition }: LeaderboardV1Props) {
     const columns = useMemo(() => columnsFor(COLUMNS, edition.rows), [edition.rows]);
 
-    return <BenchmarkTable columns={columns} rows={edition.rows} notice={edition.notice} />;
+    return (
+        <BenchmarkTable
+            columns={columns}
+            rows={edition.rows}
+            setupLabel={SETUP_COLUMN_LABEL_V1}
+            notice={edition.notice}
+        />
+    );
 }

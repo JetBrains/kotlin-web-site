@@ -1,23 +1,3 @@
-export {
-    BENCH_TASK_GROUPS,
-    currentEdition,
-    formatBenchDate,
-    groupRows,
-    isGroupedEdition,
-    toEdition,
-    twoDecimals,
-    TOP_SCORE_COUNT,
-} from '@/utils/benchmark-leaderboard';
-export type {
-    BenchColumnKey,
-    BenchEdition,
-    BenchEditionV1,
-    BenchEditionV2,
-    BenchGroupRow,
-    BenchRow,
-    BenchTaskGroup,
-} from '@/utils/benchmark-leaderboard';
-
 /** Any row the common table can render: a named setup ranked by resolution rate. */
 export interface BenchTableRow {
     setup: string;
@@ -37,7 +17,8 @@ export interface BenchColumn<Row extends BenchTableRow> {
     optional?: boolean;
 }
 
-export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
+export const SETUP_COLUMN_LABEL_V1 = 'Setup (Agent + LLM) proprietary' as const;
+export const SETUP_COLUMN_LABEL_V2 = 'Setup (Agent + LLM)' as const;
 
 /** Placeholder for an optional value a row doesn't have. */
 export const MISSING_VALUE = '—' as const;

@@ -178,7 +178,7 @@ val top20ActorNames = actorDf
    // Counts the occurrences of each unique first name
    .count()
    
-    // Sorts the results in descending order of count
+   // Sorts the results in descending order of count
    .sortByDesc("count")
     
    // Selects the top 20 most frequent names for analysis.

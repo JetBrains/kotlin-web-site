@@ -171,11 +171,11 @@ fun main() {
 
 You can use the following extension functions to check whether elements already follow a specified order:
 
-* `.isSorted()`
-* `.isSortedDescending()`
-* `.isSortedWith(comparator)`
-* `.isSortedBy(selector)`
-* `.isSortedByDescending(selector)`
+* [`.isSorted()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-sorted.html)
+* [`.isSortedDescending()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-sorted-descending.html)
+* [`.isSortedWith(comparator)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-sorted-with.html)
+* [`.isSortedBy(selector)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-sorted-by.html)
+* [`.isSortedByDescending(selector)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/is-sorted-by-descending.html)
 
 These extension functions return `true` if the elements are in the specified order or if there are fewer than two elements.
 They return `false` and stop checking as soon as they find an out-of-order pair.
@@ -287,4 +287,3 @@ fun main() {
 }
 ```
 {kotlin-runnable="true"}
-
