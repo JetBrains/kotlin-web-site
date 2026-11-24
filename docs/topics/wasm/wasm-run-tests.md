@@ -11,25 +11,22 @@ For browser testing, you can choose between the following options:
 
 * The [Karma](https://karma-runner.github.io/) test runner is the default. However, the Karma project is deprecated,
   and no new features or bug fixes are expected.
-* The experimental DSL for browser testing. You can you use as an alternative to Karma. It uses:
+* The experimental DSL for browser testing is an alternative to Karma. It uses:
 
-    * [Playwright](https://playwright.dev/) to download and control the browsers, so you don't need to install them yourself.
-      You simply specify which browser engines to use.
+    * [Playwright](https://playwright.dev/) to automatically download and control the browsers based on the browser engines you specify.
     * [Mocha](https://mochajs.org/) to run the tests inside the browser.
 
-> The new DSL is [Experimental](components-stability.md#stability-levels-explained) and available starting with Kotlin 2.5.0.
-> It may change at any time. Opt-in is required with the `@OptIn(ExperimentalJsTestDsl::class)` annotation.
+> The browser DSL is [Experimental](components-stability.md#stability-levels-explained) and available since Kotlin 2.5.0.
+> It may be dropped or changed at any time. To opt in, use the `@OptIn(ExperimentalJsTestDsl::class)` annotation.
 >
 {style="warning"}
 
-The examples below assume your project has a module named `shared` with a `wasmJs` browser target.
+The examples use a `shared` module.
 
 ## Add test dependencies
 
-To write and run tests, you need the `kotlin-test` library. It provides test annotations and assertion functions.
-
-In a multiplatform project, code and its dependencies are organized in source sets. Add the `kotlin-test` dependency to
-`commonTest` to make it available to test source sets that depend on `commonTest`, including `wasmJsTest`:
+To write and run tests, add the `kotlin-test` dependency to `commonTest`. This makes test annotations and assertion
+functions available in `commonTest` and in source sets that depend on it, such as `wasmJsTest`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -39,7 +36,7 @@ In a multiplatform project, code and its dependencies are organized in source se
 kotlin {
     sourceSets {
         commonTest.dependencies {
-            // Enables test annotations and functionality in Wasm
+            // Enables test annotations and assertion functions for Kotlin/Wasm tests
             implementation(kotlin("test"))
         }
     }
@@ -55,7 +52,7 @@ kotlin {
     sourceSets {
         commonTest {
             dependencies {
-                // Enables test annotations and functionality in Wasm
+                // Enables test annotations and assertion functions for Kotlin/Wasm tests
                 implementation kotlin("test")
             }
         }
@@ -68,18 +65,15 @@ kotlin {
 
 ## Configure browsers
 
-You can run Kotlin/Wasm tests in specific browsers. By default, Karma uses
-[Headless Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md), and the experimental DSL uses Chromium.
-See the [browser versions supported by Kotlin/Wasm](wasm-configuration.md#browser-versions).
-
-To use specific browsers, use the `testTask {}` block for Karma or the `test {}` block for the
+You can run Kotlin/Wasm tests in specific browsers that meet [Kotlin/Wasm requirements](wasm-configuration.md#browser-versions).
+By default, Karma uses [Headless Chromium](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md), and the experimental DSL uses Chromium.
+To configure specific browsers, use the `testTask {}` block for Karma or the `test {}` block for the
 experimental DSL for browser testing:
 
 <tabs group="wasm-test-configure">
 <tab title="Karma" group-key="karma">
 
 ```kotlin
-// shared/build.gradle.kts
 kotlin {
     wasmJs {
         browser {
@@ -95,13 +89,12 @@ kotlin {
 }
 ```
 
-With Karma, install each configured browser on the machine where you run the tests, locally or in CI.
+With Karma, install each configured browser on the machine where the tests run, such as your local machine or a CI runner.
 
 </tab>
 <tab title="DSL for browser testing" group-key="Browser-test-dsl">
 
 ```kotlin
-// shared/build.gradle.kts
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
 
 kotlin {
@@ -124,7 +117,7 @@ Gradle reports a warning and uses Chromium.
 </tab>
 </tabs>
 
-If you use IntelliJ IDEA, make sure to click **Sync Gradle Changes** to load the updated configuration.
+If you use IntelliJ IDEA, click **Sync Gradle Changes** to load the updated configuration.
 
 ### Configure browser runners
 <primary-label ref="experimental-opt-in"/>
@@ -133,7 +126,7 @@ If you use IntelliJ IDEA, make sure to click **Sync Gradle Changes** to load the
 >
 {style="note"}
 
-With the new DSL, you can apply custom options to browser runners:
+With the DSL for browser testing, you can apply custom options to browser runners:
 
 * To apply options to all browser runners, set them in the `test {}` block.
 * To override an option for a single runner, set it in that runner's configuration block. 
@@ -149,10 +142,10 @@ kotlin {
         browser {
             @OptIn(ExperimentalJsTestDsl::class)
             test {
-                // Applies to all browser runners
+                // Sets the default timeout for all browser runners
                 timeout = 10.seconds
 
-                // Runs browsers in headless mode only in CI
+                // Enables headless mode only in CI
                 headless = providers
                     .environmentVariable("CI")
                     .map { it.toBoolean() }
@@ -161,7 +154,7 @@ kotlin {
                 chromium()
                 firefox()
 
-                // Enables and configures the WebKit runner
+                // Enables the WebKit runner and overrides the default timeout
                 webkit("safari") {
                     timeout = 35.seconds
                 }
@@ -173,13 +166,11 @@ kotlin {
 
 ## Add the tests
 
-Let's add two tests that check how Kotlin numbers behave in WebAssembly.
+Place tests that use only common APIs in the `commonTest` source set. This way, they can run on all targets in the module.
+The `wasmJsBrowserTest` task compiles these tests to WebAssembly and runs them in a browser.
 
-In Kotlin/Wasm, `Int` values are compiled to 32-bit WebAssembly integers, and `Long` values to 64-bit WebAssembly integers. 
-In this example, one test passes, and the other fails intentionally so you can see how the test runner reports a failure.
-
-The tests don't depend on any platform, so place them in the `commonTest` source set. Create the
-`shared/src/commonTest/kotlin/NumbersTest.kt` file with the following content:
+The following example shows a test class in `shared/src/commonTest/kotlin/NumbersTest.kt`.
+One test fails intentionally to demonstrate how the runner reports failures:
 
 ```kotlin
 import kotlin.test.Test
@@ -202,56 +193,38 @@ class NumbersTest {
 }
 ```
 
-The `intOverflows()` test fails because the sum exceeds the maximum value of a signed 32-bit integer and wraps to 
-`Int.MIN_VALUE` (`-2_147_483_648`).
-
-Tests in `commonTest` are available to all targets of the module. When you run them with `wasmJsBrowserTest`,
-they're compiled to WebAssembly and run in a browser.
+The `longKeepsPrecision()` function passes because the sum fits in a `Long`. The `intOverflows()` function fails because
+adding `1` to `Int.MAX_VALUE` wraps the result to `Int.MIN_VALUE` (`-2_147_483_648`) before `toLong()` converts it.
 
 ## Run the tests
 
-1. Run the tests using one of the following options:
+You can run Kotlin/Wasm browser tests from IntelliJ IDEA or the terminal:
 
-    * In IntelliJ IDEA, click the green **Run** icon in the gutter next to the `NumbersTest` class and choose the **wasmJs** option.
-    * In the terminal, run the `wasmJsBrowserTest` Gradle task from the project root directory:
+* In IntelliJ IDEA, click the green **Run** icon in the gutter next to the `NumbersTest` class and choose the **wasmJs** option. 
+* In the terminal, run the `wasmJsBrowserTest` Gradle task from the project root directory:
 
       ```bash
       ./gradlew :shared:wasmJsBrowserTest
       ```
 
-    With the experimental DSL, Gradle downloads the configured browsers through Playwright on the first run.
-    Other projects that use the same browser versions can reuse these downloads.
+With the experimental DSL, Playwright downloads the configured browsers the first time you run the tests.
+Other projects that use the same browser versions can reuse those downloads.
 
-2. Review the test results using one of the following options:
+You can also review the test results:
 
-   * In IntelliJ IDEA, use the **Run** tool window. Click a failed test to see its stack trace,
-     or double-click it to navigate to its implementation.
+* In IntelliJ IDEA, use the **Run** tool window. Click a failed test to see its stack trace or double-click it to navigate
+  to its implementation. The square brackets in the test name identify the target, environment, and browser runner.
 
-     ![Wasm failing tests](wasm-failing-tests.png){width=800}
+  ![Wasm failing tests](wasm-failing-tests.png){width=800}
 
-     The part in square brackets shows where the test runs: the target, the environment, and the
-     browser runner. This information is useful when you run tests in several browsers.
+* In the Gradle test report, open `shared/build/reports/tests/wasmJsBrowserTest/index.html` in a browser. Follow the links
+  in the report to see details about individual test cases.
 
-   * Open the Gradle test report at `shared/build/reports/tests/wasmJsBrowserTest/index.html` in a browser:
+  ![Gradle report for Wasm failing tests](wasm-test-report.png){width=500}
 
-     ![Gradle report for Wasm failing tests](wasm-test-report.png){width=500}
-
-     Follow the links in the report to see details about individual test cases.
-
-   In this example, one test passes, and one test fails, resulting in a 50% success rate.
-
-3. Fix the test. In `NumbersTest.kt`, convert `Int.MAX_VALUE` to `Long` before adding `1`
-   so the sum is calculated as a 64-bit integer:
-
-    ```kotlin
-    @Test
-    fun intOverflows() {
-        val sum = Int.MAX_VALUE.toLong() + 1
-        assertEquals(2_147_483_648L, sum)
-    }
-    ```
-
-4. Run the tests again. All tests pass, and the Gradle build finishes successfully.
+  In the `NumbersTest` example, `intOverflows()` fails, resulting in a 50% success rate. To make it pass, convert
+  `Int.MAX_VALUE` to `Long` before adding `1` by changing the expression to `Int.MAX_VALUE.toLong() + 1`. If you rerun
+  the example after this change, both tests pass.
 
 ## Leave feedback
 
