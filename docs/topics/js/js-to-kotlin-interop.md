@@ -217,6 +217,33 @@ JavaScript [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaSc
     console.log(result); // "done"
     ```
 
+#### Export type aliases
+
+You can export a Kotlin [type alias](type-aliases.md) to TypeScript if the type it points to is exportable.
+The compiler generates a matching TypeScript type alias.
+
+To export a type alias, mark it with the `@JsExport` annotation on the Kotlin side:
+
+```kotlin
+// Kotlin
+@JsExport
+class Product(val id: String, val title: String)
+
+@JsExport
+typealias Catalog = Array<Product>
+
+@JsExport
+fun firstProduct(catalog: Catalog): Product = catalog.first()
+```
+
+On the TypeScript side, it keeps the same name for the `Catalog` type alias:
+
+```typescript
+// TypeScript
+declare type Catalog = Array<Product>;
+declare function firstProduct(catalog: Catalog): Product;
+```
+
 ### `@JsNoRuntime` annotation
 
 You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
