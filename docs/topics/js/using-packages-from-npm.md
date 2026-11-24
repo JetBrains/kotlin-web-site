@@ -3,15 +3,21 @@
 In Kotlin/JS projects, all dependencies can be managed through the Gradle plugin. This includes Kotlin/Multiplatform
 libraries such as `kotlinx.coroutines`, `kotlinx.serialization`, or `ktor-client`.
 
-For depending on JavaScript packages from [npm](https://www.npmjs.com/), the Gradle DSL exposes an `npm` function that
+For depending on JavaScript packages from [npm](https://www.npmjs.com/), the Gradle DSL exposes an `npm()` function that
 lets you specify packages you want to import from npm. Let's consider the import of an NPM package called [`is-sorted`](https://www.npmjs.com/package/is-sorted).
 
-The corresponding part in the Gradle build file looks as follows:
+In your Gradle build file, declare npm dependencies in the `dependencies {}` block of the corresponding source set:
 
 ```kotlin
-dependencies {
-    // ...
-    implementation(npm("is-sorted", "^1.0.5"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                // ...
+                npm("is-sorted", "^1.0.5")
+            }
+        }
+    }
 }
 ```
 
