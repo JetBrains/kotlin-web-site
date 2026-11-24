@@ -236,7 +236,7 @@ typealias Catalog = Array<Product>
 fun firstProduct(catalog: Catalog): Product = catalog.first()
 ```
 
-On the TypeScript side, it keeps the same short name:
+On the TypeScript side, it keeps the same name for the `Catalog` type alias:
 
 ```typescript
 // TypeScript
