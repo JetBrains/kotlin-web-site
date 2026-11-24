@@ -539,7 +539,6 @@ Add variable and function names that you declared in Kotlin code into the source
 | `fully-qualified-names` | Variable names and fully qualified function names are added.  | `com.example.kjs.playground.main` |
 | `no`                    | No variable or function names are added.                      | N/A                               |
 
-
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
@@ -554,10 +553,21 @@ Generate JS files for the specified ECMA version.
 Allow [implementing Kotlin interfaces](whatsnew2320.md#implementing-kotlin-interfaces-from-javascript-typescript)
 exported with the `@JsExport` annotation from JavaScript/TypeScript.
 
+### -Xdts-use-unknown-instead-of-any
+<primary-label ref="experimental-general"/>
+
+Generate the TypeScript [`unknown`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#new-unknown-top-type)
+type in `.d.ts` declaration files for `dynamic`, `Any`, and implicitly exported types.
+
 ### -Xes-long-as-bigint
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 This option is required for the `es5` and `es2015` targets only. The `es2020` target enables this option by default.
+
+### -Xexport-kdoc
+<primary-label ref="experimental-general"/>
+
+Copy [KDoc](kotlin-doc.md) comments from exported Kotlin declarations into the generated `.d.ts` declaration files.
 
 ### -Xinteger-division-check
 <primary-label ref="experimental-general"/>
