@@ -114,7 +114,7 @@ fun main() {
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
 On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#read-only-and-mutable-collections) collections.
 These functions return their result as a new collection containing the elements of the original collection in the requested order.
-To learn about functions for sorting [mutable](collections-overview.md#read-only-and-mutable-collections) collections in place, see the [List-specific operations](list-operations.md#sort).
+To learn about functions for sorting [mutable](collections-overview.md#read-only-and-mutable-collections) collections in place, see [Reorder elements](collection-write.md#reorder-elements).
 
 ## Natural order
 

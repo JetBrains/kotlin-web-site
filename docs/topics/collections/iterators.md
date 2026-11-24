@@ -107,49 +107,5 @@ fun main() {
 
 Having the ability to iterate in both directions, means the `ListIterator` can still be used after it reaches the last element.
 
-## Mutable iterators
-
-For iterating mutable collections, there is [`MutableIterator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/index.html)
-that extends `Iterator` with the element removal function [`remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/remove.html).
-So, you can remove elements from a collection while iterating it. 
-
-```kotlin
-
-fun main() {
-//sampleStart
-    val numbers = mutableListOf("one", "two", "three", "four") 
-    val mutableIterator = numbers.iterator()
-    
-    mutableIterator.next()
-    mutableIterator.remove()    
-    println("After removal: $numbers")
-    // After removal: [two, three, four]
-//sampleEnd
-}
-```
-{kotlin-runnable="true"}
-
-In addition to removing elements, the [`MutableListIterator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/index.html)
-can also insert and replace elements while iterating the list by using the [`add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/add.html)
-and [`set()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/set.html) functions.
-
-```kotlin
-
-fun main() {
-//sampleStart
-    val numbers = mutableListOf("one", "four", "four") 
-    val mutableListIterator = numbers.listIterator()
-    
-    mutableListIterator.next()
-    mutableListIterator.add("two")
-    println(numbers)
-    // [one, two, four, four]
-    mutableListIterator.next()
-    mutableListIterator.set("three")   
-    println(numbers)
-    // [one, two, three, four]
-//sampleEnd
-}
-```
-{kotlin-runnable="true"}
-
+To add, remove, or replace elements while iterating a mutable collection, use mutable iterators.
+For more information, see [](collection-write.md#change-collections-while-iterating).
