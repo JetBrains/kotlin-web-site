@@ -59,7 +59,7 @@ export const NewsletterForm: FC = () => {
                         together.
                     </p>
                     <p className={textCn('rs-text-2', { hardness: 'average' })}>
-                        These are newsletter preferences. They do not define commercial patch coverage or enroll you in
+                        These are newsletter preferences. They do not define paid patch coverage or enroll you in
                         a paid subscription.
                     </p>
                 </>

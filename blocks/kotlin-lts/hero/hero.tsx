@@ -25,7 +25,7 @@ export const Hero: FC = () => {
                         Kotlin <span className={styles.titleLine}>Long-Term Security Support</span>
                     </h1>
                     <p className={cn(textCn('rs-text-1', { hardness: 'average' }), styles.description)}>
-                        Commercial long-term security support for your Kotlin stack, with minimal upgrade effort.
+                        Paid targeted security patch subscription for your Kotlin stack, with minimal upgrade effort.
                     </p>
                     <div className={styles.actions}>
                         <Button
@@ -41,7 +41,7 @@ export const Hero: FC = () => {
                         <Button
                             mode="outline"
                             size={buttonSize}
-                            href={`#${SECTION_IDS.benefits}`}
+                            href={`#${SECTION_IDS.coverage}`}
                             className={styles.button}
                         >
                             What's included

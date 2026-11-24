@@ -7,7 +7,6 @@ import { useTextStyles } from '@rescui/typography';
 
 import { NEWSLETTER_URL } from '../constants';
 import mailGraphic from '@/blocks/education/subscription-form/mail-icon.svg';
-import shared from '../kotlin-lts.module.css';
 import styles from './newsletter.module.css';
 
 export const Newsletter: FC = () => {
@@ -21,16 +20,12 @@ export const Newsletter: FC = () => {
                 </div>
                 <div className={styles.copy}>
                     <div className={styles.intro}>
-                        <p className={cn(textCn('rs-text-2'), shared.eyebrow, styles.eyebrow)}>
-                            Kotlin Security Newsletter
-                        </p>
                         <h2 id="lts-newsletter-title" className={cn(textCn('rs-h3'), styles.title)}>
-                            Stay in touch
+                            Kotlin Security Newsletter
                         </h2>
                     </div>
                     <p className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.description)}>
-                        Follow relevant vulnerabilities, affected versions, and available fixes across the ecosystems
-                        you choose.
+                        Fixed CVEs, affected versions, and dependency updates in a free, regular digest.
                     </p>
                 </div>
                 <Button
@@ -40,7 +35,7 @@ export const Newsletter: FC = () => {
                     iconPosition="right"
                     className={styles.action}
                 >
-                    Sign up
+                    Track Kotlin security fixes
                 </Button>
             </div>
         </section>

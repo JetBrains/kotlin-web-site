@@ -43,14 +43,14 @@ for (const viewport of [
             ).toEqual([
                 'lts-hero',
                 'lts-constraints',
-                'lts-newsletter',
-                'lts-benefits',
                 'lts-coverage',
                 'lts-how',
+                'lts-benefits',
+                'lts-newsletter',
                 'lts-faq',
                 'lts-cta',
             ]);
-            await expect(lts.coverage.getByRole('heading', { level: 3 })).toHaveText([
+            await expect(lts.coverage.getByRole('listitem').getByRole('heading', { level: 3 })).toHaveText([
                 'Kotlin',
                 'kotlinx libraries',
                 'Ktor',
@@ -62,12 +62,7 @@ for (const viewport of [
             await expect(lts.coverage.getByRole('listitem').filter({ hasText: 'kotlinx libraries' })).toContainText(
                 'coroutines and serialization'
             );
-            await expect(lts.coverage).toContainText('agreed for your subscription');
-            await expect(lts.coverage.getByRole('link', { name: 'Contact the team', exact: true })).toHaveAttribute(
-                'href',
-                CONTACT_TEAM_URL
-            );
-            await expect(lts.benefits.getByRole('link', { name: 'Read the public support policy' })).toHaveAttribute(
+            await expect(lts.benefits.getByRole('link', { name: 'Public support policy' })).toHaveAttribute(
                 'href',
                 PUBLIC_SUPPORT_URL
             );
@@ -121,16 +116,16 @@ for (const viewport of [
             for (const contact of await contacts.all()) await expect(contact).toHaveAttribute('href', CONTACT_TEAM_URL);
             await expect(lts.hero.getByRole('link')).toHaveCount(2);
             const included = lts.hero.getByRole('link', { name: "What's included" });
-            await expect(included).toHaveAttribute('href', '#benefits');
+            await expect(included).toHaveAttribute('href', '#coverage');
             await included.click();
-            await expect(lts.benefits.getByRole('heading', { level: 2 })).toBeInViewport({ ratio: 1 });
-            await expect(lts.newsletter.getByRole('link', { name: 'Sign up' })).toHaveAttribute(
+            await expect(lts.coverage.getByRole('heading', { level: 2 })).toBeInViewport();
+            await expect(lts.newsletter.getByRole('link', { name: 'Track Kotlin security fixes' })).toHaveAttribute(
                 'href',
                 NEWSLETTER_URL
             );
-            await lts.coverage.getByRole('link', { name: 'Contact the team', exact: true }).click();
+            await lts.cta.getByRole('link', { name: 'Contact team', exact: true }).click();
             await expect(page).toHaveURL(new RegExp(`${CONTACT_TEAM_URL}$`));
-            await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discuss a commercial subscription');
+            await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discuss a paid subscription');
             await expect(page.getByRole('checkbox')).toHaveCount(0);
             expect(await lts.expectNoOverflow()).toBe(true);
         });
@@ -158,7 +153,6 @@ for (const viewport of [
             }
 
             for (const card of [
-                lts.benefits.getByRole('article').first(),
                 lts.coverage.getByRole('listitem').first(),
             ]) {
                 await card.scrollIntoViewIfNeeded();
@@ -192,7 +186,6 @@ for (const viewport of [
             await page.reload();
             await page.locator('html.hydrated').waitFor();
             for (const card of [
-                ...(await lts.benefits.getByRole('article').all()),
                 ...(await lts.coverage.getByRole('listitem').all()),
             ]) {
                 await card.scrollIntoViewIfNeeded();
@@ -205,21 +198,21 @@ for (const viewport of [
 
         test('supports keyboard opening and closing of the initially collapsed FAQ', async () => {
             const items = lts.faq.locator('details');
-            await expect(items).toHaveCount(7);
+            await expect(items).toHaveCount(8);
             for (const item of await items.all()) await expect(item).not.toHaveAttribute('open', '');
             const question = lts.faq.getByText('What happens after I contact the team?', { exact: true });
             await question.focus();
             await question.press('Enter');
-            await expect(items.nth(5)).toHaveAttribute('open', '');
-            await expect(items.nth(5).getByText(/We’ll review your components/)).toBeVisible();
+            await expect(items.nth(6)).toHaveAttribute('open', '');
+            await expect(items.nth(6).getByText(/We’ll review your components/)).toBeVisible();
             await question.press('Space');
-            await expect(items.nth(5)).not.toHaveAttribute('open', '');
-            await expect(items.nth(5).getByText(/We’ll review your components/)).not.toBeVisible();
+            await expect(items.nth(6)).not.toHaveAttribute('open', '');
+            await expect(items.nth(6).getByText(/We’ll review your components/)).not.toBeVisible();
         });
 
         test('validates inquiry fields and clearly previews without sending or enrolling', async ({ page }) => {
             await page.goto(CONTACT_TEAM_URL);
-            const form = page.getByRole('form', { name: 'Commercial support inquiry preview' });
+            const form = page.getByRole('form', { name: 'Paid support inquiry preview' });
             const submit = form.getByRole('button', { name: 'Preview request' });
             const status = form.getByRole('status');
             const requests = observeSubmissions(page);
@@ -250,7 +243,7 @@ for (const viewport of [
         test('requires a newsletter topic, permits every combination, and never creates a subscription', async ({
             page,
         }) => {
-            await lts.newsletter.getByRole('link', { name: 'Sign up' }).click();
+            await lts.newsletter.getByRole('link', { name: 'Track Kotlin security fixes' }).click();
             await expect(page).toHaveURL(new RegExp(`${NEWSLETTER_URL}$`));
             const form = page.getByRole('form', { name: 'Security newsletter signup preview' });
             const topics = form.getByRole('checkbox');
@@ -316,18 +309,13 @@ test('keeps animated-section content available without JavaScript', async ({ bro
     const page = await context.newPage();
     await page.goto('/kotlin-lts/');
     const lts = new KotlinLtsPage(page);
-    await expect(lts.benefits.getByRole('article')).toHaveCount(2);
+    await expect(lts.benefits.getByRole('table')).toBeVisible();
     await expect(lts.coverage.getByRole('listitem')).toHaveCount(5);
     for (const card of [
-        ...(await lts.benefits.getByRole('article').all()),
         ...(await lts.coverage.getByRole('listitem').all()),
     ]) {
         await expect(card).toBeVisible();
     }
-    await expect(lts.coverage.getByRole('link', { name: 'Contact the team', exact: true })).toHaveAttribute(
-        'href',
-        CONTACT_TEAM_URL
-    );
     await context.close();
 });
 

@@ -44,11 +44,6 @@
     overflow-wrap: anywhere;
 }
 
-.footnote {
-    max-width: 800px;
-    margin: 24px 0 0;
-}
-
 @media (--ktl-tl-down) {
     .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

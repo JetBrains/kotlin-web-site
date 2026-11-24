@@ -4,40 +4,221 @@
     border-bottom: 1px solid #e6e6e8;
 }
 
-.grid {
+.contact {
+    margin: 20px 0 0;
+}
+
+.comparison {
+    --public-start: 47%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 16px 24px;
+    align-items: center;
     margin-top: 40px;
 }
 
-.card {
-    background: #f8f8f9;
-}
-
-.icon {
+.timeline {
+    font-size: 14px;
+    position: relative;
     display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 24px;
-    border-radius: 12px;
-    background: #eee7fb;
-    color: #6b3dcc;
+    grid-template-columns: var(--public-start) 0 1fr;
+    grid-column: 2;
+    margin: 0;
+    padding: 0 0 12px;
+    border-bottom: 1px solid #a0a0a8;
+    list-style: none;
 }
 
-.title {
+.timeline::after {
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #a0a0a8;
+    border-right: 1px solid #a0a0a8;
+    transform: rotate(45deg);
+    content: '';
+}
+
+.timeline li {
+    position: relative;
+    justify-self: center;
+    white-space: nowrap;
+}
+
+.timeline li::after {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    box-sizing: border-box;
+    border: 1px solid #777781;
+    border-radius: 50%;
+    background: #fff;
+    transform: translateX(-50%);
+    content: '';
+}
+
+.timeline li:nth-child(2)::after {
+    background: #19191c;
+    border-color: #19191c;
+}
+
+.label,
+.publicSupport,
+.paidCopy {
     margin: 0;
 }
 
-.description {
-    margin: 16px 0 0;
+.label,
+.paidCopy {
+    font-weight: 600;
 }
 
-@media (--ktl-tl-down) {
-    .grid {
+.label {
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.publicSupport {
+    position: relative;
+    margin-left: var(--public-start);
+    padding: 16px 20px;
+    border-left: 2px solid #60606a;
+    border-radius: 12px;
+    border-top-left-radius: 0;
+    background: #f0f0f2;
+}
+
+.publicSupport::before {
+    position: absolute;
+    left: -2px;
+    top: -16px;
+    height: 16px;
+    border-left: 2px dotted #a0a0a8;
+    content: '';
+}
+
+.publicSupport > span {
+    display: block;
+}
+
+.mobileStart {
+    display: none;
+}
+
+.paidLabel {
+    color: #6b3dcc;
+}
+
+.paidSupport {
+    position: relative;
+    overflow: hidden;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: radial-gradient(ellipse at top right, #c4aff5, #ece5fc 75%);
+    color: #352064;
+}
+
+.paidCopy {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin-right: 100px;
+}
+
+.sphere {
+    position: absolute;
+    right: 12px;
+    bottom: -50px;
+    width: 112px;
+    height: auto;
+    pointer-events: none;
+}
+
+@media (--ktl-ml-down) {
+    .comparison {
         grid-template-columns: minmax(0, 1fr);
-        gap: 16px;
+        gap: 12px;
         margin-top: 32px;
+    }
+
+    .timeline {
+        grid-column: 1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .timeline li {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .mobileStart {
+        display: inline;
+    }
+
+    .publicSupport {
+        margin-left: 0;
+        border-top-left-radius: 12px;
+    }
+
+    .publicSupport::before {
+        display: none;
+    }
+
+    .paidLabel {
+        margin-top: 8px;
+    }
+
+    .paidCopy {
+        margin-right: 52px;
+    }
+
+    .sphere {
+        right: -32px;
+    }
+}
+
+@media (--ktl-ds-up) {
+    .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        align-items: center;
+        gap: clamp(48px, 5vw, 72px);
+    }
+
+    .description {
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    .comparison {
+        grid-template-columns: max-content minmax(0, 1fr);
+        gap: 8px 16px;
+        margin-top: 0;
+    }
+
+    .publicSupport,
+    .paidSupport {
+        padding: 8px 12px;
+    }
+
+    .publicSupport::before {
+        top: -8px;
+        height: 8px;
+    }
+
+    .paidCopy {
+        margin-right: 64px;
+    }
+
+    .sphere {
+        right: 4px;
+        width: 88px;
+        bottom: -38px;
     }
 }

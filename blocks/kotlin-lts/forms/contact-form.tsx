@@ -16,15 +16,15 @@ export const ContactForm: FC = () => {
     return (
         <FormLayout
             eyebrow="Contact the Kotlin team"
-            title="Discuss a commercial subscription"
-            intro="Talk to the Kotlin team about your required coverage, supported versions, upgrade constraints, and support period. We’ll review your needs together and discuss whether commercial support is a fit."
+            title="Discuss a paid subscription"
+            intro="Talk to the Kotlin team about your required coverage, supported versions, upgrade constraints, and support period. We’ll review your needs together and discuss whether paid support is a fit."
             aside={
                 <>
                     <h2 className={cn(textCn('rs-h3'), styles.asideTitle)}>What happens next</h2>
                     <ol className={cn(textCn('rs-text-2'), styles.nextSteps)}>
                         <li>We review your support requirements.</li>
                         <li>We contact you to discuss components, versions, and update constraints.</li>
-                        <li>Together, we establish coverage and whether a commercial subscription fits your needs.</li>
+                        <li>Together, we establish coverage and whether a paid subscription fits your needs.</li>
                     </ol>
                     <p className={textCn('rs-text-2', { hardness: 'average' })}>
                         You can start the conversation before you know the exact coverage you need.
@@ -35,7 +35,7 @@ export const ContactForm: FC = () => {
             <form
                 onSubmit={handleSubmit}
                 onInput={() => setPreviewed(false)}
-                aria-label="Commercial support inquiry preview"
+                aria-label="Paid support inquiry preview"
             >
                 <fieldset disabled={!ready} className={styles.fields}>
                     <legend className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.required)}>

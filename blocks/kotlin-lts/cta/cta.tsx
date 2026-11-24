@@ -21,12 +21,12 @@ export const Cta: FC = () => {
             <div className={cn('ktl-layout', 'ktl-layout--center', styles.content)}>
                 <div className={styles.copy}>
                     <h2 id="lts-cta-title" className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-cta-title">
-                        Secure your Kotlin stack
+                        Discuss coverage for your stack
                     </h2>
                     <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), styles.text)}>
-                        Talk to the Kotlin team about your required coverage, supported versions, upgrade constraints,
-                        and support period. We’ll review your needs together and discuss whether commercial support is a
-                        fit.
+                        Start with a free assessment. We’ll review the Kotlin components and versions you need to
+                        cover, discuss any upgrade constraints, and help you decide whether paid Kotlin LTS is right
+                        for your team.
                     </p>
                     <Button
                         mode="classic"

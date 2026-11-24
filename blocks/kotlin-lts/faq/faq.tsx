@@ -11,11 +11,33 @@ import styles from './faq.module.css';
 const FAQ_ITEMS = [
     {
         question: 'What does paid support add to public Kotlin security support?',
-        answer: 'Public security support covers the Kotlin standard library for the JVM under the published policy. Commercial support covers a broader range of Kotlin components and offers a support window agreed with your team, including support beyond the public window. It also includes private patch delivery, direct communication, and security advisories with guidance and workarounds.',
+        answer: (
+            <>
+                Public security support covers the Kotlin standard library for the JVM under the published policy.
+                Paid support covers{' '}
+                <a className={styles.inlineLink} href={`#${SECTION_IDS.coverage}`}>
+                    a broader range of Kotlin components
+                </a>{' '}
+                and offers a support window agreed with your team, including support beyond the public window.
+                It also includes private patch delivery, direct communication, and security advisories with guidance
+                and workarounds.
+            </>
+        ),
+    },
+    {
+        question: 'When should we consider paid Kotlin LTS?',
+        answer: 'Consider paid Kotlin LTS if you need to keep your current Kotlin version in production and continue receiving fixes while you prepare for an upgrade.',
+        blockers: [
+            'Gradle and plugin compatibility',
+            'Certification and audit requirements',
+            'Regression testing',
+            'Release freezes',
+            'Distributed or hard-to-update deployments',
+        ],
     },
     {
         question: 'Which components, platforms, and release lines are covered?',
-        answer: 'Commercial support covers Kotlin, including the compiler, standard library, and build plugins; kotlinx libraries, including coroutines and serialization; Ktor; Exposed; and Compose Multiplatform. The components, platforms, release lines, and support window for your subscription are agreed with your team.',
+        answer: 'Paid support covers Kotlin, including the compiler, standard library, and build plugins. It also covers Ktor, Exposed, Compose Multiplatform, and kotlinx libraries such as coroutines and serialization. We work with your team to confirm which components, platforms, and release lines your subscription covers and for how long.',
     },
     {
         question: 'Can I stay on my exact version?',
@@ -27,11 +49,12 @@ const FAQ_ITEMS = [
     },
     {
         question: 'Which security issues qualify, and what timelines apply?',
-        answer: 'Patch eligibility, notification, and delivery terms need to be confirmed for your subscription. Talk to the team about your security requirements and required timelines.',
+        answer: 'Fixes for newly disclosed CVEs are eligible for backporting from newer releases to the components and versions covered by your subscription. We’ll agree with your team on delivery timelines based on the issue and your support scope.',
+        followUp: 'If a specific performance issue or another bug is affecting your team, you can also ask us whether a fix can be included in your support scope.',
     },
     {
         question: 'What happens after I contact the team?',
-        answer: 'We’ll review your components, versions, upgrade constraints, and support requirements together. The initial conversation helps establish which update options are available and whether commercial support fits your needs.',
+        answer: 'We’ll review your components, versions, upgrade constraints, and support requirements together. The initial conversation helps establish which update options are available and whether paid support fits your needs.',
     },
     {
         question: 'How is the subscription priced?',
@@ -50,12 +73,11 @@ export const Faq: FC = () => {
             data-testid="lts-faq"
         >
             <div className="ktl-layout ktl-layout--center">
-                <p className={cn(textCn('rs-text-2'), shared.eyebrow)}>Frequently asked questions</p>
                 <h2 id="lts-faq-title" className={cn(textCn('rs-h1'), shared.title)}>
                     Questions before you get in touch
                 </h2>
                 <div className={styles.questions}>
-                    {FAQ_ITEMS.map(({ question, answer }, index) => (
+                    {FAQ_ITEMS.map(({ question, answer, blockers, followUp }, index) => (
                         <details key={question} className={styles.item}>
                             <summary className={cn(textCn('rs-text-2'), styles.question)}>
                                 {question}
@@ -66,6 +88,15 @@ export const Faq: FC = () => {
                             </summary>
                             <div className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.answer)}>
                                 <p>{answer}</p>
+                                {followUp && <p>{followUp}</p>}
+                                {blockers && (
+                                    <>
+                                        <p><strong>Common upgrade blockers</strong></p>
+                                        <ul>
+                                            {blockers.map((blocker) => <li key={blocker}>{blocker}</li>)}
+                                        </ul>
+                                    </>
+                                )}
                                 {index === 0 && (
                                     <a className={textCn('rs-link')} href={PUBLIC_SUPPORT_URL}>
                                         Read the public support policy

@@ -4,7 +4,7 @@ import { cardCn } from '@rescui/card';
 import { useTextStyles } from '@rescui/typography';
 import { CodeIcon, PackageIcon, ServerIcon, FolderIcon, TabletIcon } from '@rescui/icons';
 
-import { CONTACT_TEAM_URL, SECTION_IDS } from '../constants';
+import { SECTION_IDS } from '../constants';
 import { COVERAGE_ITEMS } from './coverage-data';
 import { useCardEntrance } from '../use-card-entrance';
 
@@ -36,10 +36,10 @@ export const Coverage: FC = () => {
                     className={cn(textCn('rs-h1'), shared.title)}
                     data-testid="lts-coverage-title"
                 >
-                    What is covered by commercial support?
+                    What is covered by paid support
                 </h2>
                 <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
-                    Commercial support covers the broader Kotlin stack and extends security support beyond the public
+                    Paid support covers the broader Kotlin stack and extends security support beyond the public
                     support window. We agree the components, platforms, release lines, and support window with your team.
                 </p>
 
@@ -65,13 +65,6 @@ export const Coverage: FC = () => {
                         );
                     })}
                 </ul>
-                <p className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.footnote)}>
-                    Coverage applies to the components and release lines agreed for your subscription.{' '}
-                    <a href={CONTACT_TEAM_URL} className={textCn('rs-link')}>
-                        Contact the team
-                    </a>{' '}
-                    to review your versions and support requirements.
-                </p>
             </div>
         </section>
     );

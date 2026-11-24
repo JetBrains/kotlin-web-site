@@ -1,133 +1,203 @@
 @import '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss';
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 40px;
+.tableScroll {
+    overflow-x: auto;
+    margin-top: 32px;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    border: 1px solid #e6e6e8;
-    background: #fff;
+.tableScroll:focus-visible {
+    outline: 2px solid #7f52ff;
+    outline-offset: 4px;
 }
 
-.commercial {
-    border-color: #d9ccf5;
+.table {
+    width: 100%;
+    min-width: 620px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
 }
 
-.cardHeader {
+.criteria {
+    width: 17%;
+}
+
+.table th,
+.table td {
+    padding: 20px 24px;
+    vertical-align: top;
+    border-bottom: 1px solid #e6e6e8;
+}
+
+.table thead th {
     position: relative;
-    display: flex;
-    align-items: flex-end;
     overflow: hidden;
-    box-sizing: border-box;
-    min-height: 240px;
-    margin: -32px -32px 0;
-    padding: 32px;
+    height: 64px;
+    vertical-align: middle;
+    background: #f8f8f9;
+    color: #19191c;
+    font-weight: 600;
+}
+
+.table .publicHeader {
     background: radial-gradient(ellipse at 90% 15%, #e0dce8 0%, #efedf4 50%, #f8f7fa 100%);
 }
 
-.commercial .cardHeader {
+.table .paidHeader {
     background: radial-gradient(ellipse at 90% 15%, #bca9f5 0%, #ded2fc 50%, #f1ebff 100%);
+}
+
+.headerTitle {
+    position: relative;
+    z-index: 1;
 }
 
 .artwork {
     position: absolute;
-    top: -36px;
-    right: -20px;
-    width: 220px;
-    max-width: none;
+    top: -48px;
+    right: -14px;
+    width: 156px;
     height: auto;
     transform: rotate(12deg);
     pointer-events: none;
 }
 
-.commercial .artwork {
-    top: -48px;
-    right: -16px;
+.table tbody th {
+    padding-left: 0;
+    border-bottom: 0;
+    color: #60606a;
+    font-weight: 500;
 }
 
-.commercial .icon {
-    color: #6b3dcc;
+.table .emptyCorner {
+    border: 0;
 }
 
-.cardTitle {
-    position: relative;
-    z-index: 1;
-    max-width: 320px;
-    margin: 0;
+.table .publicHeader,
+.table tbody td:nth-child(2) {
+    border-left: 1px solid #dcdbe1;
 }
 
-.cardBody {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding-top: 32px;
+.table .paidHeader,
+.table tbody td:last-child {
+    border-right: 1px solid #dcdbe1;
 }
 
-.points {
-    display: grid;
-    gap: 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.table .publicHeader,
+.table .paidHeader {
+    border-top: 1px solid #dcdbe1;
 }
 
-.point {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+.table .publicHeader {
+    border-top-left-radius: 16px;
 }
 
-.icon {
-    flex: none;
-    margin-top: 3px;
-    color: #64646b;
+.table .paidHeader {
+    border-top-right-radius: 16px;
+}
+
+.table tbody td:last-child {
+    background: #f8f5ff;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 1px solid #dcdbe1;
+}
+
+.table tbody tr:last-child td:nth-child(2) {
+    border-bottom-left-radius: 16px;
+}
+
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 16px;
 }
 
 .policyLink {
-    margin: auto 0 0;
-    padding-top: 32px;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 4px;
+    font-weight: 400;
 }
 
-@media (--ktl-ds-down) {
-    .cardHeader {
-        min-height: 228px;
-    }
+.table tbody td:nth-child(2) {
+    background: #fff;
+}
 
-    .artwork {
-        top: -52px;
-        right: -36px;
-        width: 180px;
-    }
-
-    .commercial .artwork {
-        top: -56px;
-        right: -28px;
-    }
+.mobileLabel {
+    display: none;
 }
 
 @media (--ktl-ml-down) {
-    .grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 16px;
-        margin-top: 32px;
+    .tableScroll {
+        margin-top: 24px;
+        overflow: visible;
     }
 
-    .card {
-        padding: 24px;
+    .table,
+    .table tbody {
+        display: block;
+        min-width: 0;
     }
 
-    .cardHeader {
-        margin: -24px -24px 0;
-        padding: 24px;
+    .table colgroup {
+        display: none;
     }
 
-    .cardBody {
-        padding-top: 24px;
+    .table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+
+    .table tbody tr {
+        display: grid;
+        overflow: hidden;
+        border: 1px solid #dcdbe1;
+        border-radius: 16px;
+    }
+
+    .table tbody tr + tr {
+        margin-top: 16px;
+    }
+
+    .table tbody th,
+    .table tbody td {
+        padding: 12px 16px;
+    }
+
+    .table tbody th {
+        background: #eae9ed;
+        color: #19191c;
+        font-weight: 600;
+    }
+
+    .table tbody tr td:nth-child(2),
+    .table tbody tr td:last-child {
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+    }
+
+    .table tbody tr:last-child td:nth-child(2) {
+        border-bottom-color: #e6e6e8;
+    }
+
+    .table tbody tr td:last-child {
+        border-bottom: 0;
+    }
+
+    .mobileLabel {
+        display: block;
+        margin-bottom: 4px;
+        color: #19191c;
+        font-weight: 600;
+    }
+
+    .table tbody td:last-child .mobileLabel {
+        color: #6b3dcc;
     }
 }

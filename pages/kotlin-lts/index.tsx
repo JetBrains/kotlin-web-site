@@ -4,8 +4,8 @@ import { Button } from '@rescui/button';
 import { LandingLayout, LandingLayoutProps } from '@/components/landing-layout/landing-layout';
 import { CONTACT_TEAM_URL, KOTLIN_LTS_TITLE, KOTLIN_LTS_URL, SECTION_IDS } from '@/blocks/kotlin-lts/constants';
 import { Hero } from '@/blocks/kotlin-lts/hero/hero';
-import { Coverage } from '@/blocks/kotlin-lts/coverage/coverage';
 import { Benefits } from '@/blocks/kotlin-lts/benefits/benefits';
+import { Coverage } from '@/blocks/kotlin-lts/coverage/coverage';
 import { PatchInPlace } from '@/blocks/kotlin-lts/patch-in-place/patch-in-place';
 import { Cta } from '@/blocks/kotlin-lts/cta/cta';
 import { Newsletter } from '@/blocks/kotlin-lts/newsletter/newsletter';
@@ -23,7 +23,7 @@ export default function KotlinLtsLanding() {
         <LandingLayout
             dataTestId="kotlin-lts-landing"
             title="Kotlin Long-Term Security Support"
-            description="Long-term security support for your Kotlin stack, with minimal upgrade effort. Discuss coverage and commercial support with the Kotlin team."
+            description="Long-term security support for your Kotlin stack, with minimal upgrade effort. Discuss coverage and paid support with the Kotlin team."
             theme="light"
             footerTheme="light"
             topMenuTitle={KOTLIN_LTS_TITLE}
@@ -34,10 +34,10 @@ export default function KotlinLtsLanding() {
             <main className="ktl-layout-to-2">
                 <Hero />
                 <Constraints />
-                <Newsletter />
-                <Benefits />
                 <Coverage />
                 <PatchInPlace />
+                <Benefits />
+                <Newsletter />
                 <Faq />
                 <Cta />
             </main>
