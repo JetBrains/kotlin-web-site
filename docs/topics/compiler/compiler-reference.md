@@ -288,6 +288,17 @@ Configure how the compiler [reports ignored results](unused-return-value-checker
 * `check`: enables the checker and reports warnings for ignored results from marked functions.
 * `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
 
+### -Xstrict-equality-for-structural-classes
+<primary-label ref="experimental-opt-in"/>
+
+Enables strict equality checks for structural classes, reporting comparisons that always return `false` (for `==`) or `true`
+(for `!=`), based on the known types of the operands.
+
+### -XXLanguage:-EliminateSecondKindIncorporation
+<primary-label ref="experimental-general"/>
+
+Disables the type inference optimization introduced in [Kotlin 2.5.0](whatsnew25.md#improved-type-inference-performance).
+
 ### Warning management
 
 #### -nowarn
