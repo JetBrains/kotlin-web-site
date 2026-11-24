@@ -5,53 +5,72 @@ different tasks in the data pipeline.
 
 In addition to its own libraries, Kotlin is 100% interoperable with Java. This interoperability helps to leverage
 the entire ecosystem of tried-and-true Java libraries with excellent performance. With this perk, you can easily use either Kotlin
-or Java libraries when working on [Kotlin data projects](data-analysis-overview.md). 
+or Java libraries when working on Kotlin data projects. 
 
 ## Kotlin libraries
+
+### Kotlin DataFrame
+
+The [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) library lets you manipulate structured data in your Kotlin projects. From data creation and
+cleaning to in-depth analysis and feature engineering, this library has you covered.
+
+With the Kotlin DataFrame library, you can work with different file formats and databases:
+
+- **File formats**
+- **Databases**
+- - [JSON](https://kotlin.github.io/dataframe/json.html)
+- - [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
+- - [CSV / TSV](https://kotlin.github.io/dataframe/csv-tsv.html)
+- - [MySQL](https://kotlin.github.io/dataframe/mysql.html)
+- - [Excel](https://kotlin.github.io/dataframe/excel.html)
+- - [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
+- - [Apache Arrow](https://kotlin.github.io/dataframe/apachearrow.html)
+- - [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
+- - [Parquet](https://kotlin.github.io/dataframe/parquet.html)
+- - [H2](https://kotlin.github.io/dataframe/h2.html)
+- 
+- - [MariaDB](https://kotlin.github.io/dataframe/mariadb.html)
+-
+- - [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
+
+{columns="2"}
+
+
+Use Kotlin DataFrame to select columns, filter and sort rows, convert values, add calculated columns, and group and
+aggregate data. Transformations return new dataframes, preserving the original dataframe and reusing underlying
+storage where possible.
+
+Kotlin DataFrame also interoperates with Kotlin collections and data classes, so you can use data already available
+in your application.
+
+![Kotlin DataFrame](data-analysis-dataframe-example.png){width=700}
+
+### Kandy
+
+[Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source Kotlin library that provides a powerful and flexible DSL for plotting charts, such as bar charts, line charts, scatter plots, and other visualizations. You can combine multiple layers in
+one plot, map data to properties such as position and color, and customize axes, legends, titles, and tooltips.
+
+This library is a simple, idiomatic, readable, and type-safe tool to visualize data. You can also easily combine Kandy
+with [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) to prepare and visualize data in the same Kotlin workflow.
+
+![Kandy](data-analysis-kandy-example.png){width=700}
+
+### Lets-Plot for Kotlin
+
+[Lets-Plot for Kotlin (LPK)](https://lets-plot.org/kotlin/get-started.html) is a multiplatform plotting library that ports the [R's ggplot2 library](https://ggplot2.tidyverse.org/) to
+Kotlin. LPK brings the feature-rich ggplot2 API to the Kotlin ecosystem,
+making it suitable for scientists and statisticians who require sophisticated data visualization capabilities.
+
+LPK targets various platforms, including [Kotlin/JS](js-overview.md), [JVM's Swing](https://docs.oracle.com/javase/8/docs/technotes/guides/swing/), [JavaFX](https://openjfx.io/), and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/).
+Additionally, LPK has seamless integration with [IntelliJ IDEA](https://www.jetbrains.com/idea/), [DataGrip](https://www.jetbrains.com/datagrip/), [DataSpell](https://www.jetbrains.com/dataspell/), and [PyCharm](https://www.jetbrains.com/pycharm/).
+
+### Other libraries
 
 <table>
   <tr>
     <td><strong>Library</strong></td>
     <td><strong>Purpose</strong></td>
     <td><strong>Features</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://github.com/Kotlin/dataframe"><strong>Kotlin DataFrame</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data collection</li>
-        <li>Data cleaning and processing</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Operations for creating, sorting, and cleaning data frames, feature engineering, and more</li>
-        <li>Processing of structured data</li>
-        <li>Support for CSV, JSON, and other input formats</li>
-        <li>Reading from SQL databases</li>
-        <li>Connecting with different APIs to access data and increase type safety</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://kotlin.github.io/kandy/welcome.html"><strong>Kandy</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data exploration and visualization</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Powerful, readable, and typesafe DSL for plotting charts of various types</li>
-        <li>Open-source library written in Kotlin for the JVM</li>
-        <li>Support for <a href="https://kotlin.github.io/kandy/kandy-in-datalore.html">Datalore</a></li>
-        <li>Seamless integration with <a href="https://kotlin.github.io/dataframe/overview.html">Kotlin DataFrame</a></li>
-      </list>
-    </td>
   </tr>
   <tr>
     <td>
@@ -91,44 +110,6 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/JetBrains/kotlin-spark-api"><strong>Kotlin for Apache Spark</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data collection</li>
-        <li>Data cleaning and processing</li>
-        <li>Data exploration and visualization</li>
-        <li>Model building</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Layer of compatibility between <a href="https://spark.apache.org/">Apache Spark</a> and Kotlin</li>
-        <li>Apache Spark data transformation operations in Kotlin-idiomatic code</li>
-        <li>Simple usage of Kotlin features, such as data classes and lambda expressions, in curly braces or method reference</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://lets-plot.org/kotlin/get-started.html"><strong>Lets-Plot</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data exploration and visualization</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Plotting statistical data written in Kotlin</li>
-        <li>Support for <a href="https://datalore.jetbrains.com/">Datalore</a></li>
-        <li>Compatible with the JVM, JS, and Python</li>
-        <li>Embedding charts in <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a> applications</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
       <a href="https://github.com/mipt-npm/kmath"><strong>KMath</strong></a>
     </td>
     <td>
@@ -144,22 +125,6 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
         <li>APIs for algebraic structures, mathematical expressions, histograms, and streaming operations</li>
         <li>Interchangeable wrappers over existing Java and Kotlin libraries, including <a href="https://github.com/eclipse/deeplearning4j/tree/master/nd4j">ND4J</a>, <a href="https://commons.apache.org/proper/commons-math/">Apache Commons Math</a>, and <a href="https://github.com/Kotlin/multik">Multik</a></li>
         <li>Inspired by Python's <a href="https://numpy.org/">NumPy</a> but with other additional features like type safety</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://github.com/holgerbrandl/kravis"><strong>kravis</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data exploration and visualization</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Visualization of tabular data</li>
-        <li>Inspired by R's <a href="https://ggplot2.tidyverse.org/">ggplot</a></li>
       </list>
     </td>
   </tr>
@@ -232,23 +197,6 @@ Here are some examples of such libraries:
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/londogard/smile-nlp-kt"><strong>Smile-NLP-kt</strong></a>
-    </td>
-    <td>
-      <list>
-        <li>Data cleaning and processing</li>
-      </list>
-    </td>
-    <td>
-      <list>
-        <li>Kotlin rewrite of the <a href="https://www.scala-lang.org/api/current/">Scala</a> implicits for the natural language processing part of Smile</li>
-        <li>Operations in the format of Kotlin extension functions and interfaces</li>
-        <li>Sentence breaking, stemming, bag of words, and other tasks</li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
       <a href="https://github.com/eclipse/deeplearning4j/tree/master/nd4j"><strong>ND4J</strong></a>
     </td>
     <td>
@@ -284,7 +232,7 @@ Here are some examples of such libraries:
   </tr>
   <tr>
     <td>
-      <a href="https://nm.dev/"><strong>NM Dev</strong></a>
+      <a href="https://nm.dev/products/nmdev"><strong>NM Dev</strong></a>
     </td>
     <td>
       <list>
