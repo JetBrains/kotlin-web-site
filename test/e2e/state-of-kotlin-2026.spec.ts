@@ -21,7 +21,7 @@ const NAV_ANCHORS = Object.keys(REPORT_SECTION_URLS);
 // The nav bar is hidden up to the TL breakpoint (width <= 1000px).
 const SECTION_NAV_MIN_WIDTH = 1001;
 const LEADERBOARD_ROWS = 5;
-const LEADERBOARD_COLUMNS = 8;
+const LEADERBOARD_COLUMNS = 6;
 
 const clickInViewportCenter = async (link: Locator) => {
     await link.evaluate((element) => element.scrollIntoView({ block: 'center' }));

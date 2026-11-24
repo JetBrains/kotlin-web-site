@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { KOTLIN_BENCHMARK_URL } from '@/blocks/benchmark/constants';
 import {
-    BenchColumnKey,
-    BenchRow,
-    formatBenchDate,
-    rows,
+    BenchGroupRow,
+    currentEdition,
+    formatBenchLongDate,
+    groupRows,
+    isGroupedEdition,
     TOP_SCORE_COUNT,
     twoDecimals,
 } from '@/utils/benchmark-leaderboard';
@@ -21,21 +22,24 @@ const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM)';
 const BENCHMARK_LINK_LABEL = 'kotlinlang.org/benchmark';
 
 interface LeaderboardColumn {
-    key: BenchColumnKey;
+    key: Exclude<keyof BenchGroupRow, 'setup'>;
     label: string;
-    format?: (value: BenchRow[BenchColumnKey]) => string;
+    format: (value: number) => string;
 }
 
 const COLUMNS: LeaderboardColumn[] = [
-    { key: 'submitted', label: 'Submitted' },
-    { key: 'resolved', label: 'Resolved' },
-    { key: 'resolutionRate', label: 'Resolution Rate', format: (value) => `${twoDecimals(value)}%` },
-    { key: 'tokens', label: 'Avg. Tokens (M)', format: twoDecimals },
-    { key: 'latency', label: 'Avg. Latency' },
-    { key: 'date', label: 'Date', format: formatBenchDate },
+    { key: 'resolutionRate', label: 'Resolution Rate', format: (value) => `${value}%` },
+    { key: 'cost', label: 'Avg. Cost / Task', format: (value) => `$${twoDecimals(value)}` },
+    { key: 'tokens', label: 'Avg. Tokens / Task', format: twoDecimals },
+    { key: 'latency', label: 'Avg. Latency / Task', format: (value) => `${value}m` },
 ];
 
-const topRows = rows.slice(0, LEADERBOARD_ROW_COUNT);
+// The report shows the all-tasks view of the current (grouped) leaderboard.
+const topRows: BenchGroupRow[] = isGroupedEdition(currentEdition)
+    ? groupRows(currentEdition, 'all').slice(0, LEADERBOARD_ROW_COUNT)
+    : [];
+
+const SNAPSHOT_DATE = formatBenchLongDate(currentEdition.date);
 
 export const BenchmarkLeaderboard: FC = () => {
     const textCn = useTextStyles();
@@ -96,7 +100,7 @@ export const BenchmarkLeaderboard: FC = () => {
                                             })}
                                             data-col={column.key}
                                         >
-                                            {column.format ? column.format(row[column.key]) : String(row[column.key])}
+                                            {column.format(row[column.key])}
                                         </td>
                                     ))}
                                 </tr>
@@ -106,7 +110,7 @@ export const BenchmarkLeaderboard: FC = () => {
                 </div>
             </div>
             <p className={cn(styles.caption, textCn('rs-text-3'))} data-testid="sok-ai-leaderboard-caption">
-                Leaderboard snapshot as of <span className={styles.captionDate}>July 8</span>. For the latest
+                Leaderboard snapshot as of <span className={styles.captionDate}>{SNAPSHOT_DATE}</span>. For the latest
                 results, see{' '}
                 <a className={textCn('rs-link')} href={KOTLIN_BENCHMARK_URL}>
                     {BENCHMARK_LINK_LABEL}

@@ -796,7 +796,10 @@ kotlin {
             products = listOf(
                 product("FirebaseAI"),
                 product("FirebaseAnalytics"),
-                ...
+                // ...
+            )
+        )
+    }
 }
 ```
 {validate="false"}

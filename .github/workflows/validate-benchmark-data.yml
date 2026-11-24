@@ -1,0 +1,28 @@
+name: Validate Benchmark Data
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_benchmark_data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chrisdickinson/setup-yq@latest
+        with:
+          yq-version: 'v4.9.5'
+      # The current leaderboard is validated based on its methodology version.
+      - run: |
+         file=data/benchmark/leaderboard.yml
+         methodology=$(yq eval '.methodology' "$file")
+         schema="data/schemas/benchmark-leaderboard-v${methodology}.json"
+         if [ ! -f "$schema" ]; then
+           echo "no schema for methodology ${methodology}: expected $schema"
+           exit 1
+         fi
+         echo "validating $file against $schema"
+         jsonschema -i <(yq eval --tojson -j "$file") "$schema"
+         echo "benchmark leaderboard data is valid!"
