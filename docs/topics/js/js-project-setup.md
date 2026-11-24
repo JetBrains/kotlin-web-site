@@ -716,12 +716,130 @@ each of which defines a mode, as well as [include](https://webpack.js.org/config
 For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and installs the Node.js environment on the
 host. You can also use an existing Node.js instance if you have it.
 
-You can configure Node.js settings for each subproject or set them for the project as a whole.
+You can configure Node.js settings for each subproject or set them for the project as a whole. For a build-wide
+alternative, see the [Node.js toolchain](#node-js-toolchain).
+
+### Use pre-installed Node.js
+
+If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin Multiplatform Gradle
+plugin to use it instead of installing its own Node.js instance.
+
+To use a pre-installed Node.js instance with the default root-project setup, add the following lines to your `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
+    // Set to `true` for default behavior
+    project.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().download = false
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
+    // Set to `true` for default behavior
+    project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).download = false
+}
+```
+
+</tab>
+</tabs>
+
+As an alternative to the default root-project setup, you can try the new Node.js toolchain that uses with centralized
+repository declarations.
+
+### Node.js toolchain
+<primary-label ref="experimental-opt-in"/>
+
+The Node.js toolchain is modeled on [Gradle's JVM toolchains](https://docs.gradle.org/current/userguide/toolchains.html)
+and runs in a Gradle build service shared by the whole build. The toolchain works with centralized repository declarations
+(`repositoriesMode`) and:
+
+* Downloads Node.js distributions directly from the official Node.js site over HTTPS, without adding repositories to your
+  Gradle configuration.
+* Installs distributions in the machine-level cache at `~/.kotlin/toolchains/nodejs`. Each version and platform is downloaded
+  once and reused by all builds on the machine, including builds that run in parallel.
+* Sets up an installation only when a task needs a Node.js executable.
+
+To enable the toolchain, set its mode in the `gradle.properties` file:
+
+```properties
+# Downloads and caches a Node.js distribution
+kotlin.js.nodeJsToolchainMode=download
+```
+
+For build-wide DSL configuration, apply the `org.jetbrains.kotlin.ecosystem` settings plugin in your `settings.gradle.kts`
+file. For example, to download Node.js from a custom mirror:
+
+```kotlin
+@file:OptIn(org.jetbrains.kotlin.gradle.ExperimentalNodeJsToolchainDsl::class)
+
+import org.jetbrains.kotlin.gradle.dsl.toolchain.nodejs.DefaultNodeJsToolchainService
+
+plugins {
+    id("org.jetbrains.kotlin.ecosystem") version "%kotlinVersion%"
+}
+
+kotlin {
+    toolchainManagement {
+        nodeJs {
+            toolchainService(DefaultNodeJsToolchainService::class) {
+                downloadBaseUrl = "https://my.mirror.example.com/nodejs/dist"
+            }
+        }
+    }
+}
+```
+
+To use a Node.js instance that is already installed on the host, for example in offline or air-gapped builds, select the
+pre-installed toolchain service instead. If you don't set an explicit path, the plugin uses `node` from `PATH`:
+
+```kotlin
+import org.jetbrains.kotlin.gradle.dsl.toolchain.nodejs.PreInstalledNodeJsToolchainService
+
+kotlin {
+    toolchainManagement {
+        nodeJs {
+            toolchainService(PreInstalledNodeJsToolchainService::class) {
+                nodeJsExecutable = "/usr/local/bin/node"
+            }
+        }
+    }
+}
+```
+
+The same options are available as Gradle properties:
+
+```properties
+kotlin.js.nodeJsToolchainMode=preinstalled
+kotlin.js.nodeJsToolchainPreinstalledExecutable=/usr/local/bin/node
+kotlin.js.nodeJsToolchainInstallationDir=/path/to/installations
+kotlin.js.nodeJsToolchainDownloadBaseUrl=https://my.mirror.example.com/nodejs/dist
+```
+
+Toolchain configuration is available only build-wide, so subprojects can't declare conflicting toolchain options. If you
+previously declared the Ivy repository manually with `repositoriesMode = PREFER_SETTINGS` as a workaround, you can remove it.
+
+Until you enable the toolchain, projects continue to use the [default root-project setup](#use-pre-installed-node-js),
+and the `NodeJsEnvSpec` settings, such as `version` and `download = false`, continue to work for Kotlin/JS and Kotlin/Wasm targets.
 
 ### Change Node.js version
 
-The default Node.js version is currently 24.16.0, but you can use a different version for a specific subproject.
-Add the following lines to your subproject's `build.gradle(.kts)` file. For example:
+The default Node.js version is currently `%defaultNodeJsVersion%`. To change it for the whole build, add the
+following property to the `gradle.properties` file:
+
+```properties
+kotlin.defaultNodeJsVersion=26.2.0
+```
+
+The property applies to both the [Node.js toolchain](#node-js-toolchain) and the [default root-project setup](#use-pre-installed-node-js).
+
+If you use the default root-project setup and need a different version for a specific subproject,
+add the following lines to the subproject's `build.gradle(.kts)` file. For example:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -771,35 +889,8 @@ allprojects {
 </tab>
 </tabs>
 
-### Use pre-installed Node.js
-
-If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin Multiplatform Gradle
-plugin to use it instead of installing its own Node.js instance.
-
-To use a pre-installed Node.js instance, add the following lines to your `build.gradle(.kts)` file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
-    // Set to `true` for default behavior
-    project.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().download = false
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
-    // Set to `true` for default behavior
-    project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).download = false
-}
-```
-
-</tab>
-</tabs>
+The Node.js toolchain ignores the `NodeJsEnvSpec.version` setting. If you need more control, implement your own
+`NodeJsToolchainService`.
 
 ## Yarn
 
