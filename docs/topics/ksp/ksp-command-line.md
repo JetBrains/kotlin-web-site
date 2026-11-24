@@ -84,21 +84,21 @@ path/to/processor.jar
 
 The `KSPJvmMain` entry point requires the following options:
 
-| Option                        | Description                                                                                    |
-|-------------------------------|------------------------------------------------------------------------------------------------|
-| `-language-version=<version>` | [Kotlin language version](compiler-reference.md#language-version-version) used in the project. |
-| `-api-version=<version>`      | [Kotlin API version](compiler-reference.md#api-version-version).                               |
-| `-jvm-target=<version>`       | Target JVM version.                                                                            |
-| `-module-name=<name>`         | Module name.                                                                                   |
-| `-source-roots=<paths>`       | Source root directories. Use a colon-separated list for multiple directories.                  |
-| `-project-base-dir=<path>`    | Project root directory.                                                                        |
-| `-output-base-dir=<path>`     | Base directory for KSP output.                                                                 |
-| `-caches-dir=<path>`          | Directory for KSP caches.                                                                      |
-| `-java-output-dir=<path>`     | Directory for generated Java files.                                                            |
-| `-class-output-dir=<path>`    | Directory for generated class files.                                                           |
-| `-kotlin-output-dir=<path>`   | Directory for generated Kotlin files.                                                          |
-| `-resource-output-dir=<path>` | Directory for generated resources.                                                             |
-| `<processor>`                 | Processor classpath.                                                                           |
+| Option                        | Description                                                                                        |
+|-------------------------------|----------------------------------------------------------------------------------------------------|
+| `-language-version=<version>` | The [Kotlin language version](compiler-reference.md#language-version-version) used in the project. |
+| `-api-version=<version>`      | The [Kotlin API version](compiler-reference.md#api-version-version).                               |
+| `-jvm-target=<version>`       | The target JVM version.                                                                            |
+| `-module-name=<name>`         | The module name.                                                                                   |
+| `-source-roots=<paths>`       | The source root directories. Use a colon-separated list for multiple directories.                  |
+| `-project-base-dir=<path>`    | The project root directory.                                                                        |
+| `-output-base-dir=<path>`     | The base directory for KSP output.                                                                 |
+| `-caches-dir=<path>`          | The directory for KSP caches.                                                                      |
+| `-java-output-dir=<path>`     | The directory for generated Java files.                                                            |
+| `-class-output-dir=<path>`    | The directory for generated class files.                                                           |
+| `-kotlin-output-dir=<path>`   | The directory for generated Kotlin files.                                                          |
+| `-resource-output-dir=<path>` | The directory for generated resources.                                                             |
+| `<processor>`                 | The processor classpath.                                                                           |
 
 Other entry points use a different set of options. To see the full list of options for a specific entry point, run
 the following command:

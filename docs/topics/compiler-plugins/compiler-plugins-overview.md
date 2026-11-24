@@ -32,7 +32,7 @@ The Android team at Google maintains:
 | [Parcelize plugin](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize) | Generates `Parcelable` implementations automatically so you can pass Kotlin objects between Android components.   |
 
 If you need to adapt the compilation process in a way that these plugins don't cover, first check whether you can use the
-[Kotlin Symbol Processing (KSP) API](https://kotlinlang.org/docs/ksp-overview.html) or an external linter such as [Android lint](https://developer.android.com/studio/write/lint).
+[Kotlin Symbol Processing (KSP) API](ksp-overview.md) or an external linter such as [Android lint](https://developer.android.com/studio/write/lint).
 You can browse our [Kotlin Slack](https://slack-chats.kotlinlang.org/c/compiler) or [reach out](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
 and ask for advice about your use case.
 
