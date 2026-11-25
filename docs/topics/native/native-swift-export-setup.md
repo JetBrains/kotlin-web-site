@@ -1,14 +1,15 @@
 [//]: # (title: Set up Swift export for your project)
+<primary-label ref="beta"/>
+
+To set up Swift export, use the `export { swift {} }` DSL of your build file. It describes how the module is exported
+to Swift, for example a Swift module name and a collapse rule. Opt in to the DSL with `@OptIn(ExperimentalSwiftExportDsl::class)`.
 
 You can connect the Swift export output to Xcode in two ways:
 
 * With [direct Xcode integration](#direct-integration), Gradle runs as a build phase of the Xcode build and puts the generated
   Swift modules into the app's build directory.
 * With [Swift package generation](#swift-package-generation), Gradle produces a self-contained Swift package that you add
-  to an Xcode project or another Swift package as a local dependency, without a separate build phase in Xcode.
-
-To set up Swift export, use the `export { swift {} }` DSL of your build file. It describes how the module is exported
-to Swift, for example a Swift module name and a collapse rule. Opt in to the DSL with `@OptIn(ExperimentalSwiftExportDsl::class)`.
+  to an Xcode project or another Swift package as a dependency, without a separate build phase in Xcode.
 
 > You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set up.
 > It features configuration examples, a working package consumer, and known limitations.
@@ -131,7 +132,7 @@ block apply to the local build only and are never published.
 > The build fails if you call `configure()` for a dependency that isn't part of the export graph or if two exported
 > dependencies have the same Swift module name.
 >
-{style="note"}
+{style="warning"}
 
 ### Configure Xcode project
 
