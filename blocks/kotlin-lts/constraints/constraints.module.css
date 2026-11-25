@@ -100,6 +100,7 @@
     border-left: 2px solid #60606a;
     border-radius: 12px;
     border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     background: #f0f0f2;
 }
 
@@ -180,7 +181,6 @@
 
     .publicSupport {
         margin-left: 0;
-        border-top-left-radius: 12px;
     }
 
     .publicSupport::before {
