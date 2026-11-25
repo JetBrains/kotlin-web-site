@@ -2,19 +2,6 @@
 
 <web-summary>Find answers to common questions about browser compatibility, WebAssembly features, compiler configuration, and troubleshooting in Kotlin/Wasm.</web-summary>
 
-## What are the Kotlin/Wasm target support tiers?
-
-Kotlin/Wasm targets belong to two support tiers that describe the Kotlin team test coverage for targets and their tooling. 
-The absence of dedicated tests doesn't necessarily mean a tooling feature is unavailable.
-
-| Target     | Tier   | Automated testing                                                                   | 
-|------------|--------|-------------------------------------------------------------------------------------|
-| `wasmJs`   | 1 | Broad QA coverage, including Kotlin Gradle plugin integration tests and IntelliJ IDEA tests |
-| `wasmWasi` | 2 | Limited QA and Kotlin Gradle plugin test coverage, with no dedicated IntelliJ IDEA tests |
-
-Compared to `wasmJs`, `wasmWasi` has more limited tooling support. In the Kotlin Gradle plugin, you need to opt in to use
-WASI-specific features. IDE debugging and running code from the editor gutter are also unavailable for `wasmWasi`.
-
 ## Which Kotlin/Wasm targets should my library support?
 
 Prefer supporting both `wasmJs` and `wasmWasi` where your library's functionality and dependencies allow it. 
