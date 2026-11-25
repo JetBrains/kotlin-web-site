@@ -1,0 +1,40 @@
+/* Full-page screenshots assert the order of the sections, not their content. */
+[data-testid="kotlin-ambassador-hero-content"] {
+    background: #00e5ff !important;
+}
+
+[data-testid="kotlin-ambassador-hero-content"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="kotlin-ambassador-gradient-card"] {
+    background: #76ff03 !important;
+}
+
+[data-testid="kotlin-ambassador-gradient-card"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="kotlin-ambassador-benefits"] {
+    background: #ffd600 !important;
+}
+
+[data-testid="kotlin-ambassador-benefits"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="kotlin-ambassador-badge"] {
+    background: #ff6d00 !important;
+}
+
+[data-testid="kotlin-ambassador-badge"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="kotlin-ambassador-links"] {
+    background: #ee5a8a !important;
+}
+
+[data-testid="kotlin-ambassador-links"] * {
+    visibility: hidden !important;
+}

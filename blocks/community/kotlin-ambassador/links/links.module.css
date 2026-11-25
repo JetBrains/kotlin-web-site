@@ -1,0 +1,67 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.links {
+    padding-block-end: var(--ktl-box-page-l, 96px);
+    background: var(--amb-color-accent-3);
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-end: var(--ktl-box-section-l, 48px);
+}
+
+.link:last-child {
+    margin-inline-end: 0;
+}
+
+.linkIcon {
+    width: 15px;
+    height: 12px;
+    margin-inline-start: 2px;
+}
+
+@media (--ktl-ts-only) {
+    /* The first two links share a row, the third wraps below it. */
+    .link:nth-child(-n + 2) {
+        margin-block-end: var(--ktl-box-section-m, 32px);
+    }
+}
+
+@media (--ktl-ml-down) {
+    .links {
+        padding-block-end: var(--ktl-box-page-m, 72px);
+    }
+}
+
+@media (--ktl-ml-only) {
+    /* Only the first link fits the row; the last two wrap below it. */
+    .link:first-child {
+        margin-block-end: var(--ktl-box-section-m, 32px);
+    }
+}
+
+@media (--ktl-ms) {
+    .content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .link,
+    .link:nth-child(-n + 2),
+    .link:first-child {
+        margin-inline-end: 0;
+        margin-block-end: var(--ktl-box-section-m, 32px);
+    }
+
+    /* The bottom row of the strip is padded by the section itself. */
+    .link:last-child {
+        margin-block-end: 0;
+    }
+}

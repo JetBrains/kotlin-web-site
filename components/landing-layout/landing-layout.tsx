@@ -38,6 +38,7 @@ export type LandingLayoutProps = {
     theme?: Theme;
     forceDarkTopMenu?: boolean;
     hideTopMenu?: boolean;
+    noindex?: boolean;
 } & NavigationProps;
 
 export const LandingLayout: FC<LandingLayoutProps> = ({
@@ -50,6 +51,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
     theme = 'dark',
     forceDarkTopMenu = false,
     hideTopMenu = false,
+    noindex = false,
     mobileOverview = true,
     ...navigationProps
 }) => {
@@ -95,6 +97,8 @@ export const LandingLayout: FC<LandingLayoutProps> = ({
         <>
             <Head>
                 <title>{title}</title>
+
+                {noindex && <meta name="robots" content="noindex, nofollow" />}
 
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
