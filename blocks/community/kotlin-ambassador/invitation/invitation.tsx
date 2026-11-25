@@ -17,6 +17,7 @@ const TERMS_FIELD = 'ambassadorsTermsAccepted';
 const NEWSLETTER_FIELD = 'privacyConsent';
 // TODO(marketing): replace with the real Terms & Conditions URL before the release (KTL-5273).
 const TERMS_URL = '#';
+const PRIVACY_URL = 'https://www.jetbrains.com/legal/docs/privacy/privacy/';
 
 // Checkbox errors bypass the form dictionary and a field validator makes the webteam Checkbox
 // re-render in a loop, so the terms acceptance is enforced in the submitter instead: the
@@ -110,13 +111,16 @@ export function Invitation() {
                             {/* `writeFalse` keeps the field key in the form data, so the submitter
                                 rejection maps onto this field instead of the generic form error. */}
                             <Checkbox name="termsAccepted" writeFalse size="s" className={styles.checkbox}>
-                                I&rsquo;ve read and agree to the Kotlin Ambassadors Program{' '}
+                                I agree to the{' '}
                                 <a className={textCn('rs-link')} href={TERMS_URL} target="_blank" rel="noreferrer noopener">
                                     Terms &amp; Conditions
+                                </a>{' '}
+                                and{' '}
+                                <a className={textCn('rs-link')} href={PRIVACY_URL} target="_blank" rel="noreferrer noopener">
+                                    Privacy Policy
                                 </a>
                                 .
                             </Checkbox>
-                            {/* TODO(marketing): the standard privacy-notice line is pending a designer decision (KTL-5273). */}
                             <Checkbox name="newsletterOptIn" writeFalse size="s" className={styles.checkbox}>
                                 Send me helpful educational materials and program news.
                             </Checkbox>
@@ -124,16 +128,6 @@ export function Invitation() {
                         <SubmitButton mode="classic" size="l">
                             Accept invitation
                         </SubmitButton>
-                        <p
-                            className={cn(textCn('rs-text-3'), styles.footnote)}
-                            data-testid="kotlin-ambassador-terms-footnote"
-                        >
-                            By clicking &ldquo;Accept invitation,&rdquo; you agree to the Kotlin Ambassadors Program{' '}
-                            <a className={textCn('rs-link')} href={TERMS_URL} target="_blank" rel="noreferrer noopener">
-                                Terms &amp; Conditions
-                            </a>
-                            .
-                        </p>
                     </Form>
                 </div>
             </div>

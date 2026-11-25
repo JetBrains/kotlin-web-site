@@ -26,6 +26,8 @@ const LINKS = [
     { title: 'Brand Assets', href: '#' }
 ];
 
+const PRIVACY_URL = 'https://www.jetbrains.com/legal/docs/privacy/privacy/';
+
 const TEST_EMAIL = 'ambassador@example.com';
 
 // The endpoints of @webteam/data-services used by the page submitter.
@@ -85,16 +87,20 @@ test.describe('Kotlin Ambassador welcome page', () => {
         );
     });
 
-    test('terms footnote links to the program document', async ({ page }) => {
-        const footnote = page.getByTestId('kotlin-ambassador-terms-footnote');
+    test('terms checkbox links to the program terms and privacy policy', async ({ page }) => {
+        const formCard = page.getByTestId('kotlin-ambassador-form-card');
+        const termsCheckbox = formCard.getByLabel('I agree to the Terms & Conditions and Privacy Policy.');
 
-        await expect(footnote).toHaveText(
-            'By clicking “Accept invitation,” you agree to the Kotlin Ambassadors Program Terms & Conditions.'
-        );
+        await expect(termsCheckbox).toBeAttached();
 
-        // The document opens in a new tab, so the entered form data is not lost.
-        await expect(footnote.getByRole('link')).toHaveAttribute('href', LINKS[0].href);
-        await expect(footnote.getByRole('link')).toHaveAttribute('target', '_blank');
+        // Both documents open in a new tab, so the entered form data is not lost.
+        const termsLink = formCard.getByRole('link', { name: 'Terms & Conditions' });
+        await expect(termsLink).toHaveAttribute('href', LINKS[0].href);
+        await expect(termsLink).toHaveAttribute('target', '_blank');
+
+        const privacyLink = formCard.getByRole('link', { name: 'Privacy Policy' });
+        await expect(privacyLink).toHaveAttribute('href', PRIVACY_URL);
+        await expect(privacyLink).toHaveAttribute('target', '_blank');
     });
 
     test('benefits list five perks', async ({ page }) => {

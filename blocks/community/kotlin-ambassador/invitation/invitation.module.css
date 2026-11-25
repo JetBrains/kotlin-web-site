@@ -63,12 +63,6 @@
     margin-block-end: 0;
 }
 
-.footnote {
-    margin: 0;
-    margin-block-start: var(--ktl-box-block-l, 16px);
-    text-align: center;
-}
-
 @media (--ktl-ds-only) {
     /* On Desktop S the form card is wider than the intro text. */
     .formCard {
