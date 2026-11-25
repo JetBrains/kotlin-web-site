@@ -11,7 +11,7 @@ const CONTRIBUTIONS = [
     },
     {
         title: 'Public speaking',
-        description: 'Sharing your expertise at conferences, meetups, webinars, or workshops.',
+        description: 'Presenting at conferences, meetups, webinars, or workshops.',
     },
     {
         title: 'Open-source contributions',

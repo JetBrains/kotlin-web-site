@@ -38,6 +38,18 @@ const FAQ_ITEMS: ColumnedFaqItem[] = [
         ),
     },
     {
+        question: 'How long does the membership last?',
+        answer: (
+            <>
+                <p>Kotlin Ambassador membership has no fixed expiration date.</p>
+                <p>
+                    As long as an Ambassador remains actively involved in the Kotlin ecosystem and continues to uphold
+                    the program&apos;s values, they can remain part of the program.
+                </p>
+            </>
+        ),
+    },
+    {
         question: 'Is there a Code of Conduct?',
         answer: (
             <>
@@ -52,18 +64,6 @@ const FAQ_ITEMS: ColumnedFaqItem[] = [
                 </a>{' '}
                 that promotes respectful communication, professional conduct, and positive participation in the
                 community.
-            </>
-        ),
-    },
-    {
-        question: 'How long does the membership last?',
-        answer: (
-            <>
-                <p>Kotlin Ambassador membership has no fixed expiration date.</p>
-                <p>
-                    As long as an Ambassador remains actively involved in the Kotlin ecosystem and continues to uphold
-                    the program&apos;s values, they can remain part of the program.
-                </p>
             </>
         ),
     },

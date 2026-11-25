@@ -23,9 +23,10 @@ export function HowToBecome() {
                         How to become a Kotlin Ambassador
                     </h2>
                     <div className={cn(textCn('rs-text-1'), styles.text)} data-testid="ambassadors-how-text">
+                        <p className={styles.paragraph}>The Kotlin Ambassadors Program is invitation-based.</p>
                         <p className={styles.paragraph}>
-                            The Kotlin Ambassadors Program is invitation-based. We invite community members who stand
-                            out for their technical expertise and meaningful contributions to the Kotlin community.
+                            We invite community members who stand out for their technical expertise and meaningful
+                            contributions to the Kotlin ecosystem.
                         </p>
                         <p className={styles.paragraph}>
                             Candidates are identified by the Kotlin team or nominated by existing ambassadors. The

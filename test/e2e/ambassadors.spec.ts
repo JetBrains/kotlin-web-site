@@ -24,8 +24,8 @@ const BENEFITS: (string | RegExp)[] = [
 const FAQ_ANSWERS: [string, string][] = [
     ['How are Kotlin Ambassadors selected?', 'not currently employed by JetBrains'],
     ['Can I apply to become a Kotlin Ambassador?', 'does not accept self-nominations'],
-    ['Is there a Code of Conduct?', 'respectful communication'],
     ['How long does the membership last?', 'no fixed expiration date'],
+    ['Is there a Code of Conduct?', 'respectful communication'],
 ];
 
 const checkSectionShot = (section: Locator) =>
