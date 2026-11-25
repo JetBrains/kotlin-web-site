@@ -252,7 +252,7 @@ for (const viewport of [
                 'access-control-allow-methods': 'POST, OPTIONS',
                 'access-control-allow-headers': 'content-type',
             };
-            await page.route('https://forms-service.jetbrains.com/**', async (route) => {
+            await page.route(/https:\/\/(account\.jetbrains\.com\/services\/acceptAgreement|forms-service\.jetbrains\.com\/marketo)$/, async (route) => {
                 const request = route.request();
                 if (request.method() === 'OPTIONS') {
                     await route.fulfill({ status: 204, headers });
@@ -262,9 +262,11 @@ for (const viewport of [
                 const url = new URL(request.url());
                 requests.push(url.pathname);
                 expect(request.method()).toBe('POST');
-                if (url.pathname === '/jetprofile') {
-                    expect(url.searchParams.get('type')).toBe('mkt.general.jb-intention');
-                    expect(url.searchParams.get('email')).toBe(emailAddress);
+                if (url.pathname === '/services/acceptAgreement') {
+                    const consent = new URLSearchParams(request.postData() ?? '');
+                    expect(consent.get('type')).toBe('mkt.general.jb-intention');
+                    expect(consent.get('email')).toBe(emailAddress);
+                    expect(url.search).toBe('');
                     await route.fulfill({ status: 200, headers, json: {} });
                 } else {
                     expect(url.pathname).toBe('/marketo');
@@ -293,11 +295,11 @@ for (const viewport of [
             await submit.click();
             await expect(form.getByRole('alert')).toContainText('Please try again');
             await expect(email).toHaveValue(emailAddress);
-            expect(requests).toEqual(['/jetprofile', '/marketo']);
+            expect(requests).toEqual(['/services/acceptAgreement', '/marketo']);
             await submit.click();
             await expect(form.getByRole('status')).toContainText('Thanks for signing up');
             await expect(submit).toBeDisabled();
-            expect(requests).toEqual(['/jetprofile', '/marketo', '/jetprofile', '/marketo']);
+            expect(requests).toEqual(['/services/acceptAgreement', '/marketo', '/services/acceptAgreement', '/marketo']);
             expect(await lts.expectNoOverflow()).toBe(true);
         });
 

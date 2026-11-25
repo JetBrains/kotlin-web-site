@@ -1,10 +1,11 @@
-import { privacy } from '@jetbrains/kotlin-web-site-ui/out/packages/data-services';
-
 const FORM_ID = '10127';
 const CONSENT_ID = 'mkt.general.jb-intention';
 
 export async function submitNewsletter(email: string) {
-    const consent = await privacy.sendAcceptance(CONSENT_ID, email, { useNewEndpoint: true });
+    const consent = await fetch('https://account.jetbrains.com/services/acceptAgreement', {
+        method: 'POST',
+        body: new URLSearchParams({ email, type: CONSENT_ID }),
+    });
     if (!consent.ok) throw new Error('Consent request failed');
 
     const fields = {
