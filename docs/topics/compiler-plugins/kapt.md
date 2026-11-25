@@ -475,6 +475,48 @@ generated files for each annotation processor. For example:
 >
 {style="note"}
 
+## Generate Java stubs
+<primary-label ref="experimental-opt-in"/>
+
+To generate Java stubs, the kapt compiler plugin uses the JCTree API as an intermediate representation by default.
+This API doesn't guarantee backward compatibility and complicates the generation of correct stubs, especially for types.
+
+As an alternative, kapt supports a stub generation scheme that writes Java sources directly.
+To try out the direct scheme, set the `stubGenerationScheme` option to `direct`:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+// build.gradle.kts
+import org.jetbrains.kotlin.gradle.dsl.KaptStubGenerationScheme
+
+kapt {
+    stubGenerationScheme = KaptStubGenerationScheme.DIRECT
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<configuration>
+    <stubGenerationScheme>direct</stubGenerationScheme>
+</configuration>
+```
+
+</tab>
+<tab title="CLI" group-key="cli">
+
+```bash
+-Kapt-stub-generation-scheme=direct
+```
+
+</tab>
+</tabs>
+
+This option is [Experimental](components-stability.md#stability-levels-explained), and the JCTree scheme remains the default.
+
 ## Generate Kotlin sources
 
 kapt can generate Kotlin sources. To do that, write the generated Kotlin source files to the specified directory using
@@ -766,6 +808,28 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
                 </code-block>
             <p><b>Maven:</b> not available</p>
             <p><b>CLI:</b> <code>-Kapt-strip-metadata=true</code></p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>stubGenerationScheme</code></td>
+        <td>
+            Selects the <a href="#generate-java-stubs">scheme for generating Java stubs</a>:
+            the JCTree API is used by default, the <code>direct</code> scheme, which writes Java sources directly, is currently Experimental.
+        </td>
+        <td>
+            <p><b>Gradle:</b></p>
+                <code-block lang="kotlin">
+                    kapt {
+                        stubGenerationScheme = KaptStubGenerationScheme.DIRECT
+                    }
+                </code-block>
+            <p><b>Maven:</b></p>
+                <code-block lang="xml">
+                    <![CDATA[
+<stubGenerationScheme>direct</stubGenerationScheme>
+                    ]]>
+                </code-block>
+            <p><b>CLI:</b> <code>-Kapt-stub-generation-scheme=direct</code></p>
         </td>
     </tr>
     <tr>
