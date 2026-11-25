@@ -127,3 +127,49 @@
         padding: 24px;
     }
 }
+
+.selectField {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    min-width: 0;
+}
+
+.selectField select {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid #bcbcc2;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+
+.teamSize {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.sizeOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.sizeOption {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border: 1px solid #d4d4d9;
+    border-radius: 16px;
+}
+
+.fieldLabel {
+    color: #19191c;
+    font-weight: 400;
+}

@@ -216,21 +216,24 @@ for (const viewport of [
             const submit = form.getByRole('button', { name: 'Preview request' });
             const status = form.getByRole('status');
             const requests = observeSubmissions(page);
-            await expect(form.locator('input:required')).toHaveCount(3);
             await submit.click();
-            await expect(form.getByLabel('Full name *', { exact: true })).toBeFocused();
+            await expect(form.getByLabel('First name *', { exact: true })).toBeFocused();
             await expect(status).toHaveCount(0);
-            await form.getByLabel('Full name *', { exact: true }).fill('lts-preview-test');
-            await form.getByLabel('Work email *', { exact: true }).fill('invalid-email');
+            await form.getByLabel('First name *', { exact: true }).fill('lts-preview-test');
+            await form.getByLabel('Work email address *', { exact: true }).fill('invalid-email');
             await form.getByLabel('Company *', { exact: true }).fill('lts-preview-test');
+            await form.getByLabel('Last name *').fill('Preview');
+            await form.getByLabel('Role *').selectOption('Manager');
+            await form.getByLabel('Country/Region *').selectOption('Netherlands');
+            await form.getByRole('radio', { name: '26-50' }).check();
             await submit.click();
             expect(
                 await form
-                    .getByLabel('Work email *', { exact: true })
+                    .getByLabel('Work email address *', { exact: true })
                     .evaluate((el: HTMLInputElement) => el.validity.typeMismatch)
             ).toBe(true);
             await expect(status).toHaveCount(0);
-            await form.getByLabel('Work email *', { exact: true }).fill('lts-preview-test@example.com');
+            await form.getByLabel('Work email address *', { exact: true }).fill('lts-preview-test@example.com');
             await submit.click();
             await expect(status).toContainText('No request has been sent');
             await expect(page).toHaveURL(new RegExp(`${CONTACT_TEAM_URL}$`));

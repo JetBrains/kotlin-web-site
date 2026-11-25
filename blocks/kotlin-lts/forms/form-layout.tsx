@@ -10,9 +10,9 @@ import styles from './forms.module.css';
 
 type FormLayoutProps = {
     title: string;
-    eyebrow: string;
+    eyebrow?: string;
     intro: string;
-    aside: ReactNode;
+    aside?: ReactNode;
     children: ReactNode;
 };
 
@@ -33,9 +33,9 @@ export const FormLayout: FC<FormLayoutProps> = ({ title, eyebrow, intro, aside, 
             </Head>
             <main className="ktl-layout-to-2">
                 <section className={cn(shared.section, shared.light)} aria-labelledby="lts-form-title">
-                    <div className={cn('ktl-layout', 'ktl-layout--center', styles.layout)}>
+                    <div className={cn('ktl-layout', 'ktl-layout--center', aside && styles.layout)}>
                         <div>
-                            <p className={cn(textCn('rs-text-2'), shared.eyebrow)}>{eyebrow}</p>
+                            {eyebrow && <p className={cn(textCn('rs-text-2'), shared.eyebrow)}>{eyebrow}</p>}
                             <h1 id="lts-form-title" className={cn(textCn('rs-h1'), shared.title)}>
                                 {title}
                             </h1>
@@ -45,7 +45,7 @@ export const FormLayout: FC<FormLayoutProps> = ({ title, eyebrow, intro, aside, 
                                 {children}
                             </div>
                         </div>
-                        <aside className={styles.aside}>{aside}</aside>
+                        {aside && <aside className={styles.aside}>{aside}</aside>}
                     </div>
                 </section>
             </main>
