@@ -92,9 +92,14 @@ export const ContactForm: FC = () => {
                         </a>
                         .
                     </p>
-                    <Button type="submit" size="l" className={styles.submit}>
-                        Preview request
-                    </Button>
+                    <div className={styles.contactActions}>
+                        <Button type="submit" size="l" className={styles.submit} aria-describedby="contact-preview-note">
+                            Send
+                        </Button>
+                        <p id="contact-preview-note" className={cn(textCn('rs-text-2'), styles.previewTag)}>
+                            <span aria-hidden="true">⚠</span> Work in progress: requests are not sent
+                        </p>
+                    </div>
                 </fieldset>
                 {previewed && (
                     <div role="status" className={cn(textCn('rs-text-2'), styles.result)}>

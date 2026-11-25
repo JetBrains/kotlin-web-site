@@ -22,7 +22,7 @@ export const Constraints: FC = () => {
                     <h2 id="lts-constraints-title" className={cn(textCn('rs-h1'), shared.title)}>
                         When Kotlin&nbsp;LTS can help
                     </h2>
-                    <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead, styles.description)}>
+                    <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
                         When you need security fixes but want to stay on your current Kotlin stack because upgrading would
                         require additional development, testing, or migration effort.
                     </p>
@@ -36,20 +36,24 @@ export const Constraints: FC = () => {
                         <li aria-label="Kotlin 2.4, start of free public support"><strong>Kotlin 2.4</strong></li>
                         <li>Later versions</li>
                     </ol>
-                    <h3 className={cn(textCn('rs-text-1'), styles.label)}>Free public support</h3>
-                    <p className={cn(textCn('rs-text-2'), styles.publicSupport)}>
-                        <strong>Standard library for JVM</strong>
-                        <span>
-                            18 months window
-                            <span className={styles.mobileStart}>, starting with Kotlin 2.4</span>
-                        </span>
-                    </p>
-                    <h3 className={cn(textCn('rs-text-1'), styles.label, styles.paidLabel)}>Paid Kotlin LTS</h3>
-                    <div className={styles.paidSupport}>
-                        <p className={cn(textCn('rs-text-2'), styles.paidCopy)}>
-                            Get backported security fixes for the Kotlin components and versions you choose.
+                    <div className={cn(styles.lane, styles.publicLane)}>
+                        <h3 className={cn(textCn('rs-h3'), styles.label)}>Free public support</h3>
+                        <p className={cn(textCn('rs-text-2'), styles.publicSupport)}>
+                            Standard library for JVM
+                            <span>
+                                18 months window
+                                <span className={styles.mobileStart}>, starting with Kotlin 2.4</span>
+                            </span>
                         </p>
-                        <Image src={sphereGraphics} alt="" sizes="112px" className={styles.sphere} />
+                    </div>
+                    <div className={cn(styles.lane, styles.paidLane)}>
+                        <h3 className={cn(textCn('rs-h3'), styles.label, styles.paidLabel)}>Paid Kotlin LTS</h3>
+                        <div className={styles.paidSupport}>
+                            <p className={cn(textCn('rs-text-2'), styles.paidCopy)}>
+                                Backported security fixes for the Kotlin components and versions you choose
+                            </p>
+                            <Image src={sphereGraphics} alt="" sizes="112px" className={styles.sphere} />
+                        </div>
                     </div>
                 </div>
             </div>

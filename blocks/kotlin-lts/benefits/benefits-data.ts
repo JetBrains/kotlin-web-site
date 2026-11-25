@@ -17,6 +17,6 @@ export const SUPPORT_COMPARISON = [
     [
         'Best for',
         'Teams that can take a public standard-library update in their normal release cycle',
-        'Teams that need a security fix on their current stack when a broader upgrade would require dependency changes or recertification',
+        'Teams that need a security fix for their current stack when a broader upgrade would require dependency changes, recertification, or other significant migration effort',
     ],
 ] as const;

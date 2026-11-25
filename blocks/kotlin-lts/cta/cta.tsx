@@ -23,7 +23,7 @@ export const Cta: FC = () => {
                     <h2 id="lts-cta-title" className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-cta-title">
                         Discuss coverage for your stack
                     </h2>
-                    <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), styles.text)}>
+                    <p className={cn(textCn('rs-text-1', { hardness: 'average' }), styles.text)}>
                         Start with a free assessment. We’ll review the Kotlin components and versions you need to
                         cover, discuss any upgrade constraints, and help you decide whether paid Kotlin LTS is right
                         for your team.

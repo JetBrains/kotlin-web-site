@@ -21,9 +21,6 @@
 
 .title {
     margin: 0;
-    font-size: 64px;
-    line-height: 1.08;
-    letter-spacing: -1.5px;
 }
 
 .titleLine {
@@ -132,8 +129,7 @@
     }
 
     .title {
-        font-size: 48px;
-        letter-spacing: -1px;
+        --rs-hero-font-size: 48px;
     }
 
     .artwork {
@@ -171,8 +167,7 @@
     }
 
     .title {
-        font-size: 44px;
-        line-height: 1.12;
+        --rs-hero-font-size-mobile: 44px;
     }
 
     .actions {

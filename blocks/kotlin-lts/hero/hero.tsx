@@ -24,7 +24,7 @@ export const Hero: FC = () => {
                     <h1 id="lts-title" className={cn(textCn('rs-hero'), styles.title)} data-testid="lts-hero-title">
                         Kotlin <span className={styles.titleLine}>Long-Term Security Support</span>
                     </h1>
-                    <p className={cn(textCn('rs-text-1', { hardness: 'average' }), styles.description)}>
+                    <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), styles.description)}>
                         Paid targeted security patch subscription for your Kotlin stack, with minimal upgrade effort.
                     </p>
                     <div className={styles.actions}>

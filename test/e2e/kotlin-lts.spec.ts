@@ -213,7 +213,7 @@ for (const viewport of [
         test('validates inquiry fields and clearly previews without sending or enrolling', async ({ page }) => {
             await page.goto(CONTACT_TEAM_URL);
             const form = page.getByRole('form', { name: 'Paid support inquiry preview' });
-            const submit = form.getByRole('button', { name: 'Preview request' });
+            const submit = form.getByRole('button', { name: 'Send' });
             const status = form.getByRole('status');
             const requests = observeSubmissions(page);
             await submit.click();
@@ -243,49 +243,62 @@ for (const viewport of [
             await expect(status).toHaveCount(0);
         });
 
-        test('requires a newsletter topic, permits every combination, and never creates a subscription', async ({
-            page,
-        }) => {
+        test('registers newsletter consent and submits the Kotlin Security Newsletter signup', async ({ page }) => {
+            const requests: string[] = [];
+            const emailAddress = 'lts-preview-test@example.com';
+            let marketoAttempts = 0;
+            const headers = {
+                'access-control-allow-origin': '*',
+                'access-control-allow-methods': 'POST, OPTIONS',
+                'access-control-allow-headers': 'content-type',
+            };
+            await page.route('https://forms-service.jetbrains.com/**', async (route) => {
+                const request = route.request();
+                if (request.method() === 'OPTIONS') {
+                    await route.fulfill({ status: 204, headers });
+                    return;
+                }
+
+                const url = new URL(request.url());
+                requests.push(url.pathname);
+                expect(request.method()).toBe('POST');
+                if (url.pathname === '/jetprofile') {
+                    expect(url.searchParams.get('type')).toBe('mkt.general.jb-intention');
+                    expect(url.searchParams.get('email')).toBe(emailAddress);
+                    await route.fulfill({ status: 200, headers, json: {} });
+                } else {
+                    expect(url.pathname).toBe('/marketo');
+                    expect(request.postDataJSON()).toMatchObject({
+                        formid: '10127',
+                        Email: emailAddress,
+                        kotlinSecurityNewsletter: true,
+                    });
+                    marketoAttempts += 1;
+                    await route.fulfill({ status: marketoAttempts === 1 ? 503 : 200, headers, json: {} });
+                }
+            });
+
             await lts.newsletter.getByRole('link', { name: 'Track Kotlin security fixes' }).click();
             await expect(page).toHaveURL(new RegExp(`${NEWSLETTER_URL}$`));
-            const form = page.getByRole('form', { name: 'Security newsletter signup preview' });
-            const topics = form.getByRole('checkbox');
-            const submit = form.getByRole('button', { name: 'Preview signup' });
-            const requests = observeSubmissions(page);
-            await expect(topics).toHaveCount(3);
-            for (const topic of await topics.all()) await expect(topic).not.toBeChecked();
+            const form = page.getByRole('form', { name: 'Security newsletter signup' });
+            const email = form.getByRole('textbox', { name: 'Email' });
+            const submit = form.getByRole('button', { name: 'Submit' });
             await submit.click();
-            await expect(form.getByLabel('Email *', { exact: true })).toBeFocused();
-            await form.getByLabel('Email *', { exact: true }).fill('lts-preview-test@example.com');
+            await expect(email).toBeFocused();
+            await email.fill('invalid-email');
             await submit.click();
-            await expect(form.getByRole('alert')).toHaveText('Please select at least one security update topic.');
-            await expect(topics.first()).toBeFocused();
-            await topics.first().press('Space');
-            await expect(topics.first()).toBeChecked();
-            await form.getByText('Kotlin Core', { exact: true }).click();
-            await expect(topics.first()).not.toBeChecked();
-            const topicNames = ['Kotlin Core', 'Kotlin ecosystem', 'Broader JVM ecosystem'];
-            for (let mask = 1; mask < 8; mask++) {
-                for (let index = 0; index < 3; index++) {
-                    const checked = Boolean(mask & (1 << index));
-                    if ((await topics.nth(index).isChecked()) !== checked) {
-                        await form.getByText(topicNames[index], { exact: true }).click();
-                    }
-                    await expect(topics.nth(index)).toBeChecked({ checked });
-                }
-                await expect(form.getByRole('alert')).toBeHidden();
-                await submit.click();
-                await expect(form.getByRole('status')).toContainText(
-                    'No email has been sent and no subscription has been created.'
-                );
-            }
-            for (const name of topicNames) await form.getByText(name, { exact: true }).click();
-            await submit.click();
-            await expect(form.getByRole('status')).toHaveCount(0);
-            await expect(form.getByRole('alert')).toBeVisible();
-            await expect(page).toHaveURL(new RegExp(`${NEWSLETTER_URL}$`));
-            expect(await lts.expectNoOverflow()).toBe(true);
             expect(requests).toEqual([]);
+
+            await email.fill(emailAddress);
+            await submit.click();
+            await expect(form.getByRole('alert')).toContainText('Please try again');
+            await expect(email).toHaveValue(emailAddress);
+            expect(requests).toEqual(['/jetprofile', '/marketo']);
+            await submit.click();
+            await expect(form.getByRole('status')).toContainText('Thanks for signing up');
+            await expect(submit).toBeDisabled();
+            expect(requests).toEqual(['/jetprofile', '/marketo', '/jetprofile', '/marketo']);
+            expect(await lts.expectNoOverflow()).toBe(true);
         });
 
         test('section navigation reveals the process and closes the mobile menu', async ({ page }) => {
@@ -331,7 +344,7 @@ test('previews remain disabled without JavaScript so native form submission cann
     for (const path of [CONTACT_TEAM_URL, NEWSLETTER_URL]) {
         await page.goto(path);
         await expect(page.getByRole('main').getByRole('textbox').first()).toBeDisabled();
-        await expect(page.getByRole('main').getByRole('button', { name: /Preview/ })).toBeDisabled();
+        await expect(page.getByRole('main').getByRole('button', { name: /Send|Submit/ })).toBeDisabled();
     }
     await context.close();
 });

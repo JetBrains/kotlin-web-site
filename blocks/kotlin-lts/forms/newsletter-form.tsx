@@ -1,152 +1,113 @@
-import React, { FC, FormEvent, useRef, useState } from 'react';
+import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import cn from 'classnames';
 import { Button } from '@rescui/button';
-import { Checkbox } from '@rescui/checkbox';
 import { Input } from '@rescui/input';
 import { useTextStyles } from '@rescui/typography';
 
+import cubeGraphics from '@/public/images/state-of-kotlin-2026/deco-cube.webp';
+import sphereGraphics from '@/public/images/state-of-kotlin-2026/deco-sphere.webp';
 import { FormLayout } from './form-layout';
-import { usePreviewForm } from './use-preview-form';
+import { submitNewsletter } from './submit-newsletter';
 import styles from './forms.module.css';
 
-const TOPICS = [
-    {
-        value: 'core',
-        title: 'Kotlin Core',
-        description:
-            'Compiler, standard library, and official kotlinx libraries, including coroutines and serialization.',
-    },
-    {
-        value: 'kotlin-ecosystem',
-        title: 'Kotlin ecosystem',
-        description: 'Ktor, its plugins, and Exposed.',
-    },
-    {
-        value: 'jvm',
-        title: 'Broader JVM ecosystem',
-        description: 'Relevant JVM libraries, build tools, data services, and deployment dependencies.',
-    },
-];
+type SignupStatus = 'idle' | 'submitting' | 'subscribed' | 'error';
 
 export const NewsletterForm: FC = () => {
     const textCn = useTextStyles();
-    const { ready, previewed, setPreviewed, handleSubmit } = usePreviewForm();
-    const [selected, setSelected] = useState<string[]>([]);
-    const [topicError, setTopicError] = useState(false);
-    const firstTopic = useRef<HTMLInputElement>(null);
+    const [ready, setReady] = useState(false);
+    const [status, setStatus] = useState<SignupStatus>('idle');
+    const submitting = useRef(false);
 
-    const previewSignup = (event: FormEvent<HTMLFormElement>) => {
+    useEffect(() => setReady(true), []);
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if (selected.length === 0) {
-            setPreviewed(false);
-            setTopicError(true);
-            firstTopic.current?.focus();
-            return;
+        if (!ready || submitting.current || status === 'subscribed') return;
+
+        const email = String(new FormData(event.currentTarget).get('Email') ?? '').trim();
+        if (!email) return;
+
+        submitting.current = true;
+        setStatus('submitting');
+        try {
+            await submitNewsletter(email);
+            setStatus('subscribed');
+        } catch {
+            setStatus('error');
+        } finally {
+            submitting.current = false;
         }
-        handleSubmit(event);
     };
 
     return (
         <FormLayout
-            eyebrow="Free newsletter"
-            title="Security updates for Kotlin teams"
-            intro="Follow relevant vulnerabilities, affected versions, and available fixes. Choose the security updates you want to receive."
-            aside={
-                <>
-                    <h2 className={cn(textCn('rs-h3'), styles.asideTitle)}>Choose what is relevant to you</h2>
-                    <p className={textCn('rs-text-2')}>
-                        Each topic is independent. For example, you can select Kotlin Core and the broader JVM ecosystem
-                        together.
-                    </p>
-                    <p className={textCn('rs-text-2', { hardness: 'average' })}>
-                        These are newsletter preferences. They do not define paid patch coverage or enroll you in
-                        a paid subscription.
-                    </p>
-                </>
+            title="Kotlin Security Newsletter"
+            intro="Fixed CVEs, affected versions, and dependency updates in a free, regular digest."
+            artwork={
+                <div className={styles.newsletterShapes}>
+                    <Image src={cubeGraphics} alt="" sizes="180px" />
+                    <Image src={sphereGraphics} alt="" sizes="112px" />
+                </div>
             }
         >
             <form
-                onSubmit={previewSignup}
-                onInput={() => setPreviewed(false)}
-                aria-label="Security newsletter signup preview"
+                onSubmit={handleSubmit}
+                onInput={() => setStatus('idle')}
+                aria-label="Security newsletter signup"
             >
-                <fieldset disabled={!ready} className={styles.fields}>
-                    <legend className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.required)}>
-                        * Required fields
-                    </legend>
+                <fieldset disabled={!ready || status === 'submitting'} className={cn(styles.fields, styles.newsletterFields)}>
                     <Input
                         id="newsletter-email"
-                        name="email"
-                        label="Email *"
+                        name="Email"
+                        aria-label="Email"
+                        aria-describedby="newsletter-privacy"
+                        placeholder="Email"
                         type="email"
                         autoComplete="email"
                         required
                     />
-                    <fieldset
-                        className={styles.topics}
-                        aria-describedby="topic-hint topic-error"
-                        aria-invalid={topicError}
+                    <details className={cn(textCn('rs-text-2'), styles.newsletterConsent)}>
+                        <summary>
+                            <span id="newsletter-privacy">I agree that my personal data will be processed for this purpose.</span>{' '}
+                            <span className={styles.privacyInfo} aria-hidden="true">i</span>
+                            <span className={styles.visuallyHidden}> Privacy details</span>
+                        </summary>
+                        <p>
+                            By submitting this form, I agree that JetBrains s.r.o. may process the personal data I
+                            provided above and my location for the purpose explained above and may engage{' '}
+                            <a className={textCn('rs-link')} href="https://www.jetbrains.com/legal/privacy/third-parties.html">
+                                third parties
+                            </a>{' '}
+                            in such processing. The consent can be revoked in{' '}
+                            <a className={textCn('rs-link')} href="https://account.jetbrains.com/profile-details/privacy">
+                                my profile
+                            </a>{' '}
+                            at any time. More details about the processing are in{' '}
+                            <a className={textCn('rs-link')} href="https://www.jetbrains.com/legal/docs/privacy/privacy/">
+                                JetBrains Privacy Notice
+                            </a>
+                            . In addition, an unsubscribe link is included in each email.
+                        </p>
+                    </details>
+                    <Button
+                        type="submit"
+                        size="l"
+                        disabled={!ready || status === 'submitting' || status === 'subscribed'}
+                        className={cn(styles.submit, styles.newsletterSubmit)}
                     >
-                        <legend className={cn(textCn('rs-h4'), styles.topicLegend)}>Security update topics *</legend>
-                        <p id="topic-hint" className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.hint)}>
-                            Choose any combination. Select at least one topic.
-                        </p>
-                        {TOPICS.map(({ value, title, description }, index) => (
-                            <Checkbox
-                                key={value}
-                                name="topics"
-                                value={value}
-                                ref={index === 0 ? firstTopic : undefined}
-                                checked={selected.includes(value)}
-                                className={styles.topic}
-                                onChange={(event) => {
-                                    setSelected(
-                                        event.target.checked
-                                            ? [...selected, value]
-                                            : selected.filter((item) => item !== value)
-                                    );
-                                    setTopicError(false);
-                                    setPreviewed(false);
-                                }}
-                            >
-                                <span className={textCn('rs-text-2')}>
-                                    <strong>{title}</strong>
-                                    <span
-                                        className={cn(
-                                            textCn('rs-text-2', { hardness: 'average' }),
-                                            styles.topicDescription
-                                        )}
-                                    >
-                                        {description}
-                                    </span>
-                                </span>
-                            </Checkbox>
-                        ))}
-                        <p
-                            id="topic-error"
-                            role="alert"
-                            hidden={!topicError}
-                            className={cn(textCn('rs-text-2'), styles.error)}
-                        >
-                            Please select at least one security update topic.
-                        </p>
-                    </fieldset>
-                    <p className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.privacy)}>
-                        Read the{' '}
-                        <a className={textCn('rs-link')} href="https://www.jetbrains.com/legal/docs/privacy/privacy/">
-                            JetBrains Privacy Policy
-                        </a>
-                        .
-                    </p>
-                    <Button type="submit" size="l" className={styles.submit}>
-                        Preview signup
+                        {status === 'submitting' ? 'Submitting…' : 'Submit'}
                     </Button>
                 </fieldset>
-                {previewed && (
-                    <div role="status" className={cn(textCn('rs-text-2'), styles.result)}>
-                        <strong>Email confirmation preview</strong>
-                        <p>No email has been sent and no subscription has been created.</p>
-                    </div>
+                {status === 'subscribed' && (
+                    <p role="status" className={cn(textCn('rs-text-2'), styles.result)}>
+                        Thanks for signing up for the Kotlin Security Newsletter.
+                    </p>
+                )}
+                {status === 'error' && (
+                    <p role="alert" className={cn(textCn('rs-text-2'), styles.result)}>
+                        We couldn’t complete your signup. Please try again.
+                    </p>
                 )}
             </form>
         </FormLayout>

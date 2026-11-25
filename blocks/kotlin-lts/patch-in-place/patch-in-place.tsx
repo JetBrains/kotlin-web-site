@@ -47,7 +47,7 @@ export const PatchInPlace: FC = () => {
                     <h2 id="lts-how-title" className={cn(textCn('rs-h1'), shared.title)} data-testid="lts-how-title">
                         How it works in your workflow
                     </h2>
-                    <p className={cn(textCn('rs-subtitle-2', { hardness: 'average' }), shared.lead)}>
+                    <p className={cn(textCn('rs-text-1', { hardness: 'average' }), shared.lead)}>
                         Point your build at the subscriber repository and pick up maintenance releases of the version
                         you already run, with no migration project required.
                     </p>

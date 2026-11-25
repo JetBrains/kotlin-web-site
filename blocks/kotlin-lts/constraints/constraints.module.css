@@ -12,13 +12,30 @@
     --public-start: 47%;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
-    gap: 16px 24px;
+    gap: 12px 12px;
     align-items: center;
     margin-top: 40px;
 }
 
+.lane {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: center;
+    min-width: 0;
+    border-radius: 12px;
+}
+
+.publicLane {
+    background: #f8f8f9;
+}
+
+.paidLane {
+    overflow: hidden;
+    background: radial-gradient(ellipse at top right, #c4aff5, #ece5fc 75%);
+}
+
 .timeline {
-    font-size: 14px;
     position: relative;
     display: grid;
     grid-template-columns: var(--public-start) 0 1fr;
@@ -72,14 +89,8 @@
     margin: 0;
 }
 
-.label,
-.paidCopy {
-    font-weight: 600;
-}
-
 .label {
-    white-space: nowrap;
-    font-size: 18px;
+    padding: 8px 0 8px 12px;
 }
 
 .publicSupport {
@@ -95,14 +106,15 @@
 .publicSupport::before {
     position: absolute;
     left: -2px;
-    top: -16px;
-    height: 16px;
+    top: -12px;
+    height: 12px;
     border-left: 2px dotted #a0a0a8;
     content: '';
 }
 
 .publicSupport > span {
     display: block;
+    font-weight: 400;
 }
 
 .mobileStart {
@@ -115,10 +127,10 @@
 
 .paidSupport {
     position: relative;
-    overflow: hidden;
+    align-self: stretch;
+    display: grid;
+    align-items: center;
     padding: 16px 20px;
-    border-radius: 12px;
-    background: radial-gradient(ellipse at top right, #c4aff5, #ece5fc 75%);
     color: #352064;
 }
 
@@ -143,6 +155,11 @@
         grid-template-columns: minmax(0, 1fr);
         gap: 12px;
         margin-top: 32px;
+    }
+
+    .lane {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
     }
 
     .timeline {
@@ -170,10 +187,6 @@
         display: none;
     }
 
-    .paidLabel {
-        margin-top: 8px;
-    }
-
     .paidCopy {
         margin-right: 52px;
     }
@@ -191,14 +204,9 @@
         gap: clamp(48px, 5vw, 72px);
     }
 
-    .description {
-        font-size: 22px;
-        line-height: 1.45;
-    }
-
     .comparison {
-        grid-template-columns: max-content minmax(0, 1fr);
-        gap: 8px 16px;
+        grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+        gap: 8px 12px;
         margin-top: 0;
     }
 
