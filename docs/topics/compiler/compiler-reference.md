@@ -294,11 +294,6 @@ Configure how the compiler [reports ignored results](unused-return-value-checker
 Enables strict equality checks for structural classes, reporting comparisons that always return `false` (for `==`) or `true`
 (for `!=`), based on the known types of the operands.
 
-### -XXLanguage:-EliminateSecondKindIncorporation
-<primary-label ref="experimental-general"/>
-
-Disables the type inference optimization introduced in [Kotlin 2.5.0](whatsnew25.md#improved-type-inference-performance).
-
 ### Warning management
 
 #### -nowarn
