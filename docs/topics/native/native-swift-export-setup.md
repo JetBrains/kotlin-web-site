@@ -33,7 +33,7 @@ the `xcodeIntegration()` call to enable Xcode as a consumer of Swift export and 
 
 The declared dependencies of an exported module are exported automatically:
 
-* Direct `api` dependencies are exported fully, meaning that their entire API surface is available in Swift.
+* Direct `api` dependencies are exported fully, meaning that their entire public API surface is available in Swift.
 * Direct `implementation` dependencies and transitive dependencies are exported transitively, meaning that only the API
   that leaks into the public API of the exported module is available in Swift.
 
@@ -180,6 +180,7 @@ kotlin {
             rootPackage = "com.example.sandbox"
 
             swiftPackageIntegration {
+                // Optional: specify the package output directory 
                 outputDirectory.set(
                     layout.projectDirectory.dir("SwiftPackage")
                 )
