@@ -515,7 +515,7 @@ kapt {
 </tab>
 </tabs>
 
-The option is [Experimental](components-stability.md#stability-levels-explained), with the JCTree scheme remaining the default.
+This option is [Experimental](components-stability.md#stability-levels-explained), and the JCTree scheme remains the default.
 
 ## Generate Kotlin sources
 
@@ -814,7 +814,7 @@ kapt can generate Kotlin sources. To do that, write the generated Kotlin source 
         <td><code>stubGenerationScheme</code></td>
         <td>
             Selects the <a href="#generate-java-stubs">scheme for generating Java stubs</a>:
-            the JCTree API is used by default, the <code>direct</code> scheme, which writes Java sources directly, is curently Experimental.
+            the JCTree API is used by default, the <code>direct</code> scheme, which writes Java sources directly, is currently Experimental.
         </td>
         <td>
             <p><b>Gradle:</b></p>
