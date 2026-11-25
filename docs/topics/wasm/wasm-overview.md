@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin/Wasm)
 
-<primary-label ref="beta"/> 
+<web-summary>Learn how Kotlin/Wasm brings Kotlin to the browser and to WASI runtimes. Explore web UI frameworks, browser APIs, and performance benchmarks.</web-summary>
 
 Kotlin/Wasm has the power to compile your Kotlin code into [WebAssembly (Wasm)](https://webassembly.org/) format. 
 With Kotlin/Wasm, you can create applications that run on
@@ -12,10 +12,13 @@ a compilation target.
 
 You can use Kotlin/Wasm in different target environments, such as browsers, for developing 
 web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), or outside the 
-browser in standalone Wasm virtual machines. In the outside-of-browser case,
+browser in standalone Wasm virtual machines. In the outside-of-browser case, the
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
-> To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-configuration.md#browser-versions) that supports 
+Kotlin/Wasm provides Tier 1 support for `wasmJs` and Tier 2 support for `wasmWasi`.
+For information about the CI coverage, tooling support, and recommendations for library authors, see [Kotlin/Wasm target support](wasm-faq.md).
+
+> To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-faq.md#which-browsers-support-kotlin-wasm) that supports 
 > WebAssembly's garbage collection
 > and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
 > roadmap](https://webassembly.org/roadmap/).
@@ -24,10 +27,15 @@ browser in standalone Wasm virtual machines. In the outside-of-browser case,
 
 [//]: # (TODO KT-85415: For Kotlin/Wasm-compatible standalone runtimes, see Standalone runtimes).
 
-## Kotlin/Wasm and Compose Multiplatform
+## UI frameworks for Kotlin/Wasm
 
-With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
-Compose Multiplatform and Kotlin/Wasm.
+With Kotlin/Wasm, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your 
+web projects through different UI frameworks, such as Compose Multiplatform. 
+
+Choose a framework based on your UI requirements, preferred rendering approach, and whether you need to share the UI
+with other platforms.
+
+### Compose Multiplatform
 
 [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) is a declarative framework based on Kotlin
 and [Jetpack Compose](https://developer.android.com/jetpack/compose) that allows you to implement the UI
@@ -35,7 +43,7 @@ once and share it across all the platforms you target.
 
 For web platforms, Compose Multiplatform uses 
 Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and Compose Multiplatform use a 
-`wasm-js` target and run in browsers.
+`wasmJs` target and run in browsers.
 
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
@@ -44,6 +52,28 @@ see [Adding dependencies on multiplatform libraries](https://kotlinlang.org/docs
 Would you like to try it yourself?
 
 <a href="wasm-get-started.md" as="button" mode="rock" icon="arrow-right" icon-position="right">Get started with Kotlin/Wasm</a>
+
+### Doodle
+
+[Doodle](https://nacular.github.io/doodle/) is a UI framework for sharing applications between web and desktop. It supports Kotlin/Wasm and Kotlin/JS
+for the web, and JVM for desktop.
+
+Doodle uses vector-based rendering, giving you control over custom UI components, shapes, gradients, and visualizations.
+
+### Kilua
+
+[Kilua](https://kilua.dev/) is a web framework based on the [Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/) runtime. It uses standard HTML elements to render
+UIs.
+
+Kilua provides declarative components, reactive state management, routing, and integration with CSS frameworks such as
+Bootstrap and Tailwind CSS. It also supports server-side rendering.
+
+### Summon
+
+[Summon](https://github.com/codeyousef/summon) is a [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) frontend framework that supports Kotlin/Wasm, Kotlin/JS, and JVM. It
+provides a declarative API for reusable UI components, reactive state management, and type-safe styling.
+
+Summon supports server-side rendering and integration with JVM backend frameworks, including [Ktor](https://ktor.io/docs/welcome.html) and [Spring Boot](https://spring.io/projects/spring-boot).
 
 ## Kotlin/Wasm and WASI
 
@@ -73,12 +103,17 @@ To explore what's possible with the WebAssembly Component Model and Kotlin/Wasm,
 
 ## Kotlin/Wasm performance
 
-Although Kotlin/Wasm is still in Beta, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
-traits. You can see that its execution speed outperforms JavaScript and is approaching that of the JVM:
+Kotlin/Wasm can improve execution performance compared with Kotlin/JS. The results depend on the workload,
+the framework, and the browser or runtime.
+
+For example, the Compose Multiplatform benchmarks show Kotlin/Wasm outperforming Kotlin/JS and approaching
+JVM performance in the measured workloads:
 
 ![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}
 
 We regularly run benchmarks on Kotlin/Wasm, and these results come from our testing in a recent version of Google Chrome.
+
+For results from more frameworks, see Summon's [performance comparison](https://github.com/codeyousef/summon#performance-comparison).
 
 ## Browser API support
 

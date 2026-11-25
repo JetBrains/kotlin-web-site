@@ -480,7 +480,7 @@ map.forEach { (_, value) -> println("$value!") }
 
 ### Destructuring in lambdas
 
-Destructuring in lambdas is described as a part of [destructuring declarations](destructuring-declarations.md#destructuring-in-lambdas).
+Destructuring in lambdas is described as a part of [destructuring declarations](destructuring-declarations.md#destructuring-declarations-in-lambdas).
 
 ### Anonymous functions
 

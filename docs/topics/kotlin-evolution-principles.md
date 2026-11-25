@@ -218,6 +218,17 @@ latest stable version. This lets library authors adopt newer compiler releases w
 using older compiler versions. On other platforms, you can also configure older language and API versions, but unlike 
 on the JVM, consumers still need to use the latest compiler version.
 
+Within this support window, older language versions can still be used with the latest Kotlin compiler.
+However, the oldest supported language version is usually deprecated. The compiler reports a deprecation warning 
+to indicate that support for this version will be removed in a future release. For example, Kotlin 2.5.0 supports
+language versions 2.2, 2.3, 2.4, and 2.5, but using language version 2.2 produces a deprecation warning.
+
+> If your project uses the [`-Werror`](compiler-reference.md#werror) option, this warning becomes an error and fails
+> the build. To disable only this warning and keep the other warnings as errors, use the
+> [`-Xwarning-level=DEPRECATED_LANGUAGE_VERSION:disabled`](compiler-reference.md#xwarning-level) compiler option.
+> 
+{style="note"}
+
 In most projects, set both options to the same version. A lower API version is mainly useful when you
 need to remain compatible with an older version of the Kotlin standard library.
 

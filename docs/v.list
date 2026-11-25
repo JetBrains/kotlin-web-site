@@ -39,15 +39,15 @@
     <var name="okioVersion" value="3.16.2"/>
 
     <!-- Gradle, KGP, AGP -->
-    <var name="minGradleVersion" value="7.6.3" type="string"/>
-    <var name="maxGradleVersion" value="9.7.0" type="string"/>
+    <var name="minGradleVersion" value="8.14" type="string"/>
+    <var name="maxGradleVersion" value="9.8.1" type="string"/>
 
-    <var name="minAndroidGradleVersion" value="8.5.2" type="string"/>
-    <var name="maxAndroidGradleVersion" value="9.3.1" type="string"/>
+    <var name="minAndroidGradleVersion" value="8.8.2" type="string"/>
+    <var name="maxAndroidGradleVersion" value="9.4.1" type="string"/>
 
-    <var name="gradleVersion" value="9.7.0" type="string"/>
-    <var name="gradleLanguageVersion" value="KOTLIN_2_4" type="string"/>
-    <var name="gradleApiVersion" value="KOTLIN_2_4" type="string"/>
+    <var name="gradleVersion" value="9.8.1" type="string"/>
+    <var name="gradleLanguageVersion" value="KOTLIN_2_5" type="string"/>
+    <var name="gradleApiVersion" value="KOTLIN_2_5" type="string"/>
 
     <!-- Maven -->
     <var name="mavenPluginVersion" value="3.15.0" type="string"/>
@@ -73,6 +73,6 @@
 
     <var name="dokkaVersion" value="2.2.0"/>
 
-    <var name="xcode" value="26"/>
+    <var name="xcode" value="27"/>
 
 </vars>

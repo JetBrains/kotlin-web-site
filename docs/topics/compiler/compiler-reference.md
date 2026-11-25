@@ -83,8 +83,9 @@ use newer language features, but you also don't see new errors and deprecations 
 This approach is especially useful for library authors who need to preserve compatibility with older Kotlin versions. 
 For more information, see [Backward compatibility guidelines for library authors](api-guidelines-backward-compatibility.md#choose-compatible-language-and-api-versions).
 
-You can configure one of the latest three stable versions of Kotlin as the language version. For example, Kotlin 2.5.0
-supports language versions as old as 2.2.
+You can configure the latest stable Kotlin version or any of the three previous versions as the language version. 
+For example, Kotlin 2.5.0 supports language versions 2.2 through 2.5. The oldest supported version usually produces
+a deprecation warning. For more information, see [Compatibility options](kotlin-evolution-principles.md#compatibility-options).
 
 If you use an older language version, you also need to use an older API version.
 For more information, see [](#api-version-version).
@@ -209,6 +210,18 @@ You can configure the following plugins by their IDs:
 
 This running order controls only the backend of compiler plugins and not the frontend.
 
+### -Xcompanion-blocks
+<primary-label ref="experimental-opt-in"/>
+
+Enables [companion blocks](whatsnew25.md#companion-extensions-and-blocks), allowing you to declare functions and properties accessible through a type's name without
+declaring a companion object.
+
+### -Xcompanion-blocks-and-extensions
+<primary-label ref="experimental-opt-in"/>
+
+Enables [companion extensions and blocks](whatsnew25.md#companion-extensions-and-blocks), allowing you to declare functions, properties, and extensions
+accessible through a type's name without declaring a companion object.
+
 ### -Xdata-flow-based-exhaustiveness
 <primary-label ref="experimental-general"/>
 
@@ -220,6 +233,13 @@ Enables data-flow–based exhaustiveness checks for `when` expressions.
 Enables explicit [context arguments](context-parameters.md#pass-context-arguments-explicitly) for context parameters.
 
 This lets you resolve overload ambiguity by passing context arguments at the call site.
+
+### -Xfull-value-classes
+<primary-label ref="experimental-general"/>
+
+Enables support for full value classes, including types with multiple properties, abstract value classes, and value objects.
+
+For more information, see [Full value classes](whatsnew25.md#full-value-classes).
 
 ### -Xklib-ir-inliner
 <primary-label ref="experimental-general"/>
@@ -234,13 +254,16 @@ The option supports the following modes:
 ### -Xname-based-destructuring
 <primary-label ref="experimental-opt-in"/>
 
-Configure how the compiler interprets [destructuring declarations](destructuring-declarations.md#name-based-destructuring) based on property names.
+Configure the compiler to use position-based or name-based destructuring for parenthesized short-form [destructuring declarations](destructuring-declarations.md).
 
 The option supports the following modes:
 
-* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
-* `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
-* `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+* `only-syntax`: uses position-based destructuring for parenthesized short-form declarations (default).
+* `name-mismatch`: uses position-based destructuring for parenthesized short-form declarations and reports warnings when variable names used for data classes don't match their property names.
+* `complete`: uses name-based destructuring for parenthesized short-form declarations.
+
+The default `only-syntax` mode enables the explicit form of name-based destructuring, which is [Stable](components-stability.md#stability-levels-explained).
+The `name-mismatch` and `complete` modes are [Experimental](components-stability.md#stability-levels-explained) and require opt-in.
 
 ### -Xphases-to-dump-before
 <primary-label ref="experimental-general"/>
@@ -517,7 +540,6 @@ Add variable and function names that you declared in Kotlin code into the source
 | `fully-qualified-names` | Variable names and fully qualified function names are added.  | `com.example.kjs.playground.main` |
 | `no`                    | No variable or function names are added.                      | N/A                               |
 
-
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
@@ -532,10 +554,29 @@ Generate JS files for the specified ECMA version.
 Allow [implementing Kotlin interfaces](whatsnew2320.md#implementing-kotlin-interfaces-from-javascript-typescript)
 exported with the `@JsExport` annotation from JavaScript/TypeScript.
 
+### -Xdts-use-unknown-instead-of-any
+<primary-label ref="experimental-general"/>
+
+Generate the TypeScript [`unknown`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#new-unknown-top-type)
+type in `.d.ts` declaration files for `dynamic`, `Any`, and implicitly exported types.
+
 ### -Xes-long-as-bigint
 
 Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 This option is required for the `es5` and `es2015` targets only. The `es2020` target enables this option by default.
+
+### -Xexport-kdoc
+<primary-label ref="experimental-general"/>
+
+Copy [KDoc](kotlin-doc.md) comments from exported Kotlin declarations into the generated `.d.ts` declaration files.
+
+### -Xinteger-division-check
+<primary-label ref="experimental-general"/>
+
+Enable a runtime check for integer division by zero. The operation throws an `ArithmeticException` error
+instead of silently returning `0`.
+
+The check adds a comparison to every integer division, so it comes with a small runtime overhead.
 
 ### -Xsuspend-lambda-exporting
 <primary-label ref="experimental-general"/>

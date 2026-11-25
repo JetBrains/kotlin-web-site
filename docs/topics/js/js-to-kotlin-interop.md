@@ -217,6 +217,33 @@ JavaScript [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaSc
     console.log(result); // "done"
     ```
 
+#### Export type aliases
+
+You can export a Kotlin [type alias](type-aliases.md) to TypeScript if the type it points to is exportable.
+The compiler generates a matching TypeScript type alias.
+
+To export a type alias, mark it with the `@JsExport` annotation on the Kotlin side:
+
+```kotlin
+// Kotlin
+@JsExport
+class Product(val id: String, val title: String)
+
+@JsExport
+typealias Catalog = Array<Product>
+
+@JsExport
+fun firstProduct(catalog: Catalog): Product = catalog.first()
+```
+
+On the TypeScript side, it keeps the same name for the `Catalog` type alias:
+
+```typescript
+// TypeScript
+declare type Catalog = Array<Product>;
+declare function firstProduct(catalog: Catalog): Product;
+```
+
 ### `@JsNoRuntime` annotation
 
 You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
@@ -377,6 +404,45 @@ kotlin {
 
 This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker,
 [YouTrack](https://youtrack.jetbrains.com/issue/KT-79284/Use-BigInt64Array-for-LongArray).
+
+## Implement suspend function interfaces
+
+Kotlin/JS doesn't fully support classes that implement a suspend function interface, such as `suspend () -> Unit`.
+The compiler reports a warning for such classes.
+
+Calling the instance directly works as expected, but upcasting it to the suspend function interface makes JavaScript
+treat the value as a plain function, and the call throws a `TypeError` at runtime:
+
+```kotlin
+class BackgroundTask : suspend () -> Unit {
+    override suspend fun invoke() {
+        println("Running")
+    }
+}
+
+suspend fun execute(task: suspend () -> Unit) {
+    // Throws TypeError: task is not a function
+    task()
+}
+
+suspend fun main() {
+    val task = BackgroundTask()
+    task()                     // Works correctly
+    execute(BackgroundTask())  // Fails, upcasts to suspend () -> Unit
+}
+```
+
+Use an ordinary class with a regular method or a suspend lambda instead. If your code never upcasts the instance,
+suppress the warning:
+
+```kotlin
+@Suppress("IMPLEMENTING_SUSPEND_FUNCTION_INTERFACE")
+class BackgroundTask : suspend () -> Unit {
+    override suspend fun invoke() {
+        println("Running")
+    }
+}
+```
 
 ## Kotlin types in JavaScript
 

@@ -172,6 +172,6 @@ Kotlin supports the following operators and special symbols:
  * `$` references a variable or expression in a [string template](strings.md#string-templates).
  * `_`
      - substitutes an unused parameter in a [lambda expression](lambdas.md#underscore-for-unused-variables).
-     - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#underscore-for-unused-variables).
+     - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#unused-variables).
 
 For operator precedence, see [this reference](https://kotlinlang.org/grammar/#expressions) in Kotlin grammar.

@@ -1,5 +1,7 @@
 [//]: # (title: Stability of Kotlin components)
 
+<web-summary>Learn what Experimental, Alpha, Beta, and Stable mean in Kotlin, and check the stability of compilers, libraries, and build tools.</web-summary>
+
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
 the Standard Library, various accompanying tools, and so on.
 Many of these components were officially released as **Stable**, which means that they were evolved
@@ -80,7 +82,7 @@ to avoid the accidental use of features that have not been released as stable.
 | Kotlin/JVM                                                          | Stable     | 1.0.0                    |              |
 | Kotlin/Native                                                       | Stable     | 1.9.0                    |              |
 | Kotlin/JS                                                           | Stable     | 1.3.0                    |              |
-| Kotlin/Wasm                                                         | Beta       | 2.2.20                   |              |
+| Kotlin/Wasm                                                         | Stable     | 2.5.0                    |              |
 | [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |              |
 
 ### Core compiler plugins
