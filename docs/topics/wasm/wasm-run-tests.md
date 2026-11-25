@@ -16,12 +16,10 @@ For browser testing, you can choose between the following options:
     * [Playwright](https://playwright.dev/) to automatically download and control the browsers based on the browser engines you specify.
     * [Mocha](https://mochajs.org/) to run the tests inside the browser.
 
-> The browser DSL is [Experimental](components-stability.md#stability-levels-explained) and available since Kotlin 2.5.0.
+> The DSL for browser testing is [Experimental](components-stability.md#stability-levels-explained) and available since Kotlin 2.5.0.
 > It may be dropped or changed at any time. To opt in, use the `@OptIn(ExperimentalJsTestDsl::class)` annotation.
 >
 {style="warning"}
-
-The examples use a `shared` module.
 
 ## Add test dependencies
 
@@ -32,7 +30,7 @@ functions available in `commonTest` and in source sets that depend on it, such a
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// shared/build.gradle.kts
+// build.gradle.kts
 kotlin {
     sourceSets {
         commonTest.dependencies {
@@ -47,7 +45,7 @@ kotlin {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// shared/build.gradle
+// build.gradle
 kotlin {
     sourceSets {
         commonTest {
@@ -65,7 +63,7 @@ kotlin {
 
 ## Configure browsers
 
-You can run Kotlin/Wasm tests in specific browsers that meet [Kotlin/Wasm requirements](wasm-configuration.md#browser-versions).
+You can run Kotlin/Wasm tests in specific browsers that meet [Kotlin/Wasm requirements](wasm-faq.md#which-browsers-support-kotlin-wasm).
 By default, Karma uses [Headless Chromium](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md), and the experimental DSL uses Chromium.
 To configure specific browsers, use the `testTask {}` block for Karma or the `test {}` block for the
 experimental DSL for browser testing:
@@ -92,7 +90,7 @@ kotlin {
 With Karma, install each configured browser on the machine where the tests run, such as your local machine or a CI runner.
 
 </tab>
-<tab title="DSL for browser testing" group-key="Browser-test-dsl">
+<tab title="DSL for browser testing" group-key="browser-test-dsl">
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalJsTestDsl
@@ -129,7 +127,7 @@ If you use IntelliJ IDEA, click **Sync Gradle Changes** to load the updated conf
 With the DSL for browser testing, you can apply custom options to browser runners:
 
 * To apply options to all browser runners, set them in the `test {}` block.
-* To override an option for a single runner, set it in that runner's configuration block. 
+* To override an option for a specific runner, set it in that runner's configuration block. 
 
 The following example sets a timeout of 10 seconds for Chromium and Firefox and 35 seconds for WebKit:
 
@@ -164,13 +162,12 @@ kotlin {
 }
 ```
 
-## Add the tests
+## Add tests
 
 Place tests that use only common APIs in the `commonTest` source set. This way, they can run on all targets in the module.
 The `wasmJsBrowserTest` task compiles these tests to WebAssembly and runs them in a browser.
 
-The following example shows a test class in `shared/src/commonTest/kotlin/NumbersTest.kt`.
-One test fails intentionally to demonstrate how the runner reports failures:
+The following example shows a test class with one test failing intentionally:
 
 ```kotlin
 import kotlin.test.Test
@@ -196,19 +193,20 @@ class NumbersTest {
 The `longKeepsPrecision()` function passes because the sum fits in a `Long`. The `intOverflows()` function fails because
 adding `1` to `Int.MAX_VALUE` wraps the result to `Int.MIN_VALUE` (`-2_147_483_648`) before `toLong()` converts it.
 
-## Run the tests
+## Run tests
 
 You can run Kotlin/Wasm browser tests from IntelliJ IDEA or the terminal:
 
-* In IntelliJ IDEA, click the green **Run** icon in the gutter next to the `NumbersTest` class and choose the **wasmJs** option. 
+* In IntelliJ IDEA, click the green **Run** icon in the gutter next to the test class or function and choose the **wasmJs** option. 
 * In the terminal, run the `wasmJsBrowserTest` Gradle task from the project root directory:
 
       ```bash
-      ./gradlew :shared:wasmJsBrowserTest
+      ./gradlew wasmJsBrowserTest
       ```
 
 With the experimental DSL, Playwright downloads the configured browsers the first time you run the tests.
-Other projects that use the same browser versions can reuse those downloads.
+Subsequent runs can be faster because they reuse the cached downloads, including runs in other projects that use the
+same browser versions.
 
 You can also review the test results:
 
@@ -217,14 +215,15 @@ You can also review the test results:
 
   ![Wasm failing tests](wasm-failing-tests.png){width=800}
 
-* In the Gradle test report, open `shared/build/reports/tests/wasmJsBrowserTest/index.html` in a browser. Follow the links
+* In the Gradle test report, open `/reports/tests/wasmJsBrowserTest/index.html` in a browser. Follow the links
   in the report to see details about individual test cases.
 
   ![Gradle report for Wasm failing tests](wasm-test-report.png){width=500}
 
-  In the `NumbersTest` example, `intOverflows()` fails, resulting in a 50% success rate. To make it pass, convert
-  `Int.MAX_VALUE` to `Long` before adding `1` by changing the expression to `Int.MAX_VALUE.toLong() + 1`. If you rerun
-  the example after this change, both tests pass.
+
+In the [example above](#add-tests), `intOverflows()` fails, resulting in a 50% success rate. To make it pass, convert
+`Int.MAX_VALUE` to `Long` before adding `1` by changing the expression to `Int.MAX_VALUE.toLong() + 1`.
+If you rerun the example after this change, both tests pass.
 
 ## Leave feedback
 
