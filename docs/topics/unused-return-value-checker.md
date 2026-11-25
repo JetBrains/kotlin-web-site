@@ -1,9 +1,5 @@
 [//]: # (title: Unused return value checker)
 
-> For more information about the unused return value checker, see the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
->
-{style="note"}
-
 The unused return value checker detects _ignored results_.
 These are values returned from expressions that produce something other than
 `Unit`, `Nothing`, or `Nothing?` and aren't:
@@ -35,6 +31,10 @@ fun formatGreeting(name: String): String {
     return "Hello, $first! Or should I call you Dr. $last?"
 }
 ```
+
+> For more information about the unused return value checker, see the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
+>
+{style="note"}
 
 ## Configure the unused return value checker
 
