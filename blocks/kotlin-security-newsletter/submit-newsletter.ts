@@ -1,29 +1,36 @@
-const FORM_ID = '10127';
-const CONSENT_ID = 'mkt.general.jb-intention';
+import { formService } from '@webteam/data-services';
+import type { Submitter } from '@webteam/forms';
 
-export async function submitNewsletter(email: string) {
-    const consent = await fetch('https://account.jetbrains.com/services/acceptAgreement', {
+import { CONSENT_ID, FORM_ID } from './constants';
+
+const CONSENT_URL = 'https://account.jetbrains.com/services/acceptAgreement';
+
+const SIGNUP_FAILED_MESSAGE = 'We couldn’t complete your signup. Please try again.';
+
+type ServiceError = Array<{ name: string; cause: string }>;
+type ServiceResponse = { success: boolean; cause?: ServiceError };
+
+const toFieldErrors = (cause: ServiceError): Record<string, string> =>
+    cause.reduce<Record<string, string>>((errors, { name, cause: reason }) => {
+        errors[name] = reason;
+        return errors;
+    }, {});
+
+export const submitNewsletter: Submitter = async (formData) => {
+    const email = String(formData.Email ?? '');
+    if (!email) throw { form: SIGNUP_FAILED_MESSAGE };
+
+    const consent = await fetch(CONSENT_URL, {
         method: 'POST',
         body: new URLSearchParams({ email, type: CONSENT_ID }),
     });
-    if (!consent.ok) throw new Error('Consent request failed');
+    if (!consent.ok) throw { form: SIGNUP_FAILED_MESSAGE };
 
-    const fields = {
-        formid: FORM_ID,
-        Email: email,
-        kotlinSecurityNewsletter: true,
-        munchkinId: '426-QVD-114',
-        formVid: FORM_ID,
-    };
+    const response = await formService.submitToMarketo({ ...formData, formid: FORM_ID });
+    if (!response.ok) throw { form: SIGNUP_FAILED_MESSAGE };
 
-    // Match the website UI client's Form Service checksum format.
-    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(Object.values(fields).join('|')));
-    const checksum = Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
-    const response = await fetch('https://forms-service.jetbrains.com/marketo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...fields, checksum, checksumFields: Object.keys(fields).join(',') }),
-    });
+    const data = (await response.json()) as ServiceResponse;
+    if (!data.success) throw toFieldErrors(data.cause ?? []);
 
-    if (!response.ok) throw new Error('Newsletter signup failed');
-}
+    return data;
+};

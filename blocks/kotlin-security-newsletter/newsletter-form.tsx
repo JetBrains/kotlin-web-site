@@ -1,54 +1,40 @@
-import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
-import { Button } from '@rescui/button';
-import { Input } from '@rescui/input';
 import { useTextStyles } from '@rescui/typography';
+import { Form, Hidden, Input, SubmitButton } from '@webteam/forms';
 
 import { NewsletterConsent } from './newsletter-consent';
 import { submitNewsletter } from './submit-newsletter';
+import { CONSENT_ID, FORM_ID, PRIVACY_MESSAGE_ID } from './constants';
 import styles from './newsletter.module.css';
 
-const PRIVACY_MESSAGE_ID = 'newsletter-privacy';
+const SubmitMessage: FC = () => {
+    const textCn = useTextStyles();
 
-type SignupStatus = 'idle' | 'submitting' | 'subscribed' | 'error';
+    return (
+        <p role="status" className={cn(textCn('rs-text-2'), styles.result)}>
+            Thanks for signing up for the Kotlin Security Newsletter.
+        </p>
+    );
+};
 
 export const NewsletterForm: FC = () => {
-    const textCn = useTextStyles();
     const [ready, setReady] = useState(false);
-    const [status, setStatus] = useState<SignupStatus>('idle');
-    const submitting = useRef(false);
 
     useEffect(() => setReady(true), []);
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        if (!ready || submitting.current || status === 'subscribed') return;
-
-        const email = String(new FormData(event.currentTarget).get('Email') ?? '').trim();
-        if (!email) return;
-
-        submitting.current = true;
-        setStatus('submitting');
-        try {
-            await submitNewsletter(email);
-            setStatus('subscribed');
-        } catch {
-            setStatus('error');
-        } finally {
-            submitting.current = false;
-        }
-    };
-
     return (
-        <form
-            method="post"
+        <Form
+            formId={FORM_ID}
+            submitter={submitNewsletter}
+            submitMessage={SubmitMessage}
             className={styles.form}
-            onSubmit={handleSubmit}
-            onInput={() => setStatus('idle')}
-            aria-label="Kotlin Security Newsletter signup"
         >
             <noscript>Enable JavaScript to use this form.</noscript>
-            <fieldset disabled={!ready || status === 'submitting'} className={styles.fields}>
+            <fieldset disabled={!ready} className={styles.fields}>
+                <Hidden name="kotlinSecurityNewsletter" type="boolean" value={true} />
+                <Hidden name="privacyConsent" type="boolean" value={true} />
+                <Hidden name="privacyConsentType" type="array" value={[CONSENT_ID]} />
                 <Input
                     id="newsletter-email"
                     name="Email"
@@ -61,20 +47,10 @@ export const NewsletterForm: FC = () => {
                     required
                 />
                 <NewsletterConsent messageId={PRIVACY_MESSAGE_ID} />
-                <Button type="submit" size="l" disabled={status === 'subscribed'} className={styles.subscribe}>
-                    {status === 'submitting' ? 'Subscribing…' : 'Subscribe'}
-                </Button>
+                <SubmitButton size="l" className={styles.subscribe}>
+                    Subscribe
+                </SubmitButton>
             </fieldset>
-            {status === 'subscribed' && (
-                <p role="status" className={cn(textCn('rs-text-2'), styles.result)}>
-                    Thanks for signing up for the Kotlin Security Newsletter.
-                </p>
-            )}
-            {status === 'error' && (
-                <p role="alert" className={cn(textCn('rs-text-2'), styles.result)}>
-                    We couldn’t complete your signup. Please try again.
-                </p>
-            )}
-        </form>
+        </Form>
     );
 };
