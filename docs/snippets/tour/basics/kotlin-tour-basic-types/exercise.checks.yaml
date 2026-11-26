@@ -5,6 +5,14 @@ checks:
     title: "Declare the type of b explicitly"
     value: '\bv(?:al|ar)\s+b\b\s*:\s*String\b'
     message: "`b` needs a type that can contain text."
+  - type: not-and
+    title: "Declare c as Double, not Float"
+    checks:
+      - type: source-matches
+        value: '\bv(?:al|ar)\s+c\b\s*:\s*Float\b'
+      - type: error-contains
+        value: "Initializer type mismatch: expected 'Float', actual 'Double'"
+    message: "`3.14` is a `Double` literal: Kotlin reads every fractional number as a `Double` unless it ends with `f`. `Float` is 32-bit and less precise, so declare `c` as [`Double`](https://kotlinlang.org/docs/numbers.html#floating-point-types)."
   - type: source-matches
     title: "Declare the type of c explicitly"
     value: '\bv(?:al|ar)\s+c\b\s*:\s*Double\b'

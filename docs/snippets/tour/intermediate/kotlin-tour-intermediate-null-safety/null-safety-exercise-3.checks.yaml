@@ -12,4 +12,4 @@ checks:
   - type: source-matches
     title: "Return the usernames with mapNotNull"
     value: '\bmapNotNull\s*[\({]'
-    message: "Keep the [`mapNotNull { ... }`](https://kotlinlang.org/docs/collection-transformations.html#map) call from the starter code — it drops every `null` the lambda returns, like `ids.mapNotNull { findUser(it) }`: return the username for active users and `null` otherwise."
+    message: "Keep the [`mapNotNull()`](https://kotlinlang.org/docs/collection-transformations.html#map) function. You need it to drop every `null` value returned from the lambda."
