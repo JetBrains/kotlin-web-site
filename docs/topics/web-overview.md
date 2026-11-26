@@ -66,6 +66,8 @@ Kotlin/Wasm supports two targets:
   
   Learn more in [](wasm-wasi.md).
 
+The `wasmJs` target has broader testing and tooling support than `wasmWasi`. For details, see [Kotlin/Wasm](wasm-overview.md).
+
 > Learn how to configure Kotlin/Wasm targets in the [Configure a Gradle project](gradle-configure-project.md#targeting-webassembly) guide.
 >
 {style="tip"}

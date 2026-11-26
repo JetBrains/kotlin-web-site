@@ -10,13 +10,18 @@ Wasm is a binary instruction format for a stack-based virtual machine. This
 format is platform-independent because it runs on its own virtual machine. Wasm provides Kotlin and other languages with
 a compilation target. 
 
-You can use Kotlin/Wasm in different target environments, such as browsers, for developing 
-web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), or outside the 
-browser in standalone Wasm virtual machines. In the outside-of-browser case, the
-[WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
+Kotlin/Wasm supports two targets for different environments:
 
-Kotlin/Wasm provides Tier 1 support for `wasmJs` and Tier 2 support for `wasmWasi`.
-For information about the CI coverage, tooling support, and recommendations for library authors, see [Kotlin/Wasm target support](wasm-faq.md).
+* `wasmJs` runs in browsers and Node.js. Use it to develop web applications built with
+  [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/).
+* `wasmWasi` runs outside the browser in standalone Wasm virtual machines, where the
+  [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs.
+
+In addition to supporting different environments, the two targets differ in their levels of QA coverage and tooling support. The `wasmJs` target currently receives broader support than `wasmWasi`:
+
+* QA coverage: `wasmJs` has broad QA coverage, including Kotlin Gradle plugin integration tests and IntelliJ IDEA tests. `wasmWasi` has narrower QA and Kotlin Gradle plugin test coverage, with no dedicated IntelliJ IDEA tests.
+* Build tool support: for `wasmWasi`, you need to opt in to use WASI-specific features in the Kotlin Gradle plugin.
+* IDE support: only `wasmJs` supports debugging in the IDE and running code from the editor gutter.
 
 > To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-faq.md#which-browsers-support-kotlin-wasm) that supports 
 > WebAssembly's garbage collection
