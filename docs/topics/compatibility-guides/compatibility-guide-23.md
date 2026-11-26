@@ -168,59 +168,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.1.0: report a warning on the problematic type parameter bound
 > - 2.3.0: raise the warning to an error
 
-### Report upper-bound violations in type operators and type parameter bounds
-
-> **Issue**: [KTLC-358](https://youtrack.jetbrains.com/issue/KTLC-358)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**: The compiler now reports `UPPER_BOUND_VIOLATED` errors for types in `as` and `is` type operators and
-> in type parameter bounds, including `where` clauses. Previously, the compiler didn't report these violations,
-> which could lead to ill-formed types and runtime exceptions such as `ClassCastException`.
-> For example, for `interface Consumer<T : Consumer<T>>`, the `Impl() as Consumer<Any>` cast now results in an error because `Any` isn't a subtype of `Consumer<Any>`.
->
-> **Deprecation cycle**:
->
-> - 2.3.0: report warnings for upper-bound violations in type operators and type parameter bounds
-> - 2.5.0: raise the warnings to errors
-
-### Enforce read-only collection types for Java declarations annotated with `@Unmodifiable` and `@UnmodifiableView`
-
-> **Issue**: [KTLC-377](https://youtrack.jetbrains.com/issue/KTLC-377)
->
-> **Component**: Kotlin/JVM
->
-> **Incompatible change type**: source
->
-> **Short summary**: Kotlin now treats collection types in Java declarations annotated with `org.jetbrains.annotations.Unmodifiable` or
-> `org.jetbrains.annotations.UnmodifiableView` as read-only, for example, `List` instead of `MutableList`.
-> As a result, the compiler reports an error when you pass such a collection where a mutable collection is expected or call mutating functions on it.
-> Previously, such code compiled but could throw an exception at runtime.
->
-> **Deprecation cycle**:
->
-> - 2.3.20: report warnings for mutability mismatches based on the `@Unmodifiable` and `@UnmodifiableView` annotations
-> - 2.5.0: raise the warnings to errors
-
-### Remove eager `GlobalData` initialization in Kotlin/Native
-
-> **Issue**: [KT-80005](https://youtrack.jetbrains.com/issue/KT-80005)
->
-> **Component**: Kotlin/Native
->
-> **Incompatible change type**: behavioral
->
-> **Short summary**: Support for eager `GlobalData` initialization in the Kotlin/Native runtime (initializing the runtime
-> at program startup instead of on first access to Kotlin) is removed, and the binary option for enabling it is deprecated.
-> To migrate, remove the option from your project configuration.
->
-> **Deprecation cycle**:
->
-> - 2.3.0: report a warning when setting the option to `true`
-> - 2.5.0: raise the warning to an error
-
 ## Standard library
 
 ### Deprecate Char-to-number conversions and introduce explicit digit and code APIs

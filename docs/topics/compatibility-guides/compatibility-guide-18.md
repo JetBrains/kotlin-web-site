@@ -639,20 +639,3 @@ perspective
 >
 > - 1.8.0: raise the deprecation level to a warning
 > &gt;= 1.9: delete the property
-
-### Deprecate `implementationMetadataConfigurationName` property
-
-> **Issue**: [KT-55312](https://youtrack.jetbrains.com/issue/KT-55312), [KT-80897](https://youtrack.jetbrains.com/issue/KT-80897)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: binary
->
-> **Short summary**: The `implementationMetadataConfigurationName` property in the `KotlinSourceSet` interface is deprecated.
->
-> **Deprecation cycle**:
->
-> - 1.8.20: report a warning
-> - 2.2.0: raise the warning to an error
-> - 2.3.0: hide the property
-> - 2.5.0: remove the property

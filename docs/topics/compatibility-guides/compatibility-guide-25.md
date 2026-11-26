@@ -253,6 +253,206 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.5.0: report a warning when Android NDK targets are declared
 
+### Deprecate `StringBuilder.append(obj: Any?)` extension function
+
+> **Issue**: [KTLC-395](https://youtrack.jetbrains.com/issue/KTLC-395)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `StringBuilder.append(obj: Any?)` extension function is deprecated. Use the `StringBuilder.append(value: Any?)` member function instead.
+> This change affects only calls that specify the parameter name explicitly, such as `append(obj = value)`,
+> because calls without a named argument already resolve to the member function.
+> To migrate, remove the parameter name from the call.
+>
+> **Deprecation cycle**:
+>
+> - 1.3.70: report a warning
+> - 2.5.0: raise the warning to an error
+
+### Prohibit implicit usages of inaccessible types in constructor calls
+
+> **Issue**: [KTLC-398](https://youtrack.jetbrains.com/issue/KTLC-398)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when a constructor call implicitly uses a type from an indirect dependency
+> that isn't available to the compiler. For example, if the `Middle` class extends the `Missing` class from a module that your module
+> doesn't depend on, the `Middle()` call results in an error. Previously, such code could compile, but the inferred types depended on
+> the presence of the transitive dependency, which could lead to inconsistencies.
+> To migrate, add an explicit dependency on the module that declares the inaccessible type.
+>
+> This change follows a similar change for other implicit references to inaccessible types. For more information, see [KTLC-384](compatibility-guide-24.md#forbid-implicit-references-to-inaccessible-types).
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning for implicit usages of inaccessible types in constructor calls
+> - 2.5.0: raise the warning to an error
+
+### Report upper-bound violations in type operators and type parameter bounds
+
+> **Issue**: [KTLC-358](https://youtrack.jetbrains.com/issue/KTLC-358)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports `UPPER_BOUND_VIOLATED` errors for types in `as` and `is` type operators and
+> in type parameter bounds, including `where` clauses. Previously, the compiler didn't report these violations,
+> which could lead to ill-formed types and runtime exceptions such as `ClassCastException`.
+> For example, for `interface Consumer<T : Consumer<T>>`, the `Impl() as Consumer<Any>` cast now results in an error because `Any` isn't a subtype of `Consumer<Any>`.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report warnings for upper-bound violations in type operators and type parameter bounds
+> - 2.5.0: raise the warnings to errors
+
+### Enforce read-only collection types for Java declarations annotated with `@Unmodifiable` and `@UnmodifiableView`
+
+> **Issue**: [KTLC-377](https://youtrack.jetbrains.com/issue/KTLC-377)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now treats collection types in Java declarations annotated with `org.jetbrains.annotations.Unmodifiable` or
+> `org.jetbrains.annotations.UnmodifiableView` as read-only, for example, `List` instead of `MutableList`.
+> As a result, the compiler reports an error when you pass such a collection where a mutable collection is expected or call mutating functions on it.
+> Previously, such code compiled but could throw an exception at runtime.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report warnings for mutability mismatches based on the `@Unmodifiable` and `@UnmodifiableView` annotations
+> - 2.5.0: raise the warnings to errors
+
+### Remove eager `GlobalData` initialization in Kotlin/Native
+
+> **Issue**: [KT-80005](https://youtrack.jetbrains.com/issue/KT-80005)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Support for eager `GlobalData` initialization in the Kotlin/Native runtime (initializing the runtime
+> at program startup instead of on first access to Kotlin) is removed, and the binary option for enabling it is deprecated.
+> To migrate, remove the option from your project configuration.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when setting the option to `true`
+> - 2.5.0: raise the warning to an error
+
+### Forbid `external` modifier on enum entries and primary constructor properties
+
+> **Issue**: [KTLC-389](https://youtrack.jetbrains.com/issue/KTLC-389)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin doesn't support `external` properties on any platform. However, the compiler allowed the `external` modifier
+> on enum entries and on properties declared in primary constructors.
+> Such code either failed at runtime or the `external` modifier was ignored.
+> The compiler now reports an error when you use the `external` modifier in these cases. To migrate, remove the `external` modifier.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when the `external` modifier is used on enum entries and primary constructor properties
+> - 2.5.0: raise the warning to an error
+
+### Prohibit conflicting projections in the left-hand side of callable references
+
+> **Issue**: [KTLC-393](https://youtrack.jetbrains.com/issue/KTLC-393)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now checks projections in the left-hand side of callable references in the same way as in type references.
+> It reports an error if a projection conflicts with the declared variance of the corresponding type parameter.
+> For example, for `interface Out<out X>`, the `Out<in CharSequence>::func` reference results in an error.
+> Previously, such code could compile but fail in the compiler backend or produce error types.
+> To migrate, remove the projection or replace it with `*`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning for redundant projections and a deprecation warning for conflicting projections in the left-hand side of callable references
+> - 2.5.0: raise the deprecation warning for conflicting projections to an error
+
+### Report deprecations of outer classes in imports
+
+> **Issue**: [KTLC-397](https://youtrack.jetbrains.com/issue/KTLC-397)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports deprecations of outer classes when you import their nested declarations.
+> For example, the compiler reports a deprecation on `import my.C.Companion.a` if the `C` class is deprecated.
+> Previously, the compiler didn't report deprecations in such cases.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report the missing deprecations; report a warning for deprecations with the `ERROR` or `HIDDEN` level
+> - 2.5.0: report deprecations with the `ERROR` and `HIDDEN` levels as errors
+
+### Prohibit annotations, type arguments, and parentheses on package parts of qualifiers
+
+> **Issue**: [KTLC-396](https://youtrack.jetbrains.com/issue/KTLC-396)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when you use annotations, type arguments, or parentheses on the package part of
+> a qualified expression, for example, `part1<Int>.part2.foo()` or `(@MyAnnotation part1.part2).foo()`.
+> Packages can't have type arguments or annotations and can't be used as expressions, so such constructs had no effect.
+> To migrate, remove them.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning for annotations, type arguments, and parentheses on package parts of qualifiers
+> - 2.5.0: raise the warning to an error
+
+### Prohibit recursive inline value classes through type parameter upper bounds
+
+> **Issue**: [KTLC-401](https://youtrack.jetbrains.com/issue/KTLC-401)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin already prohibits inline value classes whose underlying type is recursive, such as `value class Rec(val x: Rec)`.
+> The compiler now also reports an error when the recursion goes through a type parameter upper bound,
+> for example, `value class V<T : V<T>>(val value: T)`.
+> Previously, such declarations behaved differently depending on the backend: they worked on the JVM but led to non-terminating compilation on Kotlin/Native.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning for inline value classes that are recursive through a type parameter upper bound
+> - 2.5.0: raise the warning to an error
+
+### Report deprecation and opt-in errors for companion object access in delegates, augmented assignments, and callable references
+
+> **Issue**: [KTLC-408](https://youtrack.jetbrains.com/issue/KTLC-408)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: When a class name implicitly refers to its companion object, the compiler reports deprecation and opt-in errors
+> if the companion object is deprecated or requires opt-in.
+> Previously, the compiler didn't report these errors when such an access happened in a property delegate, such as `val x by C`,
+> in the left-hand side of an augmented assignment, such as `C += ""`, or in the left-hand side of some callable references, such as `C::foo`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a deprecation warning for such companion object accesses
+> - 2.5.0: report deprecation and opt-in errors
+
 ## Standard library
 
 ### Make equality of ranges and progressions symmetric
@@ -308,6 +508,26 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.5.0: remove the `@ExperimentalWasmDsl` annotation from declarations related to the `wasmJs` target
 
+### Report an error when the Kotlin Gradle plugin is loaded multiple times
+
+> **Issue**: [KT-30276](https://youtrack.jetbrains.com/issue/KT-30276), [KT-61225](https://youtrack.jetbrains.com/issue/KT-61225)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Kotlin Gradle plugin now reports an error and fails the build when it is loaded multiple times
+> across subprojects or classloaders in a build.
+>
+> To avoid the error, ensure the plugin is loaded once in a common parent classloader, for example, by declaring the
+> plugin with a version and `apply false` in the root project's `plugins {}` block
+> (or in `buildSrc` / convention plugins) and omitting explicit plugin versions in subprojects.
+>
+> **Deprecation cycle**:
+>
+> - 1.3.30: report a warning when the Kotlin Gradle plugin is loaded multiple times
+> - 2.5.0: raise the warning to an error
+
 ### Deprecate `applyArgumentStrings()` function
 
 > **Issue**: [KT-86169](https://youtrack.jetbrains.com/issue/KT-86169)
@@ -356,3 +576,194 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.5.0-Beta1: report a warning when running the Kotlin compiler on a JDK earlier than 17
 > - 2.5.0-Beta2: raise the warning to an error (temporarily suppressible with `-Xallow-pre-17-runtime-jdk`)
 > - 2.5.20-Beta1: require JDK 17 or later as the minimum runtime version and deprecate `-Xallow-pre-17-runtime-jdk`
+
+### Deprecate `implementationMetadataConfigurationName` property
+
+> **Issue**: [KT-55312](https://youtrack.jetbrains.com/issue/KT-55312), [KT-80897](https://youtrack.jetbrains.com/issue/KT-80897)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: binary
+>
+> **Short summary**: The `implementationMetadataConfigurationName` property in the `KotlinSourceSet` interface is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 1.8.20: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.3.0: hide the property
+> - 2.5.0: remove the property
+
+### Deprecate `wasm()` target
+
+> **Issue**: [KT-89510](https://youtrack.jetbrains.com/issue/KT-89510)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `wasm()` target functions are deprecated. Use the `wasmJs()` target instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the `wasm()` target functions
+
+### Deprecate properties in `NodeJsRootExtension`
+
+> **Issue**: [KT-89508](https://youtrack.jetbrains.com/issue/KT-89508)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The properties in the `NodeJsRootExtension` extension are deprecated. Use the `NodeJsEnvSpec` and `WasmNodeJsEnvSpec`
+> extensions instead. Unlike `NodeJsRootExtension`, which is configured in the root project, these extensions are configured per project.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the deprecated properties
+
+### Deprecate Binaryen declarations
+
+> **Issue**: [KT-89509](https://youtrack.jetbrains.com/issue/KT-89509), [KT-84258](https://youtrack.jetbrains.com/issue/KT-84258)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Several Binaryen-related declarations in the Kotlin Gradle plugin are deprecated, namely:
+>
+> * `inputFileProperty`
+> * `outputFileName`
+> * `outputFileProperty`
+> * `binaryenArgs`
+>
+> Use the `BinaryenEnvSpec`extension instead, which is configured per project.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.2.0: raise the warning to an error
+> - 2.5.0: remove the deprecated declarations
+
+### Deprecate public `KotlinJsIrTarget` constructor
+
+> **Issue**: [KT-86112](https://youtrack.jetbrains.com/issue/KT-86112)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The public `KotlinJsIrTarget(project: Project, platformType: KotlinPlatformType, isMpp: Boolean)` constructor
+> is deprecated. You don't need to create instances of `KotlinJsIrTarget` manually because the Kotlin Gradle plugin creates them internally.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.20: report a warning when using the public `KotlinJsIrTarget` constructor
+> - 2.5.0: raise the warning to an error
+
+### Deprecate `resolveRootProject()` function with the `services` parameter
+
+> **Issue**: [KT-84740](https://youtrack.jetbrains.com/issue/KT-84740)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `resolveRootProject()` function overload with the unused `services: ServiceRegistry` parameter
+> in the `NpmApiExecution` interface is deprecated. To migrate, use the alternative suggested by the deprecation's `ReplaceWith` argument:
+> the `resolveRootProject(logger, nodeJs, packageManagerEnvironment, cliArgs)` overload.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `resolveRootProject()` with the `services` parameter
+> - 2.5.0: raise the warning to an error
+
+### Remove the legacy mode for Kotlin/JVM compilation without the Build tools API
+
+> **Issue**: [KT-85434](https://youtrack.jetbrains.com/issue/KT-85434)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Kotlin Gradle plugin continues migrating to the [Build tools API](build-tools-api.md) and drops
+> older ways of invoking the Kotlin compiler. Now Kotlin/JVM compilations always run through the Build tools API.
+> This change shouldn't affect your builds. However, the `kotlin.compiler.runViaBuildToolsApi` Gradle property no longer
+> has any effect, so you can remove it from your `gradle.properties` file.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning
+> - 2.5.0: remove the legacy mode for Kotlin/JVM compilation without the Build tools API
+
+### Deprecate `contains()` function in Build tools API compiler arguments
+
+> **Issue**: [KT-85448](https://youtrack.jetbrains.com/issue/KT-85448)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: source, behavioral
+>
+> **Short summary**: Calling the `contains()` function on Build tools API compiler argument classes, such as `JvmCompilerArguments`, is deprecated.
+> In newer Build tools API versions, all compiler arguments have default values, so this function always returns `true`,
+> and checking whether an argument is present is meaningless. To migrate, remove calls to this function.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using the `contains()` function
+> - 2.5.0: raise the warning to an error
+
+### Prohibit unsupported compiler arguments in `applyArgumentStrings()` function
+
+> **Issue**: [KT-85439](https://youtrack.jetbrains.com/issue/KT-85439), [KT-85464](https://youtrack.jetbrains.com/issue/KT-85464)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The Build tools API no longer allows passing some Kotlin compiler arguments through the `applyArgumentStrings()` function.
+> These arguments either conflict with the configuration that the Build tools API manages itself or represent functionality that the Build tools API doesn't support:
+>
+> * `-Xenable-incremental-compilation`
+> * `-Xrepl`
+> * `-d`
+> * `-expression` and its short form `-e`
+> * `-include-runtime`
+> * `-Xbuild-file` and its deprecated name `-module`
+>
+> If you pass any of these arguments to `applyArgumentStrings()`, the compilation fails. Depending on the compiler version and when argument validation happens,
+> the Build tools API throws a `CompilerArgumentsParseException` or reports the parsing error when the compilation runs.
+> This change affects only the Build tools API. The corresponding options are still available in the Kotlin command-line compiler.
+>
+> To migrate:
+>
+> * Replace `-Xenable-incremental-compilation` with the `JvmCompilationOperation.INCREMENTAL_COMPILATION` configuration option.
+> * Replace `-d` with the `destinationDirectory` parameter of the `JvmPlatformToolchain.jvmCompilationOperationBuilder()` function.
+> * Remove `-Xrepl`, `-expression` (`-e`), `-include-runtime`, and `-Xbuild-file` (`-module`) from calls to `applyArgumentStrings()`,
+    >   because the Build tools API doesn't support this functionality.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when these arguments are passed to `applyArgumentStrings()`
+> - 2.5.0: raise the warning to an error
+
+### Remove `MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` option from `JvmSnapshotBasedIncrementalCompilationConfiguration`
+
+> **Issue**: [KT-88776](https://youtrack.jetbrains.com/issue/KT-88776)
+>
+> **Component**: Build tools API
+>
+> **Incompatible change type**: source, behavioral
+>
+> **Short summary**: The experimental `JvmSnapshotBasedIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` option is deprecated
+> Use `BaseIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `JvmSnapshotBasedIncrementalCompilationConfiguration.MONOTONOUS_INCREMENTAL_COMPILE_SET_EXPANSION`
+> - 2.5.0: remove the option
