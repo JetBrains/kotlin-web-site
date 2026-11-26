@@ -16,7 +16,7 @@ const textCn = createTextCn('light');
 
 const COVERAGE = [
     {
-        title: 'Security fixes in Kotlin and its ecosystem.',
+        title: 'Kotlin Ecosystem Security Updates',
         description:
             'Fixed CVEs, affected versions, and dependency updates for Kotlin, the kotlinx libraries, Ktor, and Exposed.',
     },
