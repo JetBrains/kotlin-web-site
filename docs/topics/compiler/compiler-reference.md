@@ -284,6 +284,12 @@ Configure how the compiler [reports ignored results](unused-return-value-checker
 * `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
 * `disable`: disables the unused return value checker.
 
+### -Xstrict-equality-for-structural-classes
+<primary-label ref="experimental-opt-in"/>
+
+Enables strict equality checks for structural classes, reporting comparisons that always return `false` (for `==`) or `true`
+(for `!=`), based on the known types of the operands.
+
 ### Warning management
 
 #### -nowarn
