@@ -260,11 +260,12 @@ kotlin {
 In the JavaScript world, the most common way to manage dependencies is [npm](https://www.npmjs.com/).
 It offers the biggest public repository of JavaScript modules.
 
-The Kotlin Multiplatform Gradle plugin lets you declare npm dependencies in the Gradle build script, just how you
-declare any other dependencies.
+The Kotlin Multiplatform Gradle plugin provides a dedicated DSL for declaring npm dependencies in the `dependencies {}`
+block of a source set. The function you call determines which field of the generated `package.json` file receives
+the dependency.
 
-To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
-You can also specify one or multiple version ranges based on [npm's semver syntax](https://docs.npmjs.com/about-semantic-versioning).
+To declare a regular npm dependency, pass its package name and version to the `npm()` function. You can specify one or
+multiple version ranges based on [npm's semver syntax](https://docs.npmjs.com/about-semantic-versioning):
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -274,7 +275,7 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation(npm("core-js", "^3.38.1"))
+                npm("core-js", "^3.38.1")
             }
         }
     }
@@ -289,7 +290,7 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation npm('core-js', '^3.38.1')
+                npm 'core-js', '^3.38.1'
             }
         }
     }
@@ -298,6 +299,54 @@ kotlin {
 
 </tab>
 </tabs>
+
+The following functions map npm declarations to `package.json` fields:
+
+| Function         | `package.json` field  | Comments                                      |
+|------------------|-----------------------|-----------------------------------------------|
+| `npm()`          | `dependencies`       |                                               |
+| `npmDev()`       | `devDependencies`    |                                               |
+| `npmOptional()`  | `optionalDependencies` |                                               |
+| `npmPeer()`      | `peerDependencies`    | Doesn't support file-based dependencies.      |
+
+To learn more about when each type of dependency can best be used, see the official
+[npm documentation for `package.json`](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
+
+The functions also support lazy declarations. A version can be a `Provider<String>`, and a local package can be
+specified with a `File` or `Provider<Directory>` location:
+
+```kotlin
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                npm("my-design-system", file("local-packages/my-design-system"))
+                npmDev("webpack-bundle-analyzer", providers.gradleProperty("bundleAnalyzerVersion"))
+            }
+        }
+    }
+}
+```
+
+If your build script uses the older functions, update them as follows:
+
+| Deprecated| New DSL    |
+|---------------|----------------|
+| `devNpm()`| `npmDev()`|
+| `optionalNpm()`  | `npmOptional()`|
+| `peerNpm()`| `npmPeer()`     |
+
+Adding an npm dependency to a Gradle configuration, such as `implementation(npm(...))`, is deprecated and triggers
+a warning. The IDE offers a quick-fix that removes the configuration wrapper.
+
+A compilation collects npm declarations from all source sets it uses, for example `commonMain`, `webMain`, and
+`jsMain`. Because a `package.json` field can list a package only once, the plugin merges duplicate declarations:
+
+* Identical declarations are deduplicated.
+* Different version ranges for the same package are combined into an npm intersection range, such as
+  `"^1.0.0 >=1.1.0"`.
+* Location specifiers like `file:`, `git:`, or tarball URLs can't be merged. In this case, the plugin reports all
+  conflicts and their source sets in a single diagnostic.
 
 By default, the plugin uses a separate instance of the [Yarn](https://yarnpkg.com/lang/en/) package manager to download
 and install npm dependencies. It works out of the box without additional configuration, but you can [tune it to specific needs](#yarn).
@@ -308,13 +357,6 @@ To use npm as your package manager, in your `gradle.properties` file, set the fo
 ```none
 kotlin.js.yarn=false
 ```
-
-Besides regular dependencies, there are three more types of dependencies that can be used from the Gradle DSL.
-To learn more about when each type of dependency can best be used, have a look at the official documentation linked from npm:
-
-* [devDependencies](https://docs.npmjs.com/files/package.json#devdependencies), via `devNpm(...)`,
-* [optionalDependencies](https://docs.npmjs.com/files/package.json#optionaldependencies) via `optionalNpm(...)`, and
-* [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) via `peerNpm(...)`.
 
 Once an npm dependency is installed, you can use its API in your code as described in [Calling JS from Kotlin](js-interop.md).
 
