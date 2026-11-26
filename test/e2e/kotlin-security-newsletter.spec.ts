@@ -22,6 +22,8 @@ for (const viewport of [
             await expect(page.getByTestId('top-menu')).toHaveCount(0);
             await expect(main.getByRole('heading', { level: 1 })).toHaveText(NEWSLETTER_TITLE);
 
+            await expect(main.getByText(/^A free email digest from the Kotlin team/)).toHaveCount(0);
+
             const coverage = main.getByRole('region', { name: 'What you’ll get' });
             await expect(coverage.getByRole('listitem').getByRole('heading')).toHaveText([
                 'Security fixes in Kotlin and its ecosystem.',
@@ -52,7 +54,8 @@ for (const viewport of [
             await expect(privacyNotice).toBeHidden();
             await form.locator('summary').press('Enter');
             await expect(privacyNotice).toBeVisible();
-            await expect(form.getByText('You can unsubscribe at any time.')).toBeVisible();
+            await expect(form.getByText('Email address', { exact: true })).toHaveCount(0);
+            await expect(form.getByText('You can unsubscribe at any time.', { exact: true })).toHaveCount(0);
 
             const artwork = main.locator('img[alt=""]');
             await expect(artwork).toHaveCount(2);

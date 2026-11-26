@@ -10,7 +10,7 @@ import cubeGraphics from '@/public/images/state-of-kotlin-2026/deco-cube.webp';
 import sphereGraphics from '@/public/images/state-of-kotlin-2026/deco-sphere.webp';
 
 const TITLE = 'Kotlin Security Newsletter';
-const INTRO =
+const DESCRIPTION =
     'A free email digest from the Kotlin team to help you find the security fixes that matter to your projects.';
 const textCn = createTextCn('light');
 
@@ -49,7 +49,7 @@ const RESOURCES = [
 
 export default function KotlinSecurityNewsletter() {
     return (
-        <LandingLayout title={TITLE} description={INTRO} theme="light" hideTopMenu>
+        <LandingLayout title={TITLE} description={DESCRIPTION} theme="light" hideTopMenu>
             <main>
                 <section className={styles.hero} aria-labelledby="newsletter-title">
                     <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.container, styles.heroContent)}>
@@ -57,7 +57,6 @@ export default function KotlinSecurityNewsletter() {
                             <h1 id="newsletter-title" className={cn(textCn('rs-hero'), styles.title)}>
                                 {TITLE}
                             </h1>
-                            <p className={cn(textCn('rs-text-1', { hardness: 'average' }), styles.intro)}>{INTRO}</p>
                             <NewsletterForm />
                         </div>
                         <div className={styles.artwork} aria-hidden="true">
