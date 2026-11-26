@@ -26,7 +26,7 @@ for (const viewport of [
 
             const coverage = main.getByRole('region', { name: 'What you’ll get' });
             await expect(coverage.getByRole('listitem').getByRole('heading')).toHaveText([
-                'Kotlin Ecosystem Security Updates',
+                'Kotlin ecosystem security updates',
                 'JVM security news relevant to Kotlin',
                 'Kotlin security events',
             ]);
