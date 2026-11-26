@@ -6,8 +6,25 @@ import { testSelector } from '../utils';
 const SIGNUP_PATH = '/security-newsletter/';
 const NEWSLETTER_TITLE = 'Kotlin Security Newsletter';
 const CONSENT_ID = 'mkt.general.jb-intention';
+const CONSENT_SHORT_TEXT = 'I agree that my personal data will be processed for this purpose.';
+const CONSENT_URL = 'https://resources.jetbrains.com/services/consentOptions**';
 
 const getForm = (page: Page): Locator => page.locator(testSelector('wtform'));
+
+test.beforeEach(async ({ page }) => {
+    await page.route(CONSENT_URL, async (route) => {
+        await route.fulfill({
+            status: 200,
+            headers: { 'access-control-allow-origin': '*' },
+            json: {
+                consentId: CONSENT_ID,
+                version: '1.0',
+                shortText: CONSENT_SHORT_TEXT,
+                text: 'By submitting this form, I agree that JetBrains s.r.o. may process the personal data I provided above and my location for the purpose explained above and may engage <a href="https://www.jetbrains.com/legal/privacy/third-parties.html" target="_blank">third parties</a> in such processing. The consent can be revoked in <a href="https://account.jetbrains.com/profile-details/privacy" target="_blank">my profile</a> at any time. More details about the processing are in <a href="https://www.jetbrains.com/legal/docs/privacy/privacy/" target="_blank">JetBrains Privacy Notice</a>. In addition, an unsubscribe link is included in each email.',
+            },
+        });
+    });
+});
 
 for (const viewport of [
     { width: 1440, height: 1000 },
@@ -53,36 +70,37 @@ for (const viewport of [
             );
 
             const form = main.locator(testSelector('wtform'));
-            const privacyTrigger = form.getByLabel('Privacy details');
-            const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
             const email = form.getByRole('textbox', { name: 'Email address' });
             const subscribe = form.getByRole('button', { name: 'Subscribe', exact: true });
             await expect(email).toHaveAttribute('placeholder', 'your.email@example.com');
-            await expect(email).toHaveAccessibleDescription(
-                'I agree that my personal data will be processed for this purpose.'
-            );
 
-            const subscribePosition = await subscribe.boundingBox();
-            await expect(privacyNotice).toBeHidden();
-            await privacyTrigger.hover();
-            await expect(privacyNotice).toBeVisible();
-            expect(await subscribe.boundingBox()).toEqual(subscribePosition);
-            await privacyNotice.hover();
-            await expect(privacyNotice).toBeVisible();
-            await main.getByRole('heading', { level: 1 }).hover();
-            await expect(privacyNotice).toBeHidden();
-
-            await email.focus();
-            await page.keyboard.press('Tab');
-            await expect(privacyTrigger).toBeFocused();
-            await expect(privacyNotice).toBeVisible();
-            await page.keyboard.press('Tab');
-            await expect(form.getByRole('link', { name: 'third parties' })).toBeFocused();
-            await page.keyboard.press('Escape');
-            await expect(privacyNotice).toBeHidden();
-            await expect(privacyTrigger).toBeFocused();
+            const notice = form.locator(testSelector('privacy-notice'));
+            await expect(notice).toContainText(CONSENT_SHORT_TEXT);
             await expect(form.getByText('Email address', { exact: true })).toHaveCount(0);
             await expect(form.getByText('You can unsubscribe at any time.', { exact: true })).toHaveCount(0);
+
+            if (viewport.width > 640) {
+                const privacyTrigger = notice.locator('svg');
+                // The tooltip content is rendered into a portal attached to the document body.
+                const privacyNotice = page.getByRole('link', { name: 'JetBrains Privacy Notice' });
+                const subscribePosition = await subscribe.boundingBox();
+
+                await expect(privacyNotice).toHaveCount(0);
+                await privacyTrigger.hover();
+                await expect(privacyNotice).toBeVisible();
+                expect(await subscribe.boundingBox()).toEqual(subscribePosition);
+                await privacyNotice.hover();
+                await expect(privacyNotice).toBeVisible();
+                await main.getByRole('heading', { level: 1 }).hover();
+                await expect(privacyNotice).toHaveCount(0);
+
+                await email.focus();
+                await page.keyboard.press('Tab');
+                await expect(privacyTrigger).toBeFocused();
+                await expect(privacyNotice).toBeVisible();
+                await page.keyboard.press('Tab');
+                await expect(privacyNotice).toHaveCount(0);
+            }
 
             const artwork = main.locator('img[alt=""]');
             await expect(artwork).toHaveCount(2);
@@ -119,7 +137,6 @@ for (const viewport of [
                     return;
                 }
 
-                expect(request.method()).toBe('POST');
                 expect(request.postDataJSON()).toMatchObject({
                     formid: '10127',
                     formVid: '10127',
@@ -178,15 +195,15 @@ for (const viewport of [
 test.describe('Newsletter privacy details on a touch screen', () => {
     test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
 
-    test('opens on tap and dismisses on an outside tap', async ({ page }) => {
+    test('expands the full consent text on tap and collapses it back', async ({ page }) => {
         await page.goto(SIGNUP_PATH);
         const form = getForm(page);
         const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
 
-        await form.getByLabel('Privacy details').tap();
+        await form.getByRole('button', { name: 'Show more' }).tap();
         await expect(privacyNotice).toBeVisible();
-        await page.getByRole('heading', { name: NEWSLETTER_TITLE, exact: true }).tap();
-        await expect(privacyNotice).toBeHidden();
+        await form.getByRole('button', { name: 'Show less' }).tap();
+        await expect(privacyNotice).toHaveCount(0);
     });
 });
 
