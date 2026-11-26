@@ -3,7 +3,7 @@ import type { Locator, Page } from '@playwright/test';
 
 import { testSelector } from '../utils';
 
-const SIGNUP_PATH = '/kotlin-security-newsletter/';
+const SIGNUP_PATH = '/security-newsletter/';
 const NEWSLETTER_TITLE = 'Kotlin Security Newsletter';
 const CONSENT_ID = 'mkt.general.jb-intention';
 
@@ -23,7 +23,7 @@ for (const viewport of [
             await expect(page).toHaveTitle(NEWSLETTER_TITLE);
             await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
                 'href',
-                /\/kotlin-security-newsletter\/$/
+                /\/security-newsletter\/$/
             );
             await expect(page.getByTestId('top-menu')).toHaveCount(0);
             await expect(main.getByRole('heading', { level: 1 })).toHaveText(NEWSLETTER_TITLE);
@@ -170,7 +170,7 @@ for (const viewport of [
             await expect(page.getByRole('main').getByRole('status')).toContainText('Thanks for signing up');
             await expect(form).toHaveCount(0);
             expect(requests).toEqual(['consent', 'marketo', 'consent', 'marketo']);
-            await expect(page).toHaveURL(/\/kotlin-security-newsletter\//);
+            await expect(page).toHaveURL(/\/security-newsletter\//);
         });
     });
 }
