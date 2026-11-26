@@ -53,6 +53,7 @@ export const NewsletterForm: FC = () => {
                     id="newsletter-email"
                     name="Email"
                     aria-label="Email address"
+                    placeholder="your.email@example.com"
                     aria-describedby={PRIVACY_MESSAGE_ID}
                     type="email"
                     autoComplete="email"

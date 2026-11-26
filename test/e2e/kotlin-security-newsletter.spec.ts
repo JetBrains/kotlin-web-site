@@ -51,6 +51,7 @@ for (const viewport of [
             const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
             const email = form.getByRole('textbox', { name: 'Email address' });
             const subscribe = form.getByRole('button', { name: 'Subscribe', exact: true });
+            await expect(email).toHaveAttribute('placeholder', 'your.email@example.com');
             await expect(email).toHaveAccessibleDescription(
                 'I agree that my personal data will be processed for this purpose.'
             );
