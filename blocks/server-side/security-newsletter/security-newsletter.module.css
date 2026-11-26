@@ -1,0 +1,75 @@
+.card {
+    --cobalt-glow-position: 82% 66%;
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'copy copy'
+        'action artwork';
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 46% 115% at var(--cobalt-glow-position), rgba(44, 93, 222, 0.30), transparent),
+        radial-gradient(ellipse 38% 110% at 80% 106%, rgba(127, 81, 253, 0.29), transparent),
+        linear-gradient(110deg, #24203f, #181d33 68%, #1c192b);
+    border: 1px solid rgba(126, 157, 251, 0.28);
+    border-radius: 16px;
+}
+
+.copy {
+    grid-area: copy;
+}
+
+.title {
+    --rs-h2-font-size-mobile: 28px;
+    --rs-h2-line-height-mobile: 32px;
+    margin: 0;
+}
+
+.description {
+    max-width: 600px;
+    margin: 12px 0 0;
+}
+
+.action {
+    grid-area: action;
+}
+
+.artwork {
+    grid-area: artwork;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@media (min-width: 809px) {
+    .card {
+        --cobalt-glow-position: 75% 5%;
+        grid-template-areas: 'copy artwork action';
+        grid-template-columns: minmax(0, 1fr) 60px auto;
+        align-items: center;
+        column-gap: 16px;
+        padding: 32px;
+    }
+
+    .artwork {
+        height: 84px;
+    }
+}
+
+@media (min-width: 1001px) {
+    .card {
+        grid-template-columns: minmax(0, 1fr) 152px auto;
+        column-gap: 24px;
+    }
+
+    .artwork {
+        height: clamp(164px, 14vw, 196px);
+    }
+}

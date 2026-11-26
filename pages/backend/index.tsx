@@ -5,6 +5,7 @@ import { LandingLayout } from '../../components/landing-layout/landing-layout';
 import { ServerSideHero } from '../../blocks/server-side/hero/hero';
 import { ServerSidePerformance } from '../../blocks/server-side/performance/performance';
 import FeaturesSection from '../../blocks/server-side/features-section';
+import { SecurityNewsletter } from '../../blocks/server-side/security-newsletter/security-newsletter';
 import CustomerLogoMarqueeSection from '../../components/customer-logo-marquee';
 import { Ecosystem } from '../../blocks/server-side/ecosystem/ecosystem';
 import { HowToStart } from '../../blocks/server-side/how-to-start/how-to-start';
@@ -42,6 +43,7 @@ function Index() {
             <ServerSideHero />
             <CustomerLogoMarqueeSection items={logos} />
             <FeaturesSection />
+            <SecurityNewsletter />
             <ServerSidePerformance />
             <Ecosystem />
             <HowToStart />
