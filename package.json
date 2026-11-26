@@ -147,6 +147,7 @@
         "kotlin-playground": "1.35.0-pass-args.4",
         "react": "18.3.1",
         "@babel/runtime": "7.29.15",
+        "@babel/runtime-corejs3": "7.29.15",
         "@webteam/data-services": {
             "query-string": "9.5.1"
         }
