@@ -131,8 +131,8 @@ If we discover a security vulnerability that affects the Kotlin standard library
 * A bug fix release based on the latest Kotlin release in the release line that includes the security fix.
 * Bug fix releases for every release line within its active support window.
 
-For example, if we discover a security vulnerability and the latest Kotlin release is Kotlin 2.4.20, we release a bug fix
-version for Kotlin 2.4.20 only. We don't release a bug fix version for Kotlin 2.4.0.
+For example, if we discover a security vulnerability and the latest Kotlin release is Kotlin 2.5.20, we release a bug fix
+version for Kotlin 2.5.20 only. We don't release a bug fix version for Kotlin 2.5.0.
 
 The following table lists all Kotlin releases and their support windows:
 
@@ -142,6 +142,19 @@ The following table lists all Kotlin releases and their support windows:
         <th>Release date</th>
         <th>End of support</th>
         <th>Latest release</th>
+    </tr>
+    <tr>
+        <td><strong>2.5</strong>
+        </td>
+        <td>
+            <p>December 2, 2026</p>
+        </td>
+        <td>
+            <p>June 2, 2028</p>
+        </td>
+        <td>
+            <p>2.5.0</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.4</strong>
