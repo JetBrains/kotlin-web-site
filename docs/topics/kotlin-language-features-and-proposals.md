@@ -84,37 +84,6 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Kotlin companion blocks and extensions (statics)**
-
-* KEEP proposal: [companion-blocks.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0449-companions-block-extension.md)
-* YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Version overloading**
-
-* KEEP proposal: [version-overloading.md](https://github.com/Kotlin/KEEP/blob/version-overloading-proposal/proposals/version-overloading.md)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
 **Streamline KDoc ambiguity links**
 
 * KEEP proposal: [streamline-KDoc-ambiguity-references.md](https://github.com/Kotlin/KEEP/blob/kdoc/Streamline-KDoc-ambiguity-references/proposals/kdoc/streamline-KDoc-ambiguity-references.md)
@@ -151,66 +120,66 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Kotlin companion blocks and extensions (statics)**
+
+* KEEP proposal: [companion-blocks.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0449-companions-block-extension.md)
+* YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.5.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Full value classes**
+
+* KEEP proposal: [better-immutability-value-classes-MFVC.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0454-better-immutability-value-classes-MFVC.md)
+* YouTrack issue: [KT-77734](https://youtrack.jetbrains.com/issue/KT-77734)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.5.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Strict equality checks for structural classes**
+
+* KEEP proposal: [equals.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0456-equals.md)
+* YouTrack issue: [KT-83683](https://youtrack.jetbrains.com/issue/KT-83683)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.5.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
 **Collection literals**
 
 * KEEP proposal: [collection-literals.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0416-collection-literals.md)
 * YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
 * Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.4.0
-
-</td>
-</tr>
-
-<tr filter="in-preview">
-<td width="200">
-
-**In preview**
-
-</td>
-<td>
-
-**Improve compile-time constants**
-
-* KEEP proposal: [improve-compile-time-constants.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0444-improve-compile-time-constants.md)
-* YouTrack issue: [KT-22505](https://youtrack.jetbrains.com/issue/KT-22505)
-* Stability level: [Experimental](components-stability.md#stability-levels-explained)
-* Available since: 2.4.0
-
-</td>
-</tr>
-
-<tr filter="in-preview">
-<td width="200">
-
-**In preview**
-
-</td>
-<td>
-
-**Name-based destructuring**
-
-* KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
-* YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
-* Stability level: [Experimental](components-stability.md#stability-levels-explained)
-* Available since: 2.3.20
-
-</td>
-</tr>
-
-<tr filter="in-preview">
-<td>
-
-**In preview**
-
-</td>
-<td>
-
-**Unused return value checker**
-
-* KEEP proposal: [unused-return-value-checker.md](https://github.com/Kotlin/KEEP/blob/underscore-for-unused-local/proposals/unused-return-value-checker.md)
-* YouTrack issue: [KT-12719](https://youtrack.jetbrains.com/issue/KT-12719)
-* Stability level: [Experimental](components-stability.md#stability-levels-explained)
-* Available since: 2.3.0
 
 </td>
 </tr>
@@ -293,6 +262,74 @@ guided by pragmatic design.
 
 <tr filter="stable">
 <td width="200">
+
+**Stable**
+
+</td>
+<td>
+
+**Name-based destructuring**
+
+* KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
+* YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
+* Available since: 2.3.20, Stable since 2.5.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Unused return value checker**
+
+* KEEP proposal: [unused-return-value-checker.md](https://github.com/Kotlin/KEEP/blob/underscore-for-unused-local/proposals/unused-return-value-checker.md)
+* YouTrack issue: [KT-12719](https://youtrack.jetbrains.com/issue/KT-12719)
+* Available since: 2.3.0, Stable since 2.5.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Improve compile-time constants**
+
+* KEEP proposal: [improve-compile-time-constants.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0444-improve-compile-time-constants.md)
+* YouTrack issue: [KT-22505](https://youtrack.jetbrains.com/issue/KT-22505)
+* Available since: 2.4.0, Stable since 2.5.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Version overloading**
+
+* KEEP proposal: [version-overloading.md](https://github.com/Kotlin/KEEP/blob/version-overloading-proposal/proposals/version-overloading.md)
+* YouTrack issue: [KT-86090](https://youtrack.jetbrains.com/issue/KT-86090)
+* Available since: 2.4.0, Stable since 2.5.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
 
 **Stable**
 
