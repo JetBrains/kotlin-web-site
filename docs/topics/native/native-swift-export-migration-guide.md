@@ -11,7 +11,7 @@ from the Objective-C framework to Swift export:
 1. [Switch the Gradle build](#update-the-gradle-configuration) from `binaries.framework {}` to the
    `export { swift {} }` block.
 2. [Switch the Xcode project](#update-the-xcode-project) to the direct integration or the Swift package integration.
-3. [Prepare the exported Kotlin API](#prepare-the-kotlin-api) since Swift export exports every public declaration.
+3. [Prepare the exported Kotlin API](#prepare-the-kotlin-api) to control which public declarations and dependencies Swift export exposes.
 4. [Rewrite the Swift code](#update-the-swift-code) since almost every Kotlin declaration are different in Swift.
 
 > Explore the [public sample project](https://github.com/Kotlin/swift-export-sample) with Swift export already set up.
@@ -51,7 +51,7 @@ Before changing anything, collect the following information about your project:
 * The Kotlin dependencies and compiler plugins involved in the Objective-C export, especially
   [SKIE](https://skie.touchlab.co/) and KMP-NativeCoroutines.
 * Kotlin annotations specific to Objective-C interop: `@ObjCName`, `@HiddenFromObjC`, `@ShouldRefineInSwift`,
-  `@Throws`, and `@NativeCoroutines`.
+  and `@Throws`, plus KMP-NativeCoroutines annotations such as `@NativeCoroutines`.
 * The Objective-C idioms used in Swift code: `FooKt.` file facades, `KotlinInt` and other boxed types,
   `companion`, `doCopy()`, completion handlers, and SKIE helpers such as `onEnum(of:)`.
 
@@ -79,7 +79,7 @@ Replace the framework declaration in the umbrella module with the `export {}` bl
             iosSimulatorArm64()
             export {
                 swift {
-                    // Keeps the old framework baseName, so Swift import statements don't change
+                    // Keeps the old framework name for this module; exported dependencies have their own Swift module names
                     moduleName = "Shared"
                     // Removes the package prefix from the generated Swift code
                     rootPackage = "com.example.shared"
@@ -102,6 +102,10 @@ Replace the framework declaration in the umbrella module with the `export {}` bl
         }
     </code-block>
 </compare>
+
+Each exported Gradle project gets its own Swift module. Keeping the old framework name preserves imports only for
+declarations from that module. In a multimodule app, also update imports for declarations from exported dependencies
+to their new module names.
 
 When you rewrite the build file, keep in mind the following differences:
 
@@ -257,22 +261,25 @@ overrides in the `swiftPackageIntegration {}` block as well.
 
 ## Prepare the Kotlin API
 
+Each exported Gradle project can define its own `export { swift {} }` block to set `moduleName` and `rootPackage` in the
+Gradle build file. Use them to name exported modules; otherwise Swift export derives a long
+module name from the Gradle coordinates.
+
 Swift export exports every public declaration of the exported modules, plus the parts of dependencies reachable
-from them. Unlike Objective-C interop, it doesn't prune declarations that Swift never references. A large public API
+from them. Like Objective-C interop, it doesn't prune declarations that Swift never references. A large public API
 surface leads to slow builds, a lot of generated code, and a confusing Swift API, so it's worth shrinking it:
 
 * Make the code that Swift never calls `internal`: dependency injection modules, HTTP clients, repository
   implementations, mappers, and utility extensions.
 * Consider enabling `explicitApi()` in exported modules, so that every public declaration is a deliberate choice
   and has an explicit return type.
-* Keep third-party library types out of public signatures. Expose an interface with a top-level factory function and
-  keep the implementation `internal`, use `internal` constructors, and return `Unit` or your own types from
+* Consider keeping third-party library types out of public signatures. Expose an interface with a top-level factory function
+  and keep the implementation `internal`, use `internal` constructors, and return `Unit` or your own types from
   Swift-facing entry points.
-* Move generated public code that you can't annotate, like SQLDelight database classes, into a separate module
-  that only internal code depends on.
-* Hide dependencies that you don't want to see in Swift with
-  `xcodeIntegration { configure(libs.example, SwiftExportVisibility.HIDDEN) }`. Hidden modules aren't translated,
-  so no public declaration of your module should mention their types.
+* Mark dependencies that are only used internally as `implementation`, not `api`. If their types still leak into
+  the exported public API, hide the dependency with
+  `xcodeIntegration { configure(libs.example, SwiftExportVisibility.HIDDEN) }`. Hidden modules are translated as
+  shallow declarations, so they neither break the build nor pollute the Swift API.
 
 ### Adjust unsupported constructs
 
@@ -281,13 +288,14 @@ Swift code or break the build. Update your Kotlin code:
 
 | Kotlin pattern                                                                                                                    | Problem                                                         | What to do                                                                                        |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `MutableList`, `MutableSet`, and `MutableMap` parameters, or parameters of custom types that inherit from `List`, `Set`, or `Map` | The generated Kotlin bridge doesn't compile                     | Use read-only `List`, `Set`, and `Map` parameters, or hide the declaration with `@HiddenFromObjC` |
+| `MutableList`, `MutableSet`, and `MutableMap` parameters | Mutable collection types are not supported | Use read-only `List`, `Set`, and `Map` parameters |
+| Custom types that inherit from `List`, `Set`, or `Map` | The generated bridge compiles, but Swift cannot instantiate the type | Expose a wrapper type or use a read-only collection supertype |
 | Parameters typed with a generic class with a concrete type argument, like `Box<String>`                                           | The function isn't exported                                     | Take the upper bound or a star projection, or introduce a non-generic wrapper type                |
 | Generic classes, interfaces, and sealed hierarchies in the Swift-facing API                                                       | Type arguments are erased, so Swift code is full of casts       | Expose non-generic wrappers mapped in Kotlin, like `ProfileState` or `ProfileRepository`          |
 | Default argument values                                                                                                           | Not exported                                                    | Add explicit overloads or secondary constructors for the Swift call shapes                        |
 | `inline fun` with a `reified` type parameter                                                                                      | Not exported                                                    | Add a variant with a `KClass` parameter                                                           |
 | `protected` members                                                                                                               | Not visible in Swift, including Swift subclasses                | Make them public or add a public accessor                                                         |
-| Declarations named like members of `NSObject`, such as `hash` or `description`                                                    | Dropped from the export                                         | Rename them in Kotlin or use `@ObjCName(swiftName = "...")`                                       |
+| Declarations named like members of `NSObject`, such as `hash` or `description`                                                    | Dropped from the export because Swift resolves them to inherited `NSObject` members ([KT-90497](https://youtrack.jetbrains.com/issue/KT-90497)) | Rename them in Kotlin or use `@ObjCName(swiftName = "...")`                                       |
 | Declarations named like Swift and SwiftUI types, such as `Shape`, `Color`, or `Result`                                            | Ambiguous in Swift files that also import SwiftUI or Foundation | Rename them in Kotlin, or qualify the name in Swift with the module name                          |
 | Exceptions thrown from non-suspending functions                                                                                   | Terminate the app when they reach Swift                         | Annotate the function with `@Throws`                                                              |
 
@@ -298,21 +306,9 @@ You can also drop the workarounds that existed only because of Objective-C inter
 
 `@HiddenFromObjC` still hides declarations from Swift export, and `@ObjCName(swiftName = "...")` still renames them.
 
-### Call Swift-only APIs from Kotlin
-
-With Objective-C interop, the common way to give Kotlin access to a Swift-only library was a Kotlin interface
-implemented by a Swift class. With Swift export, you have two options:
-
-* Declare function-typed parameters or properties in Kotlin and pass Swift closures to them. This option suits a few
-  stateless operations and doesn't require any Swift superclass.
-* Declare a Kotlin interface and implement it in Swift. This option suits stateful services and APIs with flows.
-  For details, see [cross-language inheritance](native-swift-export.md#cross-language-inheritance).
-
-Keep such interfaces non-generic, so that the Swift signatures stay typed.
-
 ## Update the Swift code
 
-Build the project, open the generated `<Module>.swift` file, and then work through the compiler errors file by file.
+Build the project and then work through the compiler errors file by file.
 Apply the mechanical changes first, such as imports, file facades, and boxed types, and then the semantic ones,
 such as coroutines and sealed hierarchies.
 
@@ -320,9 +316,9 @@ such as coroutines and sealed hierarchies.
 
 | Objective-C interop                     | Swift export                                                                                                                                                                |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `import shared`                         | `import Shared`, which must match `moduleName` exactly, plus `KotlinRuntime`, `KotlinCoroutineSupport`, and the modules of exported dependencies where their types are used |
-| `Assignment` for any package            | `Assignment` only for declarations in `rootPackage`; otherwise `remote.Assignment` or `ExportedKotlinPackages.com.example.shared.remote.Assignment`                         |
-| `PlatformKt.platformName()`             | `platformName()` in the root package, or `platform.platformName()` otherwise                                                                                                |
+| `import shared`                         | `import Shared` for declarations from the umbrella module. Each exported Gradle module has its own Swift module name, so import the module that owns the declaration you use. KotlinRuntime and KotlinCoroutineSupport are re-exported automatically. |
+| `Item` for any package                  | `Item` only for declarations in `rootPackage`; otherwise `remote.Item` or `ExportedKotlinPackages.com.example.shared.remote.Item`                                           |
+| `PlatformKt.platformName()`             | `platformName()` in the root package, or `packageName.platformName()` otherwise                                                                                              |
 | `UiStateSuccess`                        | `UiState.Success`, as nested types stay nested                                                                                                                              |
 | `doInit()`, `doCopy()`, `doSomething()` | The original Kotlin names: `init()`, `copy()`, `something()`                                                                                                                |
 | `MyObject()`                            | `MyObject.shared`                                                                                                                                                           |
@@ -429,7 +425,7 @@ Swift export failures are often visible only at runtime, so compiling the projec
 | `Swift Export needs IPHONEOS_DEPLOYMENT_TARGET to be 18.0 or newer`                    | Raise the deployment target of the Xcode target.                                                                          |
 | Two exported modules resolve to the same Swift module name                             | Rename one of them with `configure(dependency) { moduleName = "..." }`.                                                   |
 | The compilation of the generated Kotlin bridges fails in your own module               | A declaration uses an unsupported construct. Adjust the Kotlin signature or hide the declaration.                        |
-| The build fails inside the generated code of a dependency                              | Hide the dependency with `configure(dependency, SwiftExportVisibility.HIDDEN)` and expose wrappers from your own module.  |
+| The build fails inside the generated code of a dependency                              | Hide the dependency with `configure(dependency, SwiftExportVisibility.HIDDEN)` and expose only the wrappers your Swift code needs from your own module.  |
 | A declaration is missing from the generated Swift code or is marked as unavailable     | Check the Kotlin signature against the [limitations](native-swift-export.md#current-limitations) and adjust it.          |
 | A function of your module fails at runtime with a fatal error                          | The declaration mentions a type from a hidden dependency. Replace it with a wrapper that doesn't expose that type.        |
 | The Swift export worker runs out of memory                                             | Shrink the exported API surface, or raise the memory limit with the `kotlin.swift-export.jvmArgs=-Xmx4g` Gradle property. |
