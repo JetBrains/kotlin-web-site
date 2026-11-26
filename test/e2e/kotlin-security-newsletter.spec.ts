@@ -1,7 +1,13 @@
 import { expect, test } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
+
+import { testSelector } from '../utils';
 
 const SIGNUP_PATH = '/kotlin-security-newsletter/';
 const NEWSLETTER_TITLE = 'Kotlin Security Newsletter';
+const CONSENT_ID = 'mkt.general.jb-intention';
+
+const getForm = (page: Page): Locator => page.locator(testSelector('wtform'));
 
 for (const viewport of [
     { width: 1440, height: 1000 },
@@ -46,7 +52,7 @@ for (const viewport of [
                 'https://kotlinlang.org/docs/security.html'
             );
 
-            const form = main.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+            const form = main.locator(testSelector('wtform'));
             const privacyTrigger = form.getByLabel('Privacy details');
             const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
             const email = form.getByRole('textbox', { name: 'Email address' });
@@ -100,7 +106,7 @@ for (const viewport of [
                 const request = route.request();
                 expect(request.method()).toBe('POST');
                 const consent = new URLSearchParams(request.postData() ?? '');
-                expect(consent.get('type')).toBe('mkt.general.jb-intention');
+                expect(consent.get('type')).toBe(CONSENT_ID);
                 expect(consent.get('email')).toBe(emailAddress);
                 requests.push('consent');
                 await route.fulfill({ status: 200, headers, json: {} });
@@ -116,35 +122,55 @@ for (const viewport of [
                 expect(request.method()).toBe('POST');
                 expect(request.postDataJSON()).toMatchObject({
                     formid: '10127',
+                    formVid: '10127',
+                    munchkinId: expect.any(String),
+                    checksum: expect.any(String),
+                    checksumFields: expect.any(String),
                     Email: emailAddress,
                     kotlinSecurityNewsletter: true,
+                    privacyConsent: true,
+                    privacyConsentType: [CONSENT_ID],
+                    marketingData: expect.objectContaining({
+                        origin: expect.stringContaining(SIGNUP_PATH),
+                        utmSource: 'kotlinlang',
+                        utmMedium: 'e2e',
+                        utmCampaign: 'security-newsletter',
+                    }),
                 });
                 requests.push('marketo');
                 marketoAttempts += 1;
-                await route.fulfill({ status: marketoAttempts === 1 ? 503 : 200, headers, json: {} });
+                await route.fulfill({
+                    status: marketoAttempts === 1 ? 503 : 200,
+                    headers,
+                    json: { success: marketoAttempts === 1 ? false : true, cause: [] },
+                });
             });
 
-            await page.goto(SIGNUP_PATH);
-            const form = page.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+            await page.goto(`${SIGNUP_PATH}?utm_source=kotlinlang&utm_medium=e2e&utm_campaign=security-newsletter`);
+            const form = getForm(page);
             const email = form.getByRole('textbox', { name: 'Email address' });
             const subscribe = form.getByRole('button', { name: 'Subscribe', exact: true });
+
             await subscribe.click();
-            await expect(email).toBeFocused();
+            await expect(form.getByText('This field is required')).toBeVisible();
+            expect(requests).toEqual([]);
+
             await email.fill('invalid-email');
             await subscribe.click();
+            await expect(form.getByText('E-mail address is not correct')).toBeVisible();
             expect(requests).toEqual([]);
 
             await email.fill(emailAddress);
             await subscribe.click();
-            await expect(form.getByRole('alert')).toContainText('Please try again');
+            await expect(form.getByText('Please try again')).toBeVisible();
             await expect(email).toHaveValue(emailAddress);
             expect(requests).toEqual(['consent', 'marketo']);
 
             await subscribe.click();
-            await expect(form.getByRole('status')).toContainText('Thanks for signing up');
-            await expect(subscribe).toBeDisabled();
+            await expect(page.getByRole('main').getByRole('status')).toContainText('Thanks for signing up');
+            await expect(form).toHaveCount(0);
             expect(requests).toEqual(['consent', 'marketo', 'consent', 'marketo']);
-            await expect(page).toHaveURL(/\/kotlin-security-newsletter\/$/);
+            await expect(page).toHaveURL(/\/kotlin-security-newsletter\//);
         });
     });
 }
@@ -154,7 +180,7 @@ test.describe('Newsletter privacy details on a touch screen', () => {
 
     test('opens on tap and dismisses on an outside tap', async ({ page }) => {
         await page.goto(SIGNUP_PATH);
-        const form = page.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+        const form = getForm(page);
         const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
 
         await form.getByLabel('Privacy details').tap();
@@ -169,7 +195,7 @@ test.describe('Kotlin Security Newsletter without JavaScript', () => {
 
     test('keeps the signup disabled and explains how to enable it', async ({ page }) => {
         await page.goto(SIGNUP_PATH);
-        const form = page.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+        const form = getForm(page);
         await expect(form.getByRole('textbox', { name: 'Email address' })).toBeDisabled();
         await expect(form.getByRole('button', { name: 'Subscribe' })).toBeDisabled();
         const fallback = form.locator('noscript');
