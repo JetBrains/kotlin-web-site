@@ -17,10 +17,11 @@ Kotlin/Wasm supports two targets for different environments:
 * `wasmWasi` runs outside the browser in standalone Wasm virtual machines, where the
   [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs.
 
-The `wasmJs` target has broad QA coverage, including Kotlin Gradle plugin integration tests and IntelliJ IDEA tests. 
-The `wasmWasi` target has more limited QA and Kotlin Gradle plugin test coverage, with no dedicated IntelliJ IDEA tests.
-The tooling support for `wasmWasi` is also more limited: you need to opt in to use WASI-specific features in the Kotlin
-Gradle plugin, and you can't debug code in the IDE or run it from the editor gutter.
+In addition to supporting different environments, the two targets differ in their levels of QA coverage and tooling support. The `wasmJs` target currently receives broader support than `wasmWasi`:
+
+* QA coverage: `wasmJs` has broad QA coverage, including Kotlin Gradle plugin integration tests and IntelliJ IDEA tests. `wasmWasi` has narrower QA and Kotlin Gradle plugin test coverage, with no dedicated IntelliJ IDEA tests.
+* Build tool support: For `wasmWasi`, you need to opt in to use WASI-specific features in the Kotlin Gradle plugin.
+* IDE support: Unlike with `wasmJs`, you can't debug `wasmWasi` code in the IDE or run it from the editor gutter.
 
 > To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-faq.md#which-browsers-support-kotlin-wasm) that supports 
 > WebAssembly's garbage collection
