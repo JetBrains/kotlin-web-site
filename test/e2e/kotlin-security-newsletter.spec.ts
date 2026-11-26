@@ -47,13 +47,33 @@ for (const viewport of [
             );
 
             const form = main.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+            const privacyTrigger = form.getByLabel('Privacy details');
             const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
-            await expect(form.getByRole('textbox', { name: 'Email address' })).toHaveAccessibleDescription(
+            const email = form.getByRole('textbox', { name: 'Email address' });
+            const subscribe = form.getByRole('button', { name: 'Subscribe', exact: true });
+            await expect(email).toHaveAccessibleDescription(
                 'I agree that my personal data will be processed for this purpose.'
             );
+
+            const subscribePosition = await subscribe.boundingBox();
             await expect(privacyNotice).toBeHidden();
-            await form.locator('summary').press('Enter');
+            await privacyTrigger.hover();
             await expect(privacyNotice).toBeVisible();
+            expect(await subscribe.boundingBox()).toEqual(subscribePosition);
+            await privacyNotice.hover();
+            await expect(privacyNotice).toBeVisible();
+            await main.getByRole('heading', { level: 1 }).hover();
+            await expect(privacyNotice).toBeHidden();
+
+            await email.focus();
+            await page.keyboard.press('Tab');
+            await expect(privacyTrigger).toBeFocused();
+            await expect(privacyNotice).toBeVisible();
+            await page.keyboard.press('Tab');
+            await expect(form.getByRole('link', { name: 'third parties' })).toBeFocused();
+            await page.keyboard.press('Escape');
+            await expect(privacyNotice).toBeHidden();
+            await expect(privacyTrigger).toBeFocused();
             await expect(form.getByText('Email address', { exact: true })).toHaveCount(0);
             await expect(form.getByText('You can unsubscribe at any time.', { exact: true })).toHaveCount(0);
 
@@ -127,6 +147,21 @@ for (const viewport of [
         });
     });
 }
+
+test.describe('Newsletter privacy details on a touch screen', () => {
+    test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+
+    test('opens on tap and dismisses on an outside tap', async ({ page }) => {
+        await page.goto(SIGNUP_PATH);
+        const form = page.getByRole('form', { name: `${NEWSLETTER_TITLE} signup` });
+        const privacyNotice = form.getByRole('link', { name: 'JetBrains Privacy Notice' });
+
+        await form.getByLabel('Privacy details').tap();
+        await expect(privacyNotice).toBeVisible();
+        await page.getByRole('heading', { name: NEWSLETTER_TITLE, exact: true }).tap();
+        await expect(privacyNotice).toBeHidden();
+    });
+});
 
 test.describe('Kotlin Security Newsletter without JavaScript', () => {
     test.use({ javaScriptEnabled: false });
