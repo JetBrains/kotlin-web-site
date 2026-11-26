@@ -1,11 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
-import { Form, Hidden, Input, SubmitButton } from '@webteam/forms';
+import { Form, Hidden, Input, PrivacyNotice, SubmitButton } from '@webteam/forms';
 
-import { NewsletterConsent } from './newsletter-consent';
 import { submitNewsletter } from './submit-newsletter';
-import { CONSENT_ID, FORM_ID, PRIVACY_MESSAGE_ID } from './constants';
+import { CONSENT_ID, FORM_ID } from './constants';
 import styles from './newsletter.module.css';
 
 const SubmitMessage: FC = () => {
@@ -33,20 +32,17 @@ export const NewsletterForm: FC = () => {
             <noscript>Enable JavaScript to use this form.</noscript>
             <fieldset disabled={!ready} className={styles.fields}>
                 <Hidden name="kotlinSecurityNewsletter" type="boolean" value={true} />
-                <Hidden name="privacyConsent" type="boolean" value={true} />
-                <Hidden name="privacyConsentType" type="array" value={[CONSENT_ID]} />
                 <Input
                     id="newsletter-email"
-                    name="Email"
+                    name="email"
                     aria-label="Email address"
                     placeholder="your.email@example.com"
-                    aria-describedby={PRIVACY_MESSAGE_ID}
                     type="email"
                     autoComplete="email"
                     size="l"
                     required
                 />
-                <NewsletterConsent messageId={PRIVACY_MESSAGE_ID} />
+                <PrivacyNotice consentId={CONSENT_ID} size="m" preferShortText />
                 <SubmitButton size="l" className={styles.subscribe}>
                     Subscribe
                 </SubmitButton>

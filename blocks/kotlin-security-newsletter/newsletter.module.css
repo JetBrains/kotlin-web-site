@@ -4,7 +4,7 @@
     max-width: calc(100% - 32px);
 }
 
-.container :is(a, summary):focus-visible {
+.container a:focus-visible {
     outline: 2px solid #6b3dcc;
     outline-offset: 3px;
 }
@@ -70,56 +70,6 @@
     border: 0;
 }
 
-.consent {
-    position: relative;
-    margin-top: 8px;
-    color: #60606a;
-}
-
-.privacyDetails {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.privacyInfo {
-    display: grid;
-    place-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #6b3dcc;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    list-style: none;
-    cursor: pointer;
-}
-
-.privacyInfo::-webkit-details-marker {
-    display: none;
-}
-
-.privacyPopover {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 100%;
-    width: 300px;
-    padding-left: 12px;
-    transform: translateY(-50%);
-}
-
-.privacyPopover p {
-    margin: 0;
-    padding: 8px 12px;
-    border: 1px solid #d9ccf5;
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 4px 16px rgb(25 25 28 / 12%);
-}
-
 .subscribe {
     justify-self: start;
     margin-top: 4px;
@@ -177,19 +127,6 @@
 
     .title {
         --rs-hero-font-size: 52px;
-    }
-
-    .privacyDetails {
-        position: static;
-    }
-
-    .privacyPopover {
-        top: 100%;
-        right: 0;
-        left: auto;
-        width: min(100%, 300px);
-        padding: 8px 0 0;
-        transform: none;
     }
 }
 

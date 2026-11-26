@@ -17,16 +17,19 @@ const toFieldErrors = (cause: ServiceError): Record<string, string> =>
     }, {});
 
 export const submitNewsletter: Submitter = async (formData) => {
-    const email = String(formData.Email ?? '');
-    if (!email) throw { form: SIGNUP_FAILED_MESSAGE };
+    // The field is named `email` (lowercase) so that the webteam-ui form
+    // components can watch it; Marketo expects the `Email` key instead.
+    const { email, ...fields } = formData;
+    const emailAddress = String(email ?? '');
+    if (!emailAddress) throw { form: SIGNUP_FAILED_MESSAGE };
 
     const consent = await fetch(CONSENT_URL, {
         method: 'POST',
-        body: new URLSearchParams({ email, type: CONSENT_ID }),
+        body: new URLSearchParams({ email: emailAddress, type: CONSENT_ID }),
     });
     if (!consent.ok) throw { form: SIGNUP_FAILED_MESSAGE };
 
-    const response = await formService.submitToMarketo({ ...formData, formid: FORM_ID });
+    const response = await formService.submitToMarketo({ ...fields, Email: emailAddress, formid: FORM_ID });
     if (!response.ok) throw { form: SIGNUP_FAILED_MESSAGE };
 
     const data = (await response.json()) as ServiceResponse;
