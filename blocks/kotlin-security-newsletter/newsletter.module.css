@@ -71,21 +71,19 @@
 }
 
 .consent {
+    position: relative;
     margin-top: 8px;
-}
-
-.consent summary {
     color: #60606a;
-    cursor: pointer;
-    list-style: none;
 }
 
-.consent summary::-webkit-details-marker {
-    display: none;
+.privacyDetails {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .privacyInfo {
-    display: inline-grid;
+    display: grid;
     place-items: center;
     width: 20px;
     height: 20px;
@@ -95,20 +93,31 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
-    vertical-align: middle;
+    list-style: none;
+    cursor: pointer;
 }
 
-.visuallyHidden {
+.privacyInfo::-webkit-details-marker {
+    display: none;
+}
+
+.privacyPopover {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+    z-index: 2;
+    top: 50%;
+    left: 100%;
+    width: 300px;
+    padding-left: 12px;
+    transform: translateY(-50%);
 }
 
-.consent p {
-    margin: 8px 0 0;
+.privacyPopover p {
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid #d9ccf5;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgb(25 25 28 / 12%);
 }
 
 .subscribe {
@@ -168,6 +177,19 @@
 
     .title {
         --rs-hero-font-size: 52px;
+    }
+
+    .privacyDetails {
+        position: static;
+    }
+
+    .privacyPopover {
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: min(100%, 300px);
+        padding: 8px 0 0;
+        transform: none;
     }
 }
 

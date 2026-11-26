@@ -4,8 +4,11 @@ import { Button } from '@rescui/button';
 import { Input } from '@rescui/input';
 import { useTextStyles } from '@rescui/typography';
 
+import { NewsletterConsent } from './newsletter-consent';
 import { submitNewsletter } from './submit-newsletter';
 import styles from './newsletter.module.css';
+
+const PRIVACY_MESSAGE_ID = 'newsletter-privacy';
 
 type SignupStatus = 'idle' | 'submitting' | 'subscribed' | 'error';
 
@@ -50,42 +53,13 @@ export const NewsletterForm: FC = () => {
                     id="newsletter-email"
                     name="Email"
                     aria-label="Email address"
-                    aria-describedby="newsletter-privacy"
+                    aria-describedby={PRIVACY_MESSAGE_ID}
                     type="email"
                     autoComplete="email"
                     size="l"
                     required
                 />
-                <details className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.consent)}>
-                    <summary>
-                        <span id="newsletter-privacy">
-                            I agree that my personal data will be processed for this purpose.
-                        </span>{' '}
-                        <span className={styles.privacyInfo} aria-hidden="true">
-                            i
-                        </span>
-                        <span className={styles.visuallyHidden}> Privacy details</span>
-                    </summary>
-                    <p>
-                        By submitting this form, I agree that JetBrains s.r.o. may process the personal data I provided
-                        above and my location for the purpose explained above and may engage{' '}
-                        <a
-                            className={textCn('rs-link')}
-                            href="https://www.jetbrains.com/legal/privacy/third-parties.html"
-                        >
-                            third parties
-                        </a>{' '}
-                        in such processing. The consent can be revoked in{' '}
-                        <a className={textCn('rs-link')} href="https://account.jetbrains.com/profile-details/privacy">
-                            my profile
-                        </a>{' '}
-                        at any time. More details about the processing are in{' '}
-                        <a className={textCn('rs-link')} href="https://www.jetbrains.com/legal/docs/privacy/privacy/">
-                            JetBrains Privacy Notice
-                        </a>
-                        . In addition, an unsubscribe link is included in each email.
-                    </p>
-                </details>
+                <NewsletterConsent messageId={PRIVACY_MESSAGE_ID} />
                 <Button type="submit" size="l" disabled={status === 'subscribed'} className={styles.subscribe}>
                     {status === 'submitting' ? 'Subscribing…' : 'Subscribe'}
                 </Button>
