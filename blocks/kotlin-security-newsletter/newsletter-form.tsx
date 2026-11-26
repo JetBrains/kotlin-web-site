@@ -49,7 +49,7 @@ export const NewsletterForm: FC = () => {
                 <Input
                     id="newsletter-email"
                     name="Email"
-                    label="Email address"
+                    aria-label="Email address"
                     aria-describedby="newsletter-privacy"
                     type="email"
                     autoComplete="email"
@@ -90,9 +90,6 @@ export const NewsletterForm: FC = () => {
                     {status === 'submitting' ? 'Subscribing…' : 'Subscribe'}
                 </Button>
             </fieldset>
-            <p className={cn(textCn('rs-text-2', { hardness: 'average' }), styles.unsubscribe)}>
-                You can unsubscribe at any time.
-            </p>
             {status === 'subscribed' && (
                 <p role="status" className={cn(textCn('rs-text-2'), styles.result)}>
                     Thanks for signing up for the Kotlin Security Newsletter.

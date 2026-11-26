@@ -31,11 +31,6 @@
     text-wrap: balance;
 }
 
-.intro {
-    max-width: 520px;
-    margin: 20px 0 0;
-}
-
 .artwork {
     position: relative;
     box-sizing: border-box;
@@ -119,10 +114,6 @@
 .subscribe {
     justify-self: start;
     margin-top: 4px;
-}
-
-.unsubscribe {
-    margin: 8px 0 0;
 }
 
 .result {
