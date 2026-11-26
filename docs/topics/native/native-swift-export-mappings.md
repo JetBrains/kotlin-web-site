@@ -7,11 +7,11 @@ Swift export maps Kotlin declarations and types to their Swift equivalents.
 The table below shows how Kotlin concepts are mapped to Swift.
 
 | Kotlin                                                            | Swift                          |
-|-------------------------------------------------------------------|--------------------------------|
+|-------------------------------------------------------------------|-------------------------------------------------------------|
 | [`class`](#classes)                                               | `class`                        |
 | [`object`](#objects)                                              | `class` with `shared` property |
 | [`enum class`](#enums)                                            | `enum`                         |
-| [`sealed` classes and interfaces](#sealed-classes-and-interfaces) | `enum`                         |
+| [`sealed` hierarchies](#sealed-classes-and-interfaces) | `enum` built with `sealedType()` method on each sealed type |
 | [`typealias`](#type-aliases)                                      | `typealias`                    |
 | [`interface`](#interfaces)                                        | `protocol`                     |
 | [Function](#functions)                                            | Function                       |
@@ -43,6 +43,7 @@ The table below shows how Kotlin concepts are mapped to Swift.
 | `Any`                                                             | `any _KotlinBridgeable`        |
 | `Unit`                                                            | `Void`                         |
 | [`Nothing`](#kotlin-nothing)                                      | `Never`                        |
+| KDoc | DocC `///` comments|
 
 Check out our [`swift-export-sample`](https://github.com/Kotlin/swift-export-sample) project, a runnable
 Kotlin Multiplatform sample that features the mappings described on this page. Each section below links to the Kotlin
@@ -85,8 +86,9 @@ Kotlin classes that subclass Objective-C classes are not exported.
 
 See examples in the Swift export sample:
 
-* [Kotlin classes](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Kotlin classes | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Interfaces
 
@@ -127,9 +129,10 @@ let handler = stringHandler { value in value.uppercased() }
 
 See examples in the Swift export sample:
 
-* [Kotlin interfaces](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Interfaces.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/InterfacesView.swift)
-* [A Kotlin interface implemented in Swift](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Kotlin interfaces | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Interfaces.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/InterfacesView.swift) |
+| Kotlin interface implemented in Swift | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SwiftImplementationView.swift) |
 
 For the end-to-end pattern, see [Cross-language inheritance](#cross-language-inheritance).
 
@@ -164,8 +167,9 @@ class SwiftAbstractBase: AbstractBase {}
 
 See examples in the Swift export sample:
 
-* [Kotlin open and abstract classes](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Kotlin open and abstract classes | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 For the end-to-end pattern, see [Cross-language inheritance](#cross-language-inheritance).
 
@@ -188,7 +192,11 @@ print(updated.description)
 print(updated.isEqual(person))
 ```
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
+See an example in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Data classes | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Objects
 
@@ -213,7 +221,11 @@ public class O : KotlinRuntime.KotlinBase {
 }
 ```
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
+See an example in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Objects | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Companion objects
 
@@ -235,7 +247,11 @@ let value = classesandinterfaces.CompanionObjectClass.Companion.shared.CONST_VAL
 
 Named companions use their declared name. An `object` can also be a subtype in a sealed hierarchy.
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
+See an example in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Companion objects | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Type aliases
 
@@ -277,14 +293,15 @@ public enum Color: Swift.CaseIterable, Swift.LosslessStringConvertible, Swift.Ra
 
 See examples in the Swift export sample:
 
-* [Kotlin enum classes](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Enums.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/EnumsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Enum classes | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Enums.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/EnumsView.swift) |
 
 ### Sealed classes and interfaces
 
 Sealed hierarchies defined in Kotlin are mapped to Swift enums, enabling exhaustive `switch` statements.
 
-Swift export generates a `.sealedType()` method on each sealed type. This method returns a Swift enum whose cases match
+Swift export generates a `sealedType()` method on each sealed type. This method returns a Swift enum whose cases match
 the direct subclasses of the sealed hierarchy. You can nest these calls to match deeper levels of the hierarchy.
 
 For example, declare a sealed interface with a class hierarchy in Kotlin:
@@ -322,8 +339,9 @@ can handle it immediately instead of relying on a `default` case for `switch`.
 
 See examples in the Swift export sample:
 
-* [Kotlin sealed classes and interfaces](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SealedTypes.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SealedTypesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Sealed classes and interfaces | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SealedTypes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SealedTypesView.swift) |
 
 ### Inner and nested classes
 
@@ -344,7 +362,11 @@ let nested = Outer.Nested()
 let inner = Outer.Inner(outer__: Outer(value: "example"))
 ```
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
+See an example in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Inner and nested classes | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Functions
 
@@ -424,17 +446,18 @@ log(messages: "one", "two")
 ```
 
 Kotlin operators map to Swift operators where supported. For example, `plus` is available as `a + b`, `get` as `a[index]`,
-and `invoke` as `a()`. See [operator overloading](operator-overloading.md) for the Kotlin declaration rules.
+and `invoke` as `a()`. For more details on Kotlin declaration rules, see [operator overloading](operator-overloading.md).
 
 See examples in the Swift export sample:
 
-* [Top-level functions, overloads, `vararg`, and default arguments](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift)
-* [Function types and lambdas](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/FunctionTypes.kt)
-* [Swift usage of function types](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/FunctionTypesView.swift)
-* [Operator functions](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Operators.kt)
-* [Swift usage of operators](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/OperatorsView.swift)
-* [Context parameters](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/ContextParameters.kt)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Top-level functions, overloads, `vararg`, and default arguments | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
+| Function types and lambdas | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/FunctionTypes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/FunctionTypesView.swift) |
+| Lambdas with receiver | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/ReceiverLambdas.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ReceiverLambdasView.swift) |
+| Inline functions and a `crossinline` lambda | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/InlineFunctions.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/InlineFunctionsView.swift) |
+| Operator functions | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Operators.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/OperatorsView.swift) |
+| Context parameters | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/ContextParameters.kt) | — |
 
 ### Properties
 
@@ -476,8 +499,10 @@ namespace, like top-level functions.
 
 See examples in the Swift export sample:
 
-* [Top-level properties](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
-* [Member properties, including `private set` and `lateinit`](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Top-level properties | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
+| Member properties, including `private set` and `lateinit` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
 
 ### Constructors
 
@@ -504,8 +529,10 @@ with `@Throws` is exported as a throwing initializer, which you call with `try`.
 
 See examples in the Swift export sample:
 
-* [Primary, secondary, and value class constructors](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt)
-* [Throwing constructors](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Exceptions.kt)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Primary, secondary, and value class constructors | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Classes.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ClassesView.swift) |
+| Throwing constructors | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Exceptions.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ExceptionsView.swift) |
 
 ### Extensions
 
@@ -532,8 +559,9 @@ let quiet = extensions.whisper("HELLO")
 
 See examples in the Swift export sample:
 
-* [Kotlin extensions](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Extensions.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ExtensionsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Extensions | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Extensions.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ExtensionsView.swift) |
 
 ### Annotations
 
@@ -544,14 +572,14 @@ See examples in the Swift export sample:
 | `@ShouldRefineInSwift` | Ignored; the declaration is exported under its normal name and is not refined in Swift. |
 | `@Deprecated` | `WARNING` adds a deprecation attribute, `ERROR` makes the declaration unavailable, and `HIDDEN` omits it. |
 | `@RequiresOptIn` | Exports public opt-in APIs with `@_spi(Marker)`; import with `@_spi(Marker) import Shared`. Non-public markers are not exported. |
-| `@Throws` | Adds Swift `throws`. See [Error handling](#error-handling). |
-| KDoc | Exports as DocC `///` comments. |
+| `@Throws` | Adds Swift `throws` for [error handling](#error-handling). |
 | Visibility | Only public API is available from Swift. `protected`, `internal`, and `private` declarations are not reachable. |
 
 See examples in the Swift export sample:
 
-* [Kotlin annotations and KDoc](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Annotations.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/AnnotationsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Annotations and KDoc | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Annotations.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/AnnotationsView.swift) |
 
 ## Types
 
@@ -588,8 +616,9 @@ object values.
 
 See examples in the Swift export sample:
 
-* [Primitive types, strings, and `Any`](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Primitive types, strings, and `Any` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
 
 ### Nullability
 
@@ -606,7 +635,11 @@ fun accept(value: Int?): String? = value?.toString()
 let result: String? = accept(value: Optional<Int32>.some(42))
 ```
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
+See an example in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Nullability | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
 
 ### Collections
 
@@ -630,8 +663,9 @@ Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 
 See examples in the Swift export sample:
 
-* [Kotlin collections, ranges, and arrays](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Collections.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CollectionsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Collections, ranges, and arrays | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Collections.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CollectionsView.swift) |
 
 ### Generics
 
@@ -666,10 +700,11 @@ Some generic declarations are not exported at all:
 
 See examples in the Swift export sample:
 
-* [Generic classes and functions](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Generics.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/GenericsView.swift)
-* [Non-generic wrappers for generic types](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/GenericWrappers.kt)
-* [Swift usage of wrappers](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/GenericWrappersView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Generic classes and functions | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Generics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/GenericsView.swift) |
+| Reified functions and a concrete type wrapper | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/InlineFunctions.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/InlineFunctionsView.swift) |
+| Non-generic wrappers for generic types | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/GenericWrappers.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/GenericWrappersView.swift) |
 
 ### kotlin.Nothing
 
@@ -694,12 +729,11 @@ public func baz(input: Swift.Never) -> Void {
 }
 ```
 
-[See an example in the Swift export sample](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
+See an example in the Swift export sample:
 
-### Classifier types
-
-Kotlin classifier types are represented by their exported Swift class or protocol types. See [Classes](#classes),
-[Interfaces](#interfaces), and [Open and abstract classes](#open-and-abstract-classes) for the corresponding mappings.
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| `kotlin.Nothing` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
 
 ### Platform and cinterop types
 
@@ -712,8 +746,9 @@ Swift export.
 
 See examples in the Swift export sample:
 
-* [Platform-specific `expect` declarations](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Platform.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/PlatformView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Platform-specific `expect` declarations | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Platform.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/PlatformView.swift) |
 
 ## Packages
 
@@ -758,9 +793,10 @@ Its subpackages are available as namespaces, for example `feature.Foo`.
 
 See examples in the Swift export sample:
 
-* [Top-level declarations with `rootPackage`](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt)
-* [Declarations exported from several Gradle modules](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Modules.kt)
-* [Swift usage of exported modules](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ModulesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Top-level declarations with `rootPackage` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Basics.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/BasicsView.swift) |
+| Declarations exported from several Gradle modules | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Modules.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ModulesView.swift) |
 
 ## Concurrency
 
@@ -784,8 +820,9 @@ let msg = try await hello()
 
 See examples in the Swift export sample:
 
-* [Kotlin suspending functions](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Suspending functions | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift) |
 
 ### Flows
 
@@ -818,9 +855,10 @@ Kotlin flow directly. Expose a Kotlin builder that creates and returns a flow; f
 
 See examples in the Swift export sample:
 
-* [Kotlin flows, including `StateFlow` and `SharedFlow`](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift)
-* [A Kotlin flow implemented in Swift](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Flows, including `StateFlow` and `SharedFlow` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift) |
+| Kotlin flow implemented in Swift | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SwiftImplementationView.swift) |
 
 ### Cancellation
 
@@ -838,8 +876,9 @@ task.cancel()
 
 See examples in the Swift export sample:
 
-* [Cancellation of suspending functions and flows](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Cancellation of suspending functions and flows | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Coroutines.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/CoroutinesView.swift) |
 
 ### Coroutine dispatchers
 
@@ -882,14 +921,17 @@ do {
 }
 ```
 
-If the thrown Kotlin exception type is not exported, Swift receives it as `KotlinRuntimeSupport.KotlinError`. A
-non-suspending function that throws an exception not declared with `@Throws` can be called without `try`, but the
-uncaught exception terminates the process. Annotate every expected exception with `@Throws`.
+Keep in mind that:
+
+* If the thrown Kotlin exception type is not exported, Swift receives it as `KotlinRuntimeSupport.KotlinError`.
+* `try` calls are not necessary if a non-suspending function throws an exception, but doesn't have the `@Throws` annotation.
+  Any uncaught exception terminates the process, so try annotating every expected exception with `@Throws`.
 
 See examples in the Swift export sample:
 
-* [Kotlin exceptions and `@Throws`](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Exceptions.kt)
-* [Swift usage](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ExceptionsView.swift)
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Exceptions and `@Throws` | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/Exceptions.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/ExceptionsView.swift) |
 
 ## Cross-language inheritance
 
@@ -897,11 +939,11 @@ Swift export supports cross-language inheritance. A common use case for this fea
 pattern, where you define a contract in Kotlin and provide platform-specific implementations on the Swift side.
 This is especially useful when you need to use pure Swift libraries that can't be directly imported into Kotlin.
 
-To implement the pattern, you need to declare a Kotlin interface and a Kotlin superclass that the Swift implementation
-can inherit from. You then implement the interface in Swift and pass the Swift object to Kotlin
-functions that accept that interface. For example, for the CryptoKit library:
+To implement the pattern, declare a Kotlin interface and a function that accepts it. On the Swift side, create a class
+that inherits directly from the Kotlin runtime's `KotlinBase` class and conforms to the exported protocol.
+Implement the interface using a pure Swift library and pass the object back to Kotlin. For example, for the CryptoKit library:
 
-1. On the Kotlin side, declare an interface, a function that accepts it, and an `open` base class:
+1. On the Kotlin side, declare an interface and a function that accepts it:
 
     ```kotlin
     // Kotlin
@@ -910,18 +952,18 @@ functions that accept that interface. For example, for the CryptoKit library:
     }
 
     fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
-
-    open class SwiftBase
     ```
 
-2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using a pure Swift library,
+2. On the Swift side, inherit from `KotlinBase`, implement the interface using a pure Swift library,
    and pass the object back to Kotlin:
 
     ```swift
     // Swift
     import CryptoKit
+    import Shared
+    import KotlinRuntime
 
-    final class IosCryptoProvider: SwiftBase, CryptoProvider {
+    final class IosCryptoProvider: KotlinBase, CryptoProvider {
         func hashMD5(input: String) -> String {
             guard let data = input.data(using: .utf8) else { return "failed" }
             return Insecure.MD5.hash(data: data).description
@@ -936,6 +978,36 @@ functions that accept that interface. For example, for the CryptoKit library:
 
 When Kotlin receives the Swift object, it treats it like an implementation of a regular Kotlin interface, calling
 the Swift code directly.
+
+See examples in the Swift export sample:
+
+| Example | Kotlin side | Swift side |
+|---|---|---|
+| Kotlin contract | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SwiftImplementationView.swift) |
+
+## Limitations
+
+Swift export has the following limitations:
+
+* Kotlin classes that subclass Objective-C classes are not exported.
+* Swift structs and enums cannot conform to Kotlin interfaces.
+* Only public API is available from Swift; `protected`, `internal`, and `private` declarations are not reachable. Properties with `private set` are read-only.
+* Kotlin default argument values are not applied to functions or initializers. Data class `copy` also requires every constructor argument.
+* Data class `componentN()` functions are not exported.
+* Swift subclasses do not have to implement abstract Kotlin members, but calling an unimplemented member fails at runtime. Overriding a member that is not `open` can also fail at runtime.
+* `@ShouldRefineInSwift` is ignored, and non-public `@RequiresOptIn` markers are not exported.
+* `@HiddenFromObjC` and `@Deprecated(HIDDEN)` omit declarations; `@Deprecated(ERROR)` makes declarations unavailable, and references can become unavailable stubs.
+* Kotlin `Any` values bridge only primitive, string, collection, and Kotlin object values.
+* Generic type arguments are erased. Reified functions, F-bounded and multiple-upper-bound declarations, and functions with parameters such as `Box<String>` are not exported.
+* Kotlin `Array` and primitive arrays cannot be constructed from Swift.
+* `MutableList`, `MutableSet`, and `MutableMap` are not supported.
+* Types inheriting from `List`, `Set`, or `Map` are ignored during export and cannot be instantiated from Swift ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416), [KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
+* Values of `Nothing`/`Never` cannot be constructed.
+* C structs, C enums, platform type aliases such as `NSTimeInterval`, and POSIX or Darwin types are unavailable.
+* Kotlin flows cannot be created directly from Swift.
+* `FileNameKt` classes are not generated for top-level declarations.
+* Member properties named `description`, `debugDescription`, `hash`, or `hashValue` are omitted. Swift resolves them to inherited `NSObject` members; rename or use `@ObjCName`.
+* Unexported exception types are reported as `KotlinRuntimeSupport.KotlinError`. Uncaught exceptions from functions without `@Throws` terminate the process.
 
 ## What's next
 
