@@ -103,7 +103,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.0: report a warning
-> - 2.4.0: raise the warning to an error
+> - 2.5.0: raise the warning to an error
 
 ### Prohibit inheritance from nullable supertypes introduced via typealias
 
@@ -315,7 +315,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `kotlin-android` plugin for AGP versions 9.0.0 and later
 
-> **Issue**: [KT-81199](https://youtrack.jetbrains.com/issue/KT-81199)
+> **Issue**: [KT-81199](https://youtrack.jetbrains.com/issue/KT-81199), [KT-88622](https://youtrack.jetbrains.com/issue/KT-88622)
 >
 > **Component**: Gradle
 >
@@ -324,9 +324,14 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: In Kotlin 2.3.0, the `org.jetbrains.kotlin.android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
 > Starting with AGP 9.0.0, [AGP provides built-in support for Kotlin](https://kotl.in/gradle/agp-built-in-kotlin), so the `kotlin-android` plugin is no longer required.
 >
+> Starting with Kotlin 2.5.0, the Kotlin Gradle plugin reports deprecation warnings regardless of the AGP version when you apply
+> the `org.jetbrains.kotlin.android` plugin, or the `org.jetbrains.kotlin.multiplatform` plugin together with the `com.android.library` plugin.
+> To migrate, [update your project to AGP 9.0 or later](https://kotl.in/agp9-blog).
+>
 > **Deprecation cycle**:
 >
 > - 2.3.0: report a warning when the `kotlin-android` plugin is used with AGP versions 9.0.0 or later, and both the `android.builtInKotlin` and `android.newDsl=false` Gradle properties are set to `false`
+> - 2.5.0: report the deprecation warnings for all AGP versions
 
 ### Deprecate `testApi` configuration
 
@@ -573,11 +578,11 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `create()` function in `NodeJsExec` DSL
 
-> **Issue**: [KT-81004](https://youtrack.jetbrains.com/issue/KT-81004)
+> **Issue**: [KT-81004](https://youtrack.jetbrains.com/issue/KT-81004), [KT-85179](https://youtrack.jetbrains.com/issue/KT-85179)
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary
 >
 > **Short summary**: The `create()` function in the companion object of the `NodeJsExec` DSL is deprecated. Use
 > the `register()` function instead.
@@ -586,7 +591,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.1.20: report a warning
 > - 2.3.0: raise the warning to an error
-> - 2.4.0: remove the function
+> - 2.4.0: hide the function
+> - 2.5.0: remove the function
 
 ### Deprecate properties in `kotlinOptions` DSL
 
@@ -781,18 +787,23 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `CleanableStore` interface and `CleanDataTask` class
 
-> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104)
+> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104), [KT-77241](https://youtrack.jetbrains.com/issue/KT-77241)
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary, behavioral
 >
-> **Short summary**: The `CleanableStore` interface and `CleanDataTask` class are deprecated since they are no longer used.
+> **Short summary**: The `CleanableStore` interface, the `CleanDataTask` class, and the `DownloadableFile` class are
+> deprecated since they are no longer used.
+>
+> As a result, the following Gradle tasks are also removed: `yarnKotlinClean`, `binaryenKotlinClean`, `d8KotlinClean`,
+> `wasmtimeKotlinClean`, and `nodeKotlinClean`.
 >
 > **Deprecation cycle**:
 >
 > - 2.3.20: report a warning
 > - 2.4.20: raise the warning to an error
+> - 2.5.0: remove the class, the interface, and the related Gradle tasks
 
 ### Deprecate `kotlin.kmp.isolated-projects.support` Gradle property
 

@@ -148,7 +148,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The compiler now checks the left-hand side of callable references and reports a warning if an inner class contains type arguments in the wrong part of the qualifier.
+> **Short summary**: The compiler now checks the left-hand side of callable references and reports an error if an inner class contains type arguments in the wrong part of the qualifier.
 > 
 > To migrate, update the reference so that each type argument belongs to the class that declares it.
 > For example, write the full type `Outer<Int>.Inner<String>::toString` instead of `Inner<String, Int>::toString`.
@@ -156,6 +156,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when type arguments in the left-hand side of a callable reference belong to another part of the qualifier
+> - 2.5.0: raise the warning to an error
 
 ### Report errors for class literals from reified type parameters with nullable upper bounds
 
@@ -445,18 +446,21 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `sourceSets` in the Kotlin Android extension
 
-> **Issue**: [KT-74451](https://youtrack.jetbrains.com/issue/KT-74451)
+> **Issue**: [KT-74451](https://youtrack.jetbrains.com/issue/KT-74451), [KT-88380](https://youtrack.jetbrains.com/issue/KT-88380)
 >
 > **Component**: Gradle
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `sourceSets` property in `KotlinAndroidProjectExtension` is deprecated.
+> **Short summary**: The `sourceSets` property in the `KotlinAndroidExtension` interface and the `KotlinAndroidProjectExtension` is deprecated.
 > To migrate, configure source sets through the Android Gradle plugin's `android { sourceSets { ... } }` block instead.
+> The `sourceSets {}` function in `KotlinAndroidProjectExtension` is also deprecated with the `ERROR` level.
+> To migrate, use [built-in Kotlin in the Android Gradle plugin](https://developer.android.com/build/migrate-to-built-in-kotlin).
 >
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when accessing `sourceSets` from `KotlinAndroidProjectExtension`
+> - 2.5.0: raise the warning to an error
 
 ### Remove consumable configurations for Kotlin/Native Apple frameworks
 
@@ -520,19 +524,22 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate explicit shrunk classpath snapshot configuration
 
-> **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837)
+> **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837), [KT-83937](https://youtrack.jetbrains.com/issue/KT-83937)
 >
 > **Component**: Build tools API 
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, behavioral
 >
-> **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `ClasspathSnapshotBasedIncrementalCompilationApproachParameters` is deprecated.
-> The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates and manages it automatically under the incremental compiler metadata `workingDirectory`.
-> To migrate, use the automatically managed snapshot file, instead of passing a value to `shrunkClasspathSnapshot`.
+> **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `JvmSnapshotBasedIncrementalCompilationConfiguration`
+> is deprecated. The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates
+> and manages it automatically under the incremental compiler metadata `workingDirectory`.
+> To migrate, use the automatically managed snapshot file instead of passing a value to `shrunkClasspathSnapshot` by
+> using the `snapshotBasedIcConfigurationBuilder` or `snapshotBasedIcConfiguration` overload that doesn't accept `shrunkClasspathSnapshot`.
 >
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when using `shrunkClasspathSnapshot`
+> - 2.5.0: raise the warning to an error; code that provides or accesses the `shrunkClasspathSnapshot` no longer compiles.
 
 ### Remove redundant ABI validation Gradle DSL elements
 
@@ -551,11 +558,11 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate obsolete Compose compiler Gradle plugin options
 
-> **Issue**: [KT-85343](https://youtrack.jetbrains.com/issue/KT-85343)
+> **Issue**: [KT-85343](https://youtrack.jetbrains.com/issue/KT-85343), [KT-85345](https://youtrack.jetbrains.com/issue/KT-85345)
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary
 >
 > **Short summary**: In Kotlin 2.4.0, the following deprecated Compose compiler Gradle plugin options now report an error when used:
 >
@@ -568,20 +575,31 @@ perspective (for example, from Java) is out of the scope of this document.
 > * `ComposeFeatureFlag.IntrinsicRemember`
 >
 > Use `featureFlags` instead of the deprecated feature options, and `stabilityConfigurationFiles` instead of `stabilityConfigurationFile`.
+> Remove the `ComposeFeatureFlag.StrongSkipping` and `ComposeFeatureFlag.IntrinsicRemember` options
+> because these features have been enabled by default.
 >
 > **Deprecation cycle**:
 >
 > - 2.0.20: report warnings for `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode`
 > - 2.1.0: report a warning for `stabilityConfigurationFile`
 > - 2.4.0: raise the warnings to errors
+> - 2.5.0: remove the `ComposeFeatureFlag.StrongSkipping` and `ComposeFeatureFlag.IntrinsicRemember` options
+>
+> The `ComposeFeatureFlag.OptimizeNonSkippingGroups` and `ComposeFeatureFlag.PausableComposition` options of the Compose
+> compiler Gradle plugin are deprecated because these features are enabled by default. Remove them from your configuration.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using the `ComposeFeatureFlag.OptimizeNonSkippingGroups` and `ComposeFeatureFlag.PausableComposition`
+> - 2.5.0: raise the warning to an error
 
 ### Report errors for obsolete Kotlin/Native Gradle task APIs
 
-> **Issue**: [KT-85510](https://youtrack.jetbrains.com/issue/KT-85510)
+> **Issue**: [KT-85510](https://youtrack.jetbrains.com/issue/KT-85510), [KT-88813](https://youtrack.jetbrains.com/issue/KT-88813)
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: source, binary
 >
 > **Short summary**: The following deprecated Kotlin/Native Gradle task APIs now report an error when used:
 >
@@ -621,6 +639,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.0: report an error for the deprecated Kotlin/Native Gradle task APIs, remove the `KotlinNativeLink.compilation` property
+> - 2.5.0: remove the deprecated Kotlin/Native Gradle task APIs or follow the `ReplaceWith` suggestions if provided
 
 ### Report warnings for case mismatches in compiler argument values
 
