@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { KotlinLtsPage } from '../page/kotlin-lts-page';
+import { testSelector } from '../utils';
 import { CONTACT_TEAM_URL, NEWSLETTER_URL, PUBLIC_SUPPORT_URL } from '../../blocks/kotlin-lts/constants';
 
 const FORMS_SERVICE_URL = 'https://forms-service.jetbrains.com/feedback';
@@ -9,6 +10,19 @@ const CORS_HEADERS = {
     'access-control-allow-methods': 'GET, OPTIONS, POST',
     'access-control-allow-headers': 'content-type',
 };
+
+test.beforeEach(async ({ page }) => {
+    await page.route(
+        'https://resources.jetbrains.com/services/consentOptions?consentId=mkt.general.user-intention',
+        (route) => route.fulfill({
+            headers: CORS_HEADERS,
+            json: {
+                shortText: 'I understand how my data will be processed.',
+                text: 'This inquiry uses the <a href="https://www.jetbrains.com/legal/docs/privacy/privacy/">JetBrains Privacy Notice</a>.',
+            },
+        })
+    );
+});
 
 for (const viewport of [
     { width: 1440, height: 1000 },
@@ -119,6 +133,7 @@ for (const viewport of [
             await expect(page).toHaveURL(new RegExp(`${CONTACT_TEAM_URL}$`));
             await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discuss a paid subscription');
             await expect(page.getByRole('checkbox')).toHaveCount(0);
+            await expect(page.getByRole('textbox', { name: 'Work email address *' })).toBeEnabled();
             expect(await lts.expectNoOverflow()).toBe(true);
         });
 
@@ -263,37 +278,49 @@ for (const viewport of [
             });
 
             await page.goto(CONTACT_TEAM_URL);
-            const form = page.getByRole('form', { name: 'Paid support inquiry' });
+            const form = page.locator(testSelector('wtform'));
             const submit = form.getByRole('button', { name: 'Send request', exact: true });
-            const status = form.getByRole('status');
+            const status = page.getByRole('main').getByRole('status');
             const emailField = form.getByLabel('Work email address *', { exact: true });
             const country = form.getByLabel('Country/Region *');
             const components = form.getByLabel('Components and versions (optional)');
             await expect(form.getByRole('checkbox')).toHaveCount(0);
-            await expect(form.getByRole('link', { name: 'JetBrains Privacy Notice' })).toBeVisible();
+            const privacyNotice = form.locator(testSelector('privacy-notice'));
+            await expect(privacyNotice).toContainText('This inquiry uses the');
+            await expect(privacyNotice.getByRole('link', { name: 'JetBrains Privacy Notice' })).toBeVisible();
             await expect(country).toHaveValue('Netherlands');
             expect(await lts.expectNoOverflow()).toBe(true);
             await submit.click();
-            await expect(form.getByLabel('First name *', { exact: true })).toBeFocused();
+            const firstName = form.getByLabel('First name *', { exact: true });
+            await expect(firstName).toHaveAttribute('aria-invalid', 'true');
+            await expect(form.getByText('This field is required').first()).toBeVisible();
             await expect(status).toHaveCount(0);
-            await form.getByLabel('First name *', { exact: true }).fill(' Test ');
+            await firstName.fill(' Test ');
             await form.getByLabel('Last name *').fill('Inquiry');
             await emailField.fill('invalid-email');
-            await form.getByLabel('Company *', { exact: true }).fill('Example Company');
-            await form.getByLabel('Role *').selectOption('Individual Contributor');
+            const company = form.getByLabel('Company *', { exact: true });
+            await company.fill('Example Company');
+            const role = form.getByLabel('Role *');
+            await role.focus();
+            await expect(company).toHaveAttribute('aria-invalid', 'false');
+            await role.selectOption('Individual Contributor');
+            await expect(form.locator('[data-field-name="Role__c"]')).toHaveAttribute('data-field-error', 'false');
             await country.selectOption('Germany');
-            await form.getByRole('radio', { name: '26-50' }).check();
+            const teamSizes = form.getByRole('group', { name: 'Engineering team size *' });
+            const option = teamSizes.locator('label').filter({ hasText: /^26-50$/ });
+            await option.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+            await option.click();
+            await expect(teamSizes.getByRole('radio', { name: '26-50' })).toBeChecked();
             await form.getByLabel('What would you like to discuss? (optional)').fill('Upgrade timing');
 
             await submit.click();
-            await expect(emailField).toBeFocused();
-            expect(await emailField.evaluate((el: HTMLInputElement) => el.validity.typeMismatch)).toBe(true);
+            await expect(form.getByText('E-mail address is not correct')).toBeVisible();
             expect(emailChecks).toEqual([]);
 
             await emailField.fill(personalEmail);
             await submit.click();
-            await expect(form.getByRole('alert')).toHaveText('Enter your work email address.');
-            await expect(emailField).toBeFocused();
+            await expect(form.getByText('Enter your work email address.')).toBeVisible();
+            await expect(emailField).toHaveAttribute('aria-invalid', 'true');
             expect(emailChecks).toEqual([personalEmail]);
             expect(inquiries).toEqual([]);
 
@@ -313,6 +340,7 @@ for (const viewport of [
                 country: 'Germany',
                 Number_of_Developers__c: '26-50',
                 mktoPersonNotes: 'Upgrade timing',
+                privacyConsent: true,
                 privacyConsentType: ['mkt.general.user-intention'],
             };
             expect(inquiries).toEqual([requiredPayload]);
@@ -341,6 +369,7 @@ for (const viewport of [
 
             await expect(status).toContainText('Request sent');
             await expect(status).toBeFocused();
+            await expect(form).toHaveCount(0);
             await expect(page).toHaveURL(new RegExp(`${CONTACT_TEAM_URL}$`));
             expect(inquiries).toEqual([requiredPayload, completePayload, completePayload]);
             expect(emailChecks).toEqual([personalEmail, workEmail, workEmail, workEmail]);
@@ -473,17 +502,19 @@ test('completes a Forms Service CAPTCHA challenge before confirming the contact 
     });
 
     await page.goto(CONTACT_TEAM_URL);
-    const form = page.getByRole('form', { name: 'Paid support inquiry' });
+    const form = page.locator(testSelector('wtform'));
     await form.getByLabel('First name *', { exact: true }).fill('Test');
     await form.getByLabel('Last name *', { exact: true }).fill('Inquiry');
     await form.getByLabel('Work email address *', { exact: true }).fill('lts-form-test@company.example');
     await form.getByLabel('Company *', { exact: true }).fill('Example Company');
     await form.getByLabel('Role *').selectOption('Manager');
     await form.getByLabel('Country/Region *').selectOption('Germany');
-    await form.getByRole('radio', { name: '26-50' }).check();
-    await form.getByRole('button', { name: 'Send request', exact: true }).click();
+    const teamSize = form.getByRole('radio', { name: '26-50' });
+    await teamSize.press('Space');
+    await expect(teamSize).toBeChecked();
+    await form.getByRole('button', { name: 'Send request', exact: true }).press('Enter');
 
-    await expect(form.getByRole('status')).toContainText('Request sent');
+    await expect(page.getByRole('main').getByRole('status')).toContainText('Request sent');
     expect(submissions).toBe(1);
     expect(assessments).toEqual([
         {

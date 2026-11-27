@@ -1,12 +1,13 @@
-import { Urls } from '@webteam/data-services';
+import { formService } from '@webteam/data-services';
+import type { Submitter } from '@webteam/forms';
 import { loadGoogleCaptchaScript } from '@webteam/forms/lib/captcha/googleCaptcha';
 import { getTencentToken, loadTencentCaptchaScript } from '@webteam/forms/lib/captcha/tencentCaptcha';
 import { getTencentNextToken, loadTencentNextCaptchaScript } from '@webteam/forms/lib/captcha/tencentNextCaptcha';
 
-const FORM_ID = 'consent/10118';
-const CONSENT_ID = 'mkt.general.user-intention';
+export const FORM_ID = 'consent/10118';
+export const CONSENT_ID = 'mkt.general.user-intention';
 const EMAIL_VALIDATION_URL = 'https://account.jetbrains.com/services/rest/validation/v1/checkEmail';
-const ASSESSMENT_URL = new URL('/assessment', Urls.FORM_SERVICE);
+const SUBMISSION_FAILED = 'We couldn’t send your request. Please try again.';
 
 type Assessment = {
     assessmentType: string;
@@ -19,7 +20,7 @@ type FormsServiceResponse = {
     assessment?: Assessment;
 };
 
-export async function validateWorkEmail(email: string): Promise<string | null> {
+async function validateWorkEmail(email: string): Promise<string | null> {
     const url = new URL(EMAIL_VALIDATION_URL);
     url.searchParams.set('email', email);
 
@@ -76,7 +77,7 @@ async function assessSubmission({ assessmentType, requestId, captchaDetails }: A
             throw new Error('Forms Service returned an unsupported CAPTCHA challenge');
     }
 
-    const response = await postJson(ASSESSMENT_URL, {
+    const response = await postJson(new URL('/assessment', formService.urls.submitUrl), {
         requestId,
         assessmentResponse: { ...captchaResult, type: assessmentType },
     });
@@ -85,24 +86,26 @@ async function assessSubmission({ assessmentType, requestId, captchaDetails }: A
     }
 }
 
-export async function submitContact(formData: FormData) {
-    const fields = Object.fromEntries(
-        Array.from(formData, ([name, value]) => [name, String(value).trim()]).filter(([, value]) => value)
-    );
-    const response = await postJson(Urls.FORM_SERVICE, {
-        ...fields,
-        formid: FORM_ID,
-        privacyConsentType: [CONSENT_ID],
-    });
-    if (!response.ok && response.status !== 429) {
-        throw new Error('Forms Service request failed');
+export const submitContact: Submitter = async (formData) => {
+    const emailError = await validateWorkEmail(String(formData.email ?? ''));
+    if (emailError) throw { email: emailError };
+
+    try {
+        // Form 10118 is registered with the Forms Service schema and consent handler.
+        const response = await postJson(formService.urls.submitUrl, formData);
+        if (!response.ok && response.status !== 429) {
+            throw new Error('Forms Service request failed');
+        }
+
+        const result: FormsServiceResponse = await response.json();
+        if (response.ok && result?.success === true) return { success: true };
+        if (result?.assessment) {
+            await assessSubmission(result.assessment);
+            return { success: true };
+        }
+    } catch {
+        throw { form: SUBMISSION_FAILED };
     }
 
-    const result: FormsServiceResponse = await response.json();
-    if (response.ok && result?.success === true) return;
-    if (result?.assessment) {
-        await assessSubmission(result.assessment);
-        return;
-    }
-    throw new Error('Forms Service did not accept the inquiry');
-}
+    throw { form: SUBMISSION_FAILED };
+};

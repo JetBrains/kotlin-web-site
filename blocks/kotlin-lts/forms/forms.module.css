@@ -35,17 +35,8 @@
     gap: 24px;
 }
 
-.privacy {
-    margin: 0;
-}
-
 .submit {
     justify-self: start;
-}
-
-.error {
-    margin: 0;
-    color: #b20f24;
 }
 
 @media (--ktl-ml-down) {
@@ -60,21 +51,7 @@
 }
 
 .selectField {
-    display: grid;
-    align-content: start;
-    gap: 8px;
     min-width: 0;
-}
-
-.selectField select {
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 40px;
-    padding: 6px 12px;
-    border: 1px solid #bcbcc2;
-    background: #fff;
-    color: inherit;
-    font: inherit;
 }
 
 .teamSize {
@@ -85,16 +62,18 @@
 }
 
 .sizeOptions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     margin-top: 8px;
 }
 
-.sizeOption {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+.sizeOptions :global([data-rs-internal='radio-button-list__menu']) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sizeOptions :global(label) {
+    width: auto;
     padding: 4px 8px;
     border: 1px solid #d4d4d9;
     border-radius: 16px;
