@@ -49,7 +49,13 @@ const RESOURCES = [
 
 export default function KotlinSecurityNewsletter() {
     return (
-        <LandingLayout title={TITLE} description={DESCRIPTION} theme="light" hideTopMenu>
+        <LandingLayout
+            title={TITLE}
+            description={DESCRIPTION}
+            ogImageName="kotlin-security-newsletter.png"
+            theme="light"
+            hideTopMenu
+        >
             <main>
                 <section className={styles.hero} aria-labelledby="newsletter-title">
                     <div className={cn('ktl-layout-v2', 'ktl-layout--center', styles.container, styles.heroContent)}>
