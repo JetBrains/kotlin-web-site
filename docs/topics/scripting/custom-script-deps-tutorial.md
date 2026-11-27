@@ -16,8 +16,8 @@ You'll be able to execute scripts like this:
 
 
 ```kotlin
-@file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+@file:Repository("https://repo1.maven.org/maven2/")
+@file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:%kotlinxHtmlVersion%")
 
 import kotlinx.html.*
 import kotlinx.html.stream.*
@@ -310,8 +310,8 @@ To check how your scripting host works, prepare a script to execute and a run co
 1. Create the file `html.scriptwithdeps.kts` with the following content in the project root directory:
 
    ```kotlin
-   @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
-   @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+   @file:Repository("https://repo1.maven.org/maven2/")
+   @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:%kotlinxHtmlVersion%")
 
    import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
 
