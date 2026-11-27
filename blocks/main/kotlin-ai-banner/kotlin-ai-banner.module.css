@@ -10,15 +10,9 @@
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 1144px 464px;
-    margin-top: 48px;
 
     @media (--ktl-ml-min) {
         padding: 32px;
-        margin-top: 64px;
-    }
-
-    @media (--ktl-ds-min) {
-        margin-top: 96px;
     }
 }
 

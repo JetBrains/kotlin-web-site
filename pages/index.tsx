@@ -49,7 +49,6 @@ import searchConfig from '../search-config.json';
 import releasesDataRaw from '../data/releases.yml';
 import { HeroBlock } from '../blocks/main/hero/hero-block';
 import { PromoBanner } from '../blocks/main/promo-banner';
-import { KotlinEffectBanner } from '@/blocks/main/kotlin-effect-banner';
 import { KotlinAiBanner } from '@/blocks/main/kotlin-ai-banner';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
@@ -171,8 +170,6 @@ function Index() {
                 <HeroBlock />
 
                 <div className={'ktl-layout ktl-layout--center'}>
-                    <KotlinEffectBanner />
-
                     <KotlinAiBanner />
 
                     <LatestNews />
