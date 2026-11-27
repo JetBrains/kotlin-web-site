@@ -8,6 +8,12 @@ const NEWSLETTER_TITLE = 'Kotlin Security Newsletter';
 const CONSENT_ID = 'mkt.general.jb-intention';
 const CONSENT_URL = 'https://resources.jetbrains.com/services/consentOptions**';
 const STUB_CONSENT_SHORT_TEXT = 'Stub short consent text';
+const FEEDBACK_URL = 'https://forms-service.jetbrains.com/feedback';
+const ASSESSMENT_URL = 'https://forms-service.jetbrains.com/assessment';
+const RECAPTCHA_SCRIPT_URL = 'https://www.google.com/recaptcha/api.js**';
+const RECAPTCHA_SITE_KEY = 'e2e-site-key';
+const RECAPTCHA_TOKEN = 'e2e-captcha-token';
+const ASSESSMENT_REQUEST_ID = 'e2e-request-id';
 
 const getForm = (page: Page): Locator => page.locator(testSelector('wtform'));
 
@@ -19,9 +25,18 @@ test.beforeEach(async ({ page }) => {
             json: { shortText: STUB_CONSENT_SHORT_TEXT, text: 'Stub full consent text' },
         });
     });
+    // `createFormServiceSubmitter` loads the Google script on demand when the
+    // backend responds with a reCAPTCHA v3 assessment challenge.
+    await page.route(RECAPTCHA_SCRIPT_URL, async (route) => {
+        await route.fulfill({
+            status: 200,
+            contentType: 'application/javascript',
+            body: `window.grecaptcha = { ready: (cb) => cb(), execute: async () => '${RECAPTCHA_TOKEN}' };`,
+        });
+    });
 });
 
-test.describe('Kotlin Security Newsletter', () => {
+test.describe.only('Kotlin Security Newsletter', () => {
     test('opens directly with newsletter content and public security resources', async ({ page }) => {
         await page.goto(SIGNUP_PATH);
         const main = page.getByRole('main');
@@ -75,40 +90,27 @@ test.describe('Kotlin Security Newsletter', () => {
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     });
 
-    test('validates email, registers consent, and confirms a successful retry', async ({ page }) => {
+    test('validates email, solves the recaptcha challenge, and confirms a successful retry', async ({ page }) => {
         const requests: string[] = [];
         const emailAddress = 'newsletter-test@example.com';
-        let marketoAttempts = 0;
+        let feedbackAttempts = 0;
         const headers = {
             'access-control-allow-origin': '*',
             'access-control-allow-methods': 'POST, OPTIONS',
             'access-control-allow-headers': 'content-type',
         };
 
-        await page.route('https://account.jetbrains.com/services/acceptAgreement', async (route) => {
-            const request = route.request();
-            expect(request.method()).toBe('POST');
-            const consent = new URLSearchParams(request.postData() ?? '');
-            expect(consent.get('type')).toBe(CONSENT_ID);
-            expect(consent.get('email')).toBe(emailAddress);
-            requests.push('consent');
-            await route.fulfill({ status: 200, headers, json: {} });
-        });
-
-        await page.route('https://forms-service.jetbrains.com/marketo', async (route) => {
+        await page.route(FEEDBACK_URL, async (route) => {
             const request = route.request();
             if (request.method() === 'OPTIONS') {
                 await route.fulfill({ status: 204, headers });
                 return;
             }
 
+            feedbackAttempts += 1;
             expect(request.postDataJSON()).toMatchObject({
                 formid: '10127',
-                formVid: '10127',
-                munchkinId: expect.any(String),
-                checksum: expect.any(String),
-                checksumFields: expect.any(String),
-                Email: emailAddress,
+                email: emailAddress,
                 kotlinSecurityNewsletter: true,
                 privacyConsent: true,
                 privacyConsentType: [CONSENT_ID],
@@ -119,13 +121,40 @@ test.describe('Kotlin Security Newsletter', () => {
                     utmCampaign: 'security-newsletter',
                 }),
             });
-            requests.push('marketo');
-            marketoAttempts += 1;
+            requests.push('feedback');
+            // The first submit fails without a captcha challenge; the second one
+            // asks the client to solve an invisible reCAPTCHA v3 and resubmit.
+            const challenged = feedbackAttempts > 1;
             await route.fulfill({
-                status: marketoAttempts === 1 ? 503 : 200,
+                status: challenged ? 200 : 503,
                 headers,
-                json: { success: marketoAttempts === 1 ? false : true, cause: [] },
+                json: challenged
+                    ? {
+                          success: false,
+                          cause: [],
+                          assessment: {
+                              requestId: ASSESSMENT_REQUEST_ID,
+                              assessmentType: 'reCaptcha v3',
+                              captchaDetails: { siteKey: RECAPTCHA_SITE_KEY },
+                          },
+                      }
+                    : { success: false, cause: [] },
             });
+        });
+
+        await page.route(ASSESSMENT_URL, async (route) => {
+            const request = route.request();
+            if (request.method() === 'OPTIONS') {
+                await route.fulfill({ status: 204, headers });
+                return;
+            }
+
+            expect(request.postDataJSON()).toMatchObject({
+                requestId: ASSESSMENT_REQUEST_ID,
+                assessmentResponse: { token: RECAPTCHA_TOKEN, type: 'reCaptcha v3' },
+            });
+            requests.push('assessment');
+            await route.fulfill({ status: 200, headers, json: { success: true } });
         });
 
         await page.goto(`${SIGNUP_PATH}?utm_source=kotlinlang&utm_medium=e2e&utm_campaign=security-newsletter`);
@@ -146,12 +175,12 @@ test.describe('Kotlin Security Newsletter', () => {
         await subscribe.click();
         await expect(form.getByText('Please try again')).toBeVisible();
         await expect(email).toHaveValue(emailAddress);
-        expect(requests).toEqual(['consent', 'marketo']);
+        expect(requests).toEqual(['feedback']);
 
         await subscribe.click();
         await expect(page.getByRole('main').getByRole('status')).toContainText('Thanks for signing up');
         await expect(form).toHaveCount(0);
-        expect(requests).toEqual(['consent', 'marketo', 'consent', 'marketo']);
+        expect(requests).toEqual(['feedback', 'feedback', 'assessment']);
         await expect(page).toHaveURL(/\/security-newsletter\//);
     });
 });
