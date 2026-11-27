@@ -406,7 +406,8 @@ Swift names or expose a non-generic hierarchy from Kotlin.
 
 ## Verify the migration
 
-Swift export failures are often visible only at runtime, so compiling the project isn't enough:
+After you've completed the migration steps, check that everything works as expected. Some things are visible only at
+runtime, so compiling the project isn't enough. To verify the migration:
 
 1. Build the project through Xcode or `xcodebuild`, and review the warnings about casts that always fail or
    have no effect, as they usually indicate a runtime crash. With the Swift package integration, re-run the
@@ -419,12 +420,12 @@ Swift export failures are often visible only at runtime, so compiling the projec
 ### Troubleshooting
 
 | Problem                                                                                | Solution                                                                                                                  |
-|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Task 'embedSwiftExportForXcode' not found`                                            | Add `xcodeIntegration()` to the `export { swift {} }` block of the module.                                                |
 | The build fails because the `swiftExport {}` and `export { swift {} }` blocks conflict | Remove the deprecated `swiftExport {}` block.                                                                             |
 | `Swift Export needs IPHONEOS_DEPLOYMENT_TARGET to be 18.0 or newer`                    | Raise the deployment target of the Xcode target.                                                                          |
 | Two exported modules resolve to the same Swift module name                             | Rename one of them with `configure(dependency) { moduleName = "..." }`.                                                   |
-| The compilation of the generated Kotlin bridges fails in your own module               | A declaration uses an unsupported construct. Adjust the Kotlin signature or hide the declaration.                        |
+| The compilation of the generated Kotlin bridges fails in your own module               | A declaration uses an unsupported construct. Adjust the Kotlin signature or hide the declaration. Help us fix such cases by reportig them to [YouTrack](https://kotl.in/issue). |
 | The build fails inside the generated code of a dependency                              | Hide the dependency with `configure(dependency, SwiftExportVisibility.HIDDEN)` and expose only the wrappers your Swift code needs from your own module.  |
 | A declaration is missing from the generated Swift code or is marked as unavailable     | Check the Kotlin signature against the [limitations](native-swift-export.md#current-limitations) and adjust it.          |
 | A function of your module fails at runtime with a fatal error                          | The declaration mentions a type from a hidden dependency. Replace it with a wrapper that doesn't expose that type.        |
