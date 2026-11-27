@@ -322,8 +322,10 @@ Swift library into a Kotlin project:
 </tab>
 <tab title="Swift export">
 
-1. On the Kotlin side, declare an interface, a function that accepts it, and an `open` base class that the Swift
-   implementation can inherit from:
+Swift classes can inherit directly from the Kotlin runtime's `KotlinBase` class, so you don't need to declare an extra
+Kotlin superclass only to enable inheritance from Swift.
+
+1. On the Kotlin side, declare an interface and a function that accepts it:
 
    ```kotlin
    // CryptoProvider.kt
@@ -332,18 +334,18 @@ Swift library into a Kotlin project:
    }
 
    fun processHash(provider: CryptoProvider, input: String): String = provider.hashMD5(input)
-
-   open class SwiftBase
    ```
 
-2. On the Swift side, inherit from the exported `SwiftBase` class, implement the interface using the pure Swift
-   CryptoKit library, and pass the object back to Kotlin:
+2. On the Swift side, inherit from `KotlinBase`, implement the interface using the pure Swift CryptoKit library,
+   and pass the object back to Kotlin:
 
    ```swift
    // iosApp/ContentView.swift
    import CryptoKit
+   import Shared
+   import KotlinRuntime
 
-   final class IosCryptoProvider: SwiftBase, CryptoProvider {
+   final class IosCryptoProvider: KotlinBase, CryptoProvider {
        func hashMD5(input: String) -> String {
            guard let data = input.data(using: .utf8) else { return "failed" }
            return Insecure.MD5.hash(data: data).description
