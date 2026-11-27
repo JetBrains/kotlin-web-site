@@ -530,10 +530,11 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source, behavioral
 >
-> **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `ClasspathSnapshotBasedIncrementalCompilationApproachParameters` is deprecated.
-> The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates and manages it automatically under the incremental compiler metadata `workingDirectory`.
-> To migrate, use the automatically managed snapshot file instead of passing a value to `shrunkClasspathSnapshot` or
-> use the `snapshotBasedIcConfigurationBuilder` or `snapshotBasedIcConfiguration` overload that doesn't accept `shrunkClasspathSnapshot`.
+> **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `JvmSnapshotBasedIncrementalCompilationConfiguration`
+> is deprecated. The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates
+> and manages it automatically under the incremental compiler metadata `workingDirectory`.
+> To migrate, use the automatically managed snapshot file instead of passing a value to `shrunkClasspathSnapshot` by
+> using the `snapshotBasedIcConfigurationBuilder` or `snapshotBasedIcConfiguration` overload that doesn't accept `shrunkClasspathSnapshot`.
 >
 > **Deprecation cycle**:
 >

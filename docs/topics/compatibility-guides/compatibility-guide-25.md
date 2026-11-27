@@ -714,7 +714,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.4.0: report a warning when using the `contains()` function
 > - 2.5.0: raise the warning to an error
 
-### Prohibit unsupported compiler arguments in `applyArgumentStrings()` function
+### Prohibit unsupported compiler arguments in `applyArgumentStrings()` and `applyCommandLineArguments()`
 
 > **Issue**: [KT-85439](https://youtrack.jetbrains.com/issue/KT-85439), [KT-85464](https://youtrack.jetbrains.com/issue/KT-85464)
 >
@@ -723,7 +723,8 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: behavioral
 >
 > **Short summary**: The Build tools API no longer allows passing some Kotlin compiler arguments through the `applyArgumentStrings()`
-> function. These arguments either conflict with the configuration that the Build tools API manages itself or represent
+> function. The same restriction applies to `applyCommandLineArguments()`, which replaces `applyArgumentStrings()`.
+> These arguments either conflict with the configuration that the Build tools API manages itself or represent
 > functionality that the Build tools API doesn't support:
 >
 > * `-Xenable-incremental-compilation`
