@@ -3,6 +3,16 @@ import { expect, test } from '@playwright/test';
 const SIGNUP_PATH = '/kotlin-security-newsletter/';
 const NEWSLETTER_TITLE = 'Kotlin Security Newsletter';
 
+test('links to the published newsletter signup with backend banner tracking', async ({ page }) => {
+    await page.goto('/backend/');
+
+    const banner = page.getByRole('region', { name: NEWSLETTER_TITLE });
+    await expect(banner.getByRole('link', { name: `Subscribe to the ${NEWSLETTER_TITLE}` })).toHaveAttribute(
+        'href',
+        'https://kotlinlang.org/security-newsletter/?utm_source=kotlinlang&utm_medium=backend_banner&utm_campaign=kotlin-security-newsletter'
+    );
+});
+
 for (const viewport of [
     { width: 1440, height: 1000 },
     { width: 390, height: 844 },

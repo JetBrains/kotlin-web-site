@@ -27,7 +27,7 @@ export function SecurityNewsletter() {
                     className={styles.action}
                     mode="rock"
                     size="l"
-                    href="/kotlin-security-newsletter/"
+                    href="https://kotlinlang.org/security-newsletter/?utm_source=kotlinlang&utm_medium=backend_banner&utm_campaign=kotlin-security-newsletter"
                     aria-label="Subscribe to the Kotlin Security Newsletter"
                 >
                     Subscribe
