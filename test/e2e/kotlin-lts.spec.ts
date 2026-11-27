@@ -1,22 +1,14 @@
-import { expect, Page, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { KotlinLtsPage } from '../page/kotlin-lts-page';
 import { CONTACT_TEAM_URL, NEWSLETTER_URL, PUBLIC_SUPPORT_URL } from '../../blocks/kotlin-lts/constants';
 
-function observeSubmissions(page: Page) {
-    const requests: string[] = [];
-    page.on('request', (request) => {
-        // The global shell sends page analytics. Form values must never appear in those requests either.
-        const analyticsHost =
-            /(^|\.)(google-analytics\.com|analytics\.google\.com|doubleclick\.net|optimizely\.com)$/.test(
-                new URL(request.url()).hostname
-            );
-        const containsFormValue = `${request.url()} ${request.postData() || ''}`.includes('lts-preview-test');
-        if ((request.method() !== 'GET' && !analyticsHost) || containsFormValue) {
-            requests.push(`${request.method()} ${request.url()}`);
-        }
-    });
-    return requests;
-}
+const FORMS_SERVICE_URL = 'https://forms-service.jetbrains.com/feedback';
+const EMAIL_VALIDATION_PATH = '/services/rest/validation/v1/checkEmail';
+const CORS_HEADERS = {
+    'access-control-allow-origin': '*',
+    'access-control-allow-methods': 'GET, OPTIONS, POST',
+    'access-control-allow-headers': 'content-type',
+};
 
 for (const viewport of [
     { width: 1440, height: 1000 },
@@ -210,37 +202,149 @@ for (const viewport of [
             await expect(items.nth(6).getByText(/We’ll review your components/)).not.toBeVisible();
         });
 
-        test('validates inquiry fields and clearly previews without sending or enrolling', async ({ page }) => {
+        test('validates and submits a paid support inquiry with the agreed consent', async ({ page }) => {
+            const emailChecks: string[] = [];
+            const inquiries: unknown[] = [];
+            const personalEmail = 'lts-form-test@personal.example';
+            const workEmail = 'lts-form-test@company.example';
+            const unexpectedRequests: string[] = [];
+            let acceptInquiry: () => void;
+            const acceptance = new Promise<void>((resolve) => {
+                acceptInquiry = resolve;
+            });
+
+            await page.route('https://data.services.jetbrains.com/geo', (route) =>
+                route.fulfill({ headers: CORS_HEADERS, json: { code: 'NL', name: 'Nederland' } })
+            );
+            await page.route('https://account.jetbrains.com/**', (route) => {
+                const url = new URL(route.request().url());
+                if (url.pathname !== EMAIL_VALIDATION_PATH) {
+                    unexpectedRequests.push(url.pathname);
+                    return route.abort();
+                }
+                const email = url.searchParams.get('email');
+                emailChecks.push(email);
+                return route.fulfill({
+                    headers: CORS_HEADERS,
+                    json: { isValid: true, isFree: email === personalEmail },
+                });
+            });
+            await page.route('https://forms-service.jetbrains.com/**', async (route) => {
+                const request = route.request();
+                if (request.url() !== FORMS_SERVICE_URL) {
+                    unexpectedRequests.push(request.url());
+                    await route.abort();
+                    return;
+                }
+                if (request.method() === 'OPTIONS') {
+                    await route.fulfill({ status: 204, headers: CORS_HEADERS });
+                    return;
+                }
+
+                inquiries.push(request.postDataJSON());
+                if (inquiries.length === 1) {
+                    await route.fulfill({
+                        headers: CORS_HEADERS,
+                        json: { success: false, cause: [{ name: 'form', cause: 'Request rejected' }] },
+                    });
+                    return;
+                }
+                if (inquiries.length === 2) {
+                    await route.fulfill({
+                        status: 503,
+                        headers: CORS_HEADERS,
+                        json: { message: 'Service unavailable' },
+                    });
+                    return;
+                }
+
+                await acceptance;
+                await route.fulfill({ headers: CORS_HEADERS, json: { success: true } });
+            });
+
             await page.goto(CONTACT_TEAM_URL);
-            const form = page.getByRole('form', { name: 'Paid support inquiry preview' });
-            const submit = form.getByRole('button', { name: 'Send' });
+            const form = page.getByRole('form', { name: 'Paid support inquiry' });
+            const submit = form.getByRole('button', { name: 'Send request', exact: true });
             const status = form.getByRole('status');
-            const requests = observeSubmissions(page);
+            const emailField = form.getByLabel('Work email address *', { exact: true });
+            const country = form.getByLabel('Country/Region *');
+            const components = form.getByLabel('Components and versions (optional)');
+            await expect(form.getByRole('checkbox')).toHaveCount(0);
+            await expect(form.getByRole('link', { name: 'JetBrains Privacy Notice' })).toBeVisible();
+            await expect(country).toHaveValue('Netherlands');
+            expect(await lts.expectNoOverflow()).toBe(true);
             await submit.click();
             await expect(form.getByLabel('First name *', { exact: true })).toBeFocused();
             await expect(status).toHaveCount(0);
-            await form.getByLabel('First name *', { exact: true }).fill('lts-preview-test');
-            await form.getByLabel('Work email address *', { exact: true }).fill('invalid-email');
-            await form.getByLabel('Company *', { exact: true }).fill('lts-preview-test');
-            await form.getByLabel('Last name *').fill('Preview');
-            await form.getByLabel('Role *').selectOption('Manager');
-            await form.getByLabel('Country/Region *').selectOption('Netherlands');
+            await form.getByLabel('First name *', { exact: true }).fill(' Test ');
+            await form.getByLabel('Last name *').fill('Inquiry');
+            await emailField.fill('invalid-email');
+            await form.getByLabel('Company *', { exact: true }).fill('Example Company');
+            await form.getByLabel('Role *').selectOption('Individual Contributor');
+            await country.selectOption('Germany');
             await form.getByRole('radio', { name: '26-50' }).check();
+            await form.getByLabel('What would you like to discuss? (optional)').fill('Upgrade timing');
+
             await submit.click();
-            expect(
-                await form
-                    .getByLabel('Work email address *', { exact: true })
-                    .evaluate((el: HTMLInputElement) => el.validity.typeMismatch)
-            ).toBe(true);
+            await expect(emailField).toBeFocused();
+            expect(await emailField.evaluate((el: HTMLInputElement) => el.validity.typeMismatch)).toBe(true);
+            expect(emailChecks).toEqual([]);
+
+            await emailField.fill(personalEmail);
+            await submit.click();
+            await expect(form.getByRole('alert')).toHaveText('Enter your work email address.');
+            await expect(emailField).toBeFocused();
+            expect(emailChecks).toEqual([personalEmail]);
+            expect(inquiries).toEqual([]);
+
+            await emailField.fill(workEmail);
+            await submit.click();
+            await expect(form.getByRole('alert')).toHaveText('We couldn’t send your request. Please try again.');
+            await expect(emailField).toHaveValue(workEmail);
+            await expect(country).toHaveValue('Germany');
             await expect(status).toHaveCount(0);
-            await form.getByLabel('Work email address *', { exact: true }).fill('lts-preview-test@example.com');
+            const requiredPayload = {
+                formid: 'consent/10118',
+                firstName: 'Test',
+                lastName: 'Inquiry',
+                email: workEmail,
+                company: 'Example Company',
+                Role__c: 'Individual Contributor',
+                country: 'Germany',
+                Number_of_Developers__c: '26-50',
+                mktoPersonNotes: 'Upgrade timing',
+                privacyConsentType: ['mkt.general.user-intention'],
+            };
+            expect(inquiries).toEqual([requiredPayload]);
+
+            await components.fill('Kotlin 2.3 and Ktor 3.2');
+            await form.getByLabel('Job title (optional)').fill('Platform engineer');
+            const completePayload = {
+                ...requiredPayload,
+                title: 'Platform engineer',
+                codeReviewTool: 'Kotlin 2.3 and Ktor 3.2',
+            };
             await submit.click();
-            await expect(status).toContainText('No request has been sent');
+            await expect(form.getByRole('alert')).toHaveText('We couldn’t send your request. Please try again.');
+            await expect(components).toHaveValue('Kotlin 2.3 and Ktor 3.2');
+            await expect(status).toHaveCount(0);
+
+            try {
+                await submit.click();
+                await expect.poll(() => inquiries.length).toBe(3);
+                await expect(form.getByRole('button', { name: 'Sending…' })).toBeDisabled();
+                await expect(status).toHaveCount(0);
+                await form.evaluate((element: HTMLFormElement) => element.requestSubmit());
+            } finally {
+                acceptInquiry();
+            }
+
+            await expect(status).toContainText('Request sent');
+            await expect(status).toBeFocused();
             await expect(page).toHaveURL(new RegExp(`${CONTACT_TEAM_URL}$`));
-            await expect(form.getByRole('checkbox')).toHaveCount(0);
-            expect(requests).toEqual([]);
-            await form.getByLabel('Components and versions (optional)').fill('Kotlin');
-            await expect(status).toHaveCount(0);
+            expect(inquiries).toEqual([requiredPayload, completePayload, completePayload]);
+            expect(emailChecks).toEqual([personalEmail, workEmail, workEmail, workEmail]);
+            expect(unexpectedRequests).toEqual([]);
         });
 
         test('registers newsletter consent and submits the Kotlin Security Newsletter signup', async ({ page }) => {
@@ -322,6 +426,73 @@ for (const viewport of [
     });
 }
 
+test('completes a Forms Service CAPTCHA challenge before confirming the contact request', async ({ page }) => {
+    let submissions = 0;
+    const assessments: unknown[] = [];
+
+    await page.route('https://data.services.jetbrains.com/geo', (route) =>
+        route.fulfill({ headers: CORS_HEADERS, json: { code: 'NL' } })
+    );
+    await page.route(`https://account.jetbrains.com${EMAIL_VALIDATION_PATH}?**`, (route) =>
+        route.fulfill({ headers: CORS_HEADERS, json: { isValid: true } })
+    );
+    await page.route(/https:\/\/www\.google\.com\/recaptcha\/api\.js\?/, (route) =>
+        route.fulfill({
+            contentType: 'application/javascript',
+            body: "window.grecaptcha = { ready: (done) => done(), execute: async () => 'test-token' };",
+        })
+    );
+    await page.route('https://forms-service.jetbrains.com/**', async (route) => {
+        const request = route.request();
+        if (request.method() === 'OPTIONS') {
+            await route.fulfill({ status: 204, headers: CORS_HEADERS });
+            return;
+        }
+        if (request.url() === FORMS_SERVICE_URL) {
+            submissions += 1;
+            await route.fulfill({
+                status: 429,
+                headers: CORS_HEADERS,
+                json: {
+                    success: false,
+                    assessment: {
+                        assessmentType: 'reCaptcha v3',
+                        requestId: 'test-request',
+                        captchaDetails: { siteKey: 'test-site-key' },
+                    },
+                },
+            });
+            return;
+        }
+        if (new URL(request.url()).pathname === '/assessment') {
+            assessments.push(request.postDataJSON());
+            await route.fulfill({ headers: CORS_HEADERS, json: { success: true } });
+            return;
+        }
+        await route.abort();
+    });
+
+    await page.goto(CONTACT_TEAM_URL);
+    const form = page.getByRole('form', { name: 'Paid support inquiry' });
+    await form.getByLabel('First name *', { exact: true }).fill('Test');
+    await form.getByLabel('Last name *', { exact: true }).fill('Inquiry');
+    await form.getByLabel('Work email address *', { exact: true }).fill('lts-form-test@company.example');
+    await form.getByLabel('Company *', { exact: true }).fill('Example Company');
+    await form.getByLabel('Role *').selectOption('Manager');
+    await form.getByLabel('Country/Region *').selectOption('Germany');
+    await form.getByRole('radio', { name: '26-50' }).check();
+    await form.getByRole('button', { name: 'Send request', exact: true }).click();
+
+    await expect(form.getByRole('status')).toContainText('Request sent');
+    expect(submissions).toBe(1);
+    expect(assessments).toEqual([
+        {
+            requestId: 'test-request',
+            assessmentResponse: { token: 'test-token', type: 'reCaptcha v3' },
+        },
+    ]);
+});
+
 test('keeps animated-section content available without JavaScript', async ({ browser, baseURL }) => {
     const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce', baseURL });
     const page = await context.newPage();
@@ -337,7 +508,7 @@ test('keeps animated-section content available without JavaScript', async ({ bro
     await context.close();
 });
 
-test('previews remain disabled without JavaScript so native form submission cannot send entered data', async ({
+test('keeps both LTS forms disabled without JavaScript', async ({
     browser,
     baseURL,
 }) => {

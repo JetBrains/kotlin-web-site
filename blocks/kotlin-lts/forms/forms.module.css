@@ -43,25 +43,9 @@
     justify-self: start;
 }
 
-.contactActions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 16px;
-}
-
-.previewTag {
+.error {
     margin: 0;
-    padding: 6px 10px;
-    border: 1px solid #8a6200;
-    border-radius: 4px;
-    background: #ffdc57;
-    color: #342500;
-    font-weight: 600;
-}
-
-.result {
-    margin-top: 24px;
+    color: #b20f24;
 }
 
 @media (--ktl-ml-down) {
@@ -157,6 +141,10 @@
 
 .newsletterFields {
     gap: 20px;
+}
+
+.newsletterFields ~ .result {
+    margin-top: 24px;
 }
 
 .newsletterFields input {
