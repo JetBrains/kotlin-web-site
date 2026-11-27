@@ -489,7 +489,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Raising the minimum required runtime JDK version to JDK 17 or later
 
-> **Issue**: [KT-88174](https://youtrack.jetbrains.com/issue/KT-88174)
+> **Issue**: [KT-88173](https://youtrack.jetbrains.com/issue/KT-88173)
 >
 > **Component**: Compiler
 >
