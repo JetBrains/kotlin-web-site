@@ -33,6 +33,8 @@
 
     <var name="kotlinxBrowserVersion" value="0.5.0"/>
 
+    <var name="kotlinxHtmlVersion" value="0.12.0"/>
+
     <var name="sqlDelightVersion" value="2.3.2"/>
 
     <var name="kotlinxIoVersion" value="0.9.1"/>
