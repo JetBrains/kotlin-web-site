@@ -955,7 +955,21 @@ If you use a private or internal type alias for avoiding name collision, prefer 
 ### Lambda parameters
 
 In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
-explicitly. In nested lambdas with parameters, always declare parameters explicitly.
+explicitly.
+
+In nested lambdas with parameters, declare the parameters of the outer lambdas explicitly. The innermost lambda may
+use `it`.
+
+```kotlin
+// good: `it` can only refer to the parameter of the inner lambda
+labels.any { label -> wantedLabels.any { it in label.name } }
+
+// unnecessary: naming the inner parameter only adds noise
+labels.any { label -> wantedLabels.any { keyword -> keyword in label.name } }
+
+// bad: the inner `it` shadows the outer one
+orders.filter { it.items.any { it.price > limit } }
+```
 
 ### Returns in a lambda
 
