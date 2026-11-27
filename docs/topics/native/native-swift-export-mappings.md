@@ -497,6 +497,13 @@ public var c: Swift.Int32 {
 A Kotlin property with a `private set` is read-only from Swift. Top-level properties are available through their package
 namespace, like top-level functions.
 
+> Member properties named `description`, `debugDescription`, `hash`, or `hashValue` are omitted to avoid conflicts
+> with members inherited from `NSObject`. Note that Swift export emits no warning, and Swift code that accesses these
+> names still compiles but calls the inherited `NSObject` member. TO work around that, rename the Kotlin property or use
+> `@ObjCName(swiftName = "...")` to export it under a different Swift name.
+>
+{style="note"}
+
 See examples in the Swift export sample:
 
 | Example | Kotlin side | Swift side |
@@ -866,12 +873,21 @@ Cancelling the Swift `Task` that calls a suspending function or collects a flow 
 suspending functions are exported as `async throws`, so call them with `try await`; cancellation is reported to Swift
 as `CancellationError`.
 
+Collecting a flow with `asAsyncSequence()` starts a Kotlin `Job` that runs `Flow.collect`. Cancelling the surrounding
+Swift `Task` also cancels that collection. Swift export does not await the Kotlin `Job` after cancellation,
+so cleanup in Kotlin `finally` can run concurrently and continue after the Swift `Task` has finished:
+
 ```swift
 // Swift
 let task = Task {
-    try await repository.getThingSimple(succeed: true)
+    for try await tick in ticks().asAsyncSequence() {
+        print("tick \(tick)")
+    }
 }
+
 task.cancel()
+_ = await task.result
+// The Swift Task has finished, but Kotlin cleanup may still be running.
 ```
 
 See examples in the Swift export sample:
@@ -984,30 +1000,6 @@ See examples in the Swift export sample:
 | Example | Kotlin side | Swift side |
 |---|---|---|
 | Kotlin contract | [Kotlin side](https://github.com/Kotlin/swift-export-sample/blob/master/shared/src/commonMain/kotlin/com/github/jetbrains/swiftexport/SwiftImplementation.kt) | [Swift side](https://github.com/Kotlin/swift-export-sample/blob/master/appleApp/appleApp/Features/SwiftImplementationView.swift) |
-
-## Limitations
-
-Swift export has the following limitations:
-
-* Kotlin classes that subclass Objective-C classes are not exported.
-* Swift structs and enums cannot conform to Kotlin interfaces.
-* Only public API is available from Swift; `protected`, `internal`, and `private` declarations are not reachable. Properties with `private set` are read-only.
-* Kotlin default argument values are not applied to functions or initializers. Data class `copy` also requires every constructor argument.
-* Data class `componentN()` functions are not exported.
-* Swift subclasses do not have to implement abstract Kotlin members, but calling an unimplemented member fails at runtime. Overriding a member that is not `open` can also fail at runtime.
-* `@ShouldRefineInSwift` is ignored, and non-public `@RequiresOptIn` markers are not exported.
-* `@HiddenFromObjC` and `@Deprecated(HIDDEN)` omit declarations; `@Deprecated(ERROR)` makes declarations unavailable, and references can become unavailable stubs.
-* Kotlin `Any` values bridge only primitive, string, collection, and Kotlin object values.
-* Generic type arguments are erased. Reified functions, F-bounded and multiple-upper-bound declarations, and functions with parameters such as `Box<String>` are not exported.
-* Kotlin `Array` and primitive arrays cannot be constructed from Swift.
-* `MutableList`, `MutableSet`, and `MutableMap` are not supported.
-* Types inheriting from `List`, `Set`, or `Map` are ignored during export and cannot be instantiated from Swift ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416), [KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
-* Values of `Nothing`/`Never` cannot be constructed.
-* C structs, C enums, platform type aliases such as `NSTimeInterval`, and POSIX or Darwin types are unavailable.
-* Kotlin flows cannot be created directly from Swift.
-* `FileNameKt` classes are not generated for top-level declarations.
-* Member properties named `description`, `debugDescription`, `hash`, or `hashValue` are omitted. Swift resolves them to inherited `NSObject` members; rename or use `@ObjCName`.
-* Unexported exception types are reported as `KotlinRuntimeSupport.KotlinError`. Uncaught exceptions from functions without `@Throws` terminate the process.
 
 ## What's next
 
