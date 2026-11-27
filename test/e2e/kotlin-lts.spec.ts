@@ -134,6 +134,8 @@ for (const viewport of [
             await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discuss a paid subscription');
             await expect(page.getByRole('checkbox')).toHaveCount(0);
             await expect(page.getByRole('textbox', { name: 'Work email address *' })).toBeEnabled();
+            const teamSize = page.getByRole('group', { name: 'Engineering team size *' });
+            await expect(teamSize.locator(testSelector('radio-button-list'))).toHaveCSS('border-top-width', '0px');
             expect(await lts.expectNoOverflow()).toBe(true);
         });
 

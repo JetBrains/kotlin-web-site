@@ -65,6 +65,13 @@
     margin-top: 8px;
 }
 
+.sizeOptions > fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 .sizeOptions :global([data-rs-internal='radio-button-list__menu']) {
     display: flex;
     flex-direction: row;
@@ -74,7 +81,7 @@
 
 .sizeOptions :global(label) {
     width: auto;
-    padding: 4px 8px;
+    padding: 4px 6px;
     border: 1px solid #d4d4d9;
     border-radius: 16px;
 }
