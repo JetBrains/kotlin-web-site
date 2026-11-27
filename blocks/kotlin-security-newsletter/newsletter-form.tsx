@@ -1,9 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
-import { Form, Hidden, Input, PrivacyNotice, SubmitButton } from '@webteam/forms';
+import { createFormServiceSubmitter, Form, Hidden, Input, PrivacyNotice, SubmitButton } from '@webteam/forms';
 
-import { submitNewsletter } from './submit-newsletter';
 import { CONSENT_ID, FORM_ID } from './constants';
 import styles from './newsletter.module.css';
 
@@ -17,6 +16,8 @@ const SubmitMessage: FC = () => {
     );
 };
 
+const submitter = createFormServiceSubmitter('https://forms-service.jetbrains.com/feedback');
+
 export const NewsletterForm: FC = () => {
     const [ready, setReady] = useState(false);
 
@@ -25,7 +26,7 @@ export const NewsletterForm: FC = () => {
     return (
         <Form
             formId={FORM_ID}
-            submitter={submitNewsletter}
+            submitter={submitter}
             submitMessage={SubmitMessage}
             className={styles.form}
         >
