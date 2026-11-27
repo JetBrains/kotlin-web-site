@@ -717,7 +717,7 @@ For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and
 host. You can also use an existing Node.js instance if you have it.
 
 You can configure Node.js settings for each subproject or set them for the project as a whole. For a build-wide
-alternative, see the [Node.js toolchain](#node-js-toolchain).
+alternative, see the [Node.js toolchain](#node-js-toolchain-provisioning).
 
 ### Use pre-installed Node.js
 
@@ -749,15 +749,13 @@ project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlu
 </tab>
 </tabs>
 
-As an alternative to the default root-project setup, you can try the new Node.js toolchain that uses with centralized
-repository declarations.
+As an alternative to the default root-project setup, you can use the new Node.js toolchain.
 
-### Node.js toolchain
+### Node.js toolchain provisioning
 <primary-label ref="experimental-opt-in"/>
 
 The Node.js toolchain is modeled on [Gradle's JVM toolchains](https://docs.gradle.org/current/userguide/toolchains.html)
-and runs in a Gradle build service shared by the whole build. The toolchain works with centralized repository declarations
-(`repositoriesMode`) and:
+and runs in a Gradle build service shared by the whole build. The new toolchain:
 
 * Downloads Node.js distributions directly from the official Node.js site over HTTPS, without adding repositories to your
   Gradle configuration.
@@ -773,13 +771,9 @@ kotlin.js.nodeJsToolchainMode=download
 ```
 
 For build-wide DSL configuration, apply the `org.jetbrains.kotlin.ecosystem` settings plugin in your `settings.gradle.kts`
-file. For example, to download Node.js from a custom mirror:
+file. For example, to use the default Node.js toolchain service:
 
 ```kotlin
-@file:OptIn(org.jetbrains.kotlin.gradle.ExperimentalNodeJsToolchainDsl::class)
-
-import org.jetbrains.kotlin.gradle.dsl.toolchain.nodejs.DefaultNodeJsToolchainService
-
 plugins {
     id("org.jetbrains.kotlin.ecosystem") version "%kotlinVersion%"
 }
@@ -787,7 +781,20 @@ plugins {
 kotlin {
     toolchainManagement {
         nodeJs {
-            toolchainService(DefaultNodeJsToolchainService::class) {
+            toolchainService {
+            }
+        }
+    }
+}
+```
+
+To download Node.js from a custom mirror, configure the `downloadBaseUrl` property:
+
+```kotlin
+kotlin {
+    toolchainManagement {
+        nodeJs {
+            toolchainService {
                 downloadBaseUrl = "https://my.mirror.example.com/nodejs/dist"
             }
         }
@@ -836,7 +843,7 @@ following property to the `gradle.properties` file:
 kotlin.defaultNodeJsVersion=26.2.0
 ```
 
-The property applies to both the [Node.js toolchain](#node-js-toolchain) and the [default root-project setup](#use-pre-installed-node-js).
+The property applies to both the [Node.js toolchain](#node-js-toolchain-provisioning) and the [default root-project setup](#use-pre-installed-node-js).
 
 If you use the default root-project setup and need a different version for a specific subproject,
 add the following lines to the subproject's `build.gradle(.kts)` file. For example:
