@@ -1,7 +1,6 @@
 const {join} = require('path');
 const {execFileSync, execSync, spawnSync} = require('child_process');
 const {readdirSync, readFileSync, writeFileSync} = require('fs');
-const KeyValueParser = require('key-value-parser');
 
 console.info(`Start generating Dokka's templates`);
 
@@ -24,24 +23,25 @@ function replaceEnv(value) {
 }
 
 function parsePropsString([definition, _, componentName, propsString]) {
-    return new Promise((resolve, reject) => {
-        new KeyValueParser(propsString || '', { async: true, quoted: '\"' })
-            .on('end', props => resolve([definition, componentName, props]))
-            .on('error', err => reject(err));
-    });
+    const props = {};
+
+    for (const [, key, value] of (propsString || '').matchAll(/(\w+)="([^"]*)"/g)) {
+        props[key] = value;
+    }
+
+    return [definition, componentName, props];
 }
 
 function parseFreemakerContent(originalContent) {
     /* parse to [ fullEntry, componentName, propsString ] */
     const parseRegex = /(\{%\s*ktl_component\s+"(\w+)"\s*(\s[^%]+)?%})/g;
     const content = replaceEnv(originalContent);
-    return Promise.all([...content.matchAll(parseRegex)].map(parsePropsString))
-        .then(entries => entries
-            .reduce((text, [definition, componentName, props]) => {
-                const rendered = compileComponent(componentName, props);
-                return text.replace(definition, rendered);
-            }, content)
-        )
+    return [...content.matchAll(parseRegex)]
+        .map(parsePropsString)
+        .reduce((text, [definition, componentName, props]) => {
+            const rendered = compileComponent(componentName, props);
+            return text.replace(definition, rendered);
+        }, content);
 }
 
 /**
@@ -55,13 +55,13 @@ function walkTroughTemplates(filePath) {
         else if (isFreemakerTemplate(item)) {
             const originalContent = readFileSync(currentPath).toString('UTF-8');
 
-            parseFreemakerContent(originalContent).then(newContent => {
-                if (newContent !== originalContent) {
-                    console.info(`Updating ${currentPath} file`);
-                    writeFileSync(currentPath, newContent);
-                    console.info(`${currentPath} file is updated`);
-                }
-            });
+            const newContent = parseFreemakerContent(originalContent);
+
+            if (newContent !== originalContent) {
+                console.info(`Updating ${currentPath} file`);
+                writeFileSync(currentPath, newContent);
+                console.info(`${currentPath} file is updated`);
+            }
         }
     });
 }

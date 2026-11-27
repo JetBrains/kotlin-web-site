@@ -51,12 +51,14 @@ export const SocialShare: FC<SocialShareProps> = (
 
     useEffect(() => {
         if (!url) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShareUrl(window.location.href);
         }
     }, [url]);
 
     useEffect(() => {
         if (!text) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShareText(document.title);
         }
     }, [text]);

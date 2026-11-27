@@ -32,6 +32,7 @@ const SIZE_CHART_MODEL = {
         { title: '21–100', value: 67 },
         { title: '100+', value: 89 },
     ],
+    groups: [],
 };
 
 const SIZE_CHART_HIGHLIGHT = [SIZE_CHART_MODEL.entries.length - 1];

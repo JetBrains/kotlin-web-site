@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useTextStyles } from '@rescui/typography';
-import SwipeableViews from 'react-swipeable-views';
 import { Button } from '@rescui/button';
 import { CodeHighlight } from '../../../components/code-highlight/code-highlight';
 

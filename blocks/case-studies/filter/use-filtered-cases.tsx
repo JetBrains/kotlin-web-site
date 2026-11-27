@@ -2,7 +2,7 @@ import { CaseItem, hasCaseType } from '../case-studies';
 import { parseCompose, parsePlatforms, parseType } from '../utils';
 import caseStudiesDataRaw from '../../../data/case-studies/case-studies.yml';
 import { useRouter } from 'next/router';
-import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { createContext, FC, PropsWithChildren, ReactNode, useContext, useMemo } from 'react';
 
 const CaseStudiesContext = createContext<CaseItem[]>([]);
 
@@ -64,7 +64,7 @@ export const FilteredCasesProvider = (props: FilteredCasesProviderProps) => {
  * Props:
  * - children: React.ReactNode - The child components to render within this provider.
  */
-export const RouterCasesProvider: React.FC = ({ children }) => {
+export const RouterCasesProvider: FC<PropsWithChildren> = ({ children }) => {
     const router = useRouter();
 
     const filter = useMemo(() => ({

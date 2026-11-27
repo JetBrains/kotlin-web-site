@@ -174,7 +174,9 @@ export function MasonryGrid<T>({
                     {items.map((item, i) => (
                         <div
                             key={getKey(item, i)}
-                            ref={(el) => (measureItemRefs.current[i] = el)}
+                            ref={(el) => {
+                                measureItemRefs.current[i] = el;
+                            }}
                             className={cn(styles.item, itemClassName)}
                             style={{ marginBottom: gap && i < items.length - 1 ? gap : undefined }}
                         >

@@ -132,7 +132,7 @@ test.describe('Kotlin Benchmark landing page', () => {
             await expect(benchmark.taskOption(view.name)).toHaveText(`${view.name} (${view.count})`);
         }
 
-        const switcherBox = (await benchmark.taskSwitcher.getByRole('button').first().locator('..').boundingBox())!;
+        const switcherBox = (await benchmark.taskSwitcher.locator('[data-rs-internal=switcher__option]').first().locator('..').boundingBox())!;
         const scrollBox = (await benchmark.tableScroll.boundingBox())!;
         expect(switcherBox.y + switcherBox.height).toBeLessThanOrEqual(scrollBox.y);
 

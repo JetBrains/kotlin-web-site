@@ -156,7 +156,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
             name = "Install dependencies"
             //language=sh
             scriptContent = """
-                yarn install --frozen-lockfile
+                npm ci
             """.trimIndent()
             dockerImage = KLANG_NODE_CONTAINER
         }

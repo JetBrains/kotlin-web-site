@@ -24,6 +24,7 @@ const SIZE_CHART_MODEL = {
         { title: 'Medium (51–500)', value: 21 },
         { title: 'Large (500+)', value: 25 },
     ],
+    groups: [],
 };
 
 const SIZE_CHART_HIGHLIGHT = [0];

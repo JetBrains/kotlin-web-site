@@ -16,7 +16,7 @@ const babelRc = {
 };
 
 require('@babel/register')(babelRc);
-require('./compile.mjs')['default']();
+require('./render.js')['default']();
 
 function fixCoreJSPath() {
   return {

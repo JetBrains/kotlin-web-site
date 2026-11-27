@@ -14,16 +14,15 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./*"],
-      // ships types only via the "exports" field, which moduleResolution "node" cannot read
-      "@webteam/horizontal-barchart": ["./node_modules/@webteam/horizontal-barchart/lib/index.d.ts"],
-      "@webteam/pie-chart": ["./node_modules/@webteam/pie-chart/lib/index.d.ts"]
-    },
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",

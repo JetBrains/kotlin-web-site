@@ -1,8 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+
 const packageJSON = require('./package.json');
 
-const withPlugins = require('next-compose-plugins');
 const { patchWebpackConfig } = require('next-global-css');
-const nextTranspileModules = require('next-transpile-modules');
 
 let transpiledPackages = [
     '@jetbrains/kotlin-web-site-ui',
@@ -15,8 +16,8 @@ let transpiledPackages = [
     '@rescui/select',
     '@rescui/textarea',
     '@rescui/form-field',
+    '@rescui/use-resize-observer',
     '@webteam/youtube-playlist',
-    '@webteam/ui-contexts',
     '@webteam/colors',
     '@webteam/toggle',
     '@webteam/youtube-player',
@@ -42,10 +43,15 @@ let transpiledPackages = [
     '@webteam/chart-core-v3'
 ];
 
-const withTranspile = nextTranspileModules(transpiledPackages);
+// Check packages exist (not installed when optional @webteam/* deps are omitted)
+transpiledPackages = transpiledPackages.filter((name) =>
+    fs.existsSync(path.join(__dirname, 'node_modules', name, 'package.json'))
+);
 
 const nextConfig = {
     output: 'export',
+
+    transpilePackages: transpiledPackages,
 
     pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
@@ -54,10 +60,6 @@ const nextConfig = {
     },
 
     trailingSlash: true,
-
-    eslint: {
-        dirs: ['blocks', 'components', 'pages'],
-    },
 
     webpack: (config, options) => {
         patchWebpackConfig(config, options);
@@ -84,4 +86,4 @@ const nextConfig = {
     },
 };
 
-module.exports = withPlugins([[withTranspile]], nextConfig);
+module.exports = nextConfig;

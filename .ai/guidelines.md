@@ -32,7 +32,7 @@ The Kotlin Website is built using Next.js for page generation:
    - Kotlin Playground for interactive code examples
 
 3. **Build and Testing**:
-   - Yarn/NPM for package management
+   - npm for package management (ships with Node.js)
    - Playwright for end-to-end testing
 
 4. **Documentation Tools**:
@@ -45,14 +45,14 @@ The Kotlin Website is built using Next.js for page generation:
 ### Prerequisites
 
 - Node.js (version specified in `.nvmrc`)
-- Yarn package manager
+- npm (bundled with Node.js)
 
 ### Setup
 
 1. Clone the repository
 2. Install Node.js dependencies:
    ```bash
-   yarn install
+   npm ci
    ```
 
 ### Scripts and Commands
@@ -63,7 +63,7 @@ The Kotlin Website project includes various scripts defined in `package.json` fo
 
 These scripts start development servers that continue running until manually stopped. They are not "builds" in the traditional sense and should not be expected to complete on their own.
 
-- **`yarn start`**: Starts the Next.js development server on port 3000.
+- **`npm run start`**: Starts the Next.js development server on port 3000.
   - **Purpose**: Main development server for the website.
   - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
   - **Details**:
@@ -75,7 +75,7 @@ These scripts start development servers that continue running until manually sto
 
 These scripts perform build operations and complete when the build is finished. They produce static output files that can be deployed or served.
 
-- **`yarn build`**: Builds the entire website for production.
+- **`npm run build`**: Builds the entire website for production.
   - **Purpose**: Creates a complete production build of the website.
   - **Behavior**: One-time command that completes when the build is finished.
   - **Details**: 
@@ -84,7 +84,7 @@ These scripts perform build operations and complete when the build is finished. 
     - Outputs Next.js static files to `out/` directory
   - **When to use**: When preparing the website for production deployment.
 
-- **`yarn build:production`**: Builds webpack assets for production.
+- **`npm run build:production`**: Builds webpack assets for production.
   - **Purpose**: Creates optimized webpack bundles for production.
   - **Behavior**: One-time command that completes when the build is finished.
   - **Details**: 
@@ -93,11 +93,11 @@ These scripts perform build operations and complete when the build is finished. 
     - Minifies JavaScript and CSS
   - **When to use**: When you need to build only the webpack assets without the Next.js part.
 
-- **`yarn next-build-static`**: Builds and exports the Next.js static site.
+- **`npm run next-build-static`**: Builds and exports the Next.js static site.
   - **Purpose**: Creates static HTML files from Next.js pages.
   - **Behavior**: One-time command that completes when the build is finished.
   - **Details**: 
-    - Runs `next build` followed by `next export`
+    - Runs `next build --webpack` (static export via `output: 'export'` in `next.config.js`)
     - Outputs static files to `out/` directory
   - **When to use**: When you need to build only the Next.js part without the webpack assets.
 
@@ -105,86 +105,86 @@ These scripts perform build operations and complete when the build is finished. 
 
 These scripts run tests using Playwright. Some are one-time commands that complete when tests finish, while others may open browser windows for interactive testing.
 
-- **`yarn test`**: Runs all Playwright tests.
+- **`npm run test`**: Runs all Playwright tests.
   - **Purpose**: Executes all automated tests.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: For comprehensive testing before submitting changes.
 
-- **`yarn test:production`**: Runs production tests.
+- **`npm run test:production`**: Runs production tests.
   - **Purpose**: Tests production-specific functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: To verify production-specific features.
 
-- **`yarn test:production:ci`**: Runs production tests in CI environment.
+- **`npm run test:production:ci`**: Runs production tests in CI environment.
   - **Purpose**: Tests production-specific functionality in continuous integration.
   - **Behavior**: One-time command that completes when tests finish.
   - **Details**: Sets CI=true and uses kotlinlang.org as the base URL.
   - **When to use**: In CI/CD pipelines.
 
-- **`yarn test:production:headed`**: Runs production tests with visible browser.
+- **`npm run test:production:headed`**: Runs production tests with visible browser.
   - **Purpose**: Tests production-specific functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: For debugging production tests visually.
 
-- **`yarn test:production:debug`**: Runs production tests in debug mode.
+- **`npm run test:production:debug`**: Runs production tests in debug mode.
   - **Purpose**: Debugs production tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: For detailed debugging of production tests.
 
-- **`yarn test:e2e`**: Runs end-to-end tests.
+- **`npm run test:e2e`**: Runs end-to-end tests.
   - **Purpose**: Tests end-to-end functionality.
   - **Behavior**: One-time command that completes when tests finish.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: To verify end-to-end functionality.
 
-- **`yarn test:e2e:ci`**: Runs end-to-end tests in CI environment.
+- **`npm run test:e2e:ci`**: Runs end-to-end tests in CI environment.
   - **Purpose**: Tests end-to-end functionality in continuous integration.
   - **Behavior**: One-time command that completes when tests finish.
   - **Details**: Sets CI=true.
   - **When to use**: In CI/CD pipelines.
 
-- **`yarn test:e2e:headed`**: Runs end-to-end tests with visible browser.
+- **`npm run test:e2e:headed`**: Runs end-to-end tests with visible browser.
   - **Purpose**: Tests end-to-end functionality with visible browser windows.
   - **Behavior**: One-time command that completes when tests finish, but opens browser windows.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: For debugging end-to-end tests visually.
 
-- **`yarn test:e2e:debug`**: Runs end-to-end tests in debug mode.
+- **`npm run test:e2e:debug`**: Runs end-to-end tests in debug mode.
   - **Purpose**: Debugs end-to-end tests with Playwright's debugging tools.
   - **Behavior**: Interactive process that opens Playwright's debugging interface.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: For detailed debugging of end-to-end tests.
 
-- **`yarn test:e2e:update`**: Updates test snapshots.
+- **`npm run test:e2e:update`**: Updates test snapshots.
   - **Purpose**: Updates visual regression test snapshots.
   - **Behavior**: One-time command that completes when snapshots are updated.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: When intentional UI changes cause snapshot tests to fail.
 
-- **`yarn test:e2e:new`**: Generates new Playwright tests.
+- **`npm run test:e2e:new`**: Generates new Playwright tests.
   - **Purpose**: Creates new test scripts using Playwright's codegen tool.
   - **Behavior**: Interactive process that opens Playwright's codegen interface.
-  - **Prerequisite**: Development server should be running on http://localhost:3000 (`yarn start`).
+  - **Prerequisite**: Development server should be running on http://localhost:3000 (`npm run start`).
   - **When to use**: When creating new automated tests.
 
 #### Utility Scripts
 
 These scripts perform various utility functions and are typically one-time commands.
 
-- **`yarn postinstall`**: Runs automatically after `yarn install`.
-  - **Purpose**: Builds the codemirror dependency.
-  - **Behavior**: One-time command that completes when the build is finished.
-  - **Details**: Changes to the codemirror directory and runs rollup.
-  - **When to use**: Automatically executed after installing dependencies.
+- **`npm run generate-data`**: Generates the gitignored site data (`public/data/*.json`) from `data/*.yml`.
+  - **Purpose**: Publishes the YAML files listed in `scripts/generate-data.mjs` (currently `universities.yml`) as JSON at `/data/*.json` on the site. Pages don't read these files; they import the YAML directly.
+  - **Behavior**: One-time command that completes when the files are written.
+  - **Details**: Implemented in `scripts/generate-data.mjs`. Nothing runs it on install; `npm run build` runs it before the Next.js build, so the JSON ends up in `out/data/`.
+  - **When to use**: Not needed for local development; run it only to check the published JSON.
 
-- **`yarn lint`**: Runs ESLint on the codebase.
+- **`npm run lint`**: Runs ESLint on the codebase.
   - **Purpose**: Checks code quality and style.
   - **Behavior**: One-time command that completes when linting is finished.
-  - **Details**: Uses Next.js's built-in linting configuration.
+  - **Details**: Runs ESLint on `blocks`, `components` and `pages` with the flat config in `eslint.config.mjs` (`eslint-config-next` + `eslint-config-prettier`).
   - **When to use**: Before committing changes to ensure code quality.
 
 ### Production Build
@@ -192,12 +192,14 @@ These scripts perform various utility functions and are typically one-time comma
 To build the website for production:
 
 ```bash
-yarn build
+npm run build
 ```
 
 This command:
-1. Runs the production webpack build (`yarn build:production`)
-2. Builds and exports the Next.js static site (`yarn next-build-static`)
+1. Runs the production webpack build (`npm run build:production`)
+2. Generates the site data in `public/data/` (`npm run generate-data`)
+3. Builds and exports the Next.js static site (`npm run next-build-static`)
+4. Generates the redirect pages (`npm run generate-redirects`)
 
 The production build outputs to:
 - `dist/` - Webpack output
@@ -221,7 +223,7 @@ The project uses Playwright for end-to-end testing. Tests are written in TypeScr
 Before running tests, ensure the development server is running on http://localhost:3000:
 
 ```bash
-yarn start
+npm run start
 ```
 
 Tests are configured to use port 3000 by default.
@@ -229,31 +231,31 @@ Tests are configured to use port 3000 by default.
 To run all tests:
 
 ```bash
-yarn test
+npm run test
 ```
 
 To run only end-to-end tests:
 
 ```bash
-yarn test:e2e
+npm run test:e2e
 ```
 
 To run production tests:
 
 ```bash
-yarn test:production
+npm run test:production
 ```
 
 For debugging tests:
 
 ```bash
-yarn test:e2e:debug
+npm run test:e2e:debug
 ```
 
 For visual testing with headed browser:
 
 ```bash
-yarn test:e2e:headed
+npm run test:e2e:headed
 ```
 
 ### Creating New Tests
@@ -443,7 +445,7 @@ The project uses Playwright's snapshot testing for visual regression testing:
 
 3. Update snapshots when needed:
    ```bash
-   yarn test:e2e:update
+   npm run test:e2e:update
    ```
 
 ## Additional Development Information
@@ -482,7 +484,7 @@ The Kotlin Website employs a modern architecture based on Next.js and React:
    - Styled with CSS Modules
    - Key pages: Home page (`/`), Community section (`/community/`), 404 error page
    - Asset management: CSS Modules, Global CSS, React components, Static assets
-   - Build process: `next dev` for development, `next build && next export` for production
+   - Build process: `next dev --webpack` for development, `next build --webpack` (static export) for production
    - Client-side rendered with static generation for production
    - Components are imported directly in Next.js pages
 
@@ -533,7 +535,7 @@ This organization helps maintain a clear separation between page-specific sectio
 To lint the code:
 
 ```bash
-yarn lint
+npm run lint
 ```
 
 ### Documentation System
@@ -674,7 +676,7 @@ The project integrates several systems and services:
 The project includes a specialized system for generating PDF documentation:
 
 - Core implementation in `scripts/pdf/generate-pdf.js`, using `@vivliostyle/cli` to render HTML documentation to PDF
-- Triggered via `yarn generate-pdf` (`generate-pdf:html` + `generate-pdf:convert`)
+- Triggered via `npm run generate-pdf` (`generate-pdf:html` + `generate-pdf:convert`)
 - Integrated into the TeamCity `PdfGenerator` build configuration (manual build that uses artifacts from `BuildSitePages`)
 
 ### TeamCity DSL Pipelines
@@ -828,7 +830,7 @@ The template generation process uses Node.js to render React components into HTM
 The React component rendering is handled by:
 
 1. `scripts/react-renderer/compile.js` - Sets up Babel configuration for server-side rendering
-2. `scripts/react-renderer/compile.mjs` - Imports and renders React components to HTML strings
+2. `scripts/react-renderer/render.js` - Imports and renders React components to HTML strings
 3. Components are imported from `static/js/page/dokka-template/` directory
 4. React's `renderToString` function is used to convert components to HTML
 
@@ -845,7 +847,7 @@ The Dokka template generator is integrated into the TeamCity CI/CD pipeline:
 1. **Template Definition**: `PrepareDokkaTemplate` in `.teamcity/references/templates/PrepareDokkaTemplate.kt` defines the build steps
 2. **Build Steps**:
    - Fix npm sharp platform-related issues
-   - Install dependencies using yarn
+   - Install dependencies using npm ci
    - Build templates by running the `generate-templates.js` script using Node.js
 3. **Library-Specific Configurations**: Each library (e.g., kotlinx.coroutines, kotlinx.serialization) has its own build configuration that:
    - Uses the `PrepareDokkaTemplate` template

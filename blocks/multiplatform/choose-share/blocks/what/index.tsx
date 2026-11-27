@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, MouseEvent, useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Chip, ChipList } from '@rescui/chip-list';
@@ -61,7 +61,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
 
     const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
-    const handleTabClick = (e: MouseEvent, tabId: string) => {
+    const handleTabClick = (e: MouseEvent<HTMLElement>, tabId: string) => {
         trackEvent({
             eventAction: 'kt_kmp_choose_what_to_share_click',
             eventLabel: tabId,

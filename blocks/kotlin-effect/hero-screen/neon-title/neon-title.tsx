@@ -53,7 +53,6 @@ const NeonHoverTitle = ({ text, className, introAnimation = false }: NeonHoverTi
     mousePositionRef.current = { x: -1000, y: -1000 };
   };
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (titleRef.current && typeof window !== 'undefined') {
       const charElements = titleRef.current.querySelectorAll<HTMLSpanElement>('.neon-char');
@@ -115,7 +114,6 @@ const NeonHoverTitle = ({ text, className, introAnimation = false }: NeonHoverTi
   let charIndex = 0;
 
   const content = words.map((word, wordIndex) => (
-    // eslint-disable-next-line react/no-array-index-key
     <span key={wordIndex} className="neon-word">
       {word.split('').map((char, index) => {
         const currentRef = (el: HTMLSpanElement | null) => {
@@ -126,7 +124,6 @@ const NeonHoverTitle = ({ text, className, introAnimation = false }: NeonHoverTi
         };
         return (
           <span
-            // eslint-disable-next-line react/no-array-index-key
             key={`${wordIndex}-${index}`}
             className="neon-char"
             ref={currentRef}

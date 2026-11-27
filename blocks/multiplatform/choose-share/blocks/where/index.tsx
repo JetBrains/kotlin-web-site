@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import cn from 'classnames';
 import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { useTextStyles } from '@rescui/typography';
@@ -92,7 +92,7 @@ export function ChooseShareWhere({ className }: { className?: string }) {
 
     const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-where-', setActiveIndex);
 
-    const handleTabClick = (e: MouseEvent, tabId: string) => {
+    const handleTabClick = (e: MouseEvent<HTMLElement>, tabId: string) => {
         trackEvent({
             eventAction: 'kt_kmp_choose_where_to_share_click',
             eventLabel: tabId
