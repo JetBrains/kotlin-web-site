@@ -1,127 +1,109 @@
 [//]: # (title: Collection operations overview)
 
 The Kotlin standard library offers a broad variety of functions for performing operations on collections. This includes
-simple operations, such as getting or adding elements, as well as more complex ones including search, sorting, filtering,
-transformations, and so on.  
+simple operations, such as reading or adding elements, as well as more complex ones, such as search, sorting, filtering,
+and transformations.
 
-## Extension and member functions
+## Member and extension functions
 
-Collection operations are declared in the standard library in two ways: [member functions](classes.md) of
-collection interfaces and [extension functions](extensions.md#extension-functions). 
+The standard library declares collection operations in two ways:
 
-Member functions define operations that are essential for a collection type. For example, [`Collection`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html)
-contains the function [`isEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/is-empty.html)
-for checking its emptiness; [`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) contains
-[`get()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) for index access to elements,
-and so on.
+* As [member functions](classes.md) of collection interfaces.
 
-When you create your own implementations of collection interfaces, you must implement their member functions.
-To make the creation of new implementations easier, use the skeletal implementations of collection interfaces from the
-standard library: [`AbstractCollection`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-collection/index.html), 
-[`AbstractList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-list/index.html),
-[`AbstractSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-set/index.html),
-[`AbstractMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-map/index.html), and their
-mutable counterparts.
+  Member functions define operations that are essential for a collection type. For example, [`Collection`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html)
+  declares the [`isEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/is-empty.html) function to check if it holds any elements,
+  or [`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) declares the [`get()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) function for index access.
 
-Other collection operations are declared as extension functions. These are filtering, transformation, ordering, and other
-collection processing functions. 
+  When you create your own implementations of collection interfaces, you must implement their member functions.
+  To make it easier, use the skeletal implementations of collection interfaces from the
+  standard library: [`AbstractCollection`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-collection/index.html),
+  [`AbstractList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-list/index.html),
+  [`AbstractSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-set/index.html),
+  [`AbstractMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-map/index.html), and their
+  mutable counterparts.
+
+* As [extension functions](extensions.md#extension-functions).
+
+  Most other operations are extension functions. These include filtering, transformation, ordering, and other
+  collection processing functions.
+
+  The `kotlin.collections` package is [imported by default](packages.md#default-imports), so you can call its extension
+  functions without an import. To use collection extensions from other packages or libraries, [import](packages.md#imports) them.
 
 ## Common operations
 
-Common operations are available for both [read-only and mutable collections](collections-overview.md#read-only-and-mutable-collections).
-Common operations fall into these groups:
+You can use common operations for both [read-only and mutable collections](collections-overview.md#read-only-and-mutable-collections).
 
-* [Transformations](collection-transformations.md)
-* [Filtering](collection-filtering.md)
-* [`plus` and `minus` operators](collection-combine.md)
-* [Grouping](collection-grouping.md)
-* [Retrieving collection parts](collection-parts.md)
-* [Retrieving single elements](collection-elements.md)
-* [Ordering](collection-ordering.md)
-* [Aggregate operations](collection-aggregate.md)
+These operations return their results as a new collection and don't affect the original collection. They are also _eager_:
+an operation runs over the whole collection and builds its result in full before it returns. To keep the result of an
+operation, store it in a variable or pass it on. To process elements lazily instead, use [sequences](sequences.md).
 
-Operations described on these pages return their results without affecting the original collection. For example, a filtering
-operation produces a _new collection_ that contains all the elements matching the filtering predicate.
-Results of such operations should be either stored in variables, or used in some other way, for example, passed in other
-functions.
+The following example shows a filtering operation that produces a new collection with the elements that match the predicate:
 
 ```kotlin
-
-fun main() {
-//sampleStart
-    val numbers = listOf("one", "two", "three", "four")  
-    numbers.filter { it.length > 3 }  // nothing happens with `numbers`, result is lost
-    println("numbers are still $numbers")
-    val longerThan3 = numbers.filter { it.length > 3 } // result is stored in `longerThan3`
-    println("numbers longer than 3 chars are $longerThan3")
-//sampleEnd
-}
-```
-{kotlin-runnable="true"}
-
-For certain collection operations, there is an option to specify the _destination_ object.
-Destination is a mutable collection to which the function appends its resulting items instead of returning them in a new object.
-For performing operations with destinations, there are separate functions with the `To` postfix in their names, for example,
-[`filterTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-to.html) instead of [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) 
-or [`associateTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-to.html) instead of [`associate()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate.html).
-These functions take the destination collection as an additional parameter.
-
-```kotlin
-
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
-    val filterResults = mutableListOf<String>()  //destination object
-    numbers.filterTo(filterResults) { it.length > 3 }
-    numbers.filterIndexedTo(filterResults) { index, _ -> index == 0 }
-    println(filterResults) // contains results of both operations
+    // The result is lost
+    numbers.filter { it.length > 3 }
+    println("Numbers are still $numbers")
+    // Numbers are still [one, two, three, four]
+
+    // The result is stored in `longerThan3`
+    val longerThan3 = numbers.filter { it.length > 3 }
+    println("Numbers longer than 3 chars are $longerThan3")
+    // Numbers longer than 3 chars are [three, four]
 //sampleEnd
 }
-
 ```
 {kotlin-runnable="true"}
 
-For convenience, these functions return the destination collection back, so you can create it right in the corresponding
+For some collection operations, you can specify the _destination_ object.
+Destination is a mutable collection to which the function appends its results instead of returning a new object.
+These functions have the `To` postfix in their names, for example,
+[`filterTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-to.html) instead of [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html)
+or [`associateTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-to.html) instead of [`associate()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate.html).
+They take the destination collection as an additional parameter:
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = listOf("one", "two", "three", "four")
+    // Destination object
+    val filterResults = mutableListOf<String>()
+    numbers.filterTo(filterResults) { it.length > 3 }
+    numbers.filterIndexedTo(filterResults) { index, _ -> index == 0 }
+    // Contains the results of both operations
+    println(filterResults)
+    // [three, four, one]
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+Since these functions return the destination collection back, you can create it directly in the corresponding
 argument of the function call:
 
 ```kotlin
-
 fun main() {
     val numbers = listOf("one", "two", "three", "four")
 //sampleStart
-    // filter numbers right into a new hash set, 
-    // thus eliminating duplicates in the result
+    // Maps lengths into a new hash set, removing duplicates
     val result = numbers.mapTo(HashSet()) { it.length }
-    println("distinct item lengths are $result")
+    println("Distinct item lengths are $result")
+    // Distinct item lengths are [3, 4, 5]
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
 
-Functions with destination are available for filtering, association, grouping, flattening, and other operations. For the
-complete list of destination operations see the [Kotlin collections reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html).
+You can use functions with destination for filtering, association, grouping, flattening, and other operations. For the
+complete list of destination operations, see the [Kotlin collections reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html).
 
 ## Write operations
 
-For mutable collections, there are also _write operations_ that change the collection state. Such operations include
-adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.md) and
-corresponding sections of [List-specific operations](list-operations.md#list-write-operations) and [Map specific operations](map-operations.md#map-write-operations).
+Mutable collections also support write operations, which change the state of the collection. These operations add, remove,
+and update elements, and reorder a mutable list in place.
 
-For certain operations, there are pairs of functions for performing the same operation: one applies the operation in-place
-and the other returns the result as a separate collection. For example, [`sort()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sort.html)
-sorts a mutable collection in-place, so its state changes; [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html)
-creates a new collection that contains the same elements in the sorted order.
-
-```kotlin
-
-fun main() {
-//sampleStart
-    val numbers = mutableListOf("one", "two", "three", "four")
-    val sortedNumbers = numbers.sorted()
-    println(numbers == sortedNumbers)  // false
-    numbers.sort()
-    println(numbers == sortedNumbers)  // true
-//sampleEnd
-}
-```
-{kotlin-runnable="true"}
+For details, see [](collection-write.md), which covers the operations available on `MutableCollection`, the index-based
+operations of `MutableList`, and the key-based operations of `MutableMap`.
