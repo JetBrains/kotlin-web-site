@@ -535,11 +535,11 @@ Now, you can also create references to `Person::age` and `person::age`. All the 
 
 ```kotlin
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
-    persons
-        // Call a reference to Java synthetic property:
-        .sortedBy(Person::age)
-        // Call Java getter via the Kotlin property syntax:
-        .forEach { person -> println(person.name) }
+persons
+    // Call a reference to Java synthetic property:
+    .sortedBy(Person::age)
+    // Call Java getter via the Kotlin property syntax:
+    .forEach { person -> println(person.name) }
 ```
 {validate="false"}
 

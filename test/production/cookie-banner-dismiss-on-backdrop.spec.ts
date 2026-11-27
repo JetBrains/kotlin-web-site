@@ -1,7 +1,7 @@
 import { expect, test as base } from '@playwright/test';
 import { createCookieBannerContext, skipNonProduction } from '../utils';
 
-// The CookieHub banner and the "reject all on background click" behaviour are
+// The CookieHub banner and the "dismiss on background click" behaviour are
 // provided in production via Google Tag Manager, so these tests are skipped
 // everywhere else.
 skipNonProduction('CookieHub cookie banner is only present on production');
@@ -19,9 +19,9 @@ const test = base.extend({
     }
 });
 
-test.describe('Cookie banner: clicking the background rejects all', () => {
-    test('clicking the background dismisses the banner and keeps it gone', async ({ page, baseURL }) => {
-        await page.goto(`${baseURL}/`);
+test.describe('Cookie banner: clicking the background only dismisses the banner', () => {
+    test('clicking the background dismisses the banner, which reappears on the next page', async ({ page }) => {
+        await page.goto('/');
 
         const acceptButton = page.getByRole('button', { name: 'Accept All' });
         await expect(acceptButton).toBeVisible({ timeout: 10000 });
@@ -34,23 +34,12 @@ test.describe('Cookie banner: clicking the background rejects all', () => {
 
         await expect(acceptButton).toBeHidden({ timeout: 5000 });
 
-        // It was a reject-all (not an accept-all): a non-essential category
-        // must not be consented.
-        const analyticsConsented = await page.evaluate(
-            () =>
-                (window as unknown as { cookiehub: { hasConsented(category: string): boolean } }).cookiehub.hasConsented(
-                    'analytics'
-                )
-        );
-        expect(analyticsConsented).toBe(false);
-
-        // The choice is persisted: the banner does not reappear on the next page.
-        await page.goto(`${baseURL}/docs/getting-started.html`);
-        await expect(page.getByRole('button', { name: 'Accept All' })).toBeHidden({ timeout: 5000 });
+        await page.goto('/docs/getting-started.html');
+        await expect(page.getByRole('button', { name: 'Accept All' })).toBeVisible({ timeout: 10000 });
     });
 
-    test('clicking inside the dialog does not dismiss the banner', async ({ page, baseURL }) => {
-        await page.goto(`${baseURL}/`);
+    test('clicking inside the dialog does not dismiss the banner', async ({ page }) => {
+        await page.goto('/');
 
         const acceptButton = page.getByRole('button', { name: 'Accept All' });
         await expect(acceptButton).toBeVisible({ timeout: 10000 });

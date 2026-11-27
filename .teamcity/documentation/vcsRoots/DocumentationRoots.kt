@@ -41,7 +41,7 @@ object KotlinxCoroutinesRoot: GitVcsRoot ({
 object KotlinxLincheckRoot: GitVcsRoot ({
     name = "Kotlinx Lincheck"
     url = "git@github.com:JetBrains/lincheck.git"
-    branch = "refs/heads/develop"
+    branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {

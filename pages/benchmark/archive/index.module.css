@@ -1,0 +1,4 @@
+.wrapper {
+    /* No CTA closes this page (each edition links its methodology), so the table needs its own bottom space. */
+    padding-bottom: var(--ktl-box-page-l);
+}

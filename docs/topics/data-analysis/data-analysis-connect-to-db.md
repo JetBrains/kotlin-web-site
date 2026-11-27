@@ -1,5 +1,5 @@
 [//]: # (title: Connect and retrieve data from databases)
-[//]: # (description: Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.)
+<web-summary>Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.</web-summary>
 
 [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) provides support for the most common SQL databases:
 
@@ -178,7 +178,7 @@ val top20ActorNames = actorDf
    // Counts the occurrences of each unique first name
    .count()
    
-    // Sorts the results in descending order of count
+   // Sorts the results in descending order of count
    .sortByDesc("count")
     
    // Selects the top 20 most frequent names for analysis.

@@ -1,5 +1,5 @@
 [//]: # (title: Reflection)
-[//]: # (description: Learn about Kotlin built-in reflection support and how to use the separate kotlin-reflect library for full runtime introspection.)
+<web-summary>Learn about Kotlin built-in reflection support and how to use the separate kotlin-reflect library for full runtime introspection.</web-summary>
 
 _Reflection_ is a set of language and library features that allows you to introspect the structure of your program at runtime.
 For example, you can read or update a property, call a function, or invoke a class constructor to create an instance. This

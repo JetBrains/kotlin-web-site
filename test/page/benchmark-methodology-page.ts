@@ -12,6 +12,10 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
     readonly futureCards: Locator;
     readonly topMenu: Locator;
     readonly benchmarkCta: Locator;
+    readonly versionSwitcher: Locator;
+    readonly datasetCharts: Locator;
+    readonly references: Locator;
+    readonly refMarkers: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -23,6 +27,10 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
         this.futureCards = page.getByTestId('methodology-future-card');
         this.topMenu = page.getByTestId('top-menu');
         this.benchmarkCta = page.getByTestId('methodology-benchmark-cta');
+        this.versionSwitcher = page.getByTestId('methodology-version-switcher');
+        this.datasetCharts = page.getByTestId('methodology-dataset-charts');
+        this.references = page.getByTestId('methodology-references');
+        this.refMarkers = page.getByTestId('methodology-ref');
     }
 
     /** Section heading by its visible text. */
@@ -30,8 +38,9 @@ export class KotlinBenchmarkMethodologyPage implements BasePage {
         return this.root.getByRole('heading', { name, level: 2 });
     }
 
-    async init() {
-        await this.page.goto(METHODOLOGY_URL);
+    /** `path` is relative to the methodology URL, e.g. `1/` for methodology 1.0. */
+    async init(path = '') {
+        await this.page.goto(`${METHODOLOGY_URL}${path}`);
 
         await Promise.all([this.root.waitFor(), this.page.locator('html.hydrated').waitFor()]);
     }

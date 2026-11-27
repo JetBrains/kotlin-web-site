@@ -199,7 +199,7 @@ are marked accordingly; they don't change for a tooling release (X.Y.20).
 ### Gradle pages
 
 * In `gradle-configure-project.md#apply-the-plugin`, add a new entry to the table.
-* In `gradle-compiler-options.md#attributes-specific-to-jvm-and-javascript`, add new entries for `languageVersion` and
+* In `gradle-compiler-options.md#common-attributes`, add new entries for `languageVersion` and
   `apiVersion` (language release X.Y.0 only). Ask if the oldest version might be removed in this release.
 * In `gradle-plugin-variants.md`, update the Gradle versions in the Gradle plugins variants list (find the file in the
   correct branch for the release)

@@ -1,5 +1,5 @@
 [//]: # (title: Characters)
-[//]: # (description: Learn how to use the Char type in Kotlin, including syntax, Unicode support, escape sequences, and common operations on characters.)
+<web-summary>Learn how to use the Char type in Kotlin, including syntax, Unicode support, escape sequences, and common operations on characters.</web-summary>
 
 The [`Char`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) type represents a single character as a UTF-16 code unit.
 

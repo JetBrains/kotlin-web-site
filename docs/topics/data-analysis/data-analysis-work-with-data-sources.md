@@ -1,5 +1,5 @@
 [//]: # (title: Retrieve data from files)
-[//]: # (description: Learn how to load data from files using Kotlin DataFrame, including CSV, JSON, SQL, Excel, and Apache Arrow files.)
+<web-summary>Learn how to load data from files using Kotlin DataFrame, including CSV, JSON, SQL, Excel, and Apache Arrow files.</web-summary>
 
 [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) enables
 you to work with both non-structured and structured data.
