@@ -1,26 +1,28 @@
-import { BenchColumnKey, BenchRow, formatBenchDate, twoDecimals } from '@/utils/benchmark-leaderboard';
-
-export { notice, rows, twoDecimals, TOP_SCORE_COUNT } from '@/utils/benchmark-leaderboard';
-export type { BenchColumnKey, BenchRow } from '@/utils/benchmark-leaderboard';
-
-export interface BenchColumn {
-    key: BenchColumnKey;
-    label: string;
-    hint: string;
-    format?: (value: BenchRow[BenchColumnKey]) => string;
+/** Any row the common table can render: a named setup ranked by resolution rate. */
+export interface BenchTableRow {
+    setup: string;
+    resolutionRate: number;
 }
 
-export const SETUP_COLUMN_LABEL = 'Setup (Agent + LLM) proprietary' as const;
+/** One column of a leaderboard table. Each leaderboard version holds its own list. */
+export interface BenchColumn<Row extends BenchTableRow> {
+    key: Exclude<keyof Row, 'setup'> & string;
+    label: string;
+    sublabel?: string;
+    hint: string;
+    format?: (value: Row[keyof Row]) => string;
+    /** Rendered as the headline value of the row (bold, white). */
+    emphasis?: boolean;
+    /** Shown only when at least one row of the edition has a value for it. */
+    optional?: boolean;
+}
 
-export const columns: BenchColumn[] = [
-    { key: 'submitted', label: 'Submitted', hint: 'Total tasks submitted for evaluation' },
-    { key: 'resolved', label: 'Resolved', hint: 'Tasks fully resolved across all runs' },
-    {
-        key: 'resolutionRate',
-        label: 'Resolution rate (%)',
-        hint: 'Percentage of submitted tasks that were resolved',
-    },
-    { key: 'tokens', label: 'Avg. tokens (M)', hint: 'Average token consumption for a full run', format: twoDecimals },
-    { key: 'latency', label: 'Avg. latency', hint: 'Average time to solve all tasks across runs' },
-    { key: 'date', label: 'Date', hint: 'Evaluation date', format: formatBenchDate },
-];
+export const SETUP_COLUMN_LABEL_V1 = 'Setup (Agent + LLM) proprietary' as const;
+export const SETUP_COLUMN_LABEL_V2 = 'Setup (Agent + LLM)' as const;
+
+/** Placeholder for an optional value a row doesn't have. */
+export const MISSING_VALUE = '—' as const;
+
+/** The columns an edition actually has data for: older editions predate the optional ones. */
+export const columnsFor = <Row extends BenchTableRow>(columns: BenchColumn<Row>[], rows: Row[]): BenchColumn<Row>[] =>
+    columns.filter((column) => !column.optional || rows.some((row) => row[column.key] !== undefined));

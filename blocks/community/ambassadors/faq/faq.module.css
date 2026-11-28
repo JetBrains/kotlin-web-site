@@ -1,0 +1,25 @@
+.section {
+    padding: var(--amb-section-padding-block, var(--ktl-box-page-l, 96px)) 0;
+    background: var(--amb-color-accent-3, #160286);
+}
+
+.content {
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.content :global [data-testid="columned-faq"] {
+    max-width: var(--amb-subblock-width, none);
+    margin-inline: auto;
+}
+
+.title {
+    margin: 0 0 calc(var(--ktl-box-section-m, 32px) - 8px);
+    color: #ffffff;
+    text-align: center;
+}
+
+.link {
+    color: #ffffff;
+}

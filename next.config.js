@@ -38,6 +38,7 @@ let transpiledPackages = [
     '@webteam/social-share',
     '@webteam/article',
     '@webteam/horizontal-barchart',
+    '@webteam/pie-chart',
     '@webteam/chart-core-v3'
 ];
 

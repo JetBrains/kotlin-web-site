@@ -1,0 +1,49 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "../../../blocks/community/ambassadors/ambassador-page.css";
+
+.page {
+    --amb-section-padding-block: var(--ktl-box-page-l, 96px);
+    --amb-card-radius: 32px;
+}
+
+@media (--ktl-dl-only) {
+    .page {
+        --amb-subblock-width: 752px;
+    }
+}
+
+@media (--ktl-ds-only) {
+    .page {
+        --amb-subblock-width: 616px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .page {
+        --amb-section-padding-block: var(--ktl-box-page-m, 72px);
+        --amb-card-radius: 24px;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .page {
+        --amb-shape-scale: .75;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .page {
+        --rs-text-1-font-size: 16px;
+        --rs-text-1-line-height: 24px;
+    }
+}
+
+.programSection {
+    background: linear-gradient(
+        180deg,
+        #ffffff 20.5%,
+        var(--amb-color-accent-2) 51.2%,
+        var(--amb-color-accent-1) 72%,
+        var(--amb-color-accent-3) 100%
+    );
+}

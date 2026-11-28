@@ -8,7 +8,7 @@
 
 Before you create your own custom compiler plugin, check the [list of available compiler plugins](compiler-plugins-overview.md) to see if one is already available that suits your use case.
 
-You can also check whether you can use the [Kotlin Symbol Processing (KSP) API](https://kotlinlang.org/docs/ksp-overview.html) or an external linter such as [Android lint](https://developer.android.com/studio/write/lint) to achieve your goals.
+You can also check whether you can use the [Kotlin Symbol Processing (KSP) API](ksp-overview.md) or an external linter such as [Android lint](https://developer.android.com/studio/write/lint) to achieve your goals.
 
 If you _still_ can't find what you need, you can create a custom compiler plugin. Be aware that the Kotlin compiler plugin
 API is **unstable**. You need to invest significant ongoing effort to maintain it, since each new compiler release introduces breaking changes.
@@ -87,8 +87,8 @@ community plugins aren't loaded by default.
 To ensure that your custom compiler plugin works with different IDE versions, test it against each IDE version and fix 
 any issues you find.
 
-Supporting multiple IDE versions could become easier if a devkit for Kotlin compiler plugins were available. If you're 
-interested in this feature, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-82617).
+To make supporting multiple IDE versions easier, we're developing an [experimental devkit for Kotlin compiler plugins](https://github.com/Kotlin/compiler-plugin-dev-kit).
+You can now try the devkit and share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-82617).
 
 ### Backend plugin API
 

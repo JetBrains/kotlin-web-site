@@ -15,18 +15,16 @@ const MENU_ITEMS = [
 
 export type EducationLayoutProps = {
     title: string;
+    description?: string;
     children: React.ReactNode;
     dataTestId?: string;
 };
 
-export const EducationLayout: FC<EducationLayoutProps> = ({
-    title,
-    children,
-    dataTestId
-}) => {
+export const EducationLayout: FC<EducationLayoutProps> = ({ title, description, children, dataTestId }) => {
     return (
         <LandingLayout
             title={title}
+            description={description}
             ogImageName="education.png"
             theme="light"
             topMenuItems={MENU_ITEMS}

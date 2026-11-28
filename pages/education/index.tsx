@@ -54,7 +54,13 @@ function EducationPage() {
     }, [universitiesData]);
 
     return (
-        <EducationLayout title="Kotlin for Education" dataTestId="teach-index-page">
+        <EducationLayout
+            title="Kotlin for Education"
+            description={
+                'Teach computer science with Kotlin: learn why over 300 top universities include Kotlin in their courses and join the community of Kotlin educators.'
+            }
+            dataTestId="teach-index-page"
+        >
             <section className="ktl-layout ktl-layout--center ktl-offset-top-xl">
                 <h1 className="ktl-hero ktl-offset-bottom-xxl">Teach Computer Science with&nbsp;Kotlin</h1>
 

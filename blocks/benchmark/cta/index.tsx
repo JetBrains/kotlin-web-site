@@ -21,7 +21,7 @@ export function BenchCta({ methodologyUrl, githubUrl }: BenchCtaProps) {
                 How Kotlin Benchmark works
             </h2>
             <p className={cn(styles.text, textCn('rs-text-1'))}>
-                See how the benchmark is built — the dataset of real Kotlin tasks, the harness that runs them, and how
+                See how the benchmark is built — the dataset of real Kotlin tasks and how
                 every result is scored.
             </p>
             <div className={styles.actions}>

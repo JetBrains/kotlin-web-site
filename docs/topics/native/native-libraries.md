@@ -141,7 +141,7 @@ You should see `Hello, Kotlin world!` in the output.
 
 ## Library search sequence
 
-> The library search mechanism will change soon. Expect updates to this section and avoid relying on deprecated flags.
+> The library search mechanism will change soon. Expect updates to this section and avoid relying on deprecated options.
 > 
 {style="note"}
 

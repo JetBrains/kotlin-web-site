@@ -21,7 +21,7 @@ Kotlin coding conventions. That's why the following migration plan was implement
   (old formatting can be enabled manually).
 * Authors of existing projects can choose to migrate to the Kotlin coding conventions.
 * Authors of existing projects can choose to explicitly declare using the old code style in a project
-  (this way, the project won't be affected by switching to the defaults in the future)
+  (this way, the project won't be affected by switching to the defaults in the future).
 * Starting with Kotlin 1.4.0, the default formatting is enabled for all projects to make it consistent with Kotlin coding
   conventions.
 

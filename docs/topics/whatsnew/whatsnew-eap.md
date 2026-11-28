@@ -270,8 +270,6 @@ fun normalize(v: Vector) {
 }
 ```
 
-The compiler can also use equality checks to smart-cast the right-hand operand.
-
 To enable this feature, add the following compiler option to your build file:
 
 <tabs group="build-system">

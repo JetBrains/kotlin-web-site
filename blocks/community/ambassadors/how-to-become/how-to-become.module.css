@@ -1,0 +1,182 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    position: relative;
+    z-index: 1;
+    padding: var(--amb-section-padding-block, var(--ktl-box-page-l, 96px)) 0;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--amb-subblock-width, none);
+    color: #ffffff;
+    text-align: center;
+    margin-block-end: var(--ktl-box-section-l, 48px);
+}
+
+.title {
+    margin: 0;
+    color: #ffffff;
+    margin-block-end: 4px;
+}
+
+.text {
+    margin: 0;
+    color: #ffffff;
+}
+
+.paragraph {
+    margin-block-end: 0;
+}
+
+.paragraph + .paragraph {
+    margin-top: var(--ktl-box-section-s, 24px);
+}
+
+.quoteCard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: var(--amb-subblock-width, none);
+    width: 100%;
+    margin: 0;
+    padding: var(--ktl-box-section-m, 32px);
+    border-radius: var(--amb-card-radius, 32px);
+    background: var(--amb-card-surface, #ffffff);
+    box-sizing: border-box;
+}
+
+.quoteText {
+    margin: 0;
+    color: var(--rs-text-color-hard, #19191c);
+    text-align: center;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.creatorBadge {
+    position: absolute;
+    top: -76px;
+    right: -46px;
+    transform: rotate(-25.38deg) translateX(100%);
+
+    width: calc(162px * var(--amb-shape-scale, 1));
+    height: calc(179px * var(--amb-shape-scale, 1));
+}
+
+.educatorBadge {
+    position: absolute;
+    width: calc(199px * var(--amb-shape-scale, 1));
+    height: calc(126px * var(--amb-shape-scale, 1));
+    left: -139px;
+    bottom: -14px;
+    transform: rotate(28.62deg);
+}
+
+.ambassadorPlate {
+    position: absolute;
+    width: calc(278px * var(--amb-shape-scale, 1));
+    height: calc(166px * var(--amb-shape-scale, 1));
+    right: -139px;
+    bottom: -83px;
+}
+
+@media (--ktl-ds-down) {
+    .creatorBadge {
+        top: 12px;
+        right: -52px;
+    }
+    .educatorBadge {
+        left: -124px;
+        bottom: -22px;
+    }
+    .ambassadorPlate {
+        right: -126px;
+        bottom: -84px;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .creatorBadge {
+        top: 12px;
+        right: 14px;
+    }
+    .educatorBadge {
+        left: -64px;
+        bottom: -56px;
+    }
+    .ambassadorPlate {
+        right: -97px;
+        bottom: -110px;
+    }
+}
+
+@media (--ktl-ts-down) {
+    .creatorBadge {
+        top: 38px;
+        right: 22px;
+    }
+    .educatorBadge {
+        left: -74px;
+        bottom: -33px;
+    }
+    .ambassadorPlate {
+        right: -54px;
+        bottom: -62px;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .creatorBadge {
+        top: 41px;
+        right: 7px;
+    }
+    .educatorBadge {
+        left: -83px;
+        bottom: -42px;
+    }
+    .ambassadorPlate {
+        right: -80px;
+        bottom: -60px;
+    }
+}
+
+@media (--ktl-ms-down) {
+    .title {
+        margin-block-end: 0;
+    }
+    .paragraph {
+        margin-block-start: var(--ktl-box-section-s, 24px);
+    }
+    .paragraph + .paragraph {
+        margin-block-start: var(--ktl-box-block-l, 16px);
+    }
+    .educatorBadge, .creatorBadge {
+        display: none;
+    }
+    .ambassadorPlate {
+        right: 6px;
+        bottom: -65px;
+    }
+}

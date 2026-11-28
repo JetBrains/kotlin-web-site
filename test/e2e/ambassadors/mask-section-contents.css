@@ -1,0 +1,31 @@
+[data-testid="ambassadors-hero-content"] {
+    background: #00e5ff !important;
+}
+
+[data-testid="ambassadors-hero-content"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="ambassadors-who-content"] {
+    background: #76ff03 !important;
+}
+
+[data-testid="ambassadors-who-content"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="ambassadors-how-content"] {
+    background: #ffd600 !important;
+}
+
+[data-testid="ambassadors-how-content"] * {
+    visibility: hidden !important;
+}
+
+[data-testid="ambassadors-faq-content"] {
+    background: #ff6d00 !important;
+}
+
+[data-testid="ambassadors-faq-content"] * {
+    visibility: hidden !important;
+}

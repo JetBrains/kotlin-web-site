@@ -1,0 +1,126 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    position: relative;
+    z-index: 1;
+    padding: var(--amb-section-padding-block, var(--ktl-box-page-l, 96px)) 0;
+}
+
+.content {
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--ktl-box-block-m, 8px);
+    align-items: start;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin: 0;
+    margin-block-end: var(--ktl-box-section-s, 24px);
+}
+
+.description {
+    margin: 0;
+    color: #19191C;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--ktl-box-section-m, 32px) var(--ktl-box-section-m, 32px);
+    border-radius: var(--amb-card-radius, 32px);
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.cardTitle {
+    margin: 0;
+    margin-block-end: var(--ktl-box-section-s, 24px);
+}
+
+.list {
+    display: grid;
+    gap: var(--ktl-box-section-s, 24px);
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+.itemTitle {
+    margin: 0;
+}
+
+.itemText {
+    margin: 0;
+    color: #19191C;
+    letter-spacing: .03px;
+}
+
+@media (--ktl-dl-only) {
+    .title, .description {
+        max-width: 496px;
+    }
+}
+
+@media (--ktl-ds-only) {
+    .title, .description {
+        max-width: 400px;
+    }
+}
+
+@media (--ktl-tl-down) {
+    .grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--ktl-box-section-l, 48px);
+    }
+
+    .info {
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+@media (--ktl-ts-up) {
+    .itemText {
+        grid-column: span 2;
+    }
+}
+
+@media (--ktl-ml-down) {
+    .title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .card {
+        padding-inline: var(--ktl-box-section-s, 24px);
+        padding-bottom: var(--ktl-box-section-s, 24px);
+    }
+    .list {
+        --wcb-row-gap: var(--ktl-box-block-m, 8px);
+        grid-template-columns: 1fr;
+        row-gap: var(--wcb-row-gap);
+    }
+    .itemText {
+        margin-block-end: calc(var(--ktl-box-section-s, 24px) - var(--wcb-row-gap));
+        max-width: 328px;
+
+        &:last-of-type {
+            margin-block-end: 0;
+        }
+    }
+}
+
+@media (--ktl-ms-down) {
+    .card {
+        padding: 0 var(--ktl-box-section-s, 24px) var(--ktl-box-section-s, 24px);
+    }
+}
