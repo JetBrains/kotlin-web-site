@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-properties/AsMilesTest.kt
+  - type: not-and
+    title: "Declare the asMiles extension property"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'asMiles'"
+      - type: source-not-matches
+        value: '\bDouble\s*\.\s*asMiles\b'
+    message: "See the hint for more help."

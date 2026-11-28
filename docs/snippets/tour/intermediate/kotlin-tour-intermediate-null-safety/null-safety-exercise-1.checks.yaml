@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-null-safety/GetNotificationPreferencesTest.kt
+  - type: not-and
+    title: "Complete the getNotificationPreferences function"
+    checks:
+      - type: error-contains
+        value: "This variable must either have an explicit type or be initialized"
+      - type: source-not-matches
+        value: '\bas\?'
+    message: "Finish the `validUser` and `userName` variable declarations."

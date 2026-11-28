@@ -61,11 +61,10 @@ private fun printOutput(text: String) {
     if (text.isNotEmpty()) println(text)
 }
 
-/** Prints the learner's output to stdout, so Playground shows it under the passed test, then the [note]. */
-fun passed(note: String = "", showOutput: Boolean = false) {
+/** Prints the learner's output to stdout, so Playground shows it under the passed test. */
+fun passed(showOutput: Boolean = false) {
     actualOutput.let {}
     if (showOutput) printOutput(output)
-    if (note.isNotEmpty()) println(note)
 }
 
 /** Prints [shownOutput] to stdout, so Playground shows it under the failed test, then fails with [hint]. */

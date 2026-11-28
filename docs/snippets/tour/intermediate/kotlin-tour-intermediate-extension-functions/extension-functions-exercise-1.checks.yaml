@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-extension-functions/IsPositiveTest.kt
+  - type: not-and
+    title: "Declare isPositive as an extension of Int"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'isPositive'"
+      - type: source-not-matches
+        value: '\bfun\s+Int\s*\.\s*isPositive\b'
+    message: "Finish declaring the extension function of `Int`."

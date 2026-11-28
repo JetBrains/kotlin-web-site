@@ -1,0 +1,19 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartDeviceTest.kt
+  - type: not-and
+    title: "Complete the SmartDevice abstract class"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'SmartDevice'"
+      - type: source-not-matches
+        value: '\bclass\s+SmartDevice\b'
+    message: "Include the abstract `turnOff()` and `turnOn()` functions."
+  - type: and
+    title: "Declare turnOn and turnOff as abstract"
+    checks:
+      - type: source-matches
+        value: '\babstract\s+fun\s+turnOn\s*\('
+      - type: source-matches
+        value: '\babstract\s+fun\s+turnOff\s*\('
+    message: "Leaves the implementations to each subclass."

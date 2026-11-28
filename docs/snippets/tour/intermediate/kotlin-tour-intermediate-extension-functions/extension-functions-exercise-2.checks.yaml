@@ -1,0 +1,11 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-extension-functions/ToLowercaseStringTest.kt
+  - type: not-and
+    title: "Declare toLowercaseString as an extension of String"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'toLowercaseString'"
+      - type: source-not-matches
+        value: '\bfun\s+String\s*\.\s*toLowercaseString\b'
+    message: "Finish the function declaration of `toLowercaseString` as an extension of `String`."

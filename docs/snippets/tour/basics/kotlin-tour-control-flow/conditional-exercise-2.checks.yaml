@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/basics/kotlin-tour-control-flow/ControlFlowConditionalExercise2Test.kt
+  - type: source-matches
+    title: "Map the buttons with a when expression"
+    value: '\bwhen\s*[\({]'
+    message: "The code is missing a [`when` expression](https://kotlinlang.org/docs/kotlin-tour-control-flow.html#when)."

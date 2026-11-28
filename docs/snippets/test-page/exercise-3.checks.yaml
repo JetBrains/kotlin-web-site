@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: test-page/TestPageTest.kt
+  - type: source-matches
+    title: "Print the even numbers with filter"
+    value: '\bfilter(Not)?\s*[\({]'
+    message: "Print the even numbers with the [`.filter()`](https://kotlinlang.org/docs/kotlin-tour-functions.html#pass-to-another-function) function: it keeps the elements whose condition holds, like `values.filter { it > 0 }` keeps the positive ones."

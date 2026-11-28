@@ -1,0 +1,15 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-null-safety/GetActiveUsernamesTest.kt
+  - type: not-and
+    title: "Complete the mapNotNull lambda"
+    checks:
+      - type: error-contains
+        value: "Argument type mismatch: actual type is '(User) -> Unit'"
+      - type: source-not-matches
+        value: '\.isActive\b'
+    message: "Return the username of the active users and `null` otherwise."
+  - type: source-matches
+    title: "Return the usernames with mapNotNull"
+    value: '\bmapNotNull\s*[\({]'
+    message: "Keep the [`mapNotNull()`](https://kotlinlang.org/docs/collection-transformations.html#map) function. You need it to drop every `null` value returned from the lambda."

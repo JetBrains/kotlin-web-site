@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/FetchDataTest.kt
+  - type: source-matches
+    title: "Append the text instead of printing it"
+    value: '\bappend\w*\s*\('
+    message: "Use the [`append()`](https://kotlinlang.org/docs/strings.html#build-and-format-strings) function inside the `fetchData()` lambda. You don't need to prefix it with `StringBuilder`."

@@ -1,0 +1,15 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-libraries-and-apis/MeasureTimeTest.kt
+  - type: source-matches
+    title: "Measure the block with measureTime"
+    value: '\bmeasureTime\s*[\({]'
+    message: "Use the [`measureTime()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/measure-time.html) function to track the time it took to run."
+  - type: not-and
+    title: "Import measureTime from kotlin.time"
+    checks:
+      - type: error-contains
+        value: "Unresolved reference 'measureTime'"
+      - type: source-not-matches
+        value: 'import\s+kotlin\.time'
+    message: "The [`measureTime()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/measure-time.html) function is available in the `kotlin.time` package. Import it at the beginning of the code."

@@ -1,0 +1,15 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-classes-interfaces/SmartMessengerTest.kt
+  - type: not-and
+    title: "Give SmartMessenger a constructor and delegate the interface"
+    checks:
+      - type: error-contains
+        value: "Too many arguments for 'constructor(): SmartMessenger'"
+      - type: source-not-matches
+        value: '\bclass\s+SmartMessenger\s*\('
+    message: "Use the `BasicMessenger` in the constructor for `SmartMessenger` and delegate the `Messenger` interface to it."
+  - type: source-matches
+    title: "Delegate the Messenger interface with by"
+    value: 'Messenger\s+by\b'
+    message: "Delegate the `Messenger` implementation to the `BasicMessenger` instance with the [`by` keyword](https://kotlinlang.org/docs/kotlin-tour-intermediate-classes-interfaces.html#delegation)."

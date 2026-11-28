@@ -1,0 +1,7 @@
+checks:
+  - type: junit
+    value: tour/intermediate/kotlin-tour-intermediate-lambdas-receiver/IncrementedTest.kt
+  - type: source-matches
+    title: "Keep the buildList lambda"
+    value: '\bbuildList\b'
+    message: "Inside the `buildList()` lambda, use a `for` loop and the `add()` function to create the new list."

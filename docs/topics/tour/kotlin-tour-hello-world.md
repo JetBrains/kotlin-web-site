@@ -101,7 +101,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 <deflist appearance="clear" collapsible="true">
 <def title="Print a statement using string templates" id="hello-world-exercise-1">
 
-Complete the code to make the program print `"Mary is 20 years old"` to standard output:
+Complete the code to make the program print `"Mary is 20 years old"` to standard output using string interpolation:
 
 ```kotlin
 fun main() {
@@ -110,7 +110,7 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/HelloWorldTest.kt" id="kotlin-tour-hello-world-exercise"}
+{kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt" kotlin-checks-file="tour/basics/kotlin-tour-hello-world/exercise.checks.yaml" id="kotlin-tour-hello-world-exercise"}
 
 ```kotlin
 fun main() {
@@ -119,7 +119,7 @@ fun main() {
     println("$name is $age years old")
 }
 ```
-{kotlin-runnable="true" kotlin-target-platform="exercise" kotlin-hidden-files="ExerciseUtils.kt,tour/basics/HelloWorldTest.kt" initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+{solution="true" id="kotlin-tour-hello-world-solution"}
 
 </def>
 </deflist>
