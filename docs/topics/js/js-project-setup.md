@@ -308,7 +308,7 @@ and install npm dependencies. It works out of the box without additional configu
 You can also work with npm dependencies directly using the [npm](https://www.npmjs.com/) package manager instead.
 To use npm as your package manager, in your `gradle.properties` file, set the following property:
 
-```none
+```properties
 kotlin.js.yarn=false
 ```
 
@@ -403,7 +403,7 @@ kotlin {
 
 Alternatively, you can add test targets for browsers in the `gradle.properties` file:
 
-```text
+```properties
 kotlin.js.browser.karma.browsers=firefox,safari
 ```
 

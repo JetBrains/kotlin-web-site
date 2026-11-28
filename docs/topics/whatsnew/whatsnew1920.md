@@ -59,7 +59,7 @@ Since this release, the Kotlin/Wasm supports the new K2 compiler.
 In 1.9.20, you can try using the [kapt compiler plugin](kapt.md) with the K2 compiler.
 To use the K2 compiler in your project, add the following options to your `gradle.properties` file:
 
-```text
+```properties
 kotlin.experimental.tryK2=true
 kapt.use.k2=true
 ```
@@ -227,7 +227,7 @@ With the new incremental compilation, if the project module change causes only a
 
 To enable incremental compilation, add the following option to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.incremental.native=true
 ```
 

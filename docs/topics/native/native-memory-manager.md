@@ -31,7 +31,7 @@ By default, weak references are processed concurrently to decrease the GC pause 
 If you encounter problems with CMS, switch back to the parallel mark concurrent sweep (PMCS) setup.
 To do that, set the following [binary option](native-binary-options.md) in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.gc=pmcs
 ```
 
@@ -59,7 +59,7 @@ To track GC-related pauses in your app:
 
 1. To enable the feature, set the following compiler option in your `gradle.properties` file:
   
-   ```none
+   ```properties
    kotlin.native.binary.enableSafepointSignposts=true
    ```
 
@@ -79,7 +79,7 @@ It's recommended to keep the GC enabled. However, you can disable it in certain 
 if you encounter issues and have a short-lived program. To do so, set the following binary option in your
 `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.gc=noop
 ```
 
@@ -188,7 +188,7 @@ In some cases, it may help you satisfy strict memory limitations or reduce memor
 
 To do that, set the following option in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.pagedAllocator=false
 ```
 
@@ -210,7 +210,7 @@ Unicode characters by just one byte.
 
 To enable it, set the following option in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.native.binary.latin1Strings=true
 ```
 

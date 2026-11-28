@@ -534,7 +534,7 @@ because they give you an overview of the performance of all Gradle tasks.
 
 To enable build reports, declare where you'd like to save the build report output in your `gradle.properties` file:
 
-```none
+```properties
 kotlin.build.report.output=file
 ```
 

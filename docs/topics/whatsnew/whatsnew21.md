@@ -455,7 +455,7 @@ Additionally, the K2 kapt plugin's behavior is now much closer to that of K1 kap
 To use the new K2 kapt plugin implementation, enable it just like you did the previous K2 kapt plugin.
 Add the following option to the `gradle.properties` file of your project:
 
-```kotlin
+```properties
 kapt.use.k2=true
 ```
 
@@ -608,7 +608,7 @@ There are two ways to enable the Kotlin Gradle plugin's new model:
   To check compatibility with the Kotlin Gradle plugin's new model without enabling the Isolated Projects feature,
   add the following Gradle property in the `gradle.properties` file of your project:
 
-  ```none
+  ```properties
   # gradle.properties
   kotlin.kmp.isolated-projects.support=enable
   ```
@@ -684,7 +684,7 @@ To try out Swift export in your project:
 
 1. Add the following Gradle option to your `gradle.properties` file:
 
-   ```none
+   ```properties
    # gradle.properties
    kotlin.experimental.swift-export.enabled=true
    ```
@@ -724,7 +724,7 @@ which should greatly simplify the publishing process for Kotlin and Kotlin Multi
 
 To try cross-compilation out in your project, add the following binary option to your `gradle.properties` file:
 
-```none
+```properties
 # gradle.properties
 kotlin.native.enableKlibsCrossCompilation=true
 ```
@@ -884,7 +884,7 @@ This change currently doubles the compilation speed, and there are plans to impr
 In the current setup, incremental compilation for Wasm targets is disabled by default.
 To enable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
 
-```none
+```properties
 # gradle.properties
 kotlin.incremental.wasm=true
 ```

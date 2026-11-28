@@ -104,7 +104,7 @@ especially with small changes.
 Incremental compilation is enabled by default. To disable incremental compilation for development binaries, add the following line to the project's `gradle.properties`
 or `local.properties`:
 
-```none
+```properties
 # Default: true
 kotlin.incremental.js.ir=false
 ```

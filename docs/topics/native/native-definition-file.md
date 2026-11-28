@@ -25,7 +25,7 @@ Let's create a definition file and generate bindings for a C library:
 3. Select the new subfolder and create a `png.def` file with **File | New | File**.
 4. Add the necessary properties:
 
-   ```none
+   ```c
    headers = png.h
    headerFilter = png.h
    package = png
@@ -98,7 +98,7 @@ file.
 If a C library does not have a Clang module and instead consists of a set of headers, use the `headers` property to
 specify headers that should be imported:
 
-```none
+```c
 headers = curl/curl.h
 ```
 
@@ -111,7 +111,7 @@ The globs are applied to the header paths relative to the appropriate include pa
 for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
 you can probably filter headers with the following filter:
 
-```none
+```c
 headerFilter = SomeLibrary/**
 ```
 
@@ -124,7 +124,7 @@ declarations. It can help avoid various issues when upgrading Kotlin or tools in
 To exclude specific headers, use the `excludeFilter` property. It can be helpful to remove redundant or problematic
 headers and optimize compilation, as declarations from the specified headers are not included in the bindings:
 
-```none
+```c
 excludeFilter = SomeLibrary/time.h
 ```
 
@@ -137,7 +137,7 @@ excludeFilter = SomeLibrary/time.h
 
 If an Objective-C library has a Clang module, use the `modules` property to specify the module to be imported:
 
-```none
+```c
 modules = UIKit
 ```
 
@@ -145,7 +145,7 @@ modules = UIKit
 
 Use the `package` property to specify a package prefix for the generated Kotlin API:
 
-```none
+```c
 package = png
 ```
 
@@ -160,14 +160,14 @@ If you don't specify this property, the compiler generates declarations in the r
 Use the `compilerOpts` property to pass options to the C compiler, which is used to analyze headers under the hood.
 To pass options to the linker, which is used to link final executables, use `linkerOpts`. For example:
 
-```none
+```c
 compilerOpts = -DFOO=bar
 linkerOpts = -lpng
 ```
 
 You can also specify target-specific options that apply only to a certain target:
 
-```none
+```c
 compilerOpts = -DBAR=bar
 compilerOpts.linux_x64 = -DFOO=foo1
 compilerOpts.macos_x64 = -DFOO=foo2
@@ -190,7 +190,7 @@ in the interop itself.
 Sometimes it's more convenient to ship a static library with your product, rather than assume it is available within
 the user's environment. To include a static library into `.klib`, use `staticLibrary` and `libraryPaths` properties:
 
-```none
+```c
 headers = foo.h
 staticLibraries = libfoo.a
 libraryPaths = /opt/local/lib /usr/local/opt/curl/lib
@@ -241,7 +241,7 @@ Sometimes it is required to add custom C declarations to the library before gene
 Instead of creating an additional header file with these declarations, you can include them directly
 to the end of the `.def` file, after a separating line, containing only the separator sequence `---`:
 
-```none
+```c
 headers = errno.h
 ---
 

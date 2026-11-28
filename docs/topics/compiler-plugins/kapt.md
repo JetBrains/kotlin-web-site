@@ -208,7 +208,7 @@ in their internal implementation require running the annotation processing tasks
 That's why we don't recommend using annotation processors from the compile classpath. To exclude these processors from
 kapt processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
 
-```none
+```properties
 # gradle.properties
 kapt.include.compile.classpath=false
 ```
@@ -363,7 +363,7 @@ Caching for annotation processors' classloaders helps kapt perform faster if you
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
-```none
+```properties
 # gradle.properties
 #
 # Any positive value enables caching
@@ -376,7 +376,7 @@ kapt.include.compile.classpath=false
 
 If you run into any problems with caching for annotation processors, disable caching for them:
 
-```none
+```properties
 # Specify annotation processors' full names to disable caching for them
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
@@ -397,7 +397,7 @@ Currently, incremental annotation processing works only if:
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
-```none
+```properties
 kapt.incremental.apt=false
 ```
 
@@ -454,7 +454,7 @@ To enable statistics reporting:
 
 2. In your `gradle.properties` file, set the `verbose` compiler option to `true`:
 
-   ```
+   ```properties
    # gradle.properties
    kapt.verbose=true
    ```

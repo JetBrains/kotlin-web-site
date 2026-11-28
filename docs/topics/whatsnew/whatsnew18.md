@@ -279,7 +279,7 @@ kotlin {
 
 The new layout will become the default in future releases. You can enable it now with the following Gradle option:
 
-```none
+```properties
 kotlin.mpp.androidSourceSetLayoutVersion=2
 ```
 
@@ -290,7 +290,7 @@ kotlin.mpp.androidSourceSetLayoutVersion=2
 The usage of the previous Android-style directories is now discouraged. Kotlin 1.8.0 marks the start of the deprecation
 cycle, introducing a warning for the current layout. You can suppress the warning with the following Gradle property:
 
-```none
+```properties
 kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true
 ```
 
@@ -355,7 +355,7 @@ scripts of particular modules.
 
 For example, the following line in your Gradle property file will run the test in Firefox and Safari for all modules:
 
-```none
+```properties
 kotlin.js.browser.karma.browsers=firefox,safari
 ```
 
@@ -513,7 +513,7 @@ different stdlib versions (learn more about
 [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](#updated-jvm-compilation-target)).
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
-```none
+```properties
 kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 

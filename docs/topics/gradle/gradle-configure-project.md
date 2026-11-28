@@ -578,7 +578,7 @@ dependency error.
 
 To disable the use of the artifact in the compilation task, add the following to your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.build.archivesTaskOutputAsFriendModule=false
 ```
 
@@ -944,7 +944,7 @@ plugin won't override it or add a second standard library.
 
 If you don't need a standard library at all, you can add the following Gradle property to your `gradle.properties` file:
 
-```none
+```properties
 kotlin.stdlib.default.dependency=false
 ```
 
@@ -960,7 +960,7 @@ different standard library versions. [Learn more about merging `kotlin-stdlib-jd
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property in your `gradle.properties`
 file:
 
-```none
+```properties
 kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
@@ -1228,7 +1228,7 @@ test {
 Automatic JVM variant resolution can sometimes cause problems for your configuration. In that case, you can specify
 the necessary framework explicitly and disable the automatic resolution by adding this line to the project `gradle.properties` file:
 
-```text
+```properties
 kotlin.test.infer.jvm.variant=false
 ```
 
